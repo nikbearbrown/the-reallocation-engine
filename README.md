@@ -159,12 +159,14 @@ Current compact extract:
 - selected ability and skill Level scores.
 - first-pass `cognitive_pivot_score`.
 
-Large files to watch:
+Large source note:
 
-- `data/BLS/db_30_2_mysql/20_work_context.sql` is about 91 MB.
-- `data/BLS/db_30_2_mssql/20_work_context.sql` is about 91 MB.
-
-They are below GitHub's hard 100 MB limit, but close enough to treat carefully.
+- The duplicated O*NET SQL export directories, `data/BLS/db_30_2_mysql/` and
+  `data/BLS/db_30_2_mssql/`, are intentionally ignored/omitted from Git.
+- Each contained a ~91 MB `20_work_context.sql` file and duplicated data already
+  available in `data/BLS/db_30_2_text/`, `data/BLS/db_30_2_excel/`, and
+  `data/BLS/ZIP/`.
+- The maintained BLS extractor uses the text tables, not the SQL exports.
 
 ### ATS Working Data
 
@@ -570,8 +572,8 @@ Not done yet:
 - Put generated audit reports next to the data they inspect using `-audit.md`.
 - Review `data/ats/` before committing; it may contain user-specific job-search
   activity.
-- Watch files near GitHub's 100 MB limit, especially the duplicated O*NET SQL
-  exports in `data/BLS/db_30_2_*`.
+- The duplicated O*NET SQL export directories are ignored because the text,
+  Excel, ZIP, and compact BLS files are sufficient for the current pipeline.
 
 ## More Detail
 

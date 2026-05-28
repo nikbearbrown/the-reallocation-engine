@@ -34,10 +34,14 @@ It supports SOC/O*NET occupation mapping, cognitive demand features, wage/employ
 
 ## Large Files
 
-| File | Size |
-|---|---:|
-| `db_30_2_mssql/20_work_context.sql` | 91.0 MB |
-| `db_30_2_mysql/20_work_context.sql` | 91.0 MB |
+The duplicated O*NET SQL export directories are intentionally omitted from Git:
+
+- `db_30_2_mssql/`
+- `db_30_2_mysql/`
+
+Each contained a ~91 MB `20_work_context.sql` file and duplicated source data
+already available in the text, Excel, and ZIP distributions. The maintained
+compact extractor uses `db_30_2_text/`.
 
 ## Source Files Used
 
@@ -52,6 +56,6 @@ It supports SOC/O*NET occupation mapping, cognitive demand features, wage/employ
 
 ## Notes
 
-- The MySQL and MSSQL O*NET SQL exports duplicate most of the text/Excel source data and include two ~91 MB `20_work_context.sql` files.
+- The MySQL and MSSQL O*NET SQL exports duplicate most of the text/Excel source data and are intentionally ignored/omitted from Git.
 - The compact table is the preferred working asset for downstream scoring; keep the full BLS/O*NET archive as provenance.
 - The current extract does not estimate employment trend slopes yet. That should be a separate step using the 2012-2024 OEWS national files.
