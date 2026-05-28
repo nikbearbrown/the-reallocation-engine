@@ -1,0 +1,43 @@
+# ATS portal scanner example for The Reallocation Engine.
+#
+# Copy to data/ats/portals.yml and edit before running:
+#
+#   node SCRIPTS/ats/scan.mjs --dry-run
+
+title_filter:
+  positive:
+    - "Software"
+    - "Engineer"
+    - "AI"
+    - "Machine Learning"
+    - "Data"
+    - "Product"
+  negative:
+    - "Intern"
+    - "Volunteer"
+
+# Optional. If absent, all locations pass.
+location_filter:
+  always_allow:
+    - "United States"
+    - "USA"
+  allow:
+    - "United States"
+    - "USA"
+    - "Remote"
+
+tracked_companies:
+  - name: Databricks
+    enabled: true
+    provider: greenhouse
+    careers_url: https://job-boards.greenhouse.io/databricks
+
+  - name: Example Lever Company
+    enabled: false
+    provider: lever
+    careers_url: https://jobs.lever.co/example
+
+  - name: Example Ashby Company
+    enabled: false
+    provider: ashby
+    careers_url: https://jobs.ashbyhq.com/example

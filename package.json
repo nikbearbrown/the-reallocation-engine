@@ -1,0 +1,21 @@
+{
+  "name": "the-reallocation-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The Reallocation Engine",
+  "scripts": {
+    "ats:dedup": "node SCRIPTS/ats/dedup-tracker.mjs",
+    "ats:liveness": "node SCRIPTS/ats/check-liveness.mjs",
+    "ats:merge": "node SCRIPTS/ats/merge-tracker.mjs",
+    "ats:normalize": "node SCRIPTS/ats/normalize-statuses.mjs",
+    "ats:scan": "node SCRIPTS/ats/scan.mjs",
+    "ats:verify": "node SCRIPTS/ats/verify-pipeline.mjs",
+    "svg-to-png": "node SCRIPTS/svg-to-png.mjs"
+  },
+  "dependencies": {
+    "glob": "^10.0.0",
+    "js-yaml": "^4.1.1",
+    "playwright": "^1.58.1",
+    "sharp": "^0.33.0"
+  }
+}

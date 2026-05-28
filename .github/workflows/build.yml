@@ -1,0 +1,45 @@
+name: Build EPUB
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        run: sudo apt-get install -y pandoc
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: npm install
+
+      - name: Convert SVGs to PNG
+        run: node SCRIPTS/svg-to-png.mjs
+
+      - name: Build EPUB
+        run: |
+          mkdir -p output
+          cat metadata.yaml chapters/*.md > output/combined.md
+          pandoc output/combined.md \
+            --from markdown \
+            --to epub3 \
+            --epub-cover-image=cover.jpg \
+            --css=styles/kindle.css \
+            --css=styles/kindle-book.css \
+            --toc --toc-depth=2 \
+            --output=output/the-reallocation-engine.epub
+
+      - name: Upload EPUB as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: book-epub
+          path: output/the-reallocation-engine.epub
