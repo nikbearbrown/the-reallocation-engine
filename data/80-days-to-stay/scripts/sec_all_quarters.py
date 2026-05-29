@@ -2,62 +2,9 @@ import pandas as pd
 import json
 import os
 import sys
-import re
 from datetime import datetime
 from pathlib import Path
 from collections import defaultdict
-
-COMPANY_SUFFIXES = [
-    r'\s+inc\.?$',
-    r'\s+incorporated$',
-    r'\s+llc\.?$',
-    r'\s+l\.?l\.?c\.?$',
-    r'\s+ltd\.?$',
-    r'\s+limited$',
-    r'\s+corp\.?$',
-    r'\s+corporation$',
-    r'\s+co\.?$',
-    r'\s+company$',
-    r'\s+l\.?p\.?$',
-    r'\s+lp$',
-    r'\s+plc\.?$',
-]
-
-FEIN_COLUMNS = [
-    'ISSUERFEIN',
-    'ISSUER_FEIN',
-    'FEIN',
-    'EIN',
-]
-
-
-def normalize_company_name(name):
-    """Normalize company names once at ingest for matching and joins."""
-    if not name:
-        return None
-
-    cleaned = str(name).strip()
-    changed = True
-    while changed:
-        changed = False
-        for suffix in COMPANY_SUFFIXES:
-            result = re.sub(suffix, '', cleaned, flags=re.IGNORECASE)
-            if result != cleaned:
-                cleaned = result.strip()
-                changed = True
-
-    cleaned = re.sub(r'[,.\s\-&\']', '', cleaned)
-    return cleaned.lower() or None
-
-
-def first_present(row, columns):
-    """Return the first non-empty value from a pandas row for the given columns."""
-    for column in columns:
-        if column in row:
-            value = clean_value(row.get(column))
-            if value:
-                return value
-    return None
 
 def process_single_quarter(quarter_dir, output_dir='processed'):
     """
@@ -176,16 +123,13 @@ def process_single_quarter(quarter_dir, output_dir='processed'):
                 else:
                     stage_estimate = "Series D+"
             
-            company_name = clean_value(row.get('ENTITYNAME'))
             state = clean_value(row.get('STATEORCOUNTRY'))
             industry = clean_value(row.get('INDUSTRYGROUPTYPE'))
             
             startup = {
                 'accession_number': accession,
                 'company': {
-                    'name': company_name,
-                    'company_name_normalized': normalize_company_name(company_name),
-                    'fein': first_present(row, FEIN_COLUMNS),
+                    'name': clean_value(row.get('ENTITYNAME')),
                     'address': {
                         'street1': clean_value(row.get('STREET1')),
                         'street2': clean_value(row.get('STREET2')),

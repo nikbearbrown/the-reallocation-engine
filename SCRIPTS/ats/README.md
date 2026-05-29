@@ -3,7 +3,7 @@
 Production ATS scraper subsystem for The Reallocation Engine.
 
 These scripts were promoted from the reference code in
-`data/80-Days-to-Stay-main/ATS_Scripts/script_for_reference/`. The reference
+`data/80-days-to-stay/ats-scripts/script-for-reference/`. The reference
 files remain untouched for provenance.
 
 ## Structure
@@ -14,9 +14,11 @@ files remain untouched for provenance.
 - `check-liveness.mjs` — Playwright CLI for checking whether job URLs are active.
 - `liveness-core.mjs` — liveness classifier shared by scanner and CLI.
 - `liveness-browser.mjs` — Playwright page inspection for liveness checks.
+- `analyze_patterns.py` — Python audit scaffold for application, scan,
+  pipeline, and run-log pattern analysis.
 - `scrapers/greenhouse/scraper.py` — production Greenhouse scraper.
 - `scrapers/lever/scraper.py` — production Lever scraper.
-- `providers/` — JavaScript provider modules adapted from Career-Ops.
+- `providers/` — JavaScript provider modules adapted from Job-Ops.
 
 ## Step 6 Changes
 
@@ -65,7 +67,7 @@ Run against the mapped master CSV:
 
 ```bash
 python3 detect_ats.py \
-  --csv ../../data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped.csv \
+  --csv ../../data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv \
   --company-column company_name \
   --output ../../data/ats/ats_detection_sample.csv
 ```
@@ -82,11 +84,11 @@ Current detector priority order:
 1. Greenhouse
 2. Lever
 
-## Career-Ops Provider Layer
+## Job-Ops Provider Layer
 
-The JavaScript provider layer in `providers/` was added from
-`data/career-ops-main/providers/` because Career-Ops already has compact,
-well-shaped providers for:
+The JavaScript provider layer in `providers/` was adapted from the former
+Job-Ops reference copy because it already had compact, well-shaped providers
+for:
 
 1. Greenhouse
 2. Lever
@@ -101,7 +103,7 @@ Workable should be added after its production scraper exists.
 
 ## Portal Scanner
 
-`scan.mjs` adapts the Career-Ops scanner architecture for this repo. It uses the
+`scan.mjs` adapts the Job-Ops scanner architecture for this repo. It uses the
 provider modules in `providers/`, deterministic provider loading, URL deduping,
 company-role deduping, scan history, and optional liveness verification.
 
@@ -134,7 +136,7 @@ node SCRIPTS/ats/scan.mjs --verify
 
 ## Liveness Checking
 
-The liveness modules were added from Career-Ops so the data pipeline can
+The liveness modules were added from Job-Ops so the data pipeline can
 distinguish between "ATS detected" and "job posting is currently live."
 
 Check one or more URLs:
@@ -151,7 +153,7 @@ node SCRIPTS/ats/check-liveness.mjs --file data/ats/job-urls.txt
 
 ## Pipeline Integrity
 
-Career-Ops tracker maintenance scripts were adapted to use `data/ats/` as their
+Job-Ops tracker maintenance scripts were adapted to use `data/ats/` as their
 working area:
 
 - `verify-pipeline.mjs` — check application tracker health.
@@ -167,3 +169,29 @@ node SCRIPTS/ats/normalize-statuses.mjs --dry-run
 node SCRIPTS/ats/dedup-tracker.mjs --dry-run
 node SCRIPTS/ats/merge-tracker.mjs --dry-run
 ```
+
+## Application Pattern Analysis
+
+`analyze_patterns.py` is the Python replacement scaffold for the old
+`analyze-patterns.mjs` idea. It reads Reallocation Engine paths:
+
+- `data/ats/applications.md`
+- `data/ats/scan-history.tsv`
+- `data/ats/pipeline.md`
+- `modes/RUN_LOG.md`
+- `data/ats/reports/`
+
+It writes:
+
+- `data/ats/application-patterns-audit.md`
+
+Run from the book root:
+
+```bash
+python3 SCRIPTS/ats/analyze_patterns.py
+```
+
+On a fresh setup the audit mostly reports missing data and readiness blockers.
+Once students have real outcomes, extend the TODO sections in the script to
+measure conversion by sponsorship tier, liveness, SOC group, scan source, and
+recurring blockers.

@@ -7,7 +7,7 @@ import argparse
 import importlib.util
 from pathlib import Path
 
-DEFAULT_QUARTERS = ["2025Q2_d", "2025Q3_d", "2025Q4_d", "2026Q1_d"]
+DEFAULT_QUARTERS = ["2025q2-d", "2025q3-d", "2025q4-d", "2026q1-d"]
 REQUIRED_FILES = {
     "FORMDSUBMISSION.tsv",
     "ISSUERS.tsv",

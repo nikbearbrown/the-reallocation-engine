@@ -26,8 +26,14 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+__pycache__/
+*.pyc
 
 # Large duplicated O*NET SQL exports.
-# The pipeline uses data/BLS/db_30_2_text plus compact extracts instead.
-/data/BLS/db_30_2_mysql/
-/data/BLS/db_30_2_mssql/
+# The pipeline uses data/bls/db-30-2-text plus compact extracts instead.
+/data/bls/db-30-2-mysql/
+/data/bls/db-30-2-mssql/
+
+# Former copied Job-Ops reference repo.
+# Useful pieces now live under SCRIPTS/, modes/, and resumes/.
+/data/career-ops-main/

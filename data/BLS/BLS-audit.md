@@ -1,24 +1,24 @@
 # BLS/O*NET Source Audit
 
-**Generated at:** 2026-05-28T22:53:31.964986+00:00
-**Source directory:** `/Users/bear/Documents/CoWork/bear-textbooks/books/the-reallocation-engine/data/BLS`
+**Generated at:** 2026-05-29T02:26:35.088853+00:00
+**Source directory:** `/Users/bear/Documents/CoWork/bear-textbooks/books/the-reallocation-engine/data/bls`
 
 ## Role in The Reallocation Engine
 
-Treat `data/BLS` as source/reference data for the role-quality and labor-market-direction side of the engine.
+Treat `data/bls` as source/reference data for the role-quality and labor-market-direction side of the engine.
 It supports SOC/O*NET occupation mapping, cognitive demand features, wage/employment context, and the broader Cognitive Pivot argument.
 
 ## Inventory
 
-- Files: 253
-- Directories: 21
+- Files: 172
+- Directories: 19
 - O*NET text tables: 42
-- Latest OEWS national workbook used: `/Users/bear/Documents/CoWork/bear-textbooks/books/the-reallocation-engine/data/BLS/oesm24nat/national_M2024_dl.xlsx`
+- Latest OEWS national workbook used: `/Users/bear/Documents/CoWork/bear-textbooks/books/the-reallocation-engine/data/bls/oesm24nat/national_M2024_dl.xlsx`
 - Latest OEWS year: 2024
 
 ## Compact Extract
 
-- Output: `/Users/bear/Documents/CoWork/bear-textbooks/books/the-reallocation-engine/data/BLS/compact/soc_occupation_compact.csv`
+- Output: `/Users/bear/Documents/CoWork/bear-textbooks/books/the-reallocation-engine/data/bls/compact/soc_occupation_compact.csv`
 - SHA-256: `bac5acf77ca2d25268c75b3706084f7f67bcc0c6e3cc68cd03e0ebd2598343d1`
 - Occupations: 1,016
 - Occupations matched to latest OEWS detailed SOC rows: 962 (94.7%)
@@ -34,28 +34,21 @@ It supports SOC/O*NET occupation mapping, cognitive demand features, wage/employ
 
 ## Large Files
 
-The duplicated O*NET SQL export directories are intentionally omitted from Git:
-
-- `db_30_2_mssql/`
-- `db_30_2_mysql/`
-
-Each contained a ~91 MB `20_work_context.sql` file and duplicated source data
-already available in the text, Excel, and ZIP distributions. The maintained
-compact extractor uses `db_30_2_text/`.
+No files above 50 MB found.
 
 ## Source Files Used
 
 | File | SHA-256 |
 |---|---|
-| `db_30_2_text/Occupation Data.txt` | `63e6029d3d30ff5c7cf39b5304a733b77a409e01c65ae7095fe92f6d18d74a66` |
-| `db_30_2_text/Abilities.txt` | `822f866b0f441376edc8a282bf0f77c8c3f687c456dcd607b12de86fccba8e71` |
-| `db_30_2_text/Skills.txt` | `d6832c9c195742524a9e48598d962140aaa499c2f78046d4be3af0b69f2686be` |
-| `db_30_2_text/Alternate Titles.txt` | `909a8bf1c7c36931398090faeb4fb14ae58e156c960596f6031ee1eabca758f4` |
-| `db_30_2_text/Job Zones.txt` | `004acd60c0a96fb69be615f889d02a79036ebd025e5265a36945741b92807989` |
+| `db-30-2-text/Occupation Data.txt` | `63e6029d3d30ff5c7cf39b5304a733b77a409e01c65ae7095fe92f6d18d74a66` |
+| `db-30-2-text/Abilities.txt` | `822f866b0f441376edc8a282bf0f77c8c3f687c456dcd607b12de86fccba8e71` |
+| `db-30-2-text/Skills.txt` | `d6832c9c195742524a9e48598d962140aaa499c2f78046d4be3af0b69f2686be` |
+| `db-30-2-text/Alternate Titles.txt` | `909a8bf1c7c36931398090faeb4fb14ae58e156c960596f6031ee1eabca758f4` |
+| `db-30-2-text/Job Zones.txt` | `004acd60c0a96fb69be615f889d02a79036ebd025e5265a36945741b92807989` |
 | `oesm24nat/national_M2024_dl.xlsx` | `a9bad3093703e28d7490cedb765b6730f4eaa4b37a7c8f68e866814167761f11` |
 
 ## Notes
 
-- The MySQL and MSSQL O*NET SQL exports duplicate most of the text/Excel source data and are intentionally ignored/omitted from Git.
+- The MySQL and MSSQL O*NET SQL exports duplicate most of the text/Excel source data and include two ~91 MB `20_work_context.sql` files.
 - The compact table is the preferred working asset for downstream scoring; keep the full BLS/O*NET archive as provenance.
 - The current extract does not estimate employment trend slopes yet. That should be a separate step using the 2012-2024 OEWS national files.

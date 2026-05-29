@@ -1,7 +1,7 @@
 # BLS/O*NET Scripts
 
 Maintained scripts for extracting role-quality and labor-market-direction
-features from `data/BLS`.
+features from `data/bls`.
 
 ## Compact SOC Occupation Table
 
@@ -11,8 +11,8 @@ python3 SCRIPTS/bls/extract_soc_occupation_table.py
 
 Outputs:
 
-- `data/BLS/compact/soc_occupation_compact.csv`
-- `data/BLS/BLS-audit.md`
+- `data/bls/compact/soc_occupation_compact.csv`
+- `data/bls/bls-audit.md`
 
 The compact table combines:
 
@@ -22,5 +22,5 @@ The compact table combines:
 - Selected O*NET ability and skill Level scores.
 - Latest BLS OEWS national employment and wage estimates.
 
-Use the compact table for downstream scoring. Keep the full `data/BLS` archive
+Use the compact table for downstream scoring. Keep the full `data/bls` archive
 as source/reference provenance.

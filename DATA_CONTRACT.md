@@ -23,9 +23,8 @@ These files are source or upstream reference data. Treat them as provenance.
 
 | Path | Purpose |
 |---|---|
-| `data/80-Days-to-Stay-main/` | Upstream 80 Days to Stay data and scripts. |
-| `data/career-ops-main/` | Upstream Career-Ops reference system. |
-| `data/BLS/` | BLS source/reference data. |
+| `data/80-days-to-stay/` | Upstream 80 Days to Stay data and scripts. |
+| `data/bls/` | BLS source/reference data. |
 | `data/sec/form-d/raw/` | Downloaded SEC quarter ZIP files. |
 | `data/sec/form-d/extracted/` | Extracted SEC quarter TSV files. |
 

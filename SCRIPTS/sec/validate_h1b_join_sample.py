@@ -110,8 +110,8 @@ def default_csv_path() -> Path:
     return (
         Path(__file__).resolve().parents[2]
         / "data"
-        / "80-Days-to-Stay-main"
-        / "Data"
+        / "80-days-to-stay"
+        / "data"
         / "SEC_DOL_H1b_data_mapped.csv"
     )
 

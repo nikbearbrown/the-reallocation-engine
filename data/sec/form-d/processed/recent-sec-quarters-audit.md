@@ -11,10 +11,10 @@ processed with the maintained pipeline in `SCRIPTS/sec/`.
 
 | Quarter | Processed JSON | Companies | Related persons | JSON size |
 |---|---|---:|---:|---:|
-| 2025Q2 | `companies_sec_2025Q2_d.json` | 13,325 | 47,975 | 31 MB |
-| 2025Q3 | `companies_sec_2025Q3_d.json` | 14,138 | 47,875 | 32 MB |
-| 2025Q4 | `companies_sec_2025Q4_d.json` | 14,885 | 52,362 | 34 MB |
-| 2026Q1 | `companies_sec_2026Q1_d.json` | 15,981 | 54,231 | 36 MB |
+| 2025Q2 | `companies-sec-2025q2-d.json` | 13,325 | 47,975 | 31 MB |
+| 2025Q3 | `companies-sec-2025q3-d.json` | 14,138 | 47,875 | 32 MB |
+| 2025Q4 | `companies-sec-2025q4-d.json` | 14,885 | 52,362 | 34 MB |
+| 2026Q1 | `companies-sec-2026q1-d.json` | 15,981 | 54,231 | 36 MB |
 | **Total** |  | **58,329** | **202,443** | **133 MB** |
 
 Raw ZIP files are in `data/sec/form-d/raw/`.

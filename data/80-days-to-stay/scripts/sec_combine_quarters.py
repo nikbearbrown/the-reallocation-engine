@@ -15,10 +15,7 @@ def combine_and_deduplicate(input_dir='processed', output_file='startups_master.
     print("=" * 70)
     
     # Find all JSON files
-    json_files = sorted([
-        f for f in os.listdir(input_dir)
-        if f.startswith('companies-sec-') and f.endswith('.json')
-    ])
+    json_files = sorted([f for f in os.listdir(input_dir) if f.startswith('companies-sec-') and f.endswith('.json')])
     
     if not json_files:
         print(f"❌ No JSON files found in {input_dir}")

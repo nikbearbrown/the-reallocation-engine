@@ -10,6 +10,7 @@
     "ats:normalize": "node SCRIPTS/ats/normalize-statuses.mjs",
     "ats:scan": "node SCRIPTS/ats/scan.mjs",
     "ats:verify": "node SCRIPTS/ats/verify-pipeline.mjs",
+    "resumes:pdf": "node SCRIPTS/resumes/generate-pdf.mjs",
     "svg-to-png": "node SCRIPTS/svg-to-png.mjs"
   },
   "dependencies": {

@@ -43,7 +43,7 @@ def zip_name(year: int, quarter: int) -> str:
 
 
 def extract_dir_name(year: int, quarter: int) -> str:
-    return f"{year}Q{quarter}_d"
+    return f"{year}q{quarter}-d"
 
 
 def download_file(url: str, output_path: Path, user_agent: str, overwrite: bool) -> str:

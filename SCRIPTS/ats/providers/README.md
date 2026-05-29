@@ -1,7 +1,6 @@
 # ATS Provider Layer
 
-JavaScript ATS provider modules adapted from
-`data/career-ops-main/providers/`.
+JavaScript ATS provider modules adapted from the former Job-Ops reference copy.
 
 These modules are useful when the detector has a known `careers_url` or
 platform API URL. They are intentionally small provider adapters:

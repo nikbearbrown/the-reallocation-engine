@@ -13,12 +13,18 @@ Maintained SEC Form D data pipeline scripts for 80 Days to Stay. See
 ## ats/
 
 Maintained ATS detection and job scraping scripts for Greenhouse, Lever, and
-future ATS platforms. See `SCRIPTS/ats/README.md`.
+future ATS platforms, plus tracker/pattern audits. See
+`SCRIPTS/ats/README.md`.
 
 ## bls/
 
 Maintained BLS/O*NET extraction scripts for role-quality and labor-market
 direction features. See `SCRIPTS/bls/README.md`.
+
+## resumes/
+
+Maintained resume generation scripts for anonymized Markdown CV examples. See
+`SCRIPTS/resumes/README.md`.
 
 ## svg-to-png.mjs
 

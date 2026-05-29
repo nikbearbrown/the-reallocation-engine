@@ -2,7 +2,7 @@
 
 Canonical working copies for the 80 Days to Stay SEC Form D pipeline.
 
-These scripts were copied from `data/80-Days-to-Stay-main/Scripts/` so the
+These scripts were copied from `data/80-days-to-stay/scripts/` so the
 book repo can evolve them as a maintained system. The source data directory is
 left intact for provenance.
 
@@ -41,7 +41,7 @@ By default, refresh artifacts are written under `data/sec/form-d/`:
 
 - `raw/` for downloaded SEC ZIP files.
 - `extracted/` for extracted quarterly TSV folders.
-- `processed/` for generated `companies_sec_*.json` files.
+- `processed/` for generated `companies-sec-*.json` files.
 
 ## Step 2 Changes
 
@@ -65,7 +65,7 @@ Example:
 
 ```bash
 python3 SCRIPTS/sec/entity_resolution.py \
-  --sec data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped.csv \
+  --sec data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv \
   --lca data/lca/raw/LCA_Disclosure_Data.csv \
   --output data/lca/resolved/sec_lca_entity_resolution.csv
 ```

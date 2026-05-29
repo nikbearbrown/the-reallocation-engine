@@ -245,7 +245,7 @@ def build_report(csv_path: Path, as_of: date) -> str:
 
 
 def default_csv_path() -> Path:
-    return Path(__file__).resolve().parents[1] / "data" / "80-Days-to-Stay-main" / "Data" / "SEC_DOL_H1b_data_mapped.csv"
+    return Path(__file__).resolve().parents[1] / "data" / "80-days-to-stay" / "data" / "SEC_DOL_H1b_data_mapped.csv"
 
 
 def main() -> None:

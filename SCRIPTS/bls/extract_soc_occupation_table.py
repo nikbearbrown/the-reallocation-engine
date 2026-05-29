@@ -15,7 +15,7 @@ import pandas as pd
 
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
-DEFAULT_BLS_DIR = REPO_ROOT / "data" / "BLS"
+DEFAULT_BLS_DIR = REPO_ROOT / "data" / "bls"
 DEFAULT_OUTPUT = DEFAULT_BLS_DIR / "compact" / "soc_occupation_compact.csv"
 
 ABILITY_ELEMENTS = [
@@ -144,7 +144,7 @@ def cognitive_pivot_score(row: dict[str, object]) -> float | None:
 
 
 def build_compact_table(bls_dir: Path) -> tuple[list[dict[str, object]], dict[str, object]]:
-    text_dir = bls_dir / "db_30_2_text"
+    text_dir = bls_dir / "db-30-2-text"
     occupations_path = text_dir / "Occupation Data.txt"
     abilities_path = text_dir / "Abilities.txt"
     skills_path = text_dir / "Skills.txt"
@@ -252,14 +252,14 @@ def audit_lines(bls_dir: Path, output: Path, rows: list[dict[str, object]], meta
         "",
         "## Role in The Reallocation Engine",
         "",
-        "Treat `data/BLS` as source/reference data for the role-quality and labor-market-direction side of the engine.",
+        "Treat `data/bls` as source/reference data for the role-quality and labor-market-direction side of the engine.",
         "It supports SOC/O*NET occupation mapping, cognitive demand features, wage/employment context, and the broader Cognitive Pivot argument.",
         "",
         "## Inventory",
         "",
         f"- Files: {len(data_files):,}",
         f"- Directories: {sum(1 for path in files if path.is_dir()):,}",
-        f"- O*NET text tables: {len(list((bls_dir / 'db_30_2_text').glob('*.txt'))):,}",
+        f"- O*NET text tables: {len(list((bls_dir / 'db-30-2-text').glob('*.txt'))):,}",
         f"- Latest OEWS national workbook used: `{metadata.get('oews_path', '')}`",
         f"- Latest OEWS year: {metadata.get('oews_year', '')}",
         "",
@@ -317,7 +317,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Extract compact BLS/O*NET SOC occupation table.")
     parser.add_argument("--bls-dir", type=Path, default=DEFAULT_BLS_DIR)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--audit", type=Path, default=DEFAULT_BLS_DIR / "BLS-audit.md")
+    parser.add_argument("--audit", type=Path, default=DEFAULT_BLS_DIR / "bls-audit.md")
     args = parser.parse_args()
 
     rows, metadata = build_compact_table(args.bls_dir)

@@ -19,7 +19,7 @@ The project combines three threads:
    Sponsorship intelligence from SEC Form D funding data, DOL/USCIS H-1B
    signals, company websites, and ATS discovery.
 
-2. **Career-Ops**
+2. **Job-Ops**
    A job-search operations layer: ATS provider scanning, job liveness checks,
    application tracking, deduping, and pipeline integrity.
 
@@ -42,32 +42,117 @@ The eventual engine should rank opportunities using signals like:
 The system succeeds when a student sends fewer applications with better odds,
 then uses the reclaimed time for networking and portfolio proof.
 
+## System Flow
+
+The repo is organized around a data-first loop: collect verified signals, audit
+what is known, evaluate opportunities, and record what actually happened.
+
+```text
+                         THE REALLOCATION ENGINE
+
+  SOURCE / REFERENCE DATA                 MAINTAINED SCRIPTS
+  -----------------------                 ------------------
+
+  data/80-days-to-stay/              SCRIPTS/sec/
+    SEC + H-1B mapped companies  ----->     refresh Form D quarters
+    sponsorship history                     validate joins
+                                             entity-resolution scaffolds
+
+  data/sec/form-d/                       SCRIPTS/ats/
+    recent Form D refresh        ----->     detect ATS providers
+                                             scan configured portals
+                                             check job liveness
+                                             verify/dedup trackers
+                                             analyze patterns
+
+  data/bls/                              SCRIPTS/bls/
+    O*NET + OEWS source data     ----->     compact SOC occupation table
+                                             role-quality features
+
+  resumes/                              SCRIPTS/resumes/
+    anonymized Markdown CVs      ----->     PDF generation
+
+                              |
+                              v
+
+  GENERATED WORKING DATA AND AUDITS
+  ---------------------------------
+
+  data/**/**-audit.md
+  data/bls/compact/soc_occupation_compact.csv
+  data/ats/pipeline.md
+  data/ats/scan-history.tsv
+  data/ats/applications.md
+  data/ats/application-patterns-audit.md
+
+                              |
+                              v
+
+  STUDENT OPERATING MODES
+  -----------------------
+
+  modes/scan.md       -> find ATS/provider/job signals
+  modes/pipeline.md   -> triage URLs and liveness
+  modes/oferta.md     -> evaluate one role with evidence
+  modes/pdf.md        -> generate an ATS-friendly CV PDF
+  modes/tracker.md    -> maintain application history
+  modes/patterns.md   -> analyze outcomes after enough history exists
+
+                              |
+                              v
+
+  HISTORY AND LEARNING LOOP
+  -------------------------
+
+  modes/RUN_LOG.md records:
+    what was run,
+    what worked,
+    what failed,
+    what should be tested next.
+
+  The long-term output is companies_master_v2.csv plus book chapters,
+  dashboards, and student-facing workflows built from verified evidence.
+```
+
 ## Repository Layout
 
 | Path | Purpose |
 |---|---|
 | `book.md`, `chapters/`, `outline.md`, `vision.md`, `architecture.md`, `risks.md` | Book manuscript and planning material. |
 | `SCRIPTS/` | Canonical maintained automation. New scripts should live here. |
+| `modes/` | Student-facing operating recipes that point to verified data, tested scripts, and a run log. |
+| `resumes/` | Anonymized Markdown CV examples for student resume templates. |
 | `data/` | Source/reference data and generated working extracts. |
-| `data/80-Days-to-Stay-main/` | Upstream 80 Days source repo and data snapshot. |
-| `data/career-ops-main/` | Upstream Career-Ops source repo used for ATS/job-search operations ideas. |
-| `data/BLS/` | BLS/O*NET source/reference data for role-quality and labor-market direction. |
+| `data/80-days-to-stay/` | Upstream 80 Days source repo and data snapshot. |
+| `data/bls/` | BLS/O*NET source/reference data for role-quality and labor-market direction. |
 | `data/sec/form-d/` | Refreshed SEC Form D raw, extracted, and processed quarterly data. |
 | `data/ats/` | ATS scanner configuration and generated ATS working files. |
 | `pantry/` | Research pantry before material graduates into the manuscript. |
 | `projects/` | Draft project notes, research prompts, and side analyses. |
+| `working/` | Local scratch space for in-progress analysis; not a source-data layer. |
 | `images/`, `d3/`, `styles/`, `output/` | Book visuals, generated assets, and presentation/output support. |
 | `DATA_CONTRACT.md` | Rules for source data, generated data, scripts, book content, and private/user-specific files. |
+
+## Naming Conventions
+
+- Data and source/reference directories use lower-case kebab-case.
+- `data/80-days-to-stay/` replaces the former mixed-case upstream copy name.
+- `data/bls/` replaces the former uppercase BLS directory.
+- SEC raw ZIP filenames preserve upstream SEC names such as `2025q2_d.zip`;
+  extracted folders and processed outputs use lower-kebab names such as
+  `2025q2-d` and `companies-sec-2025q2-d.json`.
+- `SCRIPTS/` intentionally remains uppercase. It is the canonical maintained
+  automation directory for this repo.
 
 ## Current Data Inventory
 
 ### 80 Days to Stay Data
 
-Path: `data/80-Days-to-Stay-main/`
+Path: `data/80-days-to-stay/`
 
 This is the main sponsorship-intelligence source. The most valuable file is:
 
-- `data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped.csv`
+- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv`
 
 That file already contains about 30K companies with SEC and H-1B enrichment to
 some degree. It is the base dataset for sponsorship scoring and should not be
@@ -75,9 +160,9 @@ rebuilt from scratch without a clear reason.
 
 Important audit reports already generated:
 
-- `data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped-audit.md`
-- `data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped-join-validation-audit.md`
-- `data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped-entity-resolution-readiness-audit.md`
+- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-audit.md`
+- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-join-validation-audit.md`
+- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-entity-resolution-readiness-audit.md`
 
 Key findings from the first audit:
 
@@ -95,47 +180,47 @@ Path: `data/sec/form-d/`
 This is the refreshed SEC Form D working area created by the maintained SEC
 scripts.
 
+Raw SEC ZIP filenames preserve the upstream SEC underscore style. Extracted
+directories and processed JSON files use the repo's lower-kebab convention.
+
 Current files:
 
 - `data/sec/form-d/raw/2025q2_d.zip`
 - `data/sec/form-d/raw/2025q3_d.zip`
 - `data/sec/form-d/raw/2025q4_d.zip`
 - `data/sec/form-d/raw/2026q1_d.zip`
-- `data/sec/form-d/processed/companies_sec_2025Q2_d.json`
-- `data/sec/form-d/processed/companies_sec_2025Q3_d.json`
-- `data/sec/form-d/processed/companies_sec_2025Q4_d.json`
-- `data/sec/form-d/processed/companies_sec_2026Q1_d.json`
+- `data/sec/form-d/processed/companies-sec-2025q2-d.json`
+- `data/sec/form-d/processed/companies-sec-2025q3-d.json`
+- `data/sec/form-d/processed/companies-sec-2025q4-d.json`
+- `data/sec/form-d/processed/companies-sec-2026q1-d.json`
 - `data/sec/form-d/processed/recent-sec-quarters-audit.md`
 
 Important finding: the refreshed SEC issuer files did not expose FEIN/EIN
 columns in these quarters. The pipeline now has FEIN support, but these source
 quarters did not provide the value.
 
-### Career-Ops Source
+### Job-Ops Reference
 
-Path: `data/career-ops-main/`
+The former `data/career-ops-main/` source copy has been removed from this repo.
+Useful pieces were already copied or adapted into maintained locations:
 
-This is a full upstream career-operations system. It includes:
+- ATS provider modules under `SCRIPTS/ats/providers/`.
+- scanner/liveness/tracker ideas under `SCRIPTS/ats/`.
+- student operating recipes under `modes/`.
+- resume PDF generation under `SCRIPTS/resumes/`.
 
-- ATS providers for Greenhouse, Lever, and Ashby.
-- a portal scanner.
-- liveness checking.
-- tracker integrity scripts.
-- a dashboard.
-- application/evaluation modes.
-- CV/PDF generation.
-
-Useful pieces have been copied or adapted into `SCRIPTS/ats/`; the upstream
-folder remains intact for provenance.
+Treat `SCRIPTS/` and `modes/` as the current system of record. The deleted
+source copy is ignored by `.gitignore` so it does not get accidentally
+re-added.
 
 ### BLS/O*NET Source
 
-Path: `data/BLS/`
+Path: `data/bls/`
 
 This is the source/reference layer for role quality and labor-market direction.
 It contains:
 
-- O*NET 30.2, February 2026, in text, Excel, MySQL SQL, and MSSQL SQL forms.
+- O*NET 30.2, February 2026, in text and Excel forms.
 - BLS OEWS national employment/wage data, including extracted annual files for
   2012-2024 and older ZIP/XLS archives.
 - O*NET Job Trend Analyzer notes and paper scaffolding.
@@ -143,11 +228,11 @@ It contains:
 
 Generated working extract:
 
-- `data/BLS/compact/soc_occupation_compact.csv`
+- `data/bls/compact/soc_occupation_compact.csv`
 
 Audit:
 
-- `data/BLS/BLS-audit.md`
+- `data/bls/bls-audit.md`
 
 Current compact extract:
 
@@ -161,11 +246,11 @@ Current compact extract:
 
 Large source note:
 
-- The duplicated O*NET SQL export directories, `data/BLS/db_30_2_mysql/` and
-  `data/BLS/db_30_2_mssql/`, are intentionally ignored/omitted from Git.
+- The duplicated O*NET SQL export directories, `data/bls/db-30-2-mysql/` and
+  `data/bls/db-30-2-mssql/`, are intentionally ignored/omitted from Git.
 - Each contained a ~91 MB `20_work_context.sql` file and duplicated data already
-  available in `data/BLS/db_30_2_text/`, `data/BLS/db_30_2_excel/`, and
-  `data/BLS/ZIP/`.
+  available in `data/bls/db-30-2-text/`, `data/bls/db-30-2-excel/`, and
+  `data/bls/zip/`.
 - The maintained BLS extractor uses the text tables, not the SQL exports.
 
 ### ATS Working Data
@@ -176,6 +261,32 @@ Current files:
 
 - `data/ats/portals.example.yml`
 - `data/ats/reports/`
+- `data/ats/application-patterns-audit.md`
+
+## Student Modes And Logs
+
+Path: `modes/`
+
+The mode folder is now a lightweight student operating layer. Modes should not
+ask students to rely on prompting alone when the repo has a script, audit, or
+source dataset that can answer the question.
+
+Important files:
+
+- `modes/_shared.md` -- shared verified-data contract for all modes.
+- `modes/README.md` -- mode inventory and active/draft status.
+- `modes/RUN_LOG.md` -- human-readable history of what was run, what worked,
+  what failed, and what should be tested next.
+- `modes/scan.md` -- ATS discovery using `SCRIPTS/ats/`.
+- `modes/pipeline.md` -- URL triage and liveness checks.
+- `modes/oferta.md` -- evidence-based role evaluation.
+- `modes/pdf.md` -- Markdown CV to PDF workflow using `SCRIPTS/resumes/`.
+- `modes/tracker.md` -- application and scan history maintenance.
+- `modes/patterns.md` -- pattern-analysis workflow around
+  `SCRIPTS/ats/analyze_patterns.py`.
+
+Draft/helper modes are kept explicit. If a workflow does not yet have a tested
+script, the mode says so rather than pretending the automation exists.
 
 `data/ats/portals.yml`, `data/ats/pipeline.md`, `data/ats/scan-history.tsv`,
 and `data/ats/applications.md` are expected working files once scanner/tracker
@@ -218,7 +329,7 @@ npm run svg-to-png
 Path: `SCRIPTS/sec/`
 
 These are canonical working copies of the 80 Days SEC pipeline. The originals
-remain under `data/80-Days-to-Stay-main/Scripts/` for provenance.
+remain under `data/80-days-to-stay/scripts/` for provenance.
 
 #### `download_form_d_quarters.py`
 
@@ -314,7 +425,7 @@ Processes/saves raw website content for archival comparison.
 
 Path: `SCRIPTS/ats/`
 
-This subsystem combines promoted 80 Days ATS scrapers with selected Career-Ops
+This subsystem combines promoted 80 Days ATS scrapers with selected Job-Ops
 scanner/liveness/tracker ideas.
 
 #### `detect_ats.py`
@@ -340,7 +451,7 @@ Against the mapped company file:
 
 ```bash
 python3 detect_ats.py \
-  --csv ../../data/80-Days-to-Stay-main/Data/SEC_DOL_H1b_data_mapped.csv \
+  --csv ../../data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv \
   --company-column company_name \
   --output ../../data/ats/ats_detection_sample.csv
 ```
@@ -368,7 +479,7 @@ normalized jobs, metadata, and summary files.
 
 #### `providers/`
 
-JavaScript provider layer adapted from Career-Ops:
+JavaScript provider layer adapted from Job-Ops:
 
 - `providers/_http.mjs` - shared fetch helpers.
 - `providers/greenhouse.mjs` - Greenhouse board API provider.
@@ -451,6 +562,20 @@ Deduplicates tracker rows by normalized company and fuzzy role match.
 Merges TSV additions from `data/ats/tracker-additions/` into
 `data/ats/applications.md`.
 
+#### `analyze_patterns.py`
+
+Python scaffold for outcome-pattern analysis. It reads the ATS tracker,
+scan-history TSV, pipeline inbox, run log, and saved ATS reports.
+
+Default output:
+
+- `data/ats/application-patterns-audit.md`
+
+At the current stage it reports descriptive counts and readiness blockers. Once
+students have real outcomes, extend it to measure conversion by sponsorship
+tier, liveness state, SOC group, scan source, recurring blockers, and run-log
+failures.
+
 ### BLS Scripts
 
 Path: `SCRIPTS/bls/`
@@ -470,8 +595,8 @@ python3 SCRIPTS/bls/extract_soc_occupation_table.py
 
 Outputs:
 
-- `data/BLS/compact/soc_occupation_compact.csv`
-- `data/BLS/BLS-audit.md`
+- `data/bls/compact/soc_occupation_compact.csv`
+- `data/bls/bls-audit.md`
 
 The compact table includes:
 
@@ -485,6 +610,31 @@ The compact table includes:
 - selected skill Level scores;
 - `cognitive_pivot_score`.
 
+### Resume Scripts
+
+Path: `SCRIPTS/resumes/`
+
+#### `generate-pdf.mjs`
+
+Generates ATS-friendly PDF resumes from the anonymized Markdown CV examples in
+`resumes/`.
+
+Run all examples:
+
+```bash
+npm run resumes:pdf -- --all
+```
+
+Run one example:
+
+```bash
+npm run resumes:pdf -- resumes/aarav-patel-cv.md
+```
+
+Default output:
+
+- `output/resumes/{first-last-cv}.pdf`
+
 ## Node Scripts
 
 The root `package.json` currently defines:
@@ -497,6 +647,7 @@ npm run ats:verify
 npm run ats:merge
 npm run ats:dedup
 npm run ats:normalize
+npm run resumes:pdf -- --all
 ```
 
 Node dependencies currently include:
@@ -512,6 +663,25 @@ Playwright browser installation is required before live liveness checks:
 npx playwright install chromium
 ```
 
+## Python Script Examples
+
+Run from the book root unless noted:
+
+```bash
+python3 SCRIPTS/audit_sec_dol_h1b_data.py
+python3 SCRIPTS/sec/refresh_recent_sec_quarters.py
+python3 SCRIPTS/bls/extract_soc_occupation_table.py
+python3 SCRIPTS/ats/analyze_patterns.py
+```
+
+Run the unified ATS detector from `SCRIPTS/ats/` so package imports resolve:
+
+```bash
+cd SCRIPTS/ats
+python3 detect_ats.py "Databricks, Inc." "Anthropic"
+python3 detect_ats.py --csv ../../data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv --company-column company_name --output ../../data/ats/ats_detection_sample.csv
+```
+
 ## Current Build Status
 
 Completed so far:
@@ -524,13 +694,20 @@ Completed so far:
 - Added entity-resolution script for future raw LCA joins.
 - Promoted Greenhouse and Lever scrapers into `SCRIPTS/ats/`.
 - Added unified Python ATS detector.
-- Added Career-Ops JavaScript provider layer for Greenhouse, Lever, and Ashby.
+- Added Job-Ops JavaScript provider layer for Greenhouse, Lever, and Ashby.
 - Added portal scanner architecture.
 - Added job liveness checking.
 - Added tracker integrity scripts.
+- Added Python application-pattern audit scaffold:
+  `SCRIPTS/ats/analyze_patterns.py`.
 - Added `DATA_CONTRACT.md`.
+- Added verified-data student modes and `modes/RUN_LOG.md`.
 - Audited BLS/O*NET source data.
 - Generated compact SOC occupation table.
+- Added anonymized Markdown CV examples and PDF generation script.
+- Removed the copied Job-Ops source tree after adapting useful pieces.
+- Normalized source/reference data directories to lower-case kebab-case.
+- Regenerated SEC, BLS, and ATS pattern audits after path normalization.
 
 Not done yet:
 
@@ -541,6 +718,33 @@ Not done yet:
 - Process the large website corpus, if available.
 - Add LLM company annotation cache.
 - Compute BLS/OEWS employment trend slopes from 2012-2024.
+- Build the SOC classification validation pipeline described in
+  `projects/soc_classification_draft.md` and
+  `projects/soc_classification_methods.md`: create an LCA-derived validation
+  set, run title-only vs. full-text classification, measure top-1 accuracy,
+  major-group accuracy, STEM recall/precision, and confidence calibration.
+- Build the H-1B misclassification study pipeline described in
+  `projects/h1b_misclassification_draft.md`: match job listings to certified
+  LCA records, independently classify SOC and wage level from listing text,
+  compute mismatch rates, and test whether employer-level mismatch predicts
+  USCIS denial rates.
+- Build the cognitive-tier startup hiring analysis described in
+  `projects/cognitive_tier_startup_hiring_draft.md` and
+  `projects/critiq_prompt_startup_eda.md`: match Form D companies to LCA
+  filings, assign SOC codes to Irreducibly Human cognitive tiers, compare
+  pre-/post-ChatGPT tier composition, and split results by biotech vs.
+  software.
+- Define or import the Irreducibly Human SOC-to-cognitive-tier taxonomy,
+  including coverage for SOC major groups 11, 13, 15, 17, and a policy for
+  out-of-coverage groups such as SOC 19.
+- Generate the tables/figures requested by the project drafts: LCA match-rate
+  tables, SOC distribution charts, O*NET skill/ability heatmaps, cognitive-tier
+  time series, wage-level distributions, classifier calibration curves, and
+  mismatch heatmaps.
+- Run the literature/research prompts in
+  `projects/persona_spec_and_research_prompts.md` if the book keeps the
+  learner-persona/tutor-adaptation thread; otherwise move that file out of this
+  repo's active roadmap.
 - Merge sponsorship, ATS, BLS role-quality, and annotation features into a
   `companies_master_v2.csv`.
 - Build database/API/frontend layers.
@@ -549,7 +753,13 @@ Not done yet:
 
 1. Create a real `data/ats/portals.yml` from a curated sample of companies with
    known careers URLs.
-2. Install Node dependencies and Chromium, then smoke-test:
+2. Run the pattern audit after tracker activity starts:
+
+   ```bash
+   python3 SCRIPTS/ats/analyze_patterns.py
+   ```
+
+3. Install Node dependencies and Chromium, then smoke-test:
 
    ```bash
    npm install
@@ -557,21 +767,33 @@ Not done yet:
    npm run ats:scan -- --dry-run
    ```
 
-3. Add Ashby to the main ATS detection path.
-4. Add `SCRIPTS/bls/extract_employment_trends.py` to compute 2012-2024 SOC
+4. Add Ashby to the main ATS detection path.
+5. Add `SCRIPTS/bls/extract_employment_trends.py` to compute 2012-2024 SOC
    employment slopes and index values.
-5. Merge compact BLS role features into the sponsorship/company dataset by SOC
+6. Add `SCRIPTS/bls/build_cognitive_tier_taxonomy.py` or equivalent to produce
+   a versioned SOC-to-tier table for the Irreducibly Human taxonomy.
+7. Add `SCRIPTS/lca/` or `SCRIPTS/h1b/` for raw OFLC LCA ingestion, certified
+   record filtering, FEIN/name normalization, and employer-level aggregates.
+8. Add `SCRIPTS/soc/` for LLM-based SOC classification experiments and
+   validation reports against LCA-derived ground truth.
+9. Add `SCRIPTS/h1b/measure_misclassification.py` once listing-to-LCA matching
+   exists, producing mismatch audits next to the matched data.
+10. Merge compact BLS role features into the sponsorship/company dataset by SOC
    once SOC codes are available.
-6. Keep all new maintained automation under `SCRIPTS/`.
+11. Keep all new maintained automation under `SCRIPTS/`.
 
 ## Data and Commit Hygiene
 
-- Treat `data/80-Days-to-Stay-main/`, `data/career-ops-main/`, and `data/BLS/`
-  as source/reference layers.
-- Put maintained scripts in `SCRIPTS/`.
+- Treat `data/80-days-to-stay/` and `data/bls/` as source/reference
+  layers.
+- Keep data/source directories lower-case kebab-case.
+- Put maintained scripts in `SCRIPTS/`; this is the one intentional uppercase
+  project-system directory.
 - Put generated audit reports next to the data they inspect using `-audit.md`.
 - Review `data/ats/` before committing; it may contain user-specific job-search
   activity.
+- Keep `data/career-ops-main/` deleted and ignored unless the project
+  explicitly needs to re-import that source copy.
 - The duplicated O*NET SQL export directories are ignored because the text,
   Excel, ZIP, and compact BLS files are sufficient for the current pipeline.
 
