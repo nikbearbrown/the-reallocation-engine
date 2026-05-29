@@ -1,806 +1,209 @@
-# The Reallocation Engine
-
-The Reallocation Engine is a book, dataset, and script system for helping
-international students and early-career technical workers reallocate job-search
-time away from low-probability mass applications and toward higher-probability
-targets, networking, and portfolio work.
+# Chapter 1 — Temperature and Thermal Energy
 
-The core claim is simple: the problem is not motivation. It is information
-asymmetry. Students cannot easily see which companies have sponsorship history,
-which companies are newly funded, which roles are live, and which occupations
-are becoming more or less valuable in the generative AI era. This repo is being
-organized into the system that makes those signals visible.
+*Three quantities that feel like one, and the confusion that follows when you treat them that way.*
 
-## Project Idea
-
-The project combines three threads:
+---
 
-1. **80 Days to Stay**
-   Sponsorship intelligence from SEC Form D funding data, DOL/USCIS H-1B
-   signals, company websites, and ATS discovery.
+You step into the ocean off the coast of Maine in July. The water is 12°C. Painfully cold. You get home and step into a bathtub at 38°C. Comfortable. Warm. Exactly right.
 
-2. **Job-Ops**
-   A job-search operations layer: ATS provider scanning, job liveness checks,
-   application tracking, deduping, and pipeline integrity.
-
-3. **The Cognitive Pivot**
-   A labor-market and role-quality layer based on BLS OEWS and O*NET. The
-   working thesis is that engineering labor is shifting from implementation
-   volume toward verification, system judgment, causal debugging, and
-   architecture. "Passable code" is no longer enough; the market premium is
-   moving toward cognitive work that AI cannot reliably perform.
-
-The eventual engine should rank opportunities using signals like:
-
-- historical sponsorship behavior;
-- funding recency and company viability;
-- live ATS job availability;
-- role fit and visa timeline compatibility;
-- role resilience and cognitive-demand trajectory;
-- ghost-job/liveness risk.
-
-The system succeeds when a student sends fewer applications with better odds,
-then uses the reclaimed time for networking and portfolio proof.
-
-## System Flow
-
-The repo is organized around a data-first loop: collect verified signals, audit
-what is known, evaluate opportunities, and record what actually happened.
-
-```text
-                         THE REALLOCATION ENGINE
-
-  SOURCE / REFERENCE DATA                 MAINTAINED SCRIPTS
-  -----------------------                 ------------------
-
-  data/80-days-to-stay/              SCRIPTS/sec/
-    SEC + H-1B mapped companies  ----->     refresh Form D quarters
-    sponsorship history                     validate joins
-                                             entity-resolution scaffolds
-
-  data/sec/form-d/                       SCRIPTS/ats/
-    recent Form D refresh        ----->     detect ATS providers
-                                             scan configured portals
-                                             check job liveness
-                                             verify/dedup trackers
-                                             analyze patterns
-
-  data/bls/                              SCRIPTS/bls/
-    O*NET + OEWS source data     ----->     compact SOC occupation table
-                                             role-quality features
-
-  resumes/                              SCRIPTS/resumes/
-    anonymized Markdown CVs      ----->     PDF generation
-
-                              |
-                              v
-
-  GENERATED WORKING DATA AND AUDITS
-  ---------------------------------
+Here is the fact that should bother you: the ocean contains vastly more thermal energy than your bathtub. By many orders of magnitude. The Atlantic has roughly $10^{46}$ water molecules, each carrying kinetic energy proportional to temperature. Your bathtub has maybe $10^{26}$. The ocean is thermally richer by a factor of roughly $10^{20}$ — and yet it feels cold, and the bathtub feels warm.
 
-  data/**/**-audit.md
-  data/bls/compact/soc_occupation_compact.csv
-  data/ats/pipeline.md
-  data/ats/scan-history.tsv
-  data/ats/applications.md
-  data/ats/application-patterns-audit.md
+Your body does not sense thermal energy. It senses heat flow. And heat flow is driven not by how much thermal energy a system contains, but by the difference in temperature between that system and you. Your skin sits at about 33°C. The ocean at 12°C is colder than you, so energy flows out. The bathtub at 38°C is warmer, so energy flows in. The direction of flow has nothing to do with the ocean's enormous thermal wealth.
 
-                              |
-                              v
+This is the distinction the chapter is about. Temperature, thermal energy, and heat are three different things. They feel like one thing in ordinary language — we use "hot" to mean all three simultaneously — and that linguistic sloppiness is the source of more errors in thermodynamics than almost anything else. Getting them straight here will make the rest of this book considerably easier.
 
-  STUDENT OPERATING MODES
-  -----------------------
+---
 
-  modes/scan.md       -> find ATS/provider/job signals
-  modes/pipeline.md   -> triage URLs and liveness
-  modes/oferta.md     -> evaluate one role with evidence
-  modes/pdf.md        -> generate an ATS-friendly CV PDF
-  modes/tracker.md    -> maintain application history
-  modes/patterns.md   -> analyze outcomes after enough history exists
-
-                              |
-                              v
-
-  HISTORY AND LEARNING LOOP
-  -------------------------
-
-  modes/RUN_LOG.md records:
-    what was run,
-    what worked,
-    what failed,
-    what should be tested next.
+## Temperature
 
-  The long-term output is companies_master_v2.csv plus book chapters,
-  dashboards, and student-facing workflows built from verified evidence.
-```
+Temperature is a number that describes how fast the molecules of a substance are moving, on average.
 
-## Repository Layout
+More precisely: temperature is proportional to the *average translational kinetic energy per molecule*. In three dimensions, the equipartition theorem assigns an average energy of $\frac{1}{2}k_BT$ to each independent translational degree of freedom. A molecule free to move in $x$, $y$, and $z$ has three such degrees of freedom, so its average translational kinetic energy is $\frac{3}{2}k_BT$. Setting that equal to $\frac{1}{2}m\langle v^2 \rangle$ and solving for $T$:
 
-| Path | Purpose |
-|---|---|
-| `book.md`, `chapters/`, `outline.md`, `vision.md`, `architecture.md`, `risks.md` | Book manuscript and planning material. |
-| `SCRIPTS/` | Canonical maintained automation. New scripts should live here. |
-| `modes/` | Student-facing operating recipes that point to verified data, tested scripts, and a run log. |
-| `resumes/` | Anonymized Markdown CV examples for student resume templates. |
-| `data/` | Source/reference data and generated working extracts. |
-| `data/80-days-to-stay/` | Upstream 80 Days source repo and data snapshot. |
-| `data/bls/` | BLS/O*NET source/reference data for role-quality and labor-market direction. |
-| `data/sec/form-d/` | Refreshed SEC Form D raw, extracted, and processed quarterly data. |
-| `data/ats/` | ATS scanner configuration and generated ATS working files. |
-| `pantry/` | Research pantry before material graduates into the manuscript. |
-| `projects/` | Draft project notes, research prompts, and side analyses. |
-| `working/` | Local scratch space for in-progress analysis; not a source-data layer. |
-| `images/`, `d3/`, `styles/`, `output/` | Book visuals, generated assets, and presentation/output support. |
-| `DATA_CONTRACT.md` | Rules for source data, generated data, scripts, book content, and private/user-specific files. |
+$$T = \frac{m \langle v^2 \rangle}{3 k_B}$$
 
-## Naming Conventions
+where $k_B = 1.38 \times 10^{-23}$ J/K is the Boltzmann constant and $\langle v^2 \rangle$ is the mean squared speed of the molecules. This is not a postulate — it is derived from statistical mechanics, and we will rederive it properly in Chapter 4.
 
-- Data and source/reference directories use lower-case kebab-case.
-- `data/80-days-to-stay/` replaces the former mixed-case upstream copy name.
-- `data/bls/` replaces the former uppercase BLS directory.
-- SEC raw ZIP filenames preserve upstream SEC names such as `2025q2_d.zip`;
-  extracted folders and processed outputs use lower-kebab names such as
-  `2025q2-d` and `companies-sec-2025q2-d.json`.
-- `SCRIPTS/` intentionally remains uppercase. It is the canonical maintained
-  automation directory for this repo.
+<!-- → [TABLE: Two-column comparison — Temperature vs. Thermal Energy. Rows: definition, scales with system size?, example quantities, what a thermometer measures. Use the chapter's ocean-vs-bathtub example as the concrete test case. reader should see exactly why "same temperature, different thermal energy" is not a contradiction.] -->
 
-## Current Data Inventory
+Two things in that formula are worth pausing on. The formula uses $\langle v^2 \rangle$, not $\langle v \rangle$. The mean of the squares is not the square of the mean, and the distinction turns out to matter a great deal once we look at the full speed distribution in Chapter 4. More importantly, temperature is a *per-molecule* quantity — it describes the average energy of one molecule, not the cumulative energy of all of them. That is why temperature is called an *intensive* variable: it does not depend on how much material you have. A thimble of water and a swimming pool at 20°C have the same temperature, despite one holding incomparably more thermal energy than the other.
 
-### 80 Days to Stay Data
+We measure temperature on the Kelvin scale in thermodynamic equations, because the equations require an absolute zero. Absolute zero — $T = 0$ K — is the classical limit at which thermal motion ceases. Room temperature is about 293 K. Body temperature is 310 K. The conversion is simply $T(\text{K}) = T(°\text{C}) + 273.15$. Since 2019, the Boltzmann constant has been fixed by definition at $k_B = 1.380649 \times 10^{-23}$ J/K, which means temperature is now formally defined by fixing $k_B$ — a subtle conceptual inversion from the older approach, and a sign of how precisely we can now characterize molecular motion.
 
-Path: `data/80-days-to-stay/`
+---
 
-This is the main sponsorship-intelligence source. The most valuable file is:
+## Thermal energy
 
-- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv`
+Thermal energy is the total internal kinetic energy of all the molecules in a system — their translational motion, their rotational tumbling, their vibrational stretching — plus the potential energy stored in the forces between them.
 
-That file already contains about 30K companies with SEC and H-1B enrichment to
-some degree. It is the base dataset for sponsorship scoring and should not be
-rebuilt from scratch without a clear reason.
+It is an *extensive* variable: it scales with the size of the system. Double the number of molecules at the same temperature and you double the thermal energy. For a monatomic ideal gas, where there are no rotational or vibrational modes and no intermolecular forces to speak of, the thermal energy is simply:
 
-Important audit reports already generated:
+$$U = \frac{3}{2} N k_B T$$
 
-- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-audit.md`
-- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-join-validation-audit.md`
-- `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-entity-resolution-readiness-audit.md`
+For a diatomic gas at moderate temperatures — where rotational modes are active but vibrational modes have not yet been excited — each molecule has five active degrees of freedom instead of three, so:
 
-Key findings from the first audit:
+$$U = \frac{5}{2} N k_B T$$
 
-- 30,369 companies.
-- 1,557 rows with H-1B data present.
-- 17,752 rows with websites present.
-- no ATS columns yet.
-- no SOC columns yet.
-- newest funding date observed: 2025-09-26.
+The factor in front is counting the number of independent ways the molecule can store energy. A nitrogen molecule moving through space can translate in three directions and rotate about two axes (rotation about the symmetry axis of a diatomic molecule contributes negligibly), giving five-halves. At high temperatures, vibrational modes wake up and contribute two more terms — one for kinetic energy along the bond, one for potential energy — pushing the coefficient toward $\frac{7}{2}$. The thermal energy of a real gas is richer than the simple formula suggests, and this will matter when we calculate heat capacities.
 
-### SEC Form D Refresh Data
+The relation $U = \frac{3}{2}Nk_BT$ holds both concepts in tension at once. $T$ is the intensive, per-molecule quantity. $N$ is the count that makes the total energy extensive. $k_B$ converts between them. A thermometer measures $T$. To know $U$ you need both $T$ and how much material you have. The ocean and the bathtub have the same relationship to this formula — dramatically different $N$, dramatically different resulting $U$ — and that is exactly why the ocean can be colder and yet hold so much more energy.
 
-Path: `data/sec/form-d/`
+---
 
-This is the refreshed SEC Form D working area created by the maintained SEC
-scripts.
+## Heat
 
-Raw SEC ZIP filenames preserve the upstream SEC underscore style. Extracted
-directories and processed JSON files use the repo's lower-kebab convention.
+Heat is energy in transit.
 
-Current files:
+It is not a property stored inside a system — it is what happens at the boundary between two systems at different temperatures. When the ocean and your skin are in contact, energy crosses from the higher-temperature side to the lower. That crossing is heat. Once the energy has crossed and is stored in your body's molecules, it is thermal energy, not heat. The word "heat" properly names only the *flow*, not the thing being stored.
 
-- `data/sec/form-d/raw/2025q2_d.zip`
-- `data/sec/form-d/raw/2025q3_d.zip`
-- `data/sec/form-d/raw/2025q4_d.zip`
-- `data/sec/form-d/raw/2026q1_d.zip`
-- `data/sec/form-d/processed/companies-sec-2025q2-d.json`
-- `data/sec/form-d/processed/companies-sec-2025q3-d.json`
-- `data/sec/form-d/processed/companies-sec-2025q4-d.json`
-- `data/sec/form-d/processed/companies-sec-2026q1-d.json`
-- `data/sec/form-d/processed/recent-sec-quarters-audit.md`
+The sign convention throughout this book: $Q > 0$ when heat flows into the system, $Q < 0$ when it flows out. The internal energy of a system increases when heat enters and when work is done on it — that is the first law, which we take up in Chapter 5.
 
-Important finding: the refreshed SEC issuer files did not expose FEIN/EIN
-columns in these quarters. The pipeline now has FEIN support, but these source
-quarters did not provide the value.
+There are three mechanisms by which heat moves, and they are physically distinct.
 
-### Job-Ops Reference
+**Conduction** moves heat through a material by molecular collision, without any bulk motion of the material itself. In the hotter region, molecules vibrate faster; they collide with their slower neighbors and transfer kinetic energy along the temperature gradient. The rate obeys Fourier's law: $dQ/dt = -kA\,(dT/dx)$, where $k$ is the thermal conductivity, $A$ is the cross-sectional area, and $dT/dx$ is the temperature gradient. Metals conduct well because free electrons carry energy efficiently alongside the atomic vibrations. Insulators — air, wood, aerogel — conduct poorly because neither electrons nor atomic structure can transport energy with any efficiency.
 
-The former `data/career-ops-main/` source copy has been removed from this repo.
-Useful pieces were already copied or adapted into maintained locations:
+**Convection** moves heat by the bulk flow of a fluid. Hot fluid is less dense and rises; it carries thermal energy upward and is replaced by cooler fluid from below. This is why you stir a pot, why warm-air vents are more effective near the floor, and why wind chill matters on a cold day — moving air strips away the warm layer your skin has built up and replaces it with cold air that has to be warmed again.
 
-- ATS provider modules under `SCRIPTS/ats/providers/`.
-- scanner/liveness/tracker ideas under `SCRIPTS/ats/`.
-- student operating recipes under `modes/`.
-- resume PDF generation under `SCRIPTS/resumes/`.
+**Radiation** moves heat as electromagnetic waves, requiring no material medium at all. Every object above absolute zero emits radiation. The total power emitted per unit area follows the Stefan-Boltzmann law:
 
-Treat `SCRIPTS/` and `modes/` as the current system of record. The deleted
-source copy is ignored by `.gitignore` so it does not get accidentally
-re-added.
+$$P = \sigma A T^4$$
 
-### BLS/O*NET Source
+where $\sigma = 5.67 \times 10^{-8}$ W/(m²·K⁴). The $T^4$ dependence is steep: at room temperature, radiation is small compared to conduction and convection, but at high temperatures it dominates completely. The Sun, with a surface temperature near 5800 K, loses energy almost entirely by radiation. A human body at 310 K emits in the infrared — visible to a thermal camera but carrying far less power per unit area.
 
-Path: `data/bls/`
+When an object is surrounded by an environment at temperature $T_\text{env}$, the net radiated power is:
 
-This is the source/reference layer for role quality and labor-market direction.
-It contains:
+$$P_\text{net} = \sigma A (T^4 - T_\text{env}^4)$$
 
-- O*NET 30.2, February 2026, in text and Excel forms.
-- BLS OEWS national employment/wage data, including extracted annual files for
-  2012-2024 and older ZIP/XLS archives.
-- O*NET Job Trend Analyzer notes and paper scaffolding.
-- a compact extracted working table.
+It is the difference of fourth powers, not the difference of temperatures, that drives the net flow. That asymmetry will reappear when we discuss blackbody radiation.
 
-Generated working extract:
+<!-- → [IMAGE: Three-panel mechanism diagram — conduction (molecules passing energy through a solid lattice), convection (arrows showing rising warm fluid and descending cool fluid), radiation (wavy lines leaving a glowing object into vacuum). Each panel should label the driving quantity: temperature gradient, density difference, T⁴ emission.] -->
 
-- `data/bls/compact/soc_occupation_compact.csv`
+---
 
-Audit:
+## The Zeroth Law
 
-- `data/bls/bls-audit.md`
+Before temperature can be used as a measurable quantity, we need to establish that it is a well-defined one.
 
-Current compact extract:
+The Zeroth Law of Thermodynamics states: if system A is in thermal equilibrium with system C, and system B is in thermal equilibrium with system C, then A and B are in thermal equilibrium with each other.
 
-- 1,016 O*NET occupations.
-- 962 matched to 2024 OEWS detailed SOC rows.
-- latest national employment and wage context.
-- O*NET job zones.
-- alternate title counts/samples.
-- selected ability and skill Level scores.
-- first-pass `cognitive_pivot_score`.
+This sounds like logic. But it isn't only logic — it is a physical claim. Without the Zeroth Law, thermometry breaks down. When a thermometer placed in two separate objects reads the same value in both, we use that to infer those objects would be in equilibrium with each other. The Zeroth Law is what licenses that inference. It asserts that "same temperature" is a transitive relation — that the property being measured is genuinely shared, not merely a coincidence of a particular probe. Without transitivity, you could have $A = C$ and $B = C$ and $A \neq B$ in some physical sense. The equilibrium condition could depend on which two systems you chose to compare, and the thermometer would be useless.
 
-Large source note:
+The law was identified explicitly by Ralph Fowler in the 1930s and named "zeroth" because it is logically prior to the First and Second Laws, which had already been numbered. It is, in a sense, the law that makes the concept of temperature coherent rather than just convenient.
 
-- The duplicated O*NET SQL export directories, `data/bls/db-30-2-mysql/` and
-  `data/bls/db-30-2-mssql/`, are intentionally ignored/omitted from Git.
-- Each contained a ~91 MB `20_work_context.sql` file and duplicated data already
-  available in `data/bls/db-30-2-text/`, `data/bls/db-30-2-excel/`, and
-  `data/bls/zip/`.
-- The maintained BLS extractor uses the text tables, not the SQL exports.
+---
 
-### ATS Working Data
+## Specific heat capacity
 
-Path: `data/ats/`
+When heat flows into an object, the object's temperature rises. How much it rises per joule depends on the substance — specifically on its *specific heat capacity* $c$, defined through:
 
-Current files:
+$$Q = mc\Delta T$$
 
-- `data/ats/portals.example.yml`
-- `data/ats/reports/`
-- `data/ats/application-patterns-audit.md`
+Water has $c = 4186$ J/(kg·K). This is anomalously high. The reason is hydrogen bonding: water molecules form a network of hydrogen bonds with their neighbors, and energy goes not only into speeding up molecular motion but also into stretching and bending that network. More ways to store energy means more energy required per degree of temperature rise.
 
-## Student Modes And Logs
+The consequences are large. Oceans moderate climate precisely because water can absorb or release enormous amounts of thermal energy with only modest changes in temperature. Coastal cities are milder than inland cities at the same latitude. The human body is about 60% water by mass — the high specific heat limits how rapidly metabolism can overheat or chill you.
 
-Path: `modes/`
+<!-- → [TABLE: Specific heat capacities — water (4186), aluminum (900), iron (449), copper (385), air at constant pressure (~1005) J/(kg·K). Column for "mass needed to store 1 kJ at ΔT = 1°C" to make the contrast vivid.] -->
 
-The mode folder is now a lightweight student operating layer. Modes should not
-ask students to rely on prompting alone when the repo has a script, audit, or
-source dataset that can answer the question.
+Compare water with metals: copper has $c = 385$ J/(kg·K); iron, 449; aluminum, 900. The same joule that raises a kilogram of water by 0.24°C raises a kilogram of copper by 2.6°C — more than ten times as much. This is why a metal pan heats to cooking temperature almost instantly while a pot of water takes minutes to boil, even though the burner delivers heat to both at comparable rates.
 
-Important files:
+---
 
-- `modes/_shared.md` -- shared verified-data contract for all modes.
-- `modes/README.md` -- mode inventory and active/draft status.
-- `modes/RUN_LOG.md` -- human-readable history of what was run, what worked,
-  what failed, and what should be tested next.
-- `modes/scan.md` -- ATS discovery using `SCRIPTS/ats/`.
-- `modes/pipeline.md` -- URL triage and liveness checks.
-- `modes/oferta.md` -- evidence-based role evaluation.
-- `modes/pdf.md` -- Markdown CV to PDF workflow using `SCRIPTS/resumes/`.
-- `modes/tracker.md` -- application and scan history maintenance.
-- `modes/patterns.md` -- pattern-analysis workflow around
-  `SCRIPTS/ats/analyze_patterns.py`.
+## Calorimetry
 
-Draft/helper modes are kept explicit. If a workflow does not yet have a tested
-script, the mode says so rather than pretending the automation exists.
+When two objects at different temperatures come into thermal contact inside an insulated system, heat flows from hot to cold until they reach a common equilibrium temperature $T_f$. Conservation of energy requires that the heat lost by the hotter object equal the heat gained by the cooler:
 
-`data/ats/portals.yml`, `data/ats/pipeline.md`, `data/ats/scan-history.tsv`,
-and `data/ats/applications.md` are expected working files once scanner/tracker
-runs begin. Some may be private/user-specific and should be reviewed before
-commit.
+$$m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)$$
 
-## Maintained Scripts
+Solving for $T_f$:
 
-All maintained automation should live under `SCRIPTS/`.
+$$T_f = \frac{m_1 c_1 T_1 + m_2 c_2 T_2}{m_1 c_1 + m_2 c_2}$$
 
-### Top-Level Scripts
+This is a weighted average of the initial temperatures, weighted by *heat capacity* $mc$ — not by mass alone. The object with the larger heat capacity pulls the equilibrium temperature toward its initial value. That is the central lesson, and it is worth working through concretely.
 
-#### `SCRIPTS/audit_sec_dol_h1b_data.py`
+A 200 g copper block at 80°C is dropped into 500 g of water at 20°C:
 
-Audits `SEC_DOL_H1b_data_mapped.csv`.
+$$(0.200)(385)(80 - T_f) = (0.500)(4186)(T_f - 20)$$
 
-It reports:
+$$77(80 - T_f) = 2093(T_f - 20)$$
 
-- row and column counts;
-- H-1B data presence/null rates;
-- funding date distribution;
-- website coverage;
-- ATS and SOC column presence;
-- useful quality notes.
+$$6160 - 77T_f = 2093T_f - 41860$$
 
-Output convention: Markdown audit next to the data, using `-audit.md`.
+$$48020 = 2170T_f \implies T_f \approx 22.1°\text{C}$$
 
-#### `SCRIPTS/svg-to-png.mjs`
+The copper drops nearly 58°C. The water rises barely 2°C. This asymmetry is not primarily about size — it is about heat capacity. The water's heat capacity ($500 \times 4186 = 2093$ J/K) is 27 times the copper's ($200 \times 385 = 77$ J/K). The water barely registers the copper's thermal energy, because it requires so much more energy per degree to change temperature.
 
-Converts SVG images under `images/` into high-resolution PNGs for book output.
+<!-- → [IMAGE: Thermal equilibration diagram — two vessels before and after contact. Left panel: copper block at 80°C, water at 20°C, arrow showing heat flow direction. Right panel: both at 22.1°C. Annotate the heat capacities (77 J/K vs 2093 J/K) so the reader sees why water wins the tug-of-war.] -->
 
-Run:
+This calculation assumes perfect insulation. Real calorimetry enforces this with insulated containers; high-precision work uses vacuum-jacketed Dewar flasks and accounts for the heat capacity of the container itself.
 
-```bash
-npm run svg-to-png
-```
+---
 
-### SEC Scripts
+## Thermal expansion
 
-Path: `SCRIPTS/sec/`
+As temperature rises, molecules move faster and vibrate more vigorously. In a solid, the intermolecular potential is asymmetric — molecules are easier to push apart than to compress — so the average separation grows with energy even though the *equilibrium* separation sits at the potential minimum. The macroscopic result is expansion.
 
-These are canonical working copies of the 80 Days SEC pipeline. The originals
-remain under `data/80-days-to-stay/scripts/` for provenance.
+For a linear dimension $L$:
 
-#### `download_form_d_quarters.py`
+$$\Delta L = \alpha L_0 \Delta T$$
 
-Downloads SEC Form D quarterly ZIP files and extracts them into
-`data/sec/form-d/`.
+where $\alpha$ is the linear thermal expansion coefficient. For steel, $\alpha \approx 12 \times 10^{-6}$/K; for aluminum, $\alpha \approx 23 \times 10^{-6}$/K.
 
-Example:
+A 10 m steel rail warming from 20°C to 50°C expands by $\Delta L = (12 \times 10^{-6})(10)(30) = 3.6$ mm. Negligible if unconstrained. But if the rail is bolted at both ends, that 3.6 mm of blocked expansion builds into a compressive stress of $\sigma = E\alpha\Delta T = (200 \times 10^9)(12 \times 10^{-6})(30) = 72$ MPa — roughly half the yield strength of structural steel. Bridges, railroad tracks, and highway slabs all require expansion joints. The gaps look incidental; they are doing serious structural work.
 
-```bash
-python3 SCRIPTS/sec/download_form_d_quarters.py \
-  --quarters 2025Q2 2025Q3 2025Q4 2026Q1 \
-  --user "Your Name your.email@example.com"
-```
+Water is the famous exception to the rule that substances expand uniformly with temperature. Between 0°C and 4°C, water *contracts* as it warms, reaching maximum density at exactly 4°C. Above 4°C it expands normally. The origin is hydrogen-bond geometry: ice has an open hexagonal lattice; as it melts, the lattice partially collapses and the molecules pack more tightly, temporarily outweighing the thermal expansion. The consequence is that ice is less dense than liquid water and floats. If ice sank, lakes would freeze from the bottom up, and aquatic life in cold climates would be far more precarious. The anomalous density maximum is one of the quiet structural features of Earth's biology.
 
-#### `refresh_recent_sec_quarters.py`
+<!-- → [CHART: Density of water vs. temperature from −5°C to 20°C — a curve showing the density maximum at 4°C. Mark the freezing point (0°C) and the density maximum (4°C). The non-monotonic shape is the whole point; the visual makes it immediately legible in a way prose alone cannot.] -->
 
-Processes the downloaded SEC quarter folders into per-quarter JSON files under
-`data/sec/form-d/processed/`.
+---
 
-Run:
+## A note on what temperature is not
 
-```bash
-python3 SCRIPTS/sec/refresh_recent_sec_quarters.py
-```
+There is an old theory — the caloric theory, dominant in the eighteenth century — that heat was a weightless fluid called "caloric" that flowed from hot objects to cold ones and was conserved. It explained a great deal. It also predicted that you could squeeze heat out of a substance, the way you squeeze water from a sponge, and that cold was simply the *absence* of caloric.
 
-#### `sec_all_quarters.py`
+Benjamin Thompson, known as Count Rumford, noticed in 1798 that boring cannon barrels generated heat indefinitely — which a finite caloric store could not explain. James Joule, in the 1840s, showed through careful mechanical experiments that work and heat were interconvertible at a fixed rate: heat was not a substance but a form of energy. The caloric theory was replaced by what we now call thermodynamics.
 
-Processes raw quarterly SEC Form D TSV folders into company JSON records.
+The reason I mention it: the intuition that cold is *something* — a substance, a presence rather than an absence — is remarkably persistent. Cold is the absence of thermal energy. There is no cold fluid, no cold caloric. When the ocean feels cold, what is actually happening is that energy is leaving your body. Cold is not entering; warmth is exiting. The direction of language and the direction of physics point the same way, if you follow the energy rather than the sensation.
 
-Current refactor additions:
+<!-- → [IMAGE: Ocean vs. bathtub side-by-side comparison. Ocean panel: T = 12°C, N ~ 10⁴⁶ molecules, U ~ 10²³ J. Bathtub panel: T = 38°C, N ~ 10²⁶ molecules, U ~ 10⁶ J. Arrow labeled "heat flows this way" pointing from bathtub toward body, not from ocean toward body (even though ocean has 10¹⁷× more total energy). The visual makes the conceptual point unavoidable.] -->
 
-- stores `company.company_name_normalized`;
-- attempts to store `company.fein` from FEIN-like issuer columns when present.
+---
 
-#### `sec_combine_quarters.py`
+## What comes next
 
-Combines quarterly SEC JSON files and deduplicates company records.
+Temperature describes average molecular speed — a per-molecule, intensive quantity. Thermal energy is the total stored in all the molecules — extensive, proportional to $N$. Heat is what flows when temperatures differ — a transfer, not a storage.
 
-#### `sec_filter.py`
+With these three concepts in hand, Chapter 2 looks more carefully at how heat flows: the mathematics of conduction, convection, and radiation, and what happens at phase boundaries where heat flows without any change in temperature at all. Chapter 4 derives the full distribution of molecular speeds — the Maxwell-Boltzmann distribution — which explains not just the average but the entire spread of velocities, including the tails that govern planetary atmospheres and chemical reaction rates.
 
-Filters SEC company records. This works but still needs more configuration
-rather than hardcoded thresholds.
+---
 
-#### `sec_unique.py`
+## LLM Exercises
 
-Deduplicates companies by name, phone, and address. This is considered clean and
-should be kept as-is unless a concrete bug appears.
+### Build the temperature-distribution visualizer (`01-temperature-kinetic.html`)
 
-#### `sec_domain_inference.py`
+> **Show.** Maxwell-Boltzmann speed distribution: $f(v) = 4\pi (m/(2\pi k_B T))^{3/2} v^2 \exp(-mv^2/(2k_B T))$. Three characteristic speeds: most probable $v_{mp} = \sqrt{2k_BT/m}$, average $v_{avg} = \sqrt{8k_BT/(\pi m)}$, rms $v_{rms} = \sqrt{3k_BT/m}$.
+>
+> **Say.** Build a temperature + speed distribution visualizer with animated particles.
+>
+> **Constrain.** D3 v7. 2D box with N=100 particles colored by speed. Slider for T (50–2000 K) and molecular mass (selector for H₂=2, N₂=28, O₂=32, Ar=40). When T is changed, rescale all particle velocities accordingly. Below the box: a histogram of particle speeds updating in real time, with the analytical Maxwell-Boltzmann curve overlaid as a smooth line. Vertical markers at $v_{mp}, v_{avg}, v_{rms}$ with labels. Filename: `01-temperature-kinetic.html`.
+>
+> **Verify.** (a) Lower T: distribution narrows and shifts left. (b) Heavier molecule at same T: distribution narrows and shifts left. (c) $v_{mp} < v_{avg} < v_{rms}$ always (the distribution is asymmetric).
 
-Infers likely company domains from company names. This works but should be
-expanded with modern domain patterns such as `.ai`, `.bio`, `.health`, and
-biotech-specific suffixes.
+### Exploration
 
-#### `sec_flatten.py`
+Compare H₂ and N₂ at the same temperature. H₂ is 14× lighter; its $v_{rms}$ is $\sqrt{14} \approx 3.7$× faster.
 
-Flattens SEC JSON into CSV. It now preserves normalized company name and FEIN
-fields.
+Raise T from 300 K to 1200 K. The distribution should broaden by a factor of 2 ($\sqrt{4}$).
 
-#### `sec_form_d.py`
+What fraction of N₂ molecules at 300 K have $v > 1000$ m/s? Very small — the tail decays exponentially.
 
-Original single-quarter Form D processor. Useful as a reference but should be
-made configurable before becoming a primary entry point.
+### Extension prompt (chapter bridge)
 
-#### `entity_resolution.py`
+> **Show.** Different materials have different specific heats. Calorimetry: $Q_{\text{lost}} = Q_{\text{gained}}$ when systems reach equilibrium.
+>
+> **Say.** Build a calorimetry simulator: two substances in thermal contact, equilibrating over time.
+>
+> **Constrain.** Two boxes side by side, particles in each. Each box has its own initial $T_i$ and total energy. When the wall between them is "thermally conducting," energy flows: the hotter side's particles transfer energy to the cooler side via the boundary. Display each side's $T$ over time. They should converge to a common equilibrium $T_f$.
+>
+> **Verify.** $T_f$ matches the calorimetry calculation: $m_1 c_1 (T_1 - T_f) = m_2 c_2 (T_f - T_2)$.
 
-Implements the planned SEC-to-LCA matching order:
-
-1. FEIN exact match.
-2. normalized company-name exact match.
-3. fuzzy normalized-name match with threshold 0.88.
-4. unmatched rows remain unknown.
-
-This script is ready for use once raw LCA/DOL employer records are available.
-
-#### `validate_h1b_join_sample.py`
-
-Creates a deterministic sample from rows with H-1B data and writes a Markdown
-join-validation audit. Current limitation: the repo does not contain raw LCA
-employer records or match metadata, so false-positive rate cannot be estimated
-locally yet.
-
-#### `webpage_processor_clean.py`
-
-Processes scraped company HTML into cleaner Markdown/text for downstream
-annotation. This is intended for the large website corpus when present.
-
-#### `webpage_processor_raw.py`
-
-Processes/saves raw website content for archival comparison.
-
-### ATS Scripts
-
-Path: `SCRIPTS/ats/`
-
-This subsystem combines promoted 80 Days ATS scrapers with selected Job-Ops
-scanner/liveness/tracker ideas.
-
-#### `detect_ats.py`
-
-Unified Python ATS detector.
-
-Current priority:
-
-1. Greenhouse
-2. Lever
-
-It can check individual company names, newline-delimited files, or CSVs. It can
-write a compact CSV plus a Markdown audit.
-
-Example:
-
-```bash
-cd SCRIPTS/ats
-python3 detect_ats.py "Databricks, Inc." "Anthropic"
-```
-
-Against the mapped company file:
-
-```bash
-python3 detect_ats.py \
-  --csv ../../data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv \
-  --company-column company_name \
-  --output ../../data/ats/ats_detection_sample.csv
-```
-
-#### `scrapers/common/`
-
-Shared Python utilities copied from the original ATS workstream:
-
-- normalization;
-- retry handling;
-- rate limiting;
-- logging;
-- schema validation;
-- config helpers.
-
-#### `scrapers/greenhouse/scraper.py`
-
-Production Greenhouse scraper. It uses the shared utilities and writes raw jobs,
-normalized jobs, metadata, and summary files.
-
-#### `scrapers/lever/scraper.py`
-
-Production Lever scraper. It uses the shared utilities and writes raw jobs,
-normalized jobs, metadata, and summary files.
-
-#### `providers/`
-
-JavaScript provider layer adapted from Job-Ops:
-
-- `providers/_http.mjs` - shared fetch helpers.
-- `providers/greenhouse.mjs` - Greenhouse board API provider.
-- `providers/lever.mjs` - Lever postings API provider.
-- `providers/ashby.mjs` - Ashby posting API provider.
-
-These are especially useful for adding Ashby support and for scanner workflows
-that start from known `careers_url` values.
-
-#### `scan.mjs`
-
-Zero-token portal scanner using the provider layer.
-
-Default input:
-
-- `data/ats/portals.yml`
-
-Default outputs:
-
-- `data/ats/pipeline.md`
-- `data/ats/scan-history.tsv`
-
-Example:
-
-```bash
-node SCRIPTS/ats/scan.mjs --dry-run
-```
-
-The scanner supports deterministic provider loading, URL deduping,
-company-role deduping, scan history, title/location filters, and optional
-liveness verification.
-
-#### `check-liveness.mjs`
-
-Playwright CLI for checking whether job URLs are live, expired, or uncertain.
-
-Example:
-
-```bash
-node SCRIPTS/ats/check-liveness.mjs https://example.com/job/123
-```
-
-#### `liveness-core.mjs`
-
-Shared liveness classifier. It detects:
-
-- HTTP gone/not found;
-- expired body text;
-- expired URL patterns;
-- visible apply controls;
-- likely listing pages;
-- insufficient-content pages.
-
-#### `liveness-browser.mjs`
-
-Playwright page inspection used by `check-liveness.mjs` and `scan.mjs --verify`.
-It includes URL guards against private/loopback hosts.
-
-#### `verify-pipeline.mjs`
-
-Checks `data/ats/applications.md` for tracker health:
-
-- canonical statuses;
-- duplicate company/role entries;
-- report-link validity;
-- score format;
-- row format;
-- pending TSV additions.
-
-#### `normalize-statuses.mjs`
-
-Normalizes tracker statuses in `data/ats/applications.md`.
-
-#### `dedup-tracker.mjs`
-
-Deduplicates tracker rows by normalized company and fuzzy role match.
-
-#### `merge-tracker.mjs`
-
-Merges TSV additions from `data/ats/tracker-additions/` into
-`data/ats/applications.md`.
-
-#### `analyze_patterns.py`
-
-Python scaffold for outcome-pattern analysis. It reads the ATS tracker,
-scan-history TSV, pipeline inbox, run log, and saved ATS reports.
-
-Default output:
-
-- `data/ats/application-patterns-audit.md`
-
-At the current stage it reports descriptive counts and readiness blockers. Once
-students have real outcomes, extend it to measure conversion by sponsorship
-tier, liveness state, SOC group, scan source, recurring blockers, and run-log
-failures.
-
-### BLS Scripts
-
-Path: `SCRIPTS/bls/`
-
-This subsystem turns the bulky BLS/O*NET archive into compact working features
-for role-quality and labor-market-direction scoring.
-
-#### `extract_soc_occupation_table.py`
-
-Builds the compact SOC/O*NET/OEWS occupation table.
-
-Run:
-
-```bash
-python3 SCRIPTS/bls/extract_soc_occupation_table.py
-```
-
-Outputs:
-
-- `data/bls/compact/soc_occupation_compact.csv`
-- `data/bls/bls-audit.md`
-
-The compact table includes:
-
-- O*NET-SOC code;
-- BLS SOC code;
-- title and description;
-- job zone;
-- alternate title sample;
-- latest OEWS employment and wage fields;
-- selected ability Level scores;
-- selected skill Level scores;
-- `cognitive_pivot_score`.
-
-### Resume Scripts
-
-Path: `SCRIPTS/resumes/`
-
-#### `generate-pdf.mjs`
-
-Generates ATS-friendly PDF resumes from the anonymized Markdown CV examples in
-`resumes/`.
-
-Run all examples:
-
-```bash
-npm run resumes:pdf -- --all
-```
-
-Run one example:
-
-```bash
-npm run resumes:pdf -- resumes/aarav-patel-cv.md
-```
-
-Default output:
-
-- `output/resumes/{first-last-cv}.pdf`
-
-## Node Scripts
-
-The root `package.json` currently defines:
-
-```bash
-npm run svg-to-png
-npm run ats:scan
-npm run ats:liveness
-npm run ats:verify
-npm run ats:merge
-npm run ats:dedup
-npm run ats:normalize
-npm run resumes:pdf -- --all
-```
-
-Node dependencies currently include:
-
-- `glob`
-- `sharp`
-- `js-yaml`
-- `playwright`
-
-Playwright browser installation is required before live liveness checks:
-
-```bash
-npx playwright install chromium
-```
-
-## Python Script Examples
-
-Run from the book root unless noted:
-
-```bash
-python3 SCRIPTS/audit_sec_dol_h1b_data.py
-python3 SCRIPTS/sec/refresh_recent_sec_quarters.py
-python3 SCRIPTS/bls/extract_soc_occupation_table.py
-python3 SCRIPTS/ats/analyze_patterns.py
-```
-
-Run the unified ATS detector from `SCRIPTS/ats/` so package imports resolve:
-
-```bash
-cd SCRIPTS/ats
-python3 detect_ats.py "Databricks, Inc." "Anthropic"
-python3 detect_ats.py --csv ../../data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped.csv --company-column company_name --output ../../data/ats/ats_detection_sample.csv
-```
-
-## Current Build Status
-
-Completed so far:
-
-- Audited `SEC_DOL_H1b_data_mapped.csv`.
-- Copied/refactored SEC scripts into `SCRIPTS/sec/`.
-- Added normalized company names and FEIN-field support to SEC processing.
-- Refreshed SEC Form D data for 2025 Q2-Q4 and 2026 Q1.
-- Validated that local raw LCA match metadata is missing.
-- Added entity-resolution script for future raw LCA joins.
-- Promoted Greenhouse and Lever scrapers into `SCRIPTS/ats/`.
-- Added unified Python ATS detector.
-- Added Job-Ops JavaScript provider layer for Greenhouse, Lever, and Ashby.
-- Added portal scanner architecture.
-- Added job liveness checking.
-- Added tracker integrity scripts.
-- Added Python application-pattern audit scaffold:
-  `SCRIPTS/ats/analyze_patterns.py`.
-- Added `DATA_CONTRACT.md`.
-- Added verified-data student modes and `modes/RUN_LOG.md`.
-- Audited BLS/O*NET source data.
-- Generated compact SOC occupation table.
-- Added anonymized Markdown CV examples and PDF generation script.
-- Removed the copied Job-Ops source tree after adapting useful pieces.
-- Normalized source/reference data directories to lower-case kebab-case.
-- Regenerated SEC, BLS, and ATS pattern audits after path normalization.
-
-Not done yet:
-
-- Run ATS detection across all mapped companies.
-- Build Workable scraper.
-- Promote Ashby into the main Python detector or fully adopt the JS provider
-  scanner path for configured careers URLs.
-- Process the large website corpus, if available.
-- Add LLM company annotation cache.
-- Compute BLS/OEWS employment trend slopes from 2012-2024.
-- Build the SOC classification validation pipeline described in
-  `projects/soc_classification_draft.md` and
-  `projects/soc_classification_methods.md`: create an LCA-derived validation
-  set, run title-only vs. full-text classification, measure top-1 accuracy,
-  major-group accuracy, STEM recall/precision, and confidence calibration.
-- Build the H-1B misclassification study pipeline described in
-  `projects/h1b_misclassification_draft.md`: match job listings to certified
-  LCA records, independently classify SOC and wage level from listing text,
-  compute mismatch rates, and test whether employer-level mismatch predicts
-  USCIS denial rates.
-- Build the cognitive-tier startup hiring analysis described in
-  `projects/cognitive_tier_startup_hiring_draft.md` and
-  `projects/critiq_prompt_startup_eda.md`: match Form D companies to LCA
-  filings, assign SOC codes to Irreducibly Human cognitive tiers, compare
-  pre-/post-ChatGPT tier composition, and split results by biotech vs.
-  software.
-- Define or import the Irreducibly Human SOC-to-cognitive-tier taxonomy,
-  including coverage for SOC major groups 11, 13, 15, 17, and a policy for
-  out-of-coverage groups such as SOC 19.
-- Generate the tables/figures requested by the project drafts: LCA match-rate
-  tables, SOC distribution charts, O*NET skill/ability heatmaps, cognitive-tier
-  time series, wage-level distributions, classifier calibration curves, and
-  mismatch heatmaps.
-- Run the literature/research prompts in
-  `projects/persona_spec_and_research_prompts.md` if the book keeps the
-  learner-persona/tutor-adaptation thread; otherwise move that file out of this
-  repo's active roadmap.
-- Merge sponsorship, ATS, BLS role-quality, and annotation features into a
-  `companies_master_v2.csv`.
-- Build database/API/frontend layers.
-
-## Recommended Next Steps
-
-1. Create a real `data/ats/portals.yml` from a curated sample of companies with
-   known careers URLs.
-2. Run the pattern audit after tracker activity starts:
-
-   ```bash
-   python3 SCRIPTS/ats/analyze_patterns.py
-   ```
-
-3. Install Node dependencies and Chromium, then smoke-test:
-
-   ```bash
-   npm install
-   npx playwright install chromium
-   npm run ats:scan -- --dry-run
-   ```
-
-4. Add Ashby to the main ATS detection path.
-5. Add `SCRIPTS/bls/extract_employment_trends.py` to compute 2012-2024 SOC
-   employment slopes and index values.
-6. Add `SCRIPTS/bls/build_cognitive_tier_taxonomy.py` or equivalent to produce
-   a versioned SOC-to-tier table for the Irreducibly Human taxonomy.
-7. Add `SCRIPTS/lca/` or `SCRIPTS/h1b/` for raw OFLC LCA ingestion, certified
-   record filtering, FEIN/name normalization, and employer-level aggregates.
-8. Add `SCRIPTS/soc/` for LLM-based SOC classification experiments and
-   validation reports against LCA-derived ground truth.
-9. Add `SCRIPTS/h1b/measure_misclassification.py` once listing-to-LCA matching
-   exists, producing mismatch audits next to the matched data.
-10. Merge compact BLS role features into the sponsorship/company dataset by SOC
-   once SOC codes are available.
-11. Keep all new maintained automation under `SCRIPTS/`.
-
-## Data and Commit Hygiene
-
-- Treat `data/80-days-to-stay/` and `data/bls/` as source/reference
-  layers.
-- Keep data/source directories lower-case kebab-case.
-- Put maintained scripts in `SCRIPTS/`; this is the one intentional uppercase
-  project-system directory.
-- Put generated audit reports next to the data they inspect using `-audit.md`.
-- Review `data/ats/` before committing; it may contain user-specific job-search
-  activity.
-- Keep `data/career-ops-main/` deleted and ignored unless the project
-  explicitly needs to re-import that source copy.
-- The duplicated O*NET SQL export directories are ignored because the text,
-  Excel, ZIP, and compact BLS files are sufficient for the current pipeline.
-
-## More Detail
-
-- `DATA_CONTRACT.md` explains source, generated, script, book, and private data
-  ownership.
-- `SCRIPTS/README.md` summarizes maintained script subsystems.
-- `SCRIPTS/sec/README.md`, `SCRIPTS/ats/README.md`, and
-  `SCRIPTS/bls/README.md` describe each script family in more detail.
+Save as `01b-calorimetry-preview.html`. Bridge to Chapter 2.
