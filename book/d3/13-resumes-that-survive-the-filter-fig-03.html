@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résumé safe zones and danger zones</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--color-white); color:var(--color-ink); font-family:'Inter',-apple-system,sans-serif; }
+  #chart { width:100%; }
+  .head { font-size:14px; font-weight:700; }
+  .item { font-size:12px; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  safe: ['Single-column body text','Section headers as plain words','Dates as text, next to roles','Skills as a plain-text list','Real text characters throughout'],
+  danger: ['Two-column layout','Name in a header graphic','Skill bars as graphics','Table-based layout','Any text inside an image']
+};
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const css = getComputedStyle(document.documentElement); const C = n => css.getPropertyValue(n).trim();
+  const w = document.getElementById('chart').clientWidth || 700;
+  const svg = d3.select('#chart').append('svg').attr('width',w).attr('height',420)
+    .attr('viewBox','0 0 700 420').attr('preserveAspectRatio','xMidYMid meet')
+    .attr('role','img').attr('aria-labelledby','t d');
+  svg.append('title').attr('id','t').text('Résumé safe zones and danger zones');
+  svg.append('desc').attr('id','d').text('Parser-safe choices versus parser-hostile choices for a résumé.');
+
+  function col(items, x, accent, dashed, footer){
+    svg.append('rect').attr('x',x).attr('y',46).attr('width',290).attr('height',330).attr('fill',C('--color-white')).attr('stroke',C('--color-border'));
+    items.forEach((s,i)=>{
+      const y = 62 + i*36;
+      svg.append('rect').attr('x',x+16).attr('y',y).attr('width',258).attr('height',26).attr('fill',C('--color-fill'))
+        .attr('stroke',dashed?C('--color-border'):'none').attr('stroke-dasharray',dashed?'3 3':null);
+      svg.append('text').attr('x',x+24).attr('y',y+17).attr('class','item').attr('fill',dashed?C('--color-secondary'):C('--color-ink')).text(s);
+    });
+    svg.append('circle').attr('cx',x+16).attr('cy',356).attr('r',6).attr('fill',accent);
+    svg.append('text').attr('x',x+32).attr('y',360).attr('class','item').attr('fill',C('--color-secondary')).text(footer);
+  }
+  svg.append('text').attr('x',40).attr('y',34).attr('class','head').attr('fill',C('--color-red')).text('Safe zones');
+  col(FALLBACK_DATA.safe, 40, C('--color-red'), false, 'Parser can extract everything');
+  svg.append('text').attr('x',370).attr('y',34).attr('class','head').attr('fill',C('--color-secondary')).text('Danger zones');
+  col(FALLBACK_DATA.danger, 370, C('--color-secondary'), true, 'Parser scrambles or drops it');
+}
+draw();
+new ResizeObserver(()=>draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

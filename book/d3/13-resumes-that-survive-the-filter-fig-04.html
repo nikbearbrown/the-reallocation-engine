@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Two-stage résumé job: parse floor, then human</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--color-white); color:var(--color-ink); font-family:'Inter',-apple-system,sans-serif; }
+  #chart { width:100%; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  { stage:'STAGE 1', title:'ATS filter', crit:['Can the parser find your','name, title, and dates?'], note:'the floor', accent:false },
+  { stage:'STAGE 2', title:'Human review', crit:['Is the content specific and','true enough to earn a call?'], note:'where quality decides', accent:true }
+];
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const css = getComputedStyle(document.documentElement); const C = n => css.getPropertyValue(n).trim();
+  const w = document.getElementById('chart').clientWidth || 700;
+  const svg = d3.select('#chart').append('svg').attr('width',w).attr('height',400)
+    .attr('viewBox','0 0 700 400').attr('preserveAspectRatio','xMidYMid meet')
+    .attr('role','img').attr('aria-labelledby','t d');
+  svg.append('title').attr('id','t').text('Two-stage résumé job: parse floor, then human');
+  svg.append('desc').attr('id','d').text('Stage 1 ATS filter is the floor; Stage 2 human review is where content quality decides.');
+  svg.append('defs').append('marker').attr('id','a').attr('markerWidth',10).attr('markerHeight',10).attr('refX',8).attr('refY',5).attr('orient','auto')
+    .append('path').attr('d','M0,0 L10,5 L0,10 Z').attr('fill',C('--color-ink'));
+
+  const xs = [50, 410];
+  FALLBACK_DATA.forEach((d,i)=>{
+    const x = xs[i]; const accent = d.accent ? C('--color-red') : C('--color-ink');
+    svg.append('rect').attr('x',x).attr('y',90).attr('width',240).attr('height',160)
+      .attr('fill', d.accent ? C('--color-white') : C('--color-fill')).attr('stroke',accent).attr('stroke-width',1.5);
+    svg.append('text').attr('x',x+120).attr('y',82).attr('text-anchor','middle').attr('font-size',13).attr('font-weight',700).attr('fill',C('--color-secondary')).text(d.stage);
+    svg.append('text').attr('x',x+120).attr('y',128).attr('text-anchor','middle').attr('font-size',18).attr('font-family',"'EB Garamond',Georgia,serif").attr('fill',accent).text(d.title);
+    svg.append('text').attr('x',x+120).attr('y',164).attr('text-anchor','middle').attr('font-size',12).attr('fill',C('--color-secondary')).text('Criterion:');
+    d.crit.forEach((c,j)=> svg.append('text').attr('x',x+120).attr('y',186+j*18).attr('text-anchor','middle').attr('font-size',12).attr('fill',C('--color-ink')).text(c));
+    svg.append('text').attr('x',x+120).attr('y',234).attr('text-anchor','middle').attr('font-size',11).attr('font-style','italic').attr('fill',accent).text(d.note);
+  });
+  svg.append('line').attr('x1',290).attr('y1',170).attr('x2',408).attr('y2',170).attr('stroke',C('--color-ink')).attr('stroke-width',1.5).attr('marker-end','url(#a)');
+
+  svg.append('line').attr('x1',50).attr('y1',300).attr('x2',650).attr('y2',300).attr('stroke',C('--color-ochre')).attr('stroke-width',2).attr('aria-hidden','true');
+  svg.append('text').attr('x',350).attr('y',328).attr('text-anchor','middle').attr('font-family',"'EB Garamond',Georgia,serif").attr('font-style','italic').attr('font-size',13).attr('fill',C('--color-ink'))
+    .text('What survives Stage 1 is the floor; Stage 2 is where content quality decides.');
+}
+draw();
+new ResizeObserver(()=>draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

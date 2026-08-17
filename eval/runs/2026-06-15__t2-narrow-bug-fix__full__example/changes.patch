@@ -1,0 +1,9 @@
+diff --git a/scripts/doctor.mjs b/scripts/doctor.mjs
+index 1111111..2222222 100644
+--- a/scripts/doctor.mjs
++++ b/scripts/doctor.mjs
+@@ -10,6 +10,8 @@
+ const strict = process.argv.includes('--strict');
++const asJson = process.argv.includes('--json');
+ const ok = (b) => (b ? '✓' : '✗');
++// (example) --json emits the SUMMARY block as JSON; human output unchanged.

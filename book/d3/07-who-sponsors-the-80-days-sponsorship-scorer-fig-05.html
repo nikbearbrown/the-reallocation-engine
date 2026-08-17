@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Famous brand versus unknown biotech: the ranking flip</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .label { font-family:'Inter',sans-serif; font-size:12px; fill:var(--color-ink); }
+    .tick { font-family:'JetBrains Mono',monospace; font-size:11px; fill:var(--color-secondary); }
+    .legend { font-family:'Inter',sans-serif; font-size:12px; fill:var(--color-ink); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    // values normalized 0..1
+    const FALLBACK_DATA = [
+      { metric: 'LCA count',       famous: 0.11, unknown: 0.80 },
+      { metric: 'approval rate',   famous: 0.15, unknown: 0.85 },
+      { metric: 'funding recency', famous: 0.75, unknown: 0.90 },
+      { metric: 'composite score', famous: 0.23, unknown: 0.93 }
+    ];
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.6);
+      const margin = { top: 48, right: 40, bottom: 64, left: 160 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Famous brand versus unknown biotech: the ranking flip');
+      svg.append('desc').attr('id','chart-desc').text('A grouped horizontal bar chart comparing two companies across four sponsorship metrics; the unknown biotech outscores the famous brand on the record.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Famous brand vs. unknown biotech: the ranking flip');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+      const x = d3.scaleLinear().domain([0,1]).range([0,chartWidth]);
+      const yGroup = d3.scaleBand().domain(data.map(d=>d.metric)).range([0,chartHeight]).padding(0.3);
+      const ySub = d3.scaleBand().domain(['famous','unknown']).range([0,yGroup.bandwidth()]).padding(0.15);
+
+      g.append('line').attr('aria-hidden','true').attr('x1',0).attr('y1',0).attr('x2',0).attr('y2',chartHeight).attr('stroke','var(--color-ink)').attr('stroke-width',1);
+      g.append('line').attr('aria-hidden','true').attr('x1',0).attr('y1',chartHeight).attr('x2',chartWidth).attr('y2',chartHeight).attr('stroke','var(--color-border)').attr('stroke-width',1);
+
+      const groups = g.selectAll('.grp').data(data).join('g').attr('class','grp').attr('transform',d=>`translate(0,${yGroup(d.metric)})`);
+      groups.append('text').attr('class','label').attr('x',-10).attr('y',yGroup.bandwidth()/2+4).attr('text-anchor','end').text(d=>d.metric);
+
+      ['famous','unknown'].forEach(series => {
+        groups.append('rect')
+          .attr('x',0).attr('y',ySub(series)).attr('height',ySub.bandwidth())
+          .attr('width',d=>x(d[series]))
+          .attr('fill', series==='unknown' ? 'var(--color-red)' : 'var(--color-secondary)')
+          .attr('tabindex',0).attr('role','img')
+          .attr('aria-label',d=>`${d.metric}, ${series==='unknown'?'unknown biotech':'famous brand'}: ${Math.round(d[series]*100)} of 100`)
+          .on('mouseover',(e,d)=>tooltip.html(`<strong>${series==='unknown'?'unknown biotech':'famous brand'}</strong><br>${d.metric}: ${Math.round(d[series]*100)}/100`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+      });
+
+      // legend
+      const lg = svg.append('g').attr('transform',`translate(${margin.left},${totalHeight-26})`);
+      lg.append('rect').attr('x',0).attr('y',-10).attr('width',12).attr('height',12).attr('fill','var(--color-secondary)');
+      lg.append('text').attr('class','legend').attr('x',18).attr('y',0).text('famous brand');
+      lg.append('rect').attr('x',130).attr('y',-10).attr('width',12).attr('height',12).attr('fill','var(--color-red)');
+      lg.append('text').attr('class','legend').attr('x',148).attr('y',0).text('unknown biotech');
+
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-8).attr('text-anchor','end').text('SOURCE: SEC + DOL + USCIS RECORD');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./07-who-sponsors-the-80-days-sponsorship-scorer-fig-05.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

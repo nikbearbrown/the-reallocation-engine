@@ -1,0 +1,36 @@
+name: verify
+
+# Machine half of P4 (SNICKERDOODLE.md): every push/PR must conform, and the
+# generated instruction/adapter files must match their source. Humans still
+# verify adequacy.
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install PyYAML (conformance + manifest-check parse YAML via python3)
+        run: pip install pyyaml
+
+      - name: Conformance — JSON/YAML/JS/MD well-formed
+        run: node scripts/conformance.mjs
+
+      # Subsumes the old hand-rolled AGENTS/CLAUDE diff: manifest-check rebuilds
+      # from instructions/ and verifies ALL generated adapters match (AGENTS.md,
+      # CLAUDE.md, .gemini/settings.json, .aider.conf.yml,
+      # .github/copilot-instructions.md, .cursor/rules/*.mdc), plus that every
+      # canonical file exists. Fails (exit 1) on drift or a missing canonical file.
+      - name: Manifest check — adapters in sync + canonical files present
+        run: node scripts/manifest-check.mjs

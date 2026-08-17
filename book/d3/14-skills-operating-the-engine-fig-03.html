@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>End-to-end chain: scan → pipeline → oferta → verify</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--color-white); color:var(--color-ink); font-family:'Inter',-apple-system,sans-serif; }
+  #chart { width:100%; }
+  .mono { font-family:'JetBrains Mono',monospace; }
+  .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white);
+    border:1px solid var(--color-border); border-radius:8px; padding:6px 10px; font-size:13px; color:var(--color-ink); }
+  @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  { id:'scan', label:'scan', checkpoint:'ATS detected, postings list' },
+  { id:'pipeline', label:'pipeline', checkpoint:'four factors with source labels' },
+  { id:'oferta', label:'oferta', checkpoint:'composite with traced terms' },
+  { id:'verify', label:'verify', checkpoint:'consistency audit' }
+];
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const css = getComputedStyle(document.documentElement); const C = n => css.getPropertyValue(n).trim();
+  const w = document.getElementById('chart').clientWidth || 700;
+  const svg = d3.select('#chart').append('svg').attr('width',w).attr('height',360)
+    .attr('viewBox','0 0 700 360').attr('preserveAspectRatio','xMidYMid meet')
+    .attr('role','img').attr('aria-labelledby','t d');
+  svg.append('title').attr('id','t').text('End-to-end chain: scan → pipeline → oferta → verify');
+  svg.append('desc').attr('id','d').text('Four sequential stages each with a provenance checkpoint, feeding RUN_LOG.md.');
+  svg.append('defs').append('marker').attr('id','a').attr('markerWidth',9).attr('markerHeight',9).attr('refX',7).attr('refY',4.5).attr('orient','auto')
+    .append('path').attr('d','M0,0 L9,4.5 L0,9 Z').attr('fill',C('--color-ink'));
+
+  const tooltip = d3.select('body').append('div').attr('class','tooltip');
+  const bw = 130, gap = 40, startX = (700 - (bw*4 + gap*3))/2, y = 70;
+
+  FALLBACK_DATA.forEach((d,i)=>{
+    const x = startX + i*(bw+gap);
+    const g = svg.append('g').attr('tabindex',0).attr('aria-label',`${d.label}: ${d.checkpoint}`)
+      .on('mouseover',(event)=>tooltip.html(`<strong>${d.label}</strong><br>${d.checkpoint}`).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1))
+      .on('mousemove',(event)=>tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px'))
+      .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+    g.append('rect').attr('x',x).attr('y',y).attr('width',bw).attr('height',50).attr('fill',C('--color-white')).attr('stroke',C('--color-ink')).attr('stroke-width',1.5);
+    g.append('text').attr('class','mono').attr('x',x+bw/2).attr('y',y+30).attr('text-anchor','middle').attr('font-size',13).attr('fill',C('--color-red')).text(d.label);
+    g.append('text').attr('x',x+bw/2).attr('y',y+78).attr('text-anchor','middle').attr('font-size',10).attr('fill',C('--color-secondary')).text(d.checkpoint.split(',')[0]);
+    if(i<3) svg.append('line').attr('x1',x+bw).attr('y1',y+25).attr('x2',x+bw+gap-2).attr('y2',y+25).attr('stroke',C('--color-ink')).attr('stroke-width',1.5).attr('marker-end','url(#a)');
+  });
+
+  // RUN_LOG
+  svg.append('rect').attr('x',270).attr('y',220).attr('width',160).attr('height',46).attr('fill',C('--color-fill')).attr('stroke',C('--color-ink')).attr('stroke-width',1.5);
+  svg.append('text').attr('class','mono').attr('x',350).attr('y',248).attr('text-anchor','middle').attr('font-size',13).attr('fill',C('--color-ink')).text('RUN_LOG.md');
+  svg.append('line').attr('x1',startX+3*(bw+gap)+bw/2).attr('y1',120).attr('x2',350).attr('y2',218).attr('stroke',C('--color-ink')).attr('stroke-width',1.5).attr('marker-end','url(#a)');
+
+  svg.append('line').attr('x1',40).attr('y1',300).attr('x2',660).attr('y2',300).attr('stroke',C('--color-ochre')).attr('stroke-width',2).attr('aria-hidden','true');
+  svg.append('text').attr('x',350).attr('y',328).attr('text-anchor','middle').attr('font-family',"'EB Garamond',Georgia,serif").attr('font-style','italic').attr('font-size',13).attr('fill',C('--color-ink'))
+    .text('The chain is only as trustworthy as its weakest provenance link.');
+}
+draw();
+new ResizeObserver(()=>draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

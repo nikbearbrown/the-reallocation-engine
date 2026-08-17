@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Domain inference: where the pipeline stops and you begin</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-fill:      #F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-fill:      #1A1A1A;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .seg-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-white); }
+    .seg-note { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; }
+    .source { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); letter-spacing: 0.08em; }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 10px; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { id: 'inferred', label: 'domain inferred automatically', value: 62, emphasis: false },
+      { id: 'manual', label: 'manual-lookup queue', value: 38, emphasis: true }
+    ];
+
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.45);
+      const margin = { top: 56, right: 40, bottom: 56, left: 64 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const barHeight = 64;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Domain inference: where the pipeline stops and you begin');
+      svg.append('desc').attr('id', 'chart-desc').text('A single horizontal bar split into a larger sixty-two percent automatically-inferred segment and a smaller, emphasized thirty-eight percent manual-lookup segment marking the human handoff.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', margin.left).attr('y', 24).text('Domain inference: where the pipeline stops and you begin');
+
+      const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+      const x = d3.scaleLinear().domain([0, 100]).range([0, chartWidth]); // zero baseline
+
+      let acc = 0;
+      const segs = data.map(d => { const s = { ...d, x0: acc }; acc += d.value; return s; });
+
+      g.selectAll('.seg').data(segs).join('rect').attr('class', 'seg')
+        .attr('x', d => x(d.x0)).attr('y', 0).attr('width', d => x(d.value)).attr('height', barHeight)
+        .attr('fill', d => d.emphasis ? 'var(--color-ochre)' : 'var(--color-ink)')
+        .attr('stroke', 'var(--color-white)').attr('stroke-width', 1)
+        .attr('tabindex', 0).attr('role', 'img')
+        .attr('aria-label', d => `${d.label}: ${d.value} percent`)
+        .on('mouseover', (e, d) => tooltip.html(`<strong>${d.label}</strong>: ~${d.value}%`).style('left', (e.pageX + 12) + 'px').style('top', (e.pageY - 28) + 'px').transition().duration(150).style('opacity', 1))
+        .on('mousemove', (e) => tooltip.style('left', (e.pageX + 12) + 'px').style('top', (e.pageY - 28) + 'px'))
+        .on('mouseout', () => tooltip.transition().duration(100).style('opacity', 0));
+
+      g.selectAll('.sl').data(segs).join('text').attr('class', 'mono')
+        .attr('x', d => x(d.x0) + x(d.value) / 2).attr('y', barHeight / 2 + 4).attr('text-anchor', 'middle')
+        .attr('fill', d => d.emphasis ? 'var(--color-ink)' : 'var(--color-white)')
+        .text(d => '~' + d.value + '%');
+
+      g.selectAll('.sn').data(segs).join('text').attr('class', 'seg-note')
+        .attr('x', d => x(d.x0) + x(d.value) / 2).attr('y', barHeight + 20).attr('text-anchor', 'middle')
+        .text(d => d.label);
+
+      svg.append('text').attr('class', 'source').attr('x', totalWidth - margin.right).attr('y', totalHeight - 12).attr('text-anchor', 'end').text('SOURCE: sec-domain-inference.py');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./06-where-the-money-went-sec-form-d-fig-04.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => {
+      draw(data);
+      const ro = new ResizeObserver(() => draw(data));
+      ro.observe(document.getElementById('chart'));
+    });
+  </script>
+</body>
+</html>

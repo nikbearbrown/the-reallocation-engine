@@ -1,0 +1,65 @@
+<!--
+  Figure: Drift — when the map leaves the territory
+  Book: The Reallocation Engine
+  Chapter: 04-two-customers
+  Figure: 03
+  Type: process flowchart (divergence over time)
+  Generated: 2026-06-15
+  Source: pantry/04-two-customers-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">Drift: when the map leaves the territory</title>
+  <desc>Two parallel tracks across three time positions. At first the recipe and its human card are in sync. At a change event the recipe is updated while the card stays unchanged and the connector between them breaks. At the consequence, a reader follows the stale card down a wrong path that diverges from the recipe's actual behavior.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="04-two-customers" figure-number="03" figure-title="Drift: when the map leaves the territory" figure-slug="drift-map-and-territory" figure-type="process flowchart (divergence over time)" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/04-two-customers-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Drift: when the map leaves the territory</text>
+
+  <!-- track labels -->
+  <text x="40" y="128" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Recipe</text>
+  <text x="40" y="248" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Card</text>
+
+  <!-- TIME 1: in sync -->
+  <rect x="92" y="100" width="120" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="152" y="127" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Recipe v1</text>
+  <rect x="92" y="220" width="120" height="44" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="152" y="247" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Card v1</text>
+  <!-- in-sync connector -->
+  <line x1="152" y1="144" x2="152" y2="220" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="152" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">in sync</text>
+
+  <!-- TIME 2: recipe updated, card unchanged, connector breaks -->
+  <path d="M212 122 L284 122" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="290" y="92" width="120" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="2.5"/>
+  <text x="350" y="119" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Recipe v2</text>
+  <!-- card stays (carried from v1) -->
+  <path d="M212 242 L284 242" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="290" y="220" width="120" height="44" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="350" y="247" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Card v1 (stale)</text>
+  <!-- broken connector -->
+  <line x1="350" y1="136" x2="350" y2="174" stroke="#C8102E" stroke-width="1.5"/>
+  <line x1="350" y1="190" x2="350" y2="220" stroke="#C8102E" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <path d="M338 178 L362 186 M338 186 L362 178" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="350" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#C8102E">connector breaks</text>
+
+  <!-- TIME 3: reader follows stale card down wrong path -->
+  <path d="M410 242 L482 242" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="488" y="220" width="160" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="568" y="247" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Reader consults card</text>
+  <!-- wrong path branch peeling away from actual recipe behavior -->
+  <path d="M410 114 L470 114" fill="none" stroke="#787878" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="500" y="118" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">actual behavior</text>
+  <path d="M568 264 L568 320" fill="none" stroke="#C8102E" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="498" y="324" width="140" height="40" fill="#C8102E"/>
+  <text x="568" y="349" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Wrong path</text>
+
+  <!-- time axis -->
+  <text x="152" y="388" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">t1</text>
+  <text x="350" y="388" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">t2: edit</text>
+  <text x="568" y="388" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">t3: consequence</text>
+
+  <text x="32" y="412" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Drift is structural: one unmatched edit silently separates documentation from reality.</text>
+</svg>

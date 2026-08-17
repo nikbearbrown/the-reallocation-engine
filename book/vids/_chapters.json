@@ -1,0 +1,140 @@
+{
+  "book": "the-reallocation-engine",
+  "book_title": "The Reallocation Engine — Verified Data, Phase Gates, and CLI Pipelines for the F-1 OPT Search",
+  "chapter_count": 19,
+  "chapters": [
+    {
+      "file": "chapters/00-introduction.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/00-introduction.md",
+      "title": "Introduction",
+      "words": 2683,
+      "images": 0
+    },
+    {
+      "file": "chapters/01-the-fluency-trap.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/01-the-fluency-trap.md",
+      "title": "Chapter 1 — The Fluency Trap",
+      "words": 5948,
+      "images": 4
+    },
+    {
+      "file": "chapters/02-the-reallocation-principle.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/02-the-reallocation-principle.md",
+      "title": "Chapter 2 — The Reallocation Principle",
+      "words": 4124,
+      "images": 4
+    },
+    {
+      "file": "chapters/03-the-verified-data-contract.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/03-the-verified-data-contract.md",
+      "title": "Chapter 3 — The Verified-Data Contract",
+      "words": 4638,
+      "images": 4
+    },
+    {
+      "file": "chapters/04-two-customers.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/04-two-customers.md",
+      "title": "Chapter 4 — Two Customers: Writing a Recipe for the AI and the Human",
+      "words": 5149,
+      "images": 3
+    },
+    {
+      "file": "chapters/05-verifying-the-data.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/05-verifying-the-data.md",
+      "title": "Chapter 5 — Verifying the Data",
+      "words": 6026,
+      "images": 4
+    },
+    {
+      "file": "chapters/06-where-the-money-went-sec-form-d.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/06-where-the-money-went-sec-form-d.md",
+      "title": "Chapter 6 — Where the Money Went: SEC Form D",
+      "words": 3976,
+      "images": 4
+    },
+    {
+      "file": "chapters/07-who-sponsors-the-80-days-sponsorship-scorer.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/07-who-sponsors-the-80-days-sponsorship-scorer.md",
+      "title": "Chapter 7 — Who Sponsors: The 80 Days Sponsorship Scorer",
+      "words": 4729,
+      "images": 5
+    },
+    {
+      "file": "chapters/08-is-the-job-real-ats-detection-and-liveness.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/08-is-the-job-real-ats-detection-and-liveness.md",
+      "title": "Chapter 8 — Is the Job Real: ATS Detection and Liveness",
+      "words": 4457,
+      "images": 5
+    },
+    {
+      "file": "chapters/09-is-the-role-any-good-bls-onet-role-quality.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/09-is-the-role-any-good-bls-onet-role-quality.md",
+      "title": "Chapter 9 — Is the Role Any Good: BLS / O\\*NET Role Quality",
+      "words": 3453,
+      "images": 3
+    },
+    {
+      "file": "chapters/10-the-visa-timeline-manager.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/10-the-visa-timeline-manager.md",
+      "title": "Chapter 10 — The Visa Timeline Manager",
+      "words": 4235,
+      "images": 4
+    },
+    {
+      "file": "chapters/11-the-bayesian-role-scorer.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/11-the-bayesian-role-scorer.md",
+      "title": "Chapter 11 — The Bayesian Role Scorer",
+      "words": 4074,
+      "images": 4
+    },
+    {
+      "file": "chapters/12-the-opt-framing-generator.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/12-the-opt-framing-generator.md",
+      "title": "Chapter 12 — The OPT Framing Generator",
+      "words": 3254,
+      "images": 3
+    },
+    {
+      "file": "chapters/13-resumes-that-survive-the-filter.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/13-resumes-that-survive-the-filter.md",
+      "title": "Chapter 13 — Resumes That Survive the Filter",
+      "words": 3687,
+      "images": 4
+    },
+    {
+      "file": "chapters/14-skills-operating-the-engine.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/14-skills-operating-the-engine.md",
+      "title": "Chapter 14 — Recipes: Operating the Engine",
+      "words": 3909,
+      "images": 3
+    },
+    {
+      "file": "chapters/15-the-pipeline-tracker-and-the-skip-rate.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/15-the-pipeline-tracker-and-the-skip-rate.md",
+      "title": "Chapter 15 — The Pipeline Tracker and the Skip Rate",
+      "words": 3072,
+      "images": 3
+    },
+    {
+      "file": "chapters/16-the-build-and-the-honest-run.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/16-the-build-and-the-honest-run.md",
+      "title": "Chapter 16 — The Build and the Honest Run",
+      "words": 4154,
+      "images": 4
+    },
+    {
+      "file": "chapters/97-fundamental-themes.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/97-fundamental-themes.md",
+      "title": "The Fundamental Themes",
+      "words": 7727,
+      "images": 4
+    },
+    {
+      "file": "chapters/98-appendix-best-practices.md",
+      "path": "/Users/nik/Documents/Cowork/the-reallocation-engine/chapters/98-appendix-best-practices.md",
+      "title": "Appendix: Best Practices for Running the Reallocation Engine",
+      "words": 934,
+      "images": 1
+    }
+  ]
+}

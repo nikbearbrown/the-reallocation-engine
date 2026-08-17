@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The calendar gate</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .stage-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-ink); }
+    .cliff-label { font-family:'Inter',sans-serif; font-size:11px; font-weight:700; fill:var(--color-red); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      stages: ['application','phone screen','technical rounds','panel','offer'],
+      cliffAfter: 2 // cliff falls after index 2 (technical rounds), before panel/offer
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.5);
+      const margin = { top: 64, right: 40, bottom: 56, left: 40 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const y = totalHeight*0.5;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('The calendar gate');
+      svg.append('desc').attr('id','chart-desc').text('A hiring timeline crossed by an authorization-ends line; stages past the line are unreachable.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('The calendar gate: a process that runs past authorization');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},0)`);
+      const n = data.stages.length;
+      const xs = data.stages.map((s,i)=> (chartWidth/(n))*(i+0.5));
+      // cliff x between cliffAfter and next
+      const cliffX = (xs[data.cliffAfter] + xs[data.cliffAfter+1]) / 2;
+
+      const defs = svg.append('defs');
+      defs.append('marker').attr('id','arrow').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+      // blocked region right of cliff
+      g.append('rect').attr('aria-hidden','true').attr('x',cliffX).attr('y',y-50).attr('width',chartWidth-cliffX).attr('height',100)
+        .attr('fill','var(--color-red)').attr('opacity',0.07);
+
+      // connecting line
+      for(let i=0;i<n-1;i++){
+        const reachable = i < data.cliffAfter;
+        g.append('line').attr('aria-hidden','true').attr('x1',xs[i]+20).attr('y1',y).attr('x2',xs[i+1]-22).attr('y2',y)
+          .attr('stroke', reachable?'var(--color-ink)':'var(--color-secondary)').attr('stroke-width',1.4)
+          .attr('opacity', i>=data.cliffAfter?0.5:1).attr('marker-end','url(#arrow)');
+      }
+
+      // cliff line
+      g.append('line').attr('x1',cliffX).attr('y1',y-56).attr('x2',cliffX).attr('y2',y+56).attr('stroke','var(--color-red)').attr('stroke-width',2.5);
+      g.append('text').attr('class','cliff-label').attr('x',cliffX).attr('y',y-62).attr('text-anchor','middle').text('authorization ends');
+
+      // stage nodes
+      data.stages.forEach((s,i)=>{
+        const unreachable = i > data.cliffAfter;
+        g.append('circle').attr('cx',xs[i]).attr('cy',y).attr('r',16)
+          .attr('fill', unreachable?'var(--color-fill)':'var(--color-white)')
+          .attr('stroke', unreachable?'var(--color-secondary)':'var(--color-ink)').attr('stroke-width',1.5)
+          .attr('opacity', unreachable?0.55:1)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`${s}${unreachable?' (unreachable — past authorization)':''}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${s}</strong>${unreachable?'<br>past authorization — unreachable':''}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        g.append('text').attr('class','stage-label').attr('x',xs[i]).attr('y',y+36).attr('text-anchor','middle').attr('opacity',unreachable?0.55:1).text(s);
+      });
+
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-12).attr('text-anchor','end').text('SOURCE: AN OFFER PAST THE LINE IS WORTHLESS');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./10-the-visa-timeline-manager-fig-01.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

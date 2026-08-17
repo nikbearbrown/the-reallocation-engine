@@ -1,0 +1,61 @@
+<!--
+  Figure: Where does a freed hour go?
+  Book: The Reallocation Engine
+  Chapter: 02-the-reallocation-principle
+  Figure: 04
+  Type: process flowchart (decision tree)
+  Generated: 2026-06-15
+  Source: pantry/02-the-reallocation-principle-cajal.md
+-->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">Where does a freed hour go?</title>
+  <desc>A top-down decision tree. A freed hour enters a first gate: are fewer than about ten live conversations going? If yes, route to networking. If no, a second gate: is there no deployed metric-bearing portfolio project from the last ninety days? If so, route to portfolio. Only when both are healthy does the hour go to additional applications, the lowest priority.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="02-the-reallocation-principle" figure-number="04" figure-title="Where does a freed hour go?" figure-slug="freed-hour-decision-tree" figure-type="process flowchart (decision tree)" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/02-the-reallocation-principle-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Where does a freed hour go?</text>
+
+  <!-- Entry node -->
+  <rect x="270" y="60" width="160" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="350" y="87" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">A freed hour</text>
+
+  <path d="M350 104 L350 132" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision 1 diamond -->
+  <polygon points="350,136 446,184 350,232 254,184" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="178" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Fewer than ~10</text>
+  <text x="350" y="194" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">live conversations?</text>
+
+  <!-- Yes -> networking (left terminal) -->
+  <path d="M254 184 L150 184 L150 220" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="200" y="176" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">yes</text>
+  <rect x="90" y="224" width="120" height="48" fill="#C8102E"/>
+  <text x="150" y="253" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Networking</text>
+
+  <!-- No -> down to decision 2 -->
+  <path d="M350 232 L350 264" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="364" y="252" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">no</text>
+
+  <!-- Decision 2 diamond -->
+  <polygon points="350,268 446,316 350,364 254,316" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="306" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">No deployed,</text>
+  <text x="350" y="320" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">metric-bearing project</text>
+  <text x="350" y="334" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">in 90 days?</text>
+
+  <!-- Yes -> portfolio (left terminal) -->
+  <path d="M254 316 L150 316 L150 352" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="200" y="308" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">yes</text>
+  <rect x="90" y="356" width="120" height="48" fill="#2a1a0e"/>
+  <text x="150" y="385" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Portfolio</text>
+
+  <!-- No (both healthy) -> additional applications, subordinate -->
+  <path d="M350 364 L350 396" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="364" y="384" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">no</text>
+  <rect x="284" y="400" width="132" height="40" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="350" y="424" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Additional applications</text>
+
+  <text x="32" y="462" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Applications are reached last, after two gates — the lowest-priority destination for a freed hour.</text>
+</svg>

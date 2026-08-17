@@ -1,0 +1,59 @@
+<!--
+  Figure: AI as material risk — S&P 500 disclosures
+  Book: The Reallocation Engine
+  Chapter: 01-the-fluency-trap
+  Figure: 03
+  Type: statistical / quantitative (line/trend chart)
+  Generated: 2026-06-15
+  Source: pantry/01-the-fluency-trap-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">Share of S&#38;P 500 naming AI a material risk</title>
+  <desc>A single rising line across three time points: about 12 percent in 2023, about 72 percent in 2025, and about 83 percent in a later 2025 update. The steep first segment is highlighted. The y-axis is anchored at zero.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="01-the-fluency-trap" figure-number="03" figure-title="Share of S&amp;P 500 naming AI a material risk" figure-slug="ai-as-material-risk" figure-type="statistical / quantitative (line/trend chart)" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/01-the-fluency-trap-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Share of S&#38;P 500 naming AI a material risk</text>
+
+  <!-- Plot region x 80..660, y 56..348 -->
+  <rect x="80" y="56" width="580" height="292" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- y axis 0..100; baseline y=348; 100% at y=64; scale 2.84 px/pct -->
+  <line x1="80" y1="348" x2="80" y2="56" stroke="#545454" stroke-width="1"/>
+  <line x1="80" y1="348" x2="660" y2="348" stroke="#545454" stroke-width="1"/>
+  <text x="72" y="352" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0</text>
+  <line x1="76" y1="206" x2="80" y2="206" stroke="#545454" stroke-width="1"/>
+  <text x="72" y="210" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">50</text>
+  <line x1="76" y1="64" x2="80" y2="64" stroke="#545454" stroke-width="1"/>
+  <text x="72" y="68" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">100</text>
+
+  <!-- x positions: 160, 400, 600 -->
+  <!-- y = 348 - pct*2.84 ; 12%->314 ; 72%->144 ; 83%->112 -->
+
+  <!-- slope callout region between point 1 and point 2 -->
+  <polygon points="160,348 400,348 400,144 160,314" fill="#F5F5F5" stroke="none"/>
+  <rect x="160" y="112" width="240" height="236" fill="#2a1a0e" fill-opacity="0.04"/>
+
+  <!-- line -->
+  <polyline points="160,314 400,144 600,112" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+
+  <!-- nodes -->
+  <circle cx="160" cy="314" r="4" fill="#2a1a0e"/>
+  <circle cx="400" cy="144" r="4" fill="#2a1a0e"/>
+  <circle cx="600" cy="112" r="4" fill="#2a1a0e"/>
+
+  <text x="160" y="306" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">12%</text>
+  <text x="400" y="136" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">72%</text>
+  <text x="600" y="104" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">83%</text>
+
+  <!-- x labels -->
+  <text x="160" y="370" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2023</text>
+  <text x="400" y="370" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2025</text>
+  <text x="600" y="370" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2025 (update)</text>
+
+  <text x="32" y="396" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The shaded first segment is where hype became liability.</text>
+  <text x="32" y="412" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" letter-spacing="0.08em">SOURCE: THE CONFERENCE BOARD / ESGAUGE, 10-K FILINGS</text>
+</svg>

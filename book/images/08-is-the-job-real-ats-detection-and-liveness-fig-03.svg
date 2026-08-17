@@ -1,0 +1,57 @@
+<!-- Five signals to one classification
+     Book: The Reallocation Engine
+     Chapter: 08-is-the-job-real-ats-detection-and-liveness
+     Figure 03
+     Type: systems diagram (five inputs, three-way output)
+     Generated 2026-06-15
+     Source: pantry/08-is-the-job-real-ats-detection-and-liveness-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">Five signals to one classification</title>
+<desc>Five posting signals — posting age, last-updated date, sibling-listing activity (the most diagnostic, emphasized), description specificity, and active-search context — feed a single liveness classifier. The classifier fans out to three terminal calls: live, ghost, and investigate, where investigate is the honest mixed-signal response. Five behavioral observations resolve into one of three actions.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="08-is-the-job-real-ats-detection-and-liveness" figure-number="03" figure-title="Five signals to one classification" figure-slug="five-signal-classifier" figure-type="systems" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/08-is-the-job-real-ats-detection-and-liveness-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Five signals to one classification</text>
+
+<!-- Five input nodes left -->
+<rect x="40" y="78" width="160" height="40" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="120" y="103" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">posting age</text>
+<rect x="40" y="130" width="160" height="40" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="120" y="155" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">last-updated date</text>
+<!-- emphasized -->
+<rect x="40" y="182" width="160" height="40" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="120" y="201" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">sibling-listing activity</text>
+<text x="120" y="215" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">most diagnostic</text>
+<rect x="40" y="234" width="160" height="40" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="120" y="259" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">description specificity</text>
+<rect x="40" y="286" width="160" height="40" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="120" y="311" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">active-search context</text>
+
+<!-- classifier node center -->
+<rect x="300" y="170" width="120" height="64" rx="0" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="360" y="198" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">liveness</text>
+<text x="360" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">classifier</text>
+
+<!-- input arrows -->
+<line x1="200" y1="98" x2="298" y2="184" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="200" y1="150" x2="298" y2="192" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="200" y1="202" x2="298" y2="202" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="200" y1="254" x2="298" y2="212" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="200" y1="306" x2="298" y2="220" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- three outputs right -->
+<rect x="500" y="100" width="150" height="44" rx="0" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="575" y="127" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">live</text>
+<rect x="500" y="180" width="150" height="44" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1" stroke-dasharray="5 4"/>
+<text x="575" y="201" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">investigate</text>
+<text x="575" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">mixed signals</text>
+<rect x="500" y="260" width="150" height="44" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="575" y="287" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">ghost</text>
+
+<!-- output arrows -->
+<line x1="420" y1="192" x2="498" y2="124" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="420" y1="202" x2="498" y2="202" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="420" y1="212" x2="498" y2="280" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<text x="360" y="368" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">five observations in, one of three calls out</text>
+</svg>

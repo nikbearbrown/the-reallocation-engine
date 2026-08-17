@@ -1,0 +1,57 @@
+<!-- Base rate pulls the posterior down
+     Book: The Reallocation Engine
+     Chapter: 05-verifying-the-data
+     Figure 04
+     Type: statistical / quantitative (before/after probability markers)
+     Generated 2026-06-15
+     Source: pantry/05-verifying-the-data-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+<title id="fig-title-04">Base rate pulls the posterior down</title>
+<desc>A horizontal probability axis from zero to one carries three markers: a low base-rate prior near 0.08 at the left, the raw scorer output at 0.68 toward the right, and the corrected posterior landing around 0.40 between them. A correction arrow runs leftward from the raw output to the posterior; a faint anchor line from the prior shows it pulling the score down. The headline raw score overstates the real probability once the prior is applied.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="05-verifying-the-data" figure-number="04" figure-title="Base rate pulls the posterior down" figure-slug="base-rate-posterior" figure-type="statistical" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/05-verifying-the-data-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Base rate pulls the posterior down</text>
+<text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">pharma SIC, 12 filings, 80% approval — the 0.68 signal overstates the real probability</text>
+
+<!-- Plot region -->
+<rect x="64" y="150" width="596" height="120" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+<!-- Probability axis 0..1 mapped x: 64 -> 660 -->
+<line x1="64" y1="270" x2="660" y2="270" stroke="#2a1a0e" stroke-width="1"/>
+<!-- ticks at 0, .25, .5, .75, 1 -->
+<line x1="64" y1="270" x2="64" y2="276" stroke="#545454" stroke-width="1"/>
+<line x1="213" y1="270" x2="213" y2="276" stroke="#545454" stroke-width="1"/>
+<line x1="362" y1="270" x2="362" y2="276" stroke="#545454" stroke-width="1"/>
+<line x1="511" y1="270" x2="511" y2="276" stroke="#545454" stroke-width="1"/>
+<line x1="660" y1="270" x2="660" y2="276" stroke="#545454" stroke-width="1"/>
+<text x="64" y="292" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.0</text>
+<text x="213" y="292" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.25</text>
+<text x="362" y="292" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.50</text>
+<text x="511" y="292" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.75</text>
+<text x="660" y="292" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">1.0</text>
+<text x="362" y="312" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">probability</text>
+
+<!-- prior marker at 0.08 -> x = 64 + 0.08*596 = 111.7 -->
+<line x1="112" y1="160" x2="112" y2="270" stroke="#787878" stroke-width="1" stroke-dasharray="5 4"/>
+<circle cx="112" cy="270" r="5" fill="#2a1a0e"/>
+<text x="112" y="148" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">base-rate prior</text>
+<text x="112" y="133" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.08</text>
+
+<!-- posterior marker at 0.40 -> x = 64 + 0.40*596 = 302.4 -->
+<circle cx="302" cy="270" r="6" fill="#C8102E"/>
+<text x="302" y="225" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">corrected posterior</text>
+<text x="302" y="210" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#C8102E">~0.40</text>
+
+<!-- raw marker at 0.68 -> x = 64 + 0.68*596 = 469.3 -->
+<circle cx="469" cy="270" r="5" fill="#787878"/>
+<text x="469" y="248" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">raw scorer output</text>
+<text x="469" y="233" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.68</text>
+
+<!-- correction arrow raw -> posterior (leftward), above axis -->
+<line x1="460" y1="270" x2="313" y2="270" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- anchor pull annotation -->
+<path d="M 112 175 C 200 175, 240 230, 296 262" fill="none" stroke="#787878" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="200" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the low prior is the gravity pulling the signal down</text>
+</svg>

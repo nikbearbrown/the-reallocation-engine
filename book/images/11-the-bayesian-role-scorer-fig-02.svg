@@ -1,0 +1,69 @@
+<!--
+  Same Candidate, Same Fit: Sponsorship Decides
+  Book: The Reallocation Engine
+  Chapter: 11-the-bayesian-role-scorer
+  Figure 02
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/11-the-bayesian-role-scorer-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Same Candidate, Same Fit: Sponsorship Decides</title>
+  <desc>Two roles with identical fit, liveness, and timeline factors. The left role has high sponsorship and its composite clears the threshold to apply; the right role has near-zero sponsorship and its composite falls below to skip. Only the sponsorship term changed.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="11-the-bayesian-role-scorer" figure-number="02" figure-title="Same Candidate, Same Fit: Sponsorship Decides" figure-slug="sponsorship-decides" figure-type="comparison panels" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/11-the-bayesian-role-scorer-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- center divider -->
+  <line x1="350" y1="48" x2="350" y2="372" stroke="#D4D4D4" stroke-width="1"/>
+
+  <!-- panel titles -->
+  <text x="175" y="66" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Sponsoring company</text>
+  <text x="525" y="66" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Non-sponsor</text>
+
+  <!-- LEFT stacked factor segments (bottom up: timeline, liveness, fit, sponsorship) -->
+  <!-- baseline y for stacks -->
+  <!-- sponsorship large -->
+  <rect x="110" y="92" width="60" height="64" fill="#C8102E" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="110" y="156" width="60" height="22" fill="#787878" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="110" y="178" width="60" height="50" fill="#ADADAD" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="110" y="228" width="60" height="14" fill="#2a1a0e" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="140" y="256" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">factor stack</text>
+
+  <!-- RIGHT stacked: sponsorship nearly absent, fit identical -->
+  <rect x="460" y="152" width="60" height="4" fill="#C8102E" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="460" y="156" width="60" height="22" fill="#787878" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="460" y="178" width="60" height="50" fill="#ADADAD" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="460" y="228" width="60" height="14" fill="#2a1a0e" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="490" y="256" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">factor stack</text>
+
+  <!-- segment legend -->
+  <rect x="200" y="96" width="12" height="12" fill="#C8102E"/>
+  <text x="218" y="106" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">sponsorship</text>
+  <rect x="200" y="114" width="12" height="12" fill="#ADADAD"/>
+  <text x="218" y="124" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">fit (identical)</text>
+  <rect x="200" y="132" width="12" height="12" fill="#787878"/>
+  <text x="218" y="142" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">liveness</text>
+  <rect x="200" y="150" width="12" height="12" fill="#2a1a0e"/>
+  <text x="218" y="160" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">timeline</text>
+
+  <!-- composite bars on shared zero scale; baseline y=350 -->
+  <line x1="60" y1="350" x2="640" y2="350" stroke="#2a1a0e" stroke-width="1"/>
+  <!-- threshold line spanning both -->
+  <line x1="60" y1="312" x2="640" y2="312" stroke="#545454" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="640" y="308" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">threshold</text>
+
+  <!-- left composite clears -->
+  <rect x="110" y="286" width="60" height="64" fill="#C8102E" stroke="#2a1a0e" stroke-width="1"/>
+  <text x="140" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">apply</text>
+
+  <!-- right composite fails, blocking treatment -->
+  <rect x="460" y="326" width="60" height="24" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="460" y1="350" x2="520" y2="326" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="490" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">skip</text>
+
+  <text x="350" y="396" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Fit is identical in both stacks. Only the dominant sponsorship term moved the outcome.</text>
+</svg>

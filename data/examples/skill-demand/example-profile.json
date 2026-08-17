@@ -1,0 +1,4 @@
+{
+  "_note": "Synthetic example profile — a fictional persona ('recent CS grad, general software background, no AI-specific project experience yet') used to demonstrate the --profile gap-diff flag. A real profile belongs in private/skills-profile.json (gitignored), never here.",
+  "skills": ["python", "sql", "javascript", "docker", "aws"]
+}

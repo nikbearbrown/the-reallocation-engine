@@ -1,0 +1,50 @@
+{
+  "_taxonomy": "ai-engineering-skills",
+  "_version": "0.1.0",
+  "_curated_by": "your-input",
+  "_last_updated": "2026-08-14",
+  "_notes": "Human-curated starting taxonomy scoped to AI/ML engineering (RAG, agents, LLM APIs, eval, MLOps). NOT exhaustive and NOT auto-updating — a new tool released after _last_updated is invisible until this file is edited. Deliberately excludes short, high-collision acronyms (js, go, cv, rl, tf, hf) that would produce false-positive matches against common English words or unrelated tech terms; those concepts are only matched via their unambiguous full forms. See recipes/skill-demand-monitor.card.md, failure mode 1 (taxonomy drift).",
+  "skills": {
+    "python": { "label": "Python", "category": "language", "patterns": ["\\bpython\\b"] },
+    "typescript": { "label": "TypeScript", "category": "language", "patterns": ["\\btypescript\\b"] },
+    "javascript": { "label": "JavaScript", "category": "language", "patterns": ["\\bjavascript\\b"] },
+    "sql": { "label": "SQL", "category": "language", "patterns": ["\\bsql\\b"] },
+    "rust": { "label": "Rust", "category": "language", "patterns": ["\\brust\\b"] },
+    "golang": { "label": "Go", "category": "language", "patterns": ["\\bgolang\\b"] },
+
+    "pytorch": { "label": "PyTorch", "category": "ml_framework", "patterns": ["\\bpytorch\\b", "\\btorch\\b"] },
+    "tensorflow": { "label": "TensorFlow", "category": "ml_framework", "patterns": ["\\btensorflow\\b"] },
+    "transformers": { "label": "Transformers", "category": "ml_framework", "patterns": ["\\btransformers?\\b", "transformer models?"] },
+    "hugging_face": { "label": "Hugging Face", "category": "ml_framework", "patterns": ["hugging[\\s-]?face"] },
+    "scikit_learn": { "label": "scikit-learn", "category": "ml_framework", "patterns": ["scikit-?learn", "\\bsklearn\\b"] },
+
+    "langchain": { "label": "LangChain", "category": "llm_tooling", "patterns": ["\\blangchain\\b"] },
+    "llamaindex": { "label": "LlamaIndex", "category": "llm_tooling", "patterns": ["\\bllama[\\s-]?index\\b"] },
+    "rag": { "label": "Retrieval-Augmented Generation (RAG)", "category": "llm_tooling", "patterns": ["retrieval[\\s-]augmented generation", "\\brag\\b"] },
+    "agentic_ai": { "label": "Agentic / AI agents", "category": "llm_tooling", "patterns": ["\\bagentic\\b", "ai agents?", "autonomous agents?", "multi-agent"] },
+    "prompt_engineering": { "label": "Prompt engineering", "category": "llm_tooling", "patterns": ["prompt engineering", "prompt design"] },
+    "fine_tuning": { "label": "Fine-tuning", "category": "llm_tooling", "patterns": ["fine[\\s-]?tun(e|ing)"] },
+    "embeddings": { "label": "Embeddings", "category": "llm_tooling", "patterns": ["\\bembeddings?\\b"] },
+    "llm_evals": { "label": "LLM evaluation / eval harnesses", "category": "llm_tooling", "patterns": ["llm evals?", "evaluation harness(es)?", "model evaluation"] },
+    "openai_api": { "label": "OpenAI API", "category": "llm_provider", "patterns": ["openai(\\s|'s)?\\s*api", "\\bgpt-4\\b", "\\bgpt-3\\b", "chatgpt api"] },
+    "anthropic_api": { "label": "Anthropic / Claude API", "category": "llm_provider", "patterns": ["anthropic api", "claude api"] },
+
+    "vector_database": { "label": "Vector database", "category": "data_infra", "patterns": ["vector database", "vector store", "\\bpinecone\\b", "\\bweaviate\\b", "\\bmilvus\\b", "\\bchroma\\b", "\\bqdrant\\b"] },
+    "spark": { "label": "Apache Spark", "category": "data_infra", "patterns": ["apache spark", "\\bspark\\b"] },
+    "kafka": { "label": "Kafka", "category": "data_infra", "patterns": ["\\bkafka\\b"] },
+
+    "docker": { "label": "Docker", "category": "infra", "patterns": ["\\bdocker\\b"] },
+    "kubernetes": { "label": "Kubernetes", "category": "infra", "patterns": ["\\bkubernetes\\b", "\\bk8s\\b"] },
+    "terraform": { "label": "Terraform", "category": "infra", "patterns": ["\\bterraform\\b"] },
+    "aws": { "label": "AWS", "category": "cloud", "patterns": ["\\baws\\b", "amazon web services"] },
+    "gcp": { "label": "GCP", "category": "cloud", "patterns": ["\\bgcp\\b", "google cloud"] },
+    "azure": { "label": "Azure", "category": "cloud", "patterns": ["\\bazure\\b"] },
+
+    "mlops": { "label": "MLOps", "category": "practice", "patterns": ["\\bmlops\\b"] },
+    "ci_cd": { "label": "CI/CD", "category": "practice", "patterns": ["\\bci/cd\\b", "continuous integration"] },
+    "distributed_systems": { "label": "Distributed systems", "category": "practice", "patterns": ["distributed systems?"] },
+    "nlp": { "label": "NLP", "category": "domain", "patterns": ["\\bnlp\\b", "natural language processing"] },
+    "computer_vision": { "label": "Computer vision", "category": "domain", "patterns": ["computer vision"] },
+    "reinforcement_learning": { "label": "Reinforcement learning", "category": "domain", "patterns": ["reinforcement learning", "\\brlhf\\b"] }
+  }
+}

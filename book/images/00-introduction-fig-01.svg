@@ -1,0 +1,66 @@
+<!--
+  Figure: Repository orientation map
+  Book: The Reallocation Engine
+  Chapter: 00-introduction
+  Figure: 01
+  Type: systems diagram / hierarchy
+  Generated: 2026-06-15
+  Source: pantry/00-introduction-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">Repository orientation map</title>
+  <desc>A flat systems map of one code repository. A distinguished entry node, the read-first orientation map, points to the constitution, the domain index, and the run-log to show recommended reading order. Scripts, recipes, and data are grouped as runnable machinery.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="00-introduction" figure-number="01" figure-title="Repository orientation map" figure-slug="repository-orientation-map" figure-type="systems diagram / hierarchy" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/00-introduction-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Repository orientation map</text>
+
+  <!-- Repository root container -->
+  <rect x="32" y="56" width="636" height="312" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="48" y="78" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Repository root</text>
+
+  <!-- Orientation files (left), entry emphasized -->
+  <!-- Entry node: read-first orientation map -->
+  <rect x="60" y="110" width="150" height="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="2.5"/>
+  <text x="135" y="134" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Read-first</text>
+  <text x="135" y="150" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">orientation map</text>
+
+  <!-- Constitution -->
+  <rect x="300" y="96" width="150" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="375" y="123" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Constitution</text>
+
+  <!-- Domain index -->
+  <rect x="300" y="156" width="150" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="375" y="183" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Domain index</text>
+
+  <!-- Run-log -->
+  <rect x="300" y="216" width="150" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="375" y="243" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Run-log</text>
+
+  <!-- Chapters manuscript -->
+  <rect x="60" y="200" width="150" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="135" y="227" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Chapters</text>
+
+  <!-- Reading-order arrows from entry node -->
+  <path d="M210 130 L296 118" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M210 140 L296 178" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M210 152 L296 238" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Runnable machinery group -->
+  <rect x="500" y="96" width="150" height="248" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75" stroke-dasharray="4 3"/>
+  <text x="575" y="116" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Runnable machinery</text>
+
+  <rect x="520" y="132" width="110" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="575" y="159" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Scripts</text>
+
+  <rect x="520" y="196" width="110" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="575" y="223" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Recipes</text>
+
+  <rect x="520" y="260" width="110" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="575" y="287" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Data</text>
+
+  <text x="32" y="392" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">One file is the door; reading order branches outward from it.</text>
+</svg>

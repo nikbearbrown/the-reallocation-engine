@@ -1,0 +1,68 @@
+<!--
+  Figure: Three pipelines, three audits, one log
+  Book: The Reallocation Engine
+  Chapter: 03-the-verified-data-contract
+  Figure: 02
+  Type: systems diagram
+  Generated: 2026-06-15
+  Source: pantry/03-the-verified-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Three pipelines, three audits, one log</title>
+  <desc>A systems diagram. Three source pipelines — funding, postings and liveness, role quality — each carry a small self-loop marking a local-verified-data-first cache check, and each feeds its own audit output. The three audits converge into one shared run-log, so every number has a traceable path that can be read backward.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="03-the-verified-data-contract" figure-number="02" figure-title="Three pipelines, three audits, one log" figure-slug="three-pipelines-one-log" figure-type="systems diagram" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/03-the-verified-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Three pipelines, three audits, one log</text>
+
+  <!-- column headers -->
+  <text x="120" y="80" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Sources</text>
+  <text x="350" y="80" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Audits</text>
+  <text x="588" y="80" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Run-log</text>
+
+  <!-- Sources stacked left -->
+  <rect x="48" y="100" width="144" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="120" y="130" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Funding</text>
+
+  <rect x="48" y="186" width="144" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="120" y="208" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Postings &#38;</text>
+  <text x="120" y="224" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">liveness</text>
+
+  <rect x="48" y="272" width="144" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="120" y="302" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Role quality</text>
+
+  <!-- cache self-loops (minor accents) -->
+  <path d="M48 112 C30 108, 30 142, 48 138" fill="none" stroke="#787878" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M48 198 C30 194, 30 228, 48 224" fill="none" stroke="#787878" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M48 284 C30 280, 30 314, 48 310" fill="none" stroke="#787878" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Audits middle -->
+  <rect x="278" y="100" width="144" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="350" y="130" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Funding audit</text>
+
+  <rect x="278" y="186" width="144" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="350" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Liveness audit</text>
+
+  <rect x="278" y="272" width="144" height="50" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="350" y="302" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Quality audit</text>
+
+  <!-- source -> audit arrows -->
+  <path d="M192 125 L274 125" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M192 211 L274 211" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M192 297 L274 297" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Run-log right (dominant) -->
+  <rect x="516" y="170" width="144" height="82" fill="#FFFFFF" stroke="#C8102E" stroke-width="2.5"/>
+  <text x="588" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Run-log</text>
+
+  <!-- audits -> run-log converging -->
+  <path d="M422 125 L512 198" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M422 211 L512 211" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M422 297 L512 224" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="32" y="372" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Each pipeline checks verified local data first (self-loop), then produces an audit; every audit feeds the one log.</text>
+  <text x="32" y="392" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The whole graph can be read backward, from any logged number to its source.</text>
+</svg>

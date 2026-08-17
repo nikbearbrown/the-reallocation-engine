@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where does a freed hour go?</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-gray:      #787878;
+      --color-fill:      #F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-gray:      #8a8a8a;
+        --color-fill:      #1c1c1c;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .edge-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--color-secondary); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      entry: 'A freed hour',
+      gate1: 'Fewer than ~10 live conversations?',
+      gate2: 'No deployed metric-bearing project in 90 days?',
+      t1: 'Networking',
+      t2: 'Portfolio',
+      t3: 'Additional targeted applications'
+    };
+
+    async function loadData() {
+      try { return await d3.json('./02-the-reallocation-principle-fig-04/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+
+    let d = FALLBACK_DATA;
+
+    function wrap(textSel, txt, x, y, maxChars) {
+      const words = txt.split(/\s+/);
+      let line = '', lines = [];
+      words.forEach(w => {
+        if ((line + ' ' + w).trim().length > maxChars) { lines.push(line.trim()); line = w; }
+        else line = (line + ' ' + w).trim();
+      });
+      if (line) lines.push(line);
+      const startY = y - (lines.length - 1) * 7;
+      lines.forEach((l, i) => textSel.append('text').attr('class', 'node-text').attr('x', x).attr('y', startY + i * 14).attr('text-anchor', 'middle').text(l));
+    }
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = 420;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 700 420`).attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Where does a freed hour go?');
+      svg.append('desc').attr('id', 'chart-desc').text('A decision tree: a freed hour routes to networking if fewer than ten live conversations exist, otherwise to portfolio if no deployed project in 90 days, and only when both are healthy to additional targeted applications.');
+
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 8).attr('markerHeight', 6)
+        .attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ink)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 28).text('Where does a freed hour go?');
+
+      const g = svg.append('g');
+
+      function edge(x1, y1, x2, y2, label, lx, ly) {
+        g.append('line').attr('x1', x1).attr('y1', y1).attr('x2', x2).attr('y2', y2)
+          .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+        if (label) g.append('text').attr('class', 'edge-label').attr('x', lx).attr('y', ly).attr('text-anchor', 'middle').text(label);
+      }
+      function diamond(cx, cy, w, h, txt) {
+        g.append('polygon')
+          .attr('points', `${cx},${cy - h} ${cx + w},${cy} ${cx},${cy + h} ${cx - w},${cy}`)
+          .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2);
+        wrap(g, txt, cx, cy + 2, 26);
+      }
+      function box(cx, cy, w, h, txt, accent) {
+        g.append('rect').attr('x', cx - w / 2).attr('y', cy - h / 2).attr('width', w).attr('height', h).attr('rx', 8)
+          .attr('fill', accent ? 'var(--color-red)' : 'var(--color-fill)')
+          .attr('stroke', accent ? 'var(--color-red)' : 'var(--color-ink)').attr('stroke-width', 1.2)
+          .attr('opacity', accent ? 1 : 1);
+        const tg = g.append('g');
+        const words = txt.split(/\s+/);
+        let line = '', lines = [];
+        words.forEach(w0 => { if ((line + ' ' + w0).trim().length > 20) { lines.push(line.trim()); line = w0; } else line = (line + ' ' + w0).trim(); });
+        if (line) lines.push(line);
+        const sY = cy - (lines.length - 1) * 7 + 2;
+        lines.forEach((l, i) => tg.append('text').attr('class', 'node-text').attr('x', cx).attr('y', sY + i * 14).attr('text-anchor', 'middle').attr('fill', accent ? 'var(--color-white)' : 'var(--color-ink)').text(l));
+      }
+
+      // entry
+      box(350, 70, 150, 36, d.entry, false);
+      // gate1
+      edge(350, 88, 350, 118, '', 0, 0);
+      diamond(350, 150, 120, 36, d.gate1);
+      // gate1 yes -> networking (left)
+      edge(230, 150, 140, 150, 'yes', 185, 142);
+      box(120, 150, 130, 40, d.t1, false);
+      // gate1 no -> gate2 (down)
+      edge(350, 186, 350, 226, 'no', 362, 208);
+      diamond(350, 262, 130, 38, d.gate2);
+      // gate2 yes -> portfolio (left)
+      edge(220, 262, 140, 262, 'yes', 180, 254);
+      box(120, 262, 130, 40, d.t2, false);
+      // gate2 no -> applications (down, subordinate, accent path)
+      edge(350, 300, 350, 340, 'no', 362, 322);
+      box(350, 372, 200, 44, d.t3, true);
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

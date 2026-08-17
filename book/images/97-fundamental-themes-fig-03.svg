@@ -1,0 +1,51 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3" font-family="Inter, sans-serif">
+  <title id="t3">The friction mechanism: struggle triggers learning</title>
+  <desc id="d3">A prediction error triggers a neurobiological cascade — dopamine, BDNF, synapse strengthening, dendritic spines — that consolidates into durable learning. A parallel lower path shows AI removing the friction, leaving the artifact intact but the brain unchanged.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ar3" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2a1a0e"/>
+    </marker>
+    <marker id="ar3g" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#545454"/>
+    </marker>
+  </defs>
+
+  <!-- TOP path: friction -> learning -->
+  <text x="40" y="60" font-size="13" font-weight="700" fill="#C8102E">With friction</text>
+  <g font-size="11" fill="#2a1a0e">
+    <rect x="40" y="72" width="110" height="40" fill="#FBECEE" stroke="#C8102E"/>
+    <text x="95" y="96" text-anchor="middle">prediction error</text>
+    <line x1="150" y1="92" x2="178" y2="92" stroke="#2a1a0e" marker-end="url(#ar3)"/>
+    <rect x="180" y="72" width="150" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="255" y="90" text-anchor="middle">dopamine, BDNF,</text>
+    <text x="255" y="104" text-anchor="middle">synapses, spines</text>
+    <line x1="330" y1="92" x2="358" y2="92" stroke="#2a1a0e" marker-end="url(#ar3)"/>
+    <rect x="360" y="72" width="150" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="435" y="96" text-anchor="middle">consolidation</text>
+    <line x1="510" y1="92" x2="538" y2="92" stroke="#2a1a0e" marker-end="url(#ar3)"/>
+    <rect x="540" y="72" width="120" height="40" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="600" y="96" text-anchor="middle" fill="#C8102E">durable learning</text>
+  </g>
+
+  <!-- BOTTOM path: AI removes friction -->
+  <text x="40" y="220" font-size="13" font-weight="700" fill="#545454">AI removes friction</text>
+  <g font-size="11" fill="#545454">
+    <rect x="40" y="232" width="110" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="95" y="256" text-anchor="middle">no error felt</text>
+    <line x1="150" y1="252" x2="178" y2="252" stroke="#545454" marker-end="url(#ar3g)"/>
+    <rect x="180" y="232" width="150" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="255" y="250" text-anchor="middle">cascade never</text>
+    <text x="255" y="264" text-anchor="middle">fires</text>
+    <line x1="330" y1="252" x2="358" y2="252" stroke="#545454" marker-end="url(#ar3g)"/>
+    <rect x="360" y="232" width="150" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="435" y="256" text-anchor="middle">no consolidation</text>
+    <line x1="510" y1="252" x2="538" y2="252" stroke="#545454" marker-end="url(#ar3g)"/>
+    <rect x="540" y="232" width="120" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="600" y="250" text-anchor="middle">artifact fine,</text>
+    <text x="600" y="264" text-anchor="middle">brain unchanged</text>
+  </g>
+
+  <line x1="40" y1="340" x2="660" y2="340" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="368" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">The struggle is not the price of learning — it is the mechanism.</text>
+</svg>

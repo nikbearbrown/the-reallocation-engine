@@ -1,0 +1,67 @@
+<!--
+  Figure: Spray-and-pray vs. 3-3-2 — the input-output flip
+  Book: The Reallocation Engine
+  Chapter: 02-the-reallocation-principle
+  Figure: 03
+  Type: comparison panels (paired bars)
+  Generated: 2026-06-15
+  Source: pantry/02-the-reallocation-principle-cajal.md
+-->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">Spray-and-pray vs. 3-3-2: the input-output flip</title>
+  <desc>Two job-search weeks compared across six rows with paired horizontal bars. The spray-and-pray week wins only on raw applications sent; the 3-3-2 week wins on recruiter screens, referrals generated, portfolio pieces completed, and estimated pipeline value. Fewer applications produced more movement.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="02-the-reallocation-principle" figure-number="03" figure-title="Spray-and-pray vs. 3-3-2: the input-output flip" figure-slug="input-output-flip" figure-type="comparison panels (paired bars)" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/02-the-reallocation-principle-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Spray-and-pray vs. 3-3-2: the input-output flip</text>
+
+  <!-- legend -->
+  <rect x="380" y="56" width="14" height="14" fill="#787878"/>
+  <text x="400" y="68" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Spray-and-pray</text>
+  <rect x="510" y="56" width="14" height="14" fill="#C8102E"/>
+  <text x="530" y="68" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">3-3-2</text>
+
+  <!-- rows: label at x=160 right-aligned; bars start x=170; full width to 660 = 490 -->
+  <!-- Each row pair: spray bar above, 3-3-2 below. Row block height 60, bars height 16 -->
+
+  <!-- Row 1: Hours spent (equal-ish) -->
+  <text x="160" y="104" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Hours spent</text>
+  <rect x="170" y="92" width="240" height="14" fill="#787878"/>
+  <rect x="170" y="110" width="230" height="14" fill="#C8102E"/>
+
+  <!-- Row 2: Applications sent (spray wins big) -->
+  <text x="160" y="164" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Applications sent</text>
+  <rect x="170" y="152" width="470" height="14" fill="#787878"/>
+  <text x="646" y="163" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">200</text>
+  <rect x="170" y="170" width="60" height="14" fill="#C8102E"/>
+  <text x="236" y="181" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">25</text>
+
+  <!-- Row 3: Recruiter screens (3-3-2 wins) -->
+  <text x="160" y="224" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Recruiter screens</text>
+  <rect x="170" y="212" width="50" height="14" fill="#787878"/>
+  <rect x="170" y="230" width="200" height="14" fill="#C8102E"/>
+
+  <!-- Row 4: Referrals generated (0 vs 2) -->
+  <text x="160" y="284" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Referrals generated</text>
+  <rect x="170" y="272" width="2" height="14" fill="#787878"/>
+  <text x="178" y="283" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">0</text>
+  <rect x="170" y="290" width="180" height="14" fill="#C8102E"/>
+  <text x="356" y="301" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">2</text>
+
+  <!-- Row 5: Portfolio pieces (0 vs 1) -->
+  <text x="160" y="344" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Portfolio pieces</text>
+  <rect x="170" y="332" width="2" height="14" fill="#787878"/>
+  <text x="178" y="343" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">0</text>
+  <rect x="170" y="350" width="120" height="14" fill="#C8102E"/>
+  <text x="296" y="361" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">1</text>
+
+  <!-- Row 6: Estimated pipeline value (3-3-2 wins) -->
+  <text x="160" y="404" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Est. pipeline value</text>
+  <rect x="170" y="392" width="40" height="14" fill="#787878"/>
+  <rect x="170" y="410" width="300" height="14" fill="#C8102E"/>
+
+  <text x="32" y="452" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The left week wins only on raw application count; the right week wins on every outcome that matters.</text>
+</svg>

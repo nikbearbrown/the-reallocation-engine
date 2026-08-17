@@ -1,0 +1,36 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1 d1" font-family="Inter, sans-serif">
+  <title id="t1">Active vs. draft recipes</title>
+  <desc id="d1">Two columns. Active recipes — scan, pipeline, oferta, tracker, pdf — call scripts and read audits, producing findings. Draft and helper recipes must be verified before their output is trusted. The split is about evidence, not hierarchy.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- Active -->
+  <text x="40" y="34" font-size="14" font-weight="700" fill="#C8102E">Active — produce findings</text>
+  <rect x="40" y="46" width="290" height="320" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <g font-size="12">
+    <g font-family="JetBrains Mono, monospace" fill="#2a1a0e">
+      <text x="56" y="80">scan</text><text x="56" y="124">pipeline</text><text x="56" y="168">oferta</text><text x="56" y="212">tracker</text><text x="56" y="256">pdf</text>
+    </g>
+    <g fill="#545454">
+      <text x="150" y="80">detects ATS, pulls postings</text>
+      <text x="150" y="124">scores the four factors</text>
+      <text x="150" y="168">assembles the composite</text>
+      <text x="150" y="212">logs decisions</text>
+      <text x="150" y="256">renders ATS-safe résumé</text>
+    </g>
+  </g>
+  <circle cx="56" cy="334" r="6" fill="#C8102E"/>
+  <text x="72" y="338" font-size="12" fill="#545454">calls scripts · reads audits</text>
+
+  <!-- Draft -->
+  <text x="370" y="34" font-size="14" font-weight="700" fill="#545454">Draft / helper — verify first</text>
+  <rect x="370" y="46" width="290" height="320" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <g font-family="JetBrains Mono, monospace" font-size="12" fill="#545454">
+    <text x="386" y="80">apply</text><text x="386" y="108">contacto</text><text x="386" y="136">deep</text>
+    <text x="386" y="164">followup</text><text x="386" y="192">interview-prep</text><text x="386" y="220">ofertas</text>
+    <text x="386" y="248">project</text><text x="386" y="276">training</text>
+  </g>
+  <rect x="500" y="296" width="148" height="26" fill="#F5F5F5" stroke="#D4D4D4" stroke-dasharray="3 3"/>
+  <text x="574" y="313" text-anchor="middle" font-size="11" fill="#545454">verify before trusting</text>
+  <circle cx="386" cy="334" r="6" fill="#545454"/>
+  <text x="402" y="338" font-size="12" fill="#545454">treat as model judgment until verified</text>
+</svg>

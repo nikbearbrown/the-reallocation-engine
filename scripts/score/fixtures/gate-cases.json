@@ -1,0 +1,224 @@
+{
+  "_fixture": "gate-behavior-cases",
+  "_purpose": "Test vectors for scripts/score/gate-harness.mjs. These exercise the gate semantics of the Bayesian Role Scorer (Ch.11): liveness and timeline are MULTIPLIERS, not addends.",
+  "_provenance": "SYNTHETIC. Every company name, title, and probability below is a hand-constructed test vector, not a record. No number here is a claim about any real company, posting, or person. Expected values are derived by hand from the scorer's own documented formula (composite = Σ vote·weight × liveness × timeline) using the CONFIG defaults in role-scorer.mjs (sponsorship 0.35, fit 0.30, role_quality 0.0, apply_threshold 0.30, consider_floor 0.20, gate_zero 0.05).",
+  "_config_assumed": {
+    "weights": { "sponsorship": 0.35, "fit": 0.30, "role_quality": 0.0 },
+    "apply_threshold": 0.30,
+    "consider_floor": 0.20,
+    "gate_zero": 0.05,
+    "note": "If role-scorer.mjs CONFIG changes, these expected values go stale. The harness asserts the observed config matches this block and reports CONFIG DRIFT if it does not."
+  },
+  "cases": [
+    {
+      "case_id": "G1-liveness-zero-with-maximal-votes",
+      "tests": "A closed liveness gate zeroes the composite even when every vote is maximal.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G1",
+        "company": "Fixture Alpha (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 1.0, "tier": "proven", "source": "record" },
+        "fit": { "p": 1.0, "source": "model-judgment" },
+        "liveness": { "factor": 0.0, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0,
+        "recommendation": "Skip",
+        "reason_contains": "gated",
+        "why": "voteSum 0.65 × (0.0 × 1.0) = 0. liveness 0.0 <= gate_zero 0.05 so the closed-gate branch fires."
+      }
+    },
+    {
+      "case_id": "G2-timeline-zero-with-maximal-votes",
+      "tests": "A closed timeline gate zeroes the composite even when every vote is maximal.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G2",
+        "company": "Fixture Bravo (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 1.0, "tier": "proven", "source": "record" },
+        "fit": { "p": 1.0, "source": "model-judgment" },
+        "liveness": { "factor": 1.0, "source": "record" },
+        "timeline": { "factor": 0.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0,
+        "recommendation": "Skip",
+        "reason_contains": "gated",
+        "why": "voteSum 0.65 × (1.0 × 0.0) = 0. timeline 0.0 <= gate_zero 0.05."
+      }
+    },
+    {
+      "case_id": "G3-gate-boundary-at-threshold",
+      "tests": "A gate exactly AT gate_zero (0.05) is treated as closed — the comparison is <=, not <.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G3",
+        "company": "Fixture Charlie (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 1.0, "tier": "proven", "source": "record" },
+        "fit": { "p": 1.0, "source": "model-judgment" },
+        "liveness": { "factor": 0.05, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.0325,
+        "recommendation": "Skip",
+        "reason_contains": "gated",
+        "why": "voteSum 0.65 × 0.05 = 0.0325. liveness 0.05 <= 0.05 so the gate is closed and the reason must say gated, not merely low-score."
+      }
+    },
+    {
+      "case_id": "G4-gate-boundary-just-above-threshold",
+      "tests": "A gate JUST above gate_zero is open — the resulting Skip must be a low-score Skip, not a gated Skip. Distinguishes the two Skip paths.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G4",
+        "company": "Fixture Delta (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 1.0, "tier": "proven", "source": "record" },
+        "fit": { "p": 1.0, "source": "model-judgment" },
+        "liveness": { "factor": 0.06, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.039,
+        "recommendation": "Skip",
+        "reason_excludes": "gated",
+        "why": "voteSum 0.65 × 0.06 = 0.039. 0.06 > 0.05 so no gate closes; composite 0.039 < consider_floor 0.20 so this is a low-score Skip. The reason must NOT claim it was gated."
+      }
+    },
+    {
+      "case_id": "G5-two-partial-gates-multiply",
+      "tests": "Two partial gates compose multiplicatively (0.5 x 0.5 = 0.25), not additively. This is the single most direct gate-as-vote discriminator.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G5",
+        "company": "Fixture Echo (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 1.0, "tier": "proven", "source": "record" },
+        "fit": { "p": 1.0, "source": "model-judgment" },
+        "liveness": { "factor": 0.5, "source": "record" },
+        "timeline": { "factor": 0.5, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.1625,
+        "recommendation": "Skip",
+        "reason_excludes": "gated",
+        "why": "voteSum 0.65 × (0.5 × 0.5 = 0.25) = 0.1625, below consider_floor 0.20. If gates were additive votes this would score ABOVE apply_threshold and flip to Apply — which is exactly the bug this case exists to catch."
+      }
+    },
+    {
+      "case_id": "G6-healthy-gates-strong-votes-apply",
+      "tests": "Positive control: with open gates and strong votes the scorer must reach Apply. Proves the harness is not simply asserting everything is Skip.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G6",
+        "company": "Fixture Foxtrot (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 0.9, "tier": "proven", "source": "record" },
+        "fit": { "p": 0.8, "source": "model-judgment" },
+        "liveness": { "factor": 1.0, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.555,
+        "recommendation": "Apply",
+        "reason_excludes": "gated",
+        "why": "voteSum = 0.9·0.35 + 0.8·0.30 = 0.555; gates 1.0 × 1.0. 0.555 >= 0.30, tier proven is not a soft tier, timeline 1.0 is not < 0.6, so Apply."
+      }
+    },
+    {
+      "case_id": "G7-soft-timeline-demotes-apply-to-consider",
+      "tests": "A timeline below 0.6 is a soft spot: it demotes an above-threshold role from Apply to Consider without closing the gate.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G7",
+        "company": "Fixture Golf (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 0.9, "tier": "proven", "source": "record" },
+        "fit": { "p": 0.8, "source": "model-judgment" },
+        "liveness": { "factor": 1.0, "source": "record" },
+        "timeline": { "factor": 0.55, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.3053,
+        "recommendation": "Consider",
+        "reason_contains": "soft spot",
+        "why": "voteSum 0.555 × 0.55 = 0.30525 -> rounded 0.3053, still >= 0.30. timeline 0.55 < 0.6 triggers the soft-timeline demotion to Consider."
+      }
+    },
+    {
+      "case_id": "G8-override-without-reason-is-ignored",
+      "tests": "An override with a decision but no documented reason must NOT change the recommendation, and must raise a warning.",
+      "chapter": 11,
+      "role": {
+        "role_id": "FIXTURE-G8",
+        "company": "Fixture Hotel (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 0.1, "tier": "unknown", "source": "record" },
+        "fit": { "p": 0.1, "source": "model-judgment" },
+        "liveness": { "factor": 1.0, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" },
+        "override": { "decision": "Apply" }
+      },
+      "expect": {
+        "composite": 0.065,
+        "recommendation": "Skip",
+        "override_warning_present": true,
+        "why": "voteSum = 0.1·0.35 + 0.1·0.30 = 0.065 -> Skip. The override supplies a decision with no reason, so Ch.11 says ignore it: recommendation stays Skip and a warning is attached."
+      }
+    },
+    {
+      "case_id": "G9a-role-quality-absent",
+      "tests": "Paired with G9b to measure whether the Ch.9 role-quality signal reaches the composite at all.",
+      "chapter": 9,
+      "role": {
+        "role_id": "FIXTURE-G9A",
+        "company": "Fixture India (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 0.5, "tier": "proven", "source": "record" },
+        "fit": { "p": 0.5, "source": "model-judgment" },
+        "role_quality": { "p": 0.0, "source": "record" },
+        "liveness": { "factor": 1.0, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.325,
+        "recommendation": "Apply",
+        "why": "voteSum = 0.5·0.35 + 0.5·0.30 + 0.0·0.0 = 0.325."
+      }
+    },
+    {
+      "case_id": "G9b-role-quality-maximal",
+      "tests": "Identical to G9a except role_quality p goes from 0.0 to 1.0. If the composite does not move, the Ch.9 signal is inert at the current weight.",
+      "chapter": 9,
+      "role": {
+        "role_id": "FIXTURE-G9B",
+        "company": "Fixture India (synthetic)",
+        "title": "Synthetic Test Role",
+        "sponsorship": { "p": 0.5, "tier": "proven", "source": "record" },
+        "fit": { "p": 0.5, "source": "model-judgment" },
+        "role_quality": { "p": 1.0, "source": "record" },
+        "liveness": { "factor": 1.0, "source": "record" },
+        "timeline": { "factor": 1.0, "source": "your-input" }
+      },
+      "expect": {
+        "composite": 0.325,
+        "recommendation": "Apply",
+        "why": "voteSum = 0.5·0.35 + 0.5·0.30 + 1.0·0.0 = 0.325 — identical to G9a because role_quality carries weight 0.0. Expected given CONFIG, and reported as a structural finding, not a failure."
+      }
+    }
+  ],
+  "paired_checks": [
+    {
+      "check_id": "P1-role-quality-inert",
+      "compare": ["G9a-role-quality-absent", "G9b-role-quality-maximal"],
+      "relation": "composite_equal",
+      "severity": "warn",
+      "means": "role_quality p moved 0.0 -> 1.0 with no change to the composite. This is expected while weights.role_quality = 0.0, and is the open authorial decision recorded in DOMAIN.md gap 3 — not a code defect. Reported so it cannot be forgotten."
+    }
+  ]
+}

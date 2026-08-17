@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base rate pulls the posterior down</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .chart-subtitle { font-family: 'Inter', sans-serif; font-size: 13px; fill: var(--color-secondary); }
+    .axis-tick { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+    .marker-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 9px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { label: 'Base-rate prior', value: 0.08, kind: 'prior' },
+      { label: 'Corrected posterior', value: 0.42, kind: 'posterior' },
+      { label: 'Raw scorer output', value: 0.68, kind: 'raw' }
+    ];
+    async function loadData() {
+      try { return await d3.json('./05-verifying-the-data-fig-04/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+    function showTooltip(event, html) {
+      tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px')
+        .transition().duration(150).style('opacity', 1);
+    }
+    function moveTooltip(event) { tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px'); }
+    function hideTooltip() { tooltip.transition().duration(100).style('opacity', 0); }
+
+    let chartData = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const margin = { top: 64, right: 48, bottom: 64, left: 48 };
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = 420;
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const axisY = 230;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Base rate pulls the posterior down');
+      svg.append('desc').attr('id', 'chart-desc').text('A probability axis showing a low base-rate prior, a raw scorer output of 0.68, and the corrected posterior between them, with a correction arrow.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', margin.left).attr('y', 28).text('Base rate pulls the posterior down');
+      svg.append('text').attr('class', 'chart-subtitle').attr('x', margin.left).attr('y', 45).text('The raw 0.68 overstates the real probability once the prior is applied');
+
+      const g = svg.append('g').attr('transform', `translate(${margin.left},0)`);
+      const x = d3.scaleLinear().domain([0, 1]).range([0, chartWidth]);
+
+      // axis line
+      g.append('line').attr('x1', 0).attr('y1', axisY).attr('x2', chartWidth).attr('y2', axisY).attr('stroke', 'var(--color-secondary)').attr('stroke-width', 1);
+      [0, 0.25, 0.5, 0.75, 1].forEach(t => {
+        g.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', axisY).attr('y2', axisY + 6).attr('stroke', 'var(--color-secondary)').attr('stroke-width', 0.75).attr('aria-hidden', 'true');
+        g.append('text').attr('class', 'axis-tick').attr('x', x(t)).attr('y', axisY + 22).attr('text-anchor', 'middle').text(t.toFixed(2));
+      });
+
+      const prior = chartData.find(d => d.kind === 'prior');
+      const raw = chartData.find(d => d.kind === 'raw');
+      const post = chartData.find(d => d.kind === 'posterior');
+
+      // faint anchor line from prior pulling down
+      g.append('line').attr('x1', x(prior.value)).attr('y1', axisY).attr('x2', x(post.value)).attr('y2', axisY)
+        .attr('stroke', 'var(--color-ochre)').attr('stroke-width', 6).attr('opacity', 0.2).attr('aria-hidden', 'true');
+
+      // correction arrow from raw -> posterior
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 9).attr('markerHeight', 7).attr('refX', 8).attr('refY', 3.5).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 9 3.5, 0 7').attr('fill', 'var(--color-ink)');
+      g.append('line').attr('x1', x(raw.value)).attr('y1', axisY - 36).attr('x2', x(post.value) + 6).attr('y2', axisY - 36)
+        .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.6).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      g.append('text').attr('class', 'axis-tick').attr('x', (x(raw.value) + x(post.value)) / 2).attr('y', axisY - 44).attr('text-anchor', 'middle').text('correction');
+
+      function marker(dd) {
+        const fill = dd.kind === 'posterior' ? 'var(--color-red)' : (dd.kind === 'raw' ? 'var(--color-gray)' : 'var(--color-ink)');
+        g.append('circle').attr('cx', x(dd.value)).attr('cy', axisY).attr('r', dd.kind === 'posterior' ? 8 : 6).attr('fill', fill)
+          .attr('tabindex', 0).attr('aria-label', `${dd.label}: ${dd.value}`)
+          .on('mouseover', (e) => showTooltip(e, `<strong>${dd.label}</strong>: ${dd.value}`))
+          .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+        g.append('text').attr('class', 'marker-label').attr('x', x(dd.value)).attr('y', axisY + 48).attr('text-anchor', 'middle').text(dd.label);
+      }
+      chartData.forEach(marker);
+    }
+
+    loadData().then(data => { chartData = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

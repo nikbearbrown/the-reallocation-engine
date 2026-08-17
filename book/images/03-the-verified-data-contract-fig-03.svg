@@ -1,0 +1,57 @@
+<!--
+  Figure: The one-question test for every sentence
+  Book: The Reallocation Engine
+  Chapter: 03-the-verified-data-contract
+  Figure: 03
+  Type: process flowchart (decision tree)
+  Generated: 2026-06-15
+  Source: pantry/03-the-verified-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+  <title id="fig-title-03">The one-question test for every sentence</title>
+  <desc>A decision tree. An entry diamond asks whether a sentence could have been produced by counting records. Yes leads to a data-claim node, which must trace to a script output or audit. No leads to a model-judgment node, which is allowed but must be labeled. Both branches reconverge at a final diamond asking whether the label is visible in the output.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="03-the-verified-data-contract" figure-number="03" figure-title="The one-question test for every sentence" figure-slug="one-question-test" figure-type="process flowchart (decision tree)" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/03-the-verified-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="480" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The one-question test for every sentence</text>
+
+  <!-- Entry diamond -->
+  <polygon points="350,60 470,108 350,156 230,108" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Could this come from</text>
+  <text x="350" y="120" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">counting records?</text>
+
+  <!-- Yes -> data claim (left) -->
+  <path d="M230 108 L150 108 L150 168" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="188" y="100" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">yes</text>
+  <rect x="84" y="172" width="132" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="150" y="199" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Data claim</text>
+
+  <path d="M150 216 L150 244" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="60" y="248" width="180" height="56" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="150" y="272" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Must trace to a</text>
+  <text x="150" y="288" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">script output / audit</text>
+
+  <!-- No -> model judgment (right) -->
+  <path d="M470 108 L550 108 L550 168" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="512" y="100" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">no</text>
+  <rect x="484" y="172" width="132" height="44" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="550" y="199" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Model judgment</text>
+
+  <path d="M550 216 L550 244" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <rect x="460" y="248" width="180" height="56" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="550" y="272" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Allowed, but</text>
+  <text x="550" y="288" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">must be labeled</text>
+
+  <!-- both reconverge to final diamond -->
+  <path d="M150 304 L150 360 L284 372" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M550 304 L550 360 L416 372" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <polygon points="350,328 470,376 350,424 230,376" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="372" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Is the label visible</text>
+  <text x="350" y="388" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">in the output?</text>
+
+  <text x="32" y="456" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Two branches diverge on the nature of the sentence and reconverge on one visibility requirement.</text>
+</svg>

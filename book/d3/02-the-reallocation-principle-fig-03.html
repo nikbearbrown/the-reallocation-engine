@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spray-and-pray vs. 3-3-2: the input-output flip</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-gray:      #787878;
+      --color-gray-light:#ADADAD;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-gray:      #8a8a8a;
+        --color-gray-light:#6a6a6a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .chart-subtitle { font-family: 'Inter', sans-serif; font-size: 13px; fill: var(--color-secondary); }
+    .axis-tick { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+    .row-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .legend-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 9px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    // value normalized 0-1 within each row so paired bars are comparable
+    const FALLBACK_DATA = [
+      { measure: 'Applications sent', spray: 1.0,  threeThreeTwo: 0.13 },
+      { measure: 'Recruiter screens', spray: 0.33, threeThreeTwo: 1.0 },
+      { measure: 'Referrals generated', spray: 0.0,  threeThreeTwo: 1.0 },
+      { measure: 'Informational conversations', spray: 0.0, threeThreeTwo: 1.0 },
+      { measure: 'Portfolio pieces', spray: 0.0,  threeThreeTwo: 1.0 },
+      { measure: 'Pipeline value', spray: 0.2,  threeThreeTwo: 1.0 }
+    ];
+
+    async function loadData() {
+      try { return await d3.json('./02-the-reallocation-principle-fig-03/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+    function showTooltip(event, html) {
+      tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px')
+        .transition().duration(150).style('opacity', 1);
+    }
+    function moveTooltip(event) { tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px'); }
+    function hideTooltip() { tooltip.transition().duration(100).style('opacity', 0); }
+
+    let chartData = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const margin = { top: 64, right: 40, bottom: 40, left: 180 };
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = 420;
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Spray-and-pray vs. 3-3-2: the input-output flip');
+      svg.append('desc').attr('id', 'chart-desc').text('Six measures compared as paired bars: the spray-and-pray week wins only on raw application count while the 3-3-2 week wins on every outcome that matters.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 16).attr('y', 24).text('The input-output flip');
+      svg.append('text').attr('class', 'chart-subtitle').attr('x', 16).attr('y', 41).text('Two job-search weeks, each measure scaled within its row');
+
+      // legend
+      svg.append('rect').attr('x', margin.left).attr('y', 50).attr('width', 12).attr('height', 12).attr('fill', 'var(--color-gray)');
+      svg.append('text').attr('class', 'legend-label').attr('x', margin.left + 18).attr('y', 60).text('Spray-and-pray');
+      svg.append('rect').attr('x', margin.left + 130).attr('y', 50).attr('width', 12).attr('height', 12).attr('fill', 'var(--color-red)');
+      svg.append('text').attr('class', 'legend-label').attr('x', margin.left + 148).attr('y', 60).text('3-3-2');
+
+      const gChart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const yScaleBand = d3.scaleBand().domain(chartData.map(d => d.measure)).range([0, chartHeight]).padding(0.35);
+      const xScaleLinear = d3.scaleLinear().domain([0, 1]).range([0, chartWidth]);
+      const subBand = yScaleBand.bandwidth() / 2;
+
+      chartData.forEach(d => {
+        const y = yScaleBand(d.measure);
+        gChart.append('text').attr('class', 'row-label').attr('x', -8).attr('y', y + yScaleBand.bandwidth() / 2 + 4).attr('text-anchor', 'end').text(d.measure);
+        // spray bar
+        gChart.append('rect').attr('x', 0).attr('y', y).attr('width', xScaleLinear(d.spray)).attr('height', subBand - 2)
+          .attr('fill', 'var(--color-gray)').attr('tabindex', 0).attr('aria-label', `${d.measure}, spray-and-pray`)
+          .on('mouseover', (e) => showTooltip(e, `<strong>${d.measure}</strong><br>Spray-and-pray`))
+          .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+        // 3-3-2 bar
+        gChart.append('rect').attr('x', 0).attr('y', y + subBand).attr('width', xScaleLinear(d.threeThreeTwo)).attr('height', subBand - 2)
+          .attr('fill', 'var(--color-red)').attr('tabindex', 0).attr('aria-label', `${d.measure}, 3-3-2`)
+          .on('mouseover', (e) => showTooltip(e, `<strong>${d.measure}</strong><br>3-3-2`))
+          .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+      });
+    }
+
+    loadData().then(data => { chartData = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

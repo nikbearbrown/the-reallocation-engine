@@ -1,0 +1,51 @@
+<!--
+  The Bright Line: Strategy vs. Misrepresentation
+  Book: The Reallocation Engine
+  Chapter: 12-the-opt-framing-generator
+  Figure 02
+  Type: conceptual map
+  Generated 2026-06-15
+  Source: pantry/12-the-opt-framing-generator-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">The Bright Line: Strategy vs. Misrepresentation</title>
+  <desc>One heavy dividing line. On the permitted side: leading with a relevant true fact, ordering true information strategically, calibrating vocabulary. On the forbidden side: claiming a status not held, inventing metrics, denying authorization when asked. The tool operates only on the permitted side.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="12-the-opt-framing-generator" figure-number="02" figure-title="The Bright Line: Strategy vs. Misrepresentation" figure-slug="bright-line" figure-type="conceptual map" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/12-the-opt-framing-generator-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- heavy dividing line -->
+  <line x1="350" y1="56" x2="350" y2="332" stroke="#2a1a0e" stroke-width="5"/>
+
+  <text x="190" y="80" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Permitted: strategic framing</text>
+  <text x="510" y="80" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Forbidden: misrepresentation</text>
+
+  <!-- LEFT cluster: three permitted nodes -->
+  <rect x="56" y="110" width="248" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="180" y="137" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Lead with the relevant true fact</text>
+
+  <rect x="56" y="172" width="248" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="180" y="199" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Order true information strategically</text>
+
+  <rect x="56" y="234" width="248" height="44" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="180" y="261" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Calibrate vocabulary to the audience</text>
+
+  <!-- RIGHT cluster: three forbidden nodes -->
+  <rect x="396" y="110" width="248" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="520" y="137" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Claim a status not held</text>
+
+  <rect x="396" y="172" width="248" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="520" y="199" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Invent metrics</text>
+
+  <rect x="396" y="234" width="248" height="44" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="520" y="261" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">Deny authorization when asked</text>
+
+  <!-- tool presence indicator -->
+  <text x="180" y="312" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">The tool operates entirely here</text>
+  <text x="520" y="312" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">no presence here</text>
+
+  <text x="350" y="360" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The line is absolute, not a gradient.</text>
+</svg>

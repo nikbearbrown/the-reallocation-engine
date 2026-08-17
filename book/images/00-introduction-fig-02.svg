@@ -1,0 +1,67 @@
+<!--
+  Figure: Four-step onboarding sequence
+  Book: The Reallocation Engine
+  Chapter: 00-introduction
+  Figure: 02
+  Type: process flowchart
+  Generated: 2026-06-15
+  Source: pantry/00-introduction-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">Four-step onboarding sequence</title>
+  <desc>A linear four-step onboarding path. Read orientation files, check the environment, then an enlarged third step where the decision core runs and one output is traced term by term, then read the first chapter. Four chips branch from the third step: sponsorship, fit, liveness, timeline.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="00-introduction" figure-number="02" figure-title="Four-step onboarding sequence" figure-slug="four-step-onboarding-sequence" figure-type="process flowchart" priority="Supplementary" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/00-introduction-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Four-step onboarding sequence</text>
+
+  <!-- Step 1 -->
+  <rect x="32" y="120" width="120" height="60" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="92" y="146" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Read</text>
+  <text x="92" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">orientation files</text>
+
+  <path d="M152 150 L184 150" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 2 -->
+  <rect x="190" y="120" width="120" height="60" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="250" y="146" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Check</text>
+  <text x="250" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">environment</text>
+
+  <path d="M310 150 L342 150" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 3 (emphasized, larger) -->
+  <rect x="348" y="100" width="160" height="100" fill="#FFFFFF" stroke="#C8102E" stroke-width="2.5"/>
+  <text x="428" y="138" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Run the decision</text>
+  <text x="428" y="154" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">core; trace one</text>
+  <text x="428" y="170" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">output term by term</text>
+
+  <path d="M508 150 L540 150" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Step 4 -->
+  <rect x="546" y="120" width="120" height="60" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="606" y="146" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Read the</text>
+  <text x="606" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">first chapter</text>
+
+  <!-- Branches down from step 3: four chips -->
+  <path d="M388 200 L348 250" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M412 200 L412 250" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M444 200 L484 250" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M468 200 L568 250" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="300" y="256" width="96" height="40" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="348" y="280" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Sponsorship</text>
+
+  <rect x="364" y="256" width="96" height="40" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75" transform="translate(0,0)"/>
+  <text x="412" y="280" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Fit</text>
+
+  <rect x="436" y="256" width="96" height="40" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="484" y="280" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Liveness</text>
+
+  <rect x="520" y="256" width="96" height="40" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="568" y="280" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Timeline</text>
+
+  <text x="32" y="340" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A short path with one deep stop: the third step is where verification happens.</text>
+</svg>

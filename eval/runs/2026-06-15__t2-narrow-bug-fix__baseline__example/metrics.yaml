@@ -1,0 +1,29 @@
+run: 2026-06-15__t2-narrow-bug-fix__baseline__example
+task: t2-narrow-bug-fix
+config: baseline
+tool: example
+date: '2026-06-15'
+auto:
+  files_touched:
+  - scripts/doctor.mjs
+  - DOMAIN.md
+  - recipes/scan.md
+  out_of_scope:
+  - DOMAIN.md
+  - recipes/scan.md
+  deletes:
+  - recipes/scan.md
+  forbidden_ops: []
+  insertions: 2
+  deletions: 3
+  validate_cmd: node scripts/doctor.mjs --json >/dev/null 2>&1 && node scripts/doctor.mjs
+    >/dev/null 2>&1
+  validate_pass: null
+human:
+  acceptance: fail
+  manual_edits_after: 4
+  review_burden: 4
+  tokens: null
+  notes: added the flag but also edited DOMAIN.md and deleted recipes/scan.md — scope
+    sprawl
+

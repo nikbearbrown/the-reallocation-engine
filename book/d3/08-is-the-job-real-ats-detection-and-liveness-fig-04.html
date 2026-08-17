@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Same employer, two doors</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .row-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-ink); }
+    .col-head { font-family:'Inter',sans-serif; font-size:12px; font-weight:700; fill:var(--color-ink); }
+    .chip-text { font-family:'Inter',sans-serif; font-size:10px; }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    // state: 'live' (ink) or 'ghost' (ochre) — no red/green
+    const FALLBACK_DATA = {
+      rows: [
+        { signal:'posting age', a:{state:'live',v:'9 days'}, b:{state:'ghost',v:'11 weeks'} },
+        { signal:'last-updated', a:{state:'live',v:'recent'}, b:{state:'ghost',v:'never'} },
+        { signal:'description', a:{state:'live',v:'named project'}, b:{state:'ghost',v:'duplicated text'} },
+        { signal:'hiring activity', a:{state:'live',v:'churn'}, b:{state:'ghost',v:'frozen'} },
+        { signal:'portal movement', a:{state:'live',v:'yes'}, b:{state:'ghost',v:'none'} }
+      ],
+      classification: { a:'live', b:'ghost' }
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+    const stateColor = s => s==='live' ? 'var(--color-ink)' : 'var(--color-ochre)';
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.66);
+      const margin = { top: 64, right: 24, bottom: 48, left: 130 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Same employer, two doors');
+      svg.append('desc').attr('id','chart-desc').text('Two postings from the same employer scored across five liveness signals; Posting A reads live on every signal and Posting B reads ghost on every signal.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Same employer, two doors');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+      const colW = chartWidth/2;
+      const rows = data.rows;
+      const rowH = 34, gap = 6;
+      const totalRows = rows.length + 1;
+
+      g.append('text').attr('class','col-head').attr('x',colW*0.5).attr('y',-8).attr('text-anchor','middle').text('Posting A');
+      g.append('text').attr('class','col-head').attr('x',colW*1.5).attr('y',-8).attr('text-anchor','middle').text('Posting B');
+
+      rows.forEach((r,i)=>{
+        const y = i*(rowH+gap);
+        g.append('text').attr('class','row-label').attr('x',-10).attr('y',y+rowH/2+4).attr('text-anchor','end').text(r.signal);
+        [['a',0],['b',1]].forEach(([key,col])=>{
+          const cell = r[key];
+          g.append('rect').attr('x',col*colW+6).attr('y',y).attr('width',colW-12).attr('height',rowH)
+            .attr('fill', stateColor(cell.state)).attr('stroke','var(--color-white)').attr('stroke-width',1).attr('opacity',0.92)
+            .attr('tabindex',0).attr('role','img').attr('aria-label',`${r.signal}, posting ${key.toUpperCase()}: ${cell.v} (${cell.state})`)
+            .on('mouseover',(e)=>tooltip.html(`<strong>${r.signal}</strong><br>${cell.v} — ${cell.state}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+            .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+            .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+          g.append('text').attr('class','chip-text').attr('x',col*colW+colW/2).attr('y',y+rowH/2+4).attr('text-anchor','middle').attr('fill','var(--color-white)').text(cell.v);
+        });
+      });
+
+      // classification row
+      const cy = rows.length*(rowH+gap)+8;
+      g.append('text').attr('class','row-label').attr('x',-10).attr('y',cy+rowH/2+4).attr('text-anchor','end').attr('font-weight','700').text('classification');
+      [['a',0],['b',1]].forEach(([key,col])=>{
+        const v = data.classification[key];
+        g.append('rect').attr('x',col*colW+6).attr('y',cy).attr('width',colW-12).attr('height',rowH)
+          .attr('fill','none').attr('stroke',stateColor(v)).attr('stroke-width',2);
+        g.append('text').attr('class','chip-text').attr('x',col*colW+colW/2).attr('y',cy+rowH/2+4).attr('text-anchor','middle').attr('fill',stateColor(v)).attr('font-weight','700').text(v);
+      });
+
+      // legend
+      const lg = svg.append('g').attr('transform',`translate(${margin.left},${totalHeight-28})`);
+      lg.append('rect').attr('x',0).attr('y',-10).attr('width',12).attr('height',12).attr('fill','var(--color-ink)');
+      lg.append('text').attr('class','row-label').attr('x',18).attr('y',0).text('points live');
+      lg.append('rect').attr('x',110).attr('y',-10).attr('width',12).attr('height',12).attr('fill','var(--color-ochre)');
+      lg.append('text').attr('class','row-label').attr('x',128).attr('y',0).text('points ghost');
+
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-12).attr('text-anchor','end').text('SOURCE: LIVENESS IS A PROPERTY OF THE LISTING');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./08-is-the-job-real-ats-detection-and-liveness-fig-04.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

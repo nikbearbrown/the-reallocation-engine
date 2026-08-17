@@ -1,0 +1,13 @@
+{
+  "workflow": "pipeline",
+  "run_id": "pipeline-2026-06-14-001",
+  "mode": "sample",
+  "created_at": "2026-06-14T00:00:00Z",
+  "requested_by": "Nik Bear Brown",
+  "sources": [
+    { "name": "collected-urls", "path": "data/examples/urls.sample.json", "type": "json" }
+  ],
+  "approvals": [],
+  "limits": { "max_records": 50, "no_write": true },
+  "notes": "Worked sample of the pipeline run envelope (sample mode). Live runs read data/raw/pipeline/run-envelope.json; live mode requires a non-empty approvals[] and no_write:false."
+}

@@ -1,0 +1,32 @@
+[
+  { "role_id": "biotech-data", "company": "Cambridge biotech (Ch.7)", "title": "Data role (Proven tier)",
+    "sponsorship": { "p": 0.9, "tier": "Proven", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "liveness": { "factor": 1.0, "source": "record" },
+    "timeline": { "factor": 0.85, "source": "your-input" } },
+
+  { "role_id": "household-nonsponsor", "company": "Household-name non-sponsor", "title": "Same data role",
+    "sponsorship": { "p": 0.0, "tier": "None", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "liveness": { "factor": 1.0, "source": "record" },
+    "timeline": { "factor": 0.85, "source": "your-input" } },
+
+  { "role_id": "ghost-posting", "company": "Proven sponsor (ghost posting)", "title": "Looks perfect, isn't real",
+    "sponsorship": { "p": 0.9, "tier": "Proven", "source": "record" },
+    "fit": { "p": 0.8, "source": "model-judgment" },
+    "liveness": { "factor": 0.0, "source": "record" },
+    "timeline": { "factor": 0.85, "source": "your-input" } },
+
+  { "role_id": "likely-soft", "company": "Likely-tier sponsor", "title": "Strong but Likely not Proven",
+    "sponsorship": { "p": 0.6, "tier": "Likely", "source": "record" },
+    "fit": { "p": 0.85, "source": "model-judgment" },
+    "liveness": { "factor": 1.0, "source": "record" },
+    "timeline": { "factor": 0.9, "source": "your-input" } },
+
+  { "role_id": "override-demo", "company": "Non-sponsor, but HM is a contact", "title": "Scorer says Skip, you know better",
+    "sponsorship": { "p": 0.05, "tier": "None", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "liveness": { "factor": 1.0, "source": "record" },
+    "timeline": { "factor": 0.85, "source": "your-input" },
+    "override": { "decision": "Apply", "reason": "Hiring manager told me directly they are interviewing and the company started sponsoring last month; LCA record lags." } }
+]

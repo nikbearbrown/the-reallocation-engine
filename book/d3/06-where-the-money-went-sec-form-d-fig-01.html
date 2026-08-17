@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Form D corpus and the funded subset</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-fill:      #F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-fill:      #1A1A1A;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .chart-sub { font-family: 'Inter', sans-serif; font-size: 13px; fill: var(--color-secondary); }
+    .mono { font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 11px; }
+    .label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .source { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); letter-spacing: 0.08em; }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 10px; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      outer: { label: 'All companies that filed Form D', value: 568000 },
+      inner: { label: 'Raised at least $5M', value: 247000 }
+    };
+
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.6);
+      const margin = { top: 48, right: 40, bottom: 56, left: 64 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The Form D corpus and the funded subset');
+      svg.append('desc').attr('id', 'chart-desc').text('A nested-proportion figure: the full Form D filing population fully encloses the smaller subset that raised at least five million dollars.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', margin.left).attr('y', 24).text('The Form D corpus and the funded subset');
+
+      const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+      // outer rect fills chart area
+      const outer = g.append('rect')
+        .attr('x', 0).attr('y', 0).attr('width', chartWidth).attr('height', chartHeight)
+        .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-ink)').attr('stroke-width', 1)
+        .attr('tabindex', 0).attr('role', 'img')
+        .attr('aria-label', `All companies that filed Form D: ${d3.format(',')(data.outer.value)}`);
+
+      // inner area proportional: ratio of counts -> ratio of areas
+      const ratio = data.inner.value / data.outer.value; // ~0.435
+      const outerArea = chartWidth * chartHeight;
+      const innerArea = outerArea * ratio;
+      const aspect = chartWidth / chartHeight;
+      const innerH = Math.sqrt(innerArea / aspect);
+      const innerW = innerArea / innerH;
+      const innerX = (chartWidth - innerW) / 2;
+      const innerY = (chartHeight - innerH) / 2;
+
+      const inner = g.append('rect')
+        .attr('x', innerX).attr('y', innerY).attr('width', innerW).attr('height', innerH)
+        .attr('fill', 'var(--color-white)').attr('stroke', 'var(--color-red)').attr('stroke-width', 2)
+        .attr('tabindex', 0).attr('role', 'img')
+        .attr('aria-label', `Raised at least 5 million dollars: ${d3.format(',')(data.inner.value)}`);
+
+      g.append('text').attr('class', 'label').attr('x', chartWidth / 2).attr('y', 18).attr('text-anchor', 'middle').text(data.outer.label);
+      g.append('text').attr('class', 'mono').attr('x', chartWidth / 2).attr('y', 36).attr('text-anchor', 'middle').attr('fill', 'var(--color-secondary)').text('~' + d3.format(',')(data.outer.value));
+
+      g.append('text').attr('class', 'label').attr('x', chartWidth / 2).attr('y', innerY + innerH / 2 - 2).attr('text-anchor', 'middle').text(data.inner.label);
+      g.append('text').attr('class', 'mono').attr('x', chartWidth / 2).attr('y', innerY + innerH / 2 + 16).attr('text-anchor', 'middle').attr('fill', 'var(--color-red)').text('~' + d3.format(',')(data.inner.value));
+
+      function tip(event, d, html) {
+        tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px').transition().duration(150).style('opacity', 1);
+      }
+      outer.on('mouseover', (e) => tip(e, null, `<strong>All filers</strong>: ${d3.format(',')(data.outer.value)}`))
+           .on('mousemove', (e) => tooltip.style('left', (e.pageX + 12) + 'px').style('top', (e.pageY - 28) + 'px'))
+           .on('mouseout', () => tooltip.transition().duration(100).style('opacity', 0));
+      inner.on('mouseover', (e) => tip(e, null, `<strong>Raised ≥ $5M</strong>: ${d3.format(',')(data.inner.value)}`))
+           .on('mousemove', (e) => tooltip.style('left', (e.pageX + 12) + 'px').style('top', (e.pageY - 28) + 'px'))
+           .on('mouseout', () => tooltip.transition().duration(100).style('opacity', 0));
+
+      svg.append('text').attr('class', 'source').attr('x', totalWidth - margin.right).attr('y', totalHeight - 12).attr('text-anchor', 'end').text('SOURCE: SEC FORM D FILINGS');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./06-where-the-money-went-sec-form-d-fig-01.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => {
+      draw(data);
+      const ro = new ResizeObserver(() => draw(data));
+      ro.observe(document.getElementById('chart'));
+    });
+  </script>
+</body>
+</html>

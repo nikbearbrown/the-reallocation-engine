@@ -1,0 +1,38 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2" font-family="Inter, sans-serif">
+  <title id="t2">Paste-test output: single-column vs. two-column</title>
+  <desc id="d2">The same CV rendered two ways. The single-column version pastes out as clean linear text with name, title, dates, and bullets in order. The two-column designed template pastes out as scrambled, interleaved text with missing sections.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- LEFT: clean -->
+  <text x="40" y="36" font-size="14" font-weight="700" fill="#C8102E">Single-column — parses clean</text>
+  <rect x="40" y="48" width="290" height="320" fill="#F5F5F5" stroke="#D4D4D4"/>
+  <g font-family="JetBrains Mono, monospace" font-size="12" fill="#2a1a0e">
+    <text x="56" y="74">Jordan Lee</text>
+    <text x="56" y="98">Data Analyst</text>
+    <text x="56" y="122">Acme Corp · 2023–2024</text>
+    <text x="56" y="150">EXPERIENCE</text>
+    <text x="56" y="172">• Built reporting pipeline</text>
+    <text x="56" y="194">• Cut refresh time by half</text>
+    <text x="56" y="222">EDUCATION</text>
+    <text x="56" y="244">• B.S. Statistics, 2023</text>
+    <text x="56" y="272">SKILLS</text>
+    <text x="56" y="294">• SQL, Python, dbt</text>
+    <text x="56" y="340" fill="#545454">name · title · dates in order</text>
+  </g>
+
+  <!-- RIGHT: scrambled -->
+  <text x="370" y="36" font-size="14" font-weight="700" fill="#545454">Two-column — parses scrambled</text>
+  <rect x="370" y="48" width="290" height="320" fill="#F5F5F5" stroke="#D4D4D4"/>
+  <g font-family="JetBrains Mono, monospace" font-size="12" fill="#545454">
+    <text x="386" y="74">Jordan Data SQL Analyst Lee</text>
+    <text x="386" y="98">2023 Built Python –2024 pipe</text>
+    <text x="386" y="122">EXPERI dbt ENCE refresh</text>
+    <text x="386" y="150" fill="#C8102E">[skills bars: no text]</text>
+    <text x="386" y="172">half Cut B.S. by time</text>
+    <text x="386" y="200" fill="#C8102E">[name in header: absent]</text>
+    <text x="386" y="228" fill="#C8102E">[title: not found]</text>
+    <text x="386" y="340">columns interleaved, gaps</text>
+  </g>
+
+  <text x="350" y="398" text-anchor="middle" font-size="13" fill="#2a1a0e" font-family="EB Garamond, Georgia, serif" font-style="italic">The right side is what a typical two-column template actually produces when parsed.</text>
+</svg>

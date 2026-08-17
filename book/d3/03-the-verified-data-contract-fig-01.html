@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Same question, two kinds of answer</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .col-head { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; fill: var(--color-secondary); }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      left: { head: "Model's answer", body: 'Plausible prose, no source' },
+      right: { head: 'Verified answer', metrics: ['15 LCA filings', '85% approval', 'over 3 years'], sources: ['Dept. of Labor', 'USCIS'] }
+    };
+    async function loadData() {
+      try { return await d3.json('./03-the-verified-data-contract-fig-01/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Same question, two kinds of answer');
+      svg.append('desc').attr('id', 'chart-desc').text("The model's answer floats with no source; the verified answer is bolted by connectors to two record sources.");
+      svg.append('defs').append('marker').attr('id', 'dot').attr('markerWidth', 6).attr('markerHeight', 6).attr('refX', 3).attr('refY', 3)
+        .append('circle').attr('cx', 3).attr('cy', 3).attr('r', 2).attr('fill', 'var(--color-red)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('Same question, two kinds of answer');
+      svg.append('line').attr('x1', 350).attr('y1', 56).attr('x2', 350).attr('y2', 380).attr('stroke', 'var(--color-border)').attr('stroke-width', 0.75);
+
+      // LEFT — floating block
+      svg.append('text').attr('class', 'col-head').attr('x', 175).attr('y', 80).attr('text-anchor', 'middle').text(d.left.head);
+      svg.append('rect').attr('x', 70).attr('y', 150).attr('width', 210).attr('height', 90).attr('rx', 8)
+        .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1).attr('stroke-dasharray', '4 3');
+      svg.append('text').attr('class', 'node-text').attr('x', 175).attr('y', 198).attr('text-anchor', 'middle').attr('fill', 'var(--color-gray)').text(d.left.body);
+      svg.append('text').attr('class', 'mono').attr('x', 175).attr('y', 270).attr('text-anchor', 'middle').text('(no anchor)');
+
+      // RIGHT — anchored cluster
+      svg.append('text').attr('class', 'col-head').attr('x', 525).attr('y', 80).attr('text-anchor', 'middle').text(d.right.head);
+      svg.append('rect').attr('x', 430).attr('y', 100).attr('width', 190).attr('height', 96).attr('rx', 8)
+        .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-red)').attr('stroke-width', 1.5);
+      d.right.metrics.forEach((m, i) => svg.append('text').attr('class', 'node-text').attr('x', 525).attr('y', 126 + i * 24).attr('text-anchor', 'middle').text(m));
+
+      // connectors to sources
+      const srcX = [462, 588];
+      d.right.sources.forEach((s, i) => {
+        svg.append('line').attr('x1', 525).attr('y1', 196).attr('x2', srcX[i]).attr('y2', 300)
+          .attr('stroke', 'var(--color-red)').attr('stroke-width', 1.2).attr('aria-hidden', 'true');
+        svg.append('rect').attr('x', srcX[i] - 56).attr('y', 304).attr('width', 112).attr('height', 36).attr('rx', 6)
+          .attr('fill', 'var(--color-white)').attr('stroke', 'var(--color-ink)').attr('stroke-width', 1);
+        svg.append('text').attr('class', 'mono').attr('x', srcX[i]).attr('y', 326).attr('text-anchor', 'middle').text(s);
+      });
+
+      svg.append('text').attr('class', 'mono').attr('x', 24).attr('y', 404).text('One answer is plausible. One is checkable.');
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

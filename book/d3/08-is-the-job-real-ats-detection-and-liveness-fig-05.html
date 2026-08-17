@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detection unlocks the schema</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .node-label { font-family:'Inter',sans-serif; font-size:13px; fill:var(--color-ink); }
+    .feed { font-family:'JetBrains Mono',monospace; font-size:10px; fill:var(--color-secondary); }
+    .field { font-family:'JetBrains Mono',monospace; font-size:11px; fill:var(--color-ink); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      platforms: [
+        { name:'Greenhouse', feed:'/boards feed' },
+        { name:'Lever', feed:'/postings feed' },
+        { name:'Ashby', feed:'/jobs API' }
+      ],
+      fields: ['job_id','title','posted_date','last_updated','description','status']
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.6);
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Detection unlocks the schema');
+      svg.append('desc').attr('id','chart-desc').text('Three ATS platforms with distinct feeds converge on one unified postings-record schema.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Detection unlocks the schema');
+
+      const defs = svg.append('defs');
+      defs.append('marker').attr('id','arrow').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+      const W=totalWidth, H=totalHeight;
+      const pX=W*0.16, pW=W*0.24;
+      const pYs = data.platforms.map((d,i)=> H*0.22 + i*(H*0.56/(data.platforms.length-1)));
+      const schX=W*0.58, schW=W*0.34, schY=H*0.18, schH=H*0.64;
+
+      // platform nodes
+      data.platforms.forEach((p,i)=>{
+        const y=pYs[i];
+        svg.append('rect').attr('x',pX-pW/2).attr('y',y-22).attr('width',pW).attr('height',44)
+          .attr('fill','var(--color-white)').attr('stroke','var(--color-ink)').attr('stroke-width',1.5)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`${p.name}, ${p.feed}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${p.name}</strong><br>${p.feed}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        svg.append('text').attr('class','node-label').attr('x',pX).attr('y',y-2).attr('text-anchor','middle').text(p.name);
+        svg.append('text').attr('class','feed').attr('x',pX).attr('y',y+14).attr('text-anchor','middle').text(p.feed);
+        svg.append('line').attr('aria-hidden','true').attr('x1',pX+pW/2).attr('y1',y).attr('x2',schX-2).attr('y2',H*0.5)
+          .attr('stroke','var(--color-ink)').attr('stroke-width',1.3).attr('marker-end','url(#arrow)');
+      });
+
+      // schema box
+      svg.append('rect').attr('x',schX).attr('y',schY).attr('width',schW).attr('height',schH)
+        .attr('fill','var(--color-fill)').attr('stroke','var(--color-red)').attr('stroke-width',2)
+        .attr('tabindex',0).attr('role','img').attr('aria-label','unified postings record schema');
+      svg.append('text').attr('x',schX+schW/2).attr('y',schY+24).attr('text-anchor','middle')
+        .attr('font-family',"'Inter',sans-serif").attr('font-size',13).attr('font-weight',700).attr('fill','var(--color-ink)').text('postings record');
+      svg.append('line').attr('x1',schX+12).attr('x2',schX+schW-12).attr('y1',schY+34).attr('y2',schY+34).attr('stroke','var(--color-border)').attr('stroke-width',1);
+      data.fields.forEach((f,i)=>{
+        svg.append('text').attr('class','field').attr('x',schX+18).attr('y',schY+58+i*((schH-58)/data.fields.length)).text(f);
+      });
+
+      svg.append('text').attr('class','source').attr('x',W-40).attr('y',H-12).attr('text-anchor','end').text('SOURCE: scripts/ats/detect-ats.py');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./08-is-the-job-real-ats-detection-and-liveness-fig-05.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

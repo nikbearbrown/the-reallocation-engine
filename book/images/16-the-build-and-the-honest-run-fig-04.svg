@@ -1,0 +1,35 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4 d4" font-family="Inter, sans-serif">
+  <title id="t4">First real run: 30 roles by outcome</title>
+  <desc id="d4">A first real batch of 30 roles broken down by outcome: roughly 13 percent Apply, 30 percent Consider, 57 percent Skip. The skip rate is the engine working, not failing.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- horizontal bars on zero baseline -->
+  <g transform="translate(140,90)">
+    <!-- axis -->
+    <line x1="0" y1="-10" x2="0" y2="190" stroke="#2a1a0e" stroke-width="1.5"/>
+    <!-- scale: 60% = 420px -->
+    <!-- Apply 13% -->
+    <rect x="0" y="10" width="91" height="44" fill="#C8102E"/>
+    <text x="-12" y="38" text-anchor="end" font-size="13" fill="#2a1a0e">Apply</text>
+    <text x="101" y="38" font-size="12" fill="#2a1a0e" font-family="JetBrains Mono, monospace">13%</text>
+    <!-- Consider 30% -->
+    <rect x="0" y="74" width="210" height="44" fill="#545454"/>
+    <text x="-12" y="102" text-anchor="end" font-size="13" fill="#2a1a0e">Consider</text>
+    <text x="220" y="102" font-size="12" fill="#2a1a0e" font-family="JetBrains Mono, monospace">30%</text>
+    <!-- Skip 57% -->
+    <rect x="0" y="138" width="399" height="44" fill="#787878"/>
+    <text x="-12" y="166" text-anchor="end" font-size="13" fill="#2a1a0e">Skip</text>
+    <text x="409" y="166" font-size="12" fill="#C8102E" font-family="JetBrains Mono, monospace">57%</text>
+
+    <!-- baseline ticks -->
+    <g font-family="JetBrains Mono, monospace" font-size="10" fill="#545454">
+      <line x1="0" y1="190" x2="0" y2="196" stroke="#545454"/><text x="0" y="210" text-anchor="middle">0</text>
+      <line x1="210" y1="190" x2="210" y2="196" stroke="#545454"/><text x="210" y="210" text-anchor="middle">30%</text>
+      <line x1="420" y1="190" x2="420" y2="196" stroke="#545454"/><text x="420" y="210" text-anchor="middle">60%</text>
+    </g>
+    <text x="210" y="232" text-anchor="middle" font-size="12" fill="#545454">share of 30 evaluated roles</text>
+  </g>
+
+  <line x1="40" y1="356" x2="660" y2="356" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="382" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">The skip rate isn't failure — it's the engine working.</text>
+</svg>

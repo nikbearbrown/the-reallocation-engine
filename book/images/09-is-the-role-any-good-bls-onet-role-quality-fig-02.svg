@@ -1,0 +1,66 @@
+<!-- The Compact Row: Three Role-Quality Features
+     Book: The Reallocation Engine
+     Chapter: 09-is-the-role-any-good-bls-onet-role-quality
+     Figure 02
+     Type: structural schematic
+     Generated 2026-06-15
+     Source: pantry/09-is-the-role-any-good-bls-onet-role-quality-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">The compact row: three role-quality features</title>
+<desc>One compact occupation row, shown as a horizontal band, fans down into three parallel feature panels. The first panel is an employment-trend line across survey years; the second is a wage band marked at five percentile positions; the third is a five-step job-zone preparation ladder. An attached alternate-title list above the band feeds the confirmation, signaling the row is only trustworthy once the title is matched.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="09-is-the-role-any-good-bls-onet-role-quality" figure-number="02" figure-title="The compact row: three role-quality features" figure-slug="compact-row-three-features" figure-type="structural" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/09-is-the-role-any-good-bls-onet-role-quality-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The compact row: three role-quality features</text>
+
+<!-- alternate-title list attached at top as gate -->
+<rect x="280" y="64" width="140" height="34" rx="0" fill="#F5F5F5" stroke="#787878" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="350" y="85" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">alternate-title list (gate)</text>
+<line x1="350" y1="98" x2="350" y2="112" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- compact row band -->
+<rect x="120" y="114" width="460" height="40" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="350" y="139" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">one compact occupation row</text>
+
+<!-- fan-out connectors -->
+<line x1="200" y1="154" x2="160" y2="196" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="350" y1="154" x2="350" y2="196" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="500" y1="154" x2="540" y2="196" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Panel 1: employment trend (multi-period line) -->
+<rect x="48" y="200" width="180" height="150" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<text x="138" y="222" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">employment trend</text>
+<polyline points="68,320 108,300 148,290 188,260 208,250" fill="none" stroke="#2a1a0e" stroke-width="2"/>
+<circle cx="68" cy="320" r="3" fill="#2a1a0e"/>
+<circle cx="108" cy="300" r="3" fill="#2a1a0e"/>
+<circle cx="148" cy="290" r="3" fill="#2a1a0e"/>
+<circle cx="188" cy="260" r="3" fill="#2a1a0e"/>
+<circle cx="208" cy="250" r="3" fill="#2a1a0e"/>
+<text x="138" y="342" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">across survey years</text>
+
+<!-- Panel 2: wage band (distribution at five percentiles) -->
+<rect x="240" y="200" width="180" height="150" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<text x="330" y="222" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">wage band</text>
+<!-- vertical distribution bar -->
+<rect x="320" y="240" width="20" height="90" rx="0" fill="#787878"/>
+<!-- five percentile ticks -->
+<line x1="312" y1="330" x2="348" y2="330" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="312" y1="308" x2="348" y2="308" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="312" y1="285" x2="348" y2="285" stroke="#C8102E" stroke-width="2"/>
+<line x1="312" y1="262" x2="348" y2="262" stroke="#2a1a0e" stroke-width="1.5"/>
+<line x1="312" y1="240" x2="348" y2="240" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="356" y="288" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">50th</text>
+<text x="330" y="346" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">10/25/50/75/90</text>
+
+<!-- Panel 3: job zone (five-step ladder) -->
+<rect x="432" y="200" width="180" height="150" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<text x="522" y="222" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">job zone</text>
+<rect x="460" y="316" width="40" height="14" fill="#2a1a0e"/>
+<rect x="475" y="298" width="40" height="14" fill="#2a1a0e"/>
+<rect x="490" y="280" width="40" height="14" fill="#2a1a0e"/>
+<rect x="505" y="262" width="40" height="14" fill="#2a1a0e"/>
+<rect x="520" y="244" width="40" height="14" fill="#2a1a0e"/>
+<text x="522" y="346" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">preparation levels 1–5</text>
+
+<text x="350" y="384" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">three parallel features of equal weight, read only after the title is confirmed</text>
+</svg>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply / Consider / Skip decision regions</title>
+<style>
+  :root {
+    --color-white: #FFFFFF;
+    --color-ink: #2a1a0e;
+    --color-red: #C8102E;
+    --color-secondary: #545454;
+    --color-border: #D4D4D4;
+    --color-ochre: #C8860E;
+    --color-fill: #F5F5F5;
+    --color-applyfill: #FBECEE;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-white: #111111;
+      --color-ink: #F0EBE3;
+      --color-red: #E8243A;
+      --color-secondary: #A0978C;
+      --color-border: #2E2E2E;
+      --color-ochre: #D49A30;
+      --color-fill: #1A1A1A;
+      --color-applyfill: #2A1416;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, sans-serif; }
+  #chart { width: 100%; }
+  .region-label { font-family: 'EB Garamond', Georgia, serif; }
+  .axis-title { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-secondary); }
+  .tick text { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+  .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white);
+    border: 1px solid var(--color-border); border-radius: 8px; padding: 6px 10px; font-size: 13px; color: var(--color-ink); }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  { id: 'sponsor', label: 'Sponsoring company', sponsorship: 0.85, fit: 0.7, region: 'Apply' },
+  { id: 'nonsponsor', label: 'Household-name non-sponsor', sponsorship: 0.05, fit: 0.7, region: 'Skip' }
+];
+
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const margin = { top: 48, right: 40, bottom: 56, left: 64 };
+  const totalWidth = document.getElementById('chart').clientWidth || 700;
+  const totalHeight = 460;
+  const chartWidth = totalWidth - margin.left - margin.right;
+  const chartHeight = totalHeight - margin.top - margin.bottom;
+
+  const css = getComputedStyle(document.documentElement);
+  const C = n => css.getPropertyValue(n).trim();
+
+  const svg = d3.select('#chart').append('svg')
+    .attr('width', totalWidth).attr('height', totalHeight)
+    .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+  svg.append('title').attr('id', 'chart-title').text('Apply / Consider / Skip decision regions');
+  svg.append('desc').attr('id', 'chart-desc').text('Two roles with identical fit land in opposite regions because sponsorship differs.');
+
+  const gChart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+  const x = d3.scaleLinear().domain([0, 1]).range([0, chartWidth]);
+  const y = d3.scaleLinear().domain([0, 1]).range([chartHeight, 0]);
+  const xMid = x(0.5), yMid = y(0.5);
+
+  // region fills
+  gChart.append('rect').attr('x', 0).attr('y', yMid).attr('width', xMid).attr('height', chartHeight - yMid).attr('fill', C('--color-fill'));
+  gChart.append('rect').attr('x', xMid).attr('y', 0).attr('width', chartWidth - xMid).attr('height', yMid).attr('fill', C('--color-applyfill'));
+
+  // dividers
+  gChart.append('line').attr('x1', xMid).attr('x2', xMid).attr('y1', 0).attr('y2', chartHeight)
+    .attr('stroke', C('--color-border')).attr('stroke-dasharray', '4 4').attr('aria-hidden', 'true');
+  gChart.append('line').attr('x1', 0).attr('x2', chartWidth).attr('y1', yMid).attr('y2', yMid)
+    .attr('stroke', C('--color-border')).attr('stroke-dasharray', '4 4').attr('aria-hidden', 'true');
+
+  // region labels
+  const labels = [
+    { x: 0.75, y: 0.75, t: 'Apply', red: true, size: 18 },
+    { x: 0.25, y: 0.75, t: 'Consider', red: false, size: 15 },
+    { x: 0.75, y: 0.25, t: 'Consider', red: false, size: 15 },
+    { x: 0.25, y: 0.25, t: 'Skip', red: false, size: 15 }
+  ];
+  gChart.selectAll('.region-label').data(labels).join('text')
+    .attr('class', 'region-label')
+    .attr('x', d => x(d.x)).attr('y', d => y(d.y))
+    .attr('text-anchor', 'middle').attr('font-size', d => d.size)
+    .attr('font-weight', d => d.red ? 700 : 400)
+    .attr('fill', d => d.red ? C('--color-red') : C('--color-secondary'))
+    .text(d => d.t);
+
+  // axes
+  gChart.append('g').attr('transform', `translate(0,${chartHeight})`)
+    .call(d3.axisBottom(x).ticks(5).tickFormat(d3.format('.1f')));
+  gChart.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('.1f')));
+  svg.selectAll('.domain, .tick line').attr('stroke', C('--color-secondary'));
+
+  gChart.append('text').attr('class', 'axis-title').attr('x', chartWidth / 2).attr('y', chartHeight + 42)
+    .attr('text-anchor', 'middle').text('Sponsorship probability (low → high)');
+  gChart.append('text').attr('class', 'axis-title').attr('transform', 'rotate(-90)')
+    .attr('x', -chartHeight / 2).attr('y', -46).attr('text-anchor', 'middle').text('Fit score (low → high)');
+
+  const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+
+  // equal-fit connector
+  const pts = FALLBACK_DATA;
+  gChart.append('line')
+    .attr('x1', x(pts[0].sponsorship)).attr('y1', y(pts[0].fit))
+    .attr('x2', x(pts[1].sponsorship)).attr('y2', y(pts[1].fit))
+    .attr('stroke', C('--color-ochre')).attr('stroke-dasharray', '2 3').attr('aria-hidden', 'true');
+
+  gChart.selectAll('.data-point').data(pts).join('circle')
+    .attr('class', 'data-point')
+    .attr('cx', d => x(d.sponsorship)).attr('cy', d => y(d.fit)).attr('r', 8)
+    .attr('fill', d => d.region === 'Apply' ? C('--color-red') : C('--color-ink'))
+    .attr('tabindex', 0)
+    .attr('aria-label', d => `${d.label}: sponsorship ${d.sponsorship}, fit ${d.fit}, ${d.region}`)
+    .on('mouseover', (event, d) => {
+      tooltip.html(`<strong>${d.label}</strong><br>sponsorship ${d.sponsorship} · fit ${d.fit} → ${d.region}`)
+        .style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px')
+        .transition().duration(150).style('opacity', 1);
+    })
+    .on('mousemove', (event) => tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px'))
+    .on('mouseout', () => tooltip.transition().duration(100).style('opacity', 0));
+}
+draw();
+new ResizeObserver(() => draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

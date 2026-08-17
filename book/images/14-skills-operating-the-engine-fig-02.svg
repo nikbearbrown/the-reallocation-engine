@@ -1,0 +1,37 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2" font-family="Inter, sans-serif">
+  <title id="t2">The run-inspect-record loop with provenance checkpoints</title>
+  <desc id="d2">A three-step cycle: Run an active recipe, Inspect the output and its provenance, Record the run in RUN_LOG.md, then repeat. The inspect step is the protection against trusting a fluent surface.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ac2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2a1a0e"/>
+    </marker>
+  </defs>
+
+  <!-- three nodes in a triangle/cycle -->
+  <!-- Run (top) -->
+  <circle cx="350" cy="100" r="56" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="350" y="96" text-anchor="middle" font-size="16" fill="#C8102E" font-family="EB Garamond, Georgia, serif">Run</text>
+  <text x="350" y="116" text-anchor="middle" font-size="10" fill="#545454">active recipe</text>
+
+  <!-- Inspect (bottom-right) -->
+  <circle cx="510" cy="290" r="56" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="510" y="286" text-anchor="middle" font-size="16" fill="#2a1a0e" font-family="EB Garamond, Georgia, serif">Inspect</text>
+  <text x="510" y="306" text-anchor="middle" font-size="10" fill="#545454">provenance?</text>
+
+  <!-- Record (bottom-left) -->
+  <circle cx="190" cy="290" r="56" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="190" y="286" text-anchor="middle" font-size="16" fill="#2a1a0e" font-family="EB Garamond, Georgia, serif">Record</text>
+  <text x="190" y="306" text-anchor="middle" font-size="10" fill="#545454">RUN_LOG.md</text>
+
+  <!-- arrows clockwise -->
+  <path d="M398,128 A210 210 0 0 1 470,238" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ac2)"/>
+  <path d="M454,290 A210 210 0 0 1 246,290" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ac2)"/>
+  <path d="M230,238 A210 210 0 0 1 302,128" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#ac2)"/>
+
+  <!-- checkpoint annotations -->
+  <text x="350" y="220" text-anchor="middle" font-size="11" fill="#C8860E" font-style="italic">inspect = the only protection</text>
+
+  <line x1="40" y1="372" x2="660" y2="372" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="398" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">Skip the inspect step and you have reopened the fluency trap.</text>
+</svg>

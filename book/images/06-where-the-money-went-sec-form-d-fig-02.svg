@@ -1,0 +1,78 @@
+<!-- The seven-step Form D pipeline across three layers
+     Book: The Reallocation Engine
+     Chapter: 06-where-the-money-went-sec-form-d
+     Figure 02
+     Type: process flowchart (linear, layer-banded)
+     Generated 2026-06-15
+     Source: pantry/06-where-the-money-went-sec-form-d-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">The seven-step Form D pipeline across three layers</title>
+<desc>Seven sequential steps turn raw filings into a usable funded-company table, descending through three horizontal data layers: raw, extracted, processed. The steps are download quarters, refresh recent quarters, combine quarters, filter to real offerings above a funding threshold, collapse to one record per company, infer web domains, and flatten to the final table. Each step writes an audit receipt alongside its output.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="06-where-the-money-went-sec-form-d" figure-number="02" figure-title="The seven-step Form D pipeline across three layers" figure-slug="seven-step-form-d-pipeline" figure-type="flowchart" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/06-where-the-money-went-sec-form-d-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The seven-step Form D pipeline across three layers</text>
+
+<!-- Layer bands -->
+<rect x="120" y="72" width="548" height="92" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<rect x="120" y="172" width="548" height="92" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<rect x="120" y="272" width="548" height="92" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<text x="112" y="122" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">raw</text>
+<text x="112" y="222" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">extracted</text>
+<text x="112" y="322" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">processed</text>
+
+<!-- Step boxes; small width. Steps 1-3 raw band, 4-5 extracted, 6-7 processed -->
+<!-- helper: box w=68 h=46, audit dot below -->
+<!-- Step 1 (raw) -->
+<rect x="132" y="96" width="68" height="46" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="166" y="116" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">1</text>
+<text x="166" y="132" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">download</text>
+<!-- Step 2 (raw) -->
+<rect x="218" y="96" width="68" height="46" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="252" y="116" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">2</text>
+<text x="252" y="132" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">refresh</text>
+<!-- Step 3 (raw) -->
+<rect x="304" y="96" width="68" height="46" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="338" y="116" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">3</text>
+<text x="338" y="132" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">combine</text>
+
+<!-- Step 4 (extracted) -->
+<rect x="304" y="196" width="68" height="46" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="338" y="216" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">4</text>
+<text x="338" y="232" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">filter $</text>
+<!-- Step 5 (extracted) -->
+<rect x="390" y="196" width="68" height="46" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="424" y="216" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">5</text>
+<text x="424" y="232" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">unique</text>
+
+<!-- Step 6 (processed) -->
+<rect x="476" y="296" width="68" height="46" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="510" y="316" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">6</text>
+<text x="510" y="332" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">domains</text>
+<!-- Step 7 (processed, highlighted final table) -->
+<rect x="562" y="296" width="84" height="46" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="604" y="316" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#C8102E">7</text>
+<text x="604" y="332" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="9.5" fill="#2a1a0e">final table</text>
+
+<!-- Forward arrows -->
+<line x1="200" y1="119" x2="216" y2="119" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="286" y1="119" x2="302" y2="119" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<!-- 3 -> 4 descend -->
+<path d="M 338 142 L 338 194" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="372" y1="219" x2="388" y2="219" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<!-- 5 -> 6 descend -->
+<path d="M 424 242 L 424 280 L 510 280 L 510 294" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="544" y1="319" x2="560" y2="319" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- audit-receipt markers (small squares) under each step -->
+<rect x="162" y="148" width="8" height="8" fill="#2a1a0e"/>
+<rect x="248" y="148" width="8" height="8" fill="#2a1a0e"/>
+<rect x="334" y="148" width="8" height="8" fill="#2a1a0e"/>
+<rect x="334" y="248" width="8" height="8" fill="#2a1a0e"/>
+<rect x="420" y="248" width="8" height="8" fill="#2a1a0e"/>
+<rect x="506" y="348" width="8" height="8" fill="#2a1a0e"/>
+<rect x="600" y="348" width="8" height="8" fill="#2a1a0e"/>
+
+<rect x="132" y="388" width="8" height="8" fill="#2a1a0e"/>
+<text x="148" y="396" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">every step writes an audit receipt alongside its output</text>
+</svg>

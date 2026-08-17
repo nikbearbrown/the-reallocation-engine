@@ -1,0 +1,34 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2" font-family="Inter, sans-serif">
+  <title id="t2">The phase gate: where AI stops and human begins</title>
+  <desc id="d2">A systems diagram split by a vertical gate. The left side lists AI-handled extraneous-load tasks; the right side lists human germane-load work. The gate sits where the cognitive work constitutes the learning.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- AI side -->
+  <text x="40" y="40" font-size="14" font-weight="700" fill="#545454">AI handles — extraneous load</text>
+  <rect x="40" y="56" width="270" height="280" fill="#F5F5F5" stroke="#D4D4D4"/>
+  <g font-size="12" fill="#2a1a0e">
+    <text x="58" y="92">Formatting citations</text>
+    <text x="58" y="128">Organizing sources</text>
+    <text x="58" y="164">Drafting routine comms</text>
+    <text x="58" y="200">Adjusting complexity levels</text>
+    <text x="58" y="236">Generating templates</text>
+    <text x="58" y="272">Scaffolding structure</text>
+  </g>
+
+  <!-- gate -->
+  <line x1="350" y1="40" x2="350" y2="350" stroke="#C8102E" stroke-width="3"/>
+  <text x="350" y="30" text-anchor="middle" font-size="12" font-weight="700" fill="#C8102E">PHASE GATE</text>
+  <text x="350" y="372" text-anchor="middle" font-size="11" fill="#545454">where the cognitive work constitutes the learning</text>
+
+  <!-- Human side -->
+  <text x="390" y="40" font-size="14" font-weight="700" fill="#C8102E">Human handles — germane load</text>
+  <rect x="390" y="56" width="270" height="280" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <g font-size="12" fill="#2a1a0e">
+    <text x="408" y="92">Synthesizing evidence</text>
+    <text x="408" y="128">Constructing an argument</text>
+    <text x="408" y="164">Setting up a problem</text>
+    <text x="408" y="200">Forming a judgment</text>
+    <text x="408" y="236">Teaching a confused student</text>
+    <text x="408" y="272">Problem formulation</text>
+  </g>
+</svg>

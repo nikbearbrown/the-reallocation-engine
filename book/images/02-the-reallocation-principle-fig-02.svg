@@ -1,0 +1,49 @@
+<!--
+  Figure: The 3-3-2 day
+  Book: The Reallocation Engine
+  Chapter: 02-the-reallocation-principle
+  Figure: 02
+  Type: statistical / quantitative (proportional three-column split)
+  Generated: 2026-06-15
+  Source: pantry/02-the-reallocation-principle-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+  <title id="fig-title-02">The 3-3-2 day</title>
+  <desc>Three proportional columns on a common baseline showing how an eight-hour search day is reallocated: targeted applying at two hours is the shortest column, networking at three hours, and portfolio at three hours. Effort has moved away from applying toward networking and portfolio work.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="02-the-reallocation-principle" figure-number="02" figure-title="The 3-3-2 day" figure-slug="the-3-3-2-day" figure-type="statistical / quantitative (proportional three-column split)" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/02-the-reallocation-principle-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The 3-3-2 day</text>
+
+  <!-- Plot region x 80..660, y 56..348 -->
+  <rect x="80" y="56" width="580" height="292" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- baseline y=348 ; unit height: 3 hr = 222 ; 2 hr = 148 ; px/hr = 74 -->
+  <line x1="80" y1="348" x2="660" y2="348" stroke="#545454" stroke-width="1"/>
+
+  <!-- columns width 120, centers 170, 370, 570 -->
+  <!-- applying = 2 hr -> height 148 -> top y=200 (primary neutral) -->
+  <rect x="110" y="200" width="120" height="148" fill="#787878"/>
+  <text x="170" y="192" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2 hr</text>
+  <text x="170" y="276" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Targeted</text>
+  <text x="170" y="292" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">applying</text>
+
+  <!-- networking = 3 hr -> height 222 -> top y=126 (active highlighted) -->
+  <rect x="310" y="126" width="120" height="222" fill="#C8102E"/>
+  <text x="370" y="118" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">3 hr</text>
+  <text x="370" y="240" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Networking</text>
+
+  <!-- portfolio = 3 hr -> height 222 -> top y=126 (secondary) -->
+  <rect x="510" y="126" width="120" height="222" fill="#2a1a0e"/>
+  <text x="570" y="118" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">3 hr</text>
+  <text x="570" y="240" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Portfolio</text>
+
+  <!-- emphasis accent ties -->
+  <text x="370" y="364" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">→ the dominant hire channel</text>
+  <text x="570" y="364" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">→ skill validation</text>
+
+  <text x="32" y="392" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Applying is the smallest slice of the day, deliberately. The freed hours move to networking and portfolio.</text>
+</svg>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drift: when the map leaves the territory</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+    .stage-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--color-secondary); }
+    .track-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      stages: ['In sync', 'Recipe updated, card unchanged', 'Reader follows stale card'],
+      recipe: 'Recipe',
+      card: 'Card'
+    };
+    async function loadData() {
+      try { return await d3.json('./04-two-customers-fig-03/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Drift: when the map leaves the territory');
+      svg.append('desc').attr('id', 'chart-desc').text('Recipe and card tracks across three time stages: in sync, then the recipe updates and the connector breaks, then a reader follows the stale card down a wrong path.');
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 8).attr('markerHeight', 6).attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ink)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('Drift: when the map leaves the territory');
+
+      const cols = [120, 350, 580];
+      const recipeY = 130, cardY = 250, bw = 130, bh = 44;
+
+      svg.append('text').attr('class', 'track-label').attr('x', 24).attr('y', recipeY + bh / 2 + 4).text(d.recipe);
+      svg.append('text').attr('class', 'track-label').attr('x', 24).attr('y', cardY + bh / 2 + 4).text(d.card);
+
+      d.stages.forEach((s, i) => {
+        svg.append('text').attr('class', 'stage-label').attr('x', cols[i]).attr('y', 70).attr('text-anchor', 'middle').text((i + 1) + '. ' + s);
+      });
+
+      function box(cx, cy, txt, accent) {
+        svg.append('rect').attr('x', cx - bw / 2).attr('y', cy).attr('width', bw).attr('height', bh).attr('rx', 8)
+          .attr('fill', accent ? 'var(--color-fill)' : 'var(--color-fill)')
+          .attr('stroke', accent ? 'var(--color-red)' : 'var(--color-gray)').attr('stroke-width', accent ? 1.6 : 1.2);
+        svg.append('text').attr('class', 'node-text').attr('x', cx).attr('y', cy + bh / 2 + 4).attr('text-anchor', 'middle').text(txt);
+      }
+
+      // stage 1 — in sync
+      box(cols[0], recipeY, d.recipe, false);
+      box(cols[0], cardY, d.card, false);
+      svg.append('line').attr('x1', cols[0]).attr('y1', recipeY + bh).attr('x2', cols[0]).attr('y2', cardY)
+        .attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.4).attr('aria-hidden', 'true');
+
+      // recipe track across time
+      svg.append('line').attr('x1', cols[0] + bw / 2).attr('y1', recipeY + bh / 2).attr('x2', cols[1] - bw / 2).attr('y2', recipeY + bh / 2)
+        .attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      svg.append('line').attr('x1', cols[1] + bw / 2).attr('y1', recipeY + bh / 2).attr('x2', cols[2] - bw / 2).attr('y2', recipeY + bh / 2)
+        .attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      svg.append('line').attr('x1', cols[0] + bw / 2).attr('y1', cardY + bh / 2).attr('x2', cols[1] - bw / 2).attr('y2', cardY + bh / 2)
+        .attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      svg.append('line').attr('x1', cols[1] + bw / 2).attr('y1', cardY + bh / 2).attr('x2', cols[2] - bw / 2).attr('y2', cardY + bh / 2)
+        .attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+
+      // stage 2 — recipe updated, broken connector (red)
+      box(cols[1], recipeY, d.recipe + "'", true);
+      box(cols[1], cardY, d.card, false);
+      svg.append('line').attr('x1', cols[1]).attr('y1', recipeY + bh).attr('x2', cols[1]).attr('y2', cardY)
+        .attr('stroke', 'var(--color-red)').attr('stroke-width', 1.6).attr('stroke-dasharray', '5 4').attr('aria-hidden', 'true');
+      svg.append('text').attr('class', 'stage-label').attr('x', cols[1] + 8).attr('y', (recipeY + cardY) / 2 + 18).attr('fill', 'var(--color-red)').text('connector breaks');
+
+      // stage 3 — reader follows stale card down wrong path (red branch)
+      box(cols[2], recipeY, d.recipe + "'", false);
+      box(cols[2], cardY, d.card, false);
+      svg.append('line').attr('x1', cols[2]).attr('y1', cardY + bh).attr('x2', cols[2] + 50).attr('y2', cardY + bh + 60)
+        .attr('stroke', 'var(--color-red)').attr('stroke-width', 1.6).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      svg.append('text').attr('class', 'stage-label').attr('x', cols[2] + 56).attr('y', cardY + bh + 76).attr('fill', 'var(--color-red)').text('wrong path');
+
+      svg.append('text').attr('class', 'stage-label').attr('x', 24).attr('y', 404).text('A single unmatched edit silently separates documentation from reality.');
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

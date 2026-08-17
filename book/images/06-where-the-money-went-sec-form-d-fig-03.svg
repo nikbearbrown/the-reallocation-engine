@@ -1,0 +1,53 @@
+<!-- Recency x size beats raise amount
+     Book: The Reallocation Engine
+     Chapter: 06-where-the-money-went-sec-form-d
+     Figure 03
+     Type: conceptual map (2x2 quadrant)
+     Generated 2026-06-15
+     Source: pantry/06-where-the-money-went-sec-form-d-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">Recency and size beat raise amount</title>
+<desc>A two-by-two quadrant map. The horizontal axis runs from stale funding on the left to recent funding on the right; the vertical axis runs from large companies at top to small companies at bottom. The bottom-right quadrant — small and recently funded — is the emphasized target zone where one hire matters and a founder reads your email. A small recent seed sits in that target zone while a large recent late-stage round sits in the lower-value top-right, showing a bigger raise does not win.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="06-where-the-money-went-sec-form-d" figure-number="03" figure-title="Recency and size beat raise amount" figure-slug="recency-size-quadrant" figure-type="conceptual map" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/06-where-the-money-went-sec-form-d-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Recency and size beat raise amount</text>
+
+<!-- Plot square -->
+<rect x="160" y="70" width="400" height="290" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+<!-- highlight target quadrant (bottom-right) -->
+<rect x="360" y="215" width="200" height="145" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+
+<!-- quadrant dividers -->
+<line x1="360" y1="70" x2="360" y2="360" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="160" y1="215" x2="560" y2="215" stroke="#2a1a0e" stroke-width="1"/>
+
+<!-- axes labels -->
+<text x="160" y="384" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">stale funding</text>
+<text x="560" y="384" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">recent funding</text>
+<text x="150" y="78" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">large</text>
+<text x="150" y="358" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">small</text>
+<text x="155" y="220" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454" transform="rotate(-90 70 215)">company size</text>
+
+<!-- target zone label -->
+<text x="460" y="305" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">TARGET ZONE</text>
+<text x="460" y="323" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">one hire moves the needle;</text>
+<text x="460" y="338" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the founder reads your email</text>
+
+<!-- large quadrants annotation -->
+<text x="260" y="140" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">large + stale:</text>
+<text x="260" y="155" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">formal gates</text>
+<text x="460" y="140" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">large + recent:</text>
+<text x="460" y="155" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">big raise, still gated</text>
+
+<!-- example markers -->
+<!-- small recent seed (target) -->
+<circle cx="500" cy="262" r="6" fill="#C8102E"/>
+<text x="500" y="252" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">small seed</text>
+<!-- large recent late-stage round (top-right, not the best lead) -->
+<circle cx="480" cy="110" r="6" fill="#787878"/>
+<text x="480" y="100" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">large late-stage</text>
+
+<text x="350" y="406" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">a bigger raise does not win — the small recent company is the best hiring lead</text>
+</svg>

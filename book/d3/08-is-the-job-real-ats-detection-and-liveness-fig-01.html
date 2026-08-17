@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ghost-job prevalence holds across years</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .tick { font-family:'JetBrains Mono',monospace; font-size:11px; fill:var(--color-secondary); }
+    .axis-title { font-family:'Inter',sans-serif; font-size:12px; fill:var(--color-secondary); }
+    .band-note { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const BAND = [28, 42];
+    const FALLBACK_DATA = [
+      { year:2019, value:33, label:'study A', outlier:false },
+      { year:2020, value:30.5, label:'LA', outlier:false },
+      { year:2021, value:38, label:'study B', outlier:false },
+      { year:2021, value:16.6, label:'Seattle', outlier:true },
+      { year:2022, value:36, label:'study C', outlier:false },
+      { year:2023, value:41, label:'study D', outlier:false },
+      { year:2023, value:21, label:'outlier', outlier:true },
+      { year:2024, value:34, label:'study E', outlier:false }
+    ];
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.6);
+      const margin = { top: 48, right: 40, bottom: 56, left: 64 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Ghost-job prevalence holds across years');
+      svg.append('desc').attr('id','chart-desc').text('A prevalence scatter from 2019 to 2024 with a stable 28 to 42 percent band; study points cluster in or near the band, with a couple of lower outliers.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Ghost-job prevalence holds across years');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+      const x = d3.scaleLinear().domain([2018.5,2024.5]).range([0,chartWidth]);
+      const y = d3.scaleLinear().domain([0,50]).range([chartHeight,0]); // zero baseline
+
+      // band
+      g.append('rect').attr('aria-hidden','true')
+        .attr('x',0).attr('y',y(BAND[1])).attr('width',chartWidth).attr('height',y(BAND[0])-y(BAND[1]))
+        .attr('fill','var(--color-fill)').attr('stroke','var(--color-border)').attr('stroke-width',1);
+      g.append('text').attr('class','band-note').attr('x',8).attr('y',y(BAND[1])-6).text('structural range 28–42%');
+
+      // y ticks
+      [0,10,20,30,40,50].forEach(t=>{
+        g.append('line').attr('aria-hidden','true').attr('x1',0).attr('x2',chartWidth).attr('y1',y(t)).attr('y2',y(t)).attr('stroke','var(--color-border)').attr('stroke-opacity',0.4);
+        g.append('text').attr('class','tick').attr('x',-8).attr('y',y(t)+4).attr('text-anchor','end').text(t+'%');
+      });
+      // x ticks
+      [2019,2020,2021,2022,2023,2024].forEach(t=>{
+        g.append('text').attr('class','tick').attr('x',x(t)).attr('y',chartHeight+18).attr('text-anchor','middle').text(t);
+      });
+      g.append('line').attr('aria-hidden','true').attr('x1',0).attr('y1',chartHeight).attr('x2',chartWidth).attr('y2',chartHeight).attr('stroke','var(--color-ink)').attr('stroke-width',1);
+
+      const r = d3.scaleSqrt().domain([0,1]).range([4,8]);
+      g.selectAll('.pt').data(data).join('circle').attr('class','pt')
+        .attr('cx',d=>x(d.year)).attr('cy',d=>y(d.value)).attr('r',r(0.5))
+        .attr('fill',d=>d.outlier?'var(--color-ochre)':'var(--color-red)')
+        .attr('stroke','var(--color-ink)').attr('stroke-width',0.8)
+        .attr('tabindex',0).attr('role','img').attr('aria-label',d=>`${d.label}, ${d.year}: ${d.value} percent${d.outlier?' (outlier)':''}`)
+        .on('mouseover',(e,d)=>tooltip.html(`<strong>${d.label}</strong><br>${d.year}: ${d.value}%`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+        .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+        .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+
+      g.append('text').attr('class','axis-title').attr('transform',`translate(-46,${chartHeight/2}) rotate(-90)`).attr('text-anchor','middle').text('ghost-job prevalence');
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-12).attr('text-anchor','end').text('SOURCE: GHOST-JOB PREVALENCE STUDIES');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./08-is-the-job-real-ats-detection-and-liveness-fig-01.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

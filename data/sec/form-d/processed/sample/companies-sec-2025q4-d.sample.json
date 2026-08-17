@@ -1,0 +1,4951 @@
+{
+  "metadata": {
+    "quarter": "2025Q4_d",
+    "generated_at": "2026-05-28T16:37:25.295149",
+    "total_companies": 14885,
+    "total_executives": 52362,
+    "_sample": "first 50 of 14885 companies \u2014 full file fetched via scripts/sec (see DATA.md)"
+  },
+  "companies": [
+    {
+      "accession_number": "0001470831-25-000459",
+      "company": {
+        "name": "Webster Equity Partners VI GP, LLC",
+        "company_name_normalized": "websterequitypartnersvigp",
+        "fein": null,
+        "address": {
+          "street1": "950 WINTER STREET",
+          "street2": null,
+          "city": "WALTHAM",
+          "state": "MA",
+          "zip": "02451",
+          "phone": "781-419-1515"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2023,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 3,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Webster Equity Partners, L.P.",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Webster Equity Partners, L.P.",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Waltham",
+          "state": "MA"
+        },
+        {
+          "name": "David Malm",
+          "first_name": "David",
+          "middle_name": null,
+          "last_name": "Malm",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Waltham",
+          "state": "MA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.126066",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001909185-25-000002",
+      "company": {
+        "name": "Accolade Partners Digital Evolution Feeder, L.P.",
+        "company_name_normalized": "accoladepartnersdigitalevolutionfeeder",
+        "fein": null,
+        "address": {
+          "street1": "C/O ACCOLADE CAPITAL MANAGEMENT, LLC",
+          "street2": "2100 PENNSYLVANIA AVENUE NW, SUITE 300N",
+          "city": "WASHINGTON",
+          "state": "DC",
+          "zip": "20037",
+          "phone": "202-775-5595"
+        },
+        "entity_type": "Other",
+        "year_incorporated": 2021,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 34809990.0,
+        "total_remaining": null,
+        "number_of_investors": 24,
+        "date_of_first_sale": "2022-02-01",
+        "stage_estimate": "Series B"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 5,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "ARAM VERDIYAN",
+          "first_name": "ARAM",
+          "middle_name": null,
+          "last_name": "VERDIYAN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "CAITLIN MULLIGAN",
+          "first_name": "CAITLIN",
+          "middle_name": null,
+          "last_name": "MULLIGAN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "ANDREW SALEMBIER",
+          "first_name": "ANDREW",
+          "middle_name": null,
+          "last_name": "SALEMBIER",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "MARCOS VEREMIS",
+          "first_name": "MARCOS",
+          "middle_name": null,
+          "last_name": "VEREMIS",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "JOELLE KAYDEN",
+          "first_name": "JOELLE",
+          "middle_name": null,
+          "last_name": "KAYDEN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "PATRICK ABRAHAMSEN",
+          "first_name": "PATRICK",
+          "middle_name": null,
+          "last_name": "ABRAHAMSEN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.127312",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001906763-25-000002",
+      "company": {
+        "name": "Accolade Partners Digital Evolution, L.P.",
+        "company_name_normalized": "accoladepartnersdigitalevolution",
+        "fein": null,
+        "address": {
+          "street1": "C/O ACCOLADE CAPITAL MANAGEMENT, LLC",
+          "street2": "2100 PENNSYLVANIA AVENUE NW, SUITE 300N",
+          "city": "WASHINGTON",
+          "state": "DC",
+          "zip": "20037",
+          "phone": "202-775-5595"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2021,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 98025000.0,
+        "total_remaining": null,
+        "number_of_investors": 133,
+        "date_of_first_sale": "2022-02-01",
+        "stage_estimate": "Series C"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 5,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "CAITLIN MULLIGAN",
+          "first_name": "CAITLIN",
+          "middle_name": null,
+          "last_name": "MULLIGAN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "PATRICK ABRAHAMSEN",
+          "first_name": "PATRICK",
+          "middle_name": null,
+          "last_name": "ABRAHAMSEN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "ANDREW SALEMBIER",
+          "first_name": "ANDREW",
+          "middle_name": null,
+          "last_name": "SALEMBIER",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "MARCOS VEREMIS",
+          "first_name": "MARCOS",
+          "middle_name": null,
+          "last_name": "VEREMIS",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "JOELLE KAYDEN",
+          "first_name": "JOELLE",
+          "middle_name": null,
+          "last_name": "KAYDEN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        },
+        {
+          "name": "ARAM VERDIYAN",
+          "first_name": "ARAM",
+          "middle_name": null,
+          "last_name": "VERDIYAN",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "WASHINGTON",
+          "state": "DC"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.128570",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002098228-25-000001",
+      "company": {
+        "name": "FutureFlow Partners, LLC",
+        "company_name_normalized": "futureflowpartners",
+        "fein": null,
+        "address": {
+          "street1": "8 THE GREEN SUITE R",
+          "street2": null,
+          "city": "DOVER",
+          "state": "DE",
+          "zip": "19901",
+          "phone": "4027305391"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2024,
+        "industry": "Other Banking and Financial Services"
+      },
+      "funding": {
+        "total_offering_amount": 7000000.0,
+        "total_amount_sold": 0.0,
+        "total_remaining": 7000000.0,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 2,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Joey Mure",
+          "first_name": "Joey",
+          "middle_name": null,
+          "last_name": "Mure",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "BIRMINGHAM",
+          "state": "AL"
+        },
+        {
+          "name": "Russell Morgan",
+          "first_name": "Russell",
+          "middle_name": null,
+          "last_name": "Morgan",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Birmingham",
+          "state": "AL"
+        },
+        {
+          "name": "Sharran Srivatsaa",
+          "first_name": "Sharran",
+          "middle_name": null,
+          "last_name": "Srivatsaa",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Birmingham",
+          "state": "AL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.129863",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001576079-25-000003",
+      "company": {
+        "name": "AM Global Core Fund, LLC",
+        "company_name_normalized": "amglobalcorefund",
+        "fein": null,
+        "address": {
+          "street1": "50 S. 16th Street",
+          "street2": "SUITE 3440",
+          "city": "Philadelphia",
+          "state": "PA",
+          "zip": "19102",
+          "phone": "(610) 545-6100"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 111685250.0,
+        "total_remaining": null,
+        "number_of_investors": 99,
+        "date_of_first_sale": "2013-04-27",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "LGL Partners LLC",
+          "first_name": "LGL Partners",
+          "middle_name": null,
+          "last_name": "LLC",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Philadelphia",
+          "state": "PA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.131027",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103413-25-000001",
+      "company": {
+        "name": "North State Processing Corp.",
+        "company_name_normalized": "northstateprocessing",
+        "fein": null,
+        "address": {
+          "street1": "4030 WAKE FOREST RD",
+          "street2": "STE 300",
+          "city": "RALEIGH",
+          "state": "NC",
+          "zip": "27609",
+          "phone": "9193496181"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2025,
+        "industry": "Other"
+      },
+      "funding": {
+        "total_offering_amount": 25000000.0,
+        "total_amount_sold": 0.0,
+        "total_remaining": 25000000.0,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Robert F. Spivey",
+          "first_name": "Robert",
+          "middle_name": "F.",
+          "last_name": "Spivey",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "Raleigh",
+          "state": "NC"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.132172",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002101733-25-000001",
+      "company": {
+        "name": "NewCold USA IX, LLC",
+        "company_name_normalized": "newcoldusaix",
+        "fein": null,
+        "address": {
+          "street1": "500 WEST MADISON, STE 1500",
+          "street2": null,
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60661",
+          "phone": "312-624-8115"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2021,
+        "industry": "REITS and Finance"
+      },
+      "funding": {
+        "total_offering_amount": 125000.0,
+        "total_amount_sold": 122000.0,
+        "total_remaining": 3000.0,
+        "number_of_investors": 122,
+        "date_of_first_sale": "2025-12-18",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 5,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Mike Shawgo",
+          "first_name": "Mike",
+          "middle_name": null,
+          "last_name": "Shawgo",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "Trae Richardson",
+          "first_name": "Trae",
+          "middle_name": null,
+          "last_name": "Richardson",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.133341",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103483-25-000001",
+      "company": {
+        "name": "Walton Street Real Estate Debt Fund III, L.P.",
+        "company_name_normalized": "waltonstreetrealestatedebtfundiii",
+        "fein": null,
+        "address": {
+          "street1": "900 NORTH MICHIGAN AVENUE, SUITE 1900",
+          "street2": null,
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60611",
+          "phone": "312-915-2800"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "STEPHEN B. SOTOLOFF",
+          "first_name": "STEPHEN",
+          "middle_name": "B.",
+          "last_name": "SOTOLOFF",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "JEFFREY S. QUICKSILVER",
+          "first_name": "JEFFREY",
+          "middle_name": "S.",
+          "last_name": "QUICKSILVER",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "ROBERT BLOOM",
+          "first_name": "ROBERT",
+          "middle_name": null,
+          "last_name": "BLOOM",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "RICHARD B. RATKE",
+          "first_name": "RICHARD",
+          "middle_name": "B.",
+          "last_name": "RATKE",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "ERIC C. MOGENTALE",
+          "first_name": "ERIC",
+          "middle_name": "C.",
+          "last_name": "MOGENTALE",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.134567",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002099684-25-000001",
+      "company": {
+        "name": "Wealth Without Wall Street, LLC",
+        "company_name_normalized": "wealthwithoutwallstreet",
+        "fein": null,
+        "address": {
+          "street1": "120 19TH STREET N SUITE 2050",
+          "street2": null,
+          "city": "BIRMINGHAM",
+          "state": "AL",
+          "zip": "35203",
+          "phone": "4027305391"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2024,
+        "industry": "Other Banking and Financial Services"
+      },
+      "funding": {
+        "total_offering_amount": 1000000.0,
+        "total_amount_sold": 0.0,
+        "total_remaining": 1000000.0,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 2,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Russell Morgan",
+          "first_name": "Russell",
+          "middle_name": null,
+          "last_name": "Morgan",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Birmingham",
+          "state": "AL"
+        },
+        {
+          "name": "Sharran Srivatsaa",
+          "first_name": "Sharran",
+          "middle_name": null,
+          "last_name": "Srivatsaa",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Birmingham",
+          "state": "AL"
+        },
+        {
+          "name": "Joey Mure",
+          "first_name": "Joey",
+          "middle_name": null,
+          "last_name": "Mure",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "BIRMINGHAM",
+          "state": "AL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.135786",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0000929638-25-004794",
+      "company": {
+        "name": "Nippon Value Investors Japanese Equity Trust",
+        "company_name_normalized": "nipponvalueinvestorsjapaneseequitytrust",
+        "fein": null,
+        "address": {
+          "street1": "NIPPON VALUE INVESTORS, INC.",
+          "street2": "411 THEODORE FREMD AV., SUITE 206 SOUTH",
+          "city": "RYE",
+          "state": "NY",
+          "zip": "10580",
+          "phone": "917 833 8330"
+        },
+        "entity_type": "Business Trust",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 941147809.0,
+        "total_remaining": null,
+        "number_of_investors": 163,
+        "date_of_first_sale": "2006-02-21",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Shinichi Tanaka",
+          "first_name": "Shinichi",
+          "middle_name": null,
+          "last_name": "Tanaka",
+          "relationships": [
+            "Director",
+            "Executive Officer"
+          ],
+          "city": "Tokyo",
+          "state": "M0"
+        },
+        {
+          "name": "Hisanori Kuroda",
+          "first_name": "Hisanori",
+          "middle_name": null,
+          "last_name": "Kuroda",
+          "relationships": [
+            "Director",
+            "Executive Officer"
+          ],
+          "city": "Tokyo",
+          "state": "M0"
+        },
+        {
+          "name": "Takashi Nagaura",
+          "first_name": "Takashi",
+          "middle_name": null,
+          "last_name": "Nagaura",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Tokyo",
+          "state": "M0"
+        },
+        {
+          "name": "Yoshihiko Ito",
+          "first_name": "Yoshihiko",
+          "middle_name": null,
+          "last_name": "Ito",
+          "relationships": [
+            "Director",
+            "Executive Officer"
+          ],
+          "city": "Tokyo",
+          "state": "M0"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.136952",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002061595-25-000004",
+      "company": {
+        "name": "Constellation Wealth Capital Fund II LP",
+        "company_name_normalized": "constellationwealthcapitalfundii",
+        "fein": null,
+        "address": {
+          "street1": "609 W. RANDOLPH STREET",
+          "street2": "SUITE 600",
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60661",
+          "phone": "312 626 6067"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 544100000.0,
+        "total_remaining": null,
+        "number_of_investors": 28,
+        "date_of_first_sale": "2025-10-10",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Karl Henry Heckenberg",
+          "first_name": "Karl",
+          "middle_name": "Henry",
+          "last_name": "Heckenberg",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.138085",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002061595-25-000004",
+      "company": {
+        "name": "Constellation Wealth Capital Fund II-A LP",
+        "company_name_normalized": "constellationwealthcapitalfundiia",
+        "fein": null,
+        "address": {
+          "street1": "609 W. RANDOLPH STREET",
+          "street2": "SUITE 600",
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60661",
+          "phone": "312 626 6067"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 544100000.0,
+        "total_remaining": null,
+        "number_of_investors": 28,
+        "date_of_first_sale": "2025-10-10",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Karl Henry Heckenberg",
+          "first_name": "Karl",
+          "middle_name": "Henry",
+          "last_name": "Heckenberg",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.139253",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002061595-25-000004",
+      "company": {
+        "name": "Constellation Wealth Capital Fund II (CWC) LP",
+        "company_name_normalized": "constellationwealthcapitalfundii(cwc)",
+        "fein": null,
+        "address": {
+          "street1": "609 W. RANDOLPH STREET",
+          "street2": "SUITE 600",
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60661",
+          "phone": "312 626 6067"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 544100000.0,
+        "total_remaining": null,
+        "number_of_investors": 28,
+        "date_of_first_sale": "2025-10-10",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Karl Henry Heckenberg",
+          "first_name": "Karl",
+          "middle_name": "Henry",
+          "last_name": "Heckenberg",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.140396",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001587468-25-000010",
+      "company": {
+        "name": "Databricks, Inc.",
+        "company_name_normalized": "databricks",
+        "fein": null,
+        "address": {
+          "street1": "160 SPEAR STREET",
+          "street2": "15TH FLOOR",
+          "city": "SAN FRANCISCO",
+          "state": "CA",
+          "zip": "94105",
+          "phone": "866-330-0121"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": null,
+        "industry": "Other Technology"
+      },
+      "funding": {
+        "total_offering_amount": 5000000000.0,
+        "total_amount_sold": 4082050250.0,
+        "total_remaining": 917949750.0,
+        "number_of_investors": 153,
+        "date_of_first_sale": "2025-12-16",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Tram Phi",
+          "first_name": "Tram",
+          "middle_name": null,
+          "last_name": "Phi",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Matei Zaharia",
+          "first_name": "Matei",
+          "middle_name": null,
+          "last_name": "Zaharia",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Ion Stoica",
+          "first_name": "Ion",
+          "middle_name": null,
+          "last_name": "Stoica",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Ali Ghodsi",
+          "first_name": "Ali",
+          "middle_name": null,
+          "last_name": "Ghodsi",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Peter Sonsini",
+          "first_name": "Peter",
+          "middle_name": null,
+          "last_name": "Sonsini",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Elena Donio",
+          "first_name": "Elena",
+          "middle_name": null,
+          "last_name": "Donio",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "David Conte",
+          "first_name": "David",
+          "middle_name": null,
+          "last_name": "Conte",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Jonathan Chadwick",
+          "first_name": "Jonathan",
+          "middle_name": null,
+          "last_name": "Chadwick",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Ben Horowitz",
+          "first_name": "Ben",
+          "middle_name": null,
+          "last_name": "Horowitz",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Scott Shenker",
+          "first_name": "Scott",
+          "middle_name": null,
+          "last_name": "Shenker",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.141701",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001213900-25-127129",
+      "company": {
+        "name": "Cadrenal Therapeutics, Inc.",
+        "company_name_normalized": "cadrenaltherapeutics",
+        "fein": null,
+        "address": {
+          "street1": "822 A1A NORTH",
+          "street2": "SUITE 306",
+          "city": "PONTE VEDRA",
+          "state": "FL",
+          "zip": "32082",
+          "phone": "(904) 900-0701"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2022,
+        "industry": "Biotechnology"
+      },
+      "funding": {
+        "total_offering_amount": 4396329.0,
+        "total_amount_sold": 4396329.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 4,
+        "date_of_first_sale": "2025-12-16",
+        "stage_estimate": "Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 4,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "JOHN R. MURPHY",
+          "first_name": "JOHN",
+          "middle_name": "R.",
+          "last_name": "MURPHY",
+          "relationships": [
+            "Director"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "LEE S. GOLDEN",
+          "first_name": "LEE",
+          "middle_name": "S.",
+          "last_name": "GOLDEN",
+          "relationships": [
+            "Director"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "MATTHEW K. SZOT",
+          "first_name": "MATTHEW",
+          "middle_name": "K.",
+          "last_name": "SZOT",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "JEFFREY K. COLE",
+          "first_name": "JEFFREY",
+          "middle_name": "K.",
+          "last_name": "COLE",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "QUANG X. PHAM",
+          "first_name": "QUANG",
+          "middle_name": "X.",
+          "last_name": "PHAM",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "JAMES J. FERGUSON",
+          "first_name": "JAMES",
+          "middle_name": "J.",
+          "last_name": "FERGUSON",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "GLYNN J. WILSON",
+          "first_name": "GLYNN",
+          "middle_name": "J.",
+          "last_name": "WILSON",
+          "relationships": [
+            "Director"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        },
+        {
+          "name": "STEVEN J. ZELENKOFSKE",
+          "first_name": "STEVEN",
+          "middle_name": "J.",
+          "last_name": "ZELENKOFSKE",
+          "relationships": [
+            "Director"
+          ],
+          "city": "PONTE VEDRA",
+          "state": "FL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.142954",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002101607-25-000001",
+      "company": {
+        "name": "Realterm Logistics Fund V, L.P.",
+        "company_name_normalized": "realtermlogisticsfundv",
+        "fein": null,
+        "address": {
+          "street1": "201 WEST STREET",
+          "street2": null,
+          "city": "ANNAPOLIS",
+          "state": "MD",
+          "zip": "21401",
+          "phone": "(410) 280-1100"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "STEPHEN W. PANOS",
+          "first_name": "STEPHEN",
+          "middle_name": "W.",
+          "last_name": "PANOS",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "KENNETH S. CODE",
+          "first_name": "KENNETH",
+          "middle_name": "S.",
+          "last_name": "CODE",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "JOHN W. CAMMETT",
+          "first_name": "JOHN",
+          "middle_name": "W.",
+          "last_name": "CAMMETT",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "ROBERT W. FORDI",
+          "first_name": "ROBERT",
+          "middle_name": "W.",
+          "last_name": "FORDI",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "DUNCAN W. PICKETT",
+          "first_name": "DUNCAN",
+          "middle_name": "W.",
+          "last_name": "PICKETT",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "AARON W. SACKS",
+          "first_name": "AARON",
+          "middle_name": "W.",
+          "last_name": "SACKS",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.144194",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002101621-25-000001",
+      "company": {
+        "name": "Realterm Logistics Fund V-A, L.P.",
+        "company_name_normalized": "realtermlogisticsfundva",
+        "fein": null,
+        "address": {
+          "street1": "201 WEST STREET",
+          "street2": null,
+          "city": "ANNAPOLIS",
+          "state": "MD",
+          "zip": "21401",
+          "phone": "(410) 280-1100"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "DUNCAN W. PICKETT",
+          "first_name": "DUNCAN",
+          "middle_name": "W.",
+          "last_name": "PICKETT",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "JOHN W. CAMMETT",
+          "first_name": "JOHN",
+          "middle_name": "W.",
+          "last_name": "CAMMETT",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "STEPHEN W. PANOS",
+          "first_name": "STEPHEN",
+          "middle_name": "W.",
+          "last_name": "PANOS",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "AARON W. SACKS",
+          "first_name": "AARON",
+          "middle_name": "W.",
+          "last_name": "SACKS",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "ROBERT W. FORDI",
+          "first_name": "ROBERT",
+          "middle_name": "W.",
+          "last_name": "FORDI",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        },
+        {
+          "name": "KENNETH S. CODE",
+          "first_name": "KENNETH",
+          "middle_name": "S.",
+          "last_name": "CODE",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "ANNAPOLIS",
+          "state": "MD"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.145410",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001587468-25-000009",
+      "company": {
+        "name": "Databricks, Inc.",
+        "company_name_normalized": "databricks",
+        "fein": null,
+        "address": {
+          "street1": "160 SPEAR STREET",
+          "street2": "15TH FLOOR",
+          "city": "SAN FRANCISCO",
+          "state": "CA",
+          "zip": "94105",
+          "phone": "866-330-0121"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": null,
+        "industry": "Other Technology"
+      },
+      "funding": {
+        "total_offering_amount": 23017200.0,
+        "total_amount_sold": 23017200.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 15,
+        "date_of_first_sale": "2025-09-30",
+        "stage_estimate": "Series B"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Scott Shenker",
+          "first_name": "Scott",
+          "middle_name": null,
+          "last_name": "Shenker",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Ali Ghodsi",
+          "first_name": "Ali",
+          "middle_name": null,
+          "last_name": "Ghodsi",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Ion Stoica",
+          "first_name": "Ion",
+          "middle_name": null,
+          "last_name": "Stoica",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Matei Zaharia",
+          "first_name": "Matei",
+          "middle_name": null,
+          "last_name": "Zaharia",
+          "relationships": [
+            "Executive Officer",
+            "Director",
+            "Promoter"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Jonathan Chadwick",
+          "first_name": "Jonathan",
+          "middle_name": null,
+          "last_name": "Chadwick",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Peter Sonsini",
+          "first_name": "Peter",
+          "middle_name": null,
+          "last_name": "Sonsini",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Ben Horowitz",
+          "first_name": "Ben",
+          "middle_name": null,
+          "last_name": "Horowitz",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Tram Phi",
+          "first_name": "Tram",
+          "middle_name": null,
+          "last_name": "Phi",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "David Conte",
+          "first_name": "David",
+          "middle_name": null,
+          "last_name": "Conte",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        },
+        {
+          "name": "Elena Donio",
+          "first_name": "Elena",
+          "middle_name": null,
+          "last_name": "Donio",
+          "relationships": [
+            "Director"
+          ],
+          "city": "San Francisco",
+          "state": "CA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.146726",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002102934-25-000002",
+      "company": {
+        "name": "GUGLI Corp",
+        "company_name_normalized": "gugli",
+        "fein": null,
+        "address": {
+          "street1": "901 CALLE AMANECER STE 160",
+          "street2": null,
+          "city": "SAN CLEMENTE",
+          "state": "CA",
+          "zip": "92673",
+          "phone": "8772144935"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2021,
+        "industry": "Telecommunications"
+      },
+      "funding": {
+        "total_offering_amount": 4999950.0,
+        "total_amount_sold": 3163000.0,
+        "total_remaining": 1836950.0,
+        "number_of_investors": 8,
+        "date_of_first_sale": "2025-03-21",
+        "stage_estimate": "Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 5,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Joshua D Helling",
+          "first_name": "Joshua",
+          "middle_name": "D",
+          "last_name": "Helling",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "San Marcos",
+          "state": "TX"
+        },
+        {
+          "name": "James D Cover",
+          "first_name": "James",
+          "middle_name": "D",
+          "last_name": "Cover",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "San Clemente",
+          "state": "CA"
+        },
+        {
+          "name": "Frederick D Leaf",
+          "first_name": "Frederick",
+          "middle_name": "D",
+          "last_name": "Leaf",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Rancho Santa Margarita",
+          "state": "CA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.147892",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001682360-25-000002",
+      "company": {
+        "name": "CEDAR STREET EMERGING MARKETS VALUE FUND, L.P.",
+        "company_name_normalized": "cedarstreetemergingmarketsvaluefund",
+        "fein": null,
+        "address": {
+          "street1": "455 N Cityfront Plaza Drive",
+          "street2": "SUITE 1710",
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60611",
+          "phone": "312-669-0563"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 86505801.0,
+        "total_remaining": null,
+        "number_of_investors": 28,
+        "date_of_first_sale": "2016-07-27",
+        "stage_estimate": "Series C"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Joanne A. Moffic-Silver",
+          "first_name": "Joanne",
+          "middle_name": "A.",
+          "last_name": "Moffic-Silver",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        },
+        {
+          "name": "Jonathan Brodsky",
+          "first_name": "Jonathan",
+          "middle_name": null,
+          "last_name": "Brodsky",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        },
+        {
+          "name": "Cedar Street Asset Management LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Cedar Street Asset Management LLC",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        },
+        {
+          "name": "Waldemar A. Mozes",
+          "first_name": "Waldemar",
+          "middle_name": "A.",
+          "last_name": "Mozes",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Chicago",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.149087",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0000904454-25-000644",
+      "company": {
+        "name": "Bain Capital Global Direct Lending Fund (Offshore DE-C), L.P.",
+        "company_name_normalized": "baincapitalglobaldirectlendingfund(offshoredec)",
+        "fein": null,
+        "address": {
+          "street1": "200 CLARENDON STREET",
+          "street2": null,
+          "city": "BOSTON",
+          "state": "MA",
+          "zip": "02116",
+          "phone": "6175162000"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "ANITA A. MECONIATES",
+          "first_name": "ANITA",
+          "middle_name": "A.",
+          "last_name": "MECONIATES",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "GREGORY A. WIPF",
+          "first_name": "GREGORY",
+          "middle_name": "A.",
+          "last_name": "WIPF",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "KIMBERLY A. HARRIS",
+          "first_name": "KIMBERLY",
+          "middle_name": "A.",
+          "last_name": "HARRIS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "STEPHANIE A. WALSH",
+          "first_name": "STEPHANIE",
+          "middle_name": "A.",
+          "last_name": "WALSH",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "PAUL A. KELLY",
+          "first_name": "PAUL",
+          "middle_name": "A.",
+          "last_name": "KELLY",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "TOM A. KOLINSKI",
+          "first_name": "TOM",
+          "middle_name": "A.",
+          "last_name": "KOLINSKI",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "DOMINIC A. DEBONIS",
+          "first_name": "DOMINIC",
+          "middle_name": "A.",
+          "last_name": "DEBONIS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "JEFFREY B. HAWKINS",
+          "first_name": "JEFFREY",
+          "middle_name": "B.",
+          "last_name": "HAWKINS",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "VIVA A. HYATT",
+          "first_name": "VIVA",
+          "middle_name": "A.",
+          "last_name": "HYATT",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "DAN A. SHUGRUE",
+          "first_name": "DAN",
+          "middle_name": "A.",
+          "last_name": "SHUGRUE",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "ANDREW S. CARLINO",
+          "first_name": "ANDREW",
+          "middle_name": "S.",
+          "last_name": "CARLINO",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "TARA A. ALLIN",
+          "first_name": "TARA",
+          "middle_name": "A.",
+          "last_name": "ALLIN",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "BRADLEY J. CHARCHUT",
+          "first_name": "BRADLEY",
+          "middle_name": "J.",
+          "last_name": "CHARCHUT",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "MICHAEL J. BOYLE",
+          "first_name": "MICHAEL",
+          "middle_name": "J.",
+          "last_name": "BOYLE",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "NATE A. WHITTIER",
+          "first_name": "NATE",
+          "middle_name": "A.",
+          "last_name": "WHITTIER",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "CAROLYN A. HASTINGS",
+          "first_name": "CAROLYN",
+          "middle_name": "A.",
+          "last_name": "HASTINGS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "KATHLEEN A. ROCKEY",
+          "first_name": "KATHLEEN",
+          "middle_name": "A.",
+          "last_name": "ROCKEY",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "JOHN S. WRIGHT",
+          "first_name": "JOHN",
+          "middle_name": "S.",
+          "last_name": "WRIGHT",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "OLOF S. BERGQVIST",
+          "first_name": "OLOF",
+          "middle_name": "S.",
+          "last_name": "BERGQVIST",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "ANDREW S. VIENS",
+          "first_name": "ANDREW",
+          "middle_name": "S.",
+          "last_name": "VIENS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "MICHAEL A. EWALD",
+          "first_name": "MICHAEL",
+          "middle_name": "A.",
+          "last_name": "EWALD",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "BRIAN A. HIRSCHFELD",
+          "first_name": "BRIAN",
+          "middle_name": "A.",
+          "last_name": "HIRSCHFELD",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.150598",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0000904454-25-000644",
+      "company": {
+        "name": "Bain Capital Global Direct Lending Fund (Offshore C), L.P.",
+        "company_name_normalized": "baincapitalglobaldirectlendingfund(offshorec)",
+        "fein": null,
+        "address": {
+          "street1": "32 MOLESWORTH STREET",
+          "street2": null,
+          "city": "DUBLIN",
+          "state": "L2",
+          "zip": "00000",
+          "phone": "6175162000"
+        },
+        "entity_type": "Other",
+        "year_incorporated": 2024,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 2,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "ANITA A. MECONIATES",
+          "first_name": "ANITA",
+          "middle_name": "A.",
+          "last_name": "MECONIATES",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "GREGORY A. WIPF",
+          "first_name": "GREGORY",
+          "middle_name": "A.",
+          "last_name": "WIPF",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "KIMBERLY A. HARRIS",
+          "first_name": "KIMBERLY",
+          "middle_name": "A.",
+          "last_name": "HARRIS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "STEPHANIE A. WALSH",
+          "first_name": "STEPHANIE",
+          "middle_name": "A.",
+          "last_name": "WALSH",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "PAUL A. KELLY",
+          "first_name": "PAUL",
+          "middle_name": "A.",
+          "last_name": "KELLY",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "TOM A. KOLINSKI",
+          "first_name": "TOM",
+          "middle_name": "A.",
+          "last_name": "KOLINSKI",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "DOMINIC A. DEBONIS",
+          "first_name": "DOMINIC",
+          "middle_name": "A.",
+          "last_name": "DEBONIS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "JEFFREY B. HAWKINS",
+          "first_name": "JEFFREY",
+          "middle_name": "B.",
+          "last_name": "HAWKINS",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "VIVA A. HYATT",
+          "first_name": "VIVA",
+          "middle_name": "A.",
+          "last_name": "HYATT",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "DAN A. SHUGRUE",
+          "first_name": "DAN",
+          "middle_name": "A.",
+          "last_name": "SHUGRUE",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "ANDREW S. CARLINO",
+          "first_name": "ANDREW",
+          "middle_name": "S.",
+          "last_name": "CARLINO",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "TARA A. ALLIN",
+          "first_name": "TARA",
+          "middle_name": "A.",
+          "last_name": "ALLIN",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "BRADLEY J. CHARCHUT",
+          "first_name": "BRADLEY",
+          "middle_name": "J.",
+          "last_name": "CHARCHUT",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "MICHAEL J. BOYLE",
+          "first_name": "MICHAEL",
+          "middle_name": "J.",
+          "last_name": "BOYLE",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "NATE A. WHITTIER",
+          "first_name": "NATE",
+          "middle_name": "A.",
+          "last_name": "WHITTIER",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "CAROLYN A. HASTINGS",
+          "first_name": "CAROLYN",
+          "middle_name": "A.",
+          "last_name": "HASTINGS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "KATHLEEN A. ROCKEY",
+          "first_name": "KATHLEEN",
+          "middle_name": "A.",
+          "last_name": "ROCKEY",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "JOHN S. WRIGHT",
+          "first_name": "JOHN",
+          "middle_name": "S.",
+          "last_name": "WRIGHT",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "OLOF S. BERGQVIST",
+          "first_name": "OLOF",
+          "middle_name": "S.",
+          "last_name": "BERGQVIST",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "ANDREW S. VIENS",
+          "first_name": "ANDREW",
+          "middle_name": "S.",
+          "last_name": "VIENS",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "MICHAEL A. EWALD",
+          "first_name": "MICHAEL",
+          "middle_name": "A.",
+          "last_name": "EWALD",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        },
+        {
+          "name": "BRIAN A. HIRSCHFELD",
+          "first_name": "BRIAN",
+          "middle_name": "A.",
+          "last_name": "HIRSCHFELD",
+          "relationships": [
+            "Director"
+          ],
+          "city": "BOSTON",
+          "state": "MA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.152247",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001693606-25-000002",
+      "company": {
+        "name": "CEDAR STREET INTERNATIONAL SMALL CAP FUND L.P.",
+        "company_name_normalized": "cedarstreetinternationalsmallcapfund",
+        "fein": null,
+        "address": {
+          "street1": "455 N CITYFRONT PLAZA DRIVE",
+          "street2": "SUITE 1710",
+          "city": "CHICAGO",
+          "state": "IL",
+          "zip": "60611",
+          "phone": "312-669-0563"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 172950599.0,
+        "total_remaining": null,
+        "number_of_investors": 33,
+        "date_of_first_sale": "2016-12-13",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "WALDEMAR A. MOZES",
+          "first_name": "WALDEMAR",
+          "middle_name": "A.",
+          "last_name": "MOZES",
+          "relationships": [
+            "Director"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "CEDAR STREET ASSET MANAGEMENT LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "CEDAR STREET ASSET MANAGEMENT LLC",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "JONATHAN BRODSKY",
+          "first_name": "JONATHAN",
+          "middle_name": null,
+          "last_name": "BRODSKY",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        },
+        {
+          "name": "JOANNE A. MOFFIC-SILVER",
+          "first_name": "JOANNE",
+          "middle_name": "A.",
+          "last_name": "MOFFIC-SILVER",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "CHICAGO",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.153471",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002085503-25-000001",
+      "company": {
+        "name": "EquityZen Growth Technology Fund LLC - Series 2169",
+        "company_name_normalized": "equityzengrowthtechnologyfundllcseries2169",
+        "fein": null,
+        "address": {
+          "street1": "30 Broad Street",
+          "street2": "Suite 1200",
+          "city": "New York",
+          "state": "NY",
+          "zip": "10004",
+          "phone": "(877) 490-6121"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2023,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 1000022.0,
+        "total_amount_sold": 1000022.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 63,
+        "date_of_first_sale": "2025-12-18",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 3,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Philip Haslett",
+          "first_name": "Philip",
+          "middle_name": null,
+          "last_name": "Haslett",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "LLC EquityZen Advisors",
+          "first_name": "LLC",
+          "middle_name": null,
+          "last_name": "EquityZen Advisors",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.154623",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001616262-25-000009",
+      "company": {
+        "name": "Rocky Mountain Chocolate Factory, Inc.",
+        "company_name_normalized": "rockymountainchocolatefactory",
+        "fein": null,
+        "address": {
+          "street1": "265 Turner Drive",
+          "street2": null,
+          "city": "Durango",
+          "state": "CO",
+          "zip": "81303",
+          "phone": "970-259-0554"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": null,
+        "industry": "Retailing"
+      },
+      "funding": {
+        "total_offering_amount": 2700000.0,
+        "total_amount_sold": 2700000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 1,
+        "date_of_first_sale": "2025-12-18",
+        "stage_estimate": "Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Jeffrey R. Geygan",
+          "first_name": "Jeffrey",
+          "middle_name": "R.",
+          "last_name": "Geygan",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Durango",
+          "state": "CO"
+        },
+        {
+          "name": "Brian R. Quinn",
+          "first_name": "Brian",
+          "middle_name": "R.",
+          "last_name": "Quinn",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Durango",
+          "state": "CO"
+        },
+        {
+          "name": "Alberto R. Perez-Jacome Friscione",
+          "first_name": "Alberto",
+          "middle_name": "R.",
+          "last_name": "Perez-Jacome Friscione",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Durango",
+          "state": "CO"
+        },
+        {
+          "name": "Melvin L. Keating",
+          "first_name": "Melvin",
+          "middle_name": "L.",
+          "last_name": "Keating",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Durango",
+          "state": "CO"
+        },
+        {
+          "name": "Carrie E. Cass",
+          "first_name": "Carrie",
+          "middle_name": "E.",
+          "last_name": "Cass",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Durango",
+          "state": "CO"
+        },
+        {
+          "name": "Steven L. Craig",
+          "first_name": "Steven",
+          "middle_name": "L.",
+          "last_name": "Craig",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Durango",
+          "state": "CO"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.155789",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001493152-25-029777",
+      "company": {
+        "name": "Crypto Co",
+        "company_name_normalized": "crypto",
+        "fein": null,
+        "address": {
+          "street1": "23823 MALIBU ROAD",
+          "street2": "#50477",
+          "city": "MALIBU",
+          "state": "CA",
+          "zip": "90265",
+          "phone": "(424) 228-9955"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": null,
+        "industry": "Other Technology"
+      },
+      "funding": {
+        "total_offering_amount": 71392.0,
+        "total_amount_sold": 71392.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 1,
+        "date_of_first_sale": "2025-12-19",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Ronald Levy",
+          "first_name": "Ronald",
+          "middle_name": null,
+          "last_name": "Levy",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "MALIBU",
+          "state": "CA"
+        },
+        {
+          "name": "Holly Ruxin",
+          "first_name": "Holly",
+          "middle_name": null,
+          "last_name": "Ruxin",
+          "relationships": [
+            "Director"
+          ],
+          "city": "MALIBU",
+          "state": "CA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.156925",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002101272-25-000001",
+      "company": {
+        "name": "3LP Dousman MM LLC",
+        "company_name_normalized": "3lpdousmanmm",
+        "fein": null,
+        "address": {
+          "street1": "504 W. JUNEAU AVE",
+          "street2": null,
+          "city": "MILWAUKEE",
+          "state": "WI",
+          "zip": "53203",
+          "phone": "4147750857"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2025,
+        "industry": "Other Real Estate"
+      },
+      "funding": {
+        "total_offering_amount": 18253500.0,
+        "total_amount_sold": 13535000.0,
+        "total_remaining": 4718500.0,
+        "number_of_investors": 24,
+        "date_of_first_sale": "2025-12-16",
+        "stage_estimate": "Series A"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Matthew M. Burow",
+          "first_name": "Matthew",
+          "middle_name": "M.",
+          "last_name": "Burow",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Milwaukee",
+          "state": "WI"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.158053",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002039250-25-000002",
+      "company": {
+        "name": "Blue Owl GP Stakes Access Fund VI, LP",
+        "company_name_normalized": "blueowlgpstakesaccessfundvi",
+        "fein": null,
+        "address": {
+          "street1": "ONE GRAND CENTRAL PLACE",
+          "street2": "60 EAST 42ND STREET, 26TH FLOOR",
+          "city": "NEW YORK",
+          "state": "NY",
+          "zip": "10165",
+          "phone": "212-994-7400"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2024,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 667422000.0,
+        "total_amount_sold": 667422000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 1435,
+        "date_of_first_sale": "2024-09-23",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 2,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Scott Huff",
+          "first_name": "Scott",
+          "middle_name": null,
+          "last_name": "Huff",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Wilmington",
+          "state": "DE"
+        },
+        {
+          "name": "Maples Fiduciary Services (Delaware) Inc.",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Maples Fiduciary Services (Delaware) Inc.",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Wilmington",
+          "state": "DE"
+        },
+        {
+          "name": "iCapital Alternative Investments LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "iCapital Alternative Investments LLC",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Asterion Fund Services L.L.C.",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Asterion Fund Services L.L.C.",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Wilmington",
+          "state": "DE"
+        },
+        {
+          "name": "Edward Truitt, Jr.",
+          "first_name": "Edward",
+          "middle_name": null,
+          "last_name": "Truitt, Jr.",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Wilmington",
+          "state": "DE"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.159224",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103457-25-000001",
+      "company": {
+        "name": "Phoenix MSA, LLC",
+        "company_name_normalized": "phoenixmsa",
+        "fein": null,
+        "address": {
+          "street1": "1515 E MISSOURI AVE STE 201",
+          "street2": null,
+          "city": "PHOENIX",
+          "state": "AZ",
+          "zip": "85014",
+          "phone": "602-787-6374"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2025,
+        "industry": "Other Real Estate"
+      },
+      "funding": {
+        "total_offering_amount": 35000000.0,
+        "total_amount_sold": 27510000.0,
+        "total_remaining": 7490000.0,
+        "number_of_investors": 32,
+        "date_of_first_sale": "2025-12-05",
+        "stage_estimate": "Series B"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Keith Marc Mishkin",
+          "first_name": "Keith",
+          "middle_name": "Marc",
+          "last_name": "Mishkin",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Phoenix",
+          "state": "AZ"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.160409",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103426-25-000001",
+      "company": {
+        "name": "New Holland Special Opportunities Fund B LP",
+        "company_name_normalized": "newhollandspecialopportunitiesfundb",
+        "fein": null,
+        "address": {
+          "street1": "777 THIRD AVENUE, 36TH FLOOR",
+          "street2": null,
+          "city": "NEW YORK",
+          "state": "NY",
+          "zip": "10017",
+          "phone": "212-600-9200"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Nick Rontiris",
+          "first_name": "Nick",
+          "middle_name": null,
+          "last_name": "Rontiris",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Teresha Miller",
+          "first_name": "Teresha",
+          "middle_name": null,
+          "last_name": "Miller",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Chris Scarlata",
+          "first_name": "Chris",
+          "middle_name": null,
+          "last_name": "Scarlata",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Scott Radke",
+          "first_name": "Scott",
+          "middle_name": null,
+          "last_name": "Radke",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.161614",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002100816-25-000001",
+      "company": {
+        "name": "Fitz Roy 87, LLC",
+        "company_name_normalized": "fitzroy87",
+        "fein": null,
+        "address": {
+          "street1": "2840 S 70TH",
+          "street2": "SUITE #7-286",
+          "city": "LINCOLN",
+          "state": "NE",
+          "zip": "68506",
+          "phone": "402-943-6515"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2025,
+        "industry": "Investing"
+      },
+      "funding": {
+        "total_offering_amount": 3300000.0,
+        "total_amount_sold": 3300000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 18,
+        "date_of_first_sale": "2025-12-19",
+        "stage_estimate": "Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Roy J. Patterson",
+          "first_name": "Roy",
+          "middle_name": "J.",
+          "last_name": "Patterson",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Lincoln",
+          "state": "NE"
+        },
+        {
+          "name": "Creighton J. Bassett",
+          "first_name": "Creighton",
+          "middle_name": "J.",
+          "last_name": "Bassett",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Lincoln",
+          "state": "NE"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.162818",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001722345-25-000002",
+      "company": {
+        "name": "Conway RIEF Onshore Access Fund, LLC",
+        "company_name_normalized": "conwayriefonshoreaccessfund",
+        "fein": null,
+        "address": {
+          "street1": "165 N MERAMEC AVENUE",
+          "street2": "SUITE 210",
+          "city": "SAINT LOUIS",
+          "state": "MO",
+          "zip": "63105",
+          "phone": "314-880-0813"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 247779002.0,
+        "total_remaining": null,
+        "number_of_investors": 492,
+        "date_of_first_sale": "2017-09-01",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "CIR Feeder Fund Management, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "CIR Feeder Fund Management, LLC",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Thomas Margulis",
+          "first_name": "Thomas",
+          "middle_name": null,
+          "last_name": "Margulis",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Richard Baur",
+          "first_name": "Richard",
+          "middle_name": null,
+          "last_name": "Baur",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Roger Brown",
+          "first_name": "Roger",
+          "middle_name": null,
+          "last_name": "Brown",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Jeremy Bell",
+          "first_name": "Jeremy",
+          "middle_name": null,
+          "last_name": "Bell",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.164005",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002050472-25-000003",
+      "company": {
+        "name": "TriGate Property Partners V, L.P.",
+        "company_name_normalized": "trigatepropertypartnersv",
+        "fein": null,
+        "address": {
+          "street1": "1717 MAIN STREET",
+          "street2": "SUITE 2600",
+          "city": "DALLAS",
+          "state": "TX",
+          "zip": "75201",
+          "phone": "2142202274"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2023,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 700000000.0,
+        "total_amount_sold": 80106113.0,
+        "total_remaining": 619893887.0,
+        "number_of_investors": 8,
+        "date_of_first_sale": "2024-12-20",
+        "stage_estimate": "Series C"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 3,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Adam A. Aultz",
+          "first_name": "Adam",
+          "middle_name": "A.",
+          "last_name": "Aultz",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "James A. Vetter",
+          "first_name": "James",
+          "middle_name": "A.",
+          "last_name": "Vetter",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Jason A. Obenhaus",
+          "first_name": "Jason",
+          "middle_name": "A.",
+          "last_name": "Obenhaus",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "John A. Henry",
+          "first_name": "John",
+          "middle_name": "A.",
+          "last_name": "Henry",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Jon A. Pettee",
+          "first_name": "Jon",
+          "middle_name": "A.",
+          "last_name": "Pettee",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Jeffrey A. Yarckin",
+          "first_name": "Jeffrey",
+          "middle_name": "A.",
+          "last_name": "Yarckin",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.165235",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002080275-25-000003",
+      "company": {
+        "name": "Lightcone Labs Inc.",
+        "company_name_normalized": "lightconelabs",
+        "fein": null,
+        "address": {
+          "street1": "7475 ADEMAR STREET",
+          "street2": null,
+          "city": "LAS VEGAS",
+          "state": "NV",
+          "zip": "89148",
+          "phone": "7028498859"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2025,
+        "industry": "Other Technology"
+      },
+      "funding": {
+        "total_offering_amount": 3001300.0,
+        "total_amount_sold": 2010200.0,
+        "total_remaining": 991100.0,
+        "number_of_investors": 2,
+        "date_of_first_sale": "2025-12-19",
+        "stage_estimate": "Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Arad Gishri",
+          "first_name": "Arad",
+          "middle_name": null,
+          "last_name": "Gishri",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Las Vegas",
+          "state": "NV"
+        },
+        {
+          "name": "Daniel Sapkota",
+          "first_name": "Daniel",
+          "middle_name": null,
+          "last_name": "Sapkota",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Las Vegas",
+          "state": "NV"
+        },
+        {
+          "name": "Edward Schloss Derek",
+          "first_name": "Edward",
+          "middle_name": "Schloss",
+          "last_name": "Derek",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Las Vegas",
+          "state": "NV"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.166434",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002102376-25-000001",
+      "company": {
+        "name": "Klarsig Holdings LLC",
+        "company_name_normalized": "klarsigholdings",
+        "fein": null,
+        "address": {
+          "street1": "472 PARKVIEW PLACE",
+          "street2": null,
+          "city": "BURR RIDGE",
+          "state": "IL",
+          "zip": "60527",
+          "phone": "8479605585"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2021,
+        "industry": "Other"
+      },
+      "funding": {
+        "total_offering_amount": 50000.0,
+        "total_amount_sold": 50000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 1,
+        "date_of_first_sale": "2025-11-13",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 5,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Ulric W Taylor",
+          "first_name": "Ulric",
+          "middle_name": "W",
+          "last_name": "Taylor",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "Burr Ridge",
+          "state": "IL"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.167555",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001387866-25-000002",
+      "company": {
+        "name": "Conway Onshore Access Fund, LLC",
+        "company_name_normalized": "conwayonshoreaccessfund",
+        "fein": null,
+        "address": {
+          "street1": "CIR FEEDER FUND MANAGEMENT, LLC",
+          "street2": "165 N. MERAMEC AVENUE, SUITE 210",
+          "city": "ST. LOUIS",
+          "state": "MO",
+          "zip": "63105",
+          "phone": "314-721-4222"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 1658528797.0,
+        "total_remaining": null,
+        "number_of_investors": 1603,
+        "date_of_first_sale": "2006-03-16",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Jeremy Bell",
+          "first_name": "Jeremy",
+          "middle_name": null,
+          "last_name": "Bell",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Roger Brown",
+          "first_name": "Roger",
+          "middle_name": null,
+          "last_name": "Brown",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Richard Baur",
+          "first_name": "Richard",
+          "middle_name": null,
+          "last_name": "Baur",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "CIR Feeder Fund Management, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "CIR Feeder Fund Management, LLC",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Thomas Margulis",
+          "first_name": "Thomas",
+          "middle_name": null,
+          "last_name": "Margulis",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.168853",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002102934-25-000001",
+      "company": {
+        "name": "GUGLI Corp",
+        "company_name_normalized": "gugli",
+        "fein": null,
+        "address": {
+          "street1": "901 CALLE AMANECER STE 160",
+          "street2": null,
+          "city": "SAN CLEMENTE",
+          "state": "CA",
+          "zip": "92673",
+          "phone": "8772144935"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2021,
+        "industry": "Telecommunications"
+      },
+      "funding": {
+        "total_offering_amount": 4999950.0,
+        "total_amount_sold": 499995.0,
+        "total_remaining": 4499955.0,
+        "number_of_investors": 1,
+        "date_of_first_sale": "2025-03-21",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 5,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "James D Cover",
+          "first_name": "James",
+          "middle_name": "D",
+          "last_name": "Cover",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "San Clemente",
+          "state": "CA"
+        },
+        {
+          "name": "Frederick D Leaf",
+          "first_name": "Frederick",
+          "middle_name": "D",
+          "last_name": "Leaf",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Rancho Santa Margarita",
+          "state": "CA"
+        },
+        {
+          "name": "Joshua D Helling",
+          "first_name": "Joshua",
+          "middle_name": "D",
+          "last_name": "Helling",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "San Marcos",
+          "state": "TX"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.170061",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103417-25-000001",
+      "company": {
+        "name": "New Holland Special Opportunities Fund A LP",
+        "company_name_normalized": "newhollandspecialopportunitiesfunda",
+        "fein": null,
+        "address": {
+          "street1": "777 THIRD AVENUE, 36TH FLOOR",
+          "street2": null,
+          "city": "NEW YORK",
+          "state": "NY",
+          "zip": "10017",
+          "phone": "212-600-9200"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 0.0,
+        "total_remaining": null,
+        "number_of_investors": 0,
+        "date_of_first_sale": null,
+        "stage_estimate": null
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Nick Rontiris",
+          "first_name": "Nick",
+          "middle_name": null,
+          "last_name": "Rontiris",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Chris Scarlata",
+          "first_name": "Chris",
+          "middle_name": null,
+          "last_name": "Scarlata",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Teresha Miller",
+          "first_name": "Teresha",
+          "middle_name": null,
+          "last_name": "Miller",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Scott Radke",
+          "first_name": "Scott",
+          "middle_name": null,
+          "last_name": "Radke",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.171288",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001193125-25-338248",
+      "company": {
+        "name": "Nuburu, Inc.",
+        "company_name_normalized": "nuburu",
+        "fein": null,
+        "address": {
+          "street1": "44 Cook Street, Suite 100",
+          "street2": null,
+          "city": "Denver",
+          "state": "CO",
+          "zip": "80206",
+          "phone": "303-780-7389"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2020,
+        "industry": "Other Technology"
+      },
+      "funding": {
+        "total_offering_amount": 23250000.0,
+        "total_amount_sold": 23250000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 1,
+        "date_of_first_sale": "2025-12-17",
+        "stage_estimate": "Series B"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 6,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Dario Barisoni",
+          "first_name": "Dario",
+          "middle_name": null,
+          "last_name": "Barisoni",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Denver",
+          "state": "CO"
+        },
+        {
+          "name": "Alessandro Zamboni",
+          "first_name": "Alessandro",
+          "middle_name": null,
+          "last_name": "Zamboni",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Denver",
+          "state": "CO"
+        },
+        {
+          "name": "Matteo Ricchebuono",
+          "first_name": "Matteo",
+          "middle_name": null,
+          "last_name": "Ricchebuono",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Denver",
+          "state": "CO"
+        },
+        {
+          "name": "Shawn Taylor",
+          "first_name": "Shawn",
+          "middle_name": null,
+          "last_name": "Taylor",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Denver",
+          "state": "CO"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.172427",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001360677-25-000002",
+      "company": {
+        "name": "CONWAY OFFSHORE ACCESS FUND LTD",
+        "company_name_normalized": "conwayoffshoreaccessfund",
+        "fein": null,
+        "address": {
+          "street1": "CIR FEEDER FUND MANAGEMENT, LLC",
+          "street2": "165 N. MERAMEC AVENUE, SUITE 210",
+          "city": "ST. LOUIS",
+          "state": "MO",
+          "zip": "63105",
+          "phone": "314-721-4222"
+        },
+        "entity_type": "Other",
+        "year_incorporated": null,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 900602403.0,
+        "total_remaining": null,
+        "number_of_investors": 483,
+        "date_of_first_sale": "2006-02-13",
+        "stage_estimate": "Series D+"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Roger Brown",
+          "first_name": "Roger",
+          "middle_name": null,
+          "last_name": "Brown",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "CIR Feeder Fund Management, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "CIR Feeder Fund Management, LLC",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Jeremy Bell",
+          "first_name": "Jeremy",
+          "middle_name": null,
+          "last_name": "Bell",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Darragh Murphy",
+          "first_name": "Darragh",
+          "middle_name": null,
+          "last_name": "Murphy",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Grand Cayman",
+          "state": "E9"
+        },
+        {
+          "name": "Richard Baur",
+          "first_name": "Richard",
+          "middle_name": null,
+          "last_name": "Baur",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Thomas Margulis",
+          "first_name": "Thomas",
+          "middle_name": null,
+          "last_name": "Margulis",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "James Kattan",
+          "first_name": "James",
+          "middle_name": null,
+          "last_name": "Kattan",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Grand Cayman",
+          "state": "E9"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.173647",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103144-25-000001",
+      "company": {
+        "name": "Elevate NewCo 3, LP",
+        "company_name_normalized": "elevatenewco3",
+        "fein": null,
+        "address": {
+          "street1": "8117 PRESTON ROAD",
+          "street2": "SUITE 300",
+          "city": "DALLAS",
+          "state": "TX",
+          "zip": "75225",
+          "phone": "203-524-0967"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 43036500.0,
+        "total_amount_sold": 43036500.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 41,
+        "date_of_first_sale": "2025-12-22",
+        "stage_estimate": "Series C"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Elevate Music Investments, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Elevate Music Investments, LLC",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Alejandro Arellano",
+          "first_name": "Alejandro",
+          "middle_name": null,
+          "last_name": "Arellano",
+          "relationships": [
+            "Director",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Jared Sturdivant",
+          "first_name": "Jared",
+          "middle_name": null,
+          "last_name": "Sturdivant",
+          "relationships": [
+            "Director",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Elevate Music Manager LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Elevate Music Manager LLC",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.174833",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001817471-25-000005",
+      "company": {
+        "name": "Lodging Fund REIT III OP, LP",
+        "company_name_normalized": "lodgingfundreitiiiop",
+        "fein": null,
+        "address": {
+          "street1": "1635 43RD STREET SOUTH, SUITE 205",
+          "street2": null,
+          "city": "FARGO",
+          "state": "ND",
+          "zip": "58103",
+          "phone": "(701) 630-6500"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": null,
+        "industry": "Commercial"
+      },
+      "funding": {
+        "total_offering_amount": 75000000.0,
+        "total_amount_sold": 1550000.0,
+        "total_remaining": 73450000.0,
+        "number_of_investors": 5,
+        "date_of_first_sale": "2024-12-30",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": null,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Samuel C. Montgomery",
+          "first_name": "Samuel",
+          "middle_name": "C.",
+          "last_name": "Montgomery",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Fargo",
+          "state": "ND"
+        },
+        {
+          "name": "Corey R. Maple",
+          "first_name": "Corey",
+          "middle_name": "R.",
+          "last_name": "Maple",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Fargo",
+          "state": "ND"
+        },
+        {
+          "name": "Norman H. Leslie",
+          "first_name": "Norman",
+          "middle_name": "H.",
+          "last_name": "Leslie",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "Fargo",
+          "state": "ND"
+        },
+        {
+          "name": "Legendary Capital REIT III, LLC C. Legendary Capital REIT III, LLC",
+          "first_name": "Legendary Capital REIT III, LLC",
+          "middle_name": "C.",
+          "last_name": "Legendary Capital REIT III, LLC",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Fargo",
+          "state": "ND"
+        },
+        {
+          "name": "Lodging Fund REIT III, Inc. C. Lodging Fund REIT III, Inc.",
+          "first_name": "Lodging Fund REIT III, Inc.",
+          "middle_name": "C.",
+          "last_name": "Lodging Fund REIT III, Inc.",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Fargo",
+          "state": "ND"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.176010",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103423-25-000001",
+      "company": {
+        "name": "DSQ Fuse Energy, a series of Allocations 2025 Master, LLC",
+        "company_name_normalized": "dsqfuseenergyaseriesofallocations2025master",
+        "fein": null,
+        "address": {
+          "street1": "1042 E Fort Union Blvd",
+          "street2": "Num 338",
+          "city": "Midvale",
+          "state": "UT",
+          "zip": "84047",
+          "phone": "8024440039"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 1010100.0,
+        "total_amount_sold": 1010100.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 3,
+        "date_of_first_sale": "2025-12-16",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "LLC Allocations Fund Administration,",
+          "first_name": "LLC",
+          "middle_name": null,
+          "last_name": "Allocations Fund Administration,",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Miami",
+          "state": "FL"
+        },
+        {
+          "name": "Richard Thoms",
+          "first_name": "Richard",
+          "middle_name": null,
+          "last_name": "Thoms",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Miami",
+          "state": "FL"
+        },
+        {
+          "name": "Limited D Squared Capital",
+          "first_name": "Limited",
+          "middle_name": null,
+          "last_name": "D Squared Capital",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Midvale",
+          "state": "X1"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.177349",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002082557-25-000002",
+      "company": {
+        "name": "Golub Capital Private Income Fund S",
+        "company_name_normalized": "golubcapitalprivateincomefunds",
+        "fein": null,
+        "address": {
+          "street1": "200 PARK AVENUE",
+          "street2": "25TH FLOOR",
+          "city": "NEW YORK",
+          "state": "NY",
+          "zip": "10166",
+          "phone": "212-750-6060"
+        },
+        "entity_type": "Other",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 800000.0,
+        "total_amount_sold": 800000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 400,
+        "date_of_first_sale": "2025-12-31",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "William M. Webster IV",
+          "first_name": "William",
+          "middle_name": "M.",
+          "last_name": "Webster IV",
+          "relationships": [
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Wu-Kwan C. Kit",
+          "first_name": "Wu-Kwan",
+          "middle_name": "C.",
+          "last_name": "Kit",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Lofton P. Holder",
+          "first_name": "Lofton",
+          "middle_name": "P.",
+          "last_name": "Holder",
+          "relationships": [
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "David B. Golub",
+          "first_name": "David",
+          "middle_name": "B.",
+          "last_name": "Golub",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Anita J. Rival",
+          "first_name": "Anita",
+          "middle_name": "J.",
+          "last_name": "Rival",
+          "relationships": [
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Christopher C. Ericson",
+          "first_name": "Christopher",
+          "middle_name": "C.",
+          "last_name": "Ericson",
+          "relationships": [
+            "Executive Officer",
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "Kenneth F. Bernstein",
+          "first_name": "Kenneth",
+          "middle_name": "F.",
+          "last_name": "Bernstein",
+          "relationships": [
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "GC Advisors LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "GC Advisors LLC",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "New York",
+          "state": "NY"
+        },
+        {
+          "name": "John T. Baily",
+          "first_name": "John",
+          "middle_name": "T.",
+          "last_name": "Baily",
+          "relationships": [
+            "Director"
+          ],
+          "city": "New York",
+          "state": "NY"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.178659",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002102818-25-000001",
+      "company": {
+        "name": "Elevate NewCo 2, LP",
+        "company_name_normalized": "elevatenewco2",
+        "fein": null,
+        "address": {
+          "street1": "8117 PRESTON ROAD",
+          "street2": "SUITE 300",
+          "city": "DALLAS",
+          "state": "TX",
+          "zip": "75225",
+          "phone": "203-524-0967"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 5100000.0,
+        "total_amount_sold": 5100000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 32,
+        "date_of_first_sale": "2025-12-22",
+        "stage_estimate": "Series A"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Jared Sturdivant",
+          "first_name": "Jared",
+          "middle_name": null,
+          "last_name": "Sturdivant",
+          "relationships": [
+            "Director",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Alejandro Arellano",
+          "first_name": "Alejandro",
+          "middle_name": null,
+          "last_name": "Arellano",
+          "relationships": [
+            "Director",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        },
+        {
+          "name": "Elevate Music Investments, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Elevate Music Investments, LLC",
+          "relationships": [
+            "Executive Officer",
+            "Promoter"
+          ],
+          "city": "Dallas",
+          "state": "TX"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.179857",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002013710-25-000004",
+      "company": {
+        "name": "Gaingels Early Stage Fund I LLC",
+        "company_name_normalized": "gaingelsearlystagefundi",
+        "fein": null,
+        "address": {
+          "street1": "C/O GAINGELS MANAGEMENT LLC",
+          "street2": "3 MAIN STREET - SUITE 214",
+          "city": "BURLINGTON",
+          "state": "VT",
+          "zip": "05401",
+          "phone": "773 837 1889"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2024,
+        "industry": "Other"
+      },
+      "funding": {
+        "total_offering_amount": 10000000.0,
+        "total_amount_sold": 4330000.0,
+        "total_remaining": 5670000.0,
+        "number_of_investors": 88,
+        "date_of_first_sale": "2024-02-23",
+        "stage_estimate": "Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 2,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Paul Grossinger",
+          "first_name": "Paul",
+          "middle_name": null,
+          "last_name": "Grossinger",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Burlington",
+          "state": "VT"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.180992",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001977963-25-000002",
+      "company": {
+        "name": "Conway Offshore IEAF, LTD",
+        "company_name_normalized": "conwayoffshoreieaf",
+        "fein": null,
+        "address": {
+          "street1": "165 N MERAMEC AVE.",
+          "street2": "SUITE 210",
+          "city": "SAINT LOUIS",
+          "state": "MO",
+          "zip": "63105",
+          "phone": "314-721-9696"
+        },
+        "entity_type": "Corporation",
+        "year_incorporated": 2023,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 25475745.0,
+        "total_remaining": null,
+        "number_of_investors": 175,
+        "date_of_first_sale": "2023-05-01",
+        "stage_estimate": "Series B"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D/A",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 3,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Darragh Murphy",
+          "first_name": "Darragh",
+          "middle_name": null,
+          "last_name": "Murphy",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Grand Cayman",
+          "state": "E9"
+        },
+        {
+          "name": "Jeremy Bell",
+          "first_name": "Jeremy",
+          "middle_name": null,
+          "last_name": "Bell",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Saint Louis",
+          "state": "MO"
+        },
+        {
+          "name": "-- CIR Feeder Fund Management, LLC",
+          "first_name": "--",
+          "middle_name": null,
+          "last_name": "CIR Feeder Fund Management, LLC",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "St Louis",
+          "state": "MO"
+        },
+        {
+          "name": "James Kattan",
+          "first_name": "James",
+          "middle_name": null,
+          "last_name": "Kattan",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Grand Cayman",
+          "state": "E9"
+        },
+        {
+          "name": "Richard Baur",
+          "first_name": "Richard",
+          "middle_name": null,
+          "last_name": "Baur",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Saint Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Roger Brown",
+          "first_name": "Roger",
+          "middle_name": null,
+          "last_name": "Brown",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Saint Louis",
+          "state": "MO"
+        },
+        {
+          "name": "Thomas Margulis",
+          "first_name": "Thomas",
+          "middle_name": null,
+          "last_name": "Margulis",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Saint Louis",
+          "state": "MO"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.182237",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0001012975-25-001001",
+      "company": {
+        "name": "Americana - AH Late Stage Venture Fund V, LP",
+        "company_name_normalized": "americanaahlatestageventurefundv",
+        "fein": null,
+        "address": {
+          "street1": "502 Waverley Street, Suite 2",
+          "street2": null,
+          "city": "Palo Alto",
+          "state": "CA",
+          "zip": "94301",
+          "phone": "650-331-4151"
+        },
+        "entity_type": "Limited Partnership",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": null,
+        "total_amount_sold": 10146000.0,
+        "total_remaining": null,
+        "number_of_investors": 35,
+        "date_of_first_sale": "2025-12-29",
+        "stage_estimate": "Series A"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Allocate Master GP 2025, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Allocate Master GP 2025, LLC",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Palo Alto",
+          "state": "CA"
+        },
+        {
+          "name": "Owen Timothy Niland",
+          "first_name": "Owen",
+          "middle_name": "Timothy",
+          "last_name": "Niland",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Palo Alto",
+          "state": "CA"
+        },
+        {
+          "name": "Allocate Management Company, LLC",
+          "first_name": null,
+          "middle_name": null,
+          "last_name": "Allocate Management Company, LLC",
+          "relationships": [
+            "Promoter"
+          ],
+          "city": "Palo Alto",
+          "state": "CA"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.183419",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103412-25-000001",
+      "company": {
+        "name": "1199 Central Av Series of Loan LLC",
+        "company_name_normalized": "1199centralavseriesofloan",
+        "fein": null,
+        "address": {
+          "street1": "304 S JONES BLVD",
+          "street2": "SUITE 300",
+          "city": "LAS VEGAS",
+          "state": "NV",
+          "zip": "89107",
+          "phone": "7027773303"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2025,
+        "industry": "Commercial"
+      },
+      "funding": {
+        "total_offering_amount": 1000000.0,
+        "total_amount_sold": 1000000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 10,
+        "date_of_first_sale": "2025-12-18",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "Johannes Gottschalk",
+          "first_name": "Johannes",
+          "middle_name": null,
+          "last_name": "Gottschalk",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Las Vegas",
+          "state": "NV"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.184526",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    },
+    {
+      "accession_number": "0002103118-25-000001",
+      "company": {
+        "name": "Departure Capital SPV Avalanche A2 a Series of CGF2021 LLC",
+        "company_name_normalized": "departurecapitalspvavalanchea2aseriesofcgf2021",
+        "fein": null,
+        "address": {
+          "street1": "2093 PHILADELPHIA PIKE",
+          "street2": "5885",
+          "city": "CLAYMONT",
+          "state": "DE",
+          "zip": "19703",
+          "phone": "(360) 946-0604"
+        },
+        "entity_type": "Limited Liability Company",
+        "year_incorporated": 2025,
+        "industry": "Pooled Investment Fund"
+      },
+      "funding": {
+        "total_offering_amount": 376000.0,
+        "total_amount_sold": 376000.0,
+        "total_remaining": 0.0,
+        "number_of_investors": 8,
+        "date_of_first_sale": "2025-12-24",
+        "stage_estimate": "Pre-Seed"
+      },
+      "filing": {
+        "date_filed": "31-DEC-2025",
+        "submission_type": "D",
+        "quarter": "2025Q4_d"
+      },
+      "company_age": {
+        "years_since_incorporation": 1,
+        "months_since_funding": 4,
+        "funding_recency": "very_recent"
+      },
+      "related_persons": [
+        {
+          "name": "LLC Sydecar",
+          "first_name": "LLC",
+          "middle_name": null,
+          "last_name": "Sydecar",
+          "relationships": [
+            "Director"
+          ],
+          "city": "Claymont",
+          "state": "DE"
+        },
+        {
+          "name": "Brett Sagan",
+          "first_name": "Brett",
+          "middle_name": null,
+          "last_name": "Sagan",
+          "relationships": [
+            "Executive Officer"
+          ],
+          "city": "Claymont",
+          "state": "DE"
+        }
+      ],
+      "metadata": {
+        "source_quarter": "2025Q4_d",
+        "processed_date": "2026-05-28T16:37:07.185826",
+        "prediction_scores": {
+          "international_hiring": null,
+          "recent_grad_hiring": null
+        }
+      }
+    }
+  ]
+}

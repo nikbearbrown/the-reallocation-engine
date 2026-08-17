@@ -1,0 +1,41 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1 d1" font-family="Inter, sans-serif">
+  <title id="t1">Reading the skip-rate dial</title>
+  <desc id="d1">A horizontal skip-rate dial with decision bands: below 40 percent is too loose, 40 to 50 is borderline, above 50 is healthy, above 85 is starved. A pointer sits in the healthy band and the 50 percent target marks the line the filter must clear.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- dial track -->
+  <g transform="translate(60,170)">
+    <!-- bands: 0-40 loose, 40-50 borderline, 50-85 healthy, 85-100 starved -->
+    <rect x="0" y="0" width="232" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>      <!-- 0-40 -->
+    <rect x="232" y="0" width="58" height="40" fill="#EDEDED" stroke="#D4D4D4"/>     <!-- 40-50 -->
+    <rect x="290" y="0" width="203" height="40" fill="#FBECEE" stroke="#D4D4D4"/>    <!-- 50-85 -->
+    <rect x="493" y="0" width="87" height="40" fill="#F5F5F5" stroke="#D4D4D4"/>     <!-- 85-100 -->
+
+    <!-- target line at 50% -->
+    <line x1="290" y1="-16" x2="290" y2="56" stroke="#C8102E" stroke-width="2"/>
+    <text x="290" y="-22" text-anchor="middle" font-size="12" fill="#C8102E" font-family="JetBrains Mono, monospace">50% target</text>
+
+    <!-- pointer in healthy band (~57%) -->
+    <polygon points="331,-6 323,-22 339,-22" fill="#2a1a0e"/>
+    <text x="348" y="-26" text-anchor="start" font-size="11" fill="#2a1a0e" font-family="JetBrains Mono, monospace">57%</text>
+
+    <!-- band labels -->
+    <text x="116" y="62" text-anchor="middle" font-size="11" fill="#545454">too loose</text>
+    <text x="261" y="62" text-anchor="middle" font-size="10" fill="#545454">borderline</text>
+    <text x="391" y="62" text-anchor="middle" font-size="11" fill="#C8102E">healthy</text>
+    <text x="536" y="62" text-anchor="middle" font-size="11" fill="#545454">starved</text>
+
+    <!-- ticks -->
+    <g font-family="JetBrains Mono, monospace" font-size="11" fill="#545454">
+      <text x="0" y="90" text-anchor="middle">0</text>
+      <text x="232" y="90" text-anchor="middle">40</text>
+      <text x="290" y="90" text-anchor="middle">50</text>
+      <text x="493" y="90" text-anchor="middle">85</text>
+      <text x="580" y="90" text-anchor="middle">100</text>
+    </g>
+    <text x="290" y="120" text-anchor="middle" font-size="12" fill="#545454">skip rate (%)</text>
+  </g>
+
+  <line x1="60" y1="340" x2="640" y2="340" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="366" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">A low skip rate is the filter failing, not productivity.</text>
+</svg>

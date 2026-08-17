@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Block committing files >= MAX_MB. The real "ignore large by default".
+# Enable once:  git config core.hooksPath .githooks
+# Override one commit:  git commit --no-verify
+MAX_MB=50
+big=""
+while IFS= read -r -d '' f; do
+  [ -f "$f" ] || continue
+  mb=$(( $(wc -c <"$f") / 1048576 ))
+  [ "$mb" -ge "$MAX_MB" ] && big="${big}  $f (${mb}MB)"$'\n'
+done < <(git diff --cached --name-only --diff-filter=AM -z)
+if [ -n "$big" ]; then
+  echo "BLOCKED — files >= ${MAX_MB}MB staged:"; printf '%s' "$big"
+  echo "Fix: scripts/gitignore-large.sh --apply --untrack   (or override: git commit --no-verify)"
+  exit 1
+fi

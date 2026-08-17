@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title-to-occupation resolution pipeline</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .node-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-ink); }
+    .edge-label { font-family:'Inter',sans-serif; font-size:10px; fill:var(--color-secondary); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { id:'title', label:'raw posting title', kind:'neutral' },
+      { id:'propose', label:'model proposes code', kind:'propose' },
+      { id:'verify', label:'alternate-title check', kind:'gate' },
+      { id:'row', label:'joined occupation row', kind:'confirm' },
+      { id:'features', label:'read 3 features', kind:'confirm' }
+    ];
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+    const fillFor = k => k==='propose'?'var(--color-ochre)': k==='confirm'?'var(--color-red)': k==='gate'?'var(--color-fill)':'var(--color-white)';
+    const textFor = k => (k==='confirm')?'var(--color-white)':'var(--color-ink)';
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.55);
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Title-to-occupation resolution pipeline');
+      svg.append('desc').attr('id','chart-desc').text('A posting title flows through a model proposal, an alternate-title verification gate, then to the joined occupation row and the three role-quality features; a rejected match loops back to re-propose.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Title-to-occupation resolution pipeline');
+
+      const defs = svg.append('defs');
+      defs.append('marker').attr('id','arrow').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+      defs.append('marker').attr('id','arrowR').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-secondary)');
+
+      const W=totalWidth, H=totalHeight;
+      const margin=40, n=data.length;
+      const bw = Math.min(130, (W-2*margin)/n - 12);
+      const y = H*0.46;
+      const xs = data.map((d,i)=> margin + bw/2 + i*((W-2*margin-bw)/(n-1)));
+
+      // forward edges
+      for(let i=0;i<n-1;i++){
+        svg.append('line').attr('aria-hidden','true').attr('x1',xs[i]+bw/2).attr('y1',y).attr('x2',xs[i+1]-bw/2-2).attr('y2',y)
+          .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+      }
+      // confirm label on verify->row
+      svg.append('text').attr('class','edge-label').attr('x',(xs[2]+xs[3])/2).attr('y',y-8).attr('text-anchor','middle').attr('fill','var(--color-red)').text('confirmed');
+
+      // reject loop verify -> propose (below)
+      const ly = y + 70;
+      svg.append('path').attr('aria-hidden','true')
+        .attr('d',`M ${xs[2]} ${y+26} L ${xs[2]} ${ly} L ${xs[1]} ${ly} L ${xs[1]} ${y+26}`)
+        .attr('fill','none').attr('stroke','var(--color-secondary)').attr('stroke-width',1.2).attr('stroke-dasharray','5 4').attr('marker-end','url(#arrowR)');
+      svg.append('text').attr('class','edge-label').attr('x',(xs[1]+xs[2])/2).attr('y',ly+14).attr('text-anchor','middle').text('rejected — re-propose');
+
+      data.forEach((d,i)=>{
+        const x=xs[i];
+        if(d.kind==='gate'){
+          svg.append('polygon').attr('points',`${x},${y-28} ${x+bw/2},${y} ${x},${y+28} ${x-bw/2},${y}`)
+            .attr('fill',fillFor(d.kind)).attr('stroke','var(--color-ink)').attr('stroke-width',1.5)
+            .attr('tabindex',0).attr('role','img').attr('aria-label',d.label)
+            .on('mouseover',(e)=>tooltip.html(`<strong>${d.label}</strong>`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+            .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+            .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        } else {
+          svg.append('rect').attr('x',x-bw/2).attr('y',y-24).attr('width',bw).attr('height',48)
+            .attr('fill',fillFor(d.kind)).attr('stroke','var(--color-ink)').attr('stroke-width',1.4)
+            .attr('tabindex',0).attr('role','img').attr('aria-label',d.label)
+            .on('mouseover',(e)=>tooltip.html(`<strong>${d.label}</strong>`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+            .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+            .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        }
+        svg.append('foreignObject').attr('x',x-bw/2+4).attr('y',y-24).attr('width',bw-8).attr('height',48)
+          .append('xhtml:div').style('font-family',"'Inter',sans-serif").style('font-size','10px').style('text-align','center').style('color',textFor(d.kind)).style('display','flex').style('align-items','center').style('justify-content','center').style('height','100%').html(d.label);
+      });
+
+      svg.append('text').attr('class','source').attr('x',W-40).attr('y',H-12).attr('text-anchor','end').text('SOURCE: extract-soc-occupation-table.py');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./09-is-the-role-any-good-bls-onet-role-quality-fig-01.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

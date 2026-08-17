@@ -1,0 +1,61 @@
+<!--
+  Figure: The 90-day OPT unemployment clock
+  Book: The Reallocation Engine
+  Chapter: 01-the-fluency-trap
+  Figure: 04
+  Type: timeline / progression (annotated horizontal bar)
+  Generated: 2026-06-15
+  Source: pantry/01-the-fluency-trap-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">The OPT cumulative-unemployment clock</title>
+  <desc>One horizontal authorization bar with uniform day ticks. A leading segment shows accumulated unemployment days. A dashed marker sets the working limit at eighty days; a solid hard-stop marker at ninety days marks where the immigration record is terminated with no grace period. The gap between them is the safety margin.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="01-the-fluency-trap" figure-number="04" figure-title="The OPT cumulative-unemployment clock" figure-slug="opt-unemployment-clock" figure-type="timeline / progression (annotated horizontal bar)" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/01-the-fluency-trap-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The OPT cumulative-unemployment clock</text>
+
+  <!-- Bar geometry: x 64..636 over 0..90 days. px/day = 572/90 = 6.356 -->
+  <!-- full authorization bar -->
+  <rect x="64" y="180" width="572" height="60" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- accumulated unemployment fill: say ~58 days -> width 58*6.356 = 368.6 -->
+  <rect x="64" y="180" width="369" height="60" fill="#C8102E"/>
+
+  <!-- uniform day ticks every ~5 days inside the bar -->
+  <g stroke="#FFFFFF" stroke-width="0.75" stroke-opacity="0.6">
+    <line x1="96" y1="180" x2="96" y2="240"/>
+    <line x1="128" y1="180" x2="128" y2="240"/>
+    <line x1="159" y1="180" x2="159" y2="240"/>
+    <line x1="191" y1="180" x2="191" y2="240"/>
+    <line x1="223" y1="180" x2="223" y2="240"/>
+    <line x1="255" y1="180" x2="255" y2="240"/>
+    <line x1="287" y1="180" x2="287" y2="240"/>
+    <line x1="318" y1="180" x2="318" y2="240"/>
+    <line x1="350" y1="180" x2="350" y2="240"/>
+    <line x1="382" y1="180" x2="382" y2="240"/>
+    <line x1="414" y1="180" x2="414" y2="240"/>
+  </g>
+
+  <!-- working limit dashed marker at 80 days: x = 64 + 80*6.356 = 572.5 -->
+  <line x1="573" y1="160" x2="573" y2="260" stroke="#2a1a0e" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="569" y="152" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Working limit · 80</text>
+
+  <!-- hard stop solid marker at 90 days: x = 636 -->
+  <line x1="636" y1="160" x2="636" y2="260" stroke="#C8102E" stroke-width="2.5"/>
+  <text x="636" y="152" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#C8102E">Hard stop</text>
+
+  <!-- safety margin band between 80 and 90 -->
+  <rect x="573" y="180" width="63" height="60" fill="#2a1a0e" fill-opacity="0.06"/>
+  <text x="604" y="284" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Safety</text>
+  <text x="604" y="298" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">margin</text>
+
+  <!-- baseline scale labels -->
+  <text x="64" y="276" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">Day 0</text>
+  <text x="240" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Cumulative unemployment days</text>
+
+  <text x="32" y="332" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Every calendar day counts — weekends and holidays included. Past the hard stop, the record ends, with no grace period.</text>
+</svg>

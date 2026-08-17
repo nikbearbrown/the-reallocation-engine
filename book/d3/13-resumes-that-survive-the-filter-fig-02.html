@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paste-test output: clean vs. scrambled</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--color-white); color:var(--color-ink); font-family:'Inter',-apple-system,sans-serif; }
+  #chart { width:100%; }
+  .panel-title { font-family:'Inter',sans-serif; font-size:14px; font-weight:700; }
+  .mono { font-family:'JetBrains Mono',monospace; font-size:12px; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  clean: ['Jordan Lee','Data Analyst','Acme Corp · 2023–2024','EXPERIENCE','• Built reporting pipeline','• Cut refresh time by half','EDUCATION','• B.S. Statistics, 2023','SKILLS','• SQL, Python, dbt'],
+  scrambled: [
+    {t:'Jordan Data SQL Analyst Lee',bad:false},
+    {t:'2023 Built Python –2024 pipe',bad:false},
+    {t:'EXPERI dbt ENCE refresh',bad:false},
+    {t:'[skills bars: no text]',bad:true},
+    {t:'half Cut B.S. by time',bad:false},
+    {t:'[name in header: absent]',bad:true},
+    {t:'[title: not found]',bad:true}
+  ]
+};
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const css = getComputedStyle(document.documentElement); const C = n => css.getPropertyValue(n).trim();
+  const w = document.getElementById('chart').clientWidth || 700;
+  const svg = d3.select('#chart').append('svg').attr('width',w).attr('height',440)
+    .attr('viewBox','0 0 700 440').attr('preserveAspectRatio','xMidYMid meet')
+    .attr('role','img').attr('aria-labelledby','t d');
+  svg.append('title').attr('id','t').text('Paste-test output: clean vs. scrambled');
+  svg.append('desc').attr('id','d').text('Single-column CV pastes as clean ordered text; two-column CV pastes as interleaved text with missing sections.');
+
+  svg.append('text').attr('x',40).attr('y',34).attr('class','panel-title').attr('fill',C('--color-red')).text('Single-column — parses clean');
+  svg.append('rect').attr('x',40).attr('y',48).attr('width',290).attr('height',320).attr('fill',C('--color-fill')).attr('stroke',C('--color-border'));
+  svg.selectAll('.cl').data(FALLBACK_DATA.clean).join('text').attr('class','mono cl')
+    .attr('x',56).attr('y',(d,i)=>74+i*26).attr('fill',C('--color-ink')).text(d=>d);
+
+  svg.append('text').attr('x',370).attr('y',34).attr('class','panel-title').attr('fill',C('--color-secondary')).text('Two-column — parses scrambled');
+  svg.append('rect').attr('x',370).attr('y',48).attr('width',290).attr('height',320).attr('fill',C('--color-fill')).attr('stroke',C('--color-border'));
+  svg.selectAll('.sc').data(FALLBACK_DATA.scrambled).join('text').attr('class','mono sc')
+    .attr('x',386).attr('y',(d,i)=>74+i*30).attr('fill',d=>d.bad?C('--color-red'):C('--color-secondary')).text(d=>d.t);
+
+  svg.append('text').attr('x',350).attr('y',408).attr('text-anchor','middle').attr('font-family',"'EB Garamond',Georgia,serif").attr('font-style','italic').attr('font-size',13).attr('fill',C('--color-ink'))
+    .text('The right side is what a two-column template actually produces when parsed.');
+}
+draw();
+new ResizeObserver(()=>draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

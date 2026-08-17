@@ -1,0 +1,70 @@
+<!-- Same employer, two doors
+     Book: The Reallocation Engine
+     Chapter: 08-is-the-job-real-ats-detection-and-liveness
+     Figure 04
+     Type: comparison panels (two-posting signal grid)
+     Generated 2026-06-15
+     Source: pantry/08-is-the-job-real-ats-detection-and-liveness-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+<title id="fig-title-04">Same employer, two doors</title>
+<desc>Two postings from the same employer, with the same title and sponsorship tier, scored across five liveness signals: posting age, last-updated, description specificity, company hiring activity, and portal movement. Posting A shows all five signals affirming and is classified live; posting B shows all five cautionary and is classified ghost. Liveness is a property of the listing, not the firm. Chip states avoid any red-green pairing.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="08-is-the-job-real-ats-detection-and-liveness" figure-number="04" figure-title="Same employer, two doors" figure-slug="same-employer-two-doors" figure-type="comparison" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/08-is-the-job-real-ats-detection-and-liveness-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Same employer, two doors</text>
+<text x="32" y="60" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">same title, same sponsorship tier — liveness is a property of the listing</text>
+
+<!-- column headers -->
+<text x="420" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Posting A</text>
+<text x="570" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Posting B</text>
+
+<!-- divider -->
+<line x1="495" y1="80" x2="495" y2="380" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- five signal rows -->
+<!-- row helper y -->
+<!-- 1 posting age -->
+<text x="40" y="124" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">posting age</text>
+<rect x="360" y="110" width="120" height="22" rx="0" fill="#2a1a0e"/>
+<text x="420" y="125" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">9 days · fresh</text>
+<rect x="510" y="110" width="120" height="22" rx="0" fill="#C8102E"/>
+<text x="570" y="125" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">11 weeks · stale</text>
+
+<!-- 2 last-updated -->
+<text x="40" y="164" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">last-updated</text>
+<rect x="360" y="150" width="120" height="22" rx="0" fill="#2a1a0e"/>
+<text x="420" y="165" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">recent</text>
+<rect x="510" y="150" width="120" height="22" rx="0" fill="#C8102E"/>
+<text x="570" y="165" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">never</text>
+
+<!-- 3 description specificity -->
+<text x="40" y="204" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">description specificity</text>
+<rect x="360" y="190" width="120" height="22" rx="0" fill="#2a1a0e"/>
+<text x="420" y="205" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">named project</text>
+<rect x="510" y="190" width="120" height="22" rx="0" fill="#C8102E"/>
+<text x="570" y="205" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">18-mo-old text</text>
+
+<!-- 4 company hiring activity -->
+<text x="40" y="244" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">company hiring activity</text>
+<rect x="360" y="230" width="120" height="22" rx="0" fill="#2a1a0e"/>
+<text x="420" y="245" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">churn</text>
+<rect x="510" y="230" width="120" height="22" rx="0" fill="#C8102E"/>
+<text x="570" y="245" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">frozen</text>
+
+<!-- 5 portal movement -->
+<text x="40" y="284" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">portal movement</text>
+<rect x="360" y="270" width="120" height="22" rx="0" fill="#2a1a0e"/>
+<text x="420" y="285" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">yes</text>
+<rect x="510" y="270" width="120" height="22" rx="0" fill="#C8102E"/>
+<text x="570" y="285" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">none</text>
+
+<!-- classification row -->
+<line x1="40" y1="308" x2="630" y2="308" stroke="#2a1a0e" stroke-width="1"/>
+<text x="40" y="334" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">classification</text>
+<rect x="360" y="320" width="120" height="30" rx="0" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="420" y="340" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">LIVE</text>
+<rect x="510" y="320" width="120" height="30" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="570" y="340" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">GHOST</text>
+
+<text x="335" y="378" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">identical employer and title — the signals still split</text>
+</svg>

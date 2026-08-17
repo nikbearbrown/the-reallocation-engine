@@ -1,0 +1,31 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t4 d4" font-family="Inter, sans-serif">
+  <title id="t4">The division of labor</title>
+  <desc id="d4">Two columns. AI does Tier 1 things: generate structure, retrieve information, adjust complexity, produce feedback, execute estimation, format and organize. Humans do Tiers 4–7 things: plausibility audit, problem formulation, the identification layer, productive disagreement, institutional judgment, knowing what question is worth asking, accountability.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="40" y="36" font-size="14" font-weight="700" fill="#545454">AI does AI things — Tier 1</text>
+  <rect x="40" y="50" width="290" height="300" fill="#F5F5F5" stroke="#D4D4D4"/>
+  <g font-size="12" fill="#2a1a0e">
+    <text x="58" y="84">Generate structure</text>
+    <text x="58" y="116">Retrieve information</text>
+    <text x="58" y="148">Adjust complexity</text>
+    <text x="58" y="180">Produce calibrated feedback</text>
+    <text x="58" y="212">Execute estimation</text>
+    <text x="58" y="244">Format and organize</text>
+    <text x="58" y="276">Flag errors in clear domains</text>
+  </g>
+
+  <text x="370" y="36" font-size="14" font-weight="700" fill="#C8102E">Humans do human things — Tiers 4–7</text>
+  <rect x="370" y="50" width="290" height="300" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <g font-size="12" fill="#2a1a0e">
+    <text x="388" y="84">Plausibility audit</text>
+    <text x="388" y="116">Problem formulation</text>
+    <text x="388" y="148">The identification layer</text>
+    <text x="388" y="180">Productive disagreement</text>
+    <text x="388" y="212">Institutional judgment</text>
+    <text x="388" y="244">Knowing what to ask</text>
+    <text x="388" y="276">Accountability</text>
+  </g>
+
+  <text x="350" y="384" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">Neither replaces the other.</text>
+</svg>

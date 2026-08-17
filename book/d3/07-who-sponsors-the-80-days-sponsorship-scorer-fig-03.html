@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The four-tier sponsorship spectrum</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+      --color-gray2:#787878;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; --color-gray2:#9A9A9A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .tier-label { font-family:'Inter',sans-serif; font-size:13px; fill:var(--color-white); }
+    .cue { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-ink); }
+    .axis { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { tier:'Avoid',   cue:'skip — reallocate time', color:'var(--color-ink)' },
+      { tier:'Unknown', cue:'investigate / resolve name match', color:'var(--color-ochre)' },
+      { tier:'Likely',  cue:'target', color:'var(--color-gray2)' },
+      { tier:'Proven',  cue:'target actively', color:'var(--color-red)' }
+    ];
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.5);
+      const margin = { top: 56, right: 40, bottom: 64, left: 40 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const barHeight = 56;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('The four-tier sponsorship spectrum');
+      svg.append('desc').attr('id','chart-desc').text('A horizontal evidence spectrum from Avoid through Unknown and Likely to Proven, each with an action cue; Unknown is distinct from Avoid.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('The four-tier sponsorship spectrum');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+      const x = d3.scaleBand().domain(data.map(d=>d.tier)).range([0,chartWidth]).padding(0.04);
+
+      g.append('text').attr('class','axis').attr('x',0).attr('y',-8).text('weaker evidence');
+      g.append('text').attr('class','axis').attr('x',chartWidth).attr('y',-8).attr('text-anchor','end').text('stronger evidence');
+
+      const cells = g.selectAll('.cell').data(data).join('g').attr('class','cell');
+      cells.append('rect')
+        .attr('x',d=>x(d.tier)).attr('y',0).attr('width',x.bandwidth()).attr('height',barHeight)
+        .attr('fill',d=>d.color).attr('stroke','var(--color-white)').attr('stroke-width',1)
+        .attr('tabindex',0).attr('role','img').attr('aria-label',d=>`${d.tier}: ${d.cue}`)
+        .on('mouseover',(e,d)=>tooltip.html(`<strong>${d.tier}</strong><br>${d.cue}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+        .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+        .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+      cells.append('text').attr('class','tier-label')
+        .attr('x',d=>x(d.tier)+x.bandwidth()/2).attr('y',barHeight/2+4).attr('text-anchor','middle')
+        .attr('fill',d=>d.tier==='Likely'?'var(--color-ink)':'var(--color-white)')
+        .text(d=>d.tier);
+      // action cue chips below
+      cells.append('rect').attr('aria-hidden','true')
+        .attr('x',d=>x(d.tier)+6).attr('y',barHeight+10).attr('width',x.bandwidth()-12).attr('height',38)
+        .attr('fill','var(--color-fill)').attr('stroke','var(--color-border)').attr('stroke-width',1);
+      cells.append('foreignObject')
+        .attr('x',d=>x(d.tier)+8).attr('y',barHeight+12).attr('width',d=>x.bandwidth()-16).attr('height',34)
+        .append('xhtml:div').attr('class','cue')
+        .style('font-family',"'Inter',sans-serif").style('font-size','11px').style('color','var(--color-ink)').style('text-align','center')
+        .html(d=>d.cue);
+
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-10).attr('text-anchor','end').text('SOURCE: SPONSORSHIP TIER MODEL');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./07-who-sponsors-the-80-days-sponsorship-scorer-fig-03.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

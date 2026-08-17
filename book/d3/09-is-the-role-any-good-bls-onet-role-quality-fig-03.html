@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The silent wrong-SOC error</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .panel-head { font-family:'Inter',sans-serif; font-size:12px; font-weight:700; fill:var(--color-ink); }
+    .note { font-family:'Inter',sans-serif; font-size:10px; fill:var(--color-secondary); }
+    .tick { font-family:'JetBrains Mono',monospace; font-size:11px; fill:var(--color-secondary); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    // wage bands normalized 0..1; gap is the cost of the wrong match
+    const FALLBACK_DATA = [
+      { panel:'wrong occupation', wage:0.46, match:false, note:'alternate-title list lacks the work' },
+      { panel:'correct occupation', wage:0.82, match:true, note:'alternate-title match confirmed' }
+    ];
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.6);
+      const margin = { top: 56, right: 40, bottom: 64, left: 56 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('The silent wrong-SOC error');
+      svg.append('desc').attr('id','chart-desc').text('Two wage bands on a shared zero-based scale: a wrong occupation with a lower band and a confirmed correct occupation with a higher band; the gap is the cost of skipping the alternate-title check.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('The silent wrong-SOC error');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+      const x = d3.scaleBand().domain(data.map(d=>d.panel)).range([0,chartWidth]).padding(0.5);
+      const y = d3.scaleLinear().domain([0,1]).range([chartHeight,0]); // zero baseline
+
+      [0,0.25,0.5,0.75,1].forEach(t=>{
+        g.append('line').attr('aria-hidden','true').attr('x1',0).attr('x2',chartWidth).attr('y1',y(t)).attr('y2',y(t)).attr('stroke','var(--color-border)').attr('stroke-opacity',0.5);
+        g.append('text').attr('class','tick').attr('x',-8).attr('y',y(t)+4).attr('text-anchor','end').text(t.toFixed(2));
+      });
+      g.append('line').attr('aria-hidden','true').attr('x1',0).attr('y1',chartHeight).attr('x2',chartWidth).attr('y2',chartHeight).attr('stroke','var(--color-ink)').attr('stroke-width',1);
+
+      data.forEach(d=>{
+        g.append('rect').attr('x',x(d.panel)).attr('width',x.bandwidth()).attr('y',y(d.wage)).attr('height',chartHeight-y(d.wage))
+          .attr('fill', d.match?'var(--color-red)':'var(--color-ochre)').attr('stroke','var(--color-ink)').attr('stroke-width',1)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`${d.panel}: wage band ${Math.round(d.wage*100)} of 100, ${d.match?'confirmed match':'unconfirmed match'}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${d.panel}</strong><br>${d.note}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        g.append('text').attr('class','panel-head').attr('x',x(d.panel)+x.bandwidth()/2).attr('y',-8).attr('text-anchor','middle').text(d.panel);
+        // match marker
+        g.append('text').attr('x',x(d.panel)+x.bandwidth()/2).attr('y',y(d.wage)-8).attr('text-anchor','middle')
+          .attr('font-family',"'Inter',sans-serif").attr('font-size',14).attr('fill',d.match?'var(--color-red)':'var(--color-ochre)').text(d.match?'✓':'⊣');
+        g.append('foreignObject').attr('x',x(d.panel)-10).attr('y',chartHeight+6).attr('width',x.bandwidth()+20).attr('height',40)
+          .append('xhtml:div').style('font-family',"'Inter',sans-serif").style('font-size','10px').style('text-align','center').style('color','var(--color-secondary)').html(d.note);
+      });
+
+      // gap annotation
+      const gapY1 = y(data[1].wage), gapY2 = y(data[0].wage);
+      g.append('line').attr('aria-hidden','true').attr('x1',chartWidth-6).attr('x2',chartWidth-6).attr('y1',gapY1).attr('y2',gapY2).attr('stroke','var(--color-ink)').attr('stroke-width',1).attr('stroke-dasharray','3 3');
+      g.append('text').attr('class','note').attr('x',chartWidth-12).attr('y',(gapY1+gapY2)/2).attr('text-anchor','end').attr('fill','var(--color-ink)').text('cost of skipping the check');
+
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-12).attr('text-anchor','end').text('SOURCE: O*NET ALTERNATE-TITLE CHECK');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./09-is-the-role-any-good-bls-onet-role-quality-fig-03.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

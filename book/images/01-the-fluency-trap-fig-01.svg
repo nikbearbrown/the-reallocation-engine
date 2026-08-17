@@ -1,0 +1,56 @@
+<!--
+  Figure: The value split — who can supply the work
+  Book: The Reallocation Engine
+  Chapter: 01-the-fluency-trap
+  Figure: 01
+  Type: statistical / quantitative (paired bar panels)
+  Generated: 2026-06-15
+  Source: pantry/01-the-fluency-trap-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">The value split: who can supply the work</title>
+  <desc>Two aligned stacked bars. The first splits total value into a large procedural-competence base and a smaller judgment cap. The second recuts the same split by supplier: the procedural base is machine-suppliable and the small judgment cap is human-exclusive.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="01-the-fluency-trap" figure-number="01" figure-title="The value split: who can supply the work" figure-slug="the-value-split" figure-type="statistical / quantitative (paired bar panels)" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/01-the-fluency-trap-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The value split: who can supply the work</text>
+
+  <!-- divider -->
+  <line x1="350" y1="64" x2="350" y2="360" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- Plot region left -->
+  <rect x="64" y="64" width="220" height="296" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <!-- Plot region right -->
+  <rect x="416" y="64" width="220" height="296" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- Bar geometry: baseline y=344, top of bar y=88, height 256 -->
+  <!-- Left bar: procedural ~78% (bottom), judgment ~22% (top) -->
+  <!-- judgment top segment -->
+  <rect x="138" y="88" width="72" height="56" fill="#C8102E"/>
+  <!-- procedural bottom segment -->
+  <rect x="138" y="144" width="72" height="200" fill="#787878"/>
+  <text x="174" y="116" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">Judgment</text>
+  <text x="174" y="248" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">Procedural</text>
+  <text x="174" y="264" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#FFFFFF">competence</text>
+
+  <!-- Right bar: same split, coded by supplier -->
+  <rect x="490" y="88" width="72" height="56" fill="#C8102E"/>
+  <rect x="490" y="144" width="72" height="200" fill="#ADADAD"/>
+  <text x="526" y="116" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#FFFFFF">Human-only</text>
+  <text x="526" y="248" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Machine-</text>
+  <text x="526" y="264" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">suppliable</text>
+
+  <!-- aligned segment boundary reference -->
+  <line x1="64" y1="144" x2="636" y2="144" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <!-- baseline / zero anchor -->
+  <line x1="64" y1="344" x2="636" y2="344" stroke="#545454" stroke-width="1"/>
+
+  <text x="174" y="380" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">Can you do the work?</text>
+  <text x="526" y="380" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">Who can supply it?</text>
+
+  <text x="32" y="404" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">The same split, recut: the procedural majority is now cheap and machine-suppliable; the small judgment slice is uniquely human.</text>
+</svg>

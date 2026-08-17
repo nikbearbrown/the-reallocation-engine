@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The three-tier trust stack</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .tier-text { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .gap-text { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ochre); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      tiers: [
+        { label: 'Trustworthy inference', w: 280, kind: 'top' },
+        { label: 'Are the right things measured? (this chapter)', w: 420, kind: 'mid' },
+        { label: 'Numbers trace to real records (Ch.3 floor)', w: 540, kind: 'base' }
+      ],
+      gap: 'Coverage gaps, name-matching failures, base-rate mismatch'
+    };
+    async function loadData() {
+      try { return await d3.json('./05-verifying-the-data-fig-01/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The three-tier trust stack');
+      svg.append('desc').attr('id', 'chart-desc').text('A three-tier stack built bottom-up: real records, then whether the right things were measured, then trustworthy inference.');
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 8).attr('markerHeight', 6).attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ochre)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('The three-tier trust stack');
+
+      const tierH = 64, gap = 20, cx = 380, bottomY = 360;
+      const fills = { base: 'var(--color-gray)', mid: 'var(--color-red)', top: 'var(--color-fill)' };
+      const txtFill = { base: 'var(--color-white)', mid: 'var(--color-white)', top: 'var(--color-ink)' };
+
+      d.tiers.forEach((t, i) => {
+        const y = bottomY - (i + 1) * tierH - i * gap;
+        svg.append('rect').attr('x', cx - t.w / 2).attr('y', y).attr('width', t.w).attr('height', tierH).attr('rx', 8)
+          .attr('fill', fills[t.kind]).attr('stroke', t.kind === 'top' ? 'var(--color-ink)' : 'none').attr('stroke-width', 1.2);
+        svg.append('text').attr('class', 'tier-text').attr('x', cx).attr('y', y + tierH / 2 + 4).attr('text-anchor', 'middle').attr('fill', txtFill[t.kind]).text(t.label);
+      });
+
+      // ascent arrow on the left between bottom two tiers
+      const baseTop = bottomY - tierH;
+      const midTop = bottomY - 2 * tierH - gap;
+      svg.append('line').attr('x1', 70).attr('y1', baseTop).attr('x2', 70).attr('y2', midTop)
+        .attr('stroke', 'var(--color-ochre)').attr('stroke-width', 1.6).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      svg.append('text').attr('class', 'gap-text').attr('x', 90).attr('y', (baseTop + midTop) / 2).text('the gap:');
+      svg.append('text').attr('class', 'gap-text').attr('x', 90).attr('y', (baseTop + midTop) / 2 + 16).text(d.gap);
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

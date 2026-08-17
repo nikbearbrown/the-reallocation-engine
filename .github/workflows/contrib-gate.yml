@@ -1,0 +1,91 @@
+name: Contrib Gate
+
+# Fall 2026 enforcement layer — see CONTRIBUTING.md and DATA_CONTRACT.md.
+# Every job here is deterministic and local-fixture-only (no network, no
+# Chromium, no live Workday). GateProof's --check is deliberately excluded
+# until its contract v2 re-baseline lands.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install pyyaml
+      - run: npm install
+      - run: node scripts/conformance.mjs
+      - run: node scripts/manifest-check.mjs
+
+  doctor-and-pii:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }   # full history — PII lives in history, not just trees
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm install
+      - name: Doctor (tracked-PII hard fail, now enforced in CI)
+        run: node scripts/doctor.mjs
+      - name: PII scan (working tree)
+        run: node scripts/pii-scan.mjs
+      - name: PII scan (full branch history vs merge-base)
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=0
+          node scripts/pii-scan.mjs --diff "origin/${{ github.base_ref }}"
+
+  harness-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm install
+      - name: Shukla scenario harness (fail-closed gates)
+        run: node scripts/test/gate-behavior-harness.mjs | tee /dev/stderr | tail -1 | grep -q "7/7 scenarios passed"
+      - name: Fuzz invariants (seeded, deterministic)
+        run: node scripts/test/fuzz-invariants.mjs --n 300 --seed 42 | tail -1 | grep -q "All 3 invariants held"
+      - name: Tapkir harness + broken-scorer self-test
+        run: node scripts/score/gate-behavior-harness.mjs 2>&1 | tail -1 | grep -q "VALID"
+      - name: Dhamija property suite (17 properties)
+        run: node scripts/score/gate-harness.mjs 2>&1 | grep -q "17/17 passed"
+      - name: Yuqing Huang gate harness
+        run: node scripts/gates/gate-behavior-harness.mjs 2>&1 | tail -1 | grep -q "ALL GATES BEHAVE AS MULTIPLIERS"
+      - name: Ma black-box harness (0 gating failures)
+        run: node scripts/score/scorer-harness.mjs 2>&1 | grep -q "0 gating"
+
+  contrib-scope:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Enforce namespace + protected-path rules for non-maintainer PRs
+        env:
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          BASE: ${{ github.base_ref }}
+        run: |
+          if [ "$AUTHOR" = "nikbearbrown" ]; then echo "maintainer PR — scope gate skipped"; exit 0; fi
+          git fetch origin "$BASE" --depth=0
+          CHANGED=$(git diff --name-only "origin/$BASE"...HEAD)
+          echo "$CHANGED"
+          FAIL=0
+          # hard-protected paths for students
+          echo "$CHANGED" | grep -E '^(logs/RUN_LOG\.md|SNICKERDOODLE\.md|DOMAIN\.md|DATA_CONTRACT\.md|package\.json|\.github/|\.githooks/|AGENTS\.md|CLAUDE\.md)' \
+            && { echo '::error::PR touches a protected path — see CONTRIBUTING.md'; FAIL=1; } || true
+          # everything must be namespaced or the single declared maintained-file patch;
+          # allowlist: contrib dirs, cases, runs, submissions, search/examples extension
+          VIOLATIONS=$(echo "$CHANGED" | grep -vE '^(scripts/contrib/|recipes/cases/|logs/runs/|course/[^/]+/submissions/|search/examples/|scripts/(score|ats|sec|bls|resumes|gates|test)/[^/]+\.(mjs|py)$)' || true)
+          if [ -n "$VIOLATIONS" ]; then
+            N=$(echo "$VIOLATIONS" | wc -l)
+            echo "::warning::$N file(s) outside the standard namespaces — maintainer review required:"; echo "$VIOLATIONS"
+          fi
+          exit $FAIL

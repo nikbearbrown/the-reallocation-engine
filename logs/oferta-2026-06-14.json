@@ -1,0 +1,44 @@
+{
+  "workflow": "oferta",
+  "run_id": "oferta-2026-06-14-001",
+  "mode": "sample",
+  "steps_completed": [
+    "verify-provenance",
+    "ingest-inputs",
+    "validate-data-shape",
+    "score-composite",
+    "produce-report"
+  ],
+  "records_seen": 5,
+  "rejects": 0,
+  "duplicates": 0,
+  "flags": [
+    "skip_rate 40% is below the ~50% a healthy run skips \u2014 expected: a 5-role curated fixture, not a real search",
+    "role_quality weight = 0 [VERIFY] \u2014 the Ch.9 role-quality signal contributes nothing to any composite (see gap #3)",
+    "1 documented override: 'HM is a contact' row flips Skip(0.193)->Apply with a recorded reason"
+  ],
+  "stop_conditions": [],
+  "todo_items": [],
+  "source_files": [
+    "data/examples/ch11-roles.json",
+    "data/examples/run-envelope.json",
+    "scripts/score/role-scorer.mjs"
+  ],
+  "gate_decisions": {
+    "source": "pass (machine)",
+    "scope": "pass \u2014 mode=sample",
+    "data_shape": "pass \u2014 inputs+outputs parse",
+    "script_readiness": "pass \u2014 scorer exists",
+    "approval": "n/a \u2014 sample mode; no live network / external write / sensitive model call",
+    "report": "pass",
+    "human_adequacy": "PENDING \u2014 named-human attestation required to promote oferta past DRAFT"
+  },
+  "generated_at": "2026-06-14T00:00:00Z",
+  "raw_output_paths": [
+    "data/examples/role-scores.json"
+  ],
+  "verified_output_paths": [
+    "data/examples/role-scores.md"
+  ],
+  "report_path": "reports/generated/oferta-2026-06-14.md"
+}

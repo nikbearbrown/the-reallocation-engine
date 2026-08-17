@@ -1,0 +1,31 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2" font-family="Inter, sans-serif">
+  <title id="t2">Give to the AI vs. keep for yourself</title>
+  <desc id="d2">Two columns. Give to the AI: scaffolding, schemas, formula implementation, boilerplate, glue code — anything checkable. Keep for yourself: weight calibration, plausibility audits, Unknown-tier interpretation, privacy and honesty calls, final go/no-go. The test is whether the model can verify it against reality or only against itself.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <text x="40" y="34" font-size="14" font-weight="700" fill="#545454">Give to the AI</text>
+  <rect x="40" y="46" width="290" height="280" fill="#F5F5F5" stroke="#D4D4D4"/>
+  <g font-size="12" fill="#2a1a0e">
+    <text x="58" y="80">Scaffolding</text>
+    <text x="58" y="112">Schemas, data structures</text>
+    <text x="58" y="144">Formula implementation</text>
+    <text x="58" y="176">Boilerplate, glue code</text>
+    <text x="58" y="208">Documentation drafts</text>
+    <text x="58" y="240">Anything checkable</text>
+  </g>
+  <text x="58" y="300" font-size="11" fill="#545454">verifiable against reality</text>
+
+  <text x="370" y="34" font-size="14" font-weight="700" fill="#C8102E">Keep for yourself</text>
+  <rect x="370" y="46" width="290" height="280" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <g font-size="12" fill="#2a1a0e">
+    <text x="388" y="80">Weight calibration</text>
+    <text x="388" y="112">Plausibility audits</text>
+    <text x="388" y="144">Unknown-tier interpretation</text>
+    <text x="388" y="176">Privacy and honesty calls</text>
+    <text x="388" y="208">Final go/no-go</text>
+    <text x="388" y="240">Verifiable only against itself</text>
+  </g>
+  <text x="388" y="300" font-size="11" fill="#C8102E">the model cannot check these against the world</text>
+
+  <text x="350" y="372" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">If the model can verify it only against itself, it's yours.</text>
+</svg>

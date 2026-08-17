@@ -1,0 +1,49 @@
+<!-- The Silent Wrong-SOC Error
+     Book: The Reallocation Engine
+     Chapter: 09-is-the-role-any-good-bls-onet-role-quality
+     Figure 03
+     Type: comparison panels
+     Generated 2026-06-15
+     Source: pantry/09-is-the-role-any-good-bls-onet-role-quality-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">The silent wrong-occupation error</title>
+<desc>Two panels share a zero-based wage scale. On the left, an ambiguous posting title points to a plausible but wrong occupation code whose attached wage band sits at a modest level, with a blocking marker because the alternate-title list does not contain the posting's described work. On the right, the same posting is correctly re-classified to the occupation whose alternate-title list does contain the work, with a higher wage band and steeper preparation profile and a confirmation marker. The gap between the two bands is the cost of skipping the check.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="09-is-the-role-any-good-bls-onet-role-quality" figure-number="03" figure-title="The silent wrong-occupation error" figure-slug="silent-wrong-soc-error" figure-type="comparison" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/09-is-the-role-any-good-bls-onet-role-quality-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+<marker id="block" markerWidth="10" markerHeight="12" refX="1" refY="6" orient="auto"><line x1="1" y1="0" x2="1" y2="12" stroke="#2a1a0e" stroke-width="2"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The silent wrong-occupation error</text>
+
+<!-- shared plot region, zero-based vertical wage scale -->
+<rect x="64" y="80" width="572" height="240" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+<line x1="64" y1="320" x2="636" y2="320" stroke="#2a1a0e" stroke-width="1"/>
+<text x="56" y="324" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0</text>
+<text x="56" y="86" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">wage</text>
+
+<!-- divider -->
+<line x1="350" y1="80" x2="350" y2="320" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- LEFT panel: wrong occupation, lower wage band, blocked -->
+<text x="207" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">ambiguous title → wrong code</text>
+<rect x="157" y="235" width="100" height="85" rx="0" fill="#787878" stroke="#2a1a0e" stroke-width="1"/>
+<!-- alternate-title list lacks the work (blocked marker) -->
+<rect x="140" y="130" width="134" height="40" rx="0" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="207" y="148" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">alt-title list lacks</text>
+<text x="207" y="162" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">the described work</text>
+<line x1="207" y1="170" x2="207" y2="232" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#block)"/>
+<text x="207" y="208" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">⊣ blocked</text>
+
+<!-- RIGHT panel: correct occupation, higher wage band, confirmed -->
+<text x="493" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">re-classified → correct code</text>
+<rect x="443" y="150" width="100" height="170" rx="0" fill="#C8102E" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="426" y="118" width="134" height="28" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+<text x="493" y="136" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#2a1a0e">alt-title match confirmed</text>
+
+<!-- gap annotation -->
+<line x1="280" y1="235" x2="280" y2="150" stroke="#787878" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="420" y1="235" x2="420" y2="150" stroke="#787878" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="280" y1="192" x2="420" y2="192" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="350" y="186" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">the gap</text>
+
+<text x="350" y="356" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the gap between wrong and right occupation is the cost of skipping verification</text>
+</svg>

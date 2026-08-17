@@ -1,0 +1,41 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3" font-family="Inter, sans-serif">
+  <title id="t3">Résumé safe zones and danger zones</title>
+  <desc id="d3">A labeled résumé contrasting parser-safe choices — single-column body, text section headers, plain-text dates adjacent to roles — against danger choices: two-column layout, header graphic, skill bars, table layout, and text inside images.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- SAFE column -->
+  <text x="40" y="34" font-size="14" font-weight="700" fill="#C8102E">Safe zones</text>
+  <rect x="40" y="46" width="290" height="330" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <g font-size="12" fill="#2a1a0e">
+    <rect x="56" y="62" width="258" height="26" fill="#F5F5F5"/>
+    <text x="64" y="79">Single-column body text</text>
+    <rect x="56" y="98" width="258" height="26" fill="#F5F5F5"/>
+    <text x="64" y="115">Section headers as plain words</text>
+    <rect x="56" y="134" width="258" height="26" fill="#F5F5F5"/>
+    <text x="64" y="151">Dates as text, next to roles</text>
+    <rect x="56" y="170" width="258" height="26" fill="#F5F5F5"/>
+    <text x="64" y="187">Skills as a plain-text list</text>
+    <rect x="56" y="206" width="258" height="26" fill="#F5F5F5"/>
+    <text x="64" y="223">Real text characters throughout</text>
+  </g>
+  <circle cx="56" cy="356" r="6" fill="#C8102E"/>
+  <text x="72" y="360" font-size="12" fill="#545454">Parser can extract everything</text>
+
+  <!-- DANGER column -->
+  <text x="370" y="34" font-size="14" font-weight="700" fill="#545454">Danger zones</text>
+  <rect x="370" y="46" width="290" height="330" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <g font-size="12" fill="#545454">
+    <rect x="386" y="62" width="258" height="26" fill="#F5F5F5" stroke="#D4D4D4" stroke-dasharray="3 3"/>
+    <text x="394" y="79">Two-column layout</text>
+    <rect x="386" y="98" width="258" height="26" fill="#F5F5F5" stroke="#D4D4D4" stroke-dasharray="3 3"/>
+    <text x="394" y="115">Name in a header graphic</text>
+    <rect x="386" y="134" width="258" height="26" fill="#F5F5F5" stroke="#D4D4D4" stroke-dasharray="3 3"/>
+    <text x="394" y="151">Skill bars as graphics</text>
+    <rect x="386" y="170" width="258" height="26" fill="#F5F5F5" stroke="#D4D4D4" stroke-dasharray="3 3"/>
+    <text x="394" y="187">Table-based layout</text>
+    <rect x="386" y="206" width="258" height="26" fill="#F5F5F5" stroke="#D4D4D4" stroke-dasharray="3 3"/>
+    <text x="394" y="223">Any text inside an image</text>
+  </g>
+  <circle cx="386" cy="356" r="6" fill="#545454"/>
+  <text x="402" y="360" font-size="12" fill="#545454">Parser scrambles or drops it</text>
+</svg>

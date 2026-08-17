@@ -1,0 +1,27 @@
+# FICTIONAL EXAMPLE PERSONA — safe to commit. Pairs with resumes/maya-sehgal-cv.md.
+# H-1B transfer case: a nonimmigrant status is decisive even while employed.
+candidate:
+  name: Maya Sehgal
+  email: maya.sehgal@example.com
+  phone: "(617) 555-0196"
+  linkedin: linkedin.com/in/mayasehgal-example
+  github: ""
+  location: Boston, MA
+target_role:
+  primary: AI Product Manager
+  secondary: Technical Program Manager (AI/ML)
+  description: AI product roles at healthtech/scientific-software companies; transfer-friendly employers only.
+  excluded: companies with a published no-transfer policy
+visa:
+  type: H-1B
+  current_status: "H-1B (approved, employed) — seeking transfer"
+  ead_start_date: null
+  opt_end_date: null
+  unemployment_days_used: 0
+  unemployment_ceiling: 60
+  buffer_target: 15
+  stem_eligible: false
+  notes: Transfer requires the new employer to file; 60-day grace period if employment ends. Cap-subject already counted.
+geography:
+  current_location: Boston, MA
+  open_to_remote: true

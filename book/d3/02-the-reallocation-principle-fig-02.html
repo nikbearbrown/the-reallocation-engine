@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 3-3-2 day</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-gray:      #787878;
+      --color-gray-light:#ADADAD;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-gray:      #8a8a8a;
+        --color-gray-light:#6a6a6a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .chart-subtitle { font-family: 'Inter', sans-serif; font-size: 13px; fill: var(--color-secondary); }
+    .axis-tick { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+    .bar-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .anchor-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 9px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { block: 'Targeted applying', hours: 2, anchor: '', kind: 'plain' },
+      { block: 'Networking', hours: 3, anchor: '~54% of hires via connections', kind: 'active' },
+      { block: 'Portfolio', hours: 3, anchor: '~56% validated-skill premium', kind: 'plain' }
+    ];
+
+    async function loadData() {
+      try { return await d3.json('./02-the-reallocation-principle-fig-02/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+    function showTooltip(event, html) {
+      tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px')
+        .transition().duration(150).style('opacity', 1);
+    }
+    function moveTooltip(event) { tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px'); }
+    function hideTooltip() { tooltip.transition().duration(100).style('opacity', 0); }
+
+    let chartData = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const margin = { top: 56, right: 40, bottom: 80, left: 64 };
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = 420;
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The 3-3-2 day');
+      svg.append('desc').attr('id', 'chart-desc').text('Three proportional columns sized two, three, three hours for targeted applying, networking, and portfolio work, with the applying column the shortest.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', margin.left).attr('y', 24).text('The 3-3-2 day');
+      svg.append('text').attr('class', 'chart-subtitle').attr('x', margin.left).attr('y', 41).text('Hours reallocated across an eight-hour search day');
+
+      const gChart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const xScaleBand = d3.scaleBand().domain(chartData.map(d => d.block)).range([0, chartWidth]).padding(0.35);
+      const yScaleLinear = d3.scaleLinear().domain([0, 3]).range([chartHeight, 0]);
+
+      const yAxis = gChart.append('g').attr('aria-hidden', 'true');
+      yScaleLinear.ticks(3).forEach(t => {
+        yAxis.append('line').attr('x1', 0).attr('x2', chartWidth).attr('y1', yScaleLinear(t)).attr('y2', yScaleLinear(t))
+          .attr('stroke', 'var(--color-border)').attr('stroke-opacity', 0.6);
+        yAxis.append('text').attr('class', 'axis-tick').attr('x', -8).attr('y', yScaleLinear(t) + 4).attr('text-anchor', 'end').text(t + 'h');
+      });
+
+      gChart.selectAll('.bar-rect').data(chartData).join('rect')
+        .attr('class', 'bar-rect')
+        .attr('x', d => xScaleBand(d.block)).attr('width', xScaleBand.bandwidth())
+        .attr('y', d => yScaleLinear(d.hours)).attr('height', d => chartHeight - yScaleLinear(d.hours))
+        .attr('fill', d => d.kind === 'active' ? 'var(--color-red)' : 'var(--color-gray)')
+        .attr('tabindex', 0).attr('aria-label', d => `${d.block}: ${d.hours} hours${d.anchor ? ', ' + d.anchor : ''}`)
+        .on('mouseover', (e, d) => showTooltip(e, `<strong>${d.block}</strong>: ${d.hours} hrs${d.anchor ? '<br>' + d.anchor : ''}`))
+        .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+
+      gChart.selectAll('.bar-value').data(chartData).join('text')
+        .attr('class', 'bar-label').attr('text-anchor', 'middle')
+        .attr('x', d => xScaleBand(d.block) + xScaleBand.bandwidth() / 2)
+        .attr('y', d => yScaleLinear(d.hours) - 8).text(d => d.hours + ' hrs');
+
+      gChart.selectAll('.bar-cat').data(chartData).join('text')
+        .attr('class', 'axis-tick').attr('text-anchor', 'middle')
+        .attr('x', d => xScaleBand(d.block) + xScaleBand.bandwidth() / 2)
+        .attr('y', chartHeight + 22).text(d => d.block);
+
+      gChart.selectAll('.bar-anchor').data(chartData.filter(d => d.anchor)).join('text')
+        .attr('class', 'anchor-label').attr('text-anchor', 'middle')
+        .attr('x', d => xScaleBand(d.block) + xScaleBand.bandwidth() / 2)
+        .attr('y', chartHeight + 40).text(d => d.anchor);
+    }
+
+    loadData().then(data => { chartData = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

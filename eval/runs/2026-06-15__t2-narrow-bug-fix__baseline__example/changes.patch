@@ -1,0 +1,23 @@
+diff --git a/scripts/doctor.mjs b/scripts/doctor.mjs
+index 1111111..2222222 100644
+--- a/scripts/doctor.mjs
++++ b/scripts/doctor.mjs
+@@ -10,6 +10,7 @@
+ const strict = process.argv.includes('--strict');
++const asJson = process.argv.includes('--json');
+ const ok = (b) => (b ? '✓' : '✗');
+diff --git a/DOMAIN.md b/DOMAIN.md
+index 4444444..5555555 100644
+--- a/DOMAIN.md
++++ b/DOMAIN.md
+@@ -1,0 +1,1 @@
++(example) stray out-of-scope edit to an unrelated canonical file
+diff --git a/recipes/scan.md b/recipes/scan.md
+deleted file mode 100644
+index 3333333..0000000
+--- a/recipes/scan.md
++++ /dev/null
+@@ -1,3 +0,0 @@
+-# scan
+-old content
+-more old content

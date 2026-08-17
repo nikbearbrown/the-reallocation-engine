@@ -1,0 +1,48 @@
+<!-- Famous brand versus unknown biotech: the ranking flip
+     Book: The Reallocation Engine
+     Chapter: 07-who-sponsors-the-80-days-sponsorship-scorer
+     Figure 05
+     Type: statistical / quantitative (grouped horizontal bars)
+     Generated 2026-06-15
+     Source: chapters/07-who-sponsors-the-80-days-sponsorship-scorer.md (minted) -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-05 fig-desc-05">
+<title id="fig-title-05">Famous brand versus unknown biotech: the ranking flip</title>
+<desc id="fig-desc-05">A grouped horizontal bar chart compares a famous brand against an unknown biotech across four metrics — LCA count, approval rate, funding recency, and composite score. The unknown biotech, in red, outscores the famous brand on the record despite having no name recognition.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="07-who-sponsors-the-80-days-sponsorship-scorer" figure-number="05" figure-title="Famous brand versus unknown biotech: the ranking flip" figure-slug="ranking-flip-bars" figure-type="statistical" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="chapters/07-who-sponsors-the-80-days-sponsorship-scorer.md"/></metadata>
+
+<text x="32" y="34" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="16" font-weight="700" fill="#2a1a0e">Famous brand vs. unknown biotech: the ranking flip</text>
+
+<!-- axis -->
+<line x1="220" y1="70" x2="220" y2="370" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="220" y1="370" x2="640" y2="370" stroke="#D4D4D4" stroke-width="1"/>
+
+<!-- metric groups; bar length scaled to value 0..1 over 0..400px -->
+<!-- LCA count -->
+<text x="210" y="98" text-anchor="end" font-family="'Inter',sans-serif" font-size="12" fill="#2a1a0e">LCA count</text>
+<rect x="220" y="84" width="44" height="14" fill="#545454"/>
+<rect x="220" y="100" width="320" height="14" fill="#C8102E"/>
+
+<!-- approval rate -->
+<text x="210" y="156" text-anchor="end" font-family="'Inter',sans-serif" font-size="12" fill="#2a1a0e">approval rate</text>
+<rect x="220" y="142" width="60" height="14" fill="#545454"/>
+<rect x="220" y="158" width="340" height="14" fill="#C8102E"/>
+
+<!-- funding recency -->
+<text x="210" y="214" text-anchor="end" font-family="'Inter',sans-serif" font-size="12" fill="#2a1a0e">funding recency</text>
+<rect x="220" y="200" width="300" height="14" fill="#545454"/>
+<rect x="220" y="216" width="360" height="14" fill="#C8102E"/>
+
+<!-- composite score -->
+<text x="210" y="272" text-anchor="end" font-family="'Inter',sans-serif" font-size="12" fill="#2a1a0e">composite score</text>
+<rect x="220" y="258" width="92" height="14" fill="#545454"/>
+<rect x="220" y="274" width="372" height="14" fill="#C8102E"/>
+
+<!-- legend -->
+<rect x="220" y="324" width="14" height="14" fill="#545454"/>
+<text x="240" y="335" font-family="'Inter',sans-serif" font-size="12" fill="#2a1a0e">famous brand</text>
+<rect x="360" y="324" width="14" height="14" fill="#C8102E"/>
+<text x="380" y="335" font-family="'Inter',sans-serif" font-size="12" fill="#2a1a0e">unknown biotech</text>
+
+<text x="220" y="392" font-family="'Inter',sans-serif" font-size="11" fill="#545454">the name loses to the record on every metric that measures sponsorship</text>
+<text x="640" y="408" text-anchor="end" font-family="'Inter',sans-serif" font-size="10" fill="#545454" letter-spacing="0.08em">SOURCE: SEC + DOL + USCIS RECORD</text>
+</svg>

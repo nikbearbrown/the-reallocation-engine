@@ -1,0 +1,55 @@
+<!--
+  Figure: Two customers, one contract
+  Book: The Reallocation Engine
+  Chapter: 04-two-customers
+  Figure: 01
+  Type: systems diagram (mirrored panels with shared base)
+  Generated: 2026-06-15
+  Source: pantry/04-two-customers-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">Two customers, one contract</title>
+  <desc>One recipe serves two customers on a shared base. A left box for the AI artifact is complete and explicit — read-first order, verbatim commands, stop conditions — as long as precision requires. A right box for the human artifact is summary-first — purpose on top, then dependencies, how to run, what it produces, failure modes to drill into on demand. Both rest on a single wide foundation: the verified-data contract.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="04-two-customers" figure-number="01" figure-title="Two customers, one contract" figure-slug="two-customers-one-contract" figure-type="systems diagram (mirrored panels with shared base)" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/04-two-customers-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Two customers, one contract</text>
+
+  <!-- AI artifact box (left) -->
+  <rect x="56" y="64" width="280" height="200" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="196" y="88" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">AI artifact (complete &amp; explicit)</text>
+  <line x1="72" y1="120" x2="320" y2="120" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="80" y="142" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">Read-first order</text>
+  <line x1="72" y1="158" x2="320" y2="158" stroke="#D4D4D4" stroke-width="0.5"/>
+  <text x="80" y="180" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">Verbatim commands</text>
+  <line x1="72" y1="196" x2="320" y2="196" stroke="#D4D4D4" stroke-width="0.5"/>
+  <text x="80" y="218" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">Stop conditions</text>
+  <text x="80" y="244" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">…as long as precision needs (often 1000s of lines)</text>
+
+  <!-- Human artifact box (right) -->
+  <rect x="364" y="64" width="280" height="200" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="504" y="88" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Human artifact (summary → drill-down)</text>
+  <line x1="380" y1="104" x2="628" y2="104" stroke="#D4D4D4" stroke-width="0.75"/>
+  <text x="388" y="124" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Purpose statement</text>
+  <line x1="380" y1="134" x2="628" y2="134" stroke="#D4D4D4" stroke-width="0.5"/>
+  <text x="388" y="154" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Dependencies</text>
+  <line x1="380" y1="164" x2="628" y2="164" stroke="#D4D4D4" stroke-width="0.5"/>
+  <text x="388" y="184" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">How to run</text>
+  <line x1="380" y1="194" x2="628" y2="194" stroke="#D4D4D4" stroke-width="0.5"/>
+  <text x="388" y="214" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">What it produces</text>
+  <line x1="380" y1="224" x2="628" y2="224" stroke="#D4D4D4" stroke-width="0.5"/>
+  <text x="388" y="244" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Failure modes</text>
+
+  <!-- arrows rising from foundation into both boxes -->
+  <path d="M196 328 L196 268" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M504 328 L504 268" fill="none" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- shared foundation bar -->
+  <rect x="56" y="328" width="588" height="48" fill="#F5F5F5" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="350" y="357" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Shared foundation: the verified-data contract</text>
+
+  <text x="32" y="404" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Two optimizations, one shared constraint. AI: complete and explicit. Human: summary first, detail on demand.</text>
+</svg>

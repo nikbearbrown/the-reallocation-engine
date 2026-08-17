@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The fork before the human</title>
+<style>
+  :root {
+    --color-white: #FFFFFF; --color-ink: #2a1a0e; --color-red: #C8102E;
+    --color-secondary: #545454; --color-border: #D4D4D4; --color-ochre: #C8860E; --color-fill: #F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--color-white); color:var(--color-ink); font-family:'Inter',-apple-system,sans-serif; }
+  #chart { width:100%; }
+  .node-label { font-family:'Inter',sans-serif; font-size:12px; }
+  .path-label { font-family:'Inter',sans-serif; font-size:12px; font-weight:700; }
+  @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = {
+  left: { label:'ATS-parseable', steps:['Parser extracts name/title/dates','Human review','Interview'], outcome:'good' },
+  right:{ label:'Designed layout', steps:['Parser sees scrambled text','Auto-reject','No human opens it'], outcome:'bad' }
+};
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const css = getComputedStyle(document.documentElement); const C = n => css.getPropertyValue(n).trim();
+  const totalWidth = document.getElementById('chart').clientWidth || 700;
+  const totalHeight = 440;
+  const svg = d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('viewBox',`0 0 700 440`).attr('preserveAspectRatio','xMidYMid meet')
+    .attr('role','img').attr('aria-labelledby','t d');
+  svg.append('title').attr('id','t').text('The fork before the human');
+  svg.append('desc').attr('id','d').text('Submit résumé forks into an ATS-parseable path reaching interview and a designed-layout path that is auto-rejected before any human review.');
+  svg.append('defs').append('marker').attr('id','arr').attr('markerWidth',9).attr('markerHeight',9)
+    .attr('refX',7).attr('refY',4.5).attr('orient','auto').append('path').attr('d','M0,0 L9,4.5 L0,9 Z').attr('fill',C('--color-ink'));
+
+  // start
+  svg.append('rect').attr('x',280).attr('y',24).attr('width',140).attr('height',40).attr('fill',C('--color-white')).attr('stroke',C('--color-ink')).attr('stroke-width',1.5);
+  svg.append('text').attr('x',350).attr('y',49).attr('text-anchor','middle').attr('class','node-label').attr('fill',C('--color-ink')).text('Submit résumé');
+
+  [[350,64,175,104],[350,64,525,104]].forEach(p=>{
+    svg.append('line').attr('x1',p[0]).attr('y1',p[1]).attr('x2',p[2]).attr('y2',p[3]).attr('stroke',C('--color-ink')).attr('stroke-width',1.5).attr('marker-end','url(#arr)');
+  });
+
+  function column(d, cx){
+    const accent = d.outcome==='good' ? C('--color-red') : C('--color-secondary');
+    svg.append('text').attr('x',cx).attr('y',122).attr('text-anchor','middle').attr('class','path-label').attr('fill',accent).text(d.label);
+    let y = 132;
+    d.steps.forEach((s,i)=>{
+      const last = i===d.steps.length-1;
+      svg.append('rect').attr('x',cx-110).attr('y',y).attr('width',220).attr('height',40)
+        .attr('fill', last && d.outcome==='good' ? C('--color-white') : C('--color-fill'))
+        .attr('stroke', last && d.outcome==='good' ? C('--color-red') : C('--color-border')).attr('stroke-width', last && d.outcome==='good'?1.5:1);
+      svg.append('text').attr('x',cx).attr('y',y+24).attr('text-anchor','middle').attr('class','node-label')
+        .attr('fill', last && d.outcome==='good' ? C('--color-red') : C('--color-ink')).text(s);
+      if(!last) svg.append('line').attr('x1',cx).attr('y1',y+40).attr('x2',cx).attr('y2',y+62).attr('stroke',accent).attr('stroke-width',1.5).attr('marker-end','url(#arr)');
+      y += 62;
+    });
+  }
+  column(FALLBACK_DATA.left, 175);
+  column(FALLBACK_DATA.right, 525);
+
+  svg.append('line').attr('x1',40).attr('y1',400).attr('x2',660).attr('y2',400).attr('stroke',C('--color-ochre')).attr('stroke-width',2).attr('aria-hidden','true');
+  svg.append('text').attr('x',350).attr('y',426).attr('text-anchor','middle').attr('font-family',"'EB Garamond',Georgia,serif").attr('font-style','italic').attr('font-size',13).attr('fill',C('--color-ink')).text('The fork happens before any human judgment.');
+}
+draw();
+new ResizeObserver(()=>draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1 d1" font-family="Inter, sans-serif">
+  <title id="t1">The phase-gate sequence before automation</title>
+  <desc id="d1">Seven sequential gates before automation is earned — problem, local evidence, stored script, small run, verification, review, logging. Each gate has an explicit failure path branching off; a gate without one is decoration.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <defs>
+    <marker id="ag" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2a1a0e"/>
+    </marker>
+    <marker id="agr" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#C8102E"/>
+    </marker>
+  </defs>
+
+  <g font-size="11">
+    <!-- 7 gates in two rows of boxes; arrange linear with wrap -->
+    <!-- row: place all 7 boxes width 86 -->
+    <!-- gates -->
+    <g>
+      <!-- positions -->
+      <!-- gate template helper: box at (x, y) -->
+      <!-- 1 -->
+      <rect x="30" y="80" width="80" height="46" fill="#F5F5F5" stroke="#2a1a0e"/>
+      <text x="70" y="100" text-anchor="middle">problem</text>
+      <text x="70" y="116" text-anchor="middle" fill="#545454">gate 1</text>
+      <line x1="110" y1="103" x2="128" y2="103" stroke="#2a1a0e" marker-end="url(#ag)"/>
+      <!-- 2 -->
+      <rect x="130" y="80" width="80" height="46" fill="#F5F5F5" stroke="#2a1a0e"/>
+      <text x="170" y="100" text-anchor="middle">evidence</text>
+      <text x="170" y="116" text-anchor="middle" fill="#545454">gate 2</text>
+      <line x1="210" y1="103" x2="228" y2="103" stroke="#2a1a0e" marker-end="url(#ag)"/>
+      <!-- 3 -->
+      <rect x="230" y="80" width="80" height="46" fill="#F5F5F5" stroke="#2a1a0e"/>
+      <text x="270" y="100" text-anchor="middle">script</text>
+      <text x="270" y="116" text-anchor="middle" fill="#545454">gate 3</text>
+      <line x1="310" y1="103" x2="328" y2="103" stroke="#2a1a0e" marker-end="url(#ag)"/>
+      <!-- 4 -->
+      <rect x="330" y="80" width="80" height="46" fill="#F5F5F5" stroke="#2a1a0e"/>
+      <text x="370" y="100" text-anchor="middle">small run</text>
+      <text x="370" y="116" text-anchor="middle" fill="#545454">gate 4</text>
+      <line x1="410" y1="103" x2="428" y2="103" stroke="#2a1a0e" marker-end="url(#ag)"/>
+      <!-- 5 -->
+      <rect x="430" y="80" width="80" height="46" fill="#F5F5F5" stroke="#2a1a0e"/>
+      <text x="470" y="100" text-anchor="middle">verify</text>
+      <text x="470" y="116" text-anchor="middle" fill="#545454">gate 5</text>
+      <line x1="510" y1="103" x2="528" y2="103" stroke="#2a1a0e" marker-end="url(#ag)"/>
+      <!-- 6 -->
+      <rect x="530" y="80" width="80" height="46" fill="#F5F5F5" stroke="#2a1a0e"/>
+      <text x="570" y="100" text-anchor="middle">review</text>
+      <text x="570" y="116" text-anchor="middle" fill="#545454">gate 6</text>
+      <line x1="610" y1="103" x2="628" y2="103" stroke="#2a1a0e" marker-end="url(#ag)"/>
+      <!-- 7 -->
+      <rect x="610" y="150" width="80" height="46" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+      <text x="650" y="170" text-anchor="middle" fill="#C8102E">logging</text>
+      <text x="650" y="186" text-anchor="middle" fill="#545454">gate 7</text>
+      <!-- connector from gate6 down to gate7 -->
+      <path d="M650,126 L650,148" stroke="#2a1a0e" fill="none" marker-end="url(#ag)"/>
+    </g>
+
+    <!-- failure paths branching down from each of gates 1-6 -->
+    <g>
+      <line x1="70" y1="126" x2="70" y2="246" stroke="#C8102E" marker-end="url(#agr)"/>
+      <line x1="170" y1="126" x2="170" y2="246" stroke="#C8102E" marker-end="url(#agr)"/>
+      <line x1="270" y1="126" x2="270" y2="246" stroke="#C8102E" marker-end="url(#agr)"/>
+      <line x1="370" y1="126" x2="370" y2="246" stroke="#C8102E" marker-end="url(#agr)"/>
+      <line x1="470" y1="126" x2="470" y2="246" stroke="#C8102E" marker-end="url(#agr)"/>
+      <line x1="570" y1="126" x2="570" y2="246" stroke="#C8102E" marker-end="url(#agr)"/>
+      <rect x="30" y="250" width="560" height="40" fill="#FBECEE" stroke="#C8102E"/>
+      <text x="310" y="275" text-anchor="middle" font-size="12" fill="#C8102E">failure path — stop, fix, do not automate past the open gate</text>
+    </g>
+  </g>
+
+  <line x1="30" y1="334" x2="670" y2="334" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="362" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">If a gate has no failure path, it is not a gate — it is decoration.</text>
+</svg>

@@ -1,0 +1,46 @@
+<!-- Three records into one score
+     Book: The Reallocation Engine
+     Chapter: 07-who-sponsors-the-80-days-sponsorship-scorer
+     Figure 01
+     Type: systems diagram (convergent pipeline)
+     Generated 2026-06-15
+     Source: pantry/07-who-sponsors-the-80-days-sponsorship-scorer-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+<title id="fig-title-01">Three records into one score</title>
+<desc>Three public datasets feed a single sponsorship scorer, joined on resolved company identity. SEC Form D contributes funding recency, the DOL labor-condition-application disclosure contributes filing behavior, and the USCIS H-1B approval-outcomes record contributes approval rate. A fourth, minor company-size signal feeds in from below on a thinner arrow. The score is a join of three primary records plus a light size input collapsing into one node.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="07-who-sponsors-the-80-days-sponsorship-scorer" figure-number="01" figure-title="Three records into one score" figure-slug="three-records-one-score" figure-type="systems" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/07-who-sponsors-the-80-days-sponsorship-scorer-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Three records into one score</text>
+
+<!-- Three primary sources on the left -->
+<rect x="48" y="86" width="200" height="56" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="148" y="110" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">SEC Form D</text>
+<text x="148" y="128" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">funding recency</text>
+
+<rect x="48" y="172" width="200" height="56" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="148" y="196" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">DOL LCA disclosure</text>
+<text x="148" y="214" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">filing behavior</text>
+
+<rect x="48" y="258" width="200" height="56" rx="0" fill="#FFFFFF" stroke="#ADADAD" stroke-width="1"/>
+<text x="148" y="282" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">USCIS H-1B Hub</text>
+<text x="148" y="300" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">approval rate</text>
+
+<!-- Scorer node (right, dominant, highlighted) -->
+<rect x="468" y="150" width="184" height="100" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="560" y="194" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Sponsorship</text>
+<text x="560" y="212" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Scorer</text>
+<text x="560" y="232" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">joined on company name</text>
+
+<!-- Converging arrows from three primaries -->
+<line x1="248" y1="114" x2="466" y2="178" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="248" y1="200" x2="466" y2="200" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<line x1="248" y1="286" x2="466" y2="222" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- Minor size source below -->
+<rect x="406" y="330" width="180" height="48" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="496" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">company-size signals</text>
+<text x="496" y="366" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">minor input</text>
+<!-- thinner arrow up to scorer -->
+<line x1="540" y1="330" x2="552" y2="252" stroke="#787878" stroke-width="1" marker-end="url(#arrow)"/>
+</svg>

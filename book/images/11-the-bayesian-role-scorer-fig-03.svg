@@ -1,0 +1,40 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3" font-family="Inter, sans-serif">
+  <title id="t3">Apply / Consider / Skip decision regions</title>
+  <desc id="d3">A plane with sponsorship probability on the horizontal axis and fit score on the vertical axis, partitioned into Apply, Consider, and Skip regions. Two points at equal fit but different sponsorship land in opposite regions.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <g transform="translate(120,40)">
+    <!-- region fills -->
+    <rect x="0" y="150" width="230" height="150" fill="#F5F5F5"/>
+    <rect x="0" y="0" width="230" height="150" fill="#FFFFFF"/>
+    <rect x="230" y="150" width="230" height="150" fill="#FFFFFF"/>
+    <rect x="230" y="0" width="230" height="150" fill="#FBECEE"/>
+
+    <!-- quadrant dividers -->
+    <line x1="230" y1="0" x2="230" y2="300" stroke="#D4D4D4" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="0" y1="150" x2="460" y2="150" stroke="#D4D4D4" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- axes -->
+    <line x1="0" y1="0" x2="0" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+    <line x1="0" y1="300" x2="460" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+
+    <!-- region labels -->
+    <text x="345" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="#C8102E" font-family="EB Garamond, Georgia, serif">Apply</text>
+    <text x="115" y="28" text-anchor="middle" font-size="14" fill="#545454" font-family="EB Garamond, Georgia, serif">Consider</text>
+    <text x="345" y="228" text-anchor="middle" font-size="14" fill="#545454" font-family="EB Garamond, Georgia, serif">Consider</text>
+    <text x="115" y="228" text-anchor="middle" font-size="14" fill="#545454" font-family="EB Garamond, Georgia, serif">Skip</text>
+
+    <!-- equal-fit line -->
+    <line x1="90" y1="95" x2="370" y2="95" stroke="#C8860E" stroke-width="1" stroke-dasharray="2 3"/>
+    <!-- stranded point: low sponsorship, high fit -->
+    <circle cx="90" cy="95" r="7" fill="#2a1a0e"/>
+    <text x="90" y="78" text-anchor="middle" font-size="11" fill="#2a1a0e" font-family="JetBrains Mono, monospace">non-sponsor</text>
+    <!-- apply point: high sponsorship, same fit -->
+    <circle cx="370" cy="95" r="7" fill="#C8102E"/>
+    <text x="370" y="78" text-anchor="middle" font-size="11" fill="#C8102E" font-family="JetBrains Mono, monospace">sponsor</text>
+
+    <!-- axis titles -->
+    <text x="230" y="335" text-anchor="middle" font-size="13" fill="#545454">Sponsorship probability  (low &#8594; high)</text>
+    <text x="-150" y="-95" transform="rotate(-90)" text-anchor="middle" font-size="13" fill="#545454">Fit score  (low &#8594; high)</text>
+  </g>
+</svg>

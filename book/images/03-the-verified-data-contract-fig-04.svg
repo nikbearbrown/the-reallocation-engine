@@ -1,0 +1,70 @@
+<!--
+  Figure: The floor and the ceiling — guarantees vs. limits
+  Book: The Reallocation Engine
+  Chapter: 03-the-verified-data-contract
+  Figure: 04
+  Type: comparison panels (two-column matrix)
+  Generated: 2026-06-15
+  Source: pantry/03-the-verified-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">The floor and the ceiling: guarantees vs. limits</title>
+  <desc>A two-column matrix of four paired rows. The left column lists what the verified-data contract guarantees, each chip carrying a solid affirming mark. The right column lists the matching limit it cannot guarantee, each chip carrying a hollow cautionary mark. A wall of assurances faces a wall of honest caveats.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="03-the-verified-data-contract" figure-number="04" figure-title="The floor and the ceiling: guarantees vs. limits" figure-slug="guarantees-vs-limits" figure-type="comparison panels (two-column matrix)" priority="Supplementary" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/03-the-verified-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The floor and the ceiling: guarantees vs. limits</text>
+
+  <text x="190" y="76" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">What it guarantees</text>
+  <text x="510" y="76" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">What it cannot</text>
+  <line x1="350" y1="64" x2="350" y2="360" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- Row geometry: y tops at 92, 156, 220, 284 ; chip h=52 -->
+  <!-- left chips: x 56..324 ; right chips: x 376..644 -->
+
+  <!-- Row 1 -->
+  <rect x="56" y="92" width="268" height="52" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <circle cx="76" cy="118" r="6" fill="#2a1a0e"/>
+  <text x="96" y="115" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Counts and rates are real</text>
+  <text x="96" y="131" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">(produced by counting records)</text>
+
+  <rect x="376" y="92" width="268" height="52" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <circle cx="396" cy="118" r="6" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="416" y="115" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">...that the right thing</text>
+  <text x="416" y="131" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">was measured</text>
+
+  <!-- Row 2 -->
+  <rect x="56" y="156" width="268" height="52" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <circle cx="76" cy="182" r="6" fill="#2a1a0e"/>
+  <text x="96" y="187" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Gaps are labeled, not hidden</text>
+
+  <rect x="376" y="156" width="268" height="52" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <circle cx="396" cy="182" r="6" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="416" y="187" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">...that coverage is complete</text>
+
+  <!-- Row 3 -->
+  <rect x="56" y="220" width="268" height="52" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <circle cx="76" cy="246" r="6" fill="#2a1a0e"/>
+  <text x="96" y="243" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Decisions trace to</text>
+  <text x="96" y="259" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">auditable records</text>
+
+  <rect x="376" y="220" width="268" height="52" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <circle cx="396" cy="246" r="6" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="416" y="243" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">...that the records caught</text>
+  <text x="416" y="259" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">the full picture</text>
+
+  <!-- Row 4 -->
+  <rect x="56" y="284" width="268" height="52" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <circle cx="76" cy="310" r="6" fill="#2a1a0e"/>
+  <text x="96" y="315" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Model judgments are labeled</text>
+
+  <rect x="376" y="284" width="268" height="52" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+  <circle cx="396" cy="310" r="6" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="416" y="315" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">...that those judgments</text>
+  <text x="416" y="331" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">are correct</text>
+
+  <text x="32" y="384" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">A paired floor and ceiling: every solid assurance on the left faces an honest caveat on the right.</text>
+</svg>

@@ -1,0 +1,46 @@
+<!-- Three Windows of an International Student's Runway
+     Book: The Reallocation Engine
+     Chapter: 10-the-visa-timeline-manager
+     Figure 02
+     Type: comparison panels
+     Generated 2026-06-15
+     Source: pantry/10-the-visa-timeline-manager-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">Three windows of a student's work runway</title>
+<desc>Three stacked horizontal bars on a shared left-anchored time axis represent the windows that govern a student's work runway. The top bar is the standard post-completion practical-training window with a cumulative unemployment-ceiling marker. The middle bar is the longer extended training period for qualifying fields, with a higher unemployment-ceiling marker. The bottom bar is the annual lottery cycle drawn as a fixed recurring window with a registration point and a cap-subject start point. The true runway is the combination of all three.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="10-the-visa-timeline-manager" figure-number="02" figure-title="Three windows of a student's work runway" figure-slug="three-windows-runway" figure-type="comparison" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/10-the-visa-timeline-manager-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Three windows of a student's work runway</text>
+
+<!-- shared time axis -->
+<line x1="200" y1="330" x2="660" y2="330" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="200" y="350" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">start</text>
+<text x="650" y="350" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">time →</text>
+<line x1="200" y1="90" x2="200" y2="330" stroke="#D4D4D4" stroke-width="0.75"/>
+
+<!-- Bar 1: standard OPT window -->
+<text x="190" y="118" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">standard training</text>
+<rect x="200" y="100" width="200" height="32" rx="0" fill="#787878" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="400" y1="92" x2="400" y2="140" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="400" y="156" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">unemployment ceiling</text>
+
+<!-- Bar 2: STEM extension (longer) -->
+<text x="190" y="188" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">extended training</text>
+<rect x="200" y="170" width="360" height="32" rx="0" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="560" y1="162" x2="560" y2="210" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="560" y="226" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">higher ceiling</text>
+
+<!-- Bar 3: annual lottery (fixed recurring window) -->
+<text x="190" y="262" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">annual lottery cycle</text>
+<rect x="330" y="244" width="70" height="32" rx="0" fill="#C8102E" stroke="#2a1a0e" stroke-width="1"/>
+<rect x="470" y="244" width="70" height="32" rx="0" fill="#C8102E" fill-opacity="0.4" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+<!-- registration point -->
+<circle cx="330" cy="260" r="4" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="330" y="298" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">registration</text>
+<!-- cap-subject start point -->
+<circle cx="400" cy="260" r="4" fill="#2a1a0e"/>
+<text x="408" y="234" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">cap-subject start</text>
+
+<text x="430" y="384" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">the true runway is the combination of all three windows, not just the first</text>
+</svg>

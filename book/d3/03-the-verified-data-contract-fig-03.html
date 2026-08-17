@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The one-question test for every sentence</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+    .edge-label { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--color-secondary); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      entry: 'Could this have been produced by counting records?',
+      yesNode: 'Data claim',
+      yesReq: 'Must trace to a script output or audit',
+      noNode: 'Model judgment',
+      noReq: 'Allowed, but must be labeled',
+      end: 'Is the label visible in the output?'
+    };
+    async function loadData() {
+      try { return await d3.json('./03-the-verified-data-contract-fig-03/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function wrapInto(g, txt, cx, cy, maxChars, color) {
+      const words = txt.split(/\s+/); let line = '', lines = [];
+      words.forEach(w => { if ((line + ' ' + w).trim().length > maxChars) { lines.push(line.trim()); line = w; } else line = (line + ' ' + w).trim(); });
+      if (line) lines.push(line);
+      const sY = cy - (lines.length - 1) * 7 + 2;
+      lines.forEach((l, i) => g.append('text').attr('class', 'node-text').attr('x', cx).attr('y', sY + i * 13).attr('text-anchor', 'middle').attr('fill', color || 'var(--color-ink)').text(l));
+    }
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The one-question test for every sentence');
+      svg.append('desc').attr('id', 'chart-desc').text('A decision tree splitting any sentence into a data-claim branch and a model-judgment branch that reconverge on a visibility check.');
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 8).attr('markerHeight', 6).attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ink)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 28).text('The one-question test');
+      const g = svg.append('g');
+
+      function edge(x1, y1, x2, y2, label, lx, ly) {
+        g.append('line').attr('x1', x1).attr('y1', y1).attr('x2', x2).attr('y2', y2)
+          .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+        if (label) g.append('text').attr('class', 'edge-label').attr('x', lx).attr('y', ly).attr('text-anchor', 'middle').text(label);
+      }
+      function diamond(cx, cy, w, h, txt) {
+        g.append('polygon').attr('points', `${cx},${cy - h} ${cx + w},${cy} ${cx},${cy + h} ${cx - w},${cy}`)
+          .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2);
+        wrapInto(g, txt, cx, cy, 24);
+      }
+      function box(cx, cy, w, h, txt, accent) {
+        g.append('rect').attr('x', cx - w / 2).attr('y', cy - h / 2).attr('width', w).attr('height', h).attr('rx', 8)
+          .attr('fill', accent ? 'var(--color-red)' : 'var(--color-fill)')
+          .attr('stroke', accent ? 'var(--color-red)' : 'var(--color-ink)').attr('stroke-width', 1.2);
+        wrapInto(g, txt, cx, cy, 22, accent ? 'var(--color-white)' : 'var(--color-ink)');
+      }
+
+      // entry diamond
+      diamond(350, 70, 150, 40, d.entry);
+      // yes -> left
+      edge(200, 70, 130, 70, 'yes', 165, 62);
+      box(120, 70, 150, 40, d.yesNode, true);
+      edge(120, 90, 120, 150, '', 0, 0);
+      box(120, 175, 170, 48, d.yesReq, false);
+      // no -> right
+      edge(500, 70, 580, 70, 'no', 540, 62);
+      box(590, 70, 150, 40, d.noNode, false);
+      edge(590, 90, 590, 150, '', 0, 0);
+      box(590, 175, 170, 48, d.noReq, false);
+      // both reconverge to end diamond
+      edge(120, 199, 290, 320, '', 0, 0);
+      edge(590, 199, 410, 320, '', 0, 0);
+      diamond(350, 320, 150, 42, d.end);
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

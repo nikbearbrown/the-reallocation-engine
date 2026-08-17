@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three records into one score</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .node-label { font-family:'Inter',sans-serif; font-size:12px; fill:var(--color-ink); }
+    .arrow-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      sources: [
+        { id:'formd', label:'SEC Form D', contrib:'funding recency', minor:false },
+        { id:'lca',   label:'DOL LCA data', contrib:'filing behavior', minor:false },
+        { id:'h1b',   label:'USCIS H-1B Hub', contrib:'approval rate', minor:false }
+      ],
+      minor: { id:'size', label:'company-size signals', contrib:'size', minor:true },
+      scorer: { label:'Sponsorship Scorer' }
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.6);
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Three records into one score');
+      svg.append('desc').attr('id','chart-desc').text('Three public datasets and one minor size input converge on a single sponsorship scorer node.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Three records into one score');
+
+      const defs = svg.append('defs');
+      defs.append('marker').attr('id','arrow').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+      const W = totalWidth, H = totalHeight;
+      const srcX = W*0.20, scorerX = W*0.70, scorerY = H*0.45;
+      const ys = [H*0.22, H*0.45, H*0.68];
+
+      // source nodes
+      data.sources.forEach((s,i) => {
+        const y = ys[i];
+        svg.append('rect').attr('x',srcX-80).attr('y',y-22).attr('width',160).attr('height',44)
+          .attr('fill','var(--color-white)').attr('stroke','var(--color-ink)').attr('stroke-width',1.5)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`${s.label}, contributes ${s.contrib}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${s.label}</strong><br>${s.contrib}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        svg.append('text').attr('class','node-label').attr('x',srcX).attr('y',y+4).attr('text-anchor','middle').text(s.label);
+        svg.append('line').attr('aria-hidden','true').attr('x1',srcX+82).attr('y1',y).attr('x2',scorerX-72).attr('y2',scorerY)
+          .attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+        svg.append('text').attr('class','arrow-label').attr('x',(srcX+scorerX)/2).attr('y',(y+scorerY)/2-4).attr('text-anchor','middle').text(s.contrib);
+      });
+
+      // minor size node below
+      const mY = H*0.86;
+      svg.append('rect').attr('x',scorerX-60).attr('y',mY-18).attr('width',120).attr('height',36)
+        .attr('fill','var(--color-fill)').attr('stroke','var(--color-ochre)').attr('stroke-width',1.2)
+        .attr('tabindex',0).attr('role','img').attr('aria-label',`${data.minor.label}, minor input`)
+        .on('mouseover',(e)=>tooltip.html(`<strong>${data.minor.label}</strong><br>minor (10%) input`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+        .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+        .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+      svg.append('text').attr('class','node-label').attr('x',scorerX).attr('y',mY+4).attr('text-anchor','middle').attr('font-size',11).text('company-size');
+      svg.append('line').attr('aria-hidden','true').attr('x1',scorerX).attr('y1',mY-20).attr('x2',scorerX).attr('y2',scorerY+30)
+        .attr('stroke','var(--color-secondary)').attr('stroke-width',0.8).attr('stroke-dasharray','3 3').attr('marker-end','url(#arrow)');
+
+      // scorer node
+      svg.append('rect').attr('x',scorerX-72).attr('y',scorerY-30).attr('width',144).attr('height',60)
+        .attr('fill','var(--color-red)').attr('stroke','var(--color-ink)').attr('stroke-width',1.5)
+        .attr('tabindex',0).attr('role','img').attr('aria-label','Sponsorship Scorer node');
+      svg.append('text').attr('class','node-label').attr('x',scorerX).attr('y',scorerY+4).attr('text-anchor','middle').attr('fill','var(--color-white)').text('Sponsorship Scorer');
+
+      svg.append('text').attr('class','source').attr('x',W-40).attr('y',H-12).attr('text-anchor','end').text('SOURCE: 80 DAYS JOIN PIPELINE');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./07-who-sponsors-the-80-days-sponsorship-scorer-fig-01.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

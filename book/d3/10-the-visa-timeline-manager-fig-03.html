@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three roles against the authorization cliff</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .bar-label { font-family:'Inter',sans-serif; font-size:12px; fill:var(--color-ink); }
+    .ref-label { font-family:'Inter',sans-serif; font-size:10px; fill:var(--color-secondary); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    // time-to-start normalized 0..1; authEnd & buffer as fractions
+    const FALLBACK_DATA = {
+      authEnd: 0.78,
+      buffer: 0.60,
+      roles: [
+        { role:'Role A (large firm)', tts:0.92, kind:'skip' },
+        { role:'Role B (startup)', tts:0.30, kind:'comfortable' },
+        { role:'Role C (mid-size)', tts:0.70, kind:'close' }
+      ]
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+    const colorFor = k => k==='skip'?'var(--color-red)': k==='comfortable'?'var(--color-ink)':'var(--color-ochre)';
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.55);
+      const margin = { top: 56, right: 40, bottom: 56, left: 150 };
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Three roles against the authorization cliff');
+      svg.append('desc').attr('id','chart-desc').text('Three role bars from a common origin to their expected start dates, against an authorization-end line and a buffer-target line.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Three roles against the authorization cliff');
+
+      const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+      const x = d3.scaleLinear().domain([0,1]).range([0,chartWidth]); // origin = today
+      const yB = d3.scaleBand().domain(data.roles.map(d=>d.role)).range([0,chartHeight]).padding(0.4);
+
+      // buffer line (dotted)
+      g.append('line').attr('x1',x(data.buffer)).attr('x2',x(data.buffer)).attr('y1',-6).attr('y2',chartHeight+6).attr('stroke','var(--color-secondary)').attr('stroke-width',1.2).attr('stroke-dasharray','4 4');
+      g.append('text').attr('class','ref-label').attr('x',x(data.buffer)).attr('y',-10).attr('text-anchor','middle').text('buffer target');
+      // auth-end line (solid)
+      g.append('line').attr('x1',x(data.authEnd)).attr('x2',x(data.authEnd)).attr('y1',-6).attr('y2',chartHeight+6).attr('stroke','var(--color-red)').attr('stroke-width',2);
+      g.append('text').attr('class','ref-label').attr('x',x(data.authEnd)).attr('y',chartHeight+18).attr('text-anchor','middle').attr('fill','var(--color-red)').text('authorization ends');
+
+      g.append('line').attr('aria-hidden','true').attr('x1',0).attr('y1',0).attr('x2',0).attr('y2',chartHeight).attr('stroke','var(--color-ink)').attr('stroke-width',1);
+
+      data.roles.forEach(d=>{
+        g.append('text').attr('class','bar-label').attr('x',-10).attr('y',yB(d.role)+yB.bandwidth()/2+4).attr('text-anchor','end').text(d.role);
+        g.append('rect').attr('x',0).attr('y',yB(d.role)).attr('width',x(d.tts)).attr('height',yB.bandwidth())
+          .attr('fill',colorFor(d.kind)).attr('stroke','var(--color-ink)').attr('stroke-width',0.8)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`${d.role}, ${d.kind}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${d.role}</strong><br>${d.kind}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+      });
+
+      svg.append('text').attr('class','source').attr('x',totalWidth-margin.right).attr('y',totalHeight-12).attr('text-anchor','end').text('SOURCE: EXPECTED START vs AUTHORIZATION');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./10-the-visa-timeline-manager-fig-03.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

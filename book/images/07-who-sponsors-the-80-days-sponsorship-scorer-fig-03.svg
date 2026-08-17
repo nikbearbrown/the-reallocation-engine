@@ -1,0 +1,53 @@
+<!-- The four-tier sponsorship spectrum
+     Book: The Reallocation Engine
+     Chapter: 07-who-sponsors-the-80-days-sponsorship-scorer
+     Figure 03
+     Type: timeline / progression (annotated spectrum)
+     Generated 2026-06-15
+     Source: pantry/07-who-sponsors-the-80-days-sponsorship-scorer-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">The four-tier sponsorship spectrum</title>
+<desc>A horizontal spectrum runs through four ordered evidence zones from left to right: Avoid, Unknown, Likely, Proven, climbing an ascending probability axis. Beneath each zone an action chip names what to do: skip for Avoid, investigate or resolve a name match for Unknown, target for Likely, target actively for Proven. The Unknown zone is rendered distinct from Avoid, not merged with it.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="07-who-sponsors-the-80-days-sponsorship-scorer" figure-number="03" figure-title="The four-tier sponsorship spectrum" figure-slug="four-tier-sponsorship-spectrum" figure-type="timeline" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/07-who-sponsors-the-80-days-sponsorship-scorer-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The four-tier sponsorship spectrum</text>
+
+<!-- ascending evidence axis -->
+<line x1="64" y1="300" x2="660" y2="300" stroke="#2a1a0e" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="64" y="320" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">weaker evidence</text>
+<text x="640" y="320" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">stronger evidence</text>
+
+<!-- four zones, ascending height to imply ascending bands -->
+<!-- Avoid (blocking, dark) -->
+<rect x="64" y="200" width="149" height="80" rx="0" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+<text x="138" y="244" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Avoid</text>
+<!-- Unknown (neutral, distinct dashed border) -->
+<rect x="213" y="180" width="149" height="100" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="287" y="234" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Unknown</text>
+<!-- Likely (neutral) -->
+<rect x="362" y="150" width="149" height="130" rx="0" fill="#FFFFFF" stroke="#787878" stroke-width="1"/>
+<text x="436" y="218" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Likely</text>
+<!-- Proven (active, highlighted) -->
+<rect x="511" y="110" width="149" height="170" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="585" y="200" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Proven</text>
+
+<!-- probability ticks -->
+<text x="138" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">low</text>
+<text x="287" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">—</text>
+<text x="436" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">mid</text>
+<text x="585" y="296" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="10" fill="#545454">high</text>
+
+<!-- action chips beneath each zone -->
+<rect x="74" y="344" width="129" height="40" rx="0" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="138" y="368" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">skip</text>
+<rect x="223" y="344" width="129" height="40" rx="0" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="287" y="362" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">investigate /</text>
+<text x="287" y="377" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">resolve name match</text>
+<rect x="372" y="344" width="129" height="40" rx="0" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+<text x="436" y="368" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">target</text>
+<rect x="521" y="344" width="129" height="40" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="1"/>
+<text x="585" y="368" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">target actively</text>
+
+<text x="350" y="406" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Unknown is deliberately distinct from Avoid — silence is not negative evidence</text>
+</svg>

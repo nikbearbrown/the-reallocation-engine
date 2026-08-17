@@ -1,0 +1,39 @@
+{
+  "name": "the-reallocation-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "The Reallocation Engine",
+  "scripts": {
+    "verify": "node scripts/conformance.mjs && node scripts/manifest-check.mjs",
+    "manifest-check": "node scripts/manifest-check.mjs",
+    "eval:score": "node scripts/eval/score-run.mjs",
+    "eval:report": "node scripts/eval/report.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "bls:local-wage": "python3 scripts/bls/local-wage-adjustment.py",
+    "build-instructions": "node scripts/build-instructions.mjs",
+    "to-markdown": "node scripts/to-markdown.mjs",
+    "score": "node scripts/score/role-scorer.mjs",
+    "score:gates": "node scripts/score/gate-harness.mjs",
+    "ats:dedup": "node scripts/ats/dedup-tracker.mjs",
+    "ats:liveness": "node scripts/ats/check-liveness.mjs",
+    "ats:merge": "node scripts/ats/merge-tracker.mjs",
+    "ats:normalize": "node scripts/ats/normalize-statuses.mjs",
+    "ats:scan": "node scripts/ats/scan.mjs",
+    "ats:verify": "node scripts/ats/verify-pipeline.mjs",
+    "resumes:pdf": "node scripts/resumes/generate-pdf.mjs",
+    "svg-to-png": "node scripts/svg-to-png.mjs book/images",
+    "audit:layout": "node scripts/svg-layout-audit.mjs book/images",
+    "postsvg-to-png": "node scripts/svg-layout-audit.mjs book/images || true",
+    "skill-demand": "node scripts/score/skill-demand-monitor.mjs",
+    "skill-demand:test": "node scripts/score/skill-demand-monitor.test.mjs",
+    "fetch-postings": "python3 scripts/ats/fetch-real-postings.py",
+    "demo:real": "bash scripts/run-real-demo.sh",
+    "pii-scan": "node scripts/pii-scan.mjs"
+  },
+  "dependencies": {
+    "glob": "^10.0.0",
+    "js-yaml": "^4.1.1",
+    "playwright": "^1.58.1",
+    "sharp": "^0.33.0"
+  }
+}

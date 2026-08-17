@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!--
+  Brutalist Slides deck runtime/template.
+  Fill the #deck element with one slide section per slide. Each slide section has
+  data-type, an h1.headline (assertion, 12 words or fewer), a div.body holding
+  exactly ONE visual (inline SVG or D3 figure), and an aside.notes (speaker script;
+  a Background heading is allowed). Add data-mode=study on the body element to render
+  notes inline and enable reveals.
+  Keys: arrow/Space next, arrow/PgUp back, Home/End jump, f fullscreen, s presenter,
+  o overview, ? help. Colors come ONLY from the --color-* tokens (DESIGN.md); no hardcoded hex.
+  (NOTE for generators: anchor slide insertion on the real element via the regex
+  <body ...> followed by the deck main element, NOT a literal tag in this comment.)
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[DECK TITLE] — Brutalist Slides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+    --serif:'EB Garamond',Georgia,serif;
+    --sans:'Inter',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'JetBrains Mono','Courier New',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+           --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--color-ink);color:var(--color-ink);font-family:var(--sans);overflow:hidden}
+  /* deck = one slide visible at a time, 16:9, centered */
+  #deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .slide{
+    position:absolute;width:min(100vw,177.78vh);height:min(56.25vw,100vh);
+    background:var(--color-white);color:var(--color-ink);
+    padding:5% 6%;display:none;flex-direction:column;gap:2.5vh;
+    container-type:inline-size;
+  }
+  .slide.current{display:flex}
+  .headline{font-family:var(--serif);font-weight:400;font-size:clamp(22px,4.6cqi,52px);line-height:1.1}
+  .slide[data-type="ref"] .headline,.slide[data-type="synthesis"] .headline{color:var(--color-ink)}
+  .body{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+  .body svg, .body figure, .body img{max-width:100%;max-height:100%;object-fit:contain}
+  .body iframe.fig{width:100%;height:100%;border:0;background:var(--color-white)} /* live D3 figure */
+  .caption{font-family:var(--sans);font-size:clamp(11px,1.5cqi,15px);color:var(--color-secondary);text-align:center;margin-top:1.5cqi}
+  .eyebrow{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+           font-size:clamp(10px,1.3cqi,14px);color:var(--color-secondary)}
+  .accent{color:var(--color-red)}
+  /* speaker notes: hidden in live; shown in presenter view & study mode */
+  .notes{display:none;font-family:var(--sans);font-size:clamp(12px,1.6cqi,16px);
+         line-height:1.5;color:var(--color-secondary);border-top:1px solid var(--color-border);padding-top:1.5cqi}
+  .notes h2{font-size:1em;color:var(--color-ink);margin-top:.6em}
+  /* chrome */
+  #bar{position:fixed;left:0;bottom:0;height:4px;background:var(--color-red);width:0;z-index:30;transition:width .2s}
+  #counter{position:fixed;right:14px;bottom:12px;font-family:var(--mono);font-size:13px;color:var(--color-secondary);z-index:30}
+  #help{position:fixed;inset:0;background:rgba(0,0,0,.82);color:#fff;display:none;align-items:center;justify-content:center;z-index:50}
+  #help div{font-family:var(--mono);font-size:15px;line-height:2}
+  /* presenter view */
+  body.presenter #deck{justify-content:flex-start;padding:3vh 2vw}
+  body.presenter .slide{position:static;display:none;width:64vw;height:auto;aspect-ratio:16/9}
+  body.presenter .slide.current{display:flex}
+  body.presenter .notes{display:block}
+  body.presenter #next{display:block}
+  #next{display:none;position:fixed;right:2vw;top:3vh;width:30vw;z-index:20}
+  #next .mini{border:1px solid var(--color-border);background:var(--color-white);aspect-ratio:16/9;padding:3%;overflow:hidden;transform-origin:top left}
+  #timer{position:fixed;right:2vw;bottom:3vh;font-family:var(--mono);font-size:28px;color:var(--color-secondary);z-index:30}
+  /* overview */
+  body.overview #deck{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:24px;height:100%;overflow:auto;align-content:start}
+  body.overview .slide{position:static;display:flex;width:100%;height:auto;aspect-ratio:16/9;padding:4%;cursor:pointer;outline:2px solid transparent}
+  body.overview .slide.current{outline:2px solid var(--color-red)}
+  body.overview .headline{font-size:13px}
+  body.overview .notes,body.overview .body svg text{display:none}
+  /* study mode: scrollable, notes inline */
+  body.study{overflow:auto;background:var(--color-white)}
+  body.study #deck{position:static;display:block;padding:0}
+  body.study .slide{position:static;display:flex !important;width:min(900px,92vw);margin:0 auto 32px;height:auto;
+                    aspect-ratio:auto;min-height:60vh;border-bottom:1px solid var(--color-border)}
+  body.study .notes{display:block}
+  body.study #counter,body.study #bar,body.study #timer{display:none}
+  .reveal{cursor:pointer}
+  .reveal .answer{display:none}
+  .reveal.open .answer{display:block}
+  .reveal>summary{list-style:none;color:var(--color-red);font-weight:600}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main id="deck">
+
+  <!-- ============ EXAMPLE SLIDE 1 — HOOK ============ -->
+  <section class="slide" data-type="hook">
+    <div class="eyebrow">The slideument problem</div>
+    <h1 class="headline">A slide built for two audiences serves neither.</h1>
+    <div class="body">
+      <svg viewBox="0 0 700 320" role="img" aria-labelledby="ex1t ex1d">
+        <title id="ex1t">Two channels, one collision</title>
+        <desc id="ex1d">Text and narration both enter the verbal channel and collide; the visual channel runs clear.</desc>
+        <rect x="40" y="60" width="620" height="80" fill="#F5F5F5" stroke="var(--color-border)"/>
+        <text x="350" y="50" text-anchor="middle" font-family="var(--sans)" font-size="15" fill="var(--color-secondary)">verbal channel</text>
+        <text x="120" y="105" text-anchor="middle" font-family="var(--sans)" font-size="14" fill="var(--color-ink)">on-screen text</text>
+        <text x="580" y="105" text-anchor="middle" font-family="var(--sans)" font-size="14" fill="var(--color-ink)">narration</text>
+        <circle cx="350" cy="100" r="16" fill="var(--color-red)"/>
+        <text x="350" y="160" text-anchor="middle" font-family="var(--sans)" font-size="13" fill="var(--color-red)">collision</text>
+        <rect x="40" y="210" width="620" height="60" fill="#F5F5F5" stroke="var(--color-border)"/>
+        <text x="350" y="200" text-anchor="middle" font-family="var(--sans)" font-size="15" fill="var(--color-secondary)">visual-spatial channel</text>
+        <text x="350" y="246" text-anchor="middle" font-family="var(--sans)" font-size="14" fill="var(--color-ink)">diagram flows clean</text>
+      </svg>
+    </div>
+    <aside class="notes">
+      Open on the experience, not the definition: you built a deck at midnight; the room read it instead of listening.
+      Ask: whose attention was the slide asking for? Then name the term — slideument — only after they feel the problem.
+      <h2>Background</h2> Reynolds coined "slideument" in 2005; the cognitive basis is Mayer's Redundancy Principle.
+    </aside>
+  </section>
+
+  <!-- ============ EXAMPLE SLIDE 2 — CONCEPT w/ inline D3 ============ -->
+  <section class="slide" data-type="concept">
+    <h1 class="headline">Interrogating the model matches writing it yourself.</h1>
+    <div class="body"><div id="ex-chart" style="width:100%;height:100%"></div></div>
+    <div class="caption">The variable is checking, not typing.</div>
+    <aside class="notes">
+      Hand-coding and AI-plus-interrogation land together; delegation drops off a cliff. The differentiator is cognitive
+      engagement. Walk the three bars, then state the claim: checking, not typing.
+    </aside>
+  </section>
+
+  <!-- ============ EXAMPLE SLIDE 3 — TRANSFER (study reveal) ============ -->
+  <section class="slide" data-type="transfer">
+    <h1 class="headline">Apply it: which slide is the slideument?</h1>
+    <div class="body">
+      <details class="reveal"><summary>▶ Reveal</summary>
+        <div class="answer" style="font-family:var(--sans);font-size:clamp(13px,1.8cqi,18px);max-width:60ch">
+          The dense one you also lecture from. Fix: move narration to notes, keep one visual on the body.
+        </div>
+      </details>
+    </div>
+    <aside class="notes">Transfer prompt — answer revealed after the student commits. Study mode shows the reveal inline.</aside>
+  </section>
+
+</main>
+
+<div id="next"><div class="mini"></div></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="timer" hidden>00:00</div>
+<div id="help"><div>
+  → / Space&nbsp; next &nbsp;·&nbsp; ← &nbsp; back &nbsp;·&nbsp; Home/End &nbsp; jump<br>
+  f &nbsp; fullscreen &nbsp;·&nbsp; s &nbsp; presenter view &nbsp;·&nbsp; o &nbsp; overview &nbsp;·&nbsp; ? &nbsp; this help
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = Math.max(0, (parseInt(location.hash.slice(1))||1) - 1);
+  const bar = document.getElementById('counter');
+  const prog = document.getElementById('bar');
+  const nextMini = document.querySelector('#next .mini');
+
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,k)=>s.classList.toggle('current', k===i));
+    bar.textContent = (i+1)+' / '+slides.length;
+    prog.style.width = ((i+1)/slides.length*100)+'%';
+    if(!document.body.classList.contains('study')) history.replaceState(null,'','#'+(i+1));
+    if(document.body.classList.contains('presenter')){
+      nextMini.innerHTML = slides[i+1] ? slides[i+1].innerHTML : '<em style="color:var(--color-secondary)">— end —</em>';
+    }
+  }
+  function go(d){ show(i+d); }
+
+  // presenter timer
+  let t0=null, timer=document.getElementById('timer');
+  setInterval(()=>{ if(t0){const s=Math.floor((Date.now()-t0)/1000);
+    timer.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}},500);
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    else if(e.key==='Home'){show(0);} else if(e.key==='End'){show(slides.length-1);}
+    else if(e.key==='f'){ if(!document.fullscreenElement)document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+    else if(e.key==='s'){ document.body.classList.toggle('presenter'); if(!t0)t0=Date.now(); timer.hidden=!document.body.classList.contains('presenter'); show(i); }
+    else if(e.key==='o'){ document.body.classList.toggle('overview'); }
+    else if(e.key==='?'){ const h=document.getElementById('help'); h.style.display = h.style.display==='flex'?'none':'flex'; }
+    else if(e.key==='Escape'){ document.getElementById('help').style.display='none'; document.body.classList.remove('overview'); }
+  });
+  document.getElementById('deck').addEventListener('click',e=>{
+    if(document.body.classList.contains('overview')){ const s=e.target.closest('.slide'); if(s){show(slides.indexOf(s));document.body.classList.remove('overview');} }
+  });
+  document.querySelectorAll('.reveal>summary').forEach(su=>su.addEventListener('click',e=>{e.preventDefault();su.parentElement.classList.toggle('open');}));
+
+  // study mode shows everything; live/presenter start at slide i
+  if(!document.body.classList.contains('study')) show(i);
+
+  // ---- example inline D3 figure (replace per slide; obey D3-CODING.md) ----
+  (function(){
+    const el=document.getElementById('ex-chart'); if(!el) return;
+    const data=[{k:'Hand-coded',v:67,a:0},{k:'AI + interrogation',v:65,a:1},{k:'AI + delegation',v:38,a:0}];
+    function draw(){
+      el.innerHTML='';
+      const w=el.clientWidth||700,h=el.clientHeight||300,m={t:24,r:20,b:48,l:44};
+      const cw=w-m.l-m.r, ch=h-m.t-m.b;
+      const svg=d3.select(el).append('svg').attr('width',w).attr('height',h)
+        .attr('role','img').attr('aria-labelledby','exct excd');
+      svg.append('title').attr('id','exct').text('Comprehension by how the tool was used');
+      svg.append('desc').attr('id','excd').text('Hand-coding and AI-plus-interrogation are near-level; AI-plus-delegation drops off.');
+      const css=getComputedStyle(document.documentElement);
+      const ink=css.getPropertyValue('--color-ink').trim(), red=css.getPropertyValue('--color-red').trim(),
+            sec=css.getPropertyValue('--color-secondary').trim(), gray='#787878';
+      const g=svg.append('g').attr('transform',`translate(${m.l},${m.t})`);
+      const x=d3.scaleBand().domain(data.map(d=>d.k)).range([0,cw]).padding(.25);
+      const y=d3.scaleLinear().domain([0,100]).range([ch,0]);
+      g.append('line').attr('x1',0).attr('x2',cw).attr('y1',ch).attr('y2',ch).attr('stroke',sec);
+      g.selectAll('rect').data(data).join('rect')
+        .attr('x',d=>x(d.k)).attr('y',d=>y(d.v)).attr('width',x.bandwidth())
+        .attr('height',d=>ch-y(d.v)).attr('fill',d=>d.a?red:gray);
+      g.selectAll('.v').data(data).join('text').attr('class','v')
+        .attr('x',d=>x(d.k)+x.bandwidth()/2).attr('y',d=>y(d.v)-6).attr('text-anchor','middle')
+        .attr('font-family',"var(--mono)").attr('font-size',12).attr('fill',sec).text(d=>d.v+'%');
+      g.selectAll('.k').data(data).join('text').attr('class','k')
+        .attr('x',d=>x(d.k)+x.bandwidth()/2).attr('y',ch+20).attr('text-anchor','middle')
+        .attr('font-family',"var(--sans)").attr('font-size',12).attr('fill',ink).text(d=>d.k);
+    }
+    draw(); new ResizeObserver(draw).observe(el);
+  })();
+</script>
+</body>
+</html>

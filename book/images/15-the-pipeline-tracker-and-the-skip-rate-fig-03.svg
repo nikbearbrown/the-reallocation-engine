@@ -1,0 +1,42 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3" font-family="Inter, sans-serif">
+  <title id="t3">Two readings: skip rate and allocation</title>
+  <desc id="d3">Two side-by-side readings. The left panel is the skip rate read against its target — is the filter working. The right panel is the apply, network, and portfolio hours read against the 3-3-2 split — are you working as designed.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- LEFT: skip rate -->
+  <text x="40" y="40" font-size="14" font-weight="700" fill="#2a1a0e" font-family="EB Garamond, Georgia, serif">Is the filter working?</text>
+  <rect x="40" y="56" width="290" height="280" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <!-- vertical bar skip rate vs target -->
+  <g transform="translate(0,0)">
+    <line x1="90" y1="300" x2="280" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+    <line x1="90" y1="100" x2="90" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+    <!-- skip rate bar 57% -->
+    <rect x="130" y="186" width="50" height="114" fill="#C8102E"/>
+    <text x="155" y="178" text-anchor="middle" font-size="12" fill="#C8102E" font-family="JetBrains Mono, monospace">57%</text>
+    <text x="155" y="318" text-anchor="middle" font-size="11" fill="#545454">skip rate</text>
+    <!-- target line at 50% -->
+    <line x1="90" y1="200" x2="280" y2="200" stroke="#545454" stroke-dasharray="4 4"/>
+    <text x="244" y="196" text-anchor="middle" font-size="10" fill="#545454">50% target</text>
+  </g>
+
+  <!-- RIGHT: allocation -->
+  <text x="370" y="40" font-size="14" font-weight="700" fill="#2a1a0e" font-family="EB Garamond, Georgia, serif">Are you working as designed?</text>
+  <rect x="370" y="56" width="290" height="280" fill="#FFFFFF" stroke="#D4D4D4"/>
+  <g transform="translate(0,0)">
+    <line x1="420" y1="300" x2="640" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+    <line x1="420" y1="100" x2="420" y2="300" stroke="#2a1a0e" stroke-width="1.5"/>
+    <!-- apply 3.5h (drift), network 2.5, portfolio 2 ; scale 4h=200px -->
+    <rect x="450" y="125" width="44" height="175" fill="#545454"/>
+    <rect x="530" y="175" width="44" height="125" fill="#545454"/>
+    <rect x="595" y="200" width="44" height="100" fill="#545454"/>
+    <!-- 3-3-2 reference: apply target 3h line -->
+    <line x1="420" y1="150" x2="640" y2="150" stroke="#C8860E" stroke-dasharray="4 4"/>
+    <text x="472" y="318" text-anchor="middle" font-size="10" fill="#545454">apply</text>
+    <text x="552" y="318" text-anchor="middle" font-size="10" fill="#545454">network</text>
+    <text x="617" y="318" text-anchor="middle" font-size="10" fill="#545454">portfolio</text>
+    <text x="472" y="118" text-anchor="middle" font-size="10" fill="#C8102E">drift ↑</text>
+    <text x="630" y="146" text-anchor="end" font-size="10" fill="#C8860E">3-3-2</text>
+  </g>
+
+  <text x="350" y="372" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">You need both readings to know the search is running as designed.</text>
+</svg>

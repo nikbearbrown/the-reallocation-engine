@@ -1,0 +1,29 @@
+<!-- The Form D corpus and the funded subset
+     Book: The Reallocation Engine
+     Chapter: 06-where-the-money-went-sec-form-d
+     Figure 01
+     Type: statistical / quantitative (nested proportion)
+     Generated 2026-06-15
+     Source: pantry/06-where-the-money-went-sec-form-d-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+<title id="fig-title-01">The Form D corpus and the funded subset</title>
+<desc>A large outer rectangle represents roughly 568,000 companies that filed Form D reporting they raised money. A smaller nested rectangle, a little under half its area, represents the roughly 247,000 that raised at least five million dollars. The scale is enormous and largely unexamined by job seekers, and a meaningful but smaller portion clears a serious funding bar.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="06-where-the-money-went-sec-form-d" figure-number="01" figure-title="The Form D corpus and the funded subset" figure-slug="form-d-corpus-funded-subset" figure-type="statistical" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/06-where-the-money-went-sec-form-d-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">The Form D corpus and the funded subset</text>
+
+<!-- Outer container: full corpus ~568k -->
+<rect x="120" y="80" width="460" height="280" rx="0" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1"/>
+<text x="350" y="104" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">All companies that filed Form D</text>
+<text x="350" y="122" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">~568,000</text>
+
+<!-- Inner nested: funded subset ~247k (a little under half the outer AREA) -->
+<!-- outer area = 460*280 = 128800; ~43% area -> ~55400 -> e.g. 300 x 184.7 -->
+<rect x="200" y="156" width="300" height="184" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="350" y="246" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Raised at least $5M</text>
+<text x="350" y="266" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#C8102E">~247,000</text>
+
+<text x="350" y="392" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">a public record almost no job seeker has read — a meaningful slice clears a serious bar</text>
+<text x="660" y="408" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" letter-spacing="0.08em">SOURCE: SEC FORM D FILINGS</text>
+</svg>

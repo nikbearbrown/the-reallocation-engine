@@ -1,0 +1,51 @@
+<!--
+  Figure: Same question, two kinds of answer
+  Book: The Reallocation Engine
+  Chapter: 03-the-verified-data-contract
+  Figure: 01
+  Type: comparison panels (two-column conceptual)
+  Generated: 2026-06-15
+  Source: pantry/03-the-verified-data-contract-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">Same question, two kinds of answer</title>
+  <desc>A two-column contrast. On the left, the model's fluent answer floats as an unmoored prose block with no connector to any source. On the right, the verified answer is a compact data cluster — a filing count, an approval rate, a year — bolted by solid connector lines down to two record sources: the Department of Labor and USCIS.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="03-the-verified-data-contract" figure-number="01" figure-title="Same question, two kinds of answer" figure-slug="two-kinds-of-answer" figure-type="comparison panels (two-column conceptual)" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/03-the-verified-data-contract-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Same question, two kinds of answer</text>
+
+  <line x1="350" y1="64" x2="350" y2="372" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <text x="174" y="84" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">The model's answer</text>
+  <text x="526" y="84" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#545454">The verified answer</text>
+
+  <!-- Left: floating prose block, no anchor -->
+  <rect x="90" y="120" width="168" height="80" rx="0" fill="#F5F5F5" stroke="#ADADAD" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="106" y1="142" x2="242" y2="142" stroke="#ADADAD" stroke-width="3"/>
+  <line x1="106" y1="156" x2="242" y2="156" stroke="#ADADAD" stroke-width="3"/>
+  <line x1="106" y1="170" x2="210" y2="170" stroke="#ADADAD" stroke-width="3"/>
+  <text x="174" y="232" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Fluent prose, no source</text>
+  <text x="174" y="320" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#ADADAD">(hangs in space)</text>
+
+  <!-- Right: anchored data cluster -->
+  <rect x="442" y="108" width="168" height="92" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="526" y="132" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">LCA filing count</text>
+  <text x="526" y="152" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">H-1B approval rate</text>
+  <text x="526" y="172" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#2a1a0e">year</text>
+
+  <!-- connectors down to two sources -->
+  <path d="M484 200 L450 280" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+  <path d="M568 200 L602 280" fill="none" stroke="#C8102E" stroke-width="1.5"/>
+
+  <rect x="396" y="284" width="108" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="450" y="311" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Dept. of Labor</text>
+
+  <rect x="548" y="284" width="108" height="44" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="602" y="311" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">USCIS</text>
+
+  <text x="32" y="400" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">The left answer hangs in space; the right answer is bolted to records.</text>
+</svg>

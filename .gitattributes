@@ -1,0 +1,3 @@
+# The shared run-log index is append-only by policy; union merge makes it
+# append-only by mechanism (Summer 2026: every student PR conflicted here).
+logs/RUN_LOG.md merge=union

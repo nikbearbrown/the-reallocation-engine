@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why a company is Unknown: three causes, three responses</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .node-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-ink); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      entry: 'Unknown tier',
+      decision: 'join coverage low?',
+      branches: [
+        { label:'yes — name-match artifact', action:'resolve entity & re-run join', color:'var(--color-ochre)' },
+        { label:'no — matched, no filings (true absence)', action:'seek direct signals (careers page, recruiter)', color:'var(--color-red)' }
+      ]
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function box(svg,x,y,w,h,fill,stroke,label,fillText,aria){
+      svg.append('rect').attr('x',x-w/2).attr('y',y-h/2).attr('width',w).attr('height',h)
+        .attr('fill',fill).attr('stroke',stroke).attr('stroke-width',1.5)
+        .attr('tabindex',0).attr('role','img').attr('aria-label',aria||label)
+        .on('mouseover',(e)=>tooltip.html(`<strong>${label}</strong>`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+        .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+        .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+      const fo = svg.append('foreignObject').attr('x',x-w/2+4).attr('y',y-h/2+4).attr('width',w-8).attr('height',h-8);
+      fo.append('xhtml:div').style('font-family',"'Inter',sans-serif").style('font-size','11px').style('text-align','center')
+        .style('color',fillText||'var(--color-ink)').style('display','flex').style('align-items','center').style('justify-content','center').style('height','100%').html(label);
+    }
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.62);
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Why a company is Unknown: three causes, three responses');
+      svg.append('desc').attr('id','chart-desc').text('A disambiguation tree: from the Unknown tier, a join-coverage decision splits a name-match artifact from a true absence, each routing to a distinct action. Unknown is never read as Avoid.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Why a company is "Unknown": three causes, three responses');
+
+      const defs = svg.append('defs');
+      defs.append('marker').attr('id','arrow').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+      const W = totalWidth, cx = W/2;
+      const yEntry=72, yDec=160, yBranch=250, yAction=340;
+      const lx = W*0.27, rx = W*0.73;
+
+      // entry
+      box(svg,cx,yEntry,150,40,'var(--color-fill)','var(--color-ink)','Unknown tier');
+      // edge entry->decision
+      svg.append('line').attr('aria-hidden','true').attr('x1',cx).attr('y1',yEntry+20).attr('x2',cx).attr('y2',yDec-26).attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+
+      // decision diamond
+      svg.append('polygon').attr('points',`${cx},${yDec-26} ${cx+90},${yDec} ${cx},${yDec+26} ${cx-90},${yDec}`)
+        .attr('fill','var(--color-white)').attr('stroke','var(--color-ink)').attr('stroke-width',1.5)
+        .attr('tabindex',0).attr('role','img').attr('aria-label','Decision: is join coverage low?');
+      svg.append('foreignObject').attr('x',cx-80).attr('y',yDec-16).attr('width',160).attr('height',34)
+        .append('xhtml:div').style('font-family',"'Inter',sans-serif").style('font-size','11px').style('text-align','center').style('color','var(--color-ink)').html('join coverage low?');
+
+      // edges to branches
+      svg.append('line').attr('aria-hidden','true').attr('x1',cx-60).attr('y1',yDec+14).attr('x2',lx).attr('y2',yBranch-22).attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+      svg.append('line').attr('aria-hidden','true').attr('x1',cx+60).attr('y1',yDec+14).attr('x2',rx).attr('y2',yBranch-22).attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+
+      // branch boxes
+      box(svg,lx,yBranch,200,44,'var(--color-white)','var(--color-ochre)',data.branches[0].label);
+      box(svg,rx,yBranch,200,44,'var(--color-white)','var(--color-red)',data.branches[1].label);
+
+      // edges to actions
+      svg.append('line').attr('aria-hidden','true').attr('x1',lx).attr('y1',yBranch+22).attr('x2',lx).attr('y2',yAction-24).attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+      svg.append('line').attr('aria-hidden','true').attr('x1',rx).attr('y1',yBranch+22).attr('x2',rx).attr('y2',yAction-24).attr('stroke','var(--color-ink)').attr('stroke-width',1.4).attr('marker-end','url(#arrow)');
+
+      // action nodes
+      box(svg,lx,yAction,200,48,'var(--color-ochre)','var(--color-ink)',data.branches[0].action,'var(--color-ink)');
+      box(svg,rx,yAction,200,48,'var(--color-red)','var(--color-ink)',data.branches[1].action,'var(--color-white)');
+
+      svg.append('text').attr('class','source').attr('x',W-40).attr('y',totalHeight-12).attr('text-anchor','end').text('SOURCE: JOIN-COVERAGE AUDIT — UNKNOWN ≠ AVOID');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./07-who-sponsors-the-80-days-sponsorship-scorer-fig-04.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

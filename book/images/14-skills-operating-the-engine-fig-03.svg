@@ -1,0 +1,51 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t3 d3" font-family="Inter, sans-serif">
+  <title id="t3">End-to-end chain: scan → pipeline → oferta → verify</title>
+  <desc id="d3">Four sequential stages — scan, pipeline, oferta, verify — each with a provenance checkpoint, feeding into RUN_LOG.md. The chain is only as trustworthy as its weakest provenance link.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+  <defs>
+    <marker id="a14" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#2a1a0e"/>
+    </marker>
+  </defs>
+
+  <g font-size="13">
+    <!-- stage boxes -->
+    <g>
+      <rect x="40" y="70" width="140" height="50" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+      <text x="110" y="100" text-anchor="middle" font-family="JetBrains Mono, monospace" fill="#C8102E">scan</text>
+      <text x="110" y="138" text-anchor="middle" font-size="11" fill="#545454">ATS detected,</text>
+      <text x="110" y="152" text-anchor="middle" font-size="11" fill="#545454">postings list</text>
+    </g>
+    <line x1="180" y1="95" x2="218" y2="95" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#a14)"/>
+    <g>
+      <rect x="220" y="70" width="140" height="50" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+      <text x="290" y="100" text-anchor="middle" font-family="JetBrains Mono, monospace" fill="#C8102E">pipeline</text>
+      <text x="290" y="138" text-anchor="middle" font-size="11" fill="#545454">four factors with</text>
+      <text x="290" y="152" text-anchor="middle" font-size="11" fill="#545454">source labels</text>
+    </g>
+    <line x1="360" y1="95" x2="398" y2="95" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#a14)"/>
+    <g>
+      <rect x="400" y="70" width="140" height="50" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+      <text x="470" y="100" text-anchor="middle" font-family="JetBrains Mono, monospace" fill="#C8102E">oferta</text>
+      <text x="470" y="138" text-anchor="middle" font-size="11" fill="#545454">composite with</text>
+      <text x="470" y="152" text-anchor="middle" font-size="11" fill="#545454">traced terms</text>
+    </g>
+  </g>
+
+  <!-- verify box (own row) -->
+  <rect x="400" y="190" width="140" height="50" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="470" y="220" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#C8102E">verify</text>
+  <text x="488" y="278" text-anchor="start" font-size="11" fill="#545454">consistency audit</text>
+  <line x1="470" y1="120" x2="470" y2="188" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#a14)"/>
+
+  <!-- RUN_LOG -->
+  <rect x="270" y="290" width="160" height="46" fill="#F5F5F5" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="350" y="318" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#2a1a0e">RUN_LOG.md</text>
+  <line x1="470" y1="240" x2="370" y2="288" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#a14)"/>
+
+  <!-- checkpoint label -->
+  <text x="350" y="44" text-anchor="middle" font-size="12" font-weight="700" fill="#545454">provenance checkpoint at every stage</text>
+
+  <line x1="40" y1="364" x2="660" y2="364" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="390" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">The chain is only as trustworthy as its weakest provenance link.</text>
+</svg>

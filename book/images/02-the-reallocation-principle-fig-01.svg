@@ -1,0 +1,52 @@
+<!--
+  Figure: Conversion rate by channel
+  Book: The Reallocation Engine
+  Chapter: 02-the-reallocation-principle
+  Figure: 01
+  Type: statistical / quantitative (bar chart)
+  Generated: 2026-06-15
+  Source: pantry/02-the-reallocation-principle-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+  <title id="fig-title-01">Conversion rate by job-search channel</title>
+  <desc>Three vertical bars showing how often each channel converts to a hire: cold application about 0.2 percent appears as a near-flat sliver, employee referral about 3 percent, and direct network introduction about 7 percent. The y-axis is anchored at zero so the order-of-magnitude gap reads honestly.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="02-the-reallocation-principle" figure-number="01" figure-title="Conversion rate by job-search channel" figure-slug="conversion-rate-by-channel" figure-type="statistical / quantitative (bar chart)" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/02-the-reallocation-principle-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Conversion rate by job-search channel</text>
+
+  <!-- Plot region x 80..660, y 56..348 -->
+  <rect x="80" y="56" width="580" height="292" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+  <!-- y axis 0..10% ; baseline y=348 ; 10% at y=64 ; scale 28.4 px/pct -->
+  <line x1="80" y1="348" x2="80" y2="56" stroke="#545454" stroke-width="1"/>
+  <line x1="80" y1="348" x2="660" y2="348" stroke="#545454" stroke-width="1"/>
+  <text x="72" y="352" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0</text>
+  <line x1="76" y1="206" x2="80" y2="206" stroke="#545454" stroke-width="1"/>
+  <text x="72" y="210" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">5%</text>
+  <line x1="76" y1="64" x2="80" y2="64" stroke="#545454" stroke-width="1"/>
+  <text x="72" y="68" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">10%</text>
+
+  <!-- Bars width 120, centers 170, 370, 570 -->
+  <!-- cold 0.2% -> height 5.7 -> top y=342 (near-flat sliver, blocking color) -->
+  <rect x="110" y="342" width="120" height="6" fill="#ADADAD"/>
+  <text x="170" y="334" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0.2%</text>
+
+  <!-- referral 3% -> height 85 -> top y=263 (transitional) -->
+  <rect x="310" y="263" width="120" height="85" fill="#787878"/>
+  <text x="370" y="255" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">~3%</text>
+
+  <!-- direct 7% -> height 199 -> top y=149 (active highlighted) -->
+  <rect x="510" y="149" width="120" height="199" fill="#C8102E"/>
+  <text x="570" y="141" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">~7%</text>
+
+  <!-- x labels -->
+  <text x="170" y="370" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Cold application</text>
+  <text x="370" y="370" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Employee referral</text>
+  <text x="570" y="370" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Direct introduction</text>
+
+  <text x="32" y="396" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">Not modest differences — a different league. The cold channel is a near-flat sliver against the warm ones.</text>
+</svg>

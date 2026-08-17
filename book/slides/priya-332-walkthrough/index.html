@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<!--
+  Brutalist Slides deck runtime/template.
+  Fill the #deck element with one slide section per slide. Each slide section has
+  data-type, an h1.headline (assertion, 12 words or fewer), a div.body holding
+  exactly ONE visual (inline SVG or D3 figure), and an aside.notes (speaker script;
+  a Background heading is allowed). Add data-mode=study on the body element to render
+  notes inline and enable reveals.
+  Keys: arrow/Space next, arrow/PgUp back, Home/End jump, f fullscreen, s presenter,
+  o overview, ? help. Colors come ONLY from the --color-* tokens (DESIGN.md); no hardcoded hex.
+  (NOTE for generators: anchor slide insertion on the real element via the regex
+  <body ...> followed by the deck main element, NOT a literal tag in this comment.)
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priya's First 80 Days — 3-3-2, not spray-and-pray</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&family=Inter:wght@400;600;700&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+    --serif:'EB Garamond',Georgia,serif;
+    --sans:'Inter',-apple-system,'Helvetica Neue',sans-serif;
+    --mono:'JetBrains Mono','Courier New',monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+           --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--color-ink);color:var(--color-ink);font-family:var(--sans);overflow:hidden}
+  /* deck = one slide visible at a time, 16:9, centered */
+  #deck{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+  .slide{
+    position:absolute;width:min(100vw,177.78vh);height:min(56.25vw,100vh);
+    background:var(--color-white);color:var(--color-ink);
+    padding:5% 6%;display:none;flex-direction:column;gap:2.5vh;
+    container-type:inline-size;
+  }
+  .slide.current{display:flex}
+  .headline{font-family:var(--serif);font-weight:400;font-size:clamp(22px,4.6cqi,52px);line-height:1.1}
+  .slide[data-type="ref"] .headline,.slide[data-type="synthesis"] .headline{color:var(--color-ink)}
+  .body{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+  .body svg, .body figure, .body img{max-width:100%;max-height:100%;object-fit:contain}
+  .body .d3fig{width:100%;height:100%}
+  .caption{font-family:var(--sans);font-size:clamp(11px,1.5cqi,15px);color:var(--color-secondary);text-align:center;margin-top:1.5cqi}
+  .eyebrow{font-family:var(--sans);font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+           font-size:clamp(10px,1.3cqi,14px);color:var(--color-secondary)}
+  .accent{color:var(--color-red)}
+  /* speaker notes: hidden in live; shown in presenter view & study mode */
+  .notes{display:none;font-family:var(--sans);font-size:clamp(12px,1.6cqi,16px);
+         line-height:1.5;color:var(--color-secondary);border-top:1px solid var(--color-border);padding-top:1.5cqi}
+  .notes h2{font-size:1em;color:var(--color-ink);margin-top:.6em}
+  /* chrome */
+  #bar{position:fixed;left:0;bottom:0;height:4px;background:var(--color-red);width:0;z-index:30;transition:width .2s}
+  #counter{position:fixed;right:14px;bottom:12px;font-family:var(--mono);font-size:13px;color:var(--color-secondary);z-index:30}
+  #help{position:fixed;inset:0;background:rgba(0,0,0,.82);color:#fff;display:none;align-items:center;justify-content:center;z-index:50}
+  #help div{font-family:var(--mono);font-size:15px;line-height:2}
+  /* presenter view */
+  body.presenter #deck{justify-content:flex-start;padding:3vh 2vw}
+  body.presenter .slide{position:static;display:none;width:64vw;height:auto;aspect-ratio:16/9}
+  body.presenter .slide.current{display:flex}
+  body.presenter .notes{display:block}
+  body.presenter #next{display:block}
+  #next{display:none;position:fixed;right:2vw;top:3vh;width:30vw;z-index:20}
+  #next .mini{border:1px solid var(--color-border);background:var(--color-white);aspect-ratio:16/9;padding:3%;overflow:hidden;transform-origin:top left}
+  #timer{position:fixed;right:2vw;bottom:3vh;font-family:var(--mono);font-size:28px;color:var(--color-secondary);z-index:30}
+  /* overview */
+  body.overview #deck{position:static;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:24px;height:100%;overflow:auto;align-content:start}
+  body.overview .slide{position:static;display:flex;width:100%;height:auto;aspect-ratio:16/9;padding:4%;cursor:pointer;outline:2px solid transparent}
+  body.overview .slide.current{outline:2px solid var(--color-red)}
+  body.overview .headline{font-size:13px}
+  body.overview .notes,body.overview .body svg text{display:none}
+  /* study mode: scrollable, notes inline */
+  body.study{overflow:auto;background:var(--color-white)}
+  body.study #deck{position:static;display:block;padding:0}
+  body.study .slide{position:static;display:flex !important;width:min(900px,92vw);margin:0 auto 32px;height:auto;
+                    aspect-ratio:auto;min-height:60vh;border-bottom:1px solid var(--color-border)}
+  body.study .notes{display:block}
+  body.study #counter,body.study #bar,body.study #timer{display:none}
+  .reveal{cursor:pointer}
+  .reveal .answer{display:none}
+  .reveal.open .answer{display:block}
+  .reveal>summary{list-style:none;color:var(--color-red);font-weight:600}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main id="deck">
+  <section class="slide" data-type="ref">
+    <div class="eyebrow">A walkthrough · The Reallocation Engine</div>
+    <h1 class="headline">Priya’s First 80 Days</h1>
+    <div class="body"><div style="text-align:center;font-family:var(--serif);font-size:clamp(16px,2.4cqi,28px);color:var(--color-secondary);max-width:40ch">How one new grad runs a 3-3-2 search instead of spray-and-pray — step by step</div></div>
+    <div class="caption">Nik Bear Brown and Humanitarians AI · Published by Humanitarians AI</div>
+    <aside class="notes">A persona walkthrough. Priya is composite, not a real person. Every step maps to a chapter and a runnable recipe.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 1 · The trap</div><h1 class="headline">Meet Priya. She just graduated from Northeastern.</h1>
+    <div class="body"><div style="font-family:var(--serif);font-size:clamp(18px,2.8cqi,30px);line-height:1.5;color:var(--color-ink);max-width:32ch;text-align:center">MS, Information Systems. F-1 visa. One deployed class project. No job yet — and the OPT clock is about to start.</div></div>
+    <aside class="notes">Set the human stakes before any tool appears. She is capable; the problem is allocation, not effort.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 1 · The trap</div><h1 class="headline">The clock starts the day her OPT does.</h1>
+    <div class="body"><div class="d3fig" data-type="gatebar" data-d='{"used": 0, "soft": 80, "hard": 90, "max": 90, "softLabel": "this book\u2019s working limit (80)", "hardLabel": "DHS hard stop (90)"}'></div></div>
+    <div class="caption">Ninety cumulative unemployment days. Weekends count.</div><aside class="notes">On post-completion OPT, 90 aggregate days of unemployment ends the record — no grace period. The engine budgets to 80.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 1 · The trap</div><h1 class="headline">Her instinct: apply to everything.</h1>
+    <div class="body"><div class="d3fig" data-type="funnel" data-d='{"stages": [{"label": "postings she could apply to", "value": 300}, {"label": "applications she fires off", "value": 200}, {"label": "recruiter replies", "value": 3}]}'></div></div>
+    <div class="caption">Spray-and-pray: volume in, silence out.</div><aside class="notes">Cold applications convert near 0.2%. Eight hours a day of applying feels productive and moves almost nothing.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 1 · The trap</div><h1 class="headline">The counter goes up. The search does not move.</h1>
+    <div class="body"><div style="font-family:var(--serif);font-size:clamp(18px,2.8cqi,30px);line-height:1.5;color:var(--color-ink);max-width:32ch;text-align:center">Two weeks in: 200 applications, 3 auto-rejections, 0 conversations. The clock has spent 14 of 90 days.</div></div>
+    <aside class="notes">The trap is fluency of effort: it looks like progress. Feedback (the counter) is not the same as return.</aside>
+  </section>
+  <section class="slide" data-type="synthesis">
+    <div class="eyebrow">Act 1 · The trap</div><h1 class="headline">Spend effort where the return is, not where the feedback is.</h1>
+    <div class="body"><div style="font-family:var(--serif);font-size:clamp(18px,2.8cqi,30px);line-height:1.5;color:var(--color-ink);max-width:32ch;text-align:center">That one sentence is the reallocation principle. The rest is making it achievable.</div></div>
+    <div class="caption">The reallocation principle.</div><aside class="notes">This is the hinge of the whole deck. Everything after operationalizes it.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 2 · The 3-3-2 plan</div><h1 class="headline">The 3-3-2 day: where the hires actually come from.</h1>
+    <div class="body"><div class="d3fig" data-type="plan332" data-d='{"cols": [{"label": "Applying", "hours": 2, "note": "targeted only", "accent": true}, {"label": "Networking", "hours": 3, "note": "~54% of hires"}, {"label": "Portfolio", "hours": 3, "note": "~56% skill premium"}]}'></div></div>
+    <div class="caption">2 hours applying · 3 networking · 3 portfolio.</div><aside class="notes">Most 2025 hires came through connections (~54%); validated skills carried a ~56% wage premium. The day follows the return.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 2 · The 3-3-2 plan</div><h1 class="headline">Two hours of applying is a forcing function for quality.</h1>
+    <div class="body"><div style="font-family:var(--serif);font-size:clamp(18px,2.8cqi,30px);line-height:1.5;color:var(--color-ink);max-width:32ch;text-align:center">If you can only apply for two hours, you apply to fewer roles — so you must filter hard first. The filter is where the signal lives.</div></div>
+    <aside class="notes">Not 'apply less' as an end. Fewer, better applications, freeing six hours for the channels that pay.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 2 · The 3-3-2 plan</div><h1 class="headline">Same hours, different outcomes.</h1>
+    <div class="body"><div class="d3fig" data-type="comparebars" data-d='{"groups": ["Spray week", "3-3-2 week"], "unit": "", "metrics": [{"name": "applications", "a": 200, "b": 25}, {"name": "recruiter screens", "a": 2, "b": 6}, {"name": "referrals", "a": 0, "b": 2}, {"name": "portfolio pieces", "a": 0, "b": 1}]}'></div></div>
+    <div class="caption">Spray wins only on raw count. 3-3-2 wins on everything that moves a search.</div><aside class="notes">Illustrative, per Ch.2: ~25 targeted apps, 12 outreach → 4 informationals → 2 referrals, 1 deployed project. Fewer applications, more movement.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 2 · The 3-3-2 plan</div><h1 class="headline">A freed hour follows a rule, not a mood.</h1>
+    <div class="body"><div class="d3fig" data-type="flow" data-d='{"steps": ["freed hour", "<10 live convos? \u2192 network", "no recent shipped project? \u2192 portfolio", "else \u2192 targeted apply"], "accentIndex": 1}'></div></div>
+    <div class="caption">The deviation rule keeps 3-3-2 from becoming a ritual.</div><aside class="notes">Judgment, not autopilot. The tool handles the filter; Priya decides where the marginal hour goes.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">To make two hours beat eight, Priya builds a filter.</h1>
+    <div class="body"><div class="d3fig" data-type="flow" data-d='{"steps": ["read _MANIFEST.md", "npm run doctor", "what is runnable today"], "accentIndex": 2}'></div></div>
+    <div class="caption">Set up in ten minutes.</div><aside class="notes">She clones the engine, reads the map, and checks what actually runs before trusting anything.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 1 — find who just raised money.</h1>
+    <div class="body"><div class="d3fig" data-type="flow" data-d='{"steps": ["SEC Form D", "rank by recency + size", "funded shortlist"], "accentIndex": 2}'></div></div>
+    <div class="caption">Recent raises beat big names.</div><aside class="notes">Funded companies are hiring. She starts from the public record, not a brand list.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 2 — keep only employers who actually sponsor.</h1>
+    <div class="body"><div class="d3fig" data-type="bars" data-d='{"unit": "", "max": 100, "items": [{"k": "famous, non-sponsor", "v": 20}, {"k": "proven sponsor", "v": 85, "accent": true}]}'></div></div>
+    <div class="caption">Sponsorship history, not fame.</div><aside class="notes">A household name with no sponsorship record is a dead end for her visa. The scorer separates record from reputation.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 3 — drop postings that are not real.</h1>
+    <div class="body"><div class="d3fig" data-type="flow" data-d='{"steps": ["ATS detected", "liveness check", "live posting"], "accentIndex": 2}'></div></div>
+    <div class="caption">Detection is not liveness.</div><aside class="notes">Half of 'open' roles are ghosts. She keeps only postings proven live today.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 4 — check the role is worth it.</h1>
+    <div class="body"><div class="d3fig" data-type="flow" data-d='{"steps": ["raw title", "model proposes code", "check confirms", "O*NET + OEWS"], "accentIndex": 3}'></div></div>
+    <div class="caption">Proposing is not confirming.</div><aside class="notes">The title resolves to a real occupation with real pay before she trusts it.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 5 — zero anything that cannot close in time.</h1>
+    <div class="body"><div class="d3fig" data-type="gatebar" data-d='{"used": 14, "soft": 80, "hard": 90, "max": 90, "softLabel": "working limit (80)", "hardLabel": "hard stop (90)"}'></div></div>
+    <div class="caption">The visa timeline is a gate, not a vote.</div><aside class="notes">A role that cannot realistically close before the cliff is skipped, however attractive.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 6 — one defensible score: Apply / Consider / Skip.</h1>
+    <div class="body"><div class="d3fig" data-type="quadrant" data-d='{"xlab": "Sponsorship probability (low to high)", "ylab": "Fit score (low to high)", "regions": {"tl": "Consider", "tr": "Apply", "bl": "Skip", "br": "Consider"}, "points": [{"x": 0.83, "y": 0.78, "label": "Acme (funded, sponsors)", "accent": true}, {"x": 0.25, "y": 0.8, "label": "BigCo (no sponsor)"}]}'></div></div>
+    <div class="caption">Equal fit, different sponsorship, opposite calls.</div><aside class="notes">The composite is traceable: she can say why each role landed where it did.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">The funnel, run for real: 300 down to the few worth two hours.</h1>
+    <div class="body"><div class="d3fig" data-type="funnel" data-d='{"stages": [{"label": "raw postings", "value": 300}, {"label": "funded + sponsoring", "value": 90}, {"label": "live + good role", "value": 40}, {"label": "worth applying", "value": 25, "accent": true}]}'></div></div>
+    <div class="caption">The filter turns volume into a shortlist.</div><aside class="notes">Now her two applying-hours hit 25 pre-checked roles instead of spraying 200.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 7 — frame the visa truthfully, and strategically.</h1>
+    <div class="body"><div class="d3fig" data-type="twocol" data-d='{"left": {"title": "Permitted", "items": ["lead with a true fact", "order it strategically", "calibrate vocabulary"]}, "right": {"title": "Forbidden", "items": ["claim a status not held", "invent metrics", "deny when asked"]}, "divider": "the line is absolute"}'></div></div>
+    <div class="caption">Strategic framing, never misrepresentation.</div><aside class="notes">She states OPT plainly when asked; she leads with the relevant true fact. The tool lives on one side of the line.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 3 · Build the filter</div><h1 class="headline">Step 8 — a resume that survives the filter and the human.</h1>
+    <div class="body"><div class="d3fig" data-type="twocol" data-d='{"left": {"title": "Machine (ATS)", "items": ["parses fields", "extracts skills", "ranks match"]}, "right": {"title": "Human", "items": ["reads after the filter", "judges fit", "decides"]}, "divider": "one resume, two readers"}'></div></div>
+    <div class="caption">Survive the parser without becoming keyword soup.</div><aside class="notes">Both readers must pass it: the filter that screens, the person who decides.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 4 · Run the week</div><h1 class="headline">Run the recipes; every stage leaves a trail.</h1>
+    <div class="body"><div class="d3fig" data-type="flow" data-d='{"steps": ["scan", "pipeline", "oferta", "verify", "RUN_LOG"], "accentIndex": 3}'></div></div>
+    <div class="caption">The chain is only as trustworthy as its weakest link.</div><aside class="notes">She runs the engine end to end; the RUN_LOG records what each step found.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 4 · Run the week</div><h1 class="headline">Watch the skip rate. Skipping is the point.</h1>
+    <div class="body"><div class="d3fig" data-type="gauge" data-d='{"value": 57, "target": 50, "zones": [{"from": 0, "to": 40, "label": "too loose"}, {"from": 40, "to": 50, "label": "borderline"}, {"from": 50, "to": 85, "label": "healthy", "accent": true}, {"from": 85, "to": 100, "label": "starved"}]}'></div></div>
+    <div class="caption">A low skip rate means the filter is failing.</div><aside class="notes">57% skipped this week — healthy. The engine is earning its keep by talking her out of bad applications.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 4 · Run the week</div><h1 class="headline">What the machine cannot know stays Priya’s call.</h1>
+    <div class="body"><div style="font-family:var(--serif);font-size:clamp(18px,2.8cqi,30px);line-height:1.5;color:var(--color-ink);max-width:32ch;text-align:center">It cannot know the hiring manager is her professor’s co-founder, or which mission she can speak about with conviction. The score informs; she decides.</div></div>
+    <aside class="notes">Guard against both failure modes: ignoring the filter, and obeying it as ritual. Judgment is what she brings.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 5 · Outcome</div><h1 class="headline">Thirty days in: movement, with margin on the clock.</h1>
+    <div class="body"><div class="d3fig" data-type="comparebars" data-d='{"groups": ["Spray (projected)", "3-3-2 (actual)"], "unit": "", "metrics": [{"name": "recruiter screens", "a": 3, "b": 11}, {"name": "referrals", "a": 0, "b": 5}, {"name": "final-round", "a": 0, "b": 2}, {"name": "days of clock spent", "a": 30, "b": 30}]}'></div></div>
+    <div class="caption">Same 30 days. Far more of the things that become offers.</div><aside class="notes">Not a guarantee — a better-allocated search. The clock spent the same; the pipeline looks nothing alike.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Act 5 · Outcome</div><h1 class="headline">The clock, 30 days in.</h1>
+    <div class="body"><div class="d3fig" data-type="gatebar" data-d='{"used": 30, "soft": 80, "hard": 90, "max": 90, "softLabel": "working limit (80)", "hardLabel": "hard stop (90)"}'></div></div>
+    <div class="caption">Fifty days of margin, and a pipeline that is moving.</div><aside class="notes">Reallocation bought her real conversations while the counter was still young.</aside>
+  </section>
+  <section class="slide" data-type="synthesis">
+    <div class="eyebrow">Act 5 · Outcome</div><h1 class="headline">Spend effort where the return is.</h1>
+    <div class="body"><div style="font-family:var(--serif);font-size:clamp(18px,2.8cqi,30px);line-height:1.5;color:var(--color-ink);max-width:32ch;text-align:center">The tool handles the filter. Priya brings the judgment. That division is the whole search.</div></div>
+    <div class="caption">Machines verify conformance; humans verify adequacy.</div><aside class="notes">Callback to the principle. The deck began with the trap; it ends with the discipline.</aside>
+  </section>
+  <section class="slide" data-type="concept">
+    <div class="eyebrow">Your turn</div>
+    <h1 class="headline">Start your own 3-3-2 today.</h1>
+    <div class="body"><div style="font-family:var(--mono);font-size:clamp(13px,2cqi,20px);line-height:2;color:var(--color-ink)">1 &nbsp; clone the engine · read <span class="accent">_MANIFEST.md</span><br>2 &nbsp; <span class="accent">npm run doctor</span><br>3 &nbsp; <span class="accent">npm run score</span> your shortlist<br>4 &nbsp; build the <span class="accent">2-3-3 day</span>: apply / network / portfolio<br>5 &nbsp; log every skip — it is a win</div></div>
+    <div class="caption">Fewer applications. More movement.</div>
+    <aside class="notes">End on action. The deviation rule and the skip log keep it honest week to week.</aside>
+  </section>
+  </main>
+
+<div id="next"><div class="mini"></div></div>
+<div id="bar"></div>
+<div id="counter"></div>
+<div id="timer" hidden>00:00</div>
+<div id="help"><div>
+  → / Space&nbsp; next &nbsp;·&nbsp; ← &nbsp; back &nbsp;·&nbsp; Home/End &nbsp; jump<br>
+  f &nbsp; fullscreen &nbsp;·&nbsp; s &nbsp; presenter view &nbsp;·&nbsp; o &nbsp; overview &nbsp;·&nbsp; ? &nbsp; this help
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = Math.max(0, (parseInt(location.hash.slice(1))||1) - 1);
+  const bar = document.getElementById('counter');
+  const prog = document.getElementById('bar');
+  const nextMini = document.querySelector('#next .mini');
+
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,k)=>s.classList.toggle('current', k===i));
+    bar.textContent = (i+1)+' / '+slides.length;
+    prog.style.width = ((i+1)/slides.length*100)+'%';
+    if(!document.body.classList.contains('study')) history.replaceState(null,'','#'+(i+1));
+    if(document.body.classList.contains('presenter')){
+      nextMini.innerHTML = slides[i+1] ? slides[i+1].innerHTML : '<em style="color:var(--color-secondary)">— end —</em>';
+    }
+  }
+  function go(d){ show(i+d); }
+
+  // presenter timer
+  let t0=null, timer=document.getElementById('timer');
+  setInterval(()=>{ if(t0){const s=Math.floor((Date.now()-t0)/1000);
+    timer.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}},500);
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();go(1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(-1);}
+    else if(e.key==='Home'){show(0);} else if(e.key==='End'){show(slides.length-1);}
+    else if(e.key==='f'){ if(!document.fullscreenElement)document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+    else if(e.key==='s'){ document.body.classList.toggle('presenter'); if(!t0)t0=Date.now(); timer.hidden=!document.body.classList.contains('presenter'); show(i); }
+    else if(e.key==='o'){ document.body.classList.toggle('overview'); }
+    else if(e.key==='?'){ const h=document.getElementById('help'); h.style.display = h.style.display==='flex'?'none':'flex'; }
+    else if(e.key==='Escape'){ document.getElementById('help').style.display='none'; document.body.classList.remove('overview'); }
+  });
+  document.getElementById('deck').addEventListener('click',e=>{
+    if(document.body.classList.contains('overview')){ const s=e.target.closest('.slide'); if(s){show(slides.indexOf(s));document.body.classList.remove('overview');} }
+  });
+  document.querySelectorAll('.reveal>summary').forEach(su=>su.addEventListener('click',e=>{e.preventDefault();su.parentElement.classList.toggle('open');}));
+
+  // study mode shows everything; live/presenter start at slide i
+  if(!document.body.classList.contains('study')) show(i);
+
+  // ===== animated D3 figure library (brutalist tokens, enter transitions) =====
+  function C(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
+  const GRAY='#787878', GRAY2='#ADADAD';
+  function svgOf(el,vb){el.innerHTML='';const w=el.clientWidth||700,h=el.clientHeight||360;
+    const s=d3.select(el).append('svg').attr('width',w).attr('height',h).attr('viewBox','0 0 '+w+' '+h).attr('role','img');
+    return {s,w,h};}
+  const FIG={
+    bars(el,d){const {s,w,h}=svgOf(el);const m={t:28,r:20,b:46,l:40},cw=w-m.l-m.r,ch=h-m.t-m.b;
+      const g=s.append('g').attr('transform',`translate(${m.l},${m.t})`);
+      const x=d3.scaleBand().domain(d.items.map(i=>i.k)).range([0,cw]).padding(.28);
+      const y=d3.scaleLinear().domain([0,d.max||100]).range([ch,0]);
+      g.append('line').attr('x1',0).attr('x2',cw).attr('y1',ch).attr('y2',ch).attr('stroke',C('--color-secondary'));
+      g.selectAll('rect').data(d.items).join('rect').attr('x',i=>x(i.k)).attr('width',x.bandwidth())
+        .attr('y',ch).attr('height',0).attr('fill',i=>i.accent?C('--color-red'):GRAY)
+        .transition().duration(650).delay((i,k)=>k*120).attr('y',i=>y(i.v)).attr('height',i=>ch-y(i.v));
+      g.selectAll('.v').data(d.items).join('text').attr('class','v').attr('x',i=>x(i.k)+x.bandwidth()/2)
+        .attr('y',i=>y(i.v)-7).attr('text-anchor','middle').attr('font-family','var(--mono)').attr('font-size',12)
+        .attr('fill',C('--color-secondary')).attr('opacity',0).text(i=>i.v+(d.unit||'')).transition().delay((i,k)=>400+k*120).duration(300).attr('opacity',1);
+      g.selectAll('.k').data(d.items).join('text').attr('class','k').attr('x',i=>x(i.k)+x.bandwidth()/2)
+        .attr('y',ch+20).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',12).attr('fill',C('--color-ink')).text(i=>i.k);
+    },
+    flow(el,d){const {s,w,h}=svgOf(el);const n=d.steps.length, gap=14, bw=(w-40-gap*(n-1))/n, bh=64, y=(h-bh)/2;
+      const g=s.append('g').attr('transform','translate(20,0)');
+      d.steps.forEach((st,i)=>{const x=i*(bw+gap);
+        const acc=i===d.accentIndex;
+        const box=g.append('g').attr('opacity',0);
+        box.append('rect').attr('x',x).attr('y',y).attr('width',bw).attr('height',bh)
+          .attr('fill',acc?C('--color-white'):'#F5F5F5').attr('stroke',acc?C('--color-red'):C('--color-border')).attr('stroke-width',acc?2:1);
+        box.append('text').attr('x',x+bw/2).attr('y',y+bh/2+4).attr('text-anchor','middle').attr('font-family','var(--sans)')
+          .attr('font-size',13).attr('fill',C('--color-ink')).text(st);
+        box.transition().delay(i*240).duration(420).attr('opacity',1);
+        if(i<n-1){g.append('path').attr('d',`M ${x+bw} ${y+bh/2} L ${x+bw+gap} ${y+bh/2}`).attr('stroke',C('--color-ink')).attr('stroke-width',1.5)
+          .attr('marker-end','url(#fa)').attr('opacity',0).transition().delay(i*240+200).duration(220).attr('opacity',1);}
+      });
+      s.append('defs').html('<marker id="fa" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0,8 3,0 6" fill="'+C('--color-ink')+'"/></marker>');
+    },
+    stack(el,d){const {s,w,h}=svgOf(el);const n=d.tiers.length, gap=14, bh=(h-20-gap*(n-1))/n;
+      // widest at bottom: tiers[0] bottom
+      d.tiers.forEach((t,i)=>{const fromBottom=i; const y=h-10-(fromBottom+1)*bh-fromBottom*gap;
+        const wd=0.55*w+(fromBottom*0.13*w); const x=(w-wd)/2; const acc=i===d.accentIndex;
+        const gg=s.append('g').attr('opacity',0).attr('transform','translate(0,12)');
+        gg.append('rect').attr('x',x).attr('y',y).attr('width',wd).attr('height',bh)
+          .attr('fill',acc?C('--color-white'):'#F5F5F5').attr('stroke',acc?C('--color-red'):C('--color-ink')).attr('stroke-width',acc?2:1);
+        gg.append('text').attr('x',w/2).attr('y',y+bh/2-2).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',13).attr('fill',C('--color-ink')).text(t.label);
+        gg.append('text').attr('x',w/2).attr('y',y+bh/2+15).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',C('--color-secondary')).text(t.sub||'');
+        gg.transition().delay((n-1-i)*240).duration(450).attr('opacity',1).attr('transform','translate(0,0)');
+      });
+    },
+    twocol(el,d){const {s,w,h}=svgOf(el);const colW=w*0.4, lx=w*0.04, rx=w*0.56, ty=40;
+      s.append('line').attr('x1',w/2).attr('x2',w/2).attr('y1',20).attr('y2',h-44).attr('stroke',C('--color-ink')).attr('stroke-width',4).attr('opacity',0)
+        .transition().duration(500).attr('opacity',1);
+      [['left',lx,d.left,false],['right',rx,d.right,true]].forEach(([side,x,col,forb])=>{
+        const g=s.append('g').attr('opacity',0).attr('transform','translate(0,10)');
+        g.append('text').attr('x',x+colW/2).attr('y',ty).attr('text-anchor','middle').attr('font-family','var(--serif)').attr('font-size',16).attr('fill',C('--color-ink')).text(col.title);
+        col.items.forEach((it,i)=>{const yy=ty+30+i*48;
+          g.append('rect').attr('x',x).attr('y',yy).attr('width',colW).attr('height',38)
+            .attr('fill',forb?'#F5F5F5':C('--color-white')).attr('stroke',forb?C('--color-secondary'):C('--color-red')).attr('stroke-width',forb?1:1.5).attr('stroke-dasharray',forb?'4 3':null);
+          g.append('text').attr('x',x+colW/2).attr('y',yy+24).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',12).attr('fill',C('--color-ink')).text(it);});
+        g.transition().delay(side==='left'?200:450).duration(450).attr('opacity',1).attr('transform','translate(0,0)');
+      });
+      s.append('text').attr('x',w/2).attr('y',h-20).attr('text-anchor','middle').attr('font-family','var(--mono)').attr('font-size',11).attr('fill',C('--color-secondary')).text(d.divider||'');
+    },
+    gatebar(el,d){const {s,w,h}=svgOf(el);const m=40,bw=w-2*m,y=h*0.42,bh=54;const x=v=>m+(v/d.max)*bw;
+      s.append('rect').attr('x',m).attr('y',y).attr('width',bw).attr('height',bh).attr('fill','#F5F5F5').attr('stroke',C('--color-border'));
+      s.append('rect').attr('x',m).attr('y',y).attr('width',0).attr('height',bh).attr('fill',C('--color-red'))
+        .transition().duration(800).attr('width',x(d.used)-m);
+      // soft marker
+      const sm=s.append('g').attr('opacity',0);
+      sm.append('line').attr('x1',x(d.soft)).attr('x2',x(d.soft)).attr('y1',y-18).attr('y2',y+bh+8).attr('stroke',C('--color-ink')).attr('stroke-width',1.5).attr('stroke-dasharray','4 3');
+      sm.append('text').attr('x',x(d.soft)).attr('y',y-24).attr('text-anchor','end').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',C('--color-ink')).text(d.softLabel);
+      sm.transition().delay(500).duration(300).attr('opacity',1);
+      const hm=s.append('g').attr('opacity',0);
+      hm.append('line').attr('x1',x(d.hard)).attr('x2',x(d.hard)).attr('y1',y-18).attr('y2',y+bh+8).attr('stroke',C('--color-red')).attr('stroke-width',2.5);
+      hm.append('text').attr('x',x(d.hard)).attr('y',y-24).attr('text-anchor','end').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',C('--color-red')).text(d.hardLabel);
+      hm.transition().delay(700).duration(300).attr('opacity',1);
+      s.append('text').attr('x',m).attr('y',y+bh+22).attr('font-family','var(--mono)').attr('font-size',11).attr('fill',C('--color-secondary')).text('Day 0');
+    },
+    quadrant(el,d){const {s,w,h}=svgOf(el);const m={t:30,r:24,b:44,l:60},cw=w-m.l-m.r,ch=h-m.t-m.b;
+      const g=s.append('g').attr('transform',`translate(${m.l},${m.t})`);
+      g.append('rect').attr('x',cw/2).attr('y',0).attr('width',cw/2).attr('height',ch/2).attr('fill','#FBECEE');
+      g.append('rect').attr('x',0).attr('y',ch/2).attr('width',cw/2).attr('height',ch/2).attr('fill','#F5F5F5');
+      g.append('line').attr('x1',cw/2).attr('x2',cw/2).attr('y1',0).attr('y2',ch).attr('stroke',C('--color-border')).attr('stroke-dasharray','4 4');
+      g.append('line').attr('x1',0).attr('x2',cw).attr('y1',ch/2).attr('y2',ch/2).attr('stroke',C('--color-border')).attr('stroke-dasharray','4 4');
+      g.append('line').attr('x1',0).attr('x2',0).attr('y1',0).attr('y2',ch).attr('stroke',C('--color-ink')).attr('stroke-width',1.5);
+      g.append('line').attr('x1',0).attr('x2',cw).attr('y1',ch).attr('y2',ch).attr('stroke',C('--color-ink')).attr('stroke-width',1.5);
+      const lab=[['tr',cw*0.75,ch*0.25,C('--color-red'),16],['tl',cw*0.25,ch*0.25,C('--color-secondary'),14],['bl',cw*0.25,ch*0.75,C('--color-secondary'),14],['br',cw*0.75,ch*0.75,C('--color-secondary'),14]];
+      lab.forEach(([k,xx,yy,col,fs])=>g.append('text').attr('x',xx).attr('y',yy).attr('text-anchor','middle').attr('font-family','var(--serif)').attr('font-size',fs).attr('fill',col).text(d.regions[k]));
+      const px=v=>v*cw, py=v=>ch-v*ch;
+      const pts=d.points;
+      g.append('line').attr('x1',px(pts[0].x)).attr('y1',py(pts[0].y)).attr('x2',px(pts[0].x)).attr('y2',py(pts[0].y))
+        .attr('stroke',C('--color-ochre')).attr('stroke-dasharray','2 3')
+        .transition().delay(500).duration(500).attr('x2',px(pts[1].x)).attr('y2',py(pts[1].y));
+      g.selectAll('circle').data(pts).join('circle').attr('cx',p=>px(p.x)).attr('cy',p=>py(p.y)).attr('r',0)
+        .attr('fill',p=>p.accent?C('--color-red'):C('--color-ink')).transition().delay((p,i)=>i*250).duration(350).attr('r',7);
+      g.selectAll('.pl').data(pts).join('text').attr('class','pl').attr('x',p=>px(p.x)).attr('y',p=>py(p.y)-12).attr('text-anchor','middle')
+        .attr('font-family','var(--mono)').attr('font-size',10).attr('fill',p=>p.accent?C('--color-red'):C('--color-ink')).attr('opacity',0).text(p=>p.label)
+        .transition().delay(600).duration(300).attr('opacity',1);
+      s.append('text').attr('x',m.l+cw/2).attr('y',h-12).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',C('--color-secondary')).text(d.xlab);
+      s.append('text').attr('transform',`translate(16,${m.t+ch/2}) rotate(-90)`).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',C('--color-secondary')).text(d.ylab);
+    },
+    gauge(el,d){const {s,w,h}=svgOf(el);const m=40,bw=w-2*m,y=h*0.45,bh=40;const x=v=>m+(v/100)*bw;
+      d.zones.forEach((z,i)=>{const g=s.append('g').attr('opacity',0);
+        g.append('rect').attr('x',x(z.from)).attr('y',y).attr('width',x(z.to)-x(z.from)).attr('height',bh)
+          .attr('fill',z.accent?C('--color-red'):(i%2?'#ECECEC':'#F5F5F5')).attr('stroke',C('--color-border'));
+        g.append('text').attr('x',(x(z.from)+x(z.to))/2).attr('y',y+bh+18).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',z.accent?C('--color-red'):C('--color-secondary')).text(z.label);
+        g.transition().delay(i*150).duration(350).attr('opacity',1);});
+      // target line
+      s.append('line').attr('x1',x(d.target)).attr('x2',x(d.target)).attr('y1',y-16).attr('y2',y+bh).attr('stroke',C('--color-ink')).attr('stroke-dasharray','4 3').attr('opacity',0).transition().delay(600).duration(300).attr('opacity',1);
+      s.append('text').attr('x',x(d.target)).attr('y',y-20).attr('text-anchor','middle').attr('font-family','var(--mono)').attr('font-size',10).attr('fill',C('--color-ink')).attr('opacity',0).text(d.target+'% target').transition().delay(700).duration(300).attr('opacity',1);
+      // pointer at value
+      const p=s.append('g').attr('opacity',0).attr('transform',`translate(${x(0)},0)`);
+      p.append('polygon').attr('points',`${0},${y-6} ${-8},${y-22} ${8},${y-22}`).attr('fill',C('--color-ink'));
+      p.append('text').attr('x',12).attr('y',y-12).attr('font-family','var(--mono)').attr('font-size',11).attr('fill',C('--color-ink')).text(d.value+'%');
+      p.transition().delay(800).duration(600).attr('opacity',1).attr('transform',`translate(${x(d.value)},0)`);
+    }
+  };
+
+  FIG.plan332=function(el,d){const {s,w,h}=svgOf(el);const n=d.cols.length,gap=24,bw=(w-60-gap*(n-1))/n,base=h*0.8,maxh=h*0.6,maxH=Math.max(...d.cols.map(c=>c.hours));
+    d.cols.forEach((c,i)=>{const x=30+i*(bw+gap),bh=maxh*(c.hours/maxH);
+      s.append('rect').attr('x',x).attr('y',base).attr('width',bw).attr('height',0).attr('fill',c.accent?C('--color-red'):GRAY)
+        .transition().duration(650).delay(i*150).attr('y',base-bh).attr('height',bh);
+      s.append('text').attr('x',x+bw/2).attr('y',base-bh-8).attr('text-anchor','middle').attr('font-family','var(--mono)').attr('font-size',13).attr('fill',C('--color-ink')).attr('opacity',0).text(c.hours+'h').transition().delay(400+i*150).duration(300).attr('opacity',1);
+      s.append('text').attr('x',x+bw/2).attr('y',base+22).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',13).attr('fill',C('--color-ink')).text(c.label);
+      if(c.note) s.append('text').attr('x',x+bw/2).attr('y',base+40).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',11).attr('fill',c.accent?C('--color-red'):C('--color-secondary')).text(c.note);
+    });};
+  FIG.funnel=function(el,d){const {s,w,h}=svgOf(el);const n=d.stages.length,gap=10,bh=(h-30-gap*(n-1))/n,maxv=d.stages[0].value;
+    d.stages.forEach((st,i)=>{const bw=Math.max(60,(st.value/maxv)*(w*0.8)),x=(w-bw)/2,y=15+i*(bh+gap),acc=i===n-1;
+      const g=s.append('g').attr('opacity',0);
+      g.append('rect').attr('x',x).attr('y',y).attr('width',bw).attr('height',bh).attr('fill',acc?C('--color-red'):(i%2?'#ECECEC':'#F5F5F5')).attr('stroke',C('--color-border'));
+      g.append('text').attr('x',w/2).attr('y',y+bh/2+5).attr('text-anchor','middle').attr('font-family','var(--sans)').attr('font-size',13).attr('fill',acc?C('--color-white'):C('--color-ink')).text(st.label+'  ('+st.value+')');
+      g.transition().delay(i*200).duration(420).attr('opacity',1);});};
+  FIG.comparebars=function(el,d){const {s,w,h}=svgOf(el);const m={t:24,r:90,b:24,l:150},cw=w-m.l-m.r,rows=d.metrics.length,rh=(h-m.t-m.b)/rows,maxv=Math.max(...d.metrics.flatMap(x=>[x.a,x.b]));
+    const g=s.append('g').attr('transform',`translate(${m.l},${m.t})`);const x=v=>(v/maxv)*cw;
+    d.metrics.forEach((mt,i)=>{const y=i*rh+rh*0.16,bh=rh*0.3;
+      g.append('text').attr('x',-10).attr('y',i*rh+rh/2).attr('text-anchor','end').attr('font-family','var(--sans)').attr('font-size',12).attr('fill',C('--color-ink')).text(mt.name);
+      g.append('rect').attr('x',0).attr('y',y).attr('height',bh).attr('fill',GRAY).attr('width',0).transition().duration(600).delay(i*100).attr('width',x(mt.a));
+      g.append('rect').attr('x',0).attr('y',y+bh+4).attr('height',bh).attr('fill',C('--color-red')).attr('width',0).transition().duration(600).delay(i*100+150).attr('width',x(mt.b));
+      g.append('text').attr('x',x(mt.a)+5).attr('y',y+bh-1).attr('font-family','var(--mono)').attr('font-size',10).attr('fill',C('--color-secondary')).attr('opacity',0).text(mt.a+(d.unit||'')).transition().delay(500+i*100).duration(250).attr('opacity',1);
+      g.append('text').attr('x',x(mt.b)+5).attr('y',y+2*bh+3).attr('font-family','var(--mono)').attr('font-size',10).attr('fill',C('--color-red')).attr('opacity',0).text(mt.b+(d.unit||'')).transition().delay(650+i*100).duration(250).attr('opacity',1);
+    });
+    s.append('text').attr('x',m.l).attr('y',h-4).attr('font-family','var(--mono)').attr('font-size',10).attr('fill',C('--color-secondary')).text('gray = '+d.groups[0]+'   ·   red = '+d.groups[1]);};
+
+  function drawFig(el){const t=el.dataset.type, d=JSON.parse(el.dataset.d); if(FIG[t]) FIG[t](el,d);}
+  document.querySelectorAll('.d3fig').forEach(el=>{drawFig(el); new ResizeObserver(()=>drawFig(el)).observe(el);});
+</script>
+</body>
+</html>

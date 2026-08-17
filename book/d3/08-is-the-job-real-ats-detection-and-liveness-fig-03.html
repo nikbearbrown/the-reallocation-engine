@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Five signals to one classification</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A; --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family:'Inter',sans-serif; font-size:16px; font-weight:700; fill:var(--color-ink); }
+    .node-label { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-ink); }
+    .out-label { font-family:'Inter',sans-serif; font-size:12px; fill:var(--color-white); }
+    .source { font-family:'Inter',sans-serif; font-size:11px; fill:var(--color-secondary); letter-spacing:0.08em; }
+    .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white); border:1px solid var(--color-border); padding:6px 10px; font-size:13px; color:var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      inputs: [
+        { label:'posting age', emph:false },
+        { label:'last-updated', emph:false },
+        { label:'sibling activity', emph:true },
+        { label:'description specificity', emph:false },
+        { label:'active-search context', emph:false }
+      ],
+      outputs: [
+        { label:'live', color:'var(--color-ink)' },
+        { label:'ghost', color:'var(--color-red)' },
+        { label:'investigate', color:'var(--color-ochre)' }
+      ]
+    };
+    const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+    function draw(data) {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = Math.round(totalWidth * 0.62);
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('viewBox', `0 0 ${totalWidth} ${totalHeight}`)
+        .attr('role','img').attr('aria-labelledby','chart-title chart-desc');
+      svg.append('title').attr('id','chart-title').text('Five signals to one classification');
+      svg.append('desc').attr('id','chart-desc').text('Five posting signals feed one classifier that fans out to three calls: live, ghost, investigate.');
+      svg.append('text').attr('class','chart-title').attr('x',24).attr('y',24).text('Five signals to one classification');
+
+      const defs = svg.append('defs');
+      defs.append('marker').attr('id','arrow').attr('markerWidth',8).attr('markerHeight',6).attr('refX',7).attr('refY',3).attr('orient','auto')
+        .append('polygon').attr('points','0 0, 8 3, 0 6').attr('fill','var(--color-ink)');
+
+      const W=totalWidth, H=totalHeight;
+      const inX=W*0.20, clX=W*0.52, clY=H*0.5, outX=W*0.82;
+      const inYs = data.inputs.map((d,i)=> H*0.16 + i*(H*0.68/(data.inputs.length-1)));
+      const outYs = data.outputs.map((d,i)=> H*0.28 + i*(H*0.44/(data.outputs.length-1)));
+
+      // input nodes
+      data.inputs.forEach((d,i)=>{
+        const y=inYs[i];
+        svg.append('rect').attr('x',inX-92).attr('y',y-16).attr('width',184).attr('height',32)
+          .attr('fill', d.emph?'var(--color-fill)':'var(--color-white)').attr('stroke','var(--color-ink)').attr('stroke-width',d.emph?2:1.2)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`signal: ${d.label}${d.emph?' (most diagnostic)':''}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${d.label}</strong>${d.emph?'<br>most diagnostic':''}`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        svg.append('text').attr('class','node-label').attr('x',inX).attr('y',y+4).attr('text-anchor','middle').text(d.label);
+        svg.append('line').attr('aria-hidden','true').attr('x1',inX+94).attr('y1',y).attr('x2',clX-46).attr('y2',clY)
+          .attr('stroke','var(--color-secondary)').attr('stroke-width',d.emph?1.6:1).attr('marker-end','url(#arrow)');
+      });
+
+      // classifier
+      svg.append('rect').attr('x',clX-44).attr('y',clY-30).attr('width',88).attr('height',60)
+        .attr('fill','var(--color-red)').attr('stroke','var(--color-ink)').attr('stroke-width',1.5)
+        .attr('tabindex',0).attr('role','img').attr('aria-label','liveness classifier');
+      svg.append('text').attr('class','node-label').attr('x',clX).attr('y',clY+4).attr('text-anchor','middle').attr('fill','var(--color-white)').text('classifier');
+
+      // outputs
+      data.outputs.forEach((d,i)=>{
+        const y=outYs[i];
+        svg.append('line').attr('aria-hidden','true').attr('x1',clX+46).attr('y1',clY).attr('x2',outX-58).attr('y2',y)
+          .attr('stroke','var(--color-ink)').attr('stroke-width',1.2).attr('marker-end','url(#arrow)');
+        svg.append('rect').attr('x',outX-58).attr('y',y-16).attr('width',116).attr('height',32)
+          .attr('fill',d.color).attr('stroke','var(--color-ink)').attr('stroke-width',1.2)
+          .attr('tabindex',0).attr('role','img').attr('aria-label',`call: ${d.label}`)
+          .on('mouseover',(e)=>tooltip.html(`<strong>${d.label}</strong>`).style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px').transition().duration(150).style('opacity',1))
+          .on('mousemove',(e)=>tooltip.style('left',(e.pageX+12)+'px').style('top',(e.pageY-28)+'px'))
+          .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+        svg.append('text').attr('class','out-label').attr('x',outX).attr('y',y+4).attr('text-anchor','middle')
+          .attr('fill',d.label==='investigate'?'var(--color-ink)':'var(--color-white)').text(d.label);
+      });
+
+      svg.append('text').attr('class','source').attr('x',W-40).attr('y',H-12).attr('text-anchor','end').text('SOURCE: npm run ats:liveness');
+    }
+
+    async function loadData() {
+      try { return await d3.json('./08-is-the-job-real-ats-detection-and-liveness-fig-03.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    loadData().then(data => { draw(data); new ResizeObserver(()=>draw(data)).observe(document.getElementById('chart')); });
+  </script>
+</body>
+</html>

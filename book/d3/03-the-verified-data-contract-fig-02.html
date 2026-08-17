@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three pipelines, three audits, one log</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .mono { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--color-secondary); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      sources: [
+        { id: 'sec', label: 'Funding (scripts/sec)', audit: 'sec-audit.md' },
+        { id: 'ats', label: 'Postings & liveness (scripts/ats)', audit: 'ats-audit.md' },
+        { id: 'bls', label: 'Role quality (scripts/bls)', audit: 'bls-audit.md' }
+      ],
+      log: 'RUN_LOG.md'
+    };
+    async function loadData() {
+      try { return await d3.json('./03-the-verified-data-contract-fig-02/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Three pipelines, three audits, one log');
+      svg.append('desc').attr('id', 'chart-desc').text('Three source pipelines each produce an audit; all three audits converge into a single run log.');
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 8).attr('markerHeight', 6).attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ink)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('Three pipelines, three audits, one log');
+
+      const sx = 40, sw = 180, sh = 44;
+      const ax = 300, aw = 150;
+      const ys = [90, 200, 310];
+      const logX = 520, logY = 200, logW = 150, logH = 60;
+
+      d.sources.forEach((s, i) => {
+        const y = ys[i];
+        // source box
+        svg.append('rect').attr('x', sx).attr('y', y).attr('width', sw).attr('height', sh).attr('rx', 6)
+          .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2);
+        svg.append('text').attr('class', 'node-text').attr('x', sx + sw / 2).attr('y', y + sh / 2 + 4).attr('text-anchor', 'middle').text(s.label);
+        // cache self-loop accent
+        svg.append('path').attr('d', `M ${sx + 12} ${y} q -16 -14 0 -22 q 16 -8 24 4`)
+          .attr('fill', 'none').attr('stroke', 'var(--color-ink)').attr('stroke-width', 0.9).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+        // audit box
+        svg.append('rect').attr('x', ax).attr('y', y).attr('width', aw).attr('height', sh).attr('rx', 6)
+          .attr('fill', 'var(--color-white)').attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2);
+        svg.append('text').attr('class', 'mono').attr('x', ax + aw / 2).attr('y', y + sh / 2 + 4).attr('text-anchor', 'middle').text(s.audit);
+        // source -> audit arrow
+        svg.append('line').attr('x1', sx + sw).attr('y1', y + sh / 2).attr('x2', ax).attr('y2', y + sh / 2)
+          .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+        // audit -> log converging arrow
+        svg.append('line').attr('x1', ax + aw).attr('y1', y + sh / 2).attr('x2', logX).attr('y2', logY + logH / 2)
+          .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.2).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      });
+
+      // run log (red accent, dominant)
+      svg.append('rect').attr('x', logX).attr('y', logY).attr('width', logW).attr('height', logH).attr('rx', 8)
+        .attr('fill', 'var(--color-red)').attr('stroke', 'var(--color-red)');
+      svg.append('text').attr('class', 'node-text').attr('x', logX + logW / 2).attr('y', logY + logH / 2 + 4).attr('text-anchor', 'middle').attr('fill', 'var(--color-white)').text(d.log);
+
+      svg.append('text').attr('class', 'mono').attr('x', 24).attr('y', 404).text('Every number traces back through this graph; loops mark a local-cache-first check.');
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

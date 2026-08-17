@@ -1,0 +1,38 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t2 d2" font-family="Inter, sans-serif">
+  <title id="t2">A week of decisions: skips are data</title>
+  <desc id="d2">Thirty evaluated roles split into seventeen skips and thirteen applies on a single zero-based bar. The skip segment is drawn as a solid block, not empty space. The 57 percent skip rate sits above the 50 percent target line.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <!-- single horizontal stacked bar, 30 roles -->
+  <g transform="translate(80,150)">
+    <!-- total width 520 = 30 roles. skips=17 (294.7), applies=13 (225.3) -->
+    <rect x="0" y="0" width="294.7" height="60" fill="#545454"/>
+    <rect x="294.7" y="0" width="225.3" height="60" fill="#C8102E"/>
+    <rect x="0" y="0" width="520" height="60" fill="none" stroke="#2a1a0e" stroke-width="1.5"/>
+
+    <!-- segment labels -->
+    <text x="147" y="36" text-anchor="middle" font-size="14" fill="#FFFFFF" font-family="JetBrains Mono, monospace">17 skips</text>
+    <text x="407" y="36" text-anchor="middle" font-size="14" fill="#FFFFFF" font-family="JetBrains Mono, monospace">13 applies</text>
+
+    <!-- zero baseline marker -->
+    <line x1="0" y1="60" x2="0" y2="78" stroke="#2a1a0e" stroke-width="1.5"/>
+    <text x="0" y="94" text-anchor="middle" font-size="11" fill="#545454" font-family="JetBrains Mono, monospace">0</text>
+    <text x="520" y="94" text-anchor="middle" font-size="11" fill="#545454" font-family="JetBrains Mono, monospace">30 roles</text>
+
+    <!-- 50% target line -->
+    <line x1="260" y1="-20" x2="260" y2="80" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="260" y="-26" text-anchor="middle" font-size="11" fill="#2a1a0e">50% target</text>
+
+    <!-- skip rate callout -->
+    <text x="294.7" y="-44" text-anchor="middle" font-size="13" fill="#C8102E" font-weight="700">skip rate 57%</text>
+  </g>
+
+  <!-- legend -->
+  <g transform="translate(80,260)" font-size="12" fill="#545454">
+    <rect x="0" y="0" width="14" height="14" fill="#545454"/><text x="22" y="12">skips — logged decisions, not absence</text>
+    <rect x="0" y="24" width="14" height="14" fill="#C8102E"/><text x="22" y="36">applies</text>
+  </g>
+
+  <line x1="80" y1="340" x2="620" y2="340" stroke="#C8860E" stroke-width="2"/>
+  <text x="350" y="366" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">A skip is a decision the tracker must count.</text>
+</svg>

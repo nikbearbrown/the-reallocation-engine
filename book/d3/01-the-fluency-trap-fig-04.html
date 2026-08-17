@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 90-day OPT unemployment clock</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-gray:      #787878;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-gray:      #8a8a8a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .chart-subtitle { font-family: 'Inter', sans-serif; font-size: 13px; fill: var(--color-secondary); }
+    .axis-tick { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+    .marker-label { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-ink); }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 9px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = { totalDays: 90, usedDays: 52, workingLimit: 80, hardStop: 90 };
+
+    async function loadData() {
+      try { return await d3.json('./01-the-fluency-trap-fig-04/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+    function showTooltip(event, html) {
+      tooltip.html(html).style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px')
+        .transition().duration(150).style('opacity', 1);
+    }
+    function moveTooltip(event) { tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px'); }
+    function hideTooltip() { tooltip.transition().duration(100).style('opacity', 0); }
+
+    let chartData = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const margin = { top: 72, right: 48, bottom: 64, left: 48 };
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = 420;
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const barY = 130;
+      const barHeight = 64;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The 90-day OPT unemployment clock');
+      svg.append('desc').attr('id', 'chart-desc').text('A horizontal authorization bar across 90 days with a filled cumulative-unemployment segment, a dashed marker at the 80-day working limit, and a solid hard stop at 90 days where the immigration record is terminated.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', margin.left).attr('y', 28).text('The 90-day OPT unemployment clock');
+      svg.append('text').attr('class', 'chart-subtitle').attr('x', margin.left).attr('y', 45).text('Cumulative calendar days — weekends and holidays count');
+
+      const gChart = svg.append('g').attr('transform', `translate(${margin.left},0)`);
+      const xScaleLinear = d3.scaleLinear().domain([0, chartData.totalDays]).range([0, chartWidth]);
+
+      // full authorization track
+      gChart.append('rect').attr('x', 0).attr('y', barY).attr('width', chartWidth).attr('height', barHeight)
+        .attr('fill', 'var(--color-white)').attr('stroke', 'var(--color-border)').attr('stroke-width', 1);
+
+      // safety-margin band between 80 and 90
+      gChart.append('rect')
+        .attr('x', xScaleLinear(chartData.workingLimit)).attr('y', barY)
+        .attr('width', xScaleLinear(chartData.hardStop) - xScaleLinear(chartData.workingLimit)).attr('height', barHeight)
+        .attr('fill', 'var(--color-ochre)').attr('opacity', 0.15).attr('aria-hidden', 'true');
+
+      // cumulative unemployment fill
+      gChart.append('rect')
+        .attr('x', 0).attr('y', barY).attr('width', xScaleLinear(chartData.usedDays)).attr('height', barHeight)
+        .attr('fill', 'var(--color-gray)').attr('tabindex', 0)
+        .attr('aria-label', `Cumulative unemployment: ${chartData.usedDays} of ${chartData.totalDays} days`)
+        .on('mouseover', (e) => showTooltip(e, `<strong>Cumulative unemployment</strong>: ${chartData.usedDays} days`))
+        .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+
+      // day ticks
+      const tickG = gChart.append('g').attr('aria-hidden', 'true');
+      d3.range(0, chartData.totalDays + 1, 10).forEach(d => {
+        tickG.append('line').attr('x1', xScaleLinear(d)).attr('x2', xScaleLinear(d)).attr('y1', barY + barHeight).attr('y2', barY + barHeight + 6)
+          .attr('stroke', 'var(--color-secondary)').attr('stroke-width', 0.75);
+        tickG.append('text').attr('class', 'axis-tick').attr('x', xScaleLinear(d)).attr('y', barY + barHeight + 20).attr('text-anchor', 'middle').text(d);
+      });
+
+      // working limit (dashed, ink)
+      gChart.append('line')
+        .attr('x1', xScaleLinear(chartData.workingLimit)).attr('x2', xScaleLinear(chartData.workingLimit))
+        .attr('y1', barY - 28).attr('y2', barY + barHeight + 8)
+        .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.5).attr('stroke-dasharray', '5 4');
+      gChart.append('text').attr('class', 'marker-label').attr('text-anchor', 'middle')
+        .attr('x', xScaleLinear(chartData.workingLimit)).attr('y', barY - 34).text("80 — book's working limit");
+
+      // hard stop (solid, red)
+      gChart.append('line')
+        .attr('x1', xScaleLinear(chartData.hardStop)).attr('x2', xScaleLinear(chartData.hardStop))
+        .attr('y1', barY - 10).attr('y2', barY + barHeight + 8)
+        .attr('stroke', 'var(--color-red)').attr('stroke-width', 2.5);
+      gChart.append('text').attr('class', 'marker-label').attr('text-anchor', 'end').attr('fill', 'var(--color-red)')
+        .attr('x', xScaleLinear(chartData.hardStop)).attr('y', barY - 14).text('90 — DHS terminates record');
+    }
+
+    loadData().then(data => { chartData = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

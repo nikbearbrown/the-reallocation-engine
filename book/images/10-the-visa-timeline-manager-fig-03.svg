@@ -1,0 +1,45 @@
+<!-- Three Roles Against the Authorization Cliff
+     Book: The Reallocation Engine
+     Chapter: 10-the-visa-timeline-manager
+     Figure 03
+     Type: statistical/quantitative
+     Generated 2026-06-15
+     Source: pantry/10-the-visa-timeline-manager-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-03">
+<title id="fig-title-03">Three roles against the authorization cliff</title>
+<desc>A horizontal bar chart compares three roles by expected start date, each bar anchored at a common left origin representing today. A solid vertical line marks the authorization end and a dotted line to its left marks the buffer target. The longest bar extends past the authorization line, signaling skip-regardless. A short bar finishes well before the buffer, signaling comfortable. A middle bar finishes between the buffer and authorization lines, signaling kept-but-penalized.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="10-the-visa-timeline-manager" figure-number="03" figure-title="Three roles against the authorization cliff" figure-slug="three-roles-authorization-cliff" figure-type="statistical" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/10-the-visa-timeline-manager-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Three roles against the authorization cliff</text>
+
+<!-- plot region -->
+<rect x="160" y="80" width="500" height="220" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+<!-- common left origin (today) -->
+<line x1="160" y1="80" x2="160" y2="300" stroke="#2a1a0e" stroke-width="1"/>
+<text x="160" y="318" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">today</text>
+
+<!-- buffer target (dotted) and authorization end (solid) -->
+<line x1="470" y1="70" x2="470" y2="300" stroke="#787878" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="470" y="64" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">buffer target</text>
+<line x1="580" y1="70" x2="580" y2="300" stroke="#C8102E" stroke-width="2.5"/>
+<text x="580" y="64" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#C8102E">authorization end</text>
+
+<!-- Role A: past authorization, longest, blocking -->
+<rect x="160" y="110" width="480" height="36" rx="0" fill="#C8102E" stroke="#2a1a0e" stroke-width="1"/>
+<text x="150" y="132" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Role A</text>
+<text x="632" y="132" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">skip regardless</text>
+
+<!-- Role B: short, comfortable (well before buffer) -->
+<rect x="160" y="170" width="230" height="36" rx="0" fill="#2a1a0e" stroke="#2a1a0e" stroke-width="1"/>
+<text x="150" y="192" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Role B</text>
+<text x="382" y="192" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">comfortable</text>
+
+<!-- Role C: between buffer and authorization, transitional -->
+<rect x="160" y="230" width="370" height="36" rx="0" fill="#787878" stroke="#2a1a0e" stroke-width="1"/>
+<text x="150" y="252" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">Role C</text>
+<text x="522" y="252" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#FFFFFF">kept, penalized</text>
+
+<text x="350" y="350" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">bar length = time to expected start; the lines decide whether the role survives</text>
+</svg>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The value split: who can supply the work</title>
+  <style>
+    :root {
+      --color-white:     #FFFFFF;
+      --color-ink:       #2a1a0e;
+      --color-red:       #C8102E;
+      --color-secondary: #545454;
+      --color-border:    #D4D4D4;
+      --color-ochre:     #C8860E;
+      --color-gray:      #787878;
+      --color-gray-light:#ADADAD;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-white:     #111111;
+        --color-ink:       #F0EBE3;
+        --color-red:       #E8243A;
+        --color-secondary: #A0978C;
+        --color-border:    #2E2E2E;
+        --color-ochre:     #D49A30;
+        --color-gray:      #8a8a8a;
+        --color-gray-light:#6a6a6a;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', -apple-system, 'Helvetica Neue', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .chart-subtitle { font-family: 'Inter', sans-serif; font-size: 13px; fill: var(--color-secondary); }
+    .axis-tick { font-family: 'JetBrains Mono', monospace; font-size: 11px; fill: var(--color-secondary); }
+    .seg-label { font-family: 'Inter', sans-serif; font-size: 12px; }
+    .tooltip { position: absolute; pointer-events: none; opacity: 0; background: var(--color-white); border: 1px solid var(--color-border); padding: 6px 9px; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { panel: 'Can you do the work?', procedural: 78, judgment: 22, proceduralLabel: 'Procedural competence', judgmentLabel: 'Judgment' },
+      { panel: 'Who can supply it?',   procedural: 78, judgment: 22, proceduralLabel: 'Machine-suppliable', judgmentLabel: 'Human-only' }
+    ];
+
+    async function loadData() {
+      try { return await d3.json('./01-the-fluency-trap-fig-01/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+
+    const tooltip = d3.select('body').append('div').attr('class', 'tooltip');
+
+    function showTooltip(event, html) {
+      tooltip.html(html)
+        .style('left', (event.pageX + 12) + 'px')
+        .style('top', (event.pageY - 28) + 'px')
+        .transition().duration(150).style('opacity', 1);
+    }
+    function moveTooltip(event) {
+      tooltip.style('left', (event.pageX + 12) + 'px').style('top', (event.pageY - 28) + 'px');
+    }
+    function hideTooltip() { tooltip.transition().duration(100).style('opacity', 0); }
+
+    let chartData = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const margin = { top: 48, right: 40, bottom: 56, left: 64 };
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const totalHeight = 420;
+      const chartWidth = totalWidth - margin.left - margin.right;
+      const chartHeight = totalHeight - margin.top - margin.bottom;
+
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', totalHeight)
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The value split: who can supply the work');
+      svg.append('desc').attr('id', 'chart-desc').text('Two aligned stacked bars: total value splits into a large procedural base and a small judgment cap; the same split recut by supplier shows the procedural base machine-suppliable and the judgment cap human-only.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', margin.left).attr('y', 24).text('The value split');
+      svg.append('text').attr('class', 'chart-subtitle').attr('x', margin.left).attr('y', 41).text('The same split, recut by a second question');
+
+      const gChart = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const xScaleBand = d3.scaleBand().domain(chartData.map(d => d.panel)).range([0, chartWidth]).padding(0.5);
+      const yScaleLinear = d3.scaleLinear().domain([0, 100]).range([chartHeight, 0]);
+
+      // y ticks
+      const yAxis = gChart.append('g').attr('aria-hidden', 'true');
+      yScaleLinear.ticks(5).forEach(t => {
+        yAxis.append('line').attr('x1', 0).attr('x2', chartWidth).attr('y1', yScaleLinear(t)).attr('y2', yScaleLinear(t))
+          .attr('stroke', 'var(--color-border)').attr('stroke-opacity', 0.6);
+        yAxis.append('text').attr('class', 'axis-tick').attr('x', -8).attr('y', yScaleLinear(t) + 4).attr('text-anchor', 'end').text(t + '%');
+      });
+
+      // aligned segment boundary across both bars
+      gChart.append('line')
+        .attr('x1', 0).attr('x2', chartWidth)
+        .attr('y1', yScaleLinear(22)).attr('y2', yScaleLinear(22))
+        .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1).attr('stroke-dasharray', '5 4').attr('aria-hidden', 'true');
+
+      chartData.forEach((d, i) => {
+        const bx = xScaleBand(d.panel);
+        const bw = xScaleBand.bandwidth();
+        // procedural base
+        const procFill = i === 0 ? 'var(--color-gray)' : 'var(--color-gray-light)';
+        gChart.append('rect')
+          .attr('x', bx).attr('width', bw)
+          .attr('y', yScaleLinear(d.procedural)).attr('height', chartHeight - yScaleLinear(d.procedural))
+          .attr('fill', procFill).attr('tabindex', 0)
+          .attr('aria-label', `${d.proceduralLabel}: ${d.procedural} percent`)
+          .on('mouseover', (e) => showTooltip(e, `<strong>${d.proceduralLabel}</strong>: ${d.procedural}%`))
+          .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+        // judgment cap (red)
+        gChart.append('rect')
+          .attr('x', bx).attr('width', bw)
+          .attr('y', yScaleLinear(d.procedural + d.judgment)).attr('height', yScaleLinear(d.procedural) - yScaleLinear(d.procedural + d.judgment))
+          .attr('fill', 'var(--color-red)').attr('tabindex', 0)
+          .attr('aria-label', `${d.judgmentLabel}: ${d.judgment} percent`)
+          .on('mouseover', (e) => showTooltip(e, `<strong>${d.judgmentLabel}</strong>: ${d.judgment}%`))
+          .on('mousemove', moveTooltip).on('mouseout', hideTooltip);
+        // labels
+        gChart.append('text').attr('class', 'seg-label').attr('fill', 'var(--color-white)')
+          .attr('x', bx + bw / 2).attr('y', yScaleLinear(d.procedural + d.judgment / 2) + 4).attr('text-anchor', 'middle').text(d.judgmentLabel);
+        gChart.append('text').attr('class', 'seg-label').attr('fill', i === 0 ? 'var(--color-white)' : 'var(--color-ink)')
+          .attr('x', bx + bw / 2).attr('y', yScaleLinear(d.procedural / 2) + 4).attr('text-anchor', 'middle').text(d.proceduralLabel);
+        // panel label
+        gChart.append('text').attr('class', 'axis-tick').attr('x', bx + bw / 2).attr('y', chartHeight + 24).attr('text-anchor', 'middle').text(d.panel);
+      });
+    }
+
+    loadData().then(data => { chartData = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

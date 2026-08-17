@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Same content, inverted context: section-by-section</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .col-head { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; fill: var(--color-secondary); }
+    .row-label { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+    .cell-text { font-family: 'Inter', sans-serif; font-size: 10px; fill: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { section: 'Opening', ai: 'Read-first list', human: 'Purpose statement', empty: false },
+      { section: 'Core content', ai: 'Imperative commands', human: 'Annotated commands', empty: false },
+      { section: 'Evidence', ai: 'Stop conditions', human: 'Full success description', empty: false },
+      { section: 'Logging', ai: 'Log template', human: 'What the log holds & why', empty: false },
+      { section: 'Failure', ai: '', human: 'Named failure modes', empty: true }
+    ];
+    async function loadData() {
+      try { return await d3.json('./04-two-customers-fig-02/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let rows = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Same content, inverted context: section-by-section');
+      svg.append('desc').attr('id', 'chart-desc').text('Five recipe sections mapped across the AI and human artifacts; the failure row is empty for the AI artifact and heaviest for the human artifact.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('Same content, inverted context');
+
+      const labelX = 30, labelW = 130;
+      const aiX = 175, humanX = 425, colW = 230;
+      const top = 64, rowH = 58, gap = 6;
+
+      svg.append('text').attr('class', 'col-head').attr('x', aiX + colW / 2).attr('y', top - 8).attr('text-anchor', 'middle').text('AI artifact');
+      svg.append('text').attr('class', 'col-head').attr('x', humanX + colW / 2).attr('y', top - 8).attr('text-anchor', 'middle').text('Human artifact');
+
+      rows.forEach((r, i) => {
+        const y = top + i * (rowH + gap);
+        svg.append('text').attr('class', 'row-label').attr('x', labelX).attr('y', y + rowH / 2 + 4).text(r.section);
+        // AI chip
+        if (r.empty) {
+          svg.append('rect').attr('x', aiX).attr('y', y).attr('width', colW).attr('height', rowH).attr('rx', 8)
+            .attr('fill', 'none').attr('stroke', 'var(--color-border)').attr('stroke-width', 1).attr('stroke-dasharray', '4 3');
+          svg.append('text').attr('class', 'cell-text').attr('x', aiX + colW / 2).attr('y', y + rowH / 2 + 4).attr('text-anchor', 'middle').attr('fill', 'var(--color-secondary)').text('(not present)');
+        } else {
+          svg.append('rect').attr('x', aiX).attr('y', y).attr('width', colW).attr('height', rowH).attr('rx', 8)
+            .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2);
+          svg.append('text').attr('class', 'cell-text').attr('x', aiX + colW / 2).attr('y', y + rowH / 2 + 4).attr('text-anchor', 'middle').text(r.ai);
+        }
+        // human chip — failure row gets red accent + heavier
+        const accent = r.empty;
+        svg.append('rect').attr('x', humanX).attr('y', y - (accent ? 4 : 0)).attr('width', colW).attr('height', rowH + (accent ? 8 : 0)).attr('rx', 8)
+          .attr('fill', accent ? 'var(--color-red)' : 'var(--color-fill)')
+          .attr('stroke', accent ? 'var(--color-red)' : 'var(--color-gray)').attr('stroke-width', accent ? 1.6 : 1.2);
+        svg.append('text').attr('class', 'cell-text').attr('x', humanX + colW / 2).attr('y', y + rowH / 2 + 4).attr('text-anchor', 'middle').attr('fill', accent ? 'var(--color-white)' : 'var(--color-ink)').text(r.human);
+      });
+    }
+
+    loadData().then(data => { rows = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

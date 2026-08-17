@@ -1,0 +1,65 @@
+<!--
+  Auditable vs. Opaque Scorer
+  Book: The Reallocation Engine
+  Chapter: 11-the-bayesian-role-scorer
+  Figure 04
+  Type: comparison panels
+  Generated 2026-06-15
+  Source: pantry/11-the-bayesian-role-scorer-cajal.md
+-->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-04">
+  <title id="fig-title-04">Auditable vs. Opaque Scorer</title>
+  <desc>Left column: an auditable scorer whose recommendation traces back through stated weights to named sources — a record, a model judgment, a user input. Right column: an opaque scorer whose recommendation emerges from a sealed box trained on past decisions, with no traceable provenance.</desc>
+  <metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="11-the-bayesian-role-scorer" figure-number="04" figure-title="Auditable vs. Opaque Scorer" figure-slug="auditable-vs-opaque" figure-type="comparison panels" priority="Supplementary" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/11-the-bayesian-role-scorer-cajal.md"/></metadata>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="420" fill="#FFFFFF"/>
+  <line x1="350" y1="48" x2="350" y2="372" stroke="#D4D4D4" stroke-width="1"/>
+
+  <text x="175" y="66" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Auditable scorer</text>
+  <text x="525" y="66" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Opaque scorer</text>
+
+  <!-- LEFT: named sources -> stated weights -> recommendation, all traceable -->
+  <rect x="40" y="96" width="86" height="30" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="83" y="115" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">record</text>
+  <rect x="40" y="146" width="86" height="30" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="83" y="165" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">model judgment</text>
+  <rect x="40" y="196" width="86" height="30" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="83" y="215" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">user input</text>
+
+  <rect x="178" y="146" width="64" height="30" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="210" y="165" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">weights</text>
+
+  <line x1="126" y1="111" x2="176" y2="153" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="126" y1="161" x2="176" y2="161" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="126" y1="211" x2="176" y2="170" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="262" y="146" width="76" height="30" fill="#FFFFFF" stroke="#C8102E" stroke-width="1.5"/>
+  <text x="300" y="165" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#C8102E">recommend</text>
+  <line x1="242" y1="161" x2="260" y2="161" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="175" y="278" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">every term traces back to its origin</text>
+
+  <!-- RIGHT: past-decision stack -> sealed box -> recommendation, no provenance -->
+  <rect x="392" y="96" width="80" height="14" fill="#ADADAD" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="392" y="110" width="80" height="14" fill="#787878" stroke="#FFFFFF" stroke-width="1"/>
+  <rect x="392" y="124" width="80" height="14" fill="#ADADAD" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="432" y="154" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">past decisions</text>
+
+  <line x1="432" y1="160" x2="432" y2="184" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- sealed box, shaded unknown interior -->
+  <rect x="392" y="188" width="80" height="56" fill="#2a1a0e" fill-opacity="0.12" stroke="#2a1a0e" stroke-width="1.5"/>
+  <text x="432" y="212" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">sealed</text>
+  <text x="432" y="228" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">?</text>
+
+  <rect x="520" y="201" width="76" height="30" fill="#FFFFFF" stroke="#D4D4D4" stroke-width="1"/>
+  <text x="558" y="220" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#2a1a0e">recommend</text>
+  <line x1="472" y1="216" x2="518" y2="216" stroke="#2a1a0e" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <text x="525" y="278" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">no traceable line back to any source</text>
+
+  <text x="350" y="356" text-anchor="middle" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Provenance is the difference: a recommendation you can follow back, or one you cannot.</text>
+</svg>

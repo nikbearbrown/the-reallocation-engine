@@ -1,0 +1,29 @@
+# FICTIONAL EXAMPLE PERSONA — safe to commit. Pairs with resumes/rohan-desai-cv.md.
+# The non-sponsor control case: explicit needs_sponsorship: false zeroes the
+# sponsorship weight (a perfect-fit non-sponsor is no longer a skip).
+candidate:
+  name: Rohan Desai
+  email: rohan.desai@example.com
+  phone: "(617) 555-0127"
+  linkedin: linkedin.com/in/rohandesai-example
+  github: github.com/rohandesai-example
+  location: Boston, MA
+needs_sponsorship: false
+target_role:
+  primary: Full-Stack Software Engineer
+  secondary: Backend Engineer (Go/Node)
+  description: New-grad SWE roles; product startups preferred.
+  excluded: none
+visa:
+  type: none
+  current_status: "U.S. permanent resident (green card)"
+  ead_start_date: null
+  opt_end_date: null
+  unemployment_days_used: 0
+  unemployment_ceiling: null
+  buffer_target: null
+  stem_eligible: null
+  notes: No work-authorization constraint; timeline gate still applies to start dates.
+geography:
+  current_location: Boston, MA
+  open_to_remote: true

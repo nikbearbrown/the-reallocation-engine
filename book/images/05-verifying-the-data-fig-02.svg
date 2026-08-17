@@ -1,0 +1,48 @@
+<!-- Name-matching fragmentation
+     Book: The Reallocation Engine
+     Chapter: 05-verifying-the-data
+     Figure 02
+     Type: mechanism schematic (convergence diagram)
+     Generated 2026-06-15
+     Source: pantry/05-verifying-the-data-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-02">
+<title id="fig-title-02">Name-matching fragmentation</title>
+<desc>Three small employer-name buckets — variants of one firm such as Google LLC, Google Inc., and Alphabet — sit inside a dotted boundary marking them as a single legal filer. A single arrow points right to one consolidated node showing the true aggregated filing count, visibly larger than any individual bucket. The rows are real; grouping by raw name treats one sponsor as three small unrelated companies.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="05-verifying-the-data" figure-number="02" figure-title="Name-matching fragmentation" figure-slug="name-matching-fragmentation" figure-type="systems" priority="Critical" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/05-verifying-the-data-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Name-matching fragmentation</text>
+
+<!-- Dotted enclosure: same legal filer -->
+<rect x="52" y="100" width="280" height="252" rx="0" fill="#FFFFFF" stroke="#2a1a0e" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="192" y="92" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">one legal filer</text>
+
+<!-- Bucket 1 -->
+<rect x="80" y="120" width="224" height="62" rx="0" fill="#F5F5F5" stroke="#787878" stroke-width="1"/>
+<text x="96" y="146" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Google LLC</text>
+<text x="288" y="146" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">412</text>
+<rect x="96" y="158" width="55" height="12" rx="0" fill="#787878"/>
+
+<!-- Bucket 2 -->
+<rect x="80" y="194" width="224" height="62" rx="0" fill="#F5F5F5" stroke="#787878" stroke-width="1"/>
+<text x="96" y="220" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Google Inc.</text>
+<text x="288" y="220" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">268</text>
+<rect x="96" y="232" width="36" height="12" rx="0" fill="#787878"/>
+
+<!-- Bucket 3 -->
+<rect x="80" y="268" width="224" height="62" rx="0" fill="#F5F5F5" stroke="#787878" stroke-width="1"/>
+<text x="96" y="294" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">Alphabet</text>
+<text x="288" y="294" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">191</text>
+<rect x="96" y="306" width="26" height="12" rx="0" fill="#787878"/>
+
+<!-- Convergence arrow -->
+<line x1="340" y1="226" x2="452" y2="226" stroke="#2a1a0e" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="396" y="216" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">resolve to entity</text>
+
+<!-- Consolidated true-count node (highlighted, larger) -->
+<rect x="464" y="150" width="200" height="152" rx="0" fill="#FFFFFF" stroke="#C8102E" stroke-width="2"/>
+<text x="564" y="180" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="12" fill="#2a1a0e">True aggregated count</text>
+<text x="564" y="232" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#C8102E">871</text>
+<rect x="484" y="244" width="160" height="22" rx="0" fill="#C8102E"/>
+<text x="564" y="290" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">one substantial sponsor</text>
+</svg>

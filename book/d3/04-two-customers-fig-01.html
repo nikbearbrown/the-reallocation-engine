@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two customers, one contract</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .box-head { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; fill: var(--color-ink); }
+    .attr-text { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+    .foundation-text { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; fill: var(--color-white); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      ai: { head: 'AI artifact (complete & explicit)', attrs: ['Complete, explicit, imperative', 'Read-first order', 'Commands verbatim', 'Stop conditions', '…as long as precision needs'] },
+      human: { head: 'Human artifact (summary → drill-down)', attrs: ['Purpose (the summary)', 'Dependencies', 'How-to-run', 'What-it-produces', 'Failure modes'] },
+      foundation: 'Verified-data contract (_shared.md)'
+    };
+    async function loadData() {
+      try { return await d3.json('./04-two-customers-fig-01/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Two customers, one contract');
+      svg.append('desc').attr('id', 'chart-desc').text('A complete-and-explicit AI artifact (as long as precision needs) and a summary-first human artifact (detail to drill into) both rest on a shared verified-data contract foundation.');
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 8).attr('markerHeight', 6).attr('refX', 7).attr('refY', 3).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 8 3, 0 6').attr('fill', 'var(--color-ink)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('Two customers, one contract');
+
+      function box(x, w, dd) {
+        const y = 64, h = 196;
+        svg.append('rect').attr('x', x).attr('y', y).attr('width', w).attr('height', h).attr('rx', 8)
+          .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.4);
+        svg.append('text').attr('class', 'box-head').attr('x', x + w / 2).attr('y', y + 26).attr('text-anchor', 'middle').text(dd.head);
+        dd.attrs.forEach((a, i) => {
+          svg.append('text').attr('class', 'attr-text').attr('x', x + 18).attr('y', y + 56 + i * 26).text('· ' + a);
+        });
+      }
+      box(50, 270, d.ai);
+      box(380, 270, d.human);
+
+      // foundation bar (red accent)
+      const fY = 320, fH = 50;
+      svg.append('rect').attr('x', 50).attr('y', fY).attr('width', 600).attr('height', fH).attr('rx', 8)
+        .attr('fill', 'var(--color-red)');
+      svg.append('text').attr('class', 'foundation-text').attr('x', 350).attr('y', fY + fH / 2 + 5).attr('text-anchor', 'middle').text(d.foundation);
+
+      // arrows rising from foundation into both boxes
+      svg.append('line').attr('x1', 185).attr('y1', fY).attr('x2', 185).attr('y2', 262)
+        .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.4).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+      svg.append('line').attr('x1', 515).attr('y1', fY).attr('x2', 515).attr('y2', 262)
+        .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.4).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+
+      svg.append('text').attr('class', 'attr-text').attr('x', 24).attr('y', 404).text('Two optimizations, one shared constraint. AI: complete and explicit. Human: summary first, detail on demand.');
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

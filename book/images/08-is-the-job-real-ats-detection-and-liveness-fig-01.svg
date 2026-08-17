@@ -1,0 +1,59 @@
+<!-- Ghost-job prevalence holds across years
+     Book: The Reallocation Engine
+     Chapter: 08-is-the-job-real-ats-detection-and-liveness
+     Figure 01
+     Type: statistical / quantitative (scatter with band)
+     Generated 2026-06-15
+     Source: pantry/08-is-the-job-real-ats-detection-and-liveness-cajal.md -->
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="fig-title-01">
+<title id="fig-title-01">Ghost-job prevalence holds across years</title>
+<desc>A scatter chart with a time axis from 2019 to 2024 and a prevalence axis from zero to fifty percent. A horizontal shaded band spanning twenty-eight to forty-two percent marks the structural prevalence range. Several study points cluster in or near the band across the years, with two visible outliers below it, showing prevalence is a persistent structural feature rather than a cyclical blip. No trend line is drawn.</desc>
+<metadata><cajal:figure xmlns:cajal="https://bearbrown.ai/cajal/1.0" book="The Reallocation Engine" book-slug="the-reallocation-engine" chapter="08-is-the-job-real-ats-detection-and-liveness" figure-number="01" figure-title="Ghost-job prevalence holds across years" figure-slug="ghost-job-prevalence-band" figure-type="statistical" priority="Important" author="Nik Bear Brown" date-generated="2026-06-15" source-file="pantry/08-is-the-job-real-ats-detection-and-liveness-cajal.md"/></metadata>
+<defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2a1a0e"/></marker></defs>
+
+<text x="32" y="40" font-family="'EB Garamond','Garamond',Georgia,serif" font-size="14" fill="#2a1a0e">Ghost-job prevalence holds across years</text>
+
+<!-- plot region: x 80..640, y 80..330 ; x = year 2019..2024, y = 0..50% -->
+<rect x="80" y="80" width="560" height="250" rx="0" fill="#F5F5F5" stroke="#D4D4D4" stroke-width="0.75"/>
+
+<!-- y axis -->
+<line x1="80" y1="80" x2="80" y2="330" stroke="#2a1a0e" stroke-width="1"/>
+<line x1="80" y1="330" x2="640" y2="330" stroke="#2a1a0e" stroke-width="1"/>
+<!-- y ticks 0,10,20,30,40,50 -> y = 330 - (v/50)*250 -->
+<text x="72" y="334" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">0%</text>
+<text x="72" y="284" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">10%</text>
+<text x="72" y="234" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">20%</text>
+<text x="72" y="184" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">30%</text>
+<text x="72" y="134" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">40%</text>
+<text x="72" y="84" text-anchor="end" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">50%</text>
+
+<!-- structural band 28..42% : y 330-(28/50)*250=190 ; 330-(42/50)*250=120 -->
+<rect x="80" y="120" width="560" height="70" rx="0" fill="#ADADAD" fill-opacity="0.35" stroke="#787878" stroke-width="0.75" stroke-dasharray="4 3"/>
+<text x="630" y="158" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">structural range 28–42%</text>
+
+<!-- x ticks years 2019..2024 -> x = 80 + ((yr-2019)/5)*560 -->
+<text x="80" y="350" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2019</text>
+<text x="192" y="350" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2020</text>
+<text x="304" y="350" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2021</text>
+<text x="416" y="350" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2022</text>
+<text x="528" y="350" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2023</text>
+<text x="640" y="350" text-anchor="middle" font-family="'JetBrains Mono','Fira Code','Courier New',monospace" font-size="11" fill="#545454">2024</text>
+
+<!-- study points within/near band (highlighted) -->
+<!-- y for v%: 330-(v/50)*250 -->
+<circle cx="150" cy="155" r="5" fill="#C8102E"/>      <!-- 2019.6 ~35% -->
+<circle cx="240" cy="170" r="5" fill="#C8102E"/>      <!-- 2020.4 ~32% -->
+<circle cx="330" cy="135" r="5" fill="#C8102E"/>      <!-- ~39% -->
+<circle cx="420" cy="160" r="5" fill="#C8102E"/>      <!-- ~34% -->
+<circle cx="500" cy="178" r="5" fill="#C8102E"/>      <!-- ~30.5% LA -->
+<circle cx="585" cy="148" r="5" fill="#C8102E"/>      <!-- ~36% -->
+
+<!-- outliers below band (distinct) -->
+<circle cx="470" cy="247" r="5" fill="#787878"/>     <!-- Seattle ~16.6% -->
+<text x="470" y="266" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">outlier</text>
+<circle cx="270" cy="232" r="5" fill="#787878"/>     <!-- ~19.5% -->
+<text x="270" y="222" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454">outlier</text>
+
+<text x="360" y="384" text-anchor="middle" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="11" fill="#545454">a persistent structural feature, not a cyclical blip</text>
+<text x="640" y="404" text-anchor="end" font-family="'Inter',-apple-system,'Helvetica Neue',sans-serif" font-size="10" fill="#545454" letter-spacing="0.08em">SOURCE: MULTIPLE GHOST-JOB PREVALENCE STUDIES</text>
+</svg>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>First real run: 30 roles by outcome</title>
+<style>
+  :root {
+    --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+    --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E; --color-fill:#F5F5F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+      --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30; --color-fill:#1A1A1A; }
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--color-white); color:var(--color-ink); font-family:'Inter',-apple-system,sans-serif; }
+  #chart { width:100%; }
+  .tick text { font-family:'JetBrains Mono',monospace; font-size:11px; fill:var(--color-secondary); }
+  .tooltip { position:absolute; pointer-events:none; opacity:0; background:var(--color-white);
+    border:1px solid var(--color-border); border-radius:8px; padding:6px 10px; font-size:13px; color:var(--color-ink); }
+  @media (prefers-reduced-motion: reduce) { * { transition:none!important; animation:none!important; } }
+</style>
+</head>
+<body>
+<div id="chart" role="main"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const FALLBACK_DATA = [
+  { outcome:'Apply', pct:13, primary:true },
+  { outcome:'Consider', pct:30, primary:false },
+  { outcome:'Skip', pct:57, primary:false }
+];
+function draw() {
+  d3.select('#chart').selectAll('*').remove();
+  const css = getComputedStyle(document.documentElement); const C = n => css.getPropertyValue(n).trim();
+  const margin = { top:48, right:60, bottom:56, left:100 };
+  const totalWidth = document.getElementById('chart').clientWidth || 700;
+  const totalHeight = 320;
+  const chartWidth = totalWidth - margin.left - margin.right;
+  const chartHeight = totalHeight - margin.top - margin.bottom;
+
+  const svg = d3.select('#chart').append('svg').attr('width',totalWidth).attr('height',totalHeight)
+    .attr('role','img').attr('aria-labelledby','t d');
+  svg.append('title').attr('id','t').text('First real run: 30 roles by outcome');
+  svg.append('desc').attr('id','d').text('Apply 13 percent, Consider 30 percent, Skip 57 percent across 30 evaluated roles.');
+  const g = svg.append('g').attr('transform',`translate(${margin.left},${margin.top})`);
+
+  const x = d3.scaleLinear().domain([0,60]).range([0,chartWidth]);
+  const y = d3.scaleBand().domain(FALLBACK_DATA.map(d=>d.outcome)).range([0,chartHeight]).padding(0.25);
+
+  const tooltip = d3.select('body').append('div').attr('class','tooltip');
+
+  g.selectAll('.bar').data(FALLBACK_DATA).join('rect').attr('class','bar')
+    .attr('x',0).attr('y',d=>y(d.outcome)).attr('height',y.bandwidth())
+    .attr('width',d=>x(d.pct))
+    .attr('fill',(d,i)=> d.primary ? C('--color-red') : (i===1?C('--color-secondary'):'#787878'))
+    .attr('tabindex',0).attr('aria-label',d=>`${d.outcome}: ${d.pct}%`)
+    .on('mouseover',(event,d)=>tooltip.html(`<strong>${d.outcome}</strong>: ${d.pct}% of 30 roles`).style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px').transition().duration(150).style('opacity',1))
+    .on('mousemove',(event)=>tooltip.style('left',(event.pageX+12)+'px').style('top',(event.pageY-28)+'px'))
+    .on('mouseout',()=>tooltip.transition().duration(100).style('opacity',0));
+
+  g.selectAll('.lbl').data(FALLBACK_DATA).join('text').attr('class','lbl')
+    .attr('x',d=>x(d.pct)+8).attr('y',d=>y(d.outcome)+y.bandwidth()/2+4)
+    .attr('font-family',"'JetBrains Mono',monospace").attr('font-size',12)
+    .attr('fill',d=>d.outcome==='Skip'?C('--color-red'):C('--color-ink')).text(d=>d.pct+'%');
+
+  g.append('g').call(d3.axisLeft(y).tickSize(0)).select('.domain').remove();
+  g.selectAll('.tick text').attr('font-family',"'Inter',sans-serif").attr('font-size',13).attr('fill',C('--color-ink'));
+  g.append('g').attr('transform',`translate(0,${chartHeight})`).call(d3.axisBottom(x).ticks(4).tickFormat(d=>d+'%'));
+  svg.selectAll('.domain, .tick line').attr('stroke',C('--color-secondary'));
+  g.append('text').attr('x',chartWidth/2).attr('y',chartHeight+42).attr('text-anchor','middle').attr('font-size',12).attr('fill',C('--color-secondary')).text('share of 30 evaluated roles');
+}
+draw();
+new ResizeObserver(()=>draw()).observe(document.getElementById('chart'));
+</script>
+</body>
+</html>

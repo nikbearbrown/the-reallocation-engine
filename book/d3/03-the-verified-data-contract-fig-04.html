@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The floor and the ceiling: guarantees vs. limits</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .col-head { font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 700; fill: var(--color-secondary); }
+    .cell-text { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-ink); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = [
+      { guarantee: 'Counts and rates are real', limit: 'That the right things were measured' },
+      { guarantee: 'Gaps are labeled, not hidden', limit: 'That coverage is complete' },
+      { guarantee: 'Decisions trace to records', limit: 'That records captured the full picture' },
+      { guarantee: 'Model judgments are labeled', limit: 'That those judgments are correct' }
+    ];
+    async function loadData() {
+      try { return await d3.json('./03-the-verified-data-contract-fig-04/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let rows = FALLBACK_DATA;
+
+    function wrapInto(g, txt, cx, cy, maxChars, color) {
+      const words = txt.split(/\s+/); let line = '', lines = [];
+      words.forEach(w => { if ((line + ' ' + w).trim().length > maxChars) { lines.push(line.trim()); line = w; } else line = (line + ' ' + w).trim(); });
+      if (line) lines.push(line);
+      const sY = cy - (lines.length - 1) * 7 + 2;
+      lines.forEach((l, i) => g.append('text').attr('class', 'cell-text').attr('x', cx).attr('y', sY + i * 13).attr('text-anchor', 'middle').attr('fill', color || 'var(--color-ink)').text(l));
+    }
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('The floor and the ceiling: guarantees vs. limits');
+      svg.append('desc').attr('id', 'chart-desc').text('A two-column matrix pairing four contract guarantees against four matching limits.');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('The floor and the ceiling');
+
+      const colW = 300, gx = 40, lx = 360, top = 60, rowH = 78, gap = 6;
+      svg.append('text').attr('class', 'col-head').attr('x', gx + colW / 2).attr('y', top - 8).attr('text-anchor', 'middle').text('What it guarantees');
+      svg.append('text').attr('class', 'col-head').attr('x', lx + colW / 2).attr('y', top - 8).attr('text-anchor', 'middle').text('What it cannot guarantee');
+
+      rows.forEach((r, i) => {
+        const y = top + i * (rowH + gap);
+        const g = svg.append('g');
+        // guarantee chip
+        g.append('rect').attr('x', gx).attr('y', y).attr('width', colW).attr('height', rowH).attr('rx', 8)
+          .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-red)').attr('stroke-width', 1.4);
+        g.append('circle').attr('cx', gx + 16).attr('cy', y + 16).attr('r', 5).attr('fill', 'var(--color-red)');
+        wrapInto(g, r.guarantee, gx + colW / 2 + 8, y + rowH / 2, 30);
+        // limit chip
+        g.append('rect').attr('x', lx).attr('y', y).attr('width', colW).attr('height', rowH).attr('rx', 8)
+          .attr('fill', 'var(--color-white)').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2);
+        g.append('circle').attr('cx', lx + 16).attr('cy', y + 16).attr('r', 5).attr('fill', 'none').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.4);
+        wrapInto(g, r.limit, lx + colW / 2 + 8, y + rowH / 2, 30, 'var(--color-secondary)');
+      });
+    }
+
+    loadData().then(data => { rows = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

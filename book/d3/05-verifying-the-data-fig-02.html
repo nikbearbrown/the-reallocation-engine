@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name-matching fragmentation</title>
+  <style>
+    :root {
+      --color-white:#FFFFFF; --color-ink:#2a1a0e; --color-red:#C8102E;
+      --color-secondary:#545454; --color-border:#D4D4D4; --color-ochre:#C8860E;
+      --color-gray:#787878; --color-fill:#F5F5F5;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --color-white:#111111; --color-ink:#F0EBE3; --color-red:#E8243A;
+        --color-secondary:#A0978C; --color-border:#2E2E2E; --color-ochre:#D49A30;
+        --color-gray:#8a8a8a; --color-fill:#1c1c1c; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--color-white); color: var(--color-ink); font-family: 'Inter', sans-serif; }
+    #chart { width: 100%; }
+    .chart-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; fill: var(--color-ink); }
+    .bucket-text { font-family: 'JetBrains Mono', monospace; font-size: 10px; fill: var(--color-ink); }
+    .node-text { font-family: 'Inter', sans-serif; font-size: 12px; fill: var(--color-white); }
+    .annot { font-family: 'Inter', sans-serif; font-size: 11px; fill: var(--color-secondary); }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <div id="chart" role="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script>
+    const FALLBACK_DATA = {
+      buckets: [
+        { name: 'Google LLC', count: 6 },
+        { name: 'Google Inc.', count: 4 },
+        { name: 'Alphabet Inc.', count: 5 }
+      ],
+      trueLabel: 'True count: 15'
+    };
+    async function loadData() {
+      try { return await d3.json('./05-verifying-the-data-fig-02/data.json'); }
+      catch { return FALLBACK_DATA; }
+    }
+    let d = FALLBACK_DATA;
+
+    function draw() {
+      d3.select('#chart').selectAll('*').remove();
+      const totalWidth = document.getElementById('chart').clientWidth || 700;
+      const svg = d3.select('#chart').append('svg')
+        .attr('width', totalWidth).attr('height', 420)
+        .attr('viewBox', '0 0 700 420').attr('preserveAspectRatio', 'xMidYMid meet')
+        .attr('role', 'img').attr('aria-labelledby', 'chart-title chart-desc');
+      svg.append('title').attr('id', 'chart-title').text('Name-matching fragmentation');
+      svg.append('desc').attr('id', 'chart-desc').text('Three employer-name buckets of one legal filer fragment a true count; an arrow points to the consolidated true count.');
+      svg.append('defs').append('marker').attr('id', 'arrow').attr('markerWidth', 9).attr('markerHeight', 7).attr('refX', 8).attr('refY', 3.5).attr('orient', 'auto')
+        .append('polygon').attr('points', '0 0, 9 3.5, 0 7').attr('fill', 'var(--color-ink)');
+
+      svg.append('text').attr('class', 'chart-title').attr('x', 24).attr('y', 30).text('Name-matching fragmentation');
+
+      // dotted enclosure
+      svg.append('rect').attr('x', 50).attr('y', 90).attr('width', 220).attr('height', 250).attr('rx', 10)
+        .attr('fill', 'none').attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.4).attr('stroke-dasharray', '6 4');
+      svg.append('text').attr('class', 'annot').attr('x', 160).attr('y', 84).attr('text-anchor', 'middle').text('Same legal filer');
+
+      const bucketY = [110, 190, 270];
+      d.buckets.forEach((b, i) => {
+        const y = bucketY[i];
+        const h = 24 + b.count * 6;
+        svg.append('rect').attr('x', 80).attr('y', y).attr('width', 160).attr('height', h).attr('rx', 6)
+          .attr('fill', 'var(--color-fill)').attr('stroke', 'var(--color-gray)').attr('stroke-width', 1.2);
+        svg.append('text').attr('class', 'bucket-text').attr('x', 160).attr('y', y + 16).attr('text-anchor', 'middle').text(b.name);
+        svg.append('text').attr('class', 'bucket-text').attr('x', 160).attr('y', y + 30).attr('text-anchor', 'middle').attr('fill', 'var(--color-secondary)').text(b.count + ' filings');
+      });
+
+      // arrow to consolidated node
+      svg.append('line').attr('x1', 290).attr('y1', 215).attr('x2', 440).attr('y2', 215)
+        .attr('stroke', 'var(--color-ink)').attr('stroke-width', 1.6).attr('marker-end', 'url(#arrow)').attr('aria-hidden', 'true');
+
+      // consolidated true count node (red, larger)
+      svg.append('circle').attr('cx', 560).attr('cy', 215).attr('r', 86).attr('fill', 'var(--color-red)');
+      svg.append('text').attr('class', 'node-text').attr('x', 560).attr('y', 220).attr('text-anchor', 'middle').text(d.trueLabel);
+
+      svg.append('text').attr('class', 'annot').attr('x', 24).attr('y', 404).text('The rows are real; the employer grouping is not.');
+    }
+
+    loadData().then(data => { d = data; draw(); });
+    const ro = new ResizeObserver(() => draw());
+    ro.observe(document.getElementById('chart'));
+  </script>
+</body>
+</html>

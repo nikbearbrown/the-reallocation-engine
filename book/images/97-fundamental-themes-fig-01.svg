@@ -1,0 +1,40 @@
+<svg viewBox="0 0 700 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t1 d1" font-family="Inter, sans-serif">
+  <title id="t1">The irreducibly human tier taxonomy</title>
+  <desc id="d1">A vertical ladder of cognitive tiers. Tier 1 pattern and association is won by machines; Tier 2 embodied is constrained by physics; Tiers 4 and 5 metacognitive supervision and causal reasoning are where AI is weak or unreliable; Tiers 6 and 7 collective intelligence and wisdom are where AI is absent. The higher the tier, the more irreducibly human the work.</desc>
+  <rect width="700" height="420" fill="#FFFFFF"/>
+
+  <g font-size="12">
+    <!-- rungs bottom to top -->
+    <!-- Tier 1 -->
+    <rect x="120" y="320" width="460" height="44" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="136" y="348" fill="#2a1a0e" font-weight="700">Tier 1 — Pattern &amp; association</text>
+    <text x="564" y="348" text-anchor="end" fill="#545454">machines win</text>
+    <!-- Tier 2 -->
+    <rect x="120" y="270" width="460" height="44" fill="#F5F5F5" stroke="#D4D4D4"/>
+    <text x="136" y="298" fill="#2a1a0e" font-weight="700">Tier 2 — Embodied &amp; sensorimotor</text>
+    <text x="564" y="298" text-anchor="end" fill="#545454">constrained by physics</text>
+    <!-- Tier 4 -->
+    <rect x="120" y="220" width="460" height="44" fill="#FBECEE" stroke="#D4D4D4"/>
+    <text x="136" y="248" fill="#2a1a0e" font-weight="700">Tier 4 — Metacognitive supervision</text>
+    <text x="564" y="248" text-anchor="end" fill="#C8102E">AI weak</text>
+    <!-- Tier 5 -->
+    <rect x="120" y="170" width="460" height="44" fill="#FBECEE" stroke="#D4D4D4"/>
+    <text x="136" y="198" fill="#2a1a0e" font-weight="700">Tier 5 — Causal &amp; counterfactual</text>
+    <text x="564" y="198" text-anchor="end" fill="#C8102E">AI unreliable</text>
+    <!-- Tier 6 -->
+    <rect x="120" y="120" width="460" height="44" fill="#FBECEE" stroke="#C8102E"/>
+    <text x="136" y="148" fill="#2a1a0e" font-weight="700">Tier 6 — Collective &amp; distributed</text>
+    <text x="564" y="148" text-anchor="end" fill="#C8102E">AI absent</text>
+    <!-- Tier 7 -->
+    <rect x="120" y="70" width="460" height="44" fill="#FBECEE" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="136" y="98" fill="#2a1a0e" font-weight="700">Tier 7 — Existential &amp; wisdom</text>
+    <text x="564" y="98" text-anchor="end" fill="#C8102E">AI absent</text>
+
+    <!-- up arrow for "more irreducibly human" -->
+    <line x1="92" y1="350" x2="92" y2="80" stroke="#C8860E" stroke-width="2"/>
+    <polygon points="92,72 86,86 98,86" fill="#C8860E"/>
+    <text x="58" y="220" transform="rotate(-90,58,220)" text-anchor="middle" font-size="11" fill="#C8860E">more irreducibly human</text>
+  </g>
+
+  <text x="350" y="396" text-anchor="middle" font-size="13" font-family="EB Garamond, Georgia, serif" font-style="italic" fill="#2a1a0e">AI won Tier 1; the work that remains is the work that is ours.</text>
+</svg>
