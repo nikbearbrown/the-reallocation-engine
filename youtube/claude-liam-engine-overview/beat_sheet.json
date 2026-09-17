@@ -1,0 +1,765 @@
+{
+  "metadata": {
+    "slug": "claude-liam-engine-overview",
+    "title": "The Reallocation Engine — Five Evidence Gates, One Human Decision",
+    "topic": "REALLOCATION ENGINE · EVIDENCE-FIRST JOB SEARCH",
+    "skill": "deep-explainer",
+    "register": "Teardown",
+    "channel": "claude-liam",
+    "audience": "Claude",
+    "brand": "claude-liam",
+    "persona": "Liam (in for Bear)",
+    "in_for_bear": true,
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "engine": "kokoro",
+    "palette": "claude",
+    "style_preset": "claude",
+    "ground": "#FAF9F5",
+    "greeting": "Annyeong, Liam",
+    "folderLabel": "@NikBearBrown",
+    "seed": 42,
+    "source": "the-reallocation-engine-fresh/README.md + DOMAIN.md + DATA_CONTRACT.md + AGENTS.md",
+    "vox_quota_waived": true,
+    "vox_quota_note": "VOX=0: no pantry stills; engineloop prohibits Tier 2/3 shopping entries; all evidence beats drawn via Remotion library scenes.",
+    "build": {
+      "at": "2026-09-16T17:07:08",
+      "cut": "master",
+      "filled": 20,
+      "of": 20,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "cold open",
+      "narration_text": "Annyeong — this is Liam, in for Bear. We're looking at a public repository called the-reallocation-engine: a working machine that decides which job postings an F-1 student on the OPT clock should skip — before writing a single application.",
+      "estimated_duration_s": 15,
+      "actual_duration_s": 14.14,
+      "audio_file": "mp3/beat-B00.mp3",
+      "new_visual_element": "ClaudeComposerAsk cold open — Liam signs in",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Annyeong, Liam",
+            "topic": "REALLOCATION ENGINE · EVIDENCE-FIRST JOB SEARCH",
+            "segment": "The Reallocation Engine — Five Evidence Gates, One Human Decision",
+            "command": "How does the Reallocation Engine actually work?",
+            "runningText": "reading the source…",
+            "output": [
+              "Five evidence gates. Two hard vetoes.",
+              "One Bayesian composite. One human decision.",
+              "This is Liam, in for Bear."
+            ],
+            "folderLabel": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "BLUF",
+      "narration_text": "Stop — not find. This machine reallocates scarce OPT-clock effort using verified evidence. Five components, two hard gates, one composite score. A healthy run skips more than half of what it evaluates. That skip rate is the point.",
+      "estimated_duration_s": 12,
+      "actual_duration_s": 13.42,
+      "lead_silence_s": 0.8,
+      "audio_file": "mp3/beat-B01.mp3",
+      "new_visual_element": "BrutalistHesitantWriter BLUF — find → stop correction",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "The Reallocation Engine scores job postings for F-1 OPT students.\nA high score means apply. The machine helps you find.",
+            "triggerWords": "find",
+            "replacementWords": "stop",
+            "seed": "7",
+            "fontSize": 48,
+            "ink": "#3D3929",
+            "accent": "#D97757",
+            "bg": "#FAF9F5"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "Act I — The Fluency Trap",
+      "narration_text": "Here is the problem. AI makes polished output cheap to produce: a draft that reads clean, a cold email that sounds confident, code that runs. Nothing on the surface announces that judgment is still required. In sixty to ninety days of OPT authorization, confident effort spent in the wrong place is the emergency.",
+      "estimated_duration_s": 17,
+      "actual_duration_s": 18.35,
+      "audio_file": "mp3/beat-B02.mp3",
+      "new_visual_element": "SkillTeardownMechanism — the fluency trap",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "SkillTeardownMechanism",
+          "props": {
+            "eyebrow": "THE PROBLEM",
+            "heading": "The Fluency Trap",
+            "body": "Execution is cheap. Judgment is not.",
+            "quote": "The first sign of trouble is usually not failure but fluency.",
+            "cite": "README.md",
+            "sparkLine": "execution cheap → judgment scarce"
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "Act I — The Fluency Trap",
+      "narration_text": "The engine's design inverts the usual signal. It evaluates a set of roles and produces a verdict for each one. A run that skips more than half is working correctly. The skip rate is not a failure mode — it is the feature.",
+      "estimated_duration_s": 14,
+      "actual_duration_s": 12.78,
+      "audio_file": "mp3/beat-B03.mp3",
+      "new_visual_element": "BarChart — skip majority as success metric",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BarChart",
+          "props": {
+            "title": "A Healthy Run — Skip Majority",
+            "data": [
+              {
+                "label": "roles evaluated",
+                "value": 100
+              },
+              {
+                "label": "roles skipped (success)",
+                "value": 52
+              },
+              {
+                "label": "roles pursued",
+                "value": 48
+              }
+            ],
+            "accentIndex": 1,
+            "unit": "of 100 roles",
+            "palette": "claude"
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "Act II — Five Evidence Components",
+      "narration_text": "The machine runs five evidence components. Two of them are gates — they don't vote, they veto. A role that fails either gate is skipped outright before the composite score runs.",
+      "estimated_duration_s": 11,
+      "actual_duration_s": 9.56,
+      "audio_file": "mp3/beat-B04.mp3",
+      "new_visual_element": "PipelineFlow — five components, two gates flagged",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "PipelineFlow",
+          "props": {
+            "title": "Five Evidence Components",
+            "stages": [
+              "SEC Form D",
+              "80 Days Sponsor",
+              "ATS Liveness",
+              "BLS Role Quality",
+              "Visa Timeline"
+            ],
+            "gap": "ATS Liveness + Visa Timeline are GATES (veto, not vote)",
+            "gapNote": "Fail a gate → skip; composite never runs",
+            "sparkLine": "5 components → 1 decision"
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "Act II — Five Evidence Components",
+      "narration_text": "Component one: company funding from SEC Form D. The scripts pull quarterly SEC filings, extract Form D records, and build a funding signal per employer. A company that closed a round recently is structurally different from one that hasn't reported in three years. That prior goes into the scorer.",
+      "estimated_duration_s": 17,
+      "actual_duration_s": 16.47,
+      "audio_file": "mp3/beat-B05.mp3",
+      "new_visual_element": "SkillTeardownMechanism — SEC Form D pipeline",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "SkillTeardownMechanism",
+          "props": {
+            "eyebrow": "EVIDENCE COMPONENT 1",
+            "heading": "SEC Form D",
+            "body": "SEC filings → Form D records → funding signal per employer.",
+            "sparkLine": "funding signal"
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "Act II — Five Evidence Components",
+      "narration_text": "Component two: sponsorship history from the 80 Days to Stay dataset — DOL H-1B petition records joined to each role. The scoring weight is profile-conditional: if you need sponsorship and the company has never filed a petition, the score reflects that.",
+      "estimated_duration_s": 14,
+      "actual_duration_s": 14.78,
+      "audio_file": "mp3/beat-B06.mp3",
+      "new_visual_element": "SkillTeardownMechanism — 80 Days sponsorship history",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "SkillTeardownMechanism",
+          "props": {
+            "eyebrow": "EVIDENCE COMPONENT 2",
+            "heading": "80 Days to Stay",
+            "body": "DOL H-1B petition records per role. Weight is profile-conditional.",
+            "quote": "profile-conditional sponsorship weight",
+            "cite": "DOMAIN.md",
+            "sparkLine": "H-1B petition record"
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "Act II — Five Evidence Components",
+      "narration_text": "Component three: ATS detection and liveness. This is a gate, not a score. The scan checks whether a posting is actually live on Greenhouse, Lever, or Ashby. A closed posting multiplies the composite by zero. It doesn't matter how good the role looks. Dead is dead.",
+      "estimated_duration_s": 15,
+      "actual_duration_s": 15.23,
+      "audio_file": "mp3/beat-B07.mp3",
+      "new_visual_element": "PipelineFlow — ATS liveness gate multiply-by-zero",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "PipelineFlow",
+          "props": {
+            "title": "ATS Liveness — Hard Gate",
+            "stages": [
+              "ATS scan",
+              "provider detect",
+              "liveness check",
+              "GATE: veto"
+            ],
+            "gap": "multiply by zero",
+            "gapNote": "Dead posting → composite = 0 → Skip",
+            "sparkLine": "GATE: not a vote"
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "Act II — Five Evidence Components",
+      "narration_text": "Component four: role quality via BLS and O*NET, adjusted for metro cost of living. The script joins OEWS wage data to BEA purchasing-power parity by metro and occupation code. On the verified sample: 100 of 112 metro-occupation pairs returned an adjusted wage band. The 12 misses get a reason code — they do not zero out silently.",
+      "estimated_duration_s": 18,
+      "actual_duration_s": 21.31,
+      "audio_file": "mp3/beat-B08.mp3",
+      "new_visual_element": "BarChart — BLS local wage coverage 100/112",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BarChart",
+          "props": {
+            "title": "BLS Local Wage Adjustment Coverage",
+            "data": [
+              {
+                "label": "adjusted wage returned",
+                "value": 100
+              },
+              {
+                "label": "missing (reason-coded)",
+                "value": 12
+              }
+            ],
+            "accentIndex": 0,
+            "unit": "of 112 metro-SOC pairs",
+            "palette": "claude"
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "Act II — Five Evidence Components",
+      "narration_text": "Component five: the visa timeline. OPT windows are fixed. If the employer's hiring timeline doesn't fit the student's remaining authorized period, the role is skipped — no composite needed. This gate runs before the scorer.",
+      "estimated_duration_s": 13,
+      "actual_duration_s": 13.12,
+      "audio_file": "mp3/beat-B09.mp3",
+      "new_visual_element": "SkillTeardownMechanism — visa timeline hard gate",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "SkillTeardownMechanism",
+          "props": {
+            "eyebrow": "HARD GATE",
+            "heading": "Visa Timeline",
+            "body": "OPT windows are fixed. Timeline outside the window, vetoed. No composite.",
+            "verdictLabel": "GATE: VETO",
+            "sparkLine": "fixed window"
+          },
+          "rendered": {
+            "out": "media/B09.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B09.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "Act III — The Composite Score",
+      "narration_text": "Those five components don't just aggregate — they're structured. Liveness and timeline are multiplicative gates: zero on either, and the composite collapses. The other three contribute weighted votes to a Bayesian combiner. The output is one of three decisions: Apply, Consider, or Skip.",
+      "estimated_duration_s": 14,
+      "actual_duration_s": 15.45,
+      "audio_file": "mp3/beat-B10.mp3",
+      "new_visual_element": "FormACard — act card: The Composite Score",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "ACT III",
+              "The Composite Score",
+              "",
+              "Three weighted inputs.",
+              "Two multiplicative gates.",
+              "One decision: Apply / Consider / Skip."
+            ],
+            "dark": false
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "Act III — The Composite Score",
+      "narration_text": "The code lives in role-scorer.mjs. The formula is the weighted sum of the three scored components — funding, sponsorship, role quality — multiplied by liveness and multiplied by timeline. If either multiplier is zero, the composite is zero. Threshold 0.3: below is Skip.",
+      "estimated_duration_s": 17,
+      "actual_duration_s": 16.21,
+      "audio_file": "mp3/beat-B11.mp3",
+      "new_visual_element": "ClaudeCodeBeat — Bayesian formula from role-scorer.mjs",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "scripts/score/role-scorer.mjs",
+            "code": "score = (sum of vote * weight) * liveness * timeline\n\n// liveness in {0, 1}   timeline in {0, 1}\n// either gate = 0  =>  score = 0  =>  Skip\n\nthreshold = 0.3\nif score > 0.5  =>  Apply\nif score > 0.3  =>  Consider\nelse            =>  Skip",
+            "sparkLine": "the composite formula"
+          },
+          "rendered": {
+            "out": "media/B11.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B11.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "Act III — The Composite Score",
+      "narration_text": "Here is the worked example from the verified run. A Cambridge biotech role — funded company, sponsorship history, live posting — scores 0.446: Apply. The same role at a company with no sponsorship record scores 0.178: Skip. That difference traces to three labeled records.",
+      "estimated_duration_s": 15,
+      "actual_duration_s": 17.81,
+      "audio_file": "mp3/beat-B12.mp3",
+      "new_visual_element": "BarChart — Apply 0.446 vs Skip 0.178 worked example",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "BarChart",
+          "props": {
+            "title": "Worked Example — role-scorer.mjs",
+            "data": [
+              {
+                "label": "Cambridge biotech → Apply",
+                "value": 0.446
+              },
+              {
+                "label": "No sponsor record → Skip",
+                "value": 0.178
+              }
+            ],
+            "accentIndex": 0,
+            "unit": "composite score (threshold 0.3)",
+            "palette": "claude"
+          },
+          "rendered": {
+            "out": "media/B12.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B12.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "Act IV — Recipes and the Human Gate",
+      "narration_text": "The scored output hands off to a recipe. Every recipe in this repository carries a lifecycle: status, open todos, the last gate cleared, and a named attestation. It starts as DRAFT. It advances when a named human signs a gate — not when a test passes.",
+      "estimated_duration_s": 14,
+      "actual_duration_s": 14.83,
+      "audio_file": "mp3/beat-B13.mp3",
+      "new_visual_element": "FormACard — act card: Recipes and the Human Gate",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "ACT IV — Recipes and the Human Gate"
+            ],
+            "dark": false
+          },
+          "rendered": {
+            "out": "media/B13.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B13.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "Act IV — Recipes and the Human Gate",
+      "narration_text": "Claude Code executes the automatable steps and stops at every gate. A gate is a hard stop cleared by a named human — a date, a name, a decision, all logged in the run log. Machines verify conformance. Humans verify adequacy.",
+      "estimated_duration_s": 14,
+      "actual_duration_s": 13.65,
+      "audio_file": "mp3/beat-B14.mp3",
+      "new_visual_element": "PipelineFlow — agent to human gate to log",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "PipelineFlow",
+          "props": {
+            "title": "Recipe Lifecycle",
+            "stages": [
+              "recipe",
+              "agent executes",
+              "GATE: stop",
+              "human clears",
+              "log"
+            ],
+            "gap": "hard stop",
+            "gapNote": "name + date + decision → logs/RUN_LOG.md",
+            "sparkLine": "machines run; humans decide"
+          },
+          "rendered": {
+            "out": "media/B14.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B14.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "Act IV — Recipes and the Human Gate",
+      "narration_text": "The runnable surface from the terminal. npm run doctor checks tools, command targets, and recipe-status coverage. npm run ats colon scan with double-dash dry-run scans portals without writing anything. npm run score takes a roles JSON and returns Apply, Consider, or Skip — with a full per-term audit trace.",
+      "estimated_duration_s": 18,
+      "actual_duration_s": 18.99,
+      "audio_file": "mp3/beat-B15.mp3",
+      "new_visual_element": "ClaudeCodeBeat — npm command surface",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "package.json",
+            "code": "\"scripts\": {\n  \"doctor\":       \"node scripts/doctor.mjs\",\n  \"ats:scan\":     \"node scripts/ats/scan.mjs\",\n  \"ats:liveness\": \"node scripts/ats/liveness.mjs\",\n  \"score\":        \"node scripts/score/role-scorer.mjs\",\n  \"bls:local-wage\": \"node scripts/bls/local-wage.mjs\"\n}",
+            "sparkLine": "github.com/nikbearbrown/the-reallocation-engine"
+          },
+          "rendered": {
+            "out": "media/B15.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B15.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "Act IV — Recipes and the Human Gate",
+      "narration_text": "What the machine will not do: decide whether a role is worth a day of your life. The labor separation is architectural. Recipes stop at every gate and name the required human decision. Machines verify conformance. Humans verify adequacy.",
+      "estimated_duration_s": 13,
+      "actual_duration_s": 13.91,
+      "audio_file": "mp3/beat-B16.mp3",
+      "new_visual_element": "SkillTeardownMechanism — human judgment is irreducible",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "SkillTeardownMechanism",
+          "props": {
+            "eyebrow": "THE IRREDUCIBLE PART",
+            "heading": "What the Machine Won't Do",
+            "body": "Recipes stop and name the required decision. Humans judge.",
+            "quote": "Machines verify conformance; humans verify adequacy.",
+            "cite": "AGENTS.md",
+            "sparkLine": "human judgment"
+          },
+          "rendered": {
+            "out": "media/B16.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B16.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "verdict",
+      "narration_text": "The verdict. The Reallocation Engine is not an application generator — it is a filter. Five evidence components, two hard gates, one Bayesian composite. The machine executes up to a gate and hands the decision back to you with every source labeled. Clone it at github.com slash nikbearbrown slash the-reallocation-engine.",
+      "estimated_duration_s": 16,
+      "actual_duration_s": 17.81,
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "new_visual_element": "ClaudeVerdictArtifact — five gates, one decision",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "The Reallocation Engine",
+            "artifactHeading": "Five evidence gates. One human decision.",
+            "artifactLines": [
+              "Skip is a successful outcome.",
+              "Liveness and timeline are gates, not votes.",
+              "The composite traces to labeled records.",
+              "Claude Code runs; a named human clears each gate.",
+              "github.com/nikbearbrown/the-reallocation-engine"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "handoff",
+      "narration_text": "Your turn. Clone the-reallocation-engine and run npm run doctor — just to see what your machine can actually run. Then pick a role you're considering and run npm run score against it. Read the audit trace line by line: for each term, ask whether you're looking at a labeled record or a model judgment. That question is the whole discipline, in one run. This is Liam, in for Bear.",
+      "estimated_duration_s": 23,
+      "actual_duration_s": 19.52,
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "new_visual_element": "ClaudeComposerAsk handoff — Your turn prompt",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "REALLOCATION ENGINE · EVIDENCE-FIRST JOB SEARCH",
+            "segment": "The Reallocation Engine — Five Evidence Gates, One Human Decision",
+            "command": "Clone the-reallocation-engine. Run npm run doctor, then npm run score on a role you're considering. For each scored term: is this a labeled record or a model judgment?",
+            "runningText": "paste this into Claude…",
+            "output": [
+              "That question is the whole discipline.",
+              "In one run."
+            ],
+            "folderLabel": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "outro",
+      "narration_text": "Five Evidence Gates. One Human Decision. Liam, in for Bear.",
+      "estimated_duration_s": 5,
+      "actual_duration_s": 4.37,
+      "tail_silence_s": 1.0,
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "new_visual_element": "ClaudeTitleOutro — title restate, Liam signs off",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "handle": "@NikBearBrown",
+            "title": "The Reallocation Engine — Five Evidence Gates, One Human Decision",
+            "subline": "",
+            "slug": "claude-liam-engine-overview",
+            "mascotAnimation": "wave"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-09-16T17:07:08"
+      }
+    }
+  ]
+}

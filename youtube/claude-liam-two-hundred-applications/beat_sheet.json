@@ -1,0 +1,995 @@
+{
+  "slug": "claude-liam-two-hundred-applications",
+  "metadata": {
+    "slug": "claude-liam-two-hundred-applications",
+    "title": "Two Hundred Applications, Thirty-One Days",
+    "subtitle": "Episode 2 — the introduction: effort is not progress, and the two-sided rule for AI",
+    "topic": "THE REALLOCATION ENGINE · EPISODE 2",
+    "series": {
+      "playlist": "The Reallocation Engine",
+      "episode": 2,
+      "role": "the felt problem — Mira's allocation failure, the RCT behind the thesis, and the use-more/trust-less rule; assumes Episode 1 for the repo tour"
+    },
+    "purpose": "A faithful reel of the book's Introduction: the opening case (two hundred applications against a thirty-one-day clock), the diagnosis (an allocation problem, not a motivation problem), the controlled trial that grounds it, the execution/judgment division, the two-sided instruction (use AI more aggressively AND trust it less), why a model cannot audit itself, and the concrete first trace the chapter hands the reader.",
+    "source": [
+      "the-reallocation-engine-fresh/book/chapters/00-introduction.md (working tree, 2026-08)"
+    ],
+    "audience": "Claude",
+    "channel": "claude-liam",
+    "persona": "Liam (in for Bear)",
+    "folderLabel": "@NikBearBrown",
+    "register": "Teardown",
+    "palette": "claude",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "voice_id": "ELEVENLABS_VOICE_LIAM",
+    "aspect_ratio": "16:9",
+    "clock": "narration",
+    "greeting_language": "Merhaba (Turkish)",
+    "note": "Greeting rotation: Hola taken by Ep1, Namaste reserved by the parked deep episode, Annyeong by the git-claude-code reel — Merhaba is fresh. DOUBLE-CHECK: every [verify]-flagged figure in the source chapter (the ~56% AI-skill premium, the ~82%/~21% screening rates, the Eightfold/Kistler litigation specifics) is narrated as MECHANISM ONLY and never appears on screen as a number or a named party. The Anthropic RCT figures and the OPT clock DO appear — both trace to primary sources in the book's own reference list. Mira's numbers are framed on screen as the book's opening scenario, never as a measured statistic. Episode 1 owns the repo tour and the three mechanisms (contract / gates / skip rate) — this episode must not re-teach them.",
+    "gates": {
+      "plan": "PRESENTED — awaiting approval",
+      "P_narration": "REWRITTEN 2026-08-27 from SHOTLIST/FACTCHECK after sentinel-voicing incident — Bear review pending",
+      "audio": "regenerating 2026-08-27",
+      "anim_json": "pending (C2 pattern table at build)"
+    },
+    "build": {
+      "at": "2026-08-28T10:52:48",
+      "cut": "master",
+      "filled": 16,
+      "of": 16,
+      "slates": [],
+      "skin_warnings": []
+    },
+    "recovery": {
+      "incident": "2026-08-25 — a stray write from an unrelated session (claude-liam-what-is-ai-compute) overwrote narration_text on all 16 beats, estimated_duration_s on all beats, B06's show cues and one B06 prop, and added a stray metadata key.",
+      "restored_exactly": [
+        "B01",
+        "B02",
+        "BASK1",
+        "BHTF",
+        "BOUT",
+        "BVDT"
+      ],
+      "lost": [
+        "B00",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11"
+      ],
+      "unaffected": "all visual specs, props, anim data, build records, actual_duration_s, rendered media, clips/, manim/, scenes.py, and the slate cut mp4",
+      "resolved": "2026-08-27 — sentinels were VOICED by a batch build (THE SOUND LAW generates Kokoro for any narration_text; sentinels are text). All 10 lost beats rewritten from SHOTLIST.md + FACTCHECK.md; audio regenerated; recompiled."
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "COLD OPEN",
+      "narration_text": "Merhaba — this is Liam, in for Bear. This is The Reallocation Engine, episode two — the introduction. One story, one study, one rule. Mira sends two hundred applications against a thirty-one-day clock and gets nothing back. The question is why — and the answer is not motivation. Effort is not progress. Here's the whole argument.",
+      "estimated_duration_s": 22,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "ClaudeComposerAsk — the episode's question, asked and answered",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "type",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Merhaba, Liam",
+            "command": "Why did two hundred applications produce nothing?",
+            "segment": "Two Hundred Applications, Thirty-One Days",
+            "topic": "THE REALLOCATION ENGINE · EPISODE 2",
+            "runningText": "reading the introduction…",
+            "output": [
+              "Not a motivation problem.",
+              "An allocation problem — and no instrument to see it."
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Fable 5",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Cream composer; 'Merhaba, Liam' serif greeting"
+        },
+        {
+          "at": 0.35,
+          "event": "Question types in; send button arms terracotta"
+        },
+        {
+          "at": 0.8,
+          "event": "Two answer lines land — the ask lands answered"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "lane": "BOOKEND",
+      "actual_duration_s": 17.73,
+      "audio_file": "mp3/beat-B00.mp3"
+    },
+    {
+      "beat_id": "B01",
+      "act": "THE SCENE",
+      "narration_text": "Week six. Call her Mira — the book does. An F-1 graduate, two hundred applications sent. The cover letters are clean. The résumés are tailored. The dashboard says she is working hard, and she is. But a second number is running the other way: her ninety-day unemployment clock has thirty-one days left on it.",
+      "estimated_duration_s": 19,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "Manim — two counters in counterpoint: applications climbing, days falling",
+      "shot": {
+        "type": "MOTION-GRAPHIC",
+        "source": "own",
+        "motion": "drawon",
+        "graphic": {
+          "engine": "manim",
+          "manim": "B01_TwoCounters",
+          "production_viz": {
+            "label": "TwoCounters",
+            "mechanic": "Two large numerals on the cream stage. LEFT counter labelled APPLICATIONS SENT climbs 0 → 200 in ink as the narration lists her effort. RIGHT counter labelled DAYS OF CLOCK LEFT falls 90 → 31 in counterpoint, arriving terracotta. A thin rule between them; the left counter reads as achievement until the right one lands and re-frames it. Small caption, one line: \"the book's opening scenario\".",
+            "colors": [
+              "#3D3929",
+              "#D97757",
+              "#F2F0E9"
+            ]
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Left counter starts climbing on 'two hundred applications sent'"
+        },
+        {
+          "at": 0.45,
+          "event": "Left counter locks at 200 on 'working hard, and she is'"
+        },
+        {
+          "at": 0.75,
+          "event": "Right counter falls and lands terracotta on 'thirty-one days'"
+        }
+      ],
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B01.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 15.64,
+      "audio_file": "mp3/beat-B01.mp3"
+    },
+    {
+      "beat_id": "B02",
+      "act": "WHAT THE DASHBOARD DIDN'T SAY",
+      "narration_text": "Here is what the dashboard does not say. About a third of those postings were ghost listings — never going to hire anyone. And more than half of the companies had never filed a single visa petition. Run those two filters over two hundred applications and watch what is actually left. Every one of them looked like progress. Almost none of it was.",
+      "estimated_duration_s": 22,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "C2 attrition — 200 application dots survive two filters, and most don't",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "AttritionChain",
+          "component": "AttritionChain",
+          "props": {
+            "data": {
+              "title": "Two Hundred Applications",
+              "slideMeta": "the book's opening scenario",
+              "total": 200,
+              "startLabel": "sent",
+              "stages": [
+                {
+                  "label": "the posting was real",
+                  "survival": 0.67
+                },
+                {
+                  "label": "the company has ever sponsored",
+                  "survival": 0.5
+                }
+              ],
+              "script": "Every one looked like progress."
+            }
+          },
+          "rendered": {
+            "out": "media/B02.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "200 dots assemble under 'sent'"
+        },
+        {
+          "at": 0.35,
+          "event": "Ghost-listing filter fires ON 'never going to hire anyone'; a third fall away"
+        },
+        {
+          "at": 0.65,
+          "event": "Sponsorship filter fires ON 'never filed a single visa petition'; half of the rest fall"
+        },
+        {
+          "at": 0.9,
+          "event": "The survivors sit terracotta on 'almost none of it was'"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 17.54,
+      "audio_file": "mp3/beat-B02.mp3"
+    },
+    {
+      "beat_id": "B03",
+      "act": "THE DIAGNOSIS",
+      "narration_text": "So what failed? Two diagnoses on the table. The comfortable one: she didn't want it enough — motivation. The book kills that in one line: she sent two hundred. Nobody outworks that verdict. The uncomfortable one survives: allocation. The effort was real, and it was spent where the evidence said it could not matter. Different disease. Different cure.",
+      "estimated_duration_s": 22,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "C2 branch — one question, two diagnoses, and the evidence picks one",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "BinaryBranch",
+          "component": "BinaryBranch",
+          "props": {
+            "data": {
+              "slideMeta": "the introduction's turn",
+              "question": "Why did two hundred applications produce nothing?",
+              "branches": [
+                {
+                  "label": "A motivation problem",
+                  "detail": "work harder · send more",
+                  "fix": "send more applications",
+                  "tone": "ink"
+                },
+                {
+                  "label": "An allocation problem",
+                  "detail": "same effort · wrong place",
+                  "fix": "route effort by evidence",
+                  "tone": "warn"
+                }
+              ],
+              "resolver": {
+                "label": "She sent two hundred.",
+                "detail": "The effort was never the missing variable."
+              },
+              "ghostText": "allocation",
+              "script": "Not motivation. Allocation."
+            }
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Question sits at top; two branches draw down"
+        },
+        {
+          "at": 0.4,
+          "event": "Resolver line lands ON 'She sent two hundred'; motivation branch desaturates"
+        },
+        {
+          "at": 0.8,
+          "event": "Allocation branch fills terracotta ON 'allocation problem'"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 17.17,
+      "audio_file": "mp3/beat-B03.mp3"
+    },
+    {
+      "beat_id": "B04",
+      "act": "THE EVIDENCE",
+      "narration_text": "And this isn't a vibe — it's been measured. In a controlled trial, people who built the work by hand scored sixty-seven percent on understanding it. People who delegated it to AI scored fifty — about seventeen points lower, roughly two letter grades. And the sting: the delegators felt they had learned more. The polish went up while the understanding went down, and nothing on the surface announced it.",
+      "estimated_duration_s": 26,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "Manim — two comprehension bars, the gap annotated, and the sting label landing on the lower one",
+      "shot": {
+        "type": "MOTION-GRAPHIC",
+        "source": "own",
+        "motion": "drawon",
+        "graphic": {
+          "engine": "manim",
+          "manim": "B04_TwoLetterGrades",
+          "production_viz": {
+            "label": "TwoLetterGrades",
+            "mechanic": "Two vertical bars from a shared zero baseline on cream. LEFT 'hand-coded' rises to 67%; RIGHT 'AI-assisted' rises to 50%. A bracket spans the gap, labelled '~17 points ≈ two letter grades'. Then the sting: a terracotta label 'felt they had learned more' flies in and attaches to the LOWER bar. Bars stay ink; the only terracotta is the sting label. Cite small, once: 'Shen & Tamkin, Anthropic, 2026 · n = 52 · arXiv:2601.20245'.",
+            "colors": [
+              "#3D3929",
+              "#D97757",
+              "#F2F0E9"
+            ]
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Baseline draws; groups label as the split is described"
+        },
+        {
+          "at": 0.4,
+          "event": "Hand-coded bar rises to 67 ON 'sixty-seven percent'"
+        },
+        {
+          "at": 0.55,
+          "event": "AI-assisted bar rises to 50 ON 'averaged fifty'"
+        },
+        {
+          "at": 0.72,
+          "event": "Gap bracket draws ON 'two letter grades'"
+        },
+        {
+          "at": 0.9,
+          "event": "Terracotta sting label attaches to the LOWER bar ON 'felt that they had learned more'"
+        }
+      ],
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B04.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 19.67,
+      "audio_file": "mp3/beat-B04.mp3"
+    },
+    {
+      "beat_id": "B05",
+      "act": "THE DIVISION",
+      "narration_text": "Start two identical job seekers on the same morning, same tools. One practices execution — drafting, formatting, sending. One practices judgment — which role, which evidence, which day of her life it deserves. AI just made the first path nearly free, for everyone at once. So execution stopped being the differentiator. Judgment is what's scarce — and scarcity is where the leverage lives.",
+      "estimated_duration_s": 24,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "C2 divergence — one body of work splits; the machine track settles, the human track rises",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "DivergentFates",
+          "component": "DivergentFates",
+          "props": {
+            "data": {
+              "slideMeta": "execution vs. judgment",
+              "startLabel": "the work",
+              "splitLabel": "AI decisively won one side",
+              "tracks": [
+                {
+                  "label": "Tier One",
+                  "outcome": "machine",
+                  "tone": "ink",
+                  "path": "down",
+                  "notes": [
+                    "pattern-finding",
+                    "retrieval",
+                    "drafting",
+                    "formatting"
+                  ]
+                },
+                {
+                  "label": "Irreducibly human",
+                  "outcome": "yours",
+                  "tone": "warn",
+                  "path": "up",
+                  "notes": [
+                    "audit for plausibility",
+                    "formulate the question",
+                    "reason about cause",
+                    "be accountable"
+                  ]
+                }
+              ],
+              "script": "Execution got cheap."
+            }
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Single track runs from 'the work'"
+        },
+        {
+          "at": 0.3,
+          "event": "Track splits ON 'they come apart'"
+        },
+        {
+          "at": 0.5,
+          "event": "Machine notes land one per named Tier One capability"
+        },
+        {
+          "at": 0.8,
+          "event": "Human notes land one per named capacity; terracotta on the human track"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 20.22,
+      "audio_file": "mp3/beat-B05.mp3"
+    },
+    {
+      "beat_id": "B06",
+      "act": "THE TWO-SIDED RULE",
+      "narration_text": "So which is it — use AI more, or trust it less? Commit to an answer before I give you the book's. Ready? It's both, at once. Use it aggressively on everything mechanical. Trust it less on everything that decides. Those sound like opposites. They're one rule about placement: machines execute, you judge.",
+      "estimated_duration_s": 21,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "C3 PredictCard — the paradox posed, then committed to in one terracotta line",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "TAPredictCard",
+          "props": {
+            "question": "Use AI more aggressively — or trust it less?",
+            "commit": "Both at once. That is the method.",
+            "sparkLine": "Both at once."
+          },
+          "rendered": {
+            "out": "media/B06.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0.0,
+          "event": "[RECONSTRUCTED 2026-08-25 — original cues lost] Predict card draws: 'Use AI more aggressively — or trust it less?'"
+        },
+        {
+          "at": 0.55,
+          "event": "[RECONSTRUCTED] Commit line holds before the reveal"
+        },
+        {
+          "at": 0.85,
+          "event": "[RECONSTRUCTED] 'Both at once. That is the method.' lands terracotta"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 15.02,
+      "audio_file": "mp3/beat-B06.mp3"
+    },
+    {
+      "beat_id": "BASK1",
+      "act": "USE IT AGGRESSIVELY",
+      "narration_text": "Start with the aggressive half.",
+      "estimated_duration_s": 5,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "ClaudeComposerAsk micro — the Tier One delegation ask, already typed",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Aggressive half.",
+            "command": "Reformat my CV ATS-safe, summarise this 10-K, and pull the sponsorship history out of this filing.",
+            "segment": "Two Hundred Applications, Thirty-One Days",
+            "topic": "THE REALLOCATION ENGINE · EPISODE 2",
+            "runningText": "doing the tedious half…",
+            "output": [],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Fable 5",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BASK1.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Composer micro-beat; command already typed; running indicator arms"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BASK1.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "lane": "BOOKEND",
+      "actual_duration_s": 2.22,
+      "audio_file": "mp3/beat-BASK1.mp3"
+    },
+    {
+      "beat_id": "B07",
+      "act": "USE IT AGGRESSIVELY",
+      "narration_text": "The aggressive half first. Tier One is every task with a right answer and a receipt: reformat the résumé so a parser can read it, summarise the ten-K, pull a company's sponsorship history out of a public filing, draft the first pass of a cover letter. Delegate all of it, without guilt. Nothing here needs your judgment — it only needs an afternoon you no longer have.",
+      "estimated_duration_s": 26,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "C3 ChipGrid — the Tier One pile, chips lighting one per named task",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "ChipGrid",
+          "props": {
+            "title": "Real work. Tedious. Automate it without apology.",
+            "chips": [
+              "Draft the cover letter",
+              "Reformat the CV, ATS-safe",
+              "Summarise a 10-K",
+              "Extract sponsorship history",
+              "Five OPT framings",
+              "Tabulate, retrieve, format"
+            ],
+            "cols": 3,
+            "sparkLine": "Your domain, plus AI."
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Six chips assemble as a 3×2 grid"
+        },
+        {
+          "at": 0.15,
+          "event": "Chips light one per named task, synced to the enumeration"
+        },
+        {
+          "at": 0.85,
+          "event": "Terracotta on the spark line ON 'your domain, plus AI'"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 18.9,
+      "audio_file": "mp3/beat-B07.mp3"
+    },
+    {
+      "beat_id": "B08",
+      "act": "TRUST IT LESS",
+      "narration_text": "Now the other half. Your application doesn't land on a desk. It lands in a screening model you cannot see, trained on choices nobody will explain, and it may reject you with no human in the loop. Rank, or reject. Judged, without a trace. When both sides of the desk are models, trusting output on faith isn't efficiency — it's surrender. Past this gate, every claim needs a source.",
+      "estimated_duration_s": 26,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "C3 SourceFlow — your application feeds an opaque scorer; a verdict returns with no trace",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "TASourceFlow",
+          "props": {
+            "sourceLabel": "your application",
+            "feeds": [
+              {
+                "label": "résumé"
+              },
+              {
+                "label": "answers"
+              },
+              {
+                "label": "history"
+              }
+            ],
+            "destApp": "screening model",
+            "destTitle": "rank · reject",
+            "arcCaption": "a model whose bias you cannot inspect",
+            "settleLine": "no human in the loop",
+            "rackRows": 3,
+            "sparkLine": "Judged, without a trace."
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Application feeds plug into the model box"
+        },
+        {
+          "at": 0.45,
+          "event": "Verdict returns ON 'may reject it'; the return path draws with NO source trace"
+        },
+        {
+          "at": 0.8,
+          "event": "'no human in the loop' settles terracotta ON 'nobody accountable'"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 19.43,
+      "audio_file": "mp3/beat-B08.mp3"
+    },
+    {
+      "beat_id": "B09",
+      "act": "WHY IT CAN'T CHECK ITSELF",
+      "narration_text": "Here's the part people resist. Why not just ask the model to check its own work? Because the check runs on the same weights that made the error. Whatever blind spot produced the answer is sitting inside the auditor too — the loop looks rigorous and inspects nothing. Real audit comes from outside the system: a record, a filing, a person with something at stake. Not laziness. Structure. Self-audit is not audit.",
+      "estimated_duration_s": 27,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "Manim — the self-audit loop closes on itself, then an external check breaks in from outside",
+      "shot": {
+        "type": "MOTION-GRAPHIC",
+        "source": "own",
+        "motion": "drawon",
+        "graphic": {
+          "engine": "manim",
+          "manim": "B09_SelfAudit",
+          "production_viz": {
+            "label": "SelfAudit",
+            "mechanic": "A single ink box labelled WEIGHTS emits an output card; an arrow curves from the output back into the SAME box, labelled 'audit'. The loop closes on itself and the whole figure dims — a circuit that cannot see its own fault. Then a terracotta arrow enters from OUTSIDE the loop, from a small chip labelled 'someone with stakes', and lands on the output card. The loop stays ink; the external check is the only terracotta.",
+            "colors": [
+              "#3D3929",
+              "#D97757",
+              "#F2F0E9"
+            ]
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Weights box emits the output card"
+        },
+        {
+          "at": 0.35,
+          "event": "Audit arrow curves back into the same box ON 'the weights that would have to audit it'"
+        },
+        {
+          "at": 0.6,
+          "event": "Loop dims ON 'cannot reliably flag its own errors'"
+        },
+        {
+          "at": 0.82,
+          "event": "Terracotta external arrow lands ON 'that somebody is you'"
+        }
+      ],
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 20.52,
+      "audio_file": "mp3/beat-B09.mp3"
+    },
+    {
+      "beat_id": "B10",
+      "act": "TRACE ONE DECISION",
+      "narration_text": "Here's what the alternative looks like, live. One role, run through the engine's scorer. Sponsorship: point nine zero — the company files petitions, on the record. Fit: point seven — and that one is model judgment, labelled as such. Liveness: one point oh — the posting is verifiably alive. Timeline: point eight five, against her clock. Every number carries its source. Distrust the recommendation — and trust the trace.",
+      "estimated_duration_s": 26,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "Onda code-block — the two commands, verbatim from the chapter, plus the labelled trace",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "drawon",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "role-scorer.sh",
+            "code": "npm run score data/examples/ch11-roles.json\n\n# role-scores.md — one row, term by term:\nsponsorship  0.90   record\nfit          0.70   model-judgment\nliveness     1.00   record          (gate)\ntimeline     0.85   your-input      (gate)",
+            "sparkLine": "Distrust the recommendation."
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Command lands ON 'run the scorer'"
+        },
+        {
+          "at": 0.4,
+          "event": "Audit path appears ON 'open the audit it writes'"
+        },
+        {
+          "at": 0.6,
+          "event": "Four terms land one per named factor"
+        },
+        {
+          "at": 0.85,
+          "event": "The source labels highlight terracotta ON 'record, model-judgment, or your-input'"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 21.33,
+      "audio_file": "mp3/beat-B10.mp3"
+    },
+    {
+      "beat_id": "B11",
+      "act": "MIRA, CLOSED",
+      "narration_text": "Back to Mira's two counters. Same clock — thirty-one days. But now the two hundred don't go out the door; they go through the gates. Dead postings drop. Never-sponsors drop. What's left is small, evidenced, and worth a day of her life. The clock didn't slow down. The effort finally moved.",
+      "estimated_duration_s": 20,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "Manim — B01's counters return, and this time the effort routes before the clock lands",
+      "shot": {
+        "type": "MOTION-GRAPHIC",
+        "source": "own",
+        "motion": "drawon",
+        "graphic": {
+          "engine": "manim",
+          "manim": "B11_TheReallocation",
+          "production_viz": {
+            "label": "TheReallocation",
+            "mechanic": "Deliberate callback to B01_TwoCounters — same two numerals, same positions. This time a stream of effort tokens leaves the APPLICATIONS counter and routes through two small ink gates into a short terracotta row of evidenced roles, arriving BEFORE the falling clock reaches its floor. The clock counter stops short of zero. Same frame as B01, different outcome — the visual rhyme is the point.",
+            "colors": [
+              "#3D3929",
+              "#D97757",
+              "#F2F0E9"
+            ]
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "B01's two counters re-establish in the same positions"
+        },
+        {
+          "at": 0.4,
+          "event": "Effort stream routes through the gates ON 'where the effort was worth spending'"
+        },
+        {
+          "at": 0.85,
+          "event": "Evidenced roles land terracotta; the clock stops short ON 'that instrument'"
+        }
+      ],
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B11.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-28T10:52:48"
+      },
+      "actual_duration_s": 14.98,
+      "audio_file": "mp3/beat-B11.mp3"
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "VERDICT RECAP",
+      "narration_text": "Let's recap with Claude. The introduction lands one distinction: effort is not progress. AI made execution cheap and left judgment scarce — a controlled trial puts two letter grades between delegating the work and understanding it. So the rule is two-sided: use it aggressively for the Tier One pile, trust it less past the gate, because a model cannot audit itself. Read the sources, not the recommendation. Next episode: the fluency trap, in full.",
+      "estimated_duration_s": 27,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "ClaudeVerdictArtifact — four-line answer to the cold-open question",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "static",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "Verdict",
+            "artifactHeading": "Why did two hundred applications produce nothing?",
+            "artifactLines": [
+              "Effort is not progress — it was spent in the wrong place.",
+              "Execution got cheap; judgment stayed scarce.",
+              "Use AI more aggressively. Trust it less. Both at once.",
+              "Read the sources, not the recommendation."
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Artifact card ~84% width; lines land one per recap clause"
+        },
+        {
+          "at": 0.88,
+          "event": "Terracotta period on the last line"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "lane": "BOOKEND",
+      "lead_silence_s": 0.5,
+      "actual_duration_s": 22.27,
+      "audio_file": "mp3/beat-BVDT.mp3"
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "YOUR TURN",
+      "narration_text": "Your turn — and this one you run on something you already trust. The prompt: Take a piece of AI-generated work I'm about to send to someone who will act on it — a résumé bullet, a cover letter, an analysis. Do not improve it. Instead: one, list every claim in it that could only be verified by a record, and name which record. Two, name three things you structurally could not know about the person or company receiving this. Three, tell me what I become responsible for the moment this leaves my screen. That inverts the usual prompt. You are not asking for better output — you are asking the model to map the edge of its own competence, which it does reasonably well when you ask directly and terribly when you don't. Run it on something real, and count how many claims come back with no record behind them.",
+      "estimated_duration_s": 53,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "ClaudeComposerAsk — 'Your turn.' with the audit-what-you-trust prompt",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "type",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "command": "Take a piece of AI-generated work I'm about to send to someone who will act on it — a résumé bullet, a cover letter, an analysis. Do NOT improve it. Instead: (1) list every claim in it that could only be verified by a record, and name which record; (2) name three things you structurally could not know about the person or company receiving this; (3) tell me what I become responsible for the moment this leaves my screen.",
+            "segment": "Two Hundred Applications, Thirty-One Days",
+            "topic": "YOUR TURN · THE REALLOCATION ENGINE",
+            "runningText": "paste this into Claude before you send anything…",
+            "output": [
+              "Don't ask for better output.",
+              "Ask it to map the edge of its own competence."
+            ],
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Fable 5",
+            "effortLabel": "High"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "'Your turn.' greeting; prompt types while Liam reads it verbatim"
+        },
+        {
+          "at": 0.6,
+          "event": "Typing completes; the discussion continues over the settled prompt"
+        },
+        {
+          "at": 0.9,
+          "event": "Two output lines land as the discussion closes"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "lane": "BOOKEND",
+      "actual_duration_s": 38.89,
+      "audio_file": "mp3/beat-BHTF.mp3"
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "OUTRO",
+      "narration_text": "Two Hundred Applications, Thirty-One Days. Liam, in for Bear.",
+      "estimated_duration_s": 5,
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "voice_kokoro": "am_onyx",
+      "new_visual_element": "ClaudeTitleOutro — title restate",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "motion": "static",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "Two Hundred Applications, Thirty-One Days",
+            "handle": "@NikBearBrown",
+            "subline": "",
+            "mascotSeed": 2
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "show": [
+        {
+          "at": 0,
+          "event": "Poster serif title, terracotta period"
+        },
+        {
+          "at": 0.5,
+          "event": "@NikBearBrown beneath; NBB mark full-size; Liam signs off"
+        }
+      ],
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-28T10:52:48"
+      },
+      "lane": "BOOKEND",
+      "actual_duration_s": 4.22,
+      "audio_file": "mp3/beat-BOUT.mp3"
+    }
+  ]
+}

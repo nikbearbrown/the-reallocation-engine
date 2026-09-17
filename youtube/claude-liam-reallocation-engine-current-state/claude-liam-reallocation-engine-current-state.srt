@@ -1,0 +1,206 @@
+1
+00:00:00,000 --> 00:00:07,840
+Claude — I've got a repo that claims the
+book and the machine are the same thing.
+Tell me what actually runs in it today,
+
+2
+00:00:07,890 --> 00:00:10,400
+Act one. The book that is a machine.
+
+3
+00:00:10,450 --> 00:00:22,130
+Most technical books describe a system
+living somewhere else. This one doesn't.
+The chapters teach a method for running a
+
+4
+00:00:22,180 --> 00:00:31,730
+Twenty-one chapters. Twenty-five command-
+line entry points. Forty-one operating
+recipes. The manuscript and the machine
+
+5
+00:00:31,780 --> 00:00:41,780
+The reader it's written for is specific:
+an international student on an F-1 visa,
+with sixty to ninety days on the OPT clock
+
+6
+00:00:41,830 --> 00:00:51,570
+That deadline is what makes the book
+honest. You cannot bluff a clock. Either
+the effort went somewhere that mattered,
+
+7
+00:00:51,620 --> 00:00:56,140
+So the argument starts with a specific
+enemy. Not failure. Fluency.
+
+8
+00:00:56,190 --> 00:00:58,440
+Act two. Gates, not votes.
+
+9
+00:00:58,490 --> 00:01:09,060
+The fluency trap is this: the first sign
+of trouble is usually not failure, it's
+polish. A draft reads clean. The code
+
+10
+00:01:09,110 --> 00:01:19,850
+So the engine refuses to fight fluency
+with more fluency. Every count and every
+confidence traces to a source. That's the
+
+11
+00:01:19,900 --> 00:01:29,070
+Then the part that makes it a machine
+instead of a scorecard. Some facts don't
+lower a score. They veto. A dead posting.
+
+12
+00:01:29,120 --> 00:01:39,270
+Multiply by zero and nothing else you
+believed matters. A weighted average would
+have let a strong company average away a
+
+13
+00:01:39,320 --> 00:01:47,270
+And the outcome the whole thing is built
+to produce isn't an application. It's a
+skip. A healthy run skips at least half of
+
+14
+00:01:47,320 --> 00:01:53,930
+The value is in the applications it talks
+you out of. That is a strange thing to
+build, and it is the entire point.
+
+15
+00:01:53,980 --> 00:01:56,920
+Act three. Draft until a human signs.
+
+16
+00:01:56,970 --> 00:02:06,990
+Every recipe in the repo carries a
+lifecycle field. Draft. Specified.
+Runnable-sample. Runnable-live. Verified.
+
+17
+00:02:07,040 --> 00:02:16,820
+It advances because a named human signed a
+gate, with their name and the date, in a
+file you can open. That is the honesty
+
+18
+00:02:16,870 --> 00:02:24,760
+For most of this project's life that
+ladder stayed on its bottom rung.
+Everything drafted. Nothing signed. Which
+
+19
+00:02:24,810 --> 00:02:28,240
+Then a signature landed. Not the author's.
+A student's.
+
+20
+00:02:28,290 --> 00:02:39,590
+Three recipes cleared sample runs on
+student attestations. A connector recipe
+separately reached runnable-live — a
+
+21
+00:02:39,640 --> 00:02:47,590
+That ratio is the current state, stated
+plainly. Two files live. Six on samples.
+Twenty-nine waiting. Nobody has rounded
+
+22
+00:02:47,640 --> 00:02:49,1000
+Act four. What actually runs.
+
+23
+00:02:50,050 --> 00:02:57,210
+Strip the ambition and ask what executes
+on a laptop today. The answer is more than
+nothing and less than the book implies.
+
+24
+00:02:57,260 --> 00:03:08,690
+Applicant-tracking scans and liveness
+checks run. Funding-filing extracts run.
+Wage and occupation extracts run. Resumes
+
+25
+00:03:08,740 --> 00:03:18,720
+And the scorer doesn't just emit a verdict
+— it emits an audit trace. Every term
+labeled: record, model judgment, or your
+
+26
+00:03:18,770 --> 00:03:29,640
+Now the other column. The command-line
+tool the recipes name throughout? It
+doesn't exist. It's roadmap. The runtime
+
+27
+00:03:29,690 --> 00:03:39,990
+And one weight inside the scorer is set to
+zero. Role quality — an entire chapter of
+the book, an entire evidence component —
+
+28
+00:03:40,040 --> 00:03:49,740
+That isn't a bug. It's an unmade authorial
+decision, marked in the code as
+unverified, because the chapter never
+
+29
+00:03:49,790 --> 00:03:52,560
+Act five. The file that got fluent.
+
+30
+00:03:52,610 --> 00:03:57,550
+Which brings us to the thing I actually
+found, and the reason this episode exists.
+
+31
+00:03:57,600 --> 00:04:07,380
+The repository keeps a current-state file.
+It is the file that tells you where the
+work stands. It reads confidently. It is
+
+32
+00:04:07,430 --> 00:04:16,750
+It is also two months out of date, written
+before the repository was re-cut and re-
+organised around it. It describes a folder
+
+33
+00:04:16,800 --> 00:04:26,260
+It states that every recipe is still
+draft. Eight of them aren't. It points to
+the run report that proves the project's
+
+34
+00:04:26,310 --> 00:04:37,310
+A book about not trusting fluent surfaces
+grew a fluent surface. That is not
+hypocrisy — it's the mechanism working
+
+35
+00:04:37,360 --> 00:04:48,600
+So — the verdict. The machine is real and
+narrower than the book. The honesty
+apparatus works, and a student was the
+
+36
+00:04:48,650 --> 00:04:59,270
+Your turn. Point an agent at any repo you
+maintain and run this exact ask. The
+interesting answer is never the code. It's
+
+37
+00:04:59,320 --> 00:05:02,170
+The Reallocation Engine — current state.

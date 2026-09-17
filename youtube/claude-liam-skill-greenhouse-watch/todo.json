@@ -1,0 +1,208 @@
+{
+  "video": "claude-liam-skill-greenhouse-watch",
+  "metadata": {
+    "slug": "claude-liam-skill-greenhouse-watch",
+    "title": "greenhouse-watch \u2014 Your Board, Your Call",
+    "topic": "GREENHOUSE-WATCH \u2014 DIFF ONE JOB BOARD, MATCH AGAINST A R\u00c9SUM\u00c9, STOP AT THE HUMAN GATE",
+    "purpose": "Skill teardown of greenhouse-watch: why narrowness is the design (one fetch, one diff, one auditable rule-set), how the six-step pipeline runs, what the scheme does and where it bends, and why the machine stops before deciding.",
+    "register": "Teardown",
+    "channel": "claude-liam",
+    "skill": "deep-explainer",
+    "palette": "claude",
+    "voice_default": "am_onyx",
+    "engine_default": "kokoro",
+    "seed": 4721,
+    "series": "Skill Teardown",
+    "sources": [
+      "SOURCES.md"
+    ],
+    "factcheck": "FACTCHECK.md",
+    "description_blurb": "greenhouse-watch fetches one Greenhouse job board, diffs it against a state file, matches new postings to a JSON r\u00e9sum\u00e9 on a documented rule-set, and stops. This teardown shows the six-step pipeline, the NoRedirect fetcher, the baseline\u2192diff state cycle, the scheme weights you can apply by hand, the real Airbnb output (163 jobs, 25 new, 7 relevant), and the gate line that keeps the deciding with the human.",
+    "hashtags": [
+      "#JobSearch",
+      "#Greenhouse",
+      "#Python",
+      "#CLI",
+      "#AITools",
+      "#NikBearBrown"
+    ],
+    "build": {
+      "at": "2026-09-17T13:59:52",
+      "cut": "review",
+      "filled": 15,
+      "of": 15,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "source_of_truth": "beat_sheet.json \u2014 edit the sheet, not this file",
+  "beats_total": 15,
+  "beats_open": 0,
+  "beats": [
+    {
+      "beat_id": "B00",
+      "status": "filled",
+      "on_disk": "media/B00.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B00.mp4",
+      "label": "Hei, Liam. There are 163 jobs on one Greenhouse board. Twenty-five weren't there yesterday. Seven ma"
+    },
+    {
+      "beat_id": "B01",
+      "status": "filled",
+      "on_disk": "media/B01.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B01.mp4",
+      "label": "People expect a recommender. What greenhouse-watch delivers is narrower: it shows what is new, filte"
+    },
+    {
+      "beat_id": "B02",
+      "status": "filled",
+      "on_disk": "manim/B02.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B02.mp4",
+      "label": "A mid-size company's Greenhouse board runs 100 to 200 active postings at any time. They're not sorte"
+    },
+    {
+      "beat_id": "B03",
+      "status": "filled",
+      "on_disk": "media/B03.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B03.mp4",
+      "label": "The skill runs one stored script \u2014 not ad-hoc code. Point it at a board slug, a r\u00e9sum\u00e9 JSON, a state"
+    },
+    {
+      "beat_id": "B04",
+      "status": "filled",
+      "on_disk": "media/B04.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B04.mp4",
+      "label": "Every run is six steps in order. Validate inputs. Fetch once from an allow-listed host. Diff by ID. "
+    },
+    {
+      "beat_id": "B05",
+      "status": "filled",
+      "on_disk": "media/B05.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B05.mp4",
+      "label": "The fetcher accepts exactly four Greenhouse hostnames. It refuses redirects \u2014 a redirect could silen"
+    },
+    {
+      "beat_id": "B06",
+      "status": "filled",
+      "on_disk": "manim/B06.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B06.mp4",
+      "label": "The first run is always a baseline. Every ID on the board is recorded; nothing is reported as new. R"
+    },
+    {
+      "beat_id": "B07",
+      "status": "filled",
+      "on_disk": "media/B07.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B07.mp4",
+      "label": "Matching is a JSON scheme file. Title match scores 3.0. Each skill hit in title or content adds 1.0,"
+    },
+    {
+      "beat_id": "B08",
+      "status": "filled",
+      "on_disk": "media/B08.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B08.mp4",
+      "label": "Every relevant job ships with a justification that names the r\u00e9sum\u00e9 field path and the posting field"
+    },
+    {
+      "beat_id": "B09",
+      "status": "filled",
+      "on_disk": "manim/B09.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B09.mp4",
+      "label": "In the Airbnb run: 163 jobs on the board, 25 new since the last check, 7 cleared the threshold, 18 w"
+    },
+    {
+      "beat_id": "B10",
+      "status": "filled",
+      "on_disk": "media/B10.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B10.mp4",
+      "label": "The report opens with a statement, not an invitation. It names who decides. greenhouse-watch reads t"
+    },
+    {
+      "beat_id": "B11",
+      "status": "filled",
+      "on_disk": "manim/B11.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B11.mp4",
+      "label": "The default scheme has a known soft spot. A posting in China cleared the bar at 4.5 \u2014 because locati"
+    },
+    {
+      "beat_id": "BVDT",
+      "status": "filled",
+      "on_disk": "media/BVDT.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BVDT.mp4",
+      "label": "greenhouse-watch is not a recommender. It is a diff. Run it today \u2014 it baselines the board. Run it t"
+    },
+    {
+      "beat_id": "BHTF",
+      "status": "filled",
+      "on_disk": "media/BHTF.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BHTF.mp4",
+      "label": "Your turn. Here is the prompt: 'greenhouse watch [your company], using the persona r\u00e9sum\u00e9.' Clone th"
+    },
+    {
+      "beat_id": "BOUT",
+      "status": "filled",
+      "on_disk": "media/BOUT.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BOUT.mp4",
+      "label": "Liam, in for Bear."
+    }
+  ]
+}

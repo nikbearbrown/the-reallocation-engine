@@ -1,0 +1,92 @@
+1
+00:00:00,000 --> 00:00:17,680
+Merhaba — this is Liam, in for Bear. This
+is The Reallocation Engine, episode two —
+the introduction. One story, one study,
+
+2
+00:00:17,730 --> 00:00:33,320
+Week six. Call her Mira — the book does.
+An F-1 graduate, two hundred applications
+sent. The cover letters are clean. The
+
+3
+00:00:33,370 --> 00:00:50,860
+Here is what the dashboard does not say.
+About a third of those postings were ghost
+listings — never going to hire anyone. And
+
+4
+00:00:50,910 --> 00:01:08,030
+So what failed? Two diagnoses on the
+table. The comfortable one: she didn't
+want it enough — motivation. The book
+
+5
+00:01:08,080 --> 00:01:27,700
+And this isn't a vibe — it's been
+measured. In a controlled trial, people
+who built the work by hand scored sixty-
+
+6
+00:01:27,750 --> 00:01:47,920
+Start two identical job seekers on the
+same morning, same tools. One practices
+execution — drafting, formatting, sending.
+
+7
+00:01:47,970 --> 00:02:02,940
+So which is it — use AI more, or trust it
+less? Commit to an answer before I give
+you the book's. Ready? It's both, at once.
+
+8
+00:02:02,990 --> 00:02:05,160
+Start with the aggressive half.
+
+9
+00:02:05,210 --> 00:02:24,060
+The aggressive half first. Tier One is
+every task with a right answer and a
+receipt: reformat the résumé so a parser
+
+10
+00:02:24,110 --> 00:02:43,490
+Now the other half. Your application
+doesn't land on a desk. It lands in a
+screening model you cannot see, trained on
+
+11
+00:02:43,540 --> 00:03:04,010
+Here's the part people resist. Why not
+just ask the model to check its own work?
+Because the check runs on the same weights
+
+12
+00:03:04,060 --> 00:03:25,340
+Here's what the alternative looks like,
+live. One role, run through the engine's
+scorer. Sponsorship: point nine zero — the
+
+13
+00:03:25,390 --> 00:03:40,320
+Back to Mira's two counters. Same clock —
+thirty-one days. But now the two hundred
+don't go out the door; they go through the
+
+14
+00:03:40,370 --> 00:04:02,590
+Let's recap with Claude. The introduction
+lands one distinction: effort is not
+progress. AI made execution cheap and left
+
+15
+00:04:02,640 --> 00:04:41,480
+Your turn — and this one you run on
+something you already trust. The prompt:
+Take a piece of AI-generated work I'm
+
+16
+00:04:41,530 --> 00:04:45,700
+Two Hundred Applications, Thirty-One Days.
+Liam, in for Bear.

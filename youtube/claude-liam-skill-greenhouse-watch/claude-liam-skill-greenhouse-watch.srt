@@ -1,0 +1,87 @@
+1
+00:00:00,000 --> 00:00:12,450
+Hei, Liam. There are 163 jobs on one
+Greenhouse board. Twenty-five weren't
+there yesterday. Seven match the résumé.
+
+2
+00:00:12,500 --> 00:00:23,290
+People expect a recommender. What
+greenhouse-watch delivers is narrower: it
+shows what is new, filters by documented
+
+3
+00:00:23,340 --> 00:00:36,150
+A mid-size company's Greenhouse board runs
+100 to 200 active postings at any time.
+They're not sorted by date. There's no
+
+4
+00:00:36,200 --> 00:00:48,270
+The skill runs one stored script — not ad-
+hoc code. Point it at a board slug, a
+résumé JSON, a state file path, and an
+
+5
+00:00:48,320 --> 00:01:00,940
+Every run is six steps in order. Validate
+inputs. Fetch once from an allow-listed
+host. Diff by ID. Apply the scheme. Write
+
+6
+00:01:00,990 --> 00:01:13,890
+The fetcher accepts exactly four
+Greenhouse hostnames. It refuses redirects
+— a redirect could silently leave the
+
+7
+00:01:13,940 --> 00:01:26,240
+The first run is always a baseline. Every
+ID on the board is recorded; nothing is
+reported as new. Run it again on day two.
+
+8
+00:01:26,290 --> 00:01:44,030
+Matching is a JSON scheme file. Title
+match scores 3.0. Each skill hit in title
+or content adds 1.0, capped at eight. A
+
+9
+00:01:44,080 --> 00:01:56,150
+Every relevant job ships with a
+justification that names the résumé field
+path and the posting field that produced
+
+10
+00:01:56,200 --> 00:02:08,930
+In the Airbnb run: 163 jobs on the board,
+25 new since the last check, 7 cleared the
+threshold, 18 were skipped. The skipped
+
+11
+00:02:08,980 --> 00:02:20,600
+The report opens with a statement, not an
+invitation. It names who decides.
+greenhouse-watch reads the résumé, applies
+
+12
+00:02:20,650 --> 00:02:35,230
+The default scheme has a known soft spot.
+A posting in China cleared the bar at 4.5
+— because location is a soft penalty, not
+
+13
+00:02:35,280 --> 00:02:49,520
+greenhouse-watch is not a recommender. It
+is a diff. Run it today — it baselines the
+board. Run it tomorrow — it shows exactly
+
+14
+00:02:49,570 --> 00:03:05,880
+Your turn. Here is the prompt: 'greenhouse
+watch [your company], using the persona
+résumé.' Clone the repo, put in a slug,
+
+15
+00:03:05,930 --> 00:03:07,820
+Liam, in for Bear.

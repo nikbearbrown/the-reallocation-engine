@@ -1,0 +1,160 @@
+{
+  "reel": "claude-liam-two-hundred-applications",
+  "authored": "2026-08-23",
+  "gate": "PENDING — awaiting human sign-off",
+  "note": "C2 pattern data for B02 / B03 / B05. Data sourced exclusively from narration's own claims; no external statistics. Survival fractions are the chapter scenario's two filters, not population rates.",
+
+  "palette_decision": {
+    "status": "NO RETINT NEEDED",
+    "reason": "deckPatterns.tsx constants already match the claude stage exactly: BG=#F2F0E9, INK=#3D3929, ACCENT=#D97757, WARN=#A44A32. The BUILD-PLAN note 'log retint as decision' is resolved here — the constants are already correct, nothing to change."
+  },
+
+  "B02_AttritionChain": {
+    "composition": "AttritionChain",
+    "canvas": "1280×720",
+    "type": "AttritionData",
+    "status": "PROPS VERIFIED — matches installed type signature",
+    "source_claim": "chapter ¶1 opening scenario — 'about a third' ghost listings, 'more than half' never sponsored",
+    "data": {
+      "title": "Two Hundred Applications",
+      "slideMeta": "the book's opening scenario",
+      "total": 200,
+      "startLabel": "sent",
+      "stages": [
+        {
+          "label": "the posting was real",
+          "survival": 0.67,
+          "basis": "chapter 'about a third were ghost listings' → 1 − 0.33 = 0.67 survive"
+        },
+        {
+          "label": "the company has ever sponsored",
+          "survival": 0.50,
+          "basis": "chapter 'more than half of the companies have never filed a single visa petition' → 0.50 survive"
+        }
+      ],
+      "script": "Every one looked like progress."
+    },
+    "derived_counts": {
+      "start": 200,
+      "after_filter_1": 134,
+      "after_filter_2": 67,
+      "note": "134 = round(200 × 0.67); 67 = round(134 × 0.50)"
+    },
+    "safe_zone_check": "200 dots at 1280×720 → dotR ≈ 2.9px (clamped 1.3–6); 14-column grid × ~15 rows; all dots inside SAFE at that pitch. No overflow risk."
+  },
+
+  "B03_BinaryBranch": {
+    "composition": "BinaryBranch",
+    "canvas": "1280×720",
+    "type": "BranchData / Branch",
+    "status": "FIX REQUIRED — branches missing required 'fix' field (renders '→ undefined' without it)",
+    "fix_applied": "fix field added to both branches below; beat_sheet.json updated accordingly",
+    "data": {
+      "slideMeta": "the introduction's turn",
+      "question": "Why did two hundred applications produce nothing?",
+      "branches": [
+        {
+          "label": "A motivation problem",
+          "detail": "work harder · send more",
+          "fix": "send more applications",
+          "tone": "ink",
+          "note": "desaturates after resolver; 'fix' is the flawed prescription — correct to leave blank or use empty string if preferred"
+        },
+        {
+          "label": "An allocation problem",
+          "detail": "same effort · wrong place",
+          "fix": "route effort by evidence",
+          "tone": "warn",
+          "note": "fills terracotta on resolution; 'fix' is the correct prescription the book provides"
+        }
+      ],
+      "resolver": {
+        "label": "She sent two hundred.",
+        "detail": "The effort was never the missing variable."
+      },
+      "ghostText": "allocation",
+      "script": "Not motivation. Allocation."
+    },
+    "beat_sheet_delta": "branches[0].fix added = 'send more applications'; branches[1].fix added = 'route effort by evidence'"
+  },
+
+  "B05_DivergentFates": {
+    "composition": "DivergentFates",
+    "canvas": "1280×720",
+    "type": "FatesData / FateTrack",
+    "status": "PROPS VERIFIED — matches installed type signature",
+    "source_claim": "chapter 'What this book is' ¶4 — the four-and-four enumeration of Tier 1 vs irreducibly human",
+    "data": {
+      "slideMeta": "execution vs. judgment",
+      "startLabel": "the work",
+      "splitLabel": "AI decisively won one side",
+      "tracks": [
+        {
+          "label": "Tier One",
+          "outcome": "machine",
+          "tone": "ink",
+          "path": "down",
+          "notes": [
+            "pattern-finding",
+            "retrieval",
+            "drafting",
+            "formatting"
+          ]
+        },
+        {
+          "label": "Irreducibly human",
+          "outcome": "yours",
+          "tone": "warn",
+          "path": "up",
+          "notes": [
+            "audit for plausibility",
+            "formulate the question",
+            "reason about cause",
+            "be accountable"
+          ]
+        }
+      ],
+      "script": "Execution got cheap."
+    }
+  },
+
+  "C3_registration_issues": {
+    "note": "Three C3 structural illustration components referenced in the beat sheet are NOT registered as standalone Compositions in Root.tsx. Flagged here for resolution at GATE P.",
+    "B06_PredictCard": {
+      "beat_sheet_pattern": "PredictCard",
+      "registered_as": "none (Illu-PredictCard is a preview-only wrapper, not parameterized)",
+      "structural_tsx_type": "{ question: string; commit: string }",
+      "beat_sheet_props": "{ question, commit, sparkLine }",
+      "resolution_options": [
+        "Register structural.tsx PredictCard as 'RETwoPredictCard' (or 'IlluPredictCard') composition in Root.tsx — minimal new code",
+        "Use MedhavyPredictCard (registered) and remap props — different visual style",
+        "Create reel-local component TwoHundredApplications.tsx with a PredictCard variant"
+      ],
+      "recommendation": "Register structural.tsx PredictCard directly — single composition, no new component needed. The sparkLine becomes a bottom overlay (SPARK-LINE LAW) rendered by IlluStage or added to the beat as a sub-beat Remotion overlay."
+    },
+    "B07_ChipGrid": {
+      "beat_sheet_pattern": "ChipGrid",
+      "registered_ChipGrid": "DeepExplainerPatterns ChipGrid — props { title, chips: string[], sparkLine, cols }",
+      "beat_sheet_props": "{ items: string[], cols, caption, sparkLine }",
+      "mismatch": "items vs chips; caption not in DeepExplainerPatterns schema",
+      "structural_tsx_type": "{ items: string[], cols?, caption? }",
+      "resolution_options": [
+        "Remap beat sheet props to DeepExplainerPatterns schema: title='Tier One Delegation', chips=items array (caption becomes title). sparkLine maps correctly.",
+        "Register structural.tsx ChipGrid as 'IlluChipGrid' composition",
+        "Create reel-local component"
+      ],
+      "recommendation": "Remap to DeepExplainerPatterns ChipGrid: move caption to title prop, rename items→chips. sparkLine already maps. Update beat_sheet.json B07 props to use title/chips."
+    },
+    "B08_SourceFlow": {
+      "beat_sheet_pattern": "SourceFlow",
+      "registered_as": "none as bare SourceFlow (ClaudeScienceSourceFlow / VRSourceFlow / FluencySourceFlow are reel-local variants)",
+      "structural_tsx_type": "{ sourceLabel, feeds: Feed[], destApp, destTitle, arcCaption?, settleLine?, rackRows? }",
+      "beat_sheet_props": "match structural.tsx type exactly",
+      "resolution_options": [
+        "Register structural.tsx SourceFlow directly as 'IlluSourceFlow' composition",
+        "Create reel-local TwoHundredApplications.tsx with a SourceFlow variant at 1920×1080"
+      ],
+      "recommendation": "Register structural.tsx SourceFlow as 'IlluSourceFlow' (1280×720 canvas, matches C2 pattern canvas). sparkLine is carried as a spark overlay, not a SourceFlow prop."
+    }
+  }
+}

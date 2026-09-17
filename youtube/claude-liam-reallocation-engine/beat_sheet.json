@@ -1,0 +1,1558 @@
+{
+ "slug": "claude-liam-reallocation-engine",
+ "metadata": {
+  "slug": "claude-liam-reallocation-engine",
+  "title": "The Engine That Says No.",
+  "subtitle": "Inside the Reallocation Engine — a job search that treats evidence like it matters",
+  "topic": "THE REALLOCATION ENGINE",
+  "family": "deep-explainer",
+  "purpose": "Deep documentary teardown of the-reallocation-engine repo: the volume trap it exists to end, the verified-data contract, gates-as-multipliers with the fail-closed decision, the authorization-parsing trap (incl. the open negation bug, presented honestly), and the adversarial classroom process that hardened it.",
+  "source": [
+   "the-reallocation-engine (repo: governance docs, scripts/score/role-scorer.mjs, DATA_CONTRACT.md, chapters/15-the-pipeline-tracker-and-the-skip-rate.md)"
+  ],
+  "audience": "Claude",
+  "channel": "claude-liam",
+  "persona": "Liam (in for Bear)",
+  "folderLabel": "@NikBearBrown",
+  "register": "Teardown",
+  "palette": "claude",
+  "engine": "kokoro",
+  "voice": "am_onyx",
+  "voice_kokoro": "am_onyx",
+  "voice_id": "ELEVENLABS_VOICE_LIAM",
+  "aspect_ratio": "16:9",
+  "clock": "narration",
+  "style_preset": "claude-fidelity + vox-on-claude-stage (deep-explainer treatment)",
+  "greeting_language": "Namaste (Hindi)",
+  "note": "Exclusions: no student names anywhere; no real resumes or personal data on screen (fictional personas only); no term/semester dates on screen; no vendor tool versions.",
+  "gates": {
+   "plan": "PRESENTED — awaiting approval",
+   "factcheck": "pending",
+   "P_narration": "pending",
+   "audio_lock": "pending",
+   "D2_shopping": "after audio lock only",
+   "D1_previz": "pending"
+  }
+ },
+ "beats": [
+  {
+   "beat_id": "B00",
+   "act": "COLD OPEN",
+   "lane": "BOOKEND",
+   "narration_text": "Namaste — this is Liam, in for Bear. There's a public repo that treats your job search like a provenance problem. Every number needs a source, every gate fails closed, and its favorite health metric is how often it tells you no. Let's take it apart.",
+   "estimated_duration_s": 17,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk — The Engine That Says No.",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "type",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "Namaste, Liam",
+      "command": "Open the-reallocation-engine repo. Why does a job-search engine brag about telling you NOT to apply?",
+      "segment": "The Engine That Says No.",
+      "topic": "THE REALLOCATION ENGINE",
+      "runningText": "reading the repo…",
+      "output": [
+       "A scorer where missing evidence scores zero.",
+       "A healthy week skips more than half its roles."
+      ],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/B00.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream composer; 'Namaste, Liam' serif greeting"
+    },
+    {
+     "at": 0.35,
+     "event": "Ask types in; send button arms terracotta"
+    },
+    {
+     "at": 0.7,
+     "event": "Running: 'reading the repo…' → two output lines land — the ask lands answered"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B01",
+   "act": "EXECUTIVE SUMMARY",
+   "lane": "CARD",
+   "narration_text": "Three claims this episode has to land. One: no invented numbers — every factor carries provenance. Two: gates multiply — missing evidence zeroes the score. Three: the skip rate is the health metric, and healthy means high.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Segment card — The Engine That Says No.",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "FormACard",
+     "props": {
+      "title": "The Engine That Says No.",
+      "items": [
+       {
+        "label": "No invented numbers",
+        "sub": "every factor carries provenance",
+        "icon": "target",
+        "cueFrame": 30
+       },
+       {
+        "label": "Gates multiply",
+        "sub": "missing evidence scores zero",
+        "icon": "zap",
+        "cueFrame": 90
+       },
+       {
+        "label": "The skip rate is the health metric",
+        "sub": "healthy means high",
+        "icon": "list-checks",
+        "cueFrame": 150
+       }
+      ]
+     },
+     "rendered": {
+      "out": "media/B01.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Title lands"
+    },
+    {
+     "at": 0.3,
+     "event": "Claim 1 draws on as spoken"
+    },
+    {
+     "at": 0.55,
+     "event": "Claim 2, terracotta on 'zero'"
+    },
+    {
+     "at": 0.8,
+     "event": "Claim 3"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B02",
+   "act": "ACT I — The Volume Trap",
+   "lane": "CARD",
+   "narration_text": "",
+   "estimated_duration_s": 4,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Segment card — The Volume Trap",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeSegmentCard",
+     "props": {
+      "title": "The Volume Trap",
+      "actLabel": "Act I"
+     },
+     "rendered": {
+      "out": "media/B02.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream card; 'Act I' chip; 'The Volume Trap' large Title Case serif fades in"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B03",
+   "act": "ACT I — The Volume Trap",
+   "lane": "VOX",
+   "narration_text": "The default job search is a volume ritual. More applications, more hope. The counter climbs, the inbox doesn't. Everyone in it knows the feeling; almost nobody audits the method.",
+   "estimated_duration_s": 12,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "VOX still — late-night laptop, sea of identical application forms / job boards (generic, no real person identifiable)",
+   "pantry": {
+    "expects": "pantry/B03.png",
+    "tier": 1,
+    "still": "late-night laptop, sea of identical application forms / job boards (generic, no real person identifiable)"
+   },
+   "shot": {
+    "type": "STILL",
+    "source": "archive",
+    "motion": "kenburns",
+    "focus": [
+     0.55,
+     0.45
+    ],
+    "treatment": "vox-on-claude-stage: desaturate ~80%, contrast 1.15, cream stage #F2F0E9, film grain, warm-ink vignette, ONE terracotta accent"
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Desaturated still seated on cream stage, slow ease-out push toward the screen glow"
+    },
+    {
+     "at": 0.6,
+     "event": "Terracotta underline draws under the pile of applications"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B04",
+   "act": "ACT I — The Volume Trap",
+   "lane": "MANIM",
+   "narration_text": "The repo's own tracker example: thirty roles evaluated, twenty-four applied, six skipped. Skip rate, twenty percent. An AI assistant praised that week as highly productive. That praise is the bug this whole engine exists to fix.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Isotype grid: 30 role glyphs → 24 arrows out, 6 crossed; '20%' counter; praise quote stamped then struck through",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B04_IsotypeFunnel",
+    "production_viz": {
+     "label": "B04_IsotypeFunnel",
+     "mechanic": "Isotype grid: 30 role glyphs → 24 arrows out, 6 crossed; '20%' counter; praise quote stamped then struck through",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "30 glyphs populate as 'thirty roles' lands"
+    },
+    {
+     "at": 0.35,
+     "event": "24 slide to APPLIED as spoken; 6 gray out"
+    },
+    {
+     "at": 0.7,
+     "event": "'highly productive' quote stamps on; terracotta strike-through on 'praise is the bug'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B05",
+   "act": "ACT I — The Volume Trap",
+   "lane": "VOX",
+   "narration_text": "Now add the clock. For an international graduate on OPT, the search runs against a ninety-day unemployment limit. Days spent applying into dead listings are not neutral. They are spent.",
+   "estimated_duration_s": 12,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "VOX still — desk calendar macro, days visible (prop/staged, no real personal data)",
+   "pantry": {
+    "expects": "pantry/B05.png",
+    "tier": 1,
+    "still": "desk calendar macro, days visible (prop/staged, no real personal data)"
+   },
+   "shot": {
+    "type": "STILL",
+    "source": "archive",
+    "motion": "kenburns",
+    "focus": [
+     0.5,
+     0.42
+    ],
+    "treatment": "vox-on-claude-stage: desaturate ~80%, contrast 1.15, cream stage #F2F0E9, film grain, warm-ink vignette, ONE terracotta accent",
+    "vox_run": "R1",
+    "handoff": {
+     "camera": {
+      "x": 0.5,
+      "y": 0.42,
+      "scale": 1.45
+     },
+     "objects": [
+      {
+       "id": "calendar-desk",
+       "x": 0.5,
+       "y": 0.45,
+       "scale": 1.0,
+       "opacity": 1
+      }
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Tight on calendar grid; constant-velocity drift across the days"
+    },
+    {
+     "at": 0.65,
+     "event": "Terracotta ring draws around a countdown of days"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B06",
+   "act": "ACT I — The Volume Trap",
+   "lane": "VOX",
+   "narration_text": "Miss that window and the cost is not a rejection email — it's status. The stakes are asymmetric. A method built for this searcher has to be asymmetric too: skeptical by default, generous only on evidence.",
+   "estimated_duration_s": 13,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "VOX still — same desk pulled wide: calendar + visa-stamp document in frame (staged/fictional document)",
+   "pantry": {
+    "expects": "pantry/B06.png",
+    "tier": 1,
+    "still": "same desk pulled wide: calendar + visa-stamp document in frame (staged/fictional document)"
+   },
+   "shot": {
+    "type": "STILL",
+    "source": "archive",
+    "motion": "kenburns",
+    "focus": [
+     0.5,
+     0.5
+    ],
+    "treatment": "vox-on-claude-stage: desaturate ~80%, contrast 1.15, cream stage #F2F0E9, film grain, warm-ink vignette, ONE terracotta accent",
+    "vox_run": "R1"
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "FIRST FRAME reproduces R1 handoff: camera 0.5/0.42 @1.45 on the calendar"
+    },
+    {
+     "at": 0.3,
+     "event": "One continuous zoom-out reveals the wider desk and the document"
+    },
+    {
+     "at": 0.8,
+     "event": "Terracotta accent settles on the document edge"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B07",
+   "act": "ACT I — The Volume Trap",
+   "lane": "REMOTION",
+   "narration_text": "Four constraints stack: the degree clock, the OPT window, the ninety-day limit, sponsorship. Most job-search advice ignores the stack entirely — which means it optimizes a search that isn't yours.",
+   "estimated_duration_s": 13,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 LayerStack — four constraint layers stack as named; terracotta on the 90-day layer",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "LayerStack",
+     "props": {
+      "title": "The Constraint Stack",
+      "layers": [
+       {
+        "label": "Degree clock"
+       },
+       {
+        "label": "OPT window"
+       },
+       {
+        "label": "90-day unemployment limit"
+       },
+       {
+        "label": "Sponsorship"
+       }
+      ],
+      "accentIndex": 2
+     },
+     "rendered": {
+      "out": "media/B07.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Layers stack one per spoken constraint"
+    },
+    {
+     "at": 0.55,
+     "event": "90-day layer pulses terracotta"
+    },
+    {
+     "at": 0.8,
+     "event": "Generic-advice arrow slides past the stack, missing it"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B08",
+   "act": "ACT II — Evidence First",
+   "lane": "CARD",
+   "narration_text": "",
+   "estimated_duration_s": 4,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Segment card — Evidence First",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeSegmentCard",
+     "props": {
+      "title": "Evidence First",
+      "actLabel": "Act II"
+     },
+     "rendered": {
+      "out": "media/B08.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream card; 'Act II' chip; 'Evidence First' large Title Case serif fades in"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B09",
+   "act": "ACT II — Evidence First",
+   "lane": "MANIM",
+   "narration_text": "The repo's data contract opens with a law: never invent a count, a rate, or a confidence. And its corollary: label model judgments as judgments. Not a style guide — an enforceable contract, and the doctor script enforces it.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Quote card: contract line in serif, hand-drawn terracotta underline draws on word-synced; 'enforceable' stamp",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B09_QuoteCard",
+    "production_viz": {
+     "label": "B09_QuoteCard",
+     "mechanic": "Quote card: contract line in serif, hand-drawn terracotta underline draws on word-synced; 'enforceable' stamp",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Quote draws on in serif as read"
+    },
+    {
+     "at": 0.5,
+     "event": "Terracotta underline lands under 'never invent'"
+    },
+    {
+     "at": 0.85,
+     "event": "Small 'DATA_CONTRACT.md' citation, bottom, small"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BASK1",
+   "act": "ACT II — Evidence First",
+   "lane": "BOOKEND",
+   "narration_text": "So what does that look like when it runs?",
+   "estimated_duration_s": 6,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk — Evidence First",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "type",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "",
+      "command": "Score these thirty roles. Rule: anything you can't verify, say so — out loud, in the output.",
+      "segment": "Evidence First",
+      "topic": "THE REALLOCATION ENGINE",
+      "runningText": "scoring with the verified-data contract…",
+      "output": [],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/BASK1.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Composer micro-beat: the actual scoring ask, already typed; running indicator"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B10",
+   "act": "ACT II — Evidence First",
+   "lane": "REMOTION",
+   "narration_text": "Every factor in the output carries provenance: record, your-input — or missing. The arithmetic is shown. A number that can't name its source doesn't get to look like a fact. That single convention kills the fluency trap.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Onda code-block: real output shape; 'missing' + 'defaulted: true' highlighted",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "code-block",
+     "props": {
+      "language": "json",
+      "title": "role-scores.json — provenance on every factor",
+      "code": "\"gates\": [\n  { \"key\": \"liveness\",  \"factor\": 1, \"source\": \"record\" },\n  { \"key\": \"timeline\",  \"factor\": 1, \"source\": \"your-input\" },\n  { \"key\": \"funding_recency\", \"factor\": 1, \"source\": \"missing\",\n    \"defaulted\": true }\n]",
+      "highlightLines": [
+       4,
+       5
+      ]
+     },
+     "rendered": {
+      "out": "media/B10.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Output scrolls into frame in Onda block"
+    },
+    {
+     "at": 0.5,
+     "event": "'missing' line highlights as the word lands"
+    },
+    {
+     "at": 0.8,
+     "event": "Terracotta on 'defaulted: true'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B11",
+   "act": "ACT II — Evidence First",
+   "lane": "VOX",
+   "narration_text": "Runs land in an append-only log. Gates get cleared by a named human, on the record. This is the move: honesty as mechanism, not as vibe. If the log can't say who verified it, it isn't verified.",
+   "estimated_duration_s": 13,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "VOX still — paper ledger / logbook with handwritten entries (staged, generic)",
+   "pantry": {
+    "expects": "pantry/B11.png",
+    "tier": 1,
+    "still": "paper ledger / logbook with handwritten entries (staged, generic)"
+   },
+   "shot": {
+    "type": "STILL",
+    "source": "archive",
+    "motion": "drawon",
+    "focus": [
+     0.5,
+     0.5
+    ],
+    "treatment": "vox-on-claude-stage: desaturate ~80%, contrast 1.15, cream stage #F2F0E9, film grain, warm-ink vignette, ONE terracotta accent"
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Ledger still holds; grain visible"
+    },
+    {
+     "at": 0.45,
+     "event": "Terracotta underline draws beneath one entry line as 'named human' lands"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B12",
+   "act": "ACT III — Gates, Not Weights",
+   "lane": "CARD",
+   "narration_text": "",
+   "estimated_duration_s": 4,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Segment card — Gates, Not Weights",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeSegmentCard",
+     "props": {
+      "title": "Gates, Not Weights",
+      "actLabel": "Act III"
+     },
+     "rendered": {
+      "out": "media/B12.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream card; 'Act III' chip; 'Gates, Not Weights' large Title Case serif fades in"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B13",
+   "act": "ACT III — Gates, Not Weights",
+   "lane": "MANIM",
+   "narration_text": "The score itself is a weighted sum of evidence — role fit, hiring momentum, sponsorship likelihood. Bars stack, a composite assembles. So far, every ranking tool you've ever seen.",
+   "estimated_duration_s": 11,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Weighted evidence bars stack into a composite score as each factor is named",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B13_CompositeBars",
+    "production_viz": {
+     "label": "B13_CompositeBars",
+     "mechanic": "Weighted evidence bars stack into a composite score as each factor is named",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Three labeled bars grow in narration order"
+    },
+    {
+     "at": 0.7,
+     "event": "Composite bar assembles from the parts"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B14",
+   "act": "ACT III — Gates, Not Weights",
+   "lane": "MANIM",
+   "narration_text": "Here's where it stops being ordinary. Gates don't add — they multiply. Composite equals the weighted sum times the product of the gates. Liveness unverified? That gate is zero. And anything times zero is zero.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Equation tangent: composite = Σ(wᵢ·eᵢ) × Π gⱼ; liveness gate flips to 0 and the whole product collapses to 0",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B14_GateMultiply",
+    "production_viz": {
+     "label": "B14_GateMultiply",
+     "mechanic": "Equation tangent: composite = Σ(wᵢ·eᵢ) × Π gⱼ; liveness gate flips to 0 and the whole product collapses to 0",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Equation writes itself, sum first"
+    },
+    {
+     "at": 0.45,
+     "event": "Gate product appends; each gate a small dial"
+    },
+    {
+     "at": 0.75,
+     "event": "Liveness dial slams to 0; entire composite collapses ON 'zero'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B15",
+   "act": "ACT III — Gates, Not Weights",
+   "lane": "REMOTION",
+   "narration_text": "The design decision worth the episode: what happens when a gate is simply missing? Fail-open says assume fine — the score sails through. This repo fails closed: absence of evidence scores zero. The burden of proof never leaves the listing.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C2 branch: identical role splits into fail-open vs fail-closed paths; terracotta on the fail-closed outcome",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "deckPatterns/threshold",
+     "props": {
+      "pattern": "branch",
+      "title": "Missing gate: two philosophies",
+      "left": {
+       "label": "Fail open",
+       "value": "missing → 1",
+       "result": "score survives"
+      },
+      "right": {
+       "label": "Fail closed",
+       "value": "missing → 0",
+       "result": "score dies"
+      },
+      "accent": "right"
+     },
+     "rendered": {
+      "out": "media/B15.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "One role card splits into two paths"
+    },
+    {
+     "at": 0.4,
+     "event": "Fail-open path: gate ghosts to 1, score passes"
+    },
+    {
+     "at": 0.7,
+     "event": "Fail-closed path: gate slams 0 ON 'scores zero'; terracotta"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B16",
+   "act": "ACT III — Gates, Not Weights",
+   "lane": "REMOTION",
+   "narration_text": "In the source, the whole philosophy is two characters wide. Liveness: clamped value, or zero. And the one optional signal that defaults open is labelled missing — a default, never disguised as a reading. That's the contract, executable.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Onda code-block: verbatim fail-closed lines; '?? 0' highlighted",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "code-block",
+     "props": {
+      "language": "javascript",
+      "title": "scripts/score/role-scorer.mjs",
+      "code": "// Contract gates fail CLOSED when missing…\nconst liveness = livenessClamped ?? 0;\nconst timeline = timelineClamped ?? 0;\n// …the optional funding-recency signal defaults OPEN when\n// missing — but the default is labelled, never disguised\n// as a reading.\nconst fundingRecency = fundingClamped ?? 1;",
+      "highlightLines": [
+       2,
+       3
+      ]
+     },
+     "rendered": {
+      "out": "media/B16.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Real source lines in Onda block"
+    },
+    {
+     "at": 0.35,
+     "event": "'?? 0' highlights on both contract gates as spoken"
+    },
+    {
+     "at": 0.75,
+     "event": "'?? 1' + comment highlight on the labelled default"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B17",
+   "act": "ACT III — Gates, Not Weights",
+   "lane": "MANIM",
+   "narration_text": "Run it honestly and a healthy week says no most of the time. The tracker's dial: skip rate above fifty percent, healthy. Below forty, the filter is failing — it found everything worth applying to, which means it found nothing.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Skip-rate dial draws with bands (below 40 failing / 40–50 borderline / 50+ healthy / 85+ starved); needle sweeps from 20% into the healthy band",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B17_SkipDial",
+    "production_viz": {
+     "label": "B17_SkipDial",
+     "mechanic": "Skip-rate dial draws with bands (below 40 failing / 40–50 borderline / 50+ healthy / 85+ starved); needle sweeps from 20% into the healthy band",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Dial and bands draw on"
+    },
+    {
+     "at": 0.4,
+     "event": "Needle at 20% in the failing band — Act I's week"
+    },
+    {
+     "at": 0.75,
+     "event": "Needle sweeps past 50 ON 'healthy'; terracotta band tick"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B18",
+   "act": "ACT IV — The Authorization Trap",
+   "lane": "CARD",
+   "narration_text": "",
+   "estimated_duration_s": 4,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Segment card — The Authorization Trap",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeSegmentCard",
+     "props": {
+      "title": "The Authorization Trap",
+      "actLabel": "Act IV"
+     },
+     "rendered": {
+      "out": "media/B18.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream card; 'Act IV' chip; 'The Authorization Trap' large Title Case serif fades in"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B19",
+   "act": "ACT IV — The Authorization Trap",
+   "lane": "REMOTION",
+   "narration_text": "Meet Aarav Patel — fictional by design; fictional personas are the only resume-shaped data this repo lets into git. His profile's free text says: work authorized, EAD. Which is true. And dangerously incomplete.",
+   "estimated_duration_s": 13,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Persona card on cream stage; FICTIONAL chip; terracotta on the free-text authorization line",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "PredictCard",
+     "props": {
+      "title": "Aarav Patel",
+      "chip": "FICTIONAL PERSONA",
+      "fields": [
+       {
+        "label": "Status",
+        "value": "F-1 STEM OPT"
+       },
+       {
+        "label": "Authorization (free text)",
+        "value": "\"work authorized (EAD)\""
+       },
+       {
+        "label": "needs_sponsorship",
+        "value": "— not set —"
+       }
+      ],
+      "accentField": 1
+     },
+     "rendered": {
+      "out": "media/B19.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Card assembles; FICTIONAL PERSONA chip visible first"
+    },
+    {
+     "at": 0.5,
+     "event": "Free-text line highlights as read"
+    },
+    {
+     "at": 0.85,
+     "event": "'— not set —' dims in as the trap arms"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B20",
+   "act": "ACT IV — The Authorization Trap",
+   "lane": "MANIM",
+   "narration_text": "An early parser saw the word authorized and deleted the sponsorship constraint — silently. The fix reorders the logic: a nonimmigrant status is decisive even when the same sentence says authorized. An explicit field always wins. Unrecognized text? The constraint stays, with a warning.",
+   "estimated_duration_s": 16,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Branch: 'work authorized (EAD)' enters a fork — old path crosses out the sponsorship constraint (terracotta X); fixed path keeps it via status-first ordering; explicit-field lane bypasses both",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B20_ParserFork",
+    "production_viz": {
+     "label": "B20_ParserFork",
+     "mechanic": "Branch: 'work authorized (EAD)' enters a fork — old path crosses out the sponsorship constraint (terracotta X); fixed path keeps it via status-first ordering; explicit-field lane bypasses both",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "The phrase enters the fork"
+    },
+    {
+     "at": 0.3,
+     "event": "Old path: constraint crossed out, terracotta X on 'silently'"
+    },
+    {
+     "at": 0.6,
+     "event": "Fixed path: F-1 token wins the order"
+    },
+    {
+     "at": 0.85,
+     "event": "Explicit-field lane bypasses with a checkmark"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B21",
+   "act": "ACT IV — The Authorization Trap",
+   "lane": "REMOTION",
+   "narration_text": "And the honest part: this parser is still negation-blind. Feed it 'not a US citizen' and the bare word citizen matches the wrong list. The harness proving that bug ships in the repo, and the finding is filed in public. Show me another scoring tool that documents its own blind spot.",
+   "estimated_duration_s": 16,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Onda code-block: verbatim regex; failing input traced to the wrong classification",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "code-block",
+     "props": {
+      "language": "javascript",
+      "title": "role-scorer.mjs — the open bug, on the record",
+      "code": "const STATUS_NOT_REQUIRING_SPONSORSHIP =\n  /\\b(u\\.?s\\.?\\s*citizen|citizen|naturalized|permanent\\s*resident|\n     green\\s*card|lpr|gc|asylee|refugee)\\b/;\n\n// input: \"not a US citizen\"   → matches \\bcitizen\\b\n// classified: does NOT need sponsorship   ← WRONG (negation-blind)",
+      "highlightLines": [
+       2,
+       6
+      ]
+     },
+     "rendered": {
+      "out": "media/B21.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Regex renders in Onda block"
+    },
+    {
+     "at": 0.4,
+     "event": "Input string slides in; 'citizen' token match highlights"
+    },
+    {
+     "at": 0.7,
+     "event": "Terracotta on 'WRONG (negation-blind)' as spoken"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B22",
+   "act": "ACT IV — The Authorization Trap",
+   "lane": "VOX",
+   "narration_text": "When a regex decides whether the one constraint governing your whole search stays in the model, conservative defaults aren't pessimism. They're respect for stakes.",
+   "estimated_duration_s": 11,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "VOX still — passport visa-stamp page macro (generic/staged, no personal data legible)",
+   "pantry": {
+    "expects": "pantry/B22.png",
+    "tier": 1,
+    "still": "passport visa-stamp page macro (generic/staged, no personal data legible)"
+   },
+   "shot": {
+    "type": "STILL",
+    "source": "archive",
+    "motion": "kenburns",
+    "focus": [
+     0.48,
+     0.5
+    ],
+    "treatment": "vox-on-claude-stage: desaturate ~80%, contrast 1.15, cream stage #F2F0E9, film grain, warm-ink vignette, ONE terracotta accent"
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Slow constant-velocity drift across the stamp page"
+    },
+    {
+     "at": 0.7,
+     "event": "Warm-ink vignette deepens; no annotation — the still carries it"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B23",
+   "act": "ACT V — Forged in a Classroom",
+   "lane": "CARD",
+   "narration_text": "",
+   "estimated_duration_s": 4,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Segment card — Forged in a Classroom",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeSegmentCard",
+     "props": {
+      "title": "Forged in a Classroom",
+      "actLabel": "Act V"
+     },
+     "rendered": {
+      "out": "media/B23.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream card; 'Act V' chip; 'Forged in a Classroom' large Title Case serif fades in"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B24",
+   "act": "ACT V — Forged in a Classroom",
+   "lane": "MANIM",
+   "narration_text": "This repo is a graduate course's standing project, and the assignment is adversarial: twenty-five students, one semester, one instruction — break the scorer, and prove it with a harness that would catch the break forever.",
+   "estimated_duration_s": 13,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Isotype: 25 student glyphs each fire a harness icon at one scorer block; the scorer accretes a shield ring per surviving harness",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon"
+   },
+   "graphic": {
+    "engine": "manim",
+    "manim": "B24_CohortIsotype",
+    "production_viz": {
+     "label": "B24_CohortIsotype",
+     "mechanic": "Isotype: 25 student glyphs each fire a harness icon at one scorer block; the scorer accretes a shield ring per surviving harness",
+     "colors": [
+      "#3D3929 ink",
+      "#D97757 terracotta accent",
+      "#F2F0E9 cream stage"
+     ]
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "25 glyphs populate"
+    },
+    {
+     "at": 0.4,
+     "event": "Harness icons launch at the scorer in waves"
+    },
+    {
+     "at": 0.8,
+     "event": "Shield rings accrete — the scorer that survives"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BASK2",
+   "act": "ACT V — Forged in a Classroom",
+   "lane": "BOOKEND",
+   "narration_text": "The merged scorer now answers to all of them, every commit.",
+   "estimated_duration_s": 6,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk — Forged in a Classroom",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "type",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "",
+      "command": "Run every harness against the merged scorer. Paste real output — not descriptions.",
+      "segment": "Forged in a Classroom",
+      "topic": "THE REALLOCATION ENGINE",
+      "runningText": "running the regression suite…",
+      "output": [],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/BASK2.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Composer micro-beat: the suite ask, already typed; running indicator"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B25",
+   "act": "ACT V — Forged in a Classroom",
+   "lane": "REMOTION",
+   "narration_text": "Five independent harnesses, written by different students to different philosophies — scenario tests, seeded fuzzing over hundreds of inputs, seventeen algebraic properties, a black-box audit. All green, deterministically. Paste output, not adjectives — that was the grading rule, too.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Onda code-block: the five real green lines, landing one per spoken clause",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "code-block",
+     "props": {
+      "language": "text",
+      "title": "the regression suite — real output",
+      "code": "$ gate-behavior-harness   →  7/7 scenarios passed\n$ fuzz-invariants --n 300 --seed 42\n                          →  All 3 invariants held\n$ gate-harness (property) →  17/17 passed\n$ scorer-harness          →  0 gating failures\n$ broken-scorer self-test →  VALID",
+      "highlightLines": [
+       1,
+       4
+      ]
+     },
+     "rendered": {
+      "out": "media/B25.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Green lines land one at a time, synced to the enumeration"
+    },
+    {
+     "at": 0.85,
+     "event": "Terracotta tick on 'VALID'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B26",
+   "act": "ACT V — Forged in a Classroom",
+   "lane": "VOX",
+   "narration_text": "And the grades attach to honesty itself. A recipe claiming verified status without a signed attestation is a contract violation — worth zero, regardless of how good the code is. Students were graded on whether their metadata told the truth.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "VOX still — empty lecture hall / seminar room, warm light (generic)",
+   "pantry": {
+    "expects": "pantry/B26.png",
+    "tier": 1,
+    "still": "empty lecture hall / seminar room, warm light (generic)"
+   },
+   "shot": {
+    "type": "STILL",
+    "source": "archive",
+    "motion": "kenburns",
+    "focus": [
+     0.5,
+     0.55
+    ],
+    "treatment": "vox-on-claude-stage: desaturate ~80%, contrast 1.15, cream stage #F2F0E9, film grain, warm-ink vignette, ONE terracotta accent"
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Slow push down the hall's center line"
+    },
+    {
+     "at": 0.6,
+     "event": "Terracotta underline draws under nothing — restraint beat; the room holds"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B27",
+   "act": "ACT V — Forged in a Classroom",
+   "lane": "REMOTION",
+   "narration_text": "One more wall, because the data is people: real resumes never enter git. The private layer stays untracked; the fictional personas are the only resume-shaped files allowed through; and CI scans every branch's full history — not just the final tree.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 SourceFlow: real-data lane dead-ends at the CI wall; persona lane passes through",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "SourceFlow",
+     "props": {
+      "title": "The Privacy Wall",
+      "left": {
+       "label": "private/ · your real data",
+       "note": "untracked, always"
+      },
+      "right": {
+       "label": "search/examples/ · fictional personas",
+       "note": "the only resume-shaped files in git"
+      },
+      "wall": "CI: doctor + PII scan, full branch history"
+     },
+     "rendered": {
+      "out": "media/B27.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Two lanes draw"
+    },
+    {
+     "at": 0.4,
+     "event": "Real-data lane hits the wall and stops"
+    },
+    {
+     "at": 0.7,
+     "event": "Persona lane passes; wall label lands on 'full history'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BVDT",
+   "act": "VERDICT RECAP",
+   "lane": "BOOKEND",
+   "lead_silence_s": 0.5,
+   "narration_text": "Let's recap with Claude. What this design gets right: it makes honesty mechanical — provenance on every number, gates that fail closed, a health metric that rewards saying no, and a bug tracker that includes its own scorer. Where it bites: skipping feels terrible when a clock is running, verification is real work, and the negation gap is still open. The repo's answer to that last one is the most honest move in it — it ships the harness that proves its own bug.",
+   "estimated_duration_s": 30,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeVerdictArtifact — four-line verdict",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeVerdictArtifact",
+     "props": {
+      "artifactTitle": "Verdict",
+      "artifactHeading": "The Reallocation Engine — what holds",
+      "artifactLines": [
+       "Evidence first: no invented numbers, provenance on every factor.",
+       "Gates multiply. Missing evidence scores zero — fail closed.",
+       "A healthy search says no: skip rate above fifty percent.",
+       "Honest about its own bugs — the negation gap ships with its harness."
+      ]
+     },
+     "rendered": {
+      "out": "media/BVDT.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Artifact card, ~84% width; lines land one per recap clause"
+    },
+    {
+     "at": 0.8,
+     "event": "Terracotta period on the last line"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BHTF",
+   "act": "YOUR TURN",
+   "lane": "BOOKEND",
+   "narration_text": "Your turn. Here's the prompt: I think my job search is spray-and-pray. Here are 20 roles from my tracker. (1) Define two verification gates — is this posting verifiably alive, and does its timeline fit my constraints — and score every role zero unless both gates pass, naming the missing evidence. (2) Report my skip rate and tell me honestly whether it's above 50 percent — and why a low number is bad news. (3) Label every judgment as a judgment. If you can't verify something, write 'missing' — never guess. What you're really testing is whether an assistant will tolerate saying 'I don't know' twenty times in one answer. Most won't — they'll smooth it over. This prompt makes the smoothing visible. Take it, run it on your real tracker, and watch which roles die when evidence is required.",
+   "estimated_duration_s": 42,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk — 'Your turn.' with the fail-closed scorer prompt",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "type",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "Your turn.",
+      "command": "I think my job search is spray-and-pray. Here are 20 roles from my tracker. (1) Define two verification gates — is this posting verifiably alive, and does its timeline fit my constraints — and score every role zero unless both gates pass, naming the missing evidence. (2) Report my skip rate and tell me honestly whether it's above 50 percent — and why a low number is bad news. (3) Label every judgment as a judgment. If you can't verify something, write 'missing' — never guess.",
+      "segment": "The Engine That Says No.",
+      "topic": "YOUR TURN · THE REALLOCATION ENGINE",
+      "runningText": "paste this into Claude with your own tracker…",
+      "output": [
+       "Fail closed: missing evidence scores zero.",
+       "A high skip rate is the good news."
+      ],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/BHTF.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "'Your turn.' greeting; prompt types in while Liam reads it verbatim"
+    },
+    {
+     "at": 0.85,
+     "event": "Two output lines land as the discussion closes"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BOUT",
+   "act": "OUTRO",
+   "lane": "BOOKEND",
+   "narration_text": "The Engine That Says No. Liam, in for Bear.",
+   "estimated_duration_s": 8,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeTitleOutro — title restate",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeTitleOutro",
+     "props": {
+      "title": "The Engine That Says No.",
+      "handle": "@NikBearBrown",
+      "mascotSeed": 7
+     },
+     "rendered": {
+      "out": "media/BOUT.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Poster-style serif title with terracotta period"
+    },
+    {
+     "at": 0.5,
+     "event": "@NikBearBrown beneath; Liam signs off"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  }
+ ]
+}

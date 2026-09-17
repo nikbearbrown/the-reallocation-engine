@@ -1,0 +1,251 @@
+{
+  "video": "claude-liam-two-hundred-applications",
+  "metadata": {
+    "slug": "claude-liam-two-hundred-applications",
+    "title": "Two Hundred Applications, Thirty-One Days",
+    "subtitle": "Episode 2 \u2014 the introduction: effort is not progress, and the two-sided rule for AI",
+    "topic": "THE REALLOCATION ENGINE \u00b7 EPISODE 2",
+    "series": {
+      "playlist": "The Reallocation Engine",
+      "episode": 2,
+      "role": "the felt problem \u2014 Mira's allocation failure, the RCT behind the thesis, and the use-more/trust-less rule; assumes Episode 1 for the repo tour"
+    },
+    "purpose": "A faithful reel of the book's Introduction: the opening case (two hundred applications against a thirty-one-day clock), the diagnosis (an allocation problem, not a motivation problem), the controlled trial that grounds it, the execution/judgment division, the two-sided instruction (use AI more aggressively AND trust it less), why a model cannot audit itself, and the concrete first trace the chapter hands the reader.",
+    "source": [
+      "the-reallocation-engine-fresh/book/chapters/00-introduction.md (working tree, 2026-08)"
+    ],
+    "audience": "Claude",
+    "channel": "claude-liam",
+    "persona": "Liam (in for Bear)",
+    "folderLabel": "@NikBearBrown",
+    "register": "Teardown",
+    "palette": "claude",
+    "engine": "kokoro",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "voice_id": "ELEVENLABS_VOICE_LIAM",
+    "aspect_ratio": "16:9",
+    "clock": "narration",
+    "greeting_language": "Merhaba (Turkish)",
+    "note": "Greeting rotation: Hola taken by Ep1, Namaste reserved by the parked deep episode, Annyeong by the git-claude-code reel \u2014 Merhaba is fresh. DOUBLE-CHECK: every [verify]-flagged figure in the source chapter (the ~56% AI-skill premium, the ~82%/~21% screening rates, the Eightfold/Kistler litigation specifics) is narrated as MECHANISM ONLY and never appears on screen as a number or a named party. The Anthropic RCT figures and the OPT clock DO appear \u2014 both trace to primary sources in the book's own reference list. Mira's numbers are framed on screen as the book's opening scenario, never as a measured statistic. Episode 1 owns the repo tour and the three mechanisms (contract / gates / skip rate) \u2014 this episode must not re-teach them.",
+    "gates": {
+      "plan": "PRESENTED \u2014 awaiting approval",
+      "P_narration": "BLOCKED \u2014 10 of 16 beats lost 2026-08-25, rewrite required (RECOVERY.md)",
+      "audio": "BLOCKED until narration is rebuilt and GATE P re-signed",
+      "anim_json": "pending (C2 pattern table at build)"
+    },
+    "build": {
+      "at": "2026-08-27T15:50:46",
+      "cut": "master",
+      "filled": 16,
+      "of": 16,
+      "slates": [],
+      "skin_warnings": []
+    },
+    "recovery": {
+      "incident": "2026-08-25 \u2014 a stray write from an unrelated session (claude-liam-what-is-ai-compute) overwrote narration_text on all 16 beats, estimated_duration_s on all beats, B06's show cues and one B06 prop, and added a stray metadata key.",
+      "restored_exactly": [
+        "B01",
+        "B02",
+        "BASK1",
+        "BHTF",
+        "BOUT",
+        "BVDT"
+      ],
+      "lost": [
+        "B00",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10",
+        "B11"
+      ],
+      "unaffected": "all visual specs, props, anim data, build records, actual_duration_s, rendered media, clips/, manim/, scenes.py, and the slate cut mp4"
+    }
+  },
+  "source_of_truth": "beat_sheet.json \u2014 edit the sheet, not this file",
+  "beats_total": 16,
+  "beats_open": 0,
+  "beats": [
+    {
+      "beat_id": "B00",
+      "status": "filled",
+      "on_disk": "media/B00.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B00.mp4",
+      "label": "ClaudeComposerAsk \u2014 the episode's question, asked and answered"
+    },
+    {
+      "beat_id": "B01",
+      "status": "filled",
+      "on_disk": "manim/B01.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B01.mp4",
+      "label": "Manim \u2014 two counters in counterpoint: applications climbing, days falling"
+    },
+    {
+      "beat_id": "B02",
+      "status": "filled",
+      "on_disk": "media/B02.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B02.mp4",
+      "label": "C2 attrition \u2014 200 application dots survive two filters, and most don't"
+    },
+    {
+      "beat_id": "B03",
+      "status": "filled",
+      "on_disk": "media/B03.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B03.mp4",
+      "label": "C2 branch \u2014 one question, two diagnoses, and the evidence picks one"
+    },
+    {
+      "beat_id": "B04",
+      "status": "filled",
+      "on_disk": "manim/B04.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B04.mp4",
+      "label": "Manim \u2014 two comprehension bars, the gap annotated, and the sting label landing on the lower one"
+    },
+    {
+      "beat_id": "B05",
+      "status": "filled",
+      "on_disk": "media/B05.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B05.mp4",
+      "label": "C2 divergence \u2014 one body of work splits; the machine track settles, the human track rises"
+    },
+    {
+      "beat_id": "B06",
+      "status": "filled",
+      "on_disk": "media/B06.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B06.mp4",
+      "label": "C3 PredictCard \u2014 the paradox posed, then committed to in one terracotta line"
+    },
+    {
+      "beat_id": "BASK1",
+      "status": "filled",
+      "on_disk": "media/BASK1.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BASK1.mp4",
+      "label": "ClaudeComposerAsk micro \u2014 the Tier One delegation ask, already typed"
+    },
+    {
+      "beat_id": "B07",
+      "status": "filled",
+      "on_disk": "media/B07.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B07.mp4",
+      "label": "C3 ChipGrid \u2014 the Tier One pile, chips lighting one per named task"
+    },
+    {
+      "beat_id": "B08",
+      "status": "filled",
+      "on_disk": "media/B08.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B08.mp4",
+      "label": "C3 SourceFlow \u2014 your application feeds an opaque scorer; a verdict returns with no trace"
+    },
+    {
+      "beat_id": "B09",
+      "status": "filled",
+      "on_disk": "manim/B09.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B09.mp4",
+      "label": "Manim \u2014 the self-audit loop closes on itself, then an external check breaks in from outside"
+    },
+    {
+      "beat_id": "B10",
+      "status": "filled",
+      "on_disk": "media/B10.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/B10.mp4",
+      "label": "Onda code-block \u2014 the two commands, verbatim from the chapter, plus the labelled trace"
+    },
+    {
+      "beat_id": "B11",
+      "status": "filled",
+      "on_disk": "manim/B11.mp4",
+      "method": "manim",
+      "who": "pipeline",
+      "scene_hint": "animated_graphics",
+      "prompt": null,
+      "slot": "manim/B11.mp4",
+      "label": "Manim \u2014 B01's counters return, and this time the effort routes before the clock lands"
+    },
+    {
+      "beat_id": "BVDT",
+      "status": "filled",
+      "on_disk": "media/BVDT.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BVDT.mp4",
+      "label": "ClaudeVerdictArtifact \u2014 four-line answer to the cold-open question"
+    },
+    {
+      "beat_id": "BHTF",
+      "status": "filled",
+      "on_disk": "media/BHTF.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BHTF.mp4",
+      "label": "ClaudeComposerAsk \u2014 'Your turn.' with the audit-what-you-trust prompt"
+    },
+    {
+      "beat_id": "BOUT",
+      "status": "filled",
+      "on_disk": "media/BOUT.mp4",
+      "method": "remotion",
+      "who": "pipeline",
+      "scene_hint": null,
+      "prompt": null,
+      "slot": "media/BOUT.mp4",
+      "label": "ClaudeTitleOutro \u2014 title restate"
+    }
+  ]
+}

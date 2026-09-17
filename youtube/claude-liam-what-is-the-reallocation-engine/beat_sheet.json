@@ -1,0 +1,847 @@
+{
+ "slug": "claude-liam-what-is-the-reallocation-engine",
+ "metadata": {
+  "slug": "claude-liam-what-is-the-reallocation-engine",
+  "title": "What Is the Reallocation Engine?",
+  "subtitle": "Episode 1 — the front door: a book that is also a working machine",
+  "topic": "THE REALLOCATION ENGINE · EPISODE 1",
+  "series": {
+   "playlist": "The Reallocation Engine",
+   "episode": 1,
+   "role": "context-setter — the visual README; every later episode assumes this one"
+  },
+  "purpose": "Playlist opener: a faithful visual version of the fresh repo's README — the book-is-the-system thesis, the fluency trap, the stakes, the three mechanisms (verified-data contract, gates-not-votes, skip rate), the phase-gate handback, the quick start and agent runtime, the repo map, and the series roadmap.",
+  "source": [
+   "the-reallocation-engine-fresh/README.md (working-tree rewrite, 2026-08)"
+  ],
+  "audience": "Claude",
+  "channel": "claude-liam",
+  "persona": "Liam (in for Bear)",
+  "folderLabel": "@NikBearBrown",
+  "register": "Teardown",
+  "palette": "claude",
+  "engine": "kokoro",
+  "voice": "am_onyx",
+  "voice_kokoro": "am_onyx",
+  "voice_id": "ELEVENLABS_VOICE_LIAM",
+  "aspect_ratio": "16:9",
+  "clock": "narration",
+  "greeting_language": "Hola (Spanish)",
+  "note": "Exclusions per DOUBLE-CHECK: no semester dates, no student names, no real personal data; README's own numbers only (60–90 days, skip ≥ half). The deep teardown ('The Engine That Says No.') is a separate later episode and must not be cannibalized here.",
+  "gates": {
+   "plan": "PRESENTED — awaiting approval",
+   "P_narration": "pending",
+   "audio": "pending",
+   "anim_json": "pending (C2 pattern table at build)"
+  }
+ },
+ "beats": [
+  {
+   "beat_id": "B00",
+   "act": "COLD OPEN",
+   "narration_text": "Hola — this is Liam, in for Bear. This is the first video in a series about the Reallocation Engine, a public repo with an odd property: it's a book and a working machine at once. One question this episode — what is it? Let's open the front door.",
+   "estimated_duration_s": 17,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk — the playlist question, asked and answered",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "type",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "Hola, Liam",
+      "command": "What is the Reallocation Engine?",
+      "segment": "What Is the Reallocation Engine?",
+      "topic": "THE REALLOCATION ENGINE · EPISODE 1",
+      "runningText": "reading the README…",
+      "output": [
+       "A book and a working machine at once.",
+       "Clone it, run it: Apply / Consider / Skip — with sources."
+      ],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/B00.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Cream composer; 'Hola, Liam' serif greeting"
+    },
+    {
+     "at": 0.4,
+     "event": "The question types in; send arms terracotta"
+    },
+    {
+     "at": 0.75,
+     "event": "Two answer lines land — ask lands answered"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   },
+   "lane": "BOOKEND"
+  },
+  {
+   "beat_id": "B01",
+   "act": "THE THESIS",
+   "narration_text": "It's a textbook whose chapters teach a method for a high-stakes search — and the same repository ships the scripts, the data, and the recipes that run that method. Type a command, get a sourced Apply, Consider, or Skip on a real role. The book is the system, explained.",
+   "estimated_duration_s": 16,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 — book pages flow into a terminal; a decision card comes back out",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "SourceFlow",
+     "props": {
+      "title": "The Book Is the System",
+      "left": {
+       "label": "book/chapters/",
+       "note": "the method, taught"
+      },
+      "right": {
+       "label": "scripts/ · recipes/ · data/",
+       "note": "the method, running"
+      },
+      "result": "Apply / Consider / Skip — sourced",
+      "sparkLine": "The book is the system."
+     },
+     "rendered": {
+      "out": "media/B01.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Book pages fan open on the left"
+    },
+    {
+     "at": 0.35,
+     "event": "Pages stream into the terminal shape as 'ships the scripts' lands"
+    },
+    {
+     "at": 0.7,
+     "event": "Decision card pops out; terracotta on 'Skip'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B02",
+   "act": "THE PROBLEM",
+   "narration_text": "Its argument starts with the fluency trap. The first sign of trouble isn't failure — it's fluency. The draft looks clean, the answer sounds reasonable, the code runs. AI made that surface cheap to produce. Execution got cheap; judgment got scarce.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C2 scale — polished-surface cards multiply while the judgment bar shrinks",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon",
+    "graphic": {
+     "engine": "manim",
+     "manim": "B02_FluencyTrap",
+     "production_viz": {
+      "label": "FluencyTrap",
+      "mechanic": "Identical polished-draft cards multiply across the frame as named (clean draft / reasonable answer / running code); a single 'judgment' bar shrinks in counterpoint; terracotta ring lands on the shrinking bar",
+      "colors": [
+       "#3D3929",
+       "#D97757",
+       "#F2F0E9"
+      ]
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Three polished cards flip up, one per named surface"
+    },
+    {
+     "at": 0.5,
+     "event": "Cards multiply into a grid — cheap"
+    },
+    {
+     "at": 0.8,
+     "event": "Judgment bar shrinks; terracotta ring ON 'scarce'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B03",
+   "act": "THE STAKES",
+   "narration_text": "And the reader this book is written for can't afford that trap: an international student on an F-1 visa, OPT clock running, with sixty to ninety days to land a sponsoring employer. Scarce effort, spent confidently, in the wrong place — that's not inefficiency. That's an emergency.",
+   "estimated_duration_s": 16,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Manim — a countdown window ticks while confident effort pours into the wrong bin",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon",
+    "graphic": {
+     "engine": "manim",
+     "manim": "B03_TheClock",
+     "production_viz": {
+      "label": "TheClock",
+      "mechanic": "A day-countdown window (60–90) ticks down; effort tokens stream confidently into a bin labelled 'wrong place'; terracotta on the ticking counter",
+      "colors": [
+       "#3D3929",
+       "#D97757",
+       "#F2F0E9"
+      ]
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Countdown window draws; days tick"
+    },
+    {
+     "at": 0.45,
+     "event": "Effort tokens stream into the wrong bin as 'confidently' lands"
+    },
+    {
+     "at": 0.85,
+     "event": "Counter pulses terracotta on 'emergency'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B04",
+   "act": "THE NAME",
+   "narration_text": "Hence the name. The engine exists to reallocate that effort — away from polished cold applications the evidence says will go nowhere, toward the few roles where a record, not a feeling, says effort can matter.",
+   "estimated_duration_s": 13,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C2 divergence — one effort stream splits: the big pile withers, the evidenced few brighten",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "deckPatterns/divergence",
+     "props": {
+      "title": "Reallocation",
+      "left": {
+       "label": "polished cold applications",
+       "note": "evidence: going nowhere"
+      },
+      "right": {
+       "label": "the few roles with a record",
+       "note": "effort can matter"
+      },
+      "accent": "right",
+      "sparkLine": "A record, not a feeling."
+     },
+     "rendered": {
+      "out": "media/B04.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "One stream of effort tokens flows"
+    },
+    {
+     "at": 0.4,
+     "event": "Stream splits ON 'reallocate'; the pile side desaturates"
+    },
+    {
+     "at": 0.75,
+     "event": "The few evidenced roles brighten; terracotta on the record chip"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B05",
+   "act": "MECHANISM 1 — THE CONTRACT",
+   "narration_text": "Three mechanisms enforce that. First, the verified-data contract: every count, rate, and confidence traces to a source. A number that can't name its source doesn't get to look like a fact — and the engine labels its own judgments as judgments.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 — numbers sprout source tags; the untagged number dissolves",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "PredictCard",
+     "props": {
+      "title": "The Verified-Data Contract",
+      "fields": [
+       {
+        "label": "93% response rate",
+        "value": "source: — none —",
+        "state": "dissolves"
+       },
+       {
+        "label": "posting last seen 3 days ago",
+        "value": "source: record",
+        "state": "holds"
+       },
+       {
+        "label": "'strong fit'",
+        "value": "labelled: judgment",
+        "state": "holds"
+       }
+      ],
+      "sparkLine": "Every number, a source."
+     },
+     "rendered": {
+      "out": "media/B05.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Three numbers appear"
+    },
+    {
+     "at": 0.4,
+     "event": "Source tags attach as 'traces to a source' lands"
+    },
+    {
+     "at": 0.7,
+     "event": "The sourceless number dissolves; terracotta on the 'judgment' label"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B06",
+   "act": "MECHANISM 2 — GATES",
+   "narration_text": "Second: gates, not votes. Some facts don't nudge a score — they end the conversation. A dead posting. A visa timeline that cannot work. Those veto a role outright, whatever the rest of the evidence says. A gate is a hard stop, and a person clears it — not a passing script.",
+   "estimated_duration_s": 16,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C2 threshold — a strong score meets a dead-posting gate and dies whole",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "deckPatterns/threshold",
+     "props": {
+      "title": "Gates, Not Votes",
+      "score": "0.81",
+      "gate": {
+       "label": "posting: DEAD",
+       "factor": 0
+      },
+      "result": "SKIP — vetoed",
+      "note": "cleared by a person, not a passing script",
+      "sparkLine": "Some facts veto."
+     },
+     "rendered": {
+      "out": "media/B06.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "A healthy score bar assembles"
+    },
+    {
+     "at": 0.4,
+     "event": "Gate slams ON 'end the conversation'; score collapses whole"
+    },
+    {
+     "at": 0.8,
+     "event": "'cleared by a person' line lands; terracotta on the gate"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B07",
+   "act": "MECHANISM 3 — THE SKIP RATE",
+   "narration_text": "Third — and this is the one that separates it from every job-search tool you've seen — a healthy run skips at least half of what it evaluates. The engine's value is in the applications it talks you out of. If it approves everything, it has learned nothing.",
+   "estimated_duration_s": 15,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Manim — the skip-rate dial sweeps into the healthy band past 50%",
+   "shot": {
+    "type": "MOTION-GRAPHIC",
+    "source": "own",
+    "motion": "drawon",
+    "graphic": {
+     "engine": "manim",
+     "manim": "B07_SkipDial",
+     "production_viz": {
+      "label": "SkipDial",
+      "mechanic": "Dial with a marked 50% line; needle sweeps from 'approves everything' territory across 50 into the healthy band ON 'skips at least half'; terracotta tick at the 50 mark",
+      "colors": [
+       "#3D3929",
+       "#D97757",
+       "#F2F0E9"
+      ]
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Dial draws; 50% line marked"
+    },
+    {
+     "at": 0.45,
+     "event": "Needle sweeps past 50 ON 'at least half'"
+    },
+    {
+     "at": 0.85,
+     "event": "Low-end zone dims on 'learned nothing'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B08",
+   "act": "THE HANDBACK",
+   "narration_text": "And the machine knows where it ends. It executes up to a deliberate phase gate, then hands the decision back — every source labeled. The part that is irreducibly human, deciding whether a role is worth a day of your life, stays yours.",
+   "estimated_duration_s": 14,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 — pipeline stages light, stop at the gate, and slide the labeled dossier to a human chip",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "SourceFlow",
+     "props": {
+      "title": "The Phase Gate",
+      "left": {
+       "label": "the machine executes",
+       "note": "scan → verify → score"
+      },
+      "right": {
+       "label": "you decide",
+       "note": "every source labeled"
+      },
+      "wall": "PHASE GATE",
+      "sparkLine": "Judgment stays yours."
+     },
+     "rendered": {
+      "out": "media/B08.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Pipeline stages light in narration order"
+    },
+    {
+     "at": 0.45,
+     "event": "Motion STOPS at the gate line ON 'deliberate phase gate'"
+    },
+    {
+     "at": 0.7,
+     "event": "The dossier slides across to the human side; terracotta on the gate"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BASK1",
+   "act": "HOW IT RUNS",
+   "narration_text": "So how do you actually run it?",
+   "estimated_duration_s": 5,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk micro — quick-start ask, already typed",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "",
+      "command": "Clone the-reallocation-engine and show me the quick start.",
+      "segment": "What Is the Reallocation Engine?",
+      "topic": "THE REALLOCATION ENGINE · EPISODE 1",
+      "runningText": "opening the quick start…",
+      "output": [],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/BASK1.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Composer micro-beat; command already typed; running indicator"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   },
+   "lane": "BOOKEND"
+  },
+  {
+   "beat_id": "B09",
+   "act": "HOW IT RUNS",
+   "narration_text": "Node and Python, clone and install — then doctor, which tells you what your machine can actually run, verify, and a dry-run scan that writes nothing. And note the runtime: an agent like Claude Code executes the recipes, stops at every gate, and waits for human clearance. Recipes stay DRAFT until a run log and a named human say otherwise.",
+   "estimated_duration_s": 19,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "Onda code-block — the README's quick start, verbatim",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "code-block",
+     "props": {
+      "language": "bash",
+      "title": "Quick start — README.md",
+      "code": "git clone https://github.com/nikbearbrown/the-reallocation-engine.git\ncd the-reallocation-engine\nnpm install\n\nnpm run doctor          # what can this machine actually run?\nnpm run verify          # conformance + manifest checks\nnpm run ats:scan -- --dry-run   # scan, nothing written",
+      "highlightLines": [
+       5,
+       7
+      ]
+     },
+     "rendered": {
+      "out": "media/B09.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Commands land line by line with the narration"
+    },
+    {
+     "at": 0.5,
+     "event": "doctor line highlights ON 'actually run'"
+    },
+    {
+     "at": 0.85,
+     "event": "dry-run flag highlights ON 'writes nothing'"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B10",
+   "act": "THE MAP",
+   "narration_text": "The layout reads like the argument. The manuscript lives in book. The recipes are the operating manual. Scripts and data are the evidence machinery. And one humility rule binds the whole front door: if the README disagrees with the domain docs or a run log, they're right — and the README is a bug.",
+   "estimated_duration_s": 17,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 — the repository as a labeled floor plan, rooms lighting in narration order",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "LayerStack",
+     "props": {
+      "title": "One Repo, Four Rooms",
+      "layers": [
+       {
+        "label": "book/ — the manuscript"
+       },
+       {
+        "label": "recipes/ — the operating manual"
+       },
+       {
+        "label": "scripts/ + data/ — the evidence machinery"
+       },
+       {
+        "label": "logs/ + DOMAIN.md — the ground truth"
+       }
+      ],
+      "accentIndex": 3,
+      "sparkLine": "The README is a bug."
+     },
+     "rendered": {
+      "out": "media/B10.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Rooms draw and label in narration order"
+    },
+    {
+     "at": 0.7,
+     "event": "Ground-truth layer pulses terracotta ON \"they're right\""
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "B11",
+   "act": "THE SERIES",
+   "narration_text": "And that's the map for this playlist. Each evidence component gets its own episode: where the money went, who actually sponsors, whether the job is even real, what the role pays, the visa timeline, the scorer that puts it all together — and the skip rate that tells you it's working.",
+   "estimated_duration_s": 16,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "C3 ChipGrid — the coming episodes as chapter chips, lighting one per named episode",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "drawon",
+    "remotion": {
+     "pattern": "ChipGrid",
+     "props": {
+      "title": "This Series",
+      "chips": [
+       {
+        "label": "SEC Form D"
+       },
+       {
+        "label": "Who Sponsors"
+       },
+       {
+        "label": "Is the Job Real"
+       },
+       {
+        "label": "Role Quality"
+       },
+       {
+        "label": "The Visa Timeline"
+       },
+       {
+        "label": "The Bayesian Scorer"
+       },
+       {
+        "label": "Resumes That Survive"
+       },
+       {
+        "label": "The Skip Rate"
+       }
+      ],
+      "sparkLine": "One component, one episode."
+     },
+     "rendered": {
+      "out": "media/B11.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Eight chips assemble as a grid"
+    },
+    {
+     "at": 0.2,
+     "event": "Chips light one per named episode, synced to the enumeration"
+    },
+    {
+     "at": 0.9,
+     "event": "Terracotta on the Skip Rate chip — the series' dial"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   }
+  },
+  {
+   "beat_id": "BVDT",
+   "act": "VERDICT RECAP",
+   "narration_text": "Let's recap with Claude. The Reallocation Engine is a book and a working machine in one public repo. Every number traces to a source; some facts veto a role outright; a healthy run skips at least half — because the value is in the applications it talks you out of. The machine executes; the judgment, deliberately, stays yours. That's the context. Every episode after this one opens a single component of that machine.",
+   "estimated_duration_s": 27,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeVerdictArtifact — four-line answer to the title question",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeVerdictArtifact",
+     "props": {
+      "artifactTitle": "Verdict",
+      "artifactHeading": "What is the Reallocation Engine?",
+      "artifactLines": [
+       "A book and a working machine — one repo.",
+       "Every number traces to a source; some facts veto outright.",
+       "A healthy run skips at least half — that's the value.",
+       "The machine executes; the judgment stays yours."
+      ]
+     },
+     "rendered": {
+      "out": "media/BVDT.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Artifact card ~84% width; lines land one per recap clause"
+    },
+    {
+     "at": 0.85,
+     "event": "Terracotta period on the last line"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   },
+   "lane": "BOOKEND",
+   "lead_silence_s": 0.5
+  },
+  {
+   "beat_id": "BHTF",
+   "act": "YOUR TURN",
+   "narration_text": "Your turn. Here's the prompt: I'm starting a job search under a real deadline. Before I apply to anything this week: (1) interview me for the three constraints that actually bind my search — include the visa clock if I have one; (2) pick the two checks from github.com/nikbearbrown/the-reallocation-engine I should run first — is the posting alive, and does the timeline fit — and tell me what evidence each demands; (3) predict my skip rate for a week of honest filtering, and tell me why a high number would be good news. What this really does is make you name your constraints before the applications start — most people do it the other way around, and the engine's whole argument is that the order matters. Take it, run it, and keep your prediction; the next episodes will show you how each check actually works.",
+   "estimated_duration_s": 40,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeComposerAsk — 'Your turn.' with the constraints-first prompt",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "type",
+    "remotion": {
+     "pattern": "ClaudeComposerAsk",
+     "props": {
+      "greeting": "Your turn.",
+      "command": "I'm starting a job search under a real deadline. Before I apply to anything this week: (1) interview me for the three constraints that actually bind my search — include the visa clock if I have one; (2) pick the two checks from github.com/nikbearbrown/the-reallocation-engine I should run first — is the posting alive, and does the timeline fit — and tell me what evidence each demands; (3) predict my skip rate for a week of honest filtering, and tell me why a high number would be good news.",
+      "segment": "What Is the Reallocation Engine?",
+      "topic": "YOUR TURN · THE REALLOCATION ENGINE",
+      "runningText": "paste this into Claude before you apply to anything…",
+      "output": [
+       "Constraints first. Applications second.",
+       "A high skip rate is the good news."
+      ],
+      "folderLabel": "@NikBearBrown",
+      "modelLabel": "Fable 5",
+      "effortLabel": "High"
+     },
+     "rendered": {
+      "out": "media/BHTF.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "'Your turn.' greeting; prompt types while Liam reads it verbatim"
+    },
+    {
+     "at": 0.85,
+     "event": "Two output lines land as the discussion closes"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   },
+   "lane": "BOOKEND"
+  },
+  {
+   "beat_id": "BOUT",
+   "act": "OUTRO",
+   "narration_text": "What Is the Reallocation Engine? Liam, in for Bear.",
+   "estimated_duration_s": 8,
+   "voice": "am_onyx",
+   "engine": "kokoro",
+   "voice_kokoro": "am_onyx",
+   "new_visual_element": "ClaudeTitleOutro — title restate",
+   "shot": {
+    "type": "REMOTION",
+    "source": "own",
+    "motion": "static",
+    "remotion": {
+     "pattern": "ClaudeTitleOutro",
+     "props": {
+      "title": "What Is the Reallocation Engine?",
+      "handle": "@NikBearBrown",
+      "mascotSeed": 1
+     },
+     "rendered": {
+      "out": "media/BOUT.mp4",
+      "at": ""
+     }
+    }
+   },
+   "show": [
+    {
+     "at": 0,
+     "event": "Poster serif title, terracotta period"
+    },
+    {
+     "at": 0.5,
+     "event": "@NikBearBrown beneath; Liam signs off"
+    }
+   ],
+   "build": {
+    "status": "PLANNED"
+   },
+   "lane": "BOOKEND"
+  }
+ ]
+}

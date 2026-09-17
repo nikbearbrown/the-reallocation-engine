@@ -1,0 +1,230 @@
+[
+  {
+    "label": "npm run verify",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run manifest-check",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run eval:score",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run eval:report",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run doctor",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run bls:local-wage",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run build-instructions",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run to-markdown",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run score",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run score:gates",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run ats:dedup",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run ats:liveness",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run ats:merge",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run ats:normalize",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run ats:scan",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run ats:verify",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run resumes:pdf",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run svg-to-png",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run audit:layout",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run skill-demand",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run skill-demand:test",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run fetch-postings",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run demo:real",
+    "status": "COMMAND"
+  },
+  {
+    "label": "npm run pii-scan",
+    "status": "COMMAND"
+  },
+  {
+    "label": "_shared",
+    "status": "DRAFT"
+  },
+  {
+    "label": "apply",
+    "status": "DRAFT"
+  },
+  {
+    "label": "auto-pipeline",
+    "status": "DRAFT"
+  },
+  {
+    "label": "batch",
+    "status": "DRAFT"
+  },
+  {
+    "label": "contacto",
+    "status": "DRAFT"
+  },
+  {
+    "label": "deep",
+    "status": "DRAFT"
+  },
+  {
+    "label": "employer-reputation-monitor",
+    "status": "DRAFT"
+  },
+  {
+    "label": "employer-risk-index",
+    "status": "DRAFT"
+  },
+  {
+    "label": "followup",
+    "status": "DRAFT"
+  },
+  {
+    "label": "gate-behavior",
+    "status": "ATTESTED"
+  },
+  {
+    "label": "gate-harness",
+    "status": "ATTESTED"
+  },
+  {
+    "label": "gru",
+    "status": "DRAFT"
+  },
+  {
+    "label": "hiring-momentum-monitor",
+    "status": "DRAFT"
+  },
+  {
+    "label": "interview-prep",
+    "status": "DRAFT"
+  },
+  {
+    "label": "job-search-intelligence-orchestrator",
+    "status": "DRAFT"
+  },
+  {
+    "label": "latex",
+    "status": "DRAFT"
+  },
+  {
+    "label": "local-wage-adjustment",
+    "status": "ATTESTED"
+  },
+  {
+    "label": "oferta",
+    "status": "DRAFT"
+  },
+  {
+    "label": "ofertas",
+    "status": "DRAFT"
+  },
+  {
+    "label": "output-linter",
+    "status": "DRAFT"
+  },
+  {
+    "label": "patterns",
+    "status": "DRAFT"
+  },
+  {
+    "label": "pdf",
+    "status": "DRAFT"
+  },
+  {
+    "label": "pipeline",
+    "status": "DRAFT"
+  },
+  {
+    "label": "project",
+    "status": "DRAFT"
+  },
+  {
+    "label": "rd-hiring-signal",
+    "status": "DRAFT"
+  },
+  {
+    "label": "scan",
+    "status": "DRAFT"
+  },
+  {
+    "label": "sector-health-dashboard",
+    "status": "DRAFT"
+  },
+  {
+    "label": "skill-demand-monitor",
+    "status": "RUNNABLE-SAMPLE"
+  },
+  {
+    "label": "target-company-comparison",
+    "status": "DRAFT"
+  },
+  {
+    "label": "tracker",
+    "status": "DRAFT"
+  },
+  {
+    "label": "training",
+    "status": "DRAFT"
+  },
+  {
+    "label": "update",
+    "status": "DRAFT"
+  },
+  {
+    "label": "workday-connector",
+    "status": "RUNNABLE-LIVE"
+  }
+]

@@ -1,0 +1,696 @@
+{
+  "metadata": {
+    "slug": "claude-liam-skill-greenhouse-watch",
+    "title": "greenhouse-watch — Your Board, Your Call",
+    "topic": "GREENHOUSE-WATCH — DIFF ONE JOB BOARD, MATCH AGAINST A RÉSUMÉ, STOP AT THE HUMAN GATE",
+    "purpose": "Skill teardown of greenhouse-watch: why narrowness is the design (one fetch, one diff, one auditable rule-set), how the six-step pipeline runs, what the scheme does and where it bends, and why the machine stops before deciding.",
+    "register": "Teardown",
+    "channel": "claude-liam",
+    "skill": "deep-explainer",
+    "palette": "claude",
+    "voice_default": "am_onyx",
+    "engine_default": "kokoro",
+    "seed": 4721,
+    "series": "Skill Teardown",
+    "sources": [
+      "SOURCES.md"
+    ],
+    "factcheck": "FACTCHECK.md",
+    "description_blurb": "greenhouse-watch fetches one Greenhouse job board, diffs it against a state file, matches new postings to a JSON résumé on a documented rule-set, and stops. This teardown shows the six-step pipeline, the NoRedirect fetcher, the baseline→diff state cycle, the scheme weights you can apply by hand, the real Airbnb output (163 jobs, 25 new, 7 relevant), and the gate line that keeps the deciding with the human.",
+    "hashtags": [
+      "#JobSearch",
+      "#Greenhouse",
+      "#Python",
+      "#CLI",
+      "#AITools",
+      "#NikBearBrown"
+    ],
+    "build": {
+      "at": "2026-09-17T14:17:01",
+      "cut": "master",
+      "filled": 15,
+      "of": 15,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "cold open",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 16,
+      "narration_text": "Hei, Liam. There are 163 jobs on one Greenhouse board. Twenty-five weren't there yesterday. Seven match the résumé. greenhouse-watch ran once, wrote two files, and stopped. This is Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B00.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeComposerAsk: greeting 'Hei, Liam.' types; ask types in; running indicator plays"
+          },
+          {
+            "at": 0.65,
+            "event": "answer lines land: '163 jobs seen · 25 new · 7 relevant · you decide'"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hei, Liam.",
+            "topic": "GREENHOUSE-WATCH — DIFF A JOB BOARD",
+            "segment": "Skill Teardown",
+            "command": "greenhouse watch airbnb --resume aarav-patel",
+            "runningText": "fetching 163 jobs · diffing 25 new · matching against résumé…",
+            "folderLabel": "@NikBearBrown",
+            "modelLabel": "Fable 5",
+            "effortLabel": "High",
+            "answerLines": [
+              "163 jobs seen · 25 new since last check",
+              "7 match the résumé on documented rules",
+              "you decide which, if any, is worth pursuing"
+            ]
+          },
+          "rendered": {
+            "out": "media/B00.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 12.5,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.5
+    },
+    {
+      "beat_id": "B01",
+      "act": "overview",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 13,
+      "lead_silence_s": 0.8,
+      "narration_text": "People expect a recommender. What greenhouse-watch delivers is narrower: it shows what is new, filters by documented rules, hands the verdict back. That narrow scope is the design.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B01.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "BrutalistHesitantWriter types: 'greenhouse-watch: an AI recommender for job boards.'"
+          },
+          {
+            "at": 0.45,
+            "event": "'recommender' highlighted in terracotta, struck through, replaced with 'watcher'"
+          },
+          {
+            "at": 0.65,
+            "event": "second and third lines type in: 'a diff engine with an audit trail' and 'the recommending is yours'"
+          }
+        ],
+        "remotion": {
+          "pattern": "BrutalistHesitantWriter",
+          "props": {
+            "text": "greenhouse-watch: an AI recommender for job boards.\nActually: a diff engine with an audit trail.\nThe recommending is yours.",
+            "triggerWords": "recommender",
+            "replacementWords": "watcher",
+            "seed": "4721",
+            "ink": "#3D3929",
+            "accent": "#3D3929",
+            "bg": "#F2F0E9"
+          },
+          "rendered": {
+            "out": "media/B01.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 10.84,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "qc": {
+        "sparse_by_design": true,
+        "sparse_reason": "BrutalistHesitantWriter typing bookend (ai-explainer chassis): one line accumulates token by token, so the 50%/85% frames are mostly cream by design. Empty-frame, edge-bleed and contrast checks still apply."
+      },
+      "render_duration_s": 10.875
+    },
+    {
+      "beat_id": "B02",
+      "act": "ACT I — THE NOISE PROBLEM",
+      "lane": "MANIM",
+      "estimated_duration_s": 14,
+      "narration_text": "A mid-size company's Greenhouse board runs 100 to 200 active postings at any time. They're not sorted by date. There's no native filter for what appeared since last week. You either read all of them or you miss postings.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B02.mp3",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "counter animates from 0 to 163, label 'Airbnb Greenhouse board — 163 postings'"
+          },
+          {
+            "at": 0.5,
+            "event": "second row: 'Sorted by date?' → NO in terracotta. 'New-since filter?' → NO"
+          }
+        ]
+      },
+      "graphic": {
+        "manim": "B02_BoardCounter",
+        "scene_class": "B02_BoardCounter",
+        "engine": "manim",
+        "production_viz": {
+          "label": "cream canvas — board counter",
+          "mechanic": "Cream canvas. Large serif counter rolls from 0 to 163, terracotta accent on the final digit. Label below: 'Airbnb Greenhouse board'. Then two rows appear below: 'Sorted by date?' and 'New-since filter?' — each gets a terracotta X and the word NO in terracotta serif. Footer: 'the board does not tell you what changed'."
+        }
+      },
+      "actual_duration_s": 12.86,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B02.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.875
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT I — THE NOISE PROBLEM",
+      "lane": "REMOTION",
+      "estimated_duration_s": 13,
+      "narration_text": "The skill runs one stored script — not ad-hoc code. Point it at a board slug, a résumé JSON, a state file path, and an output directory. Run it. You get a Markdown report and a JSON run record.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B03.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeCodeBeat: CLI invocation appears, four flags highlighted sequentially"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "run.sh",
+            "code": "# greenhouse-watch · airbnb board\nBOARD=\"airbnb\"\nRESUME=\"search/examples/aarav-patel/resume.example.json\"\nSTATE=\"search/greenhouse-watch/${BOARD}.state.json\"\n\npython3 .claude/skills/greenhouse-watch/scripts/greenhouse_watch.py \\\n    --board  \"${BOARD}\" \\\n    --resume \"${RESUME}\" \\\n    --state  \"${STATE}\" \\\n    --out    \"search/greenhouse-watch/${BOARD}/\"",
+            "sparkLine": "one script · four flags · two output files",
+            "codeSize": 18
+          },
+          "rendered": {
+            "out": "media/B03.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 12.12,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B03.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.125
+    },
+    {
+      "beat_id": "B04",
+      "act": "ACT II — THE PIPELINE",
+      "lane": "REMOTION",
+      "estimated_duration_s": 13,
+      "narration_text": "Every run is six steps in order. Validate inputs. Fetch once from an allow-listed host. Diff by ID. Apply the scheme. Write run record and report. Update the state file. If any step fails, nothing after it runs.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B04.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeCodeBeat: the six steps of one run, in order, as a numbered listing"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "greenhouse_watch.py — one run, six steps",
+            "code": "   1. validate inputs        resume JSON · scheme · state file\n   2. fetch once             allow-listed Greenhouse host only\n   3. diff by job id         against state.seen_ids\n   4. apply scheme           record-based rules, no judgment\n   5. write run record       + Markdown report for the human\n   6. update state file      only if every step above succeeded",
+            "sparkLine": "one run · one fetch · one decision prompt",
+            "largeText": true,
+            "language": "text"
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": "2026-09-17T18:10:28.209626+00:00"
+          }
+        }
+      },
+      "actual_duration_s": 12.67,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.708333333333334
+    },
+    {
+      "beat_id": "B05",
+      "act": "ACT II — THE PIPELINE",
+      "lane": "REMOTION",
+      "estimated_duration_s": 14,
+      "narration_text": "The fetcher accepts exactly four Greenhouse hostnames. It refuses redirects — a redirect could silently leave the allow-list. One GET, no retries. The raw response is saved to disk so every verdict can be re-derived later.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B05.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeCodeBeat: fetch_board function with ALLOWED_HOSTS and NoRedirect handler"
+          },
+          {
+            "at": 0.55,
+            "event": "NoRedirect class highlighted in terracotta"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "greenhouse_watch.py",
+            "code": "ALLOWED_HOSTS = {\"boards-api.greenhouse.io\",\n                 \"boards.greenhouse.io\", ...}\n\nclass NoRedirect(urllib.request.HTTPRedirectHandler):\n    def redirect_request(self, *a, **k):\n        return None  # refuse — redirect could leave the allow-list\n\nopener = urllib.request.build_opener(NoRedirect)\nwith opener.open(req, timeout=30) as r:\n    return json.loads(r.read().decode(\"utf-8\"))",
+            "sparkLine": "allow-list · no redirects · raw response saved",
+            "codeSize": 17
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 12.95,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.958333333333334
+    },
+    {
+      "beat_id": "B06",
+      "act": "ACT II — THE PIPELINE",
+      "lane": "MANIM",
+      "estimated_duration_s": 15,
+      "narration_text": "The first run is always a baseline. Every ID on the board is recorded; nothing is reported as new. Run it again on day two. Now the diff tells you which IDs weren't in the state file. That state file is the whole memory.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B06.mp3",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "RUN 1 diagram: 163 IDs written to state.json; 0 reported as new; 'BASELINE' label"
+          },
+          {
+            "at": 0.5,
+            "event": "RUN 2 diagram: 25 IDs not in state file = new; arrow to 'diff → report'"
+          }
+        ]
+      },
+      "graphic": {
+        "manim": "B06_StateCycle",
+        "scene_class": "B06_StateCycle",
+        "engine": "manim",
+        "production_viz": {
+          "label": "cream canvas — two-run state diagram",
+          "mechanic": "Cream canvas. Two rows, stacked vertically. TOP row labeled 'RUN 1 (BASELINE)': an arrow from 'board (163 ids)' to a box 'state.json (163 ids)', then an X-circle labeled '0 reported'. Bottom row labeled 'RUN 2': an arrow from 'board (163 ids)' into a diff-box that compares against 'state.json'; 25 IDs exit the diff labeled 'NEW'; those 25 feed into scheme; 7 exit labeled 'RELEVANT'. Footer serif: 'the state file is the whole memory'."
+        }
+      },
+      "actual_duration_s": 12.35,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B06.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.375
+    },
+    {
+      "beat_id": "B07",
+      "act": "ACT III — THE SCHEME",
+      "lane": "REMOTION",
+      "estimated_duration_s": 14,
+      "narration_text": "Matching is a JSON scheme file. Title match scores 3.0. Each skill hit in title or content adds 1.0, capped at eight. A degree abbreviation in the posting content adds 0.5. Location is soft by default — a miss subtracts 1.0 but is never a hard gate. Threshold is 3.0.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B07.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeCodeBeat: scheme.default.json weights table appears"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "scheme.default.json — the rule",
+            "code": "\"threshold\": 3.0,\n\"weights\": {\n  \"title\":          3.0,  // exact title match in posting title\n  \"title_partial\":  1.5,  // most words match\n  \"skill\":          1.0,  // résumé skill in title or content\n  \"skill_unshipped\":0.25, // familiar-with skills, honest weight\n  \"skill_any\":      0.5,  // bonus if any skill hit at all\n  \"degree\":         0.5,  // MS / PhD / MBA in content\n  \"location\":       1.0,  // remote or matching city\n  \"location_miss\": -1.0   // soft penalty, not a gate\n}",
+            "sparkLine": "threshold 3.0 · auditable by hand · students replace this file",
+            "codeSize": 17
+          },
+          "rendered": {
+            "out": "media/B07.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 17.79,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 17.791666666666668
+    },
+    {
+      "beat_id": "B08",
+      "act": "ACT III — THE SCHEME",
+      "lane": "REMOTION",
+      "estimated_duration_s": 15,
+      "narration_text": "Every relevant job ships with a justification that names the résumé field path and the posting field that produced each point. No model judgment. You can apply the scheme yourself, by hand, to check any verdict.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B08.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeCodeBeat: real justification lines from the Senior Staff ML Engineer posting, score 6.0"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "run-record.json",
+            "code": "skill «Python» (skills.languages[1])\n       appears in posting content +1.0\nskill «Java»   (skills.languages[2])\n       appears in posting content +1.0\nskill «Kafka»  (skills.backend_automation[1])\n       appears in posting content +1.0\nskill «Kubernetes» (skills.devops_cicd[0])\n       appears in posting content +1.0\ndegree «MS» (education[0].degree)\n       appears in posting content +0.5\nlocation «Remote - USA» is remote   +1.0",
+            "sparkLine": "every line cites a résumé field · no model judgment",
+            "codeSize": 16
+          },
+          "rendered": {
+            "out": "media/B08.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 12.12,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.125
+    },
+    {
+      "beat_id": "B09",
+      "act": "ACT IV — THE GATE",
+      "lane": "MANIM",
+      "estimated_duration_s": 13,
+      "narration_text": "In the Airbnb run: 163 jobs on the board, 25 new since the last check, 7 cleared the threshold, 18 were skipped. The skipped jobs are listed in every report — not hidden, just tabled with their reason.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B09.mp3",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "bar or funnel: 163 (board) → 25 (new) → 7 (relevant) in terracotta; 18 skipped shown in grey"
+          }
+        ]
+      },
+      "graphic": {
+        "manim": "B09_Funnel",
+        "scene_class": "B09_Funnel",
+        "engine": "manim",
+        "production_viz": {
+          "label": "cream canvas — attrition funnel",
+          "mechanic": "Cream canvas. Three stacked horizontal bars, left-aligned. First bar: 163 px wide, label 'board — 163 jobs'. Second bar: proportional to 25, label 'new since last check — 25'. Third bar: proportional to 7, terracotta fill, label 'relevant — 7'. To the right of bar 2, a grey stub: '18 skipped (tabled, not hidden)'. Footer: 'scheme default-0.1 · threshold 3.0'."
+        }
+      },
+      "actual_duration_s": 12.78,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 12.791666666666666
+    },
+    {
+      "beat_id": "B10",
+      "act": "ACT IV — THE GATE",
+      "lane": "REMOTION",
+      "estimated_duration_s": 14,
+      "narration_text": "The report opens with a statement, not an invitation. It names who decides. greenhouse-watch reads the résumé, applies the scheme, presents the candidates. Which of these is worth a day of your life is yours.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B10.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeCodeBeat: the gate line from the report and the run record"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "report.md",
+            "code": "# every report opens with:\n\"Reader: the candidate.\nDecision enabled: which of these,\nif any, is worth a day of your life.\nThe machine stops here\n(SNICKERDOODLE P3: the gate is human).\"\n\n# every run record carries:\n\"gate\": \"human: decide which relevant job,\n         if any, is worth applying to\"",
+            "sparkLine": "present · stop · never apply",
+            "codeSize": 16
+          },
+          "rendered": {
+            "out": "media/B10.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 11.67,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B10.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 11.708333333333334
+    },
+    {
+      "beat_id": "B11",
+      "act": "ACT IV — THE GATE",
+      "lane": "MANIM",
+      "estimated_duration_s": 15,
+      "narration_text": "The default scheme has a known soft spot. A posting in China cleared the bar at 4.5 — because location is a soft penalty, not a hard gate. The README names this. If it bothers you, the fix is the scheme file, not the code. That distinction is the design.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-B11.mp3",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "card: 'Staff Software Engineer — China · score 4.5'. Location row: 'China' ≠ 'Boston' → -1.0 but still above threshold 3.0"
+          },
+          {
+            "at": 0.55,
+            "event": "caption: 'fix: set location_mode: hard in scheme.json, not in greenhouse_watch.py'"
+          }
+        ]
+      },
+      "graphic": {
+        "manim": "B11_DesignTell",
+        "scene_class": "B11_DesignTell",
+        "engine": "manim",
+        "production_viz": {
+          "label": "cream canvas — design tell card",
+          "mechanic": "Cream canvas. A centered card (ink border) showing: title 'Staff Software Engineer — China', score row '4.5 ≥ 3.0 threshold ✓ RELEVANT' in terracotta. Below: a two-column ledger — LEFT column 'title match (+3.0) + skill hits (+1.5)' in ink. RIGHT column 'location: China ≠ Boston (-1.0) — soft penalty'. A horizontal dashed terracotta line separates the card from the footer: 'the fix is in scheme.json — not in greenhouse_watch.py'. The phrase 'soft penalty' is underlined in terracotta."
+        }
+      },
+      "actual_duration_s": 14.63,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B11.mp4",
+        "filled_by": "manim",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 14.666666666666666
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "verdict",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 16,
+      "narration_text": "greenhouse-watch is not a recommender. It is a diff. Run it today — it baselines the board. Run it tomorrow — it shows exactly what changed and which of those changes match your résumé on rules you can verify by hand. The decision is never made for you.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeVerdictArtifact: four artifact lines land sequentially"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "greenhouse-watch — Your Board, Your Call",
+            "artifactHeading": "What it does",
+            "artifactLines": [
+              "Fetches once, diffs by ID, applies a human-auditable rule-set",
+              "First run = baseline; subsequent runs report only what is new",
+              "Justifications cite résumé fields and posting fields — no model judgment",
+              "Stops at the human gate — the decision is never the machine's"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 14.29,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 14.291666666666666
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "handoff",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 22,
+      "narration_text": "Your turn. Here is the prompt: 'greenhouse watch [your company], using the persona résumé.' Clone the repo, put in a slug, run the baseline. Run it again tomorrow. On the second run, the report shows only what actually changed. That delta is the signal. Take this and run it on a board you actually care about.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeComposerAsk: 'Your turn.' greeting; prompt types in"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "GREENHOUSE-WATCH — YOUR COMPANY",
+            "segment": "Skill Teardown",
+            "command": "greenhouse watch [your company slug] --resume search/examples/[persona]/resume.example.json",
+            "runningText": "paste this into Claude…",
+            "folderLabel": "@NikBearBrown",
+            "answerLines": [
+              "run the baseline today",
+              "run it again tomorrow",
+              "the delta is the signal"
+            ]
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 16.36,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 16.375
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "outro",
+      "lane": "BOOKEND",
+      "estimated_duration_s": 9,
+      "tail_silence_s": 1.0,
+      "narration_text": "Liam, in for Bear.",
+      "voice": "am_onyx",
+      "engine": "kokoro",
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "show": [
+          {
+            "at": 0.0,
+            "event": "ClaudeTitleOutro: title, @NikBearBrown handle, slug-seeded mascot"
+          }
+        ],
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "greenhouse-watch — Your Board, Your Call",
+            "slug": "claude-liam-skill-greenhouse-watch",
+            "mascotAnimation": "idle",
+            "handle": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "actual_duration_s": 1.94,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-09-17T14:17:01"
+      },
+      "render_duration_s": 1.9583333333333333
+    }
+  ]
+}

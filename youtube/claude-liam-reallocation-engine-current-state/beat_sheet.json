@@ -1,0 +1,1974 @@
+{
+  "metadata": {
+    "slug": "claude-liam-reallocation-engine-current-state",
+    "title": "The Reallocation Engine — Current State",
+    "topic": "CLAUDE · REALLOCATION ENGINE",
+    "channel": "claude-liam",
+    "channel_title": "@NikBearBrown",
+    "register": "Teardown",
+    "voice": "am_onyx",
+    "voice_kokoro": "am_onyx",
+    "engine": "kokoro",
+    "brand": "CLAUDE",
+    "palette": "claude",
+    "build": {
+      "at": "2026-08-23T14:56:28",
+      "cut": "master",
+      "filled": 37,
+      "of": 37,
+      "slates": [],
+      "skin_warnings": []
+    }
+  },
+  "beats": [
+    {
+      "beat_id": "B00",
+      "act": "BOOKEND",
+      "narration_text": "Claude — I've got a repo that claims the book and the machine are the same thing. Tell me what actually runs in it today, and don't be nice about it.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Hey Claude.",
+            "topic": "CLAUDE · REALLOCATION ENGINE",
+            "segment": "The Reallocation Engine — Current State",
+            "command": "I've got a repo that claims the book and the machine are the same thing. Tell me what actually runs in it today, and don't be nice about it.",
+            "runningText": "reading the repo…",
+            "output": [],
+            "folderLabel": "@NikBearBrown"
+          }
+        }
+      },
+      "new_visual_element": "Composer types the ask; it lands answered. Liam signs in.",
+      "audio_file": "mp3/beat-B00.mp3",
+      "actual_duration_s": 7.89,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B00.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B01",
+      "act": "I",
+      "narration_text": "Act one. The book that is a machine.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The Book That Is a Machine"
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Act I segment card",
+      "audio_file": "mp3/beat-B01.mp3",
+      "actual_duration_s": 2.56,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B01.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B02",
+      "act": "I",
+      "narration_text": "Most technical books describe a system living somewhere else. This one doesn't. The chapters teach a method for running a job search under a visa deadline — and the same repository holds the scripts that run it.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The chapters teach the method.",
+              "The repository runs it."
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Book spine and terminal merge into one object",
+      "audio_file": "mp3/beat-B02.mp3",
+      "actual_duration_s": 11.73,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B02.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B03",
+      "act": "I",
+      "narration_text": "Twenty-one chapters. Twenty-five command-line entry points. Forty-one operating recipes. The manuscript and the machine are checked into the same tree, on purpose.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "isotype_grid",
+          "label": "repo contents",
+          "note": "Three groups: 21 chapters / 25 commands / 41 recipes"
+        }
+      },
+      "viz": {
+        "kind": "isotype",
+        "groups": [
+          {
+            "label": "chapters",
+            "n": 21
+          },
+          {
+            "label": "commands",
+            "n": 25
+          },
+          {
+            "label": "recipes",
+            "n": 41
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B03.mp3",
+      "actual_duration_s": 9.6,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B03.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B04",
+      "act": "I",
+      "narration_text": "The reader it's written for is specific: an international student on an F-1 visa, with sixty to ninety days on the OPT clock to find an employer willing to sponsor.",
+      "shot": {
+        "type": "REMOTION",
+        "remotion": {
+          "pattern": "BrutalistCalendarWall",
+          "props": {
+            "palette": "brutalist-dark",
+            "title": "OPT CLOCK",
+            "fromDate": "2026-01-01",
+            "targetDate": "2026-04-01",
+            "onDate": "2026-02-14",
+            "gridCols": 13,
+            "ringOn": "next",
+            "crossStyle": "X Mark",
+            "wobble": 1.2,
+            "strokeWidth": 3.5,
+            "marchSeconds": 2.4,
+            "ringSeconds": 0.9,
+            "zoomStart": 2.6,
+            "zoomEnd": 2.2,
+            "seed": 104
+          },
+          "rendered": {
+            "out": "media/B04.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "Wall calendar, days crossed off. Terracotta ring on the last uncrossed day.",
+      "handoff": {
+        "camera": {
+          "x": 0.55,
+          "y": 0.42,
+          "scale": 1.6
+        },
+        "objects": [
+          {
+            "id": "calendar",
+            "x": 0.55,
+            "y": 0.42,
+            "scale": 1.0,
+            "opacity": 1
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B04.mp3",
+      "actual_duration_s": 10.05,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B04.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B05",
+      "act": "I",
+      "narration_text": "That deadline is what makes the book honest. You cannot bluff a clock. Either the effort went somewhere that mattered, or the ninety days ran out while the applications looked excellent.",
+      "shot": {
+        "type": "REMOTION",
+        "remotion": {
+          "pattern": "BrutalistCalendarWall",
+          "props": {
+            "palette": "brutalist-dark",
+            "title": "OPT CLOCK",
+            "fromDate": "2026-01-01",
+            "targetDate": "2026-04-01",
+            "onDate": "2026-02-14",
+            "gridCols": 13,
+            "ringOn": "next",
+            "crossStyle": "X Mark",
+            "wobble": 1.2,
+            "strokeWidth": 3.5,
+            "marchSeconds": 0,
+            "ringSeconds": 0,
+            "zoomStart": 2.2,
+            "zoomEnd": 1.0,
+            "seed": 104
+          },
+          "rendered": {
+            "out": "media/B05.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "Camera pulls out from ringed day to whole calendar wall; ring stays lit.",
+      "audio_file": "mp3/beat-B05.mp3",
+      "actual_duration_s": 9.79,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B05.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B06",
+      "act": "I",
+      "narration_text": "So the argument starts with a specific enemy. Not failure. Fluency.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "Not failure.",
+              "Fluency."
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Spark line: Not failure. Fluency.",
+      "audio_file": "mp3/beat-B06.mp3",
+      "actual_duration_s": 4.57,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B06.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B07",
+      "act": "II",
+      "narration_text": "Act two. Gates, not votes.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "Gates, Not Votes"
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Act II segment card",
+      "audio_file": "mp3/beat-B07.mp3",
+      "actual_duration_s": 2.3,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B07.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B08",
+      "act": "II",
+      "narration_text": "The fluency trap is this: the first sign of trouble is usually not failure, it's polish. A draft reads clean. The code runs. Nothing on the surface tells you a human still has work to do.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "A glossy surface.",
+              "Beneath it, the work undone."
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Glossy surface stays perfect as the underside cracks.",
+      "audio_file": "mp3/beat-B08.mp3",
+      "actual_duration_s": 10.62,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B08.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B09",
+      "act": "II",
+      "narration_text": "So the engine refuses to fight fluency with more fluency. Every count and every confidence traces to a source. That's the verified-data contract, and it's a contract, not a preference.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "state_card",
+          "label": "verified-data contract",
+          "note": "Three rows: claim → source / rate → source / confidence → source"
+        }
+      },
+      "viz": {
+        "kind": "state",
+        "rows": [
+          [
+            "claim",
+            "→ source"
+          ],
+          [
+            "rate",
+            "→ source"
+          ],
+          [
+            "confidence",
+            "→ source"
+          ]
+        ]
+      },
+      "audio_file": "mp3/beat-B09.mp3",
+      "actual_duration_s": 10.79,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B09.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B10",
+      "act": "II",
+      "narration_text": "Then the part that makes it a machine instead of a scorecard. Some facts don't lower a score. They veto. A dead posting. An impossible visa timeline. Those are gates.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "equation_tangent",
+          "label": "scorer formula",
+          "note": "Gate terms pulse terracotta"
+        }
+      },
+      "equation": "score = \\left(\\sum vote \\cdot weight\\right) \\times liveness \\times timeline",
+      "new_visual_element": "Gate terms pulse terracotta; drop either to zero and the whole product collapses.",
+      "audio_file": "mp3/beat-B10.mp3",
+      "actual_duration_s": 9.22,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B10.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B11",
+      "act": "II",
+      "narration_text": "Multiply by zero and nothing else you believed matters. A weighted average would have let a strong company average away a job that no longer exists. Multiplication won't.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "equation_tangent",
+          "label": "gate collapse",
+          "note": "liveness → 0; whole expression drops to 0; hold on zero"
+        }
+      },
+      "new_visual_element": "liveness → 0. Entire expression drops to 0. Hold on the zero.",
+      "audio_file": "mp3/beat-B11.mp3",
+      "actual_duration_s": 10.2,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B11.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B12",
+      "act": "II",
+      "narration_text": "And the outcome the whole thing is built to produce isn't an application. It's a skip. A healthy run skips at least half of what it evaluates.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "A healthy run skips at least half.",
+              "The skip is the product."
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Hundred role tiles; more than half slide off-stage. Remainder glows terracotta.",
+      "audio_file": "mp3/beat-B12.mp3",
+      "actual_duration_s": 8.0,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B12.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B13",
+      "act": "II",
+      "narration_text": "The value is in the applications it talks you out of. That is a strange thing to build, and it is the entire point.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The value is what it talks you out of."
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Spark line: The value is what it talks you out of.",
+      "audio_file": "mp3/beat-B13.mp3",
+      "actual_duration_s": 6.66,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B13.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B14",
+      "act": "III",
+      "narration_text": "Act three. Draft until a human signs.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "DRAFT Until a Human Signs"
+            ]
+          }
+        }
+      },
+      "new_visual_element": "Act III segment card",
+      "audio_file": "mp3/beat-B14.mp3",
+      "actual_duration_s": 2.99,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B14.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B15",
+      "act": "III",
+      "narration_text": "Every recipe in the repo carries a lifecycle field. Draft. Specified. Runnable-sample. Runnable-live. Verified. A recipe does not advance because a script passed.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "DRAFT  SPECIFIED  RUNNABLE-SAMPLE",
+              "RUNNABLE-LIVE  VERIFIED",
+              "A script passing is not a gate."
+            ]
+          },
+          "rendered": {
+            "out": "media/B15.mp4",
+            "at": "2026-08-23T09:16"
+          }
+        }
+      },
+      "new_visual_element": "Five-stage ladder, terracotta fill rising only partway.",
+      "audio_file": "mp3/beat-B15.mp3",
+      "actual_duration_s": 10.07,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B15.mp4",
+        "filled_by": "remotion:FormACard",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B16",
+      "act": "III",
+      "narration_text": "It advances because a named human signed a gate, with their name and the date, in a file you can open. That is the honesty mechanism — and it is deliberately expensive.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "state_card",
+          "label": "attestation requirement",
+          "note": "Three rows: script passes → not enough / gate cleared → by a person / attestation → name + date"
+        }
+      },
+      "viz": {
+        "kind": "state",
+        "rows": [
+          [
+            "script passes",
+            "not enough"
+          ],
+          [
+            "gate cleared",
+            "by a person"
+          ],
+          [
+            "attestation",
+            "name + date"
+          ]
+        ]
+      },
+      "audio_file": "mp3/beat-B16.mp3",
+      "actual_duration_s": 9.83,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B16.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B17",
+      "act": "III",
+      "narration_text": "For most of this project's life that ladder stayed on its bottom rung. Everything drafted. Nothing signed. Which is honest, and also stuck.",
+      "shot": {
+        "type": "REMOTION",
+        "remotion": {
+          "pattern": "BrutalistCommandRain",
+          "props": {
+            "items": [
+              {
+                "label": "npm run verify",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run manifest-check",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run eval:score",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run eval:report",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run doctor",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run bls:local-wage",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run build-instructions",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run to-markdown",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run score",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run score:gates",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:dedup",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:liveness",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:merge",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:normalize",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:scan",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:verify",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run resumes:pdf",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run svg-to-png",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run audit:layout",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run skill-demand",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run skill-demand:test",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run fetch-postings",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run demo:real",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run pii-scan",
+                "status": "COMMAND"
+              },
+              {
+                "label": "_shared",
+                "status": "DRAFT"
+              },
+              {
+                "label": "apply",
+                "status": "DRAFT"
+              },
+              {
+                "label": "auto-pipeline",
+                "status": "DRAFT"
+              },
+              {
+                "label": "batch",
+                "status": "DRAFT"
+              },
+              {
+                "label": "contacto",
+                "status": "DRAFT"
+              },
+              {
+                "label": "deep",
+                "status": "DRAFT"
+              },
+              {
+                "label": "employer-reputation-monitor",
+                "status": "DRAFT"
+              },
+              {
+                "label": "employer-risk-index",
+                "status": "DRAFT"
+              },
+              {
+                "label": "followup",
+                "status": "DRAFT"
+              },
+              {
+                "label": "gate-behavior",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "gate-harness",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "gru",
+                "status": "DRAFT"
+              },
+              {
+                "label": "hiring-momentum-monitor",
+                "status": "DRAFT"
+              },
+              {
+                "label": "interview-prep",
+                "status": "DRAFT"
+              },
+              {
+                "label": "job-search-intelligence-orchestrator",
+                "status": "DRAFT"
+              },
+              {
+                "label": "latex",
+                "status": "DRAFT"
+              },
+              {
+                "label": "local-wage-adjustment",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "oferta",
+                "status": "DRAFT"
+              },
+              {
+                "label": "ofertas",
+                "status": "DRAFT"
+              },
+              {
+                "label": "output-linter",
+                "status": "DRAFT"
+              },
+              {
+                "label": "patterns",
+                "status": "DRAFT"
+              },
+              {
+                "label": "pdf",
+                "status": "DRAFT"
+              },
+              {
+                "label": "pipeline",
+                "status": "DRAFT"
+              },
+              {
+                "label": "project",
+                "status": "DRAFT"
+              },
+              {
+                "label": "rd-hiring-signal",
+                "status": "DRAFT"
+              },
+              {
+                "label": "scan",
+                "status": "DRAFT"
+              },
+              {
+                "label": "sector-health-dashboard",
+                "status": "DRAFT"
+              },
+              {
+                "label": "skill-demand-monitor",
+                "status": "RUNNABLE-SAMPLE"
+              },
+              {
+                "label": "target-company-comparison",
+                "status": "DRAFT"
+              },
+              {
+                "label": "tracker",
+                "status": "DRAFT"
+              },
+              {
+                "label": "training",
+                "status": "DRAFT"
+              },
+              {
+                "label": "update",
+                "status": "DRAFT"
+              },
+              {
+                "label": "workday-connector",
+                "status": "RUNNABLE-LIVE"
+              }
+            ],
+            "sparkWhen": [
+              "ATTESTED"
+            ],
+            "fallSpeed": 5,
+            "windTurbulence": 20,
+            "settleSeconds": 1.4,
+            "settleCols": 4,
+            "charSize": 30,
+            "settleSize": 34,
+            "mono": true,
+            "retainWhen": [],
+            "settleAtSec": 2.2,
+            "seed": 17,
+            "fallOpacity": 0.82
+          },
+          "rendered": {
+            "out": "media/B17.mp4",
+            "at": "2026-08-23T09:25"
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B17.mp3",
+      "actual_duration_s": 7.94,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B17.mp4",
+        "filled_by": "remotion:BrutalistCommandRain",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B18",
+      "act": "III",
+      "narration_text": "Then a signature landed. Not the author's. A student's.",
+      "shot": {
+        "type": "REMOTION",
+        "remotion": {
+          "pattern": "BrutalistCommandRain",
+          "props": {
+            "items": [
+              {
+                "label": "npm run verify",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run manifest-check",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run eval:score",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run eval:report",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run doctor",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run bls:local-wage",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run build-instructions",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run to-markdown",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run score",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run score:gates",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:dedup",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:liveness",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:merge",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:normalize",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:scan",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:verify",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run resumes:pdf",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run svg-to-png",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run audit:layout",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run skill-demand",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run skill-demand:test",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run fetch-postings",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run demo:real",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run pii-scan",
+                "status": "COMMAND"
+              },
+              {
+                "label": "_shared",
+                "status": "DRAFT"
+              },
+              {
+                "label": "apply",
+                "status": "DRAFT"
+              },
+              {
+                "label": "auto-pipeline",
+                "status": "DRAFT"
+              },
+              {
+                "label": "batch",
+                "status": "DRAFT"
+              },
+              {
+                "label": "contacto",
+                "status": "DRAFT"
+              },
+              {
+                "label": "deep",
+                "status": "DRAFT"
+              },
+              {
+                "label": "employer-reputation-monitor",
+                "status": "DRAFT"
+              },
+              {
+                "label": "employer-risk-index",
+                "status": "DRAFT"
+              },
+              {
+                "label": "followup",
+                "status": "DRAFT"
+              },
+              {
+                "label": "gate-behavior",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "gate-harness",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "gru",
+                "status": "DRAFT"
+              },
+              {
+                "label": "hiring-momentum-monitor",
+                "status": "DRAFT"
+              },
+              {
+                "label": "interview-prep",
+                "status": "DRAFT"
+              },
+              {
+                "label": "job-search-intelligence-orchestrator",
+                "status": "DRAFT"
+              },
+              {
+                "label": "latex",
+                "status": "DRAFT"
+              },
+              {
+                "label": "local-wage-adjustment",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "oferta",
+                "status": "DRAFT"
+              },
+              {
+                "label": "ofertas",
+                "status": "DRAFT"
+              },
+              {
+                "label": "output-linter",
+                "status": "DRAFT"
+              },
+              {
+                "label": "patterns",
+                "status": "DRAFT"
+              },
+              {
+                "label": "pdf",
+                "status": "DRAFT"
+              },
+              {
+                "label": "pipeline",
+                "status": "DRAFT"
+              },
+              {
+                "label": "project",
+                "status": "DRAFT"
+              },
+              {
+                "label": "rd-hiring-signal",
+                "status": "DRAFT"
+              },
+              {
+                "label": "scan",
+                "status": "DRAFT"
+              },
+              {
+                "label": "sector-health-dashboard",
+                "status": "DRAFT"
+              },
+              {
+                "label": "skill-demand-monitor",
+                "status": "RUNNABLE-SAMPLE"
+              },
+              {
+                "label": "target-company-comparison",
+                "status": "DRAFT"
+              },
+              {
+                "label": "tracker",
+                "status": "DRAFT"
+              },
+              {
+                "label": "training",
+                "status": "DRAFT"
+              },
+              {
+                "label": "update",
+                "status": "DRAFT"
+              },
+              {
+                "label": "workday-connector",
+                "status": "RUNNABLE-LIVE"
+              }
+            ],
+            "sparkWhen": [
+              "ATTESTED"
+            ],
+            "fallSpeed": 5,
+            "windTurbulence": 20,
+            "settleSeconds": 1.2,
+            "settleCols": 4,
+            "charSize": 30,
+            "settleSize": 34,
+            "mono": true,
+            "retainWhen": [
+              "ATTESTED"
+            ],
+            "settleAtSec": 0.6,
+            "seed": 18
+          },
+          "rendered": {
+            "out": "media/B18.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B18.mp3",
+      "actual_duration_s": 3.48,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B18.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B19",
+      "act": "III",
+      "narration_text": "Three recipes cleared sample runs on student attestations. A connector recipe separately reached runnable-live — a working scraper, no named attestation yet. Twenty-nine are still draft.",
+      "shot": {
+        "type": "REMOTION",
+        "remotion": {
+          "pattern": "BrutalistCommandRain",
+          "props": {
+            "items": [
+              {
+                "label": "npm run verify",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run manifest-check",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run eval:score",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run eval:report",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run doctor",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run bls:local-wage",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run build-instructions",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run to-markdown",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run score",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run score:gates",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:dedup",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:liveness",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:merge",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:normalize",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:scan",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run ats:verify",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run resumes:pdf",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run svg-to-png",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run audit:layout",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run skill-demand",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run skill-demand:test",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run fetch-postings",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run demo:real",
+                "status": "COMMAND"
+              },
+              {
+                "label": "npm run pii-scan",
+                "status": "COMMAND"
+              },
+              {
+                "label": "_shared",
+                "status": "DRAFT"
+              },
+              {
+                "label": "apply",
+                "status": "DRAFT"
+              },
+              {
+                "label": "auto-pipeline",
+                "status": "DRAFT"
+              },
+              {
+                "label": "batch",
+                "status": "DRAFT"
+              },
+              {
+                "label": "contacto",
+                "status": "DRAFT"
+              },
+              {
+                "label": "deep",
+                "status": "DRAFT"
+              },
+              {
+                "label": "employer-reputation-monitor",
+                "status": "DRAFT"
+              },
+              {
+                "label": "employer-risk-index",
+                "status": "DRAFT"
+              },
+              {
+                "label": "followup",
+                "status": "DRAFT"
+              },
+              {
+                "label": "gate-behavior",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "gate-harness",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "gru",
+                "status": "DRAFT"
+              },
+              {
+                "label": "hiring-momentum-monitor",
+                "status": "DRAFT"
+              },
+              {
+                "label": "interview-prep",
+                "status": "DRAFT"
+              },
+              {
+                "label": "job-search-intelligence-orchestrator",
+                "status": "DRAFT"
+              },
+              {
+                "label": "latex",
+                "status": "DRAFT"
+              },
+              {
+                "label": "local-wage-adjustment",
+                "status": "ATTESTED"
+              },
+              {
+                "label": "oferta",
+                "status": "DRAFT"
+              },
+              {
+                "label": "ofertas",
+                "status": "DRAFT"
+              },
+              {
+                "label": "output-linter",
+                "status": "DRAFT"
+              },
+              {
+                "label": "patterns",
+                "status": "DRAFT"
+              },
+              {
+                "label": "pdf",
+                "status": "DRAFT"
+              },
+              {
+                "label": "pipeline",
+                "status": "DRAFT"
+              },
+              {
+                "label": "project",
+                "status": "DRAFT"
+              },
+              {
+                "label": "rd-hiring-signal",
+                "status": "DRAFT"
+              },
+              {
+                "label": "scan",
+                "status": "DRAFT"
+              },
+              {
+                "label": "sector-health-dashboard",
+                "status": "DRAFT"
+              },
+              {
+                "label": "skill-demand-monitor",
+                "status": "RUNNABLE-SAMPLE"
+              },
+              {
+                "label": "target-company-comparison",
+                "status": "DRAFT"
+              },
+              {
+                "label": "tracker",
+                "status": "DRAFT"
+              },
+              {
+                "label": "training",
+                "status": "DRAFT"
+              },
+              {
+                "label": "update",
+                "status": "DRAFT"
+              },
+              {
+                "label": "workday-connector",
+                "status": "RUNNABLE-LIVE"
+              }
+            ],
+            "sparkWhen": [
+              "ATTESTED"
+            ],
+            "fallSpeed": 5,
+            "windTurbulence": 20,
+            "settleSeconds": 1.4,
+            "settleCols": 4,
+            "charSize": 30,
+            "settleSize": 34,
+            "mono": true,
+            "retainWhen": [
+              "ATTESTED",
+              "RUNNABLE-LIVE",
+              "RUNNABLE-SAMPLE"
+            ],
+            "settleAtSec": 2.2,
+            "seed": 19
+          },
+          "rendered": {
+            "out": "media/B19.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B19.mp3",
+      "actual_duration_s": 11.35,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B19.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B20",
+      "act": "III",
+      "narration_text": "That ratio is the current state, stated plainly. Two files live. Six on samples. Twenty-nine waiting. Nobody has rounded that up.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "isotype_grid",
+          "label": "recipe lifecycle state",
+          "note": "Three groups: 2 RUNNABLE-LIVE / 6 RUNNABLE-SAMPLE / 29 DRAFT"
+        }
+      },
+      "viz": {
+        "kind": "isotype",
+        "groups": [
+          {
+            "label": "RUNNABLE-LIVE",
+            "n": 2
+          },
+          {
+            "label": "RUNNABLE-SAMPLE",
+            "n": 6
+          },
+          {
+            "label": "DRAFT",
+            "n": 29
+          }
+        ]
+      },
+      "audio_file": "mp3/beat-B20.mp3",
+      "actual_duration_s": 8.0,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B20.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B21",
+      "act": "IV",
+      "narration_text": "Act four. What actually runs.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "What Actually Runs"
+            ]
+          },
+          "rendered": {
+            "out": "media/B21.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "Act IV segment card",
+      "audio_file": "mp3/beat-B21.mp3",
+      "actual_duration_s": 2.41,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B21.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B22",
+      "act": "IV",
+      "narration_text": "Strip the ambition and ask what executes on a laptop today. The answer is more than nothing and less than the book implies.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "RUNS",
+              "DOESN'T"
+            ]
+          },
+          "rendered": {
+            "out": "media/B22.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "Two columns forming: RUNS / DOESN'T. Empty for now.",
+      "audio_file": "mp3/beat-B22.mp3",
+      "actual_duration_s": 7.21,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B22.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B23",
+      "act": "IV",
+      "narration_text": "Applicant-tracking scans and liveness checks run. Funding-filing extracts run. Wage and occupation extracts run. Resumes render to a filter-safe PDF. The composite scorer runs.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "ATS scan + liveness checks: run.",
+              "SEC Form D funding extracts: run.",
+              "BLS wage + occupation extracts: run.",
+              "Resume to filter-safe PDF: run.",
+              "Composite scorer: run."
+            ]
+          },
+          "rendered": {
+            "out": "media/B23.mp4",
+            "at": "2026-08-23T09:16"
+          }
+        }
+      },
+      "new_visual_element": "Capabilities list — one line per running component, terracotta colon as separator.",
+      "audio_file": "mp3/beat-B23.mp3",
+      "actual_duration_s": 11.48,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B23.mp4",
+        "filled_by": "remotion:FormACard",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B24",
+      "act": "IV",
+      "narration_text": "And the scorer doesn't just emit a verdict — it emits an audit trace. Every term labeled: record, model judgment, or your input. You can see which part of the answer was evidence.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "state_card",
+          "label": "scorer audit trace",
+          "note": "Three rows: sponsorship → record / fit → your input / role quality → model judgment"
+        }
+      },
+      "viz": {
+        "kind": "state",
+        "rows": [
+          [
+            "sponsorship",
+            "record"
+          ],
+          [
+            "fit",
+            "your input"
+          ],
+          [
+            "role quality",
+            "model judgment"
+          ]
+        ]
+      },
+      "audio_file": "mp3/beat-B24.mp3",
+      "actual_duration_s": 10.03,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B24.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B25",
+      "act": "IV",
+      "narration_text": "Now the other column. The command-line tool the recipes name throughout? It doesn't exist. It's roadmap. The runtime is an AI coding agent reading the recipe and stopping at every gate.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The named CLI: roadmap.",
+              "The v0 runtime: Claude Code."
+            ]
+          },
+          "rendered": {
+            "out": "media/B25.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "DOESN'T column fills: named CLI drops in, greyed and struck through.",
+      "audio_file": "mp3/beat-B25.mp3",
+      "actual_duration_s": 10.92,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B25.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B26",
+      "act": "IV",
+      "narration_text": "And one weight inside the scorer is set to zero. Role quality — an entire chapter of the book, an entire evidence component — currently contributes nothing to any decision.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "equation_tangent",
+          "label": "role_quality weight",
+          "note": "role_quality term greys out; contribution collapses to nothing"
+        }
+      },
+      "equation": "w_{role\\_quality} = 0.0",
+      "new_visual_element": "role_quality term greys out and its contribution collapses to nothing.",
+      "audio_file": "mp3/beat-B26.mp3",
+      "actual_duration_s": 10.35,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B26.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B27",
+      "act": "IV",
+      "narration_text": "That isn't a bug. It's an unmade authorial decision, marked in the code as unverified, because the chapter never pinned the number. The code refuses to invent one.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "scripts/score/role-scorer.mjs",
+            "code": "  role_quality: 0.0,   // [VERIFY]\n  // UNPINNED: neither Ch.11 nor the SDD pins a\n  // number. An open authorial decision.\n  // The code refuses to invent one.",
+            "sparkLine": "[VERIFY] — not a bug, an unmade decision"
+          },
+          "rendered": {
+            "out": "media/B27.mp4",
+            "at": "2026-08-23T09:16"
+          }
+        }
+      },
+      "new_visual_element": "role_quality line with [VERIFY] comment. Terracotta underline on [VERIFY].",
+      "audio_file": "mp3/beat-B27.mp3",
+      "actual_duration_s": 9.75,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B27.mp4",
+        "filled_by": "remotion:ClaudeCodeBeat",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B28",
+      "act": "V",
+      "narration_text": "Act five. The file that got fluent.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The File That Got Fluent"
+            ]
+          },
+          "rendered": {
+            "out": "media/B28.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "Act V segment card",
+      "audio_file": "mp3/beat-B28.mp3",
+      "actual_duration_s": 2.82,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B28.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B29",
+      "act": "V",
+      "narration_text": "Which brings us to the thing I actually found, and the reason this episode exists.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "And then I opened status.md"
+            ]
+          },
+          "rendered": {
+            "out": "media/B29.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "Spark line: And then I opened status.md",
+      "audio_file": "mp3/beat-B29.mp3",
+      "actual_duration_s": 4.99,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B29.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B30",
+      "act": "V",
+      "narration_text": "The repository keeps a current-state file. It is the file that tells you where the work stands. It reads confidently. It is clear, well-organised, and recently formatted.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeCodeBeat",
+          "props": {
+            "title": "status.md",
+            "code": "updated:   2026-06-14\ncanonical: [SNICKERDOODLE.md, DOMAIN.md,\n            AGENTS.md, chapters/]\n\n\"Recipes: all 42 carry lifecycle frontmatter;\n all are still  status: DRAFT.\"",
+            "sparkLine": "updated: 2026-06-14"
+          },
+          "rendered": {
+            "out": "media/B30.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-B30.mp3",
+      "actual_duration_s": 9.83,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B30.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      },
+      "overlay": {
+        "scene": "BrutalistDateCard",
+        "props": {
+          "readout": "date",
+          "targetDate": "2026-06-14",
+          "fromDate": "2026-06-14",
+          "showMonth": true,
+          "showDay": false,
+          "showYear": true,
+          "label1": "Status file",
+          "label3": "Last updated",
+          "transparentBg": true,
+          "showClock": false,
+          "palette": "claude-dark",
+          "align": "Right",
+          "primarySize": 190,
+          "secondarySize": 170,
+          "lineSpacing": -34,
+          "revealSeconds": 1.2,
+          "seed": 130
+        }
+      }
+    },
+    {
+      "beat_id": "B31",
+      "act": "V",
+      "narration_text": "It is also two months out of date, written before the repository was re-cut and re-organised around it. It describes a folder layout that no longer exists.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own",
+        "manim": {
+          "scene_class": "B31_StatusCrossout",
+          "scenes_file": "scenes.py"
+        }
+      },
+      "audio_file": "mp3/beat-B31.mp3",
+      "actual_duration_s": 9.37,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B31.mp4",
+        "filled_by": "manim:B31_StatusCrossout",
+        "at": "2026-08-23T14:56:28"
+      },
+      "overlay": {
+        "scene": "BrutalistDateCard",
+        "props": {
+          "readout": "elapsed",
+          "targetDate": "2026-06-14",
+          "fromDate": "2026-08-21",
+          "unitLabel": "DAYS STALE",
+          "label1": "Status file",
+          "label3": "Last updated 2026-06-14",
+          "transparentBg": true,
+          "showClock": false,
+          "palette": "claude-dark",
+          "align": "Right",
+          "primarySize": 240,
+          "secondarySize": 150,
+          "lineSpacing": -30,
+          "revealSeconds": 0.7,
+          "seed": 131
+        }
+      }
+    },
+    {
+      "beat_id": "B32",
+      "act": "V",
+      "narration_text": "It states that every recipe is still draft. Eight of them aren't. It points to the run report that proves the project's first honest run — and that report is not in this tree.",
+      "shot": {
+        "type": "GRAPHIC",
+        "source": "own"
+      },
+      "graphic": {
+        "engine": "manim",
+        "production_viz": {
+          "mechanic": "state_card",
+          "label": "status.md vs reality",
+          "note": "Three rows: 'all recipes DRAFT' → 8 are not / cites run report → file absent / cites chapters/ → path moved"
+        }
+      },
+      "viz": {
+        "kind": "state",
+        "rows": [
+          [
+            "\"all recipes DRAFT\"",
+            "8 are not"
+          ],
+          [
+            "cites run report",
+            "file absent"
+          ],
+          [
+            "cites chapters/",
+            "path moved"
+          ]
+        ]
+      },
+      "audio_file": "mp3/beat-B32.mp3",
+      "actual_duration_s": 9.51,
+      "build": {
+        "status": "MANIM",
+        "src": "manim/B32.mp4",
+        "filled_by": "manim",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "B33",
+      "act": "V",
+      "narration_text": "A book about not trusting fluent surfaces grew a fluent surface. That is not hypocrisy — it's the mechanism working exactly as advertised, on its author. Nothing polices a status file.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "FormACard",
+          "props": {
+            "lines": [
+              "The fluency trap operating on its author.",
+              "Nothing polices a status file."
+            ]
+          },
+          "rendered": {
+            "out": "media/B33.mp4",
+            "at": ""
+          }
+        }
+      },
+      "new_visual_element": "The glossy surface from B08 returns — now with the status page's shape. Same crack pattern underneath.",
+      "audio_file": "mp3/beat-B33.mp3",
+      "actual_duration_s": 11.05,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/B33.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "BVDT",
+      "act": "CLOSE",
+      "narration_text": "So — the verdict. The machine is real and narrower than the book. The honesty apparatus works, and a student was the first to clear a gate. And the current-state file is the least current thing in the repository.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeVerdictArtifact",
+          "props": {
+            "artifactTitle": "The Reallocation Engine — Current State",
+            "artifactHeading": "Verdict",
+            "artifactLines": [
+              "The machine is real, and narrower than the book claims",
+              "Gates work — a student's attestation cleared one recipe past DRAFT",
+              "The status file is the least current file in the repo"
+            ]
+          },
+          "rendered": {
+            "out": "media/BVDT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BVDT.mp3",
+      "actual_duration_s": 11.29,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BVDT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "BHTF",
+      "act": "CLOSE",
+      "narration_text": "Your turn. Point an agent at any repo you maintain and run this exact ask. The interesting answer is never the code. It's the gap between the code and the file that claims to describe it.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeComposerAsk",
+          "props": {
+            "greeting": "Your turn.",
+            "topic": "YOUR TURN · REALLOCATION ENGINE",
+            "segment": "The Reallocation Engine — Current State",
+            "command": "Read this repo's status or README file, then verify every claim in it against the actual tree. List each claim that no longer holds, with the evidence. Do not fix anything yet — just tell me how stale my own description of my work has become.",
+            "runningText": "paste this into Claude and run it on your own repo…",
+            "output": [],
+            "folderLabel": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/BHTF.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BHTF.mp3",
+      "actual_duration_s": 10.67,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BHTF.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    },
+    {
+      "beat_id": "BOUT",
+      "act": "CLOSE",
+      "narration_text": "The Reallocation Engine — current state.",
+      "shot": {
+        "type": "REMOTION",
+        "source": "own",
+        "remotion": {
+          "pattern": "ClaudeTitleOutro",
+          "props": {
+            "title": "The Reallocation Engine — Current State",
+            "slug": "claude-liam-reallocation-engine-current-state",
+            "handle": "@NikBearBrown"
+          },
+          "rendered": {
+            "out": "media/BOUT.mp4",
+            "at": ""
+          }
+        }
+      },
+      "audio_file": "mp3/beat-BOUT.mp3",
+      "actual_duration_s": 2.9,
+      "build": {
+        "status": "VIDEO",
+        "src": "media/BOUT.mp4",
+        "filled_by": "media",
+        "at": "2026-08-23T14:56:28"
+      }
+    }
+  ]
+}
