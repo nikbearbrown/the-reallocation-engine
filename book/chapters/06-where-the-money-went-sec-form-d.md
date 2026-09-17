@@ -23,37 +23,39 @@ This chapter is about making sure you know.
 
 The pipeline for turning raw Form D filings into a usable shortlist lives in `scripts/sec/`, and the data it works with lives in `data/sec/form-d/` across three layers: `raw/` holds exactly what the SEC published, `extracted/` holds the parsed output, and `processed/` holds the cleaned and deduplicated result. The three-layer structure matters not for aesthetic reasons but for epistemic ones. If you look at a processed number and wonder where it came from, you can trace it back through extracted and into raw. That traceability is part of a larger contract running through this book: every company, every amount, every date in a real run comes from a filing, not from a guess. The pipeline is the source of truth. The audit log it writes is the receipt.
 
-Running it is a sequence of seven commands:
+Running it is a sequence of seven commands, executed from the repository root (the canonical flow is documented in `scripts/sec/README.md`):
 
 ```bash
-cd scripts/sec
+# 1. Download and extract the Form D archives for the quarters you want
+python3 scripts/sec/download-form-d-quarters.py \
+  --quarters 2025Q2 2025Q3 2025Q4 2026Q1 \
+  --user "Your Name your.email@example.com"
 
-# 1. Download the Form D filing archives for the quarters you want
-python download-form-d-quarters.py
+# 2. Process the extracted quarter folders into per-quarter JSON
+python3 scripts/sec/refresh-recent-sec-quarters.py
 
-# 2. Pull in the most recent quarters (keeps the archive current)
-python refresh-recent-sec-quarters.py
-
-# 3. Combine quarters into one dataset
-python sec-combine-quarters.py
+# 3. Combine and deduplicate quarters into one dataset
+python3 scripts/sec/sec-combine-quarters.py
 
 # 4. Filter to real offerings above your funding threshold
-python sec-filter.py
+python3 scripts/sec/sec-filter.py
 
-# 5. Collapse to one record per company
-python sec-unique.py
+# 5. Collapse to one record per company (exact name, phone, address)
+python3 scripts/sec/sec-unique.py
 
 # 6. Infer each company's web domain
-python sec-domain-inference.py
+python3 scripts/sec/sec-domain-inference.py
 
-# 7. Flatten to the final processed table
-python sec-flatten.py
+# 7. Flatten to the final processed CSV for downstream joining
+python3 scripts/sec/sec-flatten.py
 ```
+
+There is an eighth step the shortlist does not need but the next chapter does: `scripts/sec/entity-resolution.py` resolves these SEC company rows against raw DOL/LCA employer records — FEIN exact match first, then normalized-name exact match, then a thresholded fuzzy match, with everything else honestly left `unknown`. That join is the bridge from "who got funded" to "who sponsors," and Chapter 7 walks across it.
 
 ![A seven-step linear pipeline arranged across three horizontal layer bands — raw, extracted, processed — with each step descending toward the processed layer as it moves left to right, and a small audit-receipt marker beside every step.](../images/06-where-the-money-went-sec-form-d-fig-02.png)
 *Figure 6.2 — The seven-step Form D pipeline across three layers*
 
-Each step writes its output into the appropriate layer of `data/sec/form-d/` and leaves an audit file alongside it. The final product is a flat table: one row per funded company, with amount, date, industry, location, and — where the inference engine succeeded — a web domain. That last column matters more than it might seem. A company name without a website is a dead end. The domain inference step tries to give you a way in.
+One thing to know before you run it: the repository ships only small *samples* of this data — enough to run and verify the pipeline the moment you clone — while the full quarters are fetched, never committed (`DATA.md` states the policy; the download step above pulls them from SEC EDGAR under your own name, as the SEC's fair-access rules require). Each step writes its output into the appropriate layer of `data/sec/form-d/` and leaves an audit file alongside it. The final product is a flat table: one row per funded company, with amount, date, industry, location, and — where the inference engine succeeded — a web domain. That last column matters more than it might seem. A company name without a website is a dead end. The domain inference step tries to give you a way in.
 
 The inference works by guessing and verifying URLs from company names. It gets the right answer about sixty-two percent of the time.[^domain] Which means roughly thirty-eight percent of funded companies still need a human to locate the website before anything further can happen. This is not a bug in the pipeline — it is a feature of the problem. Some work cannot be automated, and the pipeline is honest about where it stops and you begin.
 
@@ -190,15 +192,15 @@ Before running this exercise, confirm:
 Run the SEC Form D pipeline in scripts/sec/ to produce a processed funded-company
 table for my target area. Do not edit raw data; do not invent any company.
 
-1. Run the pipeline in order, stopping and showing me any error before
-   continuing:
-     python download-form-d-quarters.py
-     python refresh-recent-sec-quarters.py
-     python sec-combine-quarters.py
-     python sec-filter.py        # apply my funding floor
-     python sec-unique.py
-     python sec-domain-inference.py
-     python sec-flatten.py
+1. Run the pipeline in order from the repo root, stopping and showing me any
+   error before continuing:
+     python3 scripts/sec/download-form-d-quarters.py --quarters <recent quarters> --user "<name email>"
+     python3 scripts/sec/refresh-recent-sec-quarters.py
+     python3 scripts/sec/sec-combine-quarters.py
+     python3 scripts/sec/sec-filter.py        # apply my funding floor
+     python3 scripts/sec/sec-unique.py
+     python3 scripts/sec/sec-domain-inference.py
+     python3 scripts/sec/sec-flatten.py
 2. After sec-flatten, report the processed row count AND the matching number
    from the audit file — confirm they agree. If they differ, stop and show me.
 3. Filter the processed table to my target state/metro and a 12-month recency

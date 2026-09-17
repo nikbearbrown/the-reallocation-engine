@@ -58,6 +58,8 @@ What the generator cannot do is also worth stating plainly. It knows the sponsor
 
 Framing is a starting calibration. The actual human across the table — and your willingness to hold the honesty line when it would be easy not to — is irreducibly yours to manage. The generator gets you to the conversation. What you do in it is not automatable.
 
+A note on where this lives in the repository, because it is deliberately different from the pipelines of Chapters 6–11. There is no `scripts/framing/` — the generator is not a maintained script, and per the repository's own rule it would be dishonest to pretend otherwise. What exists are two operating recipes, both still `DRAFT` in their lifecycle frontmatter: `recipes/apply.md`, which drafts application answers strictly from verified role, CV, and evaluation evidence, and `recipes/contacto.md`, which drafts short outreach messages under an explicit no-invented-contacts, no-invented-relationships rule. Both are agent-facing recipes whose run sections require the tier and the evidence to be *supplied*, never inferred — which is exactly this chapter's discipline expressed as a contract. Drafting language is the part of the engine where the model does the most writing, so it is also the part where the recipes are most explicit about what the model may not make up.
+
 This chapter also requires a legal and ethics reviewer before publication. The disclosure rules here touch employment and immigration law, and the hard rule against misrepresentation is not negotiable regardless of any framing suggestion the generator produces.[^ethics]
 
 ## Chapter 12 Exercises: The OPT Framing Generator

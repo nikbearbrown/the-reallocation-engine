@@ -19,8 +19,11 @@ The pipeline this chapter rests on is `scripts/resumes/`, whose core is `generat
 From the project root:
 
 ```bash
-npm run resumes:pdf      # runs scripts/resumes/generate-pdf.mjs
+npm run resumes:pdf -- --all                     # render every resumes/*-cv.md
+npm run resumes:pdf -- resumes/your-name-cv.md   # or just one
 ```
+
+Output lands in `output/resumes/`. The operating recipe for this step is `recipes/pdf.md` — its whole contract is that the formatting pipeline may never invent or silently alter résumé content. One privacy note that matters because this repository is public: your *real* CV and its rendered PDFs are personal data. They belong in `private/` (gitignored), never in the tracked tree — `npm run pii-scan` and the repo's doctor check enforce this mechanically, but the judgment call of what is yours versus shareable is, as always, yours.
 
 The output is a rendered PDF. But the real check is not "does it look right." It is "does it parse." So there is a second, essential step: copy all text from the PDF — Ctrl/Cmd-A, Ctrl/Cmd-C — and paste it into a plain text editor. What you see pasted is roughly what the parser sees. If your name, titles, and dates come through as clean linear text in the right order, the document passes. If they scramble or vanish, you have found the break before a company did.
 
@@ -74,7 +77,7 @@ The safe structures are their opposites: a single-column flow, real text charact
 
 There is something the pipeline cannot do, and I want to be direct about it.
 
-The pipeline can guarantee a parseable document. It cannot know which of your true accomplishments will land with this hiring manager. It cannot tell you that your most parser-friendly bullet is also your most forgettable one. It cannot identify the phrase in your summary that makes a reader lean forward. ATS-safety is a floor — it ensures the human gets to read you at all. What you say once you are through the gate, and whether it is specific and true enough to earn the interview, is judgment the parser was never measuring.
+The pipeline can guarantee a parseable document. It cannot know which of your true accomplishments will land with this hiring manager. What it *can* now tell you — from evidence rather than folklore — is which skills the market is actually asking for: the **skill-demand monitor** (`npm run skill-demand <postings.json>`, recipe and human card at `recipes/skill-demand-monitor.{md,card.md}`) counts which tools, frameworks, and skills are mentioned across a set of real scanned postings, optionally narrowed to a role filter, with every count traceable to the postings that produced it. It refuses to run on a sample too small to mean anything, and it claims nothing beyond what a keyword match against posting text can support. Used honestly, it tells you which of your *true* skills to surface and what might be worth learning next — never which skills to claim. It cannot know which of your bullets will make a reader lean forward. It cannot tell you that your most parser-friendly bullet is also your most forgettable one. It cannot identify the phrase in your summary that makes a reader lean forward. ATS-safety is a floor — it ensures the human gets to read you at all. What you say once you are through the gate, and whether it is specific and true enough to earn the interview, is judgment the parser was never measuring.
 
 The résumé, in a market where roughly 82% of companies run applications through software first, is not where you win. It is a gate you must not lose at. The winning moves — portfolio, proof of capability, demonstrated skill — happen elsewhere. The résumé's job is to get through the first filter intact and give the human on the other side something true and specific to respond to. Those are two requirements, and they are both necessary. An ATS-safe PDF with weak content still fails the human.
 
@@ -177,7 +180,7 @@ dates.
 **Setup:**
 
 Before running this exercise, confirm:
-- [ ] `scripts/resumes/generate-pdf.mjs` and `npm run resumes:pdf` work (Playwright/Chromium available).
+- [ ] `scripts/resumes/generate-pdf.mjs` and `npm run resumes:pdf -- --all` work (Playwright/Chromium available — `npx playwright install chromium` if not).
 - [ ] You have your ATS-safe Markdown CV from Exercise 3.
 - [ ] You know what a passing paste test looks like (clean ordered text).
 
@@ -187,8 +190,10 @@ Before running this exercise, confirm:
 Render my Markdown CV to an ATS-safe PDF and verify it parses. Do not alter my
 content; do not invent anything.
 
-1. Run:  npm run resumes:pdf
-   Confirm the PDF was written and report the path.
+1. Run:  npm run resumes:pdf -- <path-to-my-cv.md>
+   Confirm the PDF was written to output/resumes/ and report the path. My real
+   CV lives in private/ — keep every generated artifact there or in an
+   untracked location.
 2. Programmatically extract the text from the rendered PDF (the parser's view) and
    print it as plain linear text.
 3. Check and report: do my NAME, each JOB TITLE, and each DATE appear, in order,

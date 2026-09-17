@@ -56,6 +56,22 @@ Now the contrast. The same graduate. The same fit of 0.7. The same liveness and 
 
 The candidate did not get worse. The company did not get less impressive. The binding constraint changed, and the weighting surfaced it. That is the scorer's job.
 
+This worked case is not only prose — it is the repository's regression test. The scorer is implemented in `scripts/score/role-scorer.mjs` and runs from the terminal:
+
+```bash
+npm run score data/examples/ch11-roles.json
+```
+
+The example fixture encodes exactly the two roles above, and the shipped implementation reproduces this chapter's arithmetic: the Cambridge biotech composite comes out at **0.446 → Apply**, and the identical candidate at the non-sponsor comes out at **0.178 → Skip**, against the 0.3 threshold. The run emits both a JSON output and a Markdown audit report (`data/examples/role-scores.md` for the sample) in which every term is labeled *record*, *model-judgment*, or *your-input* — the auditability this chapter argues for, executed. The scorer's operating recipe is `recipes/oferta.md`, and it was the subject of the engine's first gated, logged honest run (Chapter 16 tells that story). One honest caveat belongs here rather than in a footnote: as shipped, the Chapter 9 role-quality signal carries a weight of 0.0 in the composite — the worked example doesn't exercise it, and giving it real weight (and renormalising) is an open authorial decision recorded in `DOMAIN.md`. The audit trace shows you the zero rather than hiding it, which is the whole point.
+
+The gate structure, meanwhile, is enforced by a test you can run:
+
+```bash
+npm run score:gates
+```
+
+That is the gate-behavior harness from Chapter 10 (`scripts/score/gate-harness.mjs`, recipe `recipes/gate-harness.md`): synthetic fixture roles driven through the real scorer CLI, asserting that a dead posting or an impossible start date zeroes the composite no matter how strong the votes — and proving its own assertions non-vacuous by running them against a deliberately mutated gates-as-votes scorer that they must catch.
+
 ![Two parallel four-segment stacks for the same candidate. In the left stack (a sponsoring company) the sponsorship segment is large; in the right stack (a non-sponsor) it is nearly absent while fit, liveness, and timeline are identical. The composite bars below sit on a shared zero baseline: the left clears the threshold line and resolves to Apply, the right falls below and resolves to Skip.](../images/11-the-bayesian-role-scorer-fig-02.png)
 *Figure 11.2 — Same candidate, same fit: sponsorship decides*
 
@@ -209,7 +225,8 @@ liveness, timeline factor.
 
 Before running this exercise, confirm:
 - [ ] You have factor outputs from Chapters 7–10 for your targets.
-- [ ] The scorer / `oferta` recipe exists in your repo.
+- [ ] `npm run score data/examples/ch11-roles.json` runs and reproduces the chapter's worked example (0.446 Apply / 0.178 Skip).
+- [ ] The `recipes/oferta.md` recipe exists in your repo.
 - [ ] Your `CLAUDE.md` carries the verified-data contract.
 
 **The Task:**
@@ -218,14 +235,17 @@ Before running this exercise, confirm:
 Run the Bayesian role scorer over my target list. Do not invent any factor;
 every term must trace to a source (record, model judgment, or my input).
 
-1. For each role, run the scorer and output: the composite, the recommendation
-   (Apply/Consider/Skip), and EACH term labeled by source. Fit must be labeled
-   "model judgment."
-2. Verify the gate structure: confirm that for any role with timeline factor 0 or
-   liveness ~0, the composite is ~0 regardless of sponsorship/fit. Show one such
-   role as proof, or flag if a gate isn't behaving as a gate.
+1. Build a roles JSON for my targets (factors from Chapters 7–10 only) and run:
+     npm run score <my-roles.json>
+   Output per role: the composite, the recommendation (Apply/Consider/Skip), and
+   EACH term labeled by source from the audit trace. Fit must be labeled
+   "model-judgment."
+2. Verify the gate structure: run  npm run score:gates  and report the result;
+   then confirm on my data that any role with timeline factor 0 or liveness ~0
+   composites to ~0 regardless of sponsorship/fit. Show one such role as proof,
+   or flag if a gate isn't behaving as a gate.
 3. Save reports/scores.csv: role, composite, recommendation, each term + source.
-4. For any role where I choose to Override, append a RUN_LOG.md entry with the
+4. For any role where I choose to Override, append a logs/RUN_LOG.md entry with the
    override and the one-line reason (what I knew that the data didn't). Do not
    override on your own.
 5. Show me scores.csv and the gate-check proof. Stop.
@@ -295,6 +315,6 @@ After completing this validation, write a two-sentence AI Use Disclosure:
 
 **Series connection:** This exercise trains **Tier 4 metacognitive supervision** — the auditability reflex that distinguishes a finding from a well-formatted guess. A composite you can't trace is exactly the fluent artifact the whole book teaches you to distrust.
 
-[^weights]: Composite form and weights (sponsorship ×0.35, fit ×0.30, liveness and timeline as multipliers, decision threshold ≈0.3) from the system design document (Component 3, Bayesian Role Scorer). **[verify]** — confirm the exact composite expression and per-tier thresholds before publication.
+[^weights]: Composite form and weights (sponsorship ×0.35, fit ×0.30, liveness and timeline as multipliers, decision threshold ≈0.3) from the system design document (Component 3, Bayesian Role Scorer), implemented in `scripts/score/role-scorer.mjs` as `(Σ vote·weight) × liveness × timeline`. The implementation reproduces this chapter's worked example (0.446 Apply / 0.178 Skip). Note the shipped `role_quality` weight is 0.0 pending an authorial decision (see `DOMAIN.md`); the Consider-band floor is likewise unpinned — the code marks both `[VERIFY]`.
 
 [^11-eightfold]: Eightfold AI's match score learning manager bias, and *Kistler v. Eightfold* (FCRA: disclose the score, allow disputes, fix the audit), from "The Eightfold AI Match Score" (N. Bear Brown). **[verify]** the litigation specifics before publication.

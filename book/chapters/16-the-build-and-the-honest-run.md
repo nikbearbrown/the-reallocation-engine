@@ -62,7 +62,7 @@ The model can verify that code is internally consistent. It cannot verify that t
 
 Before any first real run, two rules that are not optional:
 
-**Privacy.** Your `data/ats/` files — applications, pipeline records, scan history — contain your real targets and real activity. Your environment may contain credentials. These files are private. Review for privacy and size before any commit, and never publish them. Building in public does not mean exposing your job search.[^privacy]
+**Privacy.** Your `data/ats/` files — applications, pipeline records, scan history — contain your real targets and real activity. Your environment may contain credentials. These files are private. Review for privacy and size before any commit, and never publish them. Building in public does not mean exposing your job search.[^privacy] The repository enforces the mechanical half of this: `private/` and `data/ats/` are gitignored, `npm run pii-scan` sweeps the tree for personal data, and `npm run doctor` *fails* if any private path is git-tracked. The judgment half — what counts as yours — stays yours.
 
 **Honesty.** Everything from Chapter 12 holds at the system level. Accurate framing, no fabricated credentials, no invented metrics, no misrepresented status. An engine that optimizes your search by shading the truth is the failure mode this book exists to prevent — fluency in the service of a false impression is still a false impression, and it is worse when it arrives in a polished format.
 
@@ -74,11 +74,14 @@ Release is not a demo. It is the engine, running on your actual search:
 
 ```bash
 # Stand up and verify the engine end to end
+npm run doctor          # tools, command targets, recipe-status dashboard
+npm run verify          # repo conformance + manifest checks
 npm run ats:scan        # real postings from real companies
-npm run ats:liveness    # classify them live/ghost
+npm run ats:liveness -- --file data/ats/job-urls.txt   # classify live/ghost
 npm run ats:verify      # confirm pipeline data is consistent
-# then: pipeline → oferta on real roles → tracker logs every decision
-python scripts/ats/analyze-patterns.py   # skip rate + allocation summary
+# then: pipeline → oferta on real roles (npm run score <roles.json>)
+#       → tracker logs every decision
+python3 scripts/ats/analyze-patterns.py   # skip rate + allocation summary
 ```
 
 The output is a batch of real, logged decisions — Apply/Consider/Skip on actual roles, each factor sourced, each decision in the tracker, a skip rate you can read. Not a simulation. Not a walkthrough. The engine, applied to the search you are actually running.
@@ -88,6 +91,8 @@ When I ran the first batch, thirty roles came back with roughly 57 percent skipp
 But before the batch ran, a plausibility audit caught something. A draft composite was treating the timeline factor as a weighted vote rather than a multiplier. A role that should have zeroed on the clock — the start date was past my OPT window — was scoring "Consider." The code ran. The number looked reasonable. It was wrong in exactly the way fluency hides: internally consistent, grounded in nothing.
 
 Fixed. That is what plausibility auditing is for.
+
+Two things about that bug are now part of the repository's permanent record, and they are worth knowing because they show what happens *after* a plausibility audit catches something. First, the fix is enforced by a regression test: `npm run score:gates` runs the gate-behavior harness (`scripts/score/gate-harness.mjs`, with `recipes/gate-harness.md` and its human card), which drives synthetic roles through the real scorer CLI and asserts that a closed gate zeroes the composite — and then re-runs every assertion against a deliberately mutated gates-as-votes scorer to prove the assertions themselves would catch the bug. A harness that only ever passes proves nothing; the mutant is the evidence the test is measuring what it claims. Second, the honest run itself is a logged event, not an anecdote: the `oferta` recipe completed the engine's first gated, logged run in sample mode — its machine artifact still ships at `logs/oferta-2026-06-14.json`, and the human-readable report and full run history live in the archived Summer 2026 repository this fresh cut was recut from — reproducing this book's worked example with every automatable gate passing. What that run did *not* do is equally on the record: per the constitution, a script passing is never the last gate. The remaining step is a named human's adequacy attestation — the Tested / Did-not-test record `SNICKERDOODLE.md` specifies — and until a person signs it, the recipe stays below `VERIFIED` no matter how clean the output looks. Machines verify conformance; humans verify adequacy. The lifecycle holds the line even against the author.
 
 ![Two panels for the same role past its OPT window. In the buggy panel, the timeline factor is treated as a weighted vote: strong sponsorship, fit, and liveness drag the composite up to about 0.70, scoring Consider — wrong but reasonable-looking. In the fixed panel, the timeline factor is a multiplier: the closed gate drives the composite to zero, scoring Skip. The code ran in both cases; only the audit caught the difference.](../images/16-the-build-and-the-honest-run-fig-03.png)
 *Figure 16.3 — The gate-as-vote bug caught by plausibility audit*
@@ -229,10 +234,12 @@ anything that would breach privacy or honesty.
 4. PLAUSIBILITY AUDIT: take 3 scored roles and check each factor's contribution
    makes sense (e.g. a ~0 sponsorship must collapse the composite). Flag and fix
    any gate-as-vote bug.
-5. HONEST RUN: scan → liveness → verify → pipeline → oferta on real roles →
-   tracker logs every decision → analyze-patterns.py. Report the batch
-   (Apply/Consider/Skip counts) and the skip rate.
-6. Append a RUN_LOG.md entry: handoff conditions met, the plausibility-audit catch
+5. HONEST RUN: doctor → verify → scan → liveness → ats:verify → pipeline →
+   oferta on real roles (npm run score) → tracker logs every decision →
+   python3 scripts/ats/analyze-patterns.py. Report the batch
+   (Apply/Consider/Skip counts) and the skip rate. Run npm run score:gates and
+   include its pass/fail in the report.
+6. Append a logs/RUN_LOG.md entry: handoff conditions met, the plausibility-audit catch
    (if any), the batch, the skip rate. Keep private names out of shareable files.
    Stop.
 ```

@@ -107,6 +107,8 @@ The rule exists to stop the volume instinct from quietly reclaiming the time the
 
 The answer is: no, you couldn't. That half-hour is already spent. You just haven't decided where yet.
 
+The skip is also the one decision this book will make you *measure*. In the engine repository, the tracker recipe (`recipes/tracker.md`) treats every skip as a logged, first-class record, and `python3 scripts/ats/analyze-patterns.py` computes the skip rate across your whole search — Chapter 15 builds that machinery, and Chapter 16's honest run treats a skip rate below one-half as a warning sign, not an achievement. For now, the point is only this: a decision that is not recorded cannot be audited, and a filter whose skips are invisible cannot be trusted.
+
 ---
 
 By the end of this chapter, you should be able to explain — not just agree with — why volume is the wrong optimization target in the current market. You should be able to map the return structure across the three channels and defend a personal time allocation against expected return. And you should be able to write a 3-3-2 plan that names the times, names the networking actions, and names the portfolio piece in progress.

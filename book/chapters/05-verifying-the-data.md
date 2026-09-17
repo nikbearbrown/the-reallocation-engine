@@ -43,7 +43,7 @@ The six-step procedure in *Computational Skepticism for AI* is designed for any 
 
 The prediction-lock matters for a specific reason. Without it, you only ever see the data as it is, which feels obvious, and you don't notice you've learned anything. With it, every gap between prediction and reality is a finding — the data is telling you something you didn't already know.
 
-**Step 2 — Run the exploratory analysis.** Distributions, missingness, counts by employer, counts by year, counts by SIC code. The procedural pass. Note what shows up. Chapter 3's verification commands (`npm run ats:verify`, the sec and bls equivalents) produce the artifacts this step needs.
+**Step 2 — Run the exploratory analysis.** Distributions, missingness, counts by employer, counts by year, counts by SIC code. The procedural pass. Note what shows up. The repository's audit scripts produce the artifacts this step needs: `npm run ats:verify` for the posting pipeline, `python3 scripts/audit-sec-dol-h1b-data.py` for the SEC/DOL/H-1B source data, and the per-pipeline audits each ingest script writes beside its output.
 
 **Step 3 — Test the metadata against the actual data.** Does the time range match what the documentation says? Are the row counts consistent with the filing volumes the DOL reports in its summary statistics? Are there SIC codes present that shouldn't be, or absent that should be?
 
@@ -54,6 +54,8 @@ Here is where the "exactly N rows" question pays off. If the documentation impli
 This step is not about finding errors in the data. It is about finding the shape of the data's coverage. What it can and cannot see.
 
 **Step 5 — Trace at least one row end to end.** Pick one company from the dataset — say, the Cambridge biotech from Chapter 3's example. Follow its LCA filings through to the USCIS H-1B approval counts. Check whether the employer name in the LCA disclosure file matches the employer name in the USCIS data. Check whether the filing dates fall inside the H-1B fiscal year that would produce the approval counts you see.
+
+The repository makes this step a script rather than a heroic one-off: `python3 scripts/sec/validate-h1b-join-sample.py` pulls a hand-checkable sample of the SEC ↔ H-1B join and reports matches, near-misses, and failures row by row, and `scripts/sec/entity-resolution.py` is where the name-normalization decisions live. Read the sample validator's output the way this step demands — one row at a time, with the raw records open beside it.
 
 I have done this trace. The experience is instructive every time. Almost every real dataset you trace this way turns up at least one surprise: a quarter where the filing count jumps because the company changed its legal name mid-year; a match that works on the first four words of the name but fails on the fifth; an approval count that appears lower than expected because one subsidiary filed separately.
 
@@ -114,7 +116,7 @@ The contract guarantees counts are real. It cannot guarantee the right thing was
 
 Coverage gaps are structural. The LCA dataset covers H-1B, H-1B1, and E-3 visas. A company that sponsors TN workers under the US-Mexico-Canada Agreement, or L-1 intracompany transfers, or O-1 extraordinary ability visas, will appear in none of these disclosures. From the dataset's perspective, they are not a sponsor. From the candidate's perspective, they are.
 
-Name-matching failures are not edge cases. The LCA database and the USCIS approval database are maintained by different agencies under different administrative systems. A company that appears as "TechCorp LLC" in DOL filings and "TECHCORP" in USCIS data may join successfully or may not, depending on the exact normalization applied in the join script. The join script's coverage is documented in the audit; the audit reports how many rows matched and how many didn't. But it reports this at the aggregate level. The individual company that fell through the join looks identical to a genuine non-filer from the outside.
+Name-matching failures are not edge cases. The LCA database and the USCIS approval database are maintained by different agencies under different administrative systems. A company that appears as "TechCorp LLC" in DOL filings and "TECHCORP" in USCIS data may join successfully or may not, depending on the exact normalization applied in the join script (`scripts/sec/entity-resolution.py`, in this repository). The join script's coverage is documented in the audit; the audit reports how many rows matched and how many didn't. But it reports this at the aggregate level. The individual company that fell through the join looks identical to a genuine non-filer from the outside.
 
 Freshness windows are a policy choice with real consequences. The default in this system uses a three-year lookback window. That is long enough to provide stable signal for established sponsors and short enough to exclude obviously stale data. But a company that sponsored aggressively in 2020–2022 and then implemented a blanket hiring freeze in 2023 will still score as a strong sponsor under this window. The filing history is real. The current hiring posture is unknown.
 
@@ -268,7 +270,7 @@ estimating it.
 **Setup:**
 
 Before running this exercise, confirm:
-- [ ] You have forked/cloned the engine repo and the join script under `scripts/` runs locally.
+- [ ] You have forked/cloned the engine repo and the join scripts run locally (`python3 scripts/sec/validate-h1b-join-sample.py` succeeds; the normalization logic lives in `scripts/sec/entity-resolution.py`).
 - [ ] At least one quarter of DOL LCA data and the USCIS approval data are downloaded (the Chapter 3 verify commands succeed).
 - [ ] Your `CLAUDE.md` already carries the Chapter 3 rule: numbers come from script output, never from the model.
 

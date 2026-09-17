@@ -86,7 +86,7 @@ Read first:
 - `data/ats/portals.example.yml`
 - `data/ats/portals.yml` (if it exists)
 - `data/ats/scan-history.tsv` (if it exists)
-- `recipes/RUN_LOG.md`
+- `logs/RUN_LOG.md`
 
 Run:
 ```bash
@@ -158,7 +158,7 @@ npm run ats:liveness -- --file data/ats/job-urls.txt
 npm run ats:verify
 ```
 
-**What it produces:** detection output CSV; scan output with provider hits by platform; liveness signals per URL; a verification audit. A log entry in `recipes/RUN_LOG.md` documenting what ran, what it found, and what failed.
+**What it produces:** detection output CSV; scan output with provider hits by platform; liveness signals per URL; a verification audit. A log entry in `logs/RUN_LOG.md` documenting what ran, what it found, and what failed.
 
 **How it fails:**
 1. `data/ats/portals.yml` missing — the scan will use the example config and return results for example companies, not your companies. The output will look plausible and be wrong. Check that `portals.yml` exists and is not identical to `portals.example.yml` before trusting any scan result.
@@ -169,6 +169,8 @@ npm run ats:verify
 ---
 
 The commands are identical between the two artifacts. What differs is the frame: the recipe assumes the reader will execute immediately; the human card assumes the reader is trying to understand. The same content, arranged for two different questions — "what do I run?" versus "what is this and how does it break?"
+
+This is not a convention I am proposing; it is one the repository now practices. Open `recipes/` and you will find the pairs sitting side by side: `gate-harness.md` and `gate-harness.card.md`, `local-wage-adjustment.md` and `local-wage-adjustment.card.md`, `skill-demand-monitor.md` and `skill-demand-monitor.card.md`, `workday-connector.md` and `workday-connector.card.md`, `output-linter.md` and `output-linter.card.md`. The skill-demand card even records its own lineage — it was the first `.card.md` in the project, written because the constitution's fifth principle says one artifact cannot serve both customers. Read one pair end to end before you write your own: notice how the card leads with what the tool *cannot* verify, and how the recipe never explains itself. Each recipe also carries lifecycle frontmatter — `status`, `todos_open`, `last_gate`, `attestation` — which Chapter 14 unpacks; for now it is enough to know that the card tells you what a recipe is for, and the frontmatter tells you how far it has earned its way from `DRAFT` toward `VERIFIED`.
 
 ![A section-by-section matrix mapping the five recipe sections across the two artifacts — opening, core content, evidence, logging, failure — where the AI column carries exact, imperative chips and the human column fuller annotated chips, and the failure row shows an empty AI cell against the heaviest chip in the human column.](../images/04-two-customers-fig-02.png)
 *Figure 4.2 — Same content, inverted context: section-by-section*
@@ -281,7 +283,7 @@ Structure the card as:
 
 Before running this exercise, confirm:
 - [ ] Your forked repo has a `recipes/` directory with at least one recipe.
-- [ ] You completed Chapter 3's run so `RUN_LOG.md` and the contract rule exist.
+- [ ] You completed Chapter 3's run so `logs/RUN_LOG.md` and the contract rule exist.
 - [ ] You've picked which recipe to document (the `scan` recipe is a good first target).
 
 **The Task:**

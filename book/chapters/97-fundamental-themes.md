@@ -459,7 +459,7 @@ Gru's success condition is not a good SDD. A good SDD is evidence that the engin
 
 The pushback layer exists to protect the engineer's thinking, not the document's quality. Gru is part of the Irreducibly Human curriculum — built on the claim that the intelligences the AI era most urgently requires are exactly the ones the curriculum stopped teaching.
 
-The tool is at [boondoggling.ai](https://www.boondoggling.ai/).
+The tool is at [boondoggling.ai](https://www.boondoggling.ai/) — and a copy ships in this repository as `recipes/gru.md`, Ada's full command library plus the Boondoggle Score generator, so the conductor's tool lives beside the engine it conducts.
 
 ---
 

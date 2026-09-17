@@ -20,11 +20,12 @@ Two federal data systems organize what follows from it:
 
 **BLS OEWS** — the Bureau of Labor Statistics' Occupational Employment and Wage Statistics — measures the occupation's footprint. National employment counts per year, wage distributions at the tenth, twenty-fifth, fiftieth, seventy-fifth, and ninetieth percentiles. If you want to know whether the field is growing and what it pays, OEWS supplies the numbers.
 
-Both are organized by SOC code. The pipeline in `scripts/bls/` joins them into a compact table — one row per occupation — and that compact row is what turns a marketing title into a labor-market fact. Build the table once:
+Both are organized by SOC code. The pipeline in `scripts/bls/` joins them into a compact table — one row per occupation — and that compact row is what turns a marketing title into a labor-market fact. The source datasets are fetched, not committed — the pinned, checksum-verified fetchers pull them from the publishers — and then the extractor builds the table once, from the repository root:
 
 ```bash
-cd scripts/bls
-python extract-soc-occupation-table.py     # builds the compact SOC/OEWS/O*NET table into data/bls/compact/
+bash scripts/fetch/fetch-onet.sh      # O*NET text database → data/bls/db-30-2-text/
+bash scripts/fetch/fetch-oews.sh 24   # BLS OEWS national year → data/bls/oesm24nat/
+python3 scripts/bls/extract-soc-occupation-table.py   # → the compact table in data/bls/compact/
 ```
 
 The output is a single flat table. Pull your target occupation's row. You get alternate titles confirming the match, job zone, skill and ability ratings, national employment over multiple OEWS survey years, and the full wage distribution. That is role quality — not a feeling about the posting, but a set of features measured by the people whose job it is to measure them.
@@ -60,7 +61,15 @@ These three features, read together from one compact row, tell you more about a 
 
 ---
 
-The limit of this read is worth being explicit about. National OEWS estimates are national and lagging — typically one to two years behind the survey. They don't capture what this specific company pays, what the local market pays in your city, or what's happening in the last eighteen months of a fast-moving field. A company that just raised a Series A may be paying at the top of the wage band for talent; a company burning through runway may be offering equity and a below-median salary. The compact row tells you the occupation's gravity; it cannot tell you the specific role's orbit around it.
+The limit of this read is worth being explicit about. National OEWS estimates are national and lagging — typically one to two years behind the survey. They don't capture what this specific company pays or what's happening in the last eighteen months of a fast-moving field.
+
+One of those limits — "national is not what your city pays" — this repository has since closed, and the way it closed it is worth reading as a model of the whole method. The **local wage adjustment** (`npm run bls:local-wage`, implemented in `scripts/bls/local-wage-adjustment.py`, specified in `recipes/local-wage-adjustment.md` with a human card beside it) takes a metro area and a SOC code and joins the BLS *metro-level* OEWS estimates to the Bureau of Economic Analysis's Regional Price Parities on an exact area-code match — no fuzzy name matching, no interpolation, no falling back to the national figure when the local one is missing:
+
+```bash
+npm run bls:local-wage -- --metro "Glens Falls, NY" --soc 15-1252
+```
+
+What comes back is either a cost-adjusted wage band — the metro median divided by the metro's price parity, with a 25th–75th percentile band around it — or `status=missing` with exactly one reason code naming *why* it's missing: no metro match, no occupation row for that metro, a small-sample suppression token in the source data, or no crosswalk entry. Those are four different events, and the tool refuses to blur them into one shrug or, worse, into a plausible substitute number. A suppressed cell and an absent row look identical in a naive pipeline; here they are distinguished, counted, and reported. The recipe's frontmatter reads `RUNNABLE-SAMPLE` and names the human who signed its sample-run adequacy, and its own card states the honest ceiling: OEWS is an occupation-metro survey, so this tells you what the occupation pays in that metro, never what a specific employer will offer you. A company that just raised a Series A may be paying at the top of the wage band for talent; a company burning through runway may be offering equity and a below-median salary. The compact row tells you the occupation's gravity; it cannot tell you the specific role's orbit around it.
 
 The SOC taxonomy also lags genuinely new work. If a role is at the frontier of a field that didn't exist five years ago — some combinations of machine learning engineering and product work, for instance — the best available SOC code may be an imperfect match for something genuinely novel. The numbers you read off it will be real, but they'll describe a proxy occupation rather than the thing itself. This is not a reason to skip the lookup. It is a reason to hold the numbers as directional rather than definitive when the alternate-title match is weak even after careful checking.
 
@@ -155,7 +164,7 @@ alternate-title list from the compact row for your PROPOSED SOC.
 **Setup:**
 
 Before running this exercise, confirm:
-- [ ] `scripts/bls/extract-soc-occupation-table.py` exists and its O\*NET/OEWS source data is available.
+- [ ] `scripts/bls/extract-soc-occupation-table.py` exists and its O\*NET/OEWS source data has been fetched (`bash scripts/fetch/fetch-onet.sh`, `bash scripts/fetch/fetch-oews.sh 24`).
 - [ ] You have target role titles (from your live postings in Chapter 8).
 - [ ] You understand the alternate-title check is the verification step.
 
@@ -165,7 +174,7 @@ Before running this exercise, confirm:
 Build the role-quality table and verify SOC matches for my target roles. Do not
 invent wages, trends, or SOC matches; every number comes from the compact table.
 
-1. Run:  python scripts/bls/extract-soc-occupation-table.py
+1. Run:  python3 scripts/bls/extract-soc-occupation-table.py
    Confirm it wrote the compact table to data/bls/compact/ and report the row
    count from the run's output.
 2. For each of my target titles, pull the compact row for the SOC I name and
@@ -176,8 +185,12 @@ invent wages, trends, or SOC matches; every number comes from the compact table.
    each. Do not silently accept an unconfirmed match.
 4. For one title that fails the check, find the SOC whose alternate-title list
    DOES contain it, and show the corrected row.
+4b. For one confirmed SOC in my target metro, run:
+      npm run bls:local-wage -- --metro "<my metro>" --soc <code>
+    Report either the adjusted band or the missing-status reason code verbatim —
+    never substitute the national number for a missing local one.
 5. Save reports/role-quality.csv: title, confirmed SOC, trend, wage band,
-   confirmed(yes/no). Append a RUN_LOG.md entry. Stop.
+   confirmed(yes/no). Append a logs/RUN_LOG.md entry. Stop.
 ```
 
 **Expected output:** `reports/role-quality.csv` with confirmed SOC matches, trends, and wage bands, plus one worked re-classification — all traceable to the compact table.

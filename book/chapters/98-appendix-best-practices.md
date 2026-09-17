@@ -33,19 +33,31 @@ understand the engine.
 Use structure by function:
 
 - `README.md` — human-facing overview and architecture map.
-- `CLAUDE.md` — Claude/Cowork operating rules.
-- `AGENTS.md` — cross-agent operating rules.
-- `docs/` — human-readable system documentation.
+- `_MANIFEST.md` — the read-first map: what is canonical, task-relevant,
+  generated, or private (machine-readable twin in `.ai/manifest.yaml`).
+- `SNICKERDOODLE.md` — the constitution; governs all conflicts.
+- `DOMAIN.md` — the domain map: what is runnable today and the honest gap list.
+- `CLAUDE.md` / `AGENTS.md` — agent operating rules, **generated** from the
+  modules in `instructions/` by `npm run build-instructions`; edit the source,
+  never the compiled files.
+- `docs/` — human-readable system documentation and tutorials.
 - `data/` — verified local data, exports, metadata, generated datasets, and
   audits.
 - `scripts/` — tested, vetted, reusable automation.
-- `recipes/` — agent-readable operating recipes with human-readable summaries.
-- `chapters/` — manuscript content.
-- `slides/` — optional teaching decks.
+- `recipes/` — agent-readable operating recipes with lifecycle frontmatter and
+  human-readable summaries (paired `*.card.md` where one exists).
+- `book/chapters/` — manuscript content; everything else that makes the book
+  (build script, images, slides, exercises, study aids) lives under `book/`.
+- `eval/` — the measurement harness that tests whether the instruction
+  scaffolding actually helps (`npm run eval:score` / `eval:report`).
+- `logs/` — `RUN_LOG.md` and attestations: ground-truth run history.
+- `private/` — your real personal data; gitignored, never committed.
 - `pantry/` — research notes, source notes, and reference material.
-- `output/` — generated artifacts, not source of truth.
+- `output/`, `reports/generated/` — generated artifacts, not source of truth.
 
 Use lowercase `scripts/`. Do not create or reference uppercase `SCRIPTS/`.
+`npm run doctor` reports the runnable surface and the recipe-status dashboard;
+`npm run verify` checks that the repository itself conforms.
 
 ## Verified Data First
 
@@ -109,7 +121,11 @@ If a gate has no failure path, it is not a gate. It is decoration.
 
 ## Recipe Rules
 
-Every recipe should include:
+Every recipe carries lifecycle frontmatter — `status` (`DRAFT` →
+`SPECIFIED` → `RUNNABLE-SAMPLE` → `RUNNABLE-LIVE` → `VERIFIED`), `todos_open`,
+`last_gate`, `attestation`, `recipe_version` — and a status is a claim that
+requires logged evidence, per `SNICKERDOODLE.md`. Beyond the frontmatter, every
+recipe should include:
 
 1. executive summary;
 2. required reads;
@@ -138,6 +154,13 @@ Use `logs/RUN_LOG.md` when a recipe:
 
 Log what happened, not private details. Do not log secrets, personal phone
 numbers, private emails, or sensitive application notes.
+
+One mechanical detail if you contribute back to the upstream repository rather
+than working only in your own fork: `logs/RUN_LOG.md` there is a
+maintainer-owned index, and CI rejects pull requests that modify it. Student
+run entries go in their own files under `logs/runs/`, named per the template in
+`recipes/_shared.md`, inside a per-student contribution namespace (see
+`CONTRIBUTING.md`). In your own fork, your run log is yours to append.
 
 ## Output Rules
 

@@ -19,10 +19,12 @@ When you pull up a careers page in a browser, you are looking at a rendered surf
 The first thing I do when I hit a new company is run a single script:
 
 ```bash
-python scripts/ats/detect-ats.py --company "Example Bio"
+python3 scripts/ats/detect-ats.py --company "Example Bio"
 ```
 
 It returns a label — Greenhouse, Lever, Ashby, or unknown. That label is not interesting on its own. What it unlocks is the ability to read the feed correctly. A scraper built for Greenhouse reads Lever data as noise. Detection is the key; without it, everything downstream is garbled.
+
+A word about that "unknown" label, because it hides a gap this repository has since started to close. The scan pipeline ships provider modules for Greenhouse, Lever, and Ashby — but an enormous share of large-company hiring runs through Workday, which exposes its postings differently. The engine now carries a **Workday connector** (`recipes/workday-connector.md`, implemented in `scripts/ats/scrapers/workday/`) that pulls live public postings from a company's Workday careers site into the same unified postings schema, given nothing but the careers URL. It is one of the few recipes in the repository that has completed a logged live run — its frontmatter reads `RUNNABLE-LIVE` and names the run (2026-08-12); the full run history behind this fresh-cut repository is preserved in the archived Summer 2026 repository its run log points to. The lesson generalizes: when the detector says "unknown," the right response is not to shrug but to check which ATS is actually behind the page and whether a connector for it exists yet. A missing connector is a named gap, and named gaps are how this repository grows.
 
 ![Three applicant-tracking platforms — Greenhouse, Lever, and Ashby — each with its own feed structure, all resolving to one unified postings-record schema with fields for job id, title, posted date, last updated, description, and status.](../images/08-is-the-job-real-ats-detection-and-liveness-fig-05.png)
 *Figure 8.2 — Detection unlocks the schema*
@@ -32,7 +34,7 @@ It returns a label — Greenhouse, Lever, Ashby, or unknown. That label is not i
 Once the ATS is identified, the pipeline pulls the company's postings directly from the provider's feed — no paid model calls, just structured data read from the source:
 
 ```bash
-npm run ats:scan
+npm run ats:scan            # add -- --dry-run to preview without writing files
 ```
 
 This zero-token scan matters because it runs on every company in the pipeline. At scale, what gets expensive gets skipped. A check that costs nothing gets run every time, and recency of the scan stops being a variable you manage.
@@ -69,7 +71,8 @@ Does the context make an active search plausible? Funding tier, recent headcount
 The classification runs after all five:
 
 ```bash
-npm run ats:liveness
+npm run ats:liveness -- <job-url>              # one or more URLs
+npm run ats:liveness -- --file data/ats/job-urls.txt   # or a file of them
 ```
 
 ![A classifier diagram where five posting signals — posting age, last-updated date, sibling-listing activity, description specificity, and active-search context — feed a single liveness decision that fans out to three terminal calls: live, ghost, and investigate.](../images/08-is-the-job-real-ats-detection-and-liveness-fig-03.png)
@@ -246,14 +249,14 @@ fill it in.
 1. Confirm data/ats/portals.yml exists and is NOT identical to portals.example.yml.
    If it's the example, stop and tell me.
 2. For each target company, run:
-     python scripts/ats/detect-ats.py --company "<name>"
+     python3 scripts/ats/detect-ats.py --company "<name>"
    Record the ATS label (greenhouse/lever/ashby/unknown).
 3. Run:  npm run ats:scan      (zero-token scan of configured portals)
-   then:  npm run ats:liveness
+   then:  npm run ats:liveness -- --file data/ats/job-urls.txt
    Record per-posting: the five signal values and the live/ghost/investigate call.
 4. Save a table to reports/liveness.csv: company, posting, five signals,
    classification. Separate EMPTY results from ERRORS in your report.
-5. Append a RUN_LOG.md entry: companies scanned, postings classified, counts of
+5. Append a logs/RUN_LOG.md entry: companies scanned, postings classified, counts of
    live/ghost/investigate. Stop.
 ```
 

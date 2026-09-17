@@ -33,7 +33,7 @@ The verified-data contract is not a philosophy statement. It is enforced by the 
 
 `scripts/sec/` pulls from SEC filings to measure company funding. When a company raises a round or files material financials, that event is in the public record. The script finds it; the audit reports what was found and what was dropped. `scripts/ats/` queries job-board data to measure whether a company is actively posting and whether particular openings are live. `scripts/bls/` draws on Bureau of Labor Statistics data to assess role quality — compensation, demand trajectory, geographic concentration. Each subsystem writes an audit: a record of what the pipeline did on a given run, how many rows it processed, what coverage it achieved, what it couldn't match.
 
-`DATA_CONTRACT.md` defines what data exists and where it lives — including which files are private (your own application records, credentials, anything that identifies you personally) and how those are handled. `RUN_LOG.md` is the system's memory: every run leaves a trace, so a decision you make today on the strength of a number can be reconstructed and questioned tomorrow. This is the same practice good empirical work has always demanded — state your method, show your coverage, let a claim be checked.
+`DATA_CONTRACT.md` defines what data exists and where it lives — including which files are private (your own application records, credentials, anything that identifies you personally) and how those are handled; `npm run pii-scan` is the mechanical half of that promise, sweeping the tree for personal data before anything is committed. `logs/RUN_LOG.md` is the system's memory: every run leaves a trace, so a decision you make today on the strength of a number can be reconstructed and questioned tomorrow. This is the same practice good empirical work has always demanded — state your method, show your coverage, let a claim be checked.
 
 ## The tool prefers what it already trusts
 
@@ -41,7 +41,7 @@ There is a mechanism underneath the contract I haven't named yet, and it is the 
 
 Each of these tools checks for **local verified data first**. Once the DOL disclosure data has been downloaded and checked, it lives in a local store. When a script runs, it asks a prior question before it asks the network anything: *do I already have verified data for this, and is it still fresh?* If the answer is yes, the script reads the local copy and never touches the network. The audit says so plainly — *served from cache* — so you can see that this run rested on data already verified, not on a fresh pull nobody checked.
 
-Only when the local answer is no — the data is missing, or older than the freshness window the contract defines — does the tool go and fetch. And fetching is not the same as trusting. The moment new data arrives it is **verified on arrival**: the schema is what was expected, the row counts are sane, the source is the one it claims to be. Only then is it written to the local store, and only then does a line go into the run log recording that a fetch happened and what it pulled. The network is the fallback, not the default.
+Only when the local answer is no — the data is missing, or older than the freshness window the contract defines — does the tool go and fetch. And fetching is not the same as trusting. The moment new data arrives it is **verified on arrival**: the schema is what was expected, the row counts are sane, the source is the one it claims to be. The repository implements this literally: the bulk public datasets are never committed — the pinned fetchers in `scripts/fetch/` download each one from a fixed URL and verify a SHA-256 recorded in `data/checksums.lock`, and a checksum mismatch is a hard failure, because a silently-changed dataset is exactly the provenance failure the contract exists to prevent. Only then is it written to the local store, and only then does a line go into the run log recording that a fetch happened and what it pulled. The network is the fallback, not the default.
 
 This is not mainly an optimization for speed, though it is faster. It is what makes a run **reproducible**. A number you cited last Tuesday can be regenerated today from the same local verified data, because the tool did not silently re-pull a changed file underneath you. When the data genuinely changes — a new quarter of filings drops — the fetch is logged, visible, and dated, so the change is a recorded event instead of a mystery. Verified-once-then-cached is how "never invent a number" stays affordable: you are not re-earning trust on every run, you are reusing trust you already audited.
 
@@ -55,13 +55,15 @@ npm run ats:verify
 
 This calls `scripts/ats/verify-pipeline.mjs`, which checks the tracker and scan data for internal consistency and prints what it found. The output is the audit. I want you to run this not because you need the result yet, but because there is a specific feeling I want you to have: the difference between being told the data is fine and *seeing the check pass*. One of those is someone's word. The other is evidence. The contract is the decision to require the second.
 
-| Pipeline | What it verifies | What the audit reports |
+| Command | What it verifies | What the audit reports |
 |---|---|---|
-| `ats:verify` | Tracker and scan-data consistency | Row counts, coverage, drop reasons |
-| `sec:verify` | Filing-record completeness | Companies matched, date range, gaps |
-| `bls:verify` | Role-quality data freshness | Series IDs, last update, missing occupations |
+| `npm run ats:verify` | Tracker and scan-data consistency | Row counts, coverage, drop reasons |
+| `python3 scripts/sec/validate-h1b-join-sample.py` | The SEC ↔ H-1B join, on a hand-checkable sample | Matches, near-misses, join failures |
+| `python3 scripts/audit-sec-dol-h1b-data.py` | The SEC/DOL/H-1B source data itself | Coverage, date ranges, anomalies |
+| `npm run verify` | The repository's own conformance (valid files, manifest in sync) | What parses, what drifted |
+| `npm run doctor` | Your environment: tools installed, every npm command's script actually present | The honest map of what your machine can run |
 
-*Table 3.1 — The three verification commands and what each audit tells you.*
+*Table 3.1 — The verification surface and what each audit tells you. Only `ats:verify` wears the `verify` name; the SEC and BLS pipelines are audited by their own scripts, and the last two check the machine and the repo rather than the data.*
 
 ## The seam where fluency sneaks back in
 
@@ -72,6 +74,8 @@ Did the model count anything? No. It estimated. It applied a pattern from its tr
 The discipline required is to watch the seam between the data and the reading of the data. Data claim: fifteen filings, 85% approval rate, sourced to DOL/USCIS. Model judgment: this is strong for a company of this type. Both are present in that paragraph. Only the first can be defended against scrutiny. The second is permitted — it is genuinely useful — but it has to be *labeled as judgment*, not dressed as a fact derived from counting.
 
 For any sentence in a system output, one question settles it: could this sentence have been produced by counting records? If yes, it must trace to a script output or an audit report. If it cannot be traced, it is not allowed to stand. If no — if it is a reading, a framing, a suggestion — it is model judgment, and it is allowed, but it must be visible as such.
+
+Part of that policing is now mechanical. The repository ships an **evidence-first output linter** — `scripts/output-linter.mjs`, specified in `recipes/output-linter.md` with a human card beside it — that runs deterministically over an engine output and flags two failures: a numeric claim with no provenance signal attached (an unsourced count, rate, or confidence), and finding-shaped language whose verb claims more certainty than the evidence boundary supports. Note what it deliberately does *not* do: it cannot tell whether a claim is true, and its first version refuses to guess semantically at whether a sentence "is" a model judgment, because a regex that guesses at meaning would itself violate the contract. Machines verify conformance; the seam is still yours to watch. The linter just makes the crudest violations impossible to miss.
 
 ![A decision tree: one question — could this sentence have been produced by counting records? — splits into a data-claim branch that must trace to a script output or audit and a model-judgment branch that is allowed but must be labeled, with both branches reconverging on a final check that the label is visible in the output.](../images/03-the-verified-data-contract-fig-03.png)
 *Figure 3.3 — The one-question test for every sentence*
@@ -114,7 +118,7 @@ The one question I haven't fully answered yet: of all the companies in the world
 
 **Project:** Your Own Reallocation Engine
 
-**This chapter adds:** the floor your engine stands on — you fork the repo, run your first verification, write your first `RUN_LOG.md` entry, and harden the `CLAUDE.md` rule from Chapter 1 into the full one-rule contract: run the script and read the audit before you prompt; never invent a count.
+**This chapter adds:** the floor your engine stands on — you fork the repo, run your first verification, write your first `logs/RUN_LOG.md` entry, and harden the `CLAUDE.md` rule from Chapter 1 into the full one-rule contract: run the script and read the audit before you prompt; never invent a count.
 
 ---
 
@@ -168,7 +172,7 @@ things:
    explicitly labeled as judgment (e.g. "Interpretation, not counted: ...").
 3. Apply the one-question test to one borderline sentence: "Could this have been
    produced by counting records?" Show your reasoning for yes or no.
-4. Draft a RUN_LOG.md entry: what I ran, what the audit reported, and one thing
+4. Draft a logs/RUN_LOG.md entry: what I ran, what the audit reported, and one thing
    the output told me I would otherwise have assumed.
 
 If any step needs a number not present below, say "not in the provided output"
@@ -178,7 +182,7 @@ instead of estimating.
 [paste the printed output of your verify command here]
 ```
 
-**What this produces:** a labeled breakdown of your own audit into data claims vs. judgments, plus a ready `RUN_LOG.md` entry — the habit that keeps fluency from sneaking back in at the reading layer.
+**What this produces:** a labeled breakdown of your own audit into data claims vs. judgments, plus a ready `logs/RUN_LOG.md` entry — the habit that keeps fluency from sneaking back in at the reading layer.
 
 **How to adapt this prompt:**
 - *For your own project:* paste the real terminal output of whatever verify command you ran. The prompt is useless on an invented audit and sharp on a real one.
@@ -203,7 +207,7 @@ instead of estimating.
 
 Before running this exercise, confirm:
 - [ ] You have forked/cloned the engine repo and run its install step (e.g. `npm install`).
-- [ ] `recipes/_shared.md`, `DATA_CONTRACT.md`, and `RUN_LOG.md` exist in the repo.
+- [ ] `recipes/_shared.md`, `DATA_CONTRACT.md`, and `logs/RUN_LOG.md` exist in the repo.
 - [ ] Your `CLAUDE.md` from Chapter 1 is present (you'll extend it).
 
 **The Task:**
@@ -216,19 +220,19 @@ this is a read-and-run-and-record task only.
    is and which files are named as sources of truth.
 2. Run the ATS verification command:  npm run ats:verify
    Paste the full output back to me. If it errors, show the error and stop.
-3. From that output, append a dated entry to RUN_LOG.md using the repo's log
-   format: what ran, what the audit reported (row counts / coverage / drops),
-   what worked, what didn't, and one thing the output revealed.
+3. From that output, append a dated entry to logs/RUN_LOG.md using the repo's
+   log format: what ran, what the audit reported (row counts / coverage /
+   drops), what worked, what didn't, and one thing the output revealed.
 4. Append one line to CLAUDE.md under a "Verified-data contract" heading:
    "Run the script and read the audit before prompting. Never invent a count, a
    rate, or a coverage number. Label model judgment as judgment."
-5. Show me the diff of RUN_LOG.md and CLAUDE.md before saving.
+5. Show me the diff of logs/RUN_LOG.md and CLAUDE.md before saving.
 
 Do not fetch from the network beyond what ats:verify does on its own. Stop after
 step 5.
 ```
 
-**Expected output:** the verify command's audit printed back, a new `RUN_LOG.md` entry, and the contract rule appended to `CLAUDE.md` — shown as a diff for your approval.
+**Expected output:** the verify command's audit printed back, a new `logs/RUN_LOG.md` entry, and the contract rule appended to `CLAUDE.md` — shown as a diff for your approval.
 
 **What to inspect in the output:** read the audit — does it report *served from cache* or a fresh fetch? Are the row counts non-zero and sane? Confirm the `RUN_LOG.md` entry contains only numbers that appear in the actual output, not rounded or "approximately" values the model smoothed in.
 

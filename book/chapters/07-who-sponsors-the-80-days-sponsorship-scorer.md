@@ -92,7 +92,7 @@ The most common misread of this system is treating Unknown as Avoid. I want to s
 
 *Avoid* means the record shows this company does not sponsor your kind of role. The evidence is there; it is just negative. *Unknown* means the record is silent. Silent is different from negative. A company is Unknown for one of two reasons: either there is genuinely no filing history (they have never sponsored, or they are so young that the data does not exist yet), or the name did not match when the pipeline joined the datasets.
 
-Those two causes of Unknown require opposite responses. A true absence of filings on a three-year-old company with strong funding is a prompt to look for direct sponsorship signals — a careers page that says "visa sponsorship available," a LinkedIn post about a recent hire on an H-1B, a direct question to the recruiter. A failed name match is a data problem you fix by resolving the entity and re-running. You cannot tell which you are dealing with by looking at the tier alone. You tell by reading the join-coverage audit.
+Those two causes of Unknown require opposite responses. A true absence of filings on a three-year-old company with strong funding is a prompt to look for direct sponsorship signals — a careers page that says "visa sponsorship available," a LinkedIn post about a recent hire on an H-1B, a direct question to the recruiter. A failed name match is a data problem you fix by resolving the entity and re-running — and resolving the entity is a maintained script, not a heroic manual chore: `scripts/sec/entity-resolution.py` joins SEC company rows to raw DOL/LCA employer records by FEIN exact match first, then normalized-name exact match, then a thresholded fuzzy match, and leaves everything else honestly marked `unknown`. You cannot tell which cause you are dealing with by looking at the tier alone. You tell by reading the join-coverage audit.
 
 | | True Unknown | Name-Match Artifact Unknown |
 |---|---|---|
@@ -106,14 +106,13 @@ Those two causes of Unknown require opposite responses. A true absence of filing
 The pipeline exposes this. From the project root:
 
 ```bash
-cd scripts/sec
-python validate-h1b-join-sample.py
+python3 scripts/sec/validate-h1b-join-sample.py
 ```
 
-checks the company-name join against USCIS H-1B data, and:
+checks the company-name join against USCIS H-1B data on a hand-checkable sample, and:
 
 ```bash
-python scripts/audit-sec-dol-h1b-data.py
+python3 scripts/audit-sec-dol-h1b-data.py
 ```
 
 audits the full SEC + DOL + H-1B join coverage. The output is a number: how many companies on your shortlist matched, how many failed to match, and therefore how much of your list the tier actually covers. You read that coverage number before trusting any Unknown. If 30% of your shortlist failed to match, a significant fraction of your Unknowns are artifacts, not verdicts.
@@ -240,19 +239,20 @@ Before running this exercise, confirm:
 Score my shortlist for sponsorship and measure join coverage. Do not invent
 counts, rates, or tiers; every number must come from a script.
 
-1. Run:  python scripts/sec/validate-h1b-join-sample.py
-   and:   python scripts/audit-sec-dol-h1b-data.py
+1. Run:  python3 scripts/sec/validate-h1b-join-sample.py
+   and:   python3 scripts/audit-sec-dol-h1b-data.py
    Report the join-coverage number: how many shortlist companies matched, how
    many failed.
 2. List my Unknown-tier companies and mark which fall in the unmatched set
    (likely name-match artifacts) vs. matched-but-no-filings (likely true
    absence).
 3. Pick ONE unmatched company I care about. Show me its name variants across the
-   SEC, DOL, and USCIS data. Propose an entity-resolution fix (a name mapping) —
-   show it to me, do not apply it silently.
+   SEC, DOL, and USCIS data. Propose an entity-resolution fix using
+   scripts/sec/entity-resolution.py (FEIN match, then normalized name, then
+   fuzzy) — show it to me, do not apply it silently.
 4. With my approval, apply the mapping and re-run the audit. Report whether the
    company's tier changed and the new coverage number.
-5. Append a RUN_LOG.md entry: coverage before/after, the company fixed, the tier
+5. Append a logs/RUN_LOG.md entry: coverage before/after, the company fixed, the tier
    change. Stop.
 ```
 

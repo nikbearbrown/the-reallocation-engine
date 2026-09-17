@@ -29,6 +29,24 @@ The recipes split into two groups, and understanding the split is the chapter's 
 
 The taxonomy is not a permanent ranking. A draft recipe you have verified is trustworthy for that run. An active recipe that has been edited without your knowledge might not be. The classification is always about what the recipe did on this run, not what it is named.
 
+## The lifecycle: status is a claim that requires evidence
+
+The repository does not leave this taxonomy as a judgment you re-derive from scratch each time. Every recipe file opens with lifecycle frontmatter — `status`, `todos_open`, `last_gate`, `attestation`, `recipe_version` — governed by the constitution in `SNICKERDOODLE.md`. The statuses form a ladder:
+
+```
+DRAFT ──► SPECIFIED ──► RUNNABLE-SAMPLE ──► RUNNABLE-LIVE ──► VERIFIED
+```
+
+Each transition requires logged evidence, not optimism: a recipe reaches `RUNNABLE-SAMPLE` only after a full sample run whose conformance checks passed and whose audits were generated and read; `RUNNABLE-LIVE` only after a live run with a human clearing every gate; `VERIFIED` only with a recorded attestation naming who tested what and — mandatory — what they did *not* test. Editing the status field without the evidence is a violation, not a promotion. The run log at `logs/RUN_LOG.md` is the ground truth; frontmatter is trusted only as far as its evidence.
+
+Where does that leave the actual inventory, as of this edition? Honest and mostly young. The core operating recipes — `scan`, `pipeline`, `oferta`, `tracker`, `pdf`, `patterns`, `update` — all still read `status: DRAFT`, with open typed TODOs. The recipes that have climbed are the newer, narrower tools: the **Workday connector** is `RUNNABLE-LIVE` (a logged live run against a real careers site); the **gate-behavior harness**, the **local wage adjustment**, and the **skill-demand monitor** are `RUNNABLE-SAMPLE`, each with a logged, human-signed sample run. That inversion is worth noticing: the small tools with sharp contracts earned status faster than the broad workflows, because a sharp contract is easier to test honestly. You can see the whole dashboard at any time:
+
+```bash
+npm run doctor      # tools, command targets, and the recipe-status dashboard
+```
+
+`doctor` reports every recipe's declared status, whether its declared `todos_open` matches the `[TODO]` markers actually in its body, and which npm commands have real scripts behind them — the runnable surface, measured rather than remembered. One more habit belongs in this section: many recipes now ship with a paired human card (`*.card.md`, the Chapter 4 discipline), and when a recipe and its card disagree, one of them is wrong and the disagreement is itself a logged defect — no artifact silently wins.
+
 ![Two columns of recipes. The active column — scan, pipeline, oferta, tracker, pdf — calls scripts and reads audits, producing findings. The draft and helper column — apply, contacto, deep, followup, interview-prep, ofertas, project, training — carries a "verify before trusting" label, treated as model judgment until confirmed. The split is about evidence, not hierarchy.](../images/14-skills-operating-the-engine-fig-01.png)
 *Figure 14.1 — Active vs. draft recipes*
 
@@ -38,11 +56,11 @@ Operating the engine is one loop, repeated:
 
 1. **Run** an active recipe against a real target.
 2. **Inspect** the output *and its provenance* — did it call the script? Is there an audit? Which numbers trace to records and which are labeled judgments?
-3. **Record** the run in `RUN_LOG.md` — what you ran, what it returned, what you decided.
+3. **Record** the run in `logs/RUN_LOG.md` — what you ran, what it returned, what you decided.
 
 The loop is deliberately boring, and the boredom is the safety. Each pass leaves a trace. A decision made three weeks ago can be reconstructed, questioned, and updated when new information arrives. The moment you skip the inspect step — accepting a recipe's output because it looks right, because the format is familiar, because the recommendation matches what you hoped — you've reopened the fluency trap. The surface was the danger in Chapter 1. It is still the danger in Chapter 14.
 
-![A three-step cycle drawn as a clockwise loop: Run an active recipe, Inspect the output and its provenance, Record the run in RUN_LOG.md, then back to Run. The inspect node is annotated as the only protection — skip it and the fluency trap reopens.](../images/14-skills-operating-the-engine-fig-02.png)
+![A three-step cycle drawn as a clockwise loop: Run an active recipe, Inspect the output and its provenance, Record the run in logs/RUN_LOG.md, then back to Run. The inspect node is annotated as the only protection — skip it and the fluency trap reopens.](../images/14-skills-operating-the-engine-fig-02.png)
 *Figure 14.2 — The run-inspect-record loop with provenance checkpoints*
 
 ## A full sequence, end to end
@@ -57,7 +75,8 @@ npm run ats:scan
 #    (run via the pipeline recipe / auto-pipeline)
 
 # 3. oferta — evaluate one role into a composite + Apply/Consider/Skip
-#    (oferta recipe; returns the sourced composite from Chapter 11)
+#    (oferta recipe; the scorer itself is runnable directly:
+#     npm run score <roles.json>)
 
 # 4. verify — confirm the pipeline's data is internally consistent
 npm run ats:verify
@@ -77,14 +96,14 @@ The `pipeline` pass scores the role. Sponsorship probability from the LCA and H-
 
 `ats:verify` runs. The data is internally consistent. No flag.
 
-`RUN_LOG.md` gets one entry: the command sequence, the composite with each factor labeled by source, the recommendation, and a one-line decision: *Compare against other Considers before spending an application slot.*
+`logs/RUN_LOG.md` gets one entry: the command sequence, the composite with each factor labeled by source, the recommendation, and a one-line decision: *Compare against other Considers before spending an application slot.*
 
 That's the whole loop. What makes it different from just reading the recommendation is the inspect step — knowing that the sponsorship term is 0.65 not 0.9, knowing why the composite landed on Consider rather than Apply, knowing which factor would have to improve to push it across the threshold. The recommendation is the headline. The provenance is the argument.
 
-![A flow diagram of scan → pipeline → oferta → verify as four sequential stages, each annotated with its provenance checkpoint: ATS detected and postings list; four factors with source labels; composite with traced terms; consistency audit. The chain feeds into RUN_LOG.md.](../images/14-skills-operating-the-engine-fig-03.png)
+![A flow diagram of scan → pipeline → oferta → verify as four sequential stages, each annotated with its provenance checkpoint: ATS detected and postings list; four factors with source labels; composite with traced terms; consistency audit. The chain feeds into logs/RUN_LOG.md.](../images/14-skills-operating-the-engine-fig-03.png)
 *Figure 14.3 — End-to-end chain: scan → pipeline → oferta → verify*
 
-<!-- → [DIAGRAM: Flow diagram showing scan → pipeline → oferta → verify as four sequential boxes, each with a "provenance checkpoint" annotation (e.g., "ATS detected, postings list," "four factors with source labels," "composite with traced terms," "consistency audit"). Arrow at the end pointing to RUN_LOG.md. Caption: "The chain is only as trustworthy as its weakest provenance link — the verify step confirms consistency, not correctness."] -->
+<!-- → [DIAGRAM: Flow diagram showing scan → pipeline → oferta → verify as four sequential boxes, each with a "provenance checkpoint" annotation (e.g., "ATS detected, postings list," "four factors with source labels," "composite with traced terms," "consistency audit"). Arrow at the end pointing to logs/RUN_LOG.md. Caption: "The chain is only as trustworthy as its weakest provenance link — the verify step confirms consistency, not correctness."] -->
 
 ## The failure that looks like success
 
@@ -130,6 +149,8 @@ Running the engine produces decisions. A decision you can't reconstruct is one y
 
 **Draft / helper recipe** — a scaffold not yet verified, on a given run, to call scripts and write a log; treat its output as model judgment until you confirm otherwise.
 
+**Recipe lifecycle** — the evidence-gated status ladder every recipe's frontmatter carries (`DRAFT → SPECIFIED → RUNNABLE-SAMPLE → RUNNABLE-LIVE → VERIFIED`, per `SNICKERDOODLE.md`); a status is a claim, its evidence lives in `logs/RUN_LOG.md`, and `npm run doctor` shows the current dashboard.
+
 ## Chapter 14 Exercises: Recipes — Operating the Engine
 
 **Project:** Your Own Reallocation Engine
@@ -143,7 +164,7 @@ Running the engine produces decisions. A decision you can't reconstruct is one y
 **The judgment:** In this chapter's work, AI assistance is appropriate for the following tasks:
 
 - **Summarizing a recipe's output and the provenance you observed.** — *Why AI works here:* reformatting what you inspected; checkable against the run.
-- **Drafting the `RUN_LOG.md` entry from the command and output you paste.** — *Why AI works here:* structured reformatting of facts you supply.
+- **Drafting the `logs/RUN_LOG.md` entry from the command and output you paste.** — *Why AI works here:* structured reformatting of facts you supply.
 - **Explaining what a recipe declares it calls and reads.** — *Why AI works here:* it reads the recipe file with you; you confirm by running it.
 
 **The tell:** You know you are using AI appropriately when you can evaluate the output — when you have independent criteria to judge whether it is correct, complete, and fit for purpose. Here the criterion is the provenance: did the script run, is there an audit, can the number be traced?
@@ -236,7 +257,7 @@ accept any recipe's output without showing me its provenance.
 3. Produce the oferta recommendation with all four factors labeled by source.
 4. DRIFT CHECK: pick one active recipe and confirm it actually invoked its script
    this run (not just produced plausible output). Show the evidence.
-5. Append a RUN_LOG.md entry: the command chain, the recommendation with sources,
+5. Append a logs/RUN_LOG.md entry: the command chain, the recommendation with sources,
    and your finding-grade/judgment-grade verdict. Stop.
 ```
 

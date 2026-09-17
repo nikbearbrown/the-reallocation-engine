@@ -3,7 +3,7 @@
 
 Here is a thing that happens, and it is quietly devastating when it does. A student has three months of work authorization left. They find a role that fits almost perfectly — the company sponsors, the posting is live, the occupation matches, the quality signals are strong. They apply. They make it through the screens, the take-homes, the panels. Four months later, an offer arrives. And it is worthless. The start date is past the day their authorization ended. They spent the scarcest months of their search — the months they had the least of — chasing an offer that the calendar had already ruled out before the first email went out.
 
-No filter in Chapters 7 through 7 would have caught this. Sponsorship was real. The role was live. The quality was high. The thing that killed it was time, and time is the one constraint that is *yours specifically* — invisible to the company, invisible to every scorer that does not know your dates.
+No filter in Chapters 6 through 9 would have caught this. Sponsorship was real. The role was live. The quality was high. The thing that killed it was time, and time is the one constraint that is *yours specifically* — invisible to the company, invisible to every scorer that does not know your dates.
 
 ![A horizontal hiring timeline — application, phone screen, technical rounds, panel, offer — crossed by a single bold vertical line marking the end of work authorization; the line falls between the technical rounds and the offer, so the offer sits on the unreachable side of the cliff.](../images/10-the-visa-timeline-manager-fig-01.png)
 *Figure 10.1 — The calendar gate: a process that runs past authorization*
@@ -50,6 +50,8 @@ factor = timeline_factor(
 ```
 
 The output is always the factor *and* the dates that produced it. A timeline factor you cannot trace to specific dates is a number you cannot defend, and this is the one factor where a silent error costs you the whole search. If the factor says 0 and you cannot see why, you have a data entry problem, not a calendar problem — and those require different responses.
+
+In the repository, the timeline factor is not a thought experiment: it is one of the two multiplicative gates inside the Chapter 11 scorer (`npm run score`, `scripts/score/role-scorer.mjs`), where every role's audit trace shows the timeline term, labeled *your-input*, multiplying the composite. And because "the clock is a gate, not a vote" is a claim about *behaviour*, the repository tests it as one: `npm run score:gates` runs the gate-behavior harness (`scripts/score/gate-harness.mjs`, specified in `recipes/gate-harness.md` with a human card), which drives synthetic roles through the scorer and asserts that an impossible start date zeroes the composite no matter how strong the votes are. The harness even runs its own negative control — a deliberately mutated scorer where gates are additive — to prove the assertions would catch the bug they exist to catch. Chapter 16 returns to that discipline; the point here is that the gate you are learning is enforced by a test you can run tonight.
 
 | Input parameter | What it measures | Consequence of error |
 |---|---|---|
@@ -192,7 +194,7 @@ Do four things:
 **Setup:**
 
 Before running this exercise, confirm:
-- [ ] The timeline-factor code/config exists in your repo (the eight intake fields).
+- [ ] The scorer that applies the timeline gate runs (`npm run score` on the sample roles file), and you know where your intake fields live (a roles JSON / profile file the scorer reads).
 - [ ] You have your exact dates: auth type, auth-end date, unemployment days used, STEM status, buffer target.
 - [ ] You have a target list with an expected time-to-start per role.
 
@@ -212,7 +214,7 @@ eligibility (flag it for my DSO instead).
    acceptable.
 4. Save reports/timeline.csv: role, factor, expected start, auth-end, buffer
    status. Separately list every factor-0 (skip-regardless) role.
-5. Append a RUN_LOG.md entry noting the intake values used (dates) and the count
+5. Append a logs/RUN_LOG.md entry noting the intake values used (dates) and the count
    of skip-regardless roles. Stop.
 ```
 

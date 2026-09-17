@@ -32,8 +32,14 @@ The component that makes this legible is the Pipeline Tracker, the engine's fift
 npm run ats:scan        # feeds new postings into the pipeline for decisions
 # tracker recipe: log each decision (company, role, score, tier, timeline flag, outcome incl. skip)
 
+# Tracker hygiene — the maintained merge/dedup/normalize commands
+npm run ats:merge       # merge new scan results into the tracker
+npm run ats:dedup       # collapse duplicate postings (exact URL, then company+title)
+npm run ats:normalize   # normalize decision/outcome statuses to the shared vocabulary
+npm run ats:verify      # confirm the tracker and scan data are internally consistent
+
 # Analyze tracker/scan/pipeline data for patterns and the allocation summary
-python scripts/ats/analyze-patterns.py
+python3 scripts/ats/analyze-patterns.py
 ```
 
 For every decision the engine produces — apply or skip — the tracker records the company and role, the composite score and tier, the timeline flag, the recommendation, and the outcome. The output of `analyze-patterns.py` is the daily allocation summary plus your skip rate and per-tier response rates. You read the skip rate first. It is the fastest signal that the method is or isn't operating.
@@ -49,7 +55,7 @@ The right response to that picture: keep the thresholds, because the skip rate i
 ![A week of thirty evaluated roles broken into seventeen skips and thirteen applies on a single zero-based bar, with skips drawn as a full segment rather than an empty space. The 57% skip rate sits above the 50% target line, showing the filter doing real work — the skips are counted as data, not absence.](../images/15-the-pipeline-tracker-and-the-skip-rate-fig-02.png)
 *Figure 15.2 — A week of decisions: skips are data*
 
-The limit is equally worth stating. Early in the search, per-tier response samples are tiny and noisy — a three-application "trend" is not a trend. And the skip rate is a process metric, not an outcome metric. A healthy skip rate with zero responses still means something is wrong; it just means something upstream is wrong — bad targeting, weak materials — not that the filter itself has failed. The tracker measures discipline and targeting quality. It cannot conjure offers, and it cannot tell the difference between a targeting failure and a sector-wide hiring freeze. The numbers look identical. You read them in the context of a market the tracker can't see.
+The limit is equally worth stating. Early in the search, per-tier response samples are tiny and noisy — a three-application "trend" is not a trend. The `patterns` recipe (`recipes/patterns.md`) encodes exactly this restraint: it runs the maintained pattern script only when enough tracker history exists, and its whole purpose is to stop premature conclusions from tiny samples — the recipe-shaped version of the caveat this paragraph is making. And the skip rate is a process metric, not an outcome metric. A healthy skip rate with zero responses still means something is wrong; it just means something upstream is wrong — bad targeting, weak materials — not that the filter itself has failed. The tracker measures discipline and targeting quality. It cannot conjure offers, and it cannot tell the difference between a targeting failure and a sector-wide hiring freeze. The numbers look identical. You read them in the context of a market the tracker can't see.
 
 ---
 
@@ -164,12 +170,14 @@ or print them outside this session. Do not invent decisions or responses.
 1. Log my decisions via the tracker recipe: each role's company, role, score,
    tier, timeline flag, recommendation, and outcome — INCLUDING skips (a skip is
    a logged decision, not an absence).
-2. Run:  python scripts/ats/analyze-patterns.py
+2. Run tracker hygiene first:  npm run ats:merge && npm run ats:dedup &&
+   npm run ats:normalize && npm run ats:verify
+   Then:  python3 scripts/ats/analyze-patterns.py
    Report: skip rate, per-tier response rates (with sample sizes), and the daily
    allocation summary.
 3. Apply the decision rules: classify the skip rate (too low / borderline /
    healthy / starved) and the allocation (on or off 3-3-2).
-4. Write a RUN_LOG.md entry (safe to keep) with the skip rate, allocation, and one
+4. Write a logs/RUN_LOG.md entry (safe to keep) with the skip rate, allocation, and one
    adjustment — but do NOT copy private target names into it.
 5. Confirm no data/ats/ file was staged for commit. Stop.
 ```

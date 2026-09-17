@@ -246,7 +246,7 @@ Stop after step 5.
 
 **If it goes wrong:** the most common failure is the agent creating files at the wrong path (e.g. a nested duplicate folder). Recover by asking it to print the absolute path of each file it created and move any misplaced ones; do not let it "clean up" by deleting without showing you first.
 
-**CLAUDE.md / AGENTS.md note:** this exercise *is* the CLAUDE.md note — you are establishing the project's first standing rule. Every later chapter adds to this file; Chapter 3 will tighten this rule into the full verified-data contract.
+**CLAUDE.md / AGENTS.md note:** this exercise *is* the CLAUDE.md note — you are establishing the project's first standing rule. Every later chapter adds to this file; Chapter 3 will tighten this rule into the full verified-data contract. If you want to see where this ends up at full scale, look at the engine repository itself: its root `AGENTS.md` and `CLAUDE.md` are *compiled* from modules in `instructions/` by `npm run build-instructions`, so the standing rules exist once and every agent — Claude Code, Cowork, Codex, Copilot, Gemini — inherits the same contract. Your one-file version is the seed of that architecture.
 
 ---
 
