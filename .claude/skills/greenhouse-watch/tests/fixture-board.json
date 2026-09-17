@@ -1,0 +1,231 @@
+{
+ "jobs": [
+  {
+   "absolute_url": "https://careers.airbnb.com/positions/8189374?gh_jid=8189374",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 3543789,
+   "location": {
+    "name": "Brazil"
+   },
+   "metadata": [
+    {
+     "id": 9245691,
+     "name": "Is this job part of ACC?",
+     "value": false,
+     "value_type": "yes_no"
+    },
+    {
+     "id": 10216612,
+     "name": "Workplace Type",
+     "value": "Remote",
+     "value_type": "single_select"
+    }
+   ],
+   "id": 8189374,
+   "updated_at": "2026-09-09T17:21:31-04:00",
+   "requisition_id": "ONE",
+   "title": "Mobile Software Engineer, Quality Platform",
+   "company_name": "Airbnb",
+   "first_published": "2026-09-09T17:21:31-04:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-family: helvetica, arial, sans-serif; font-size: 12pt;&quot;&gt;Airbnb was born in 2007 when two hosts welcomed three guests to their San Francisco home, and has since grown to over 5 million hosts who have welcomed over 2 billion guest arrivals in almost every country across the globe. Every day, hosts offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;h2&gt;&lt;strong&gt;The Community You Will Join&lt;/strong&gt;&lt;/h2&gt;\n&lt;p&gt;The Quality Platform team is at the heart of Airbnb\u2019s mission to deliver a seamless, high-quality experience for millions of hosts and guests. We don\u2019t just find bugs \u2014 we build the systems that prevent them.&lt;/p&gt;\n&lt;p&gt;Our team sits at the intersection of Quality Engineering, Infrastructure, and Applied AI. We are evolving how software quality is built by integrating LLMs, intelligent automation, and data-driven systems into the testing lifecycle. You will join a high-impact group of engineers focused on building AI-powered quality systems that scale across one of the world\u2019s most complex codebases.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;The Difference You Will Make:&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;As a Mobile Software Engineer, you will be a key contributor to the development of our Quality Platform across both native mobile stacks. You will help build th",
+   "departments": [
+    {
+     "id": 77,
+     "name": "Software Engineering",
+     "child_ids": [],
+     "parent_id": 73703
+    }
+   ],
+   "offices": [
+    {
+     "id": 63869,
+     "name": "Brazil",
+     "location": null,
+     "child_ids": [
+      176
+     ],
+     "parent_id": 63606
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  },
+  {
+   "absolute_url": "https://careers.airbnb.com/positions/8192330?gh_jid=8192330",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 3545034,
+   "location": {
+    "name": "United States"
+   },
+   "metadata": [
+    {
+     "id": 9245691,
+     "name": "Is this job part of ACC?",
+     "value": false,
+     "value_type": "yes_no"
+    },
+    {
+     "id": 10216612,
+     "name": "Workplace Type",
+     "value": "Remote",
+     "value_type": "single_select"
+    }
+   ],
+   "id": 8192330,
+   "updated_at": "2026-09-10T17:02:56-04:00",
+   "requisition_id": "ONE",
+   "title": "Internal Communications Lead",
+   "company_name": "Airbnb",
+   "first_published": "2026-09-10T17:02:56-04:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-family: helvetica, arial, sans-serif; font-size: 12pt;&quot;&gt;Airbnb was born in 2007 when two hosts welcomed three guests to their San Francisco home, and has since grown to over 5 million hosts who have welcomed over 2 billion guest arrivals in almost every country across the globe. Every day, hosts offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;span style=&quot;font-family: arial, helvetica, sans-serif; color: rgb(0, 0, 0); font-size: 12pt;&quot;&gt;&lt;strong&gt;The Community You Will Join:&amp;nbsp;&lt;/strong&gt;&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, helvetica, sans-serif; font-size: 12pt;&quot;&gt;Airbnb is a mission-driven company dedicated to helping create connection and belonging. The company was born with a creative spirit, much like the environment at the Rhode Island School of Design where Brian Chesky and Joe Gebbia \u2014 two of its co-founders \u2014 went to college together. This creative spirit is one of the defining parts of Airbnb&#39;s culture.&lt;/span&gt;&lt;/p&gt;\n&lt;p&gt;&lt;span style=&quot;font-family: arial, helvetica, sans-serif; font-size: 12pt;&quot;&gt;Our Internal Communications team aims to build a strong and enduring culture by connecting more than 8,000 employees around the world to Airbnb&#39;s mission, community, a",
+   "departments": [
+    {
+     "id": 73682,
+     "name": "Communications",
+     "child_ids": [],
+     "parent_id": 73696
+    }
+   ],
+   "offices": [
+    {
+     "id": 63868,
+     "name": "United States",
+     "location": null,
+     "child_ids": [
+      246412,
+      258081,
+      258082,
+      258083,
+      87306,
+      87309,
+      211524,
+      87312,
+      87316,
+      87315,
+      104152,
+      88158,
+      85791,
+      87313,
+      88161,
+      87308,
+      87311,
+      87307,
+      80804,
+      109320,
+      87314,
+      88160,
+      78632,
+      87310,
+      88159,
+      241531,
+      108489,
+      62810,
+      62444,
+      85003,
+      104153,
+      12964,
+      11235,
+      55,
+      4447,
+      5924,
+      1316,
+      162,
+      5925,
+      1086,
+      1355
+     ],
+     "parent_id": 17515
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  },
+  {
+   "absolute_url": "https://careers.airbnb.com/positions/8184174?gh_jid=8184174",
+   "data_compliance": [
+    {
+     "type": "gdpr",
+     "requires_consent": false,
+     "requires_processing_consent": false,
+     "requires_retention_consent": false,
+     "retention_period": null,
+     "demographic_data_consent_applies": false
+    }
+   ],
+   "internal_job_id": 3541546,
+   "location": {
+    "name": "London, United Kingdom"
+   },
+   "metadata": [
+    {
+     "id": 9245691,
+     "name": "Is this job part of ACC?",
+     "value": false,
+     "value_type": "yes_no"
+    },
+    {
+     "id": 10216612,
+     "name": "Workplace Type",
+     "value": "Hybrid",
+     "value_type": "single_select"
+    }
+   ],
+   "id": 8184174,
+   "updated_at": "2026-09-15T05:32:03-04:00",
+   "requisition_id": "MULTI",
+   "title": "Account Manager ",
+   "company_name": "Airbnb",
+   "first_published": "2026-09-09T04:35:19-04:00",
+   "language": "en",
+   "application_deadline": null,
+   "content": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;span style=&quot;font-family: helvetica, arial, sans-serif; font-size: 12pt;&quot;&gt;Airbnb was born in 2007 when two hosts welcomed three guests to their San Francisco home, and has since grown to over 5 million hosts who have welcomed over 2 billion guest arrivals in almost every country across the globe. Every day, hosts offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;The Community you will join:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Our Supply Team is growing, and we want you to be part of it! As a &lt;strong&gt;Market Associate / Account Manager,&lt;/strong&gt; you will play a crucial role in the retention, growth, and optimisation of host entrepreneurs and rising hosts in your assigned territory. These hosts are individuals who manage their own property or support owners by hosting on their behalf. You will focus on building strong relationships with these hosts, helping them optimise their listings, improve pricing strategies, and enhance their overall success on Airbnb.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;The difference you will make:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;As a Market Associate, you will be responsible for the retention and growth of long-tail Hosts in an assigned territory. You will establish and nurture business relationships with emerging professional host accounts by suggesti",
+   "departments": [
+    {
+     "id": 247,
+     "name": "Business Development",
+     "child_ids": [],
+     "parent_id": 73691
+    }
+   ],
+   "offices": [
+    {
+     "id": 151,
+     "name": "London, United Kingdom",
+     "location": "London, United Kingdom",
+     "child_ids": [],
+     "parent_id": 64290
+    }
+   ],
+   "ai_disclaimer": null,
+   "include_ai_disclaimer": null,
+   "ai_opt_out_request_url": null
+  }
+ ],
+ "meta": {
+  "total": 3
+ }
+}

@@ -1,0 +1,292 @@
+{
+ "workflow": "greenhouse-watch",
+ "board": "airbnb",
+ "source": "fixture:<out>/out/raw-2026-09-16T22-13-52.json",
+ "run_at": "2026-09-16T22:13:53+00:00",
+ "baseline": false,
+ "last_run_at": "2026-09-16T22:13:52+00:00",
+ "jobs_seen": 163,
+ "jobs_new": 25,
+ "jobs_relevant": 7,
+ "jobs_skipped": 18,
+ "scheme_version": "default-0.1",
+ "resume_path": "search/examples/aarav-patel/resume.example.json",
+ "state_path": "<out>/state.json",
+ "raw_response_path": "<out>/out/raw-2026-09-16T22-13-53.json",
+ "dry_run": false,
+ "gate": "human: decide which relevant job, if any, is worth applying to",
+ "relevant": [
+  {
+   "id": 7708224,
+   "title": "Machine Learning Engineer, Relevance and Personalization",
+   "location": "United States",
+   "url": "https://careers.airbnb.com/positions/7708224?gh_jid=7708224",
+   "first_published": "2026-05-08T17:39:54-04:00",
+   "score": 3.5,
+   "justification": [
+    "skill \u00abPython\u00bb (skills.languages[1]) appears in posting content +1.0",
+    "skill \u00abJava\u00bb (skills.languages[2]) appears in posting content +1.0",
+    "skill \u00abKafka\u00bb (skills.backend_automation[1]) appears in posting content +1.0",
+    "skill \u00abKubernetes\u00bb (skills.devops_cicd[0]) appears in posting content +1.0",
+    "location \u00abUnited States\u00bb is neither remote nor \u00abBoston\u00bb -1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  },
+  {
+   "id": 7662244,
+   "title": "Senior Data Scientist, Guest & Host",
+   "location": "Remote",
+   "url": "https://careers.airbnb.com/positions/7662244?gh_jid=7662244",
+   "first_published": "2026-02-27T11:32:07-05:00",
+   "score": 3.5,
+   "justification": [
+    "skill \u00abPython\u00bb (skills.languages[1]) appears in posting content +1.0",
+    "skill \u00abSQL\u00bb (skills.languages[3]) appears in posting content +1.0",
+    "location \u00abRemote\u00bb is remote +1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  },
+  {
+   "id": 7107054,
+   "title": "Senior Staff Data Scientist, Guest & Host Marketplace AI",
+   "location": "Remote",
+   "url": "https://careers.airbnb.com/positions/7107054?gh_jid=7107054",
+   "first_published": "2025-07-25T15:49:30-04:00",
+   "score": 3.5,
+   "justification": [
+    "skill \u00abPython\u00bb (skills.languages[1]) appears in posting content +1.0",
+    "skill \u00abSQL\u00bb (skills.languages[3]) appears in posting content +1.0",
+    "location \u00abRemote\u00bb is remote +1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  },
+  {
+   "id": 7747259,
+   "title": "Senior Staff Machine Learning Engineer, Growth Platform Engineering",
+   "location": "Remote - USA",
+   "url": "https://careers.airbnb.com/positions/7747259?gh_jid=7747259",
+   "first_published": "2026-04-14T19:28:02-04:00",
+   "score": 6.0,
+   "justification": [
+    "skill \u00abPython\u00bb (skills.languages[1]) appears in posting content +1.0",
+    "skill \u00abJava\u00bb (skills.languages[2]) appears in posting content +1.0",
+    "skill \u00abKafka\u00bb (skills.backend_automation[1]) appears in posting content +1.0",
+    "skill \u00abKubernetes\u00bb (skills.devops_cicd[0]) appears in posting content +1.0",
+    "degree term \u00abMS\u00bb (education[0].degree) appears in posting content +0.5",
+    "location \u00abRemote - USA\u00bb is remote +1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  },
+  {
+   "id": 7592146,
+   "title": "Senior Staff Machine Learning Engineer, Trust",
+   "location": "Remote - USA",
+   "url": "https://careers.airbnb.com/positions/7592146?gh_jid=7592146",
+   "first_published": "2026-02-05T14:21:33-05:00",
+   "score": 4.5,
+   "justification": [
+    "skill \u00abPython\u00bb (skills.languages[1]) appears in posting content +1.0",
+    "skill \u00abJava\u00bb (skills.languages[2]) appears in posting content +1.0",
+    "skill \u00abKubernetes\u00bb (skills.devops_cicd[0]) appears in posting content +1.0",
+    "location \u00abRemote - USA\u00bb is remote +1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  },
+  {
+   "id": 7818982,
+   "title": "Senior Staff Software Engineer, Trust",
+   "location": "Remote - US",
+   "url": "https://careers.airbnb.com/positions/7818982?gh_jid=7818982",
+   "first_published": "2026-04-21T18:51:28-04:00",
+   "score": 6.0,
+   "justification": [
+    "title \u00abSenior Staff Software Engineer, Trust\u00bb contains r\u00e9sum\u00e9 title \u00abSoftware Engineer\u00bb (experience[0].title) +3.0",
+    "title \u00abSenior Staff Software Engineer, Trust\u00bb contains r\u00e9sum\u00e9 title \u00abSoftware Engineer\u00bb (experience[1].title) +3.0",
+    "skill \u00abJava\u00bb (skills.languages[2]) appears in posting content +1.0",
+    "degree term \u00abMS\u00bb (education[0].degree) appears in posting content +0.5",
+    "location \u00abRemote - US\u00bb is remote +1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  },
+  {
+   "id": 6448191,
+   "title": "Staff Software Engineer, Community Support Engineering",
+   "location": "China",
+   "url": "https://careers.airbnb.com/positions/6448191?gh_jid=6448191",
+   "first_published": "2024-12-09T21:12:46-05:00",
+   "score": 4.5,
+   "justification": [
+    "title \u00abStaff Software Engineer, Community Support Engineering\u00bb contains r\u00e9sum\u00e9 title \u00abSoftware Engineer\u00bb (experience[0].title) +3.0",
+    "title \u00abStaff Software Engineer, Community Support Engineering\u00bb contains r\u00e9sum\u00e9 title \u00abSoftware Engineer\u00bb (experience[1].title) +3.0",
+    "skill \u00abPython\u00bb (skills.languages[1]) appears in posting content +1.0",
+    "skill \u00abJava\u00bb (skills.languages[2]) appears in posting content +1.0",
+    "location \u00abChina\u00bb is neither remote nor \u00abBoston\u00bb -1.0"
+   ],
+   "verdict_kind": "record-based rule"
+  }
+ ],
+ "skipped": [
+  {
+   "id": 7789554,
+   "title": "Associate Legal Counsel, Japan",
+   "location": "Tokyo, Japan",
+   "url": "https://careers.airbnb.com/positions/7789554?gh_jid=7789554",
+   "first_published": "2026-04-13T04:49:05-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7760914,
+   "title": "Engineering Manager, Community Support Engineering",
+   "location": "China",
+   "url": "https://careers.airbnb.com/positions/7760914?gh_jid=7760914",
+   "first_published": "2026-03-29T21:47:23-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7532824,
+   "title": "Engineering Manager, Guest & Host",
+   "location": "London, United Kingdom",
+   "url": "https://careers.airbnb.com/positions/7532824?gh_jid=7532824",
+   "first_published": "2026-01-23T11:33:08-05:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7590542,
+   "title": "Growth Marketing Lead, Japan ",
+   "location": "Tokyo, Japan",
+   "url": "https://careers.airbnb.com/positions/7590542?gh_jid=7590542",
+   "first_published": "2026-02-05T10:05:36-05:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7716341,
+   "title": "Machine Learning Engineer, AI Platform",
+   "location": "China",
+   "url": "https://careers.airbnb.com/positions/7716341?gh_jid=7716341",
+   "first_published": "2026-03-22T20:51:17-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7587869,
+   "title": "Senior Market Manager, Hotels",
+   "location": "Sydney, Australia",
+   "url": "https://careers.airbnb.com/positions/7587869?gh_jid=7587869",
+   "first_published": "2026-02-04T20:53:32-05:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 6757302,
+   "title": "Senior Staff Machine Learning Engineer, Data & Eval",
+   "location": "United States",
+   "url": "https://careers.airbnb.com/positions/6757302?gh_jid=6757302",
+   "first_published": "2025-03-30T19:01:04-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7005605,
+   "title": "Senior Staff Machine Learning Engineer, Guest & Host",
+   "location": "Remote - USA",
+   "url": "https://careers.airbnb.com/positions/7005605?gh_jid=7005605",
+   "first_published": "2025-06-23T20:31:52-04:00",
+   "score": 1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7525479,
+   "title": "Senior Staff Software Engineer, Payments",
+   "location": "Remote - Bangalore, India",
+   "url": "https://careers.airbnb.com/positions/7525479?gh_jid=7525479",
+   "first_published": "2026-01-09T04:23:27-05:00",
+   "score": 4.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7230257,
+   "title": "Sp\u00e9cialiste au Support Premium",
+   "location": "Canada",
+   "url": "https://careers.airbnb.com/positions/7230257?gh_jid=7230257",
+   "first_published": "2025-09-04T17:31:04-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7417294,
+   "title": "Sp\u00e9cialiste, S\u00e9curit\u00e9",
+   "location": "Canada",
+   "url": "https://careers.airbnb.com/positions/7417294?gh_jid=7417294",
+   "first_published": "2025-11-25T13:46:50-05:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 6852954,
+   "title": "Specialist, Premium Support",
+   "location": "Canada",
+   "url": "https://careers.airbnb.com/positions/6852954?gh_jid=6852954",
+   "first_published": "2025-04-30T20:20:40-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7834495,
+   "title": " Staff Platform Manager, AI Personalization",
+   "location": "United States",
+   "url": "https://careers.airbnb.com/positions/7834495?gh_jid=7834495",
+   "first_published": "2026-04-28T12:10:24-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7463421,
+   "title": "Staff Software Engineer, Assistance Engineering",
+   "location": "Remote - USA",
+   "url": "https://careers.airbnb.com/positions/7463421?gh_jid=7463421",
+   "first_published": "2025-12-11T16:23:10-05:00",
+   "score": 4.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7421419,
+   "title": "Staff Software Engineer, Communication & Connectivity",
+   "location": "United States",
+   "url": "https://careers.airbnb.com/positions/7421419?gh_jid=7421419",
+   "first_published": "2025-11-26T18:17:16-05:00",
+   "score": 2.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7641058,
+   "title": "Strategic Partnerships Lead, Central and Eastern Europe",
+   "location": "Berlin, Germany",
+   "url": "https://careers.airbnb.com/positions/7641058?gh_jid=7641058",
+   "first_published": "2026-02-22T15:08:10-05:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7736738,
+   "title": "Strategic Sourcing, Manager - Engineering & Infrastructure",
+   "location": "United States ",
+   "url": "https://careers.airbnb.com/positions/7736738?gh_jid=7736738",
+   "first_published": "2026-03-26T14:43:12-04:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  },
+  {
+   "id": 7417293,
+   "title": "Support Specialist, Safety",
+   "location": "Canada",
+   "url": "https://careers.airbnb.com/positions/7417293?gh_jid=7417293",
+   "first_published": "2025-11-25T13:46:49-05:00",
+   "score": -1.0,
+   "reason": "no r\u00e9sum\u00e9 skill appears in the posting"
+  }
+ ]
+}

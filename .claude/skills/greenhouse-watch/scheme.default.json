@@ -1,0 +1,31 @@
+{
+  "scheme_version": "default-0.1",
+  "_comment": "The DEFAULT matching scheme. Record-based string rules only \u2014 no model judgment. Students replace this file with their own scheme and document it in CHANGE-BRIEF.md. A TA must be able to apply it by hand to one posting.",
+  "threshold": 3.0,
+  "location_mode": "soft",
+  "max_skill_hits": 8,
+  "weights": {
+    "title": 3.0,
+    "title_partial": 1.5,
+    "skill": 1.0,
+    "skill_unshipped": 0.25,
+    "skill_any": 0.5,
+    "degree": 0.5,
+    "location": 1.0,
+    "location_miss": -1.0
+  },
+  "exclude_title_patterns": [
+    "\\bintern(ship)?\\b",
+    "\\b(vp|vice president|chief|director)\\b"
+  ],
+  "_how_to_read": [
+    "title: a r\u00e9sum\u00e9 experience title (parentheses stripped) appears whole in the posting title.",
+    "title_partial: every word (>3 letters) of the r\u00e9sum\u00e9 title appears in the posting title when the title has two or fewer such words; all but one when it has more.",
+    "skill: a r\u00e9sum\u00e9 skill string appears as a whole phrase in the posting title or content; capped at max_skill_hits.",
+    "skill_unshipped: same, for skills.familiar_with_not_shipped \u2014 honest, so weighted low.",
+    "skill_any: added once if any skill hit at all. A job with zero skill hits is never relevant, whatever the score.",
+    "degree: a degree abbreviation from education[].degree (MS, PhD, MBA, BS\u2026) appears in the content.",
+    "location: posting location contains the r\u00e9sum\u00e9 city, or the word remote. location_miss otherwise (soft) \u2014 set location_mode to hard to make it a gate.",
+    "exclude_title_patterns: regexes that skip a posting outright, before scoring."
+  ]
+}
