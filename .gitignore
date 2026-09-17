@@ -50,3 +50,30 @@ __pycache__/
 resume.json
 **/*.resume.pdf
 **/resume.pdf
+
+# ── Film loops and reels (2026-09-17) ───────────────────────────────────────
+# Reel PAPERWORK is tracked (beat_sheet.json, PLAN/BUILD-LOG/FACTCHECK/TYPECHECK, .srt,
+# scenes.py). Rendered media is NOT — course rule: no MP3/MP4 on GitHub; masters go to
+# books/youtube/TOPOST and course media storage.
+.engineloop/
+_qc/
+youtube/**/media/
+youtube/**/clips/
+youtube/**/mp3/
+youtube/**/mp4/
+youtube/**/manim/
+youtube/**/Tex/
+youtube/**/texts/
+youtube/**/videos/
+youtube/**/images/
+youtube/**/layout_audit_frames/
+youtube/**/_qc/
+youtube/**/pantry/
+youtube/**/__pycache__/
+youtube/**/*.mp4
+youtube/**/*.mp3
+youtube/**/*.wav
+youtube/**/*.m4a
+youtube/**/*.png
+youtube/**/*.jsonl
+youtube/**/*.bak-*
