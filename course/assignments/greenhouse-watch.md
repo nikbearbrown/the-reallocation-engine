@@ -37,7 +37,7 @@ Example: `airbnb`. Pick any company that posts on Greenhouse. The repo's `script
 
 **Two outputs, two readers.** An agent-readable JSON run record (board, run time, jobs seen, new, relevant, skipped, state file path, raw response path, scheme version) and a human-readable Markdown report. One artifact cannot serve both readers.
 
-**A reference implementation exists.** The repo ships the default as a Claude Code skill at `.claude/skills/greenhouse-watch/` (stored script, default scheme, tests, offline fixture). Say `greenhouse watch <slug>` in Claude Code and it runs. You may build on it or start fresh, but the parts that are graded are the parts it deliberately leaves to you: your **scheme** replaces `scheme.default.json`, your **brief** documents it, your **justifications** come from your rules, and your **film** shows what Claude Code did when *you* directed it. Submitting the reference scheme unchanged earns nothing in the "Match and justify" row.
+**A reference implementation exists.** The repo ships the default as a Claude Code skill at `.claude/skills/greenhouse-watch/` (stored script, default scheme, tests, offline fixture). Say `greenhouse watch <slug>` in Claude Code and it runs. Watch the three-minute explainer of it first: [greenhouse-watch — Your Board, Your Call](https://youtu.be/Jr90_ldEH2A). You may build on it or start fresh, but the parts that are graded are the parts it deliberately leaves to you: your **scheme** replaces `scheme.default.json`, your **brief** documents it, your **justifications** come from your rules, and your **film** shows what Claude Code did when *you* directed it. Submitting the reference scheme unchanged earns nothing in the "Match and justify" row.
 
 ## 1. Predict
 
