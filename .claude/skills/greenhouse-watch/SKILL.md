@@ -29,8 +29,14 @@ python3 .claude/skills/greenhouse-watch/scripts/greenhouse_watch.py \
   --board <slug> \
   --resume <path to resume JSON> \
   --state  search/greenhouse-watch/<slug>.state.json \
-  --out    search/greenhouse-watch/<slug>/
+  --out    search/greenhouse-watch/<slug>/ \
+  [--ats ashby]
 ```
+
+- `--ats ashby` watches an **Ashby** board instead: `https://api.ashbyhq.com/posting-api/job-board/<name>`,
+  where `<name>` is the segment after `jobs.ashbyhq.com/` (it may carry spaces and capitals —
+  `writer`, `"Jasper AI"`). Ashby jobs are normalised onto the Greenhouse-shaped fields the matcher
+  reads; the raw response is still saved untouched. Same state/diff/scheme/report contract.
 
 - `<slug>` is the company's board name: the `<slug>` in
   `https://boards-api.greenhouse.io/v1/boards/<slug>/jobs`. If the user gives a careers
@@ -73,6 +79,24 @@ python3 .claude/skills/greenhouse-watch/scripts/greenhouse_watch.py \
   not draft outreach unless the user asks for that as a separate task.
 - If the user disagrees with a verdict, the fix is to the **scheme file**, not to the
   code and not to the résumé. Log the disagreement; that is a finding about the scheme.
+- **Boilerplate check.** If (nearly) every posting on a board is relevant, count which résumé
+  skills hit on every posting — at an AI company, *generative AI* or *AI agents* is in the
+  company blurb, not the job. List those words in the scheme's `ignore_skills` with the count
+  in `_comment`, and re-run. (Writer, 2026-09-19: 51/51 relevant → 24/51 after ignoring three words.)
+- **The three human files.** When the user wants the whole board in front of them, run the
+  stored card script — never hand-build the tables:
+
+  ```bash
+  python3 .claude/skills/greenhouse-watch/scripts/board_cards.py \
+    --run <out>/run-<time>.json --raw <out>/raw-<time>.json --company "<Name>" \
+    --out reports/greenhouse-watch/ [--ats ashby] [--goal "…"] \
+    [--keep <id> …] [--reason "<id>=<why>" …] [--considering "…" …] [--note "…" …]
+  ```
+  It writes `<slug>-<date>-ALL.md` (every posting, eight-field cards, by department),
+  `<slug>-<date>-TENTATIVE.md` (the scheme's flags, blank Verdict column), and
+  `<slug>-<date>-KEEP.md` (only what `--keep` names, with the human's `--reason`). Each opens
+  with an executive summary (P9). `--keep`/`--reason` are the human's words — the agent
+  passes them through, never invents them.
 - Log meaningful runs against a real board in `logs/runs/<term>-<handle>-<n>.md`
   (students) or `logs/RUN_LOG.md` (maintainer). Never put personal data in a log.
 
@@ -99,13 +123,14 @@ bad host, and each scheme rule.
 |---|---|
 | `SKILL.md` | this workflow |
 | `README.md` | one-screen orientation and the assignment link |
-| `scripts/greenhouse_watch.py` | the stored script (stdlib only) |
-| `scheme.default.json` | the default matching scheme, with a plain-language reading of every rule |
+| `scripts/greenhouse_watch.py` | the stored script (stdlib only); `--ats greenhouse\|ashby` |
+| `scripts/board_cards.py` | one run → ALL / TENTATIVE / KEEP Markdown, executive summary first |
+| `scheme.default.json` | the default matching scheme, with a plain-language reading of every rule (incl. `ignore_skills`) |
 | `tests/test_greenhouse_watch.py` · `tests/fixture-board.json` | unittest + offline fixture |
 
 ## Laws this skill obeys
 
-- **P2** only the stored script touches the network, one allow-listed host.
+- **P2** only the stored script touches the network; allow-listed hosts are the Greenhouse boards API and `api.ashbyhq.com`.
 - **P3** every justification line names a résumé field path and a posting field.
 - **P4** the human gate is stated in the report and the run record; the skill never clears it.
 - **Privacy** `search/resume.json` is read-only and never leaves `search/`.

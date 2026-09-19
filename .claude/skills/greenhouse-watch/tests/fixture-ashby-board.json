@@ -1,0 +1,222 @@
+{
+ "apiVersion": "1",
+ "jobs": [
+  {
+   "id": "04ad3b44-51df-4fa6-a17c-cab6875f70cd",
+   "title": "Senior AI learning designer, rapid content",
+   "department": "Delivery & customer success",
+   "team": "Implementation general",
+   "employmentType": "FullTime",
+   "location": "San Francisco, CA",
+   "shouldDisplayCompensationOnJobPostings": true,
+   "secondaryLocations": [
+    {
+     "location": "Chicago, IL",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "Illinois ",
+       "addressCountry": "United States",
+       "addressLocality": "Chicago"
+      }
+     }
+    },
+    {
+     "location": "Seattle, WA",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "WA",
+       "addressCountry": "United States",
+       "addressLocality": "Seattle"
+      }
+     }
+    },
+    {
+     "location": "New York City, NY",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "New York",
+       "addressCountry": "United States",
+       "addressLocality": "New York City"
+      }
+     }
+    },
+    {
+     "location": "Austin, TX",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "Texas",
+       "addressCountry": "United States",
+       "addressLocality": "Austin"
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-09-18T16:27:57.940+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Hybrid",
+   "address": {
+    "postalAddress": {
+     "addressRegion": "California",
+     "addressCountry": "United States",
+     "addressLocality": "San Francisco"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/writer/04ad3b44-51df-4fa6-a17c-cab6875f70cd",
+   "applyUrl": "https://jobs.ashbyhq.com/writer/04ad3b44-51df-4fa6-a17c-cab6875f70cd/application",
+   "descriptionHtml": "<p style=\"min-height:1.5em\"><strong>\ud83d\ude80 About WRITER</strong></p><p style=\"min-height:1.5em\">WRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're proving it's possible \u2013 through powerful, trustworthy AI that unites IT and business teams together to unlock enterprise-wide transformation. With WRITER's end-to-end platform, hundreds of companies like Mars, Marriott, Uber, and Vanguard are building and deploying AI agents that are grounded in their company's data and fueled by WRITER's enterprise-grade LLMs. Valued at $1.9B and backed by industry-leading investors including Premji Invest, Radical Ventures, and ICONIQ Growth, WRITER is rapidly cementing its position as the leader in enterprise generative AI.</p><p style=\"min-height:1.5em\">Founded in 2020 with office hubs in San Francisco, New York City, Seattle, Austin, Chicago, and London, our team thinks big and moves fast, and we're looking for smart, hardworking builders and scalers to join us on our journey to create a better future of work with AI.</p><div style=\"min-height:1.2em;margin-top:0;margin-bottom:0\">\u00a0</div><p style=\"min-height:1.5em\"><strong>\ud83d\udcd0 About the role</strong></p><p style=\"min-height:1.5em\">In an AI-native environment, the product shifts fast, new workflows emerge weekly, and customers and internal teams surface needs in real time. Someone has to meet those needs at the speed they arise. That's this role.</p><p ",
+   "descriptionPlain": "\ud83d\ude80 About WRITER\n\nWRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're proving it's possible \u2013 through powerful, trustworthy AI that unites IT and business teams together to unlock enterprise-wide transformation. With WRITER's end-to-end platform, hundreds of companies like Mars, Marriott, Uber, and Vanguard are building and deploying AI agents that are grounded in their company's data and fueled by WRITER's enterprise-grade LLMs. Valued at $1.9B and backed by industry-leading investors including ",
+   "compensation": {
+    "compensationTierSummary": "$152.7K \u2013 $200K \u2022 Offers Equity \u2022 Multiple Ranges",
+    "scrapeableCompensationSalarySummary": "$152.7K - $200K",
+    "compensationTiers": [
+     {
+      "id": "05496240-2cee-4789-8913-94b4a49213d1",
+      "tierSummary": "Base compensation $169.6K \u2013 $200K \u2022 Offers Equity",
+      "title": "SF & NYC",
+      "additionalInformation": null,
+      "components": [
+       {
+        "id": "86ecec53-f9b9-471c-bbb1-600197df6cc7",
+        "summary": "Base compensation $169.6K \u2013 $200K",
+        "compensationType": "Salary",
+        "interval": "1 YEAR",
+        "currencyCode": "USD",
+        "minValue": 169600,
+        "maxValue": 200000
+       },
+       {
+        "id": "001016bf-f620-4b02-956f-4e035abebdc6",
+        "summary": "Offers Equity",
+        "compensationType": "EquityPercentage",
+        "interval": "NONE",
+        "currencyCode": null,
+        "minValue": null,
+        "maxValue": null
+       }
+      ]
+     },
+     {
+      "id": "25b23cb1-4486-42c1-b8eb-959f7ebc92dc",
+      "tierSummary": "Base compensation $152.7K \u2013 $180K \u2022 Offers Equity",
+      "title": "Other US locations",
+      "additionalInformation": null,
+      "components": [
+       {
+        "id": "816eb60c-b07b-45bb-829b-50e4fc23aa58",
+        "summary": "Base compensation $152.7K \u2013 $180K",
+        "compensationType": "Salary",
+        "interval": "1 YEAR",
+        "currencyCode": "USD",
+        "minValue": 152700,
+        "maxValue": 180000
+       },
+       {
+        "id": "dbb325ff-cf98-408a-9d52-4877d6c49e1a",
+        "summary": "Offers Equity",
+        "compensationType": "EquityPercentage",
+        "interval": "NONE",
+        "currencyCode": null,
+        "minValue": null,
+        "maxValue": null
+       }
+      ]
+     }
+    ],
+    "summaryComponents": [
+     {
+      "minValue": 152700,
+      "maxValue": 200000,
+      "currencyCode": "USD",
+      "interval": "1 YEAR",
+      "compensationType": "Salary"
+     },
+     {
+      "compensationType": "EquityPercentage",
+      "minValue": null,
+      "maxValue": null,
+      "interval": "1 YEAR"
+     }
+    ]
+   }
+  },
+  {
+   "id": "f893ffbb-3303-4aa4-98ef-04e080aa1898",
+   "title": "Sales recruiter (Contract)",
+   "department": "People",
+   "team": "Talent acquisition",
+   "employmentType": "Contract",
+   "location": "San Francisco, CA",
+   "shouldDisplayCompensationOnJobPostings": true,
+   "secondaryLocations": [
+    {
+     "location": "New York City, NY",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "New York",
+       "addressCountry": "United States",
+       "addressLocality": "New York City"
+      }
+     }
+    },
+    {
+     "location": "US - Remote",
+     "address": {
+      "postalAddress": {
+       "addressRegion": "",
+       "addressCountry": "United States",
+       "addressLocality": ""
+      }
+     }
+    }
+   ],
+   "publishedAt": "2026-09-18T16:04:59.155+00:00",
+   "isListed": true,
+   "isRemote": true,
+   "workplaceType": "Hybrid",
+   "address": {
+    "postalAddress": {
+     "addressRegion": "California",
+     "addressCountry": "United States",
+     "addressLocality": "San Francisco"
+    }
+   },
+   "jobUrl": "https://jobs.ashbyhq.com/writer/f893ffbb-3303-4aa4-98ef-04e080aa1898",
+   "applyUrl": "https://jobs.ashbyhq.com/writer/f893ffbb-3303-4aa4-98ef-04e080aa1898/application",
+   "descriptionHtml": "<p style=\"min-height:1.5em\"><strong>\ud83d\ude80 About WRITER</strong></p><p style=\"min-height:1.5em\">WRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're proving it's possible \u2013 through powerful, trustworthy AI that unites IT and business teams together to unlock enterprise-wide transformation. With WRITER's end-to-end platform, hundreds of companies like Mars, Marriott, Uber, and Vanguard are building and deploying AI agents that are grounded in their company's data and fueled by WRITER's enterprise-grade LLMs. Valued at $1.9B and backed by industry-leading investors including Premji Invest, Radical Ventures, and ICONIQ Growth, WRITER is rapidly cementing its position as the leader in enterprise generative AI.</p><p style=\"min-height:1.5em\">Founded in 2020 with office hubs in San Francisco, New York City, Seattle, Austin, Chicago, and London, our team thinks big and moves fast, and we're looking for smart, hardworking builders and scalers to join us on our journey to create a better future of work with AI.</p><p style=\"min-height:1.5em\"></p><p style=\"min-height:1.5em\"><strong>\ud83d\udcd0 About the role</strong></p><p style=\"min-height:1.5em\">As a go-to-market (GTM) sales recruiter, you'll play a pivotal role in scaling the sales engine that powers WRITER's growth. You'll be responsible for sourcing, screening, and hiring exceptional enterprise and strategic candidates who align with our company v",
+   "descriptionPlain": "\ud83d\ude80 About WRITER\n\nWRITER is where the world's leading enterprises orchestrate AI-powered work. Our vision is to expand human capacity through superintelligence. And we're proving it's possible \u2013 through powerful, trustworthy AI that unites IT and business teams together to unlock enterprise-wide transformation. With WRITER's end-to-end platform, hundreds of companies like Mars, Marriott, Uber, and Vanguard are building and deploying AI agents that are grounded in their company's data and fueled by WRITER's enterprise-grade LLMs. Valued at $1.9B and backed by industry-leading investors including ",
+   "compensation": {
+    "compensationTierSummary": "$89 \u2013 $105 per hour",
+    "scrapeableCompensationSalarySummary": null,
+    "compensationTiers": [
+     {
+      "id": "cad80486-1c32-4242-82ed-604a290b9453",
+      "tierSummary": "Base compensation $89 \u2013 $105 per hour",
+      "title": "SF & NYC",
+      "additionalInformation": null,
+      "components": [
+       {
+        "id": "53d74e85-20b3-42ed-83e1-5eb7c2fe0cc9",
+        "summary": "Base compensation $89 \u2013 $105 per hour",
+        "compensationType": "Salary",
+        "interval": "1 HOUR",
+        "currencyCode": "USD",
+        "minValue": 89,
+        "maxValue": 105
+       }
+      ]
+     }
+    ],
+    "summaryComponents": [
+     {
+      "compensationType": "Salary",
+      "interval": "1 HOUR",
+      "currencyCode": "USD",
+      "minValue": 89,
+      "maxValue": 105
+     }
+    ]
+   }
+  }
+ ]
+}

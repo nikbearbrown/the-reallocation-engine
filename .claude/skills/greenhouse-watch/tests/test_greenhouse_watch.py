@@ -166,3 +166,50 @@ class TestScheme(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class AshbyBoard(unittest.TestCase):
+    """--ats ashby: Ashby postings are normalised onto the Greenhouse-shaped fields; ignore_skills drops boilerplate."""
+    FIX = os.path.join(os.path.dirname(__file__), "fixture-ashby-board.json")
+
+    def _run(self, tmp, extra=()):
+        import subprocess, sys
+        state = os.path.join(tmp, "s.json")
+        with open(state, "w") as f:
+            json.dump({"board": "writer", "last_run_at": None, "seen_ids": []}, f)
+        cmd = [sys.executable, SCRIPT, "--ats", "ashby", "--board", "writer", "--resume", RESUME, "--fixture", self.FIX,
+               "--state", state, "--out", tmp, *extra]
+        return subprocess.run(cmd, capture_output=True, text=True), tmp
+
+    def test_normalises_and_reports(self):
+        import tempfile, glob
+        with tempfile.TemporaryDirectory() as tmp:
+            r, out = self._run(tmp)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            run = json.load(open(glob.glob(os.path.join(out, "run-*.json"))[0]))
+            self.assertEqual(run["ats"], "ashby")
+            self.assertEqual(run["jobs_seen"], 2)
+            rows = run["relevant"] + run["skipped"]
+            self.assertTrue(all(str(x["id"]).count("-") == 4 for x in rows), "Ashby uuids survive as ids")
+            self.assertTrue(any("ashbyhq.com" in (x.get("url") or "") for x in run["relevant"]) or run["relevant"] == [])
+
+    def test_ashby_url_and_host(self):
+        sys.path.insert(0, os.path.dirname(SCRIPT))
+        import greenhouse_watch as gw
+        self.assertEqual(gw.board_url("Jasper AI", ats="ashby"),
+                         "https://api.ashbyhq.com/posting-api/job-board/Jasper%20AI?includeCompensation=true")
+        self.assertIn("api.ashbyhq.com", gw.ALLOWED_HOSTS)
+        with self.assertRaises(gw.InputError):
+            gw.board_url("../evil", ats="ashby")
+
+    def test_ignore_skills_drops_boilerplate(self):
+        sys.path.insert(0, os.path.dirname(SCRIPT))
+        import greenhouse_watch as gw
+        resume = json.load(open(RESUME))
+        resume["skills"] = {"x": ["Python", "banana"]}
+        feats = gw.resume_features(resume)
+        job = {"title": "Cook", "location": {"name": "Remote"}, "content": "python banana"}
+        scheme = {"scheme_version": "t", "threshold": 0.5, "weights": {"skill": 1.0, "skill_any": 0.5, "location": 1.0}, "ignore_skills": ["banana"]}
+        ok, score, why, _ = gw.judge(job, feats, scheme)
+        self.assertTrue(ok)
+        self.assertFalse(any("banana" in w for w in why), why)

@@ -1,6 +1,6 @@
 {
   "scheme_version": "default-0.1",
-  "_comment": "The DEFAULT matching scheme. Record-based string rules only \u2014 no model judgment. Students replace this file with their own scheme and document it in CHANGE-BRIEF.md. A TA must be able to apply it by hand to one posting.",
+  "_comment": "The DEFAULT matching scheme. Record-based string rules only — no model judgment. Students replace this file with their own scheme and document it in CHANGE-BRIEF.md. A TA must be able to apply it by hand to one posting.",
   "threshold": 3.0,
   "location_mode": "soft",
   "max_skill_hits": 8,
@@ -19,13 +19,15 @@
     "\\b(vp|vice president|chief|director)\\b"
   ],
   "_how_to_read": [
-    "title: a r\u00e9sum\u00e9 experience title (parentheses stripped) appears whole in the posting title.",
-    "title_partial: every word (>3 letters) of the r\u00e9sum\u00e9 title appears in the posting title when the title has two or fewer such words; all but one when it has more.",
-    "skill: a r\u00e9sum\u00e9 skill string appears as a whole phrase in the posting title or content; capped at max_skill_hits.",
-    "skill_unshipped: same, for skills.familiar_with_not_shipped \u2014 honest, so weighted low.",
+    "title: a résumé experience title (parentheses stripped) appears whole in the posting title.",
+    "title_partial: every word (>3 letters) of the résumé title appears in the posting title when the title has two or fewer such words; all but one when it has more.",
+    "skill: a résumé skill string appears as a whole phrase in the posting title or content; capped at max_skill_hits.",
+    "skill_unshipped: same, for skills.familiar_with_not_shipped — honest, so weighted low.",
     "skill_any: added once if any skill hit at all. A job with zero skill hits is never relevant, whatever the score.",
-    "degree: a degree abbreviation from education[].degree (MS, PhD, MBA, BS\u2026) appears in the content.",
-    "location: posting location contains the r\u00e9sum\u00e9 city, or the word remote. location_miss otherwise (soft) \u2014 set location_mode to hard to make it a gate.",
-    "exclude_title_patterns: regexes that skip a posting outright, before scoring."
-  ]
+    "degree: a degree abbreviation from education[].degree (MS, PhD, MBA, BS…) appears in the content.",
+    "location: posting location contains the résumé city, or the word remote. location_miss otherwise (soft) — set location_mode to hard to make it a gate.",
+    "exclude_title_patterns: regexes that skip a posting outright, before scoring.",
+    "ignore_skills: résumé skill strings that are NOT counted on this board because they appear in (nearly) every posting — company boilerplate, not a signal. Measure it (count hits across the board) and list the words here with the count in _comment; an empty list means nothing is ignored."
+  ],
+  "ignore_skills": []
 }

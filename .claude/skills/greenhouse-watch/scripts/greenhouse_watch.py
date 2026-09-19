@@ -17,7 +17,9 @@ Stdlib only. Exit 0 = ran; 2 = bad input (resume/scheme/host); 3 = fetch failed
 import argparse, datetime as dt, html, json, os, re, sys, urllib.request, urllib.error
 
 ALLOWED_HOSTS = {"boards-api.greenhouse.io", "boards.greenhouse.io",
-                 "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io"}
+                 "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io",
+                 "api.ashbyhq.com"}
+ATS_CHOICES = ("greenhouse", "ashby")
 RESUME_REQUIRED = {"personal": dict, "education": list, "experience": list, "skills": dict}
 DEFAULT_SCHEME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scheme.default.json")
 SCHEME_VERSION_KEY = "scheme_version"
@@ -28,11 +30,46 @@ class InputError(Exception):
 
 
 # ----------------------------------------------------------------- inputs
-def board_url(slug, content=True):
+def board_url(slug, content=True, ats="greenhouse"):
+    if ats == "ashby":
+        # Ashby board names may carry spaces and capitals ("Jasper AI"); URL-encode them.
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 ._-]{0,63}", slug):
+            raise InputError(f"ashby board name looks wrong: {slug!r}")
+        from urllib.parse import quote
+        return f"https://api.ashbyhq.com/posting-api/job-board/{quote(slug)}?includeCompensation=true"
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,63}", slug):
         raise InputError(f"board slug looks wrong: {slug!r} (lowercase letters, digits, dashes)")
     url = f"https://boards-api.greenhouse.io/v1/boards/{slug}/jobs"
     return url + ("?content=true" if content else "")
+
+
+def normalize_jobs(jobs, ats):
+    """Map an ATS's job objects onto the Greenhouse-shaped fields the matcher and report read:
+    id, title, location.name, content, absolute_url, first_published, updated_at, departments[].name.
+    The raw response is always saved untouched; this view is only for judging. Ashby extras
+    (employmentType, isRemote, workplaceType, compensation) ride along under `ashby`."""
+    if ats != "ashby":
+        return jobs
+    out = []
+    for j in jobs:
+        locs = [j.get("location") or ""] + [x.get("location") or "" for x in (j.get("secondaryLocations") or [])]
+        loc = " • ".join(x for x in locs if x)
+        if j.get("isRemote"):
+            loc = (loc + " • Remote") if loc else "Remote"
+        comp = (j.get("compensation") or {}).get("scrapeableCompensationSalarySummary") or ""
+        out.append({
+            "id": j.get("id"),
+            "title": j.get("title") or "",
+            "location": {"name": loc},
+            "content": j.get("descriptionHtml") or j.get("descriptionPlain") or "",
+            "absolute_url": j.get("jobUrl") or "",
+            "first_published": j.get("publishedAt") or "",
+            "updated_at": j.get("publishedAt") or "",
+            "departments": [{"name": d} for d in (j.get("department"), j.get("team")) if d],
+            "ashby": {"employmentType": j.get("employmentType"), "isRemote": j.get("isRemote"),
+                      "workplaceType": j.get("workplaceType"), "compensation": comp},
+        })
+    return out
 
 
 def assert_allowed(url):
@@ -164,7 +201,10 @@ def judge(job, feats, scheme):
                 break
 
     hits = []
+    ignore = {x.lower() for x in scheme.get("ignore_skills", [])}  # board boilerplate: words every posting carries
     for s, p, wk in skills:
+        if s.lower() in ignore:
+            continue
         where = "title" if phrase_in(s, title_lc) else ("content" if phrase_in(s, content_lc) else None)
         if where:
             hits.append((s, p, wk, where))
@@ -260,7 +300,8 @@ def write_outputs(out_dir, run, relevant_rows, skipped_rows, scheme):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--board", required=True, help="Greenhouse board slug, e.g. airbnb")
+    ap.add_argument("--board", required=True, help="board slug, e.g. airbnb (Greenhouse) or writer / 'Jasper AI' (Ashby)")
+    ap.add_argument("--ats", default="greenhouse", choices=ATS_CHOICES, help="which ATS the board lives on (default greenhouse)")
     ap.add_argument("--resume", required=True, help="resume JSON in the resume.example.json shape")
     ap.add_argument("--state", required=True, help="state file (seen ids); created on the baseline run")
     ap.add_argument("--out", required=True, help="output folder for raw response, run record, report")
@@ -273,7 +314,7 @@ def main(argv=None):
         resume = load_resume(a.resume)
         scheme = load_scheme(a.scheme)
         state = load_state(a.state)
-        url = board_url(a.board)
+        url = board_url(a.board, ats=a.ats)
         run_at = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         if a.fixture:
             with open(a.fixture, encoding="utf-8") as f:
@@ -294,6 +335,7 @@ def main(argv=None):
     if not isinstance(jobs, list):
         print("FETCH FAILED: response has no `jobs` list — state file untouched", file=sys.stderr)
         return 3
+    jobs = normalize_jobs(jobs, a.ats)
 
     os.makedirs(a.out, exist_ok=True)
     raw_path = os.path.join(a.out, f"raw-{run_at[:19].replace(':', '-')}.json")
@@ -319,7 +361,7 @@ def main(argv=None):
         else:
             skipped_rows.append({**row, "reason": reason})
 
-    run = {"workflow": "greenhouse-watch", "board": a.board, "source": source, "run_at": run_at, "baseline": baseline,
+    run = {"workflow": "greenhouse-watch", "board": a.board, "ats": a.ats, "source": source, "run_at": run_at, "baseline": baseline,
            "last_run_at": None if baseline else state.get("last_run_at"), "jobs_seen": len(ids_now),
            "jobs_new": len(new_jobs), "jobs_relevant": len(relevant_rows), "jobs_skipped": len(skipped_rows),
            SCHEME_VERSION_KEY: scheme[SCHEME_VERSION_KEY], "resume_path": a.resume, "state_path": a.state,

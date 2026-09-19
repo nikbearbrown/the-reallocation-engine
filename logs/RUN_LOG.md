@@ -44,3 +44,15 @@ Also: `figma-2026-09-19-ALL.md` (all 152 postings as eight-field cards, by
 department; 93 post a pay band) and `figma-2026-09-19-KEEP.md` (human keep list,
 1 kept: Designer Advocate 6176134004; Researcher Agentic Experiences under
 consideration). KEEP is the only file carrying a human judgment.
+
+### 2026-09-19 — greenhouse-watch · writer (Ashby) · maintainer pass (TENTATIVE)
+Skill extended: `--ats ashby` (host `api.ashbyhq.com` allow-listed; Ashby jobs normalised
+onto the Greenhouse-shaped fields; board names with spaces URL-encoded, e.g. "Jasper AI");
+scheme key `ignore_skills`; new stored script `board_cards.py` → ALL / TENTATIVE / KEEP
+with P9 executive summaries. 19 tests pass (3 new, Ashby fixture = 2 trimmed Writer postings).
+Run: seen 51 / relevant 51 → **scheme finding**: «generative AI», «AI agents», «learning»
+in 51/51 postings (boilerplate) + Remote flag on all 51 cleared threshold for every job.
+`bear-writer-0.2` ignores those three → relevant 24 / skipped 27. All 51 hybrid at a hub;
+none remote-only; 1 contract (Sales recruiter). Human keep: Senior AI learning designer,
+rapid content (posted 2026-09-18). Gate open. Note: one exploratory `curl` of the Writer
+endpoint preceded the provider code — reconnaissance for the normaliser, logged here.
