@@ -32,3 +32,11 @@ Human gate NOT cleared — report published for review at
 `reports/greenhouse-watch/figma-2026-09-19-TENTATIVE.md` with blank Verdict
 column. Finding for the scheme: a broad skill list makes every AI engineering
 posting score ≥ 9; score is not fit, and the report says so.
+
+### 2026-09-19 — P9 adopted: executive summary first
+Bear's rule, after reading the Figma report header: "this is WAY too technical to
+sit at the top of an md file — what is this doc, why should I read it?" Added as
+SNICKERDOODLE **P9**, PROJECT_RULES one-breath #8, `instructions/_shared/
+markdown-default.md` (AGENTS.md regenerated + promoted). `greenhouse_watch.py`
+now emits `## Executive summary` (what / why / found / did-not-do) before the run
+record; 16 tests pass. Figma TENTATIVE report rewritten to comply.

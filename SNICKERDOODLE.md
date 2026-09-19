@@ -34,6 +34,8 @@ If any file in this repository conflicts with SNICKERDOODLE.md, SNICKERDOODLE.md
 **P8 — Trust is earned, not configured.** Dialogic mode is the default: a human at every gate. Silent mode is earned through documented runs and a recorded attestation, and is revoked by any change to the recipe or its scripts, any upstream schema change, or implausible output. Model judgments are always labeled as judgments.
 *Violated when:* autonomy is granted by a config flag instead of a track record.
 
+**P9 — Every document opens with an executive summary.** Any Markdown written for a person — report, recipe, assignment, log entry longer than a screen, README — begins with a plain-language summary that answers three questions before anything technical appears: *what is this document*, *why should I read it*, and *what did it find or decide*. Written for a reader who has never seen the repository: no scheme names, principle numbers, field paths, or file paths in the summary. The technical header (run record, parameters, provenance) comes after it, under its own heading. A document whose first screen is a parameter table has failed P5 — it serves the agent, not the human.
+
 ## The Verification Stack
 
 Four layers, in order. Each layer feeds the next; none substitutes for the next.

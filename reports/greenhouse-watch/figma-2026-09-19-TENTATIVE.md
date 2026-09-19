@@ -1,6 +1,21 @@
-# Figma — greenhouse-watch pass — 2026-09-19 — **TENTATIVE**
+# Figma jobs that match my CV — first pass, not yet reviewed
 
-> **TENTATIVE / NOT REVIEWED.** Every row below is a record-based string-match verdict from scheme `bear-figma-0.1` — no model judgment, and no human judgment yet. The human gate (SNICKERDOODLE P4) has not been cleared: Nik Bear Brown has not read these postings. Nothing here is a recommendation, a shortlist, or an intent to apply. The *Verdict* column is blank until he fills it in.
+## Executive summary
+
+**What this is.** On September 19, 2026 I pointed the engine's `greenhouse-watch` skill at Figma's public job board and asked one question: *of everything Figma is hiring for right now, which postings mention the things I actually do?* It read all 152 open postings once, matched them against my CV with a written rule set, and flagged 55. This file is that list, laid out for me to review by hand.
+
+**Why read it.** If you are me: this is the to-do list — open each of the 55 links, read the posting, and write a verdict in the blank column. If you are a student: this is what a real run of the assignment looks like when the résumé is real and the board is a company you have heard of — including the part where the machine's top scores are *not* the jobs I want. If you are a maintainer: it is the first real-board run of the skill and it surfaced one scheme problem (see below).
+
+**What it found, in three lines.**
+1. Figma has **no part-time, contract, or consulting roles** on its board — all 152 are full-time employee positions. My stated goal (remote part-time / consulting / educational content) has no direct match.
+2. **Remote is common** — 85 of 152 postings can be held "remotely in the United States" — so the barrier is the employment type, not geography.
+3. The closest thing to educational-content work is **Designer Advocate** (3 postings: written, visual, and video resources for the design community); the closest thing to my research is **Researcher, Figma Agentic Experiences** (remote-OK, but wants 7+ years of UX research I don't have).
+
+**What it did not do.** It did not judge fit. Every flag is a string match between a word on my CV and a word in a posting — that is why "Software Engineer – C++" scores 10.75 (the posting mentions *video*, *documentation*, *community*, *design systems*). Score ranks how many words matched, not how good the job is for me. The decision is mine and has not been made: **the Verdict column is empty.** Nothing here is a shortlist or an intent to apply.
+
+**Status:** TENTATIVE. When every row has a verdict, the banner comes off and the file is renamed `…-reviewed.md`.
+
+---
 
 ## Run record
 

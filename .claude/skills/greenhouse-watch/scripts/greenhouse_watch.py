@@ -216,9 +216,28 @@ def write_outputs(out_dir, run, relevant_rows, skipped_rows, scheme):
     mpath = os.path.join(out_dir, f"report-{stamp}.md")
     with open(jpath, "w", encoding="utf-8") as f:
         json.dump({**run, "relevant": relevant_rows, "skipped": skipped_rows}, f, indent=1)
-    lines = [f"# Greenhouse watch — {run['board']} — {run['run_at'][:10]}", "",
-             f"Reader: the candidate. Decision enabled: which of these, if any, is worth a day of your life. "
-             f"The machine stops here (SNICKERDOODLE P3: the gate is human).", "",
+    board = run['board']
+    n_rel, n_new, n_seen = len(relevant_rows), run['jobs_new'], run['jobs_seen']
+    if run["baseline"]:
+        found = (f"This was the first look at this board, so it only memorised the {n_seen} postings that are open today. "
+                 f"Nothing is listed below; the next run will show only what has been added since.")
+    elif n_rel == 0:
+        found = (f"{n_new} posting{'s' if n_new != 1 else ''} appeared since the last check and none of them mention the things on the résumé. "
+                 f"That is a normal, healthy result — most of what a company posts is not for you.")
+    else:
+        found = (f"{n_new} posting{'s' if n_new != 1 else ''} appeared since the last check; {n_rel} of them mention skills or titles "
+                 f"that are on the résumé and are listed below with the exact words that matched. {len(skipped_rows)} did not and are listed at the end.")
+    lines = [f"# New jobs at {board} that mention what is on your résumé — {run['run_at'][:10]}", "",
+             "## Executive summary", "",
+             f"**What this is.** A once-a-day look at {board}'s public job board. It compares every posting that is new since the last "
+             f"look against a résumé and keeps only the ones that mention the same skills, titles, or location. Nothing is applied for, "
+             f"nothing is sent anywhere.", "",
+             f"**Why read it.** It is the shortest honest list of what is new and plausibly relevant at {board} today, with the reason each "
+             f"item is on it. The decision — whether any of these is worth a day of your life — is yours and has not been made for you.", "",
+             f"**What it found.** {found}", "",
+             "**What it did not do.** It did not judge fit. Every item below is a word-for-word match between the résumé and the posting; "
+             "a high score means many words matched, not that the job is good for you. Read the posting before deciding anything.", "",
+             "---", "", "## Run record", "",
              "| Seen | New since last check | Relevant | Skipped |", "|---:|---:|---:|---:|",
              f"| {run['jobs_seen']} | {run['jobs_new']} | {len(relevant_rows)} | {len(skipped_rows)} |", "",
              f"Scheme `{scheme[SCHEME_VERSION_KEY]}` · threshold {scheme['threshold']} · every verdict below is a "

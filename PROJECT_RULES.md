@@ -32,3 +32,4 @@ Explicit instructions from the human in chat override generated defaults.
 5. Never delete source, data, recipes, or logs — archive instead.
 6. `data/ats/`, rendered resumes/PDFs, and `.env*` are private by default — review before commit.
 7. `AGENTS.md` / `CLAUDE.md` are generated — edit `instructions/`, then rebuild (`node scripts/build-instructions.mjs`).
+8. Every human-facing Markdown file opens with an executive summary — what it is, why read it, what it found — before any technical header (P9).
