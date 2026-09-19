@@ -40,3 +40,7 @@ SNICKERDOODLE **P9**, PROJECT_RULES one-breath #8, `instructions/_shared/
 markdown-default.md` (AGENTS.md regenerated + promoted). `greenhouse_watch.py`
 now emits `## Executive summary` (what / why / found / did-not-do) before the run
 record; 16 tests pass. Figma TENTATIVE report rewritten to comply.
+Also: `figma-2026-09-19-ALL.md` (all 152 postings as eight-field cards, by
+department; 93 post a pay band) and `figma-2026-09-19-KEEP.md` (human keep list,
+1 kept: Designer Advocate 6176134004; Researcher Agentic Experiences under
+consideration). KEEP is the only file carrying a human judgment.

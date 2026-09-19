@@ -15,6 +15,8 @@
 
 **Status:** TENTATIVE. When every row has a verdict, the banner comes off and the file is renamed `…-reviewed.md`.
 
+**Companion files.** `figma-2026-09-19-ALL.md` — every one of the 152 postings as a card, nothing filtered. `figma-2026-09-19-KEEP.md` — the ones I have decided to keep, with my reasons; the only file with a human judgment in it.
+
 ---
 
 ## Run record
