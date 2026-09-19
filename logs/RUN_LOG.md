@@ -22,3 +22,13 @@ audit's target layout: bulk datasets moved to scripts/fetch/ (clone <30 MB),
 book content under book/, per-term contribution namespaces, CI enforcement
 (doctor + PII scan + harness regression). See merge-kit/REPO-AUDIT-FALL-2026.md
 in the archive for the full rationale.
+
+### 2026-09-19 — greenhouse-watch · figma · maintainer pass (TENTATIVE)
+First real-board run of the `greenhouse-watch` skill against `boards/figma/jobs`
+with the maintainer's own CV JSON (local, gitignored) and a custom scheme
+`bear-figma-0.1` (Director/VP exclusion dropped, skill cap 12, threshold 4.0).
+Seen 152 / new 152 (empty pre-baseline state) / relevant 55 / skipped 97.
+Human gate NOT cleared — report published for review at
+`reports/greenhouse-watch/figma-2026-09-19-TENTATIVE.md` with blank Verdict
+column. Finding for the scheme: a broad skill list makes every AI engineering
+posting score ≥ 9; score is not fit, and the report says so.
