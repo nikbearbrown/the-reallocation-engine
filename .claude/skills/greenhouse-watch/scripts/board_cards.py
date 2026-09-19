@@ -14,6 +14,8 @@ No network. No judgment: the only human content is what --keep/--reason carry. S
 import argparse, html, json, os, re
 from collections import defaultdict
 
+ATS_LABEL = {"ashby": "Ashby", "smartrecruiters": "SmartRecruiters", "greenhouse": "Greenhouse"}
+
 
 def txt(j):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", html.unescape(html.unescape(j.get("content") or j.get("descriptionHtml") or ""))))
@@ -27,16 +29,27 @@ class Board:
         self.byid = {str(self.jid(j)): j for j in self.jobs}
 
     def jid(self, j): return j.get("id")
-    def title(self, j): return (j.get("title") or "").strip()
-    def url(self, j): return j.get("absolute_url") or j.get("jobUrl") or ""
+    def url(self, j): return j.get("absolute_url") or j.get("jobUrl") or j.get("postingUrl") or ""
+    def title(self, j): return (j.get("title") or j.get("name") or "").strip()
+
+    def _cf(self, j):
+        return {f.get("fieldLabel"): f.get("valueLabel") for f in (j.get("customField") or [])}
 
     def location(self, j):
+        if self.ats == "smartrecruiters":
+            return (j.get("location") or {}).get("fullLocation") or ""
         if self.ats == "ashby":
             locs = [j.get("location") or ""] + [x.get("location") or "" for x in (j.get("secondaryLocations") or [])]
             return " · ".join(x for x in locs if x)
         return ((j.get("location") or {}).get("name") or "").replace(" • ", " · ")
 
     def mode(self, j):
+        if self.ats == "smartrecruiters":
+            loc = j.get("location") or {}
+            et = ((j.get("typeOfEmployment") or {}).get("label") or "").lower()
+            wt = (self._cf(j).get("Worker type") or "").lower()
+            place = "remote" if loc.get("remote") else ("hybrid" if loc.get("hybrid") else "on-site")
+            return ", ".join(x for x in (et, wt if wt and wt != "employee" else "", place) if x)
         if self.ats == "ashby":
             et = {"FullTime": "full time", "PartTime": "part time", "Contract": "contract", "Intern": "internship",
                   "Temporary": "temporary"}.get(j.get("employmentType"), (j.get("employmentType") or "").lower())
@@ -45,34 +58,60 @@ class Board:
             rem = "remote flag set" if j.get("isRemote") and wp != "remote" else ""
             return ", ".join(x for x in (et, wp, rem) if x)
         t = txt(j).lower()
+        loc = ((j.get("location") or {}).get("name") or "").lower()
         if "remotely in the united states" in t: return "full time, US hub or US remote"
+        if "remote" in loc: return "full time, remote" + (" or hybrid" if "hybrid" in loc else "")
+        if "hybrid" in loc: return "full time, hybrid"
         if "full time role" in t or "full-time role" in t: return "full time, hub"
         return "full time (mode not stated)"
 
     def dept(self, j):
+        if self.ats == "smartrecruiters":
+            return " → ".join(x for x in ((j.get("function") or {}).get("label"), self._cf(j).get("Org")) if x) or "—"
         if self.ats == "ashby":
             return " → ".join(x for x in (j.get("department"), j.get("team")) if x) or "—"
         return " → ".join(d["name"] for d in j.get("departments", [])) or "—"
 
     def dates(self, j):
+        if self.ats == "smartrecruiters":
+            p = (j.get("releasedDate") or "")[:10]
+            return f"{p} / {p}"
         if self.ats == "ashby":
             p = (j.get("publishedAt") or "")[:10]
             return f"{p} / {p}"
         return f"{(j.get('first_published') or '')[:10]} / {(j.get('updated_at') or '')[:10]}"
 
     def pay(self, j):
+        if self.ats == "smartrecruiters":
+            c = j.get("compensation") or {}
+            if c.get("min") or c.get("max"):
+                return f"{c.get('min', '?')} – {c.get('max', '?')} {c.get('currency', '')} base (posted)".replace("  ", " ")
+            m = re.search(r"\$([\d,]{5,})\s*(?:to|-|–|—)\s*\$([\d,]{5,})", txt(j))
+            return f"${m.group(1)} – ${m.group(2)} (from ad text)" if m else "not posted"
         if self.ats == "ashby":
             c = (j.get("compensation") or {}).get("scrapeableCompensationSalarySummary")
             return f"{c} base (posted)" if c else "not posted"
-        m = re.search(r"Salary Range:?\s*([$£€]?[\d,]+(?:\.\d+)?)\s*[—–\-]+\s*([$£€]?[\d,]+(?:\.\d+)?)\s*([A-Z]{3})?", txt(j))
-        return f"{m.group(1)} – {m.group(2)} {m.group(3) or ''} base".strip() if m else "not posted"
+        t = txt(j)
+        m = re.search(r"Salary Range:?\s*([$£€]?[\d,]+(?:\.\d+)?)\s*[—–\-]+\s*([$£€]?[\d,]+(?:\.\d+)?)\s*([A-Z]{3})?", t)
+        if m:
+            return f"{m.group(1)} – {m.group(2)} {m.group(3) or ''} base".strip()
+        zones = re.findall(r"\$([\d,]{6,})\s*[—–\-]+\s*\$([\d,]{6,})", t)  # e.g. Webflow's Zone A/B/C ranges
+        if zones:
+            lo = min(int(a.replace(",", "")) for a, _ in zones); hi = max(int(b.replace(",", "")) for _, b in zones)
+            return f"${lo:,} – ${hi:,} base" + (f" (across {len(zones)} zones)" if len(zones) > 1 else "")
+        return "not posted"
 
     def is_remote(self, j):
+        if self.ats == "smartrecruiters":
+            return bool((j.get("location") or {}).get("remote"))
         if self.ats == "ashby":
             return (j.get("workplaceType") or "").lower() == "remote"
-        return "remotely in the united states" in txt(j).lower()
+        return "remotely in the united states" in txt(j).lower() or "remote" in ((j.get("location") or {}).get("name") or "").lower()
 
     def is_parttime_or_contract(self, j):
+        if self.ats == "smartrecruiters":
+            et = ((j.get("typeOfEmployment") or {}).get("label") or "").lower()
+            return et not in ("full-time", "permanent", "") or self._cf(j).get("Worker type") == "Contingent Worker"
         if self.ats == "ashby":
             return j.get("employmentType") in ("PartTime", "Contract", "Temporary")
         return False  # Greenhouse carries no employment-type field; the finding is stated from the text
@@ -87,7 +126,7 @@ class Board:
             f"| Department | {self.dept(j)} |",
             f"| Posted / updated | {self.dates(j)} |",
             f"| Pay band (posted) | {self.pay(j)} |",
-            f"| {'Ashby' if self.ats == 'ashby' else 'Greenhouse'} job id | {self.jid(j)} |", ""])
+            f"| {ATS_LABEL.get(self.ats, 'Greenhouse')} job id | {self.jid(j)} |", ""])
 
 
 def long_date(iso):
@@ -105,8 +144,8 @@ def write_all(b, run, path, date, notes=()):
     n_hyb = sum(1 for j in b.jobs if "hybrid" in b.mode(j))
     n_pt = sum(1 for j in b.jobs if b.is_parttime_or_contract(j))
     top = sorted(by, key=lambda d: -len(by[d]))
-    pt_line = (f"{n_pt} posting{'s are' if n_pt != 1 else ' is'} part-time, contract, or temporary rather than full-time employment."
-               if b.ats == "ashby" else "There are no part-time, contract, or consulting postings.")
+    pt_line = (f"{n_pt} posting{'s are' if n_pt != 1 else ' is'} contract, contingent, or otherwise not full-time employment."
+               if b.ats in ("ashby", "smartrecruiters") else "There are no part-time, contract, or consulting postings.")
     L = [f"# Every open job at {b.company} — {date}", "", "## Executive summary", "",
          f"**What this is.** All {n} jobs {b.company} had open on its public careers board on {long_date(date)}, one card each, grouped by department. Every card has the same eight fields (company, title, link, location, department, dates, posted pay band, job id) so they can be compared side by side. No filtering, no scoring — this is the whole board.", "",
          f"**Why read it.** The matched list (`…-TENTATIVE.md`) shows only the postings that mention words on my CV, and I do not trust a word-match to decide what I never see. This is the complete set, so I can scan the titles myself and pull anything the rules missed into the keep list (`…-KEEP.md`).", "",
@@ -126,7 +165,7 @@ def write_tentative(b, run, path, date, goal, stats, notes=()):
     L = [f"# {b.company} jobs that match my CV — first pass, not yet reviewed", "", "## Executive summary", "",
          f"**What this is.** On {long_date(date)} I pointed the engine's board-watch skill at {b.company}'s public job board and asked one question: *of everything {b.company} is hiring for right now, which postings mention the things I actually do?* It read all {stats['n']} open postings once, matched them against my CV with a written rule set, and flagged {len(rel)}. This file is that list, laid out for me to review by hand.", "",
          f"**Why read it.** If you are me: this is the to-do list — open each link, read the posting, write a verdict in the blank column. If you are a student: this is what a real run looks like when the résumé is real — including the part where the machine's top scores are not necessarily the jobs I want.", "",
-         f"**What it found.** {stats['n']} open postings, {len(rel)} mention skills or titles on my CV, {len(run['skipped'])} do not. {stats['n_rem']} of {stats['n']} are fully remote" + (f"; {stats['n_hyb']} are hybrid at a hub" if stats.get('n_hyb') else "") + ". " + (f"{stats['n_pt']} {'is' if stats['n_pt'] == 1 else 'are'} part-time/contract/temporary. " if b.ats == "ashby" else "None are part-time or contract. ") + (f"My stated goal: {goal}. " if goal else "") + " ".join(notes), "",
+         f"**What it found.** {stats['n']} open postings, {len(rel)} mention skills or titles on my CV, {len(run['skipped'])} do not. {stats['n_rem']} of {stats['n']} are fully remote" + (f"; {stats['n_hyb']} are hybrid at a hub" if stats.get('n_hyb') else "") + ". " + (f"{stats['n_pt']} {'is' if stats['n_pt'] == 1 else 'are'} part-time/contract/temporary. " if b.ats in ("ashby", "smartrecruiters") else "None are part-time or contract. ") + (f"My stated goal: {goal}. " if goal else "") + " ".join(notes), "",
          "**What it did not do.** It did not judge fit. Every flag is a string match between a word on my CV and a word in a posting; score ranks how many words matched, not how good the job is for me. The decision is mine and has not been made: **the Verdict column is empty.** Nothing here is a shortlist or an intent to apply.", "",
          "**Status:** TENTATIVE. When every row has a verdict, the banner comes off and the file is renamed `…-reviewed.md`.", "",
          f"**Companion files.** `…-ALL.md` — every posting as a card, nothing filtered. `…-KEEP.md` — the ones I decided to keep, with reasons; the only file with a human judgment in it.", "", "---", "",
@@ -173,7 +212,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--run", required=True); ap.add_argument("--raw", required=True)
     ap.add_argument("--company", required=True); ap.add_argument("--out", required=True)
-    ap.add_argument("--ats", default=None, choices=("greenhouse", "ashby"))
+    ap.add_argument("--ats", default=None, choices=("greenhouse", "ashby", "smartrecruiters"))
     ap.add_argument("--slug", default=None, help="file prefix (default: board slug)")
     ap.add_argument("--goal", default="")
     ap.add_argument("--keep", nargs="*", default=[], help="job ids the human keeps")

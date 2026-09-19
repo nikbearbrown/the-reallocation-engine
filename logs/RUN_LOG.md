@@ -56,3 +56,14 @@ in 51/51 postings (boilerplate) + Remote flag on all 51 cleared threshold for ev
 none remote-only; 1 contract (Sales recruiter). Human keep: Senior AI learning designer,
 rapid content (posted 2026-09-18). Gate open. Note: one exploratory `curl` of the Writer
 endpoint preceded the provider code — reconnaissance for the normaliser, logged here.
+
+### 2026-09-19 — Advocate-role sweep: 7 boards, 3 ATSs (TENTATIVE)
+Skill extended again: `--ats smartrecruiters` (host `api.smartrecruiters.com`; paged listing +
+one detail call per posting because the feed has no ad text). Canva: 248 postings, 3m38s,
+0 detail errors. Also ran Miro (`realtimeboardglobal`), Webflow, Notion, Jasper AI. 22 tests
+pass. Per-company ALL/TENTATIVE/KEEP written by `board_cards.py`; cross-board roll-up
+`reports/greenhouse-watch/advocate-roles-2026-09-19.md` (6 roles at 4 companies; only
+Webflow Senior Developer Educator is US-remote; none part-time). Two exploratory `curl`s
+of the SmartRecruiters API preceded the provider code (shape reconnaissance). Human keeps:
+Webflow 8204002; Notion 6f7c5ae6…, 0cc39c60…; Writer 04ad3b44…; Figma 6176134004.
+Gate open on all boards.

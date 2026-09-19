@@ -1,6 +1,6 @@
 # greenhouse-watch
 
-Watch one company's Greenhouse board. Report only what is **new since the last check**
+Watch one company's Greenhouse, Ashby, or SmartRecruiters board. Report only what is **new since the last check**
 and **relevant to a JSON résumé**, with a justification for every job shown. Stop at the
 human gate.
 

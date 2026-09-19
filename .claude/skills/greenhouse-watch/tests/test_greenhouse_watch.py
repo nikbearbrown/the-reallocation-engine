@@ -213,3 +213,44 @@ class AshbyBoard(unittest.TestCase):
         ok, score, why, _ = gw.judge(job, feats, scheme)
         self.assertTrue(ok)
         self.assertFalse(any("banana" in w for w in why), why)
+
+
+class SmartRecruitersBoard(unittest.TestCase):
+    """--ats smartrecruiters: paged listing + detail records are normalised; ids, urls, contract flags survive."""
+    FIX = os.path.join(os.path.dirname(__file__), "fixture-smartrecruiters-board.json")
+
+    def test_normalises_detail_records(self):
+        import tempfile, glob
+        with tempfile.TemporaryDirectory() as tmp:
+            state = os.path.join(tmp, "s.json")
+            with open(state, "w") as f:
+                json.dump({"board": "Canva", "last_run_at": None, "seen_ids": []}, f)
+            r = subprocess.run([sys.executable, SCRIPT, "--ats", "smartrecruiters", "--board", "Canva", "--resume", RESUME,
+                                "--fixture", self.FIX, "--state", state, "--out", tmp], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stderr)
+            run = json.load(open(glob.glob(os.path.join(tmp, "run-*.json"))[0]))
+            self.assertEqual(run["ats"], "smartrecruiters")
+            self.assertEqual(run["jobs_seen"], 2)
+            rows = run["relevant"] + run["skipped"]
+            self.assertTrue(all(str(x["id"]).startswith("6000000") for x in rows))
+            urls = [x.get("url") for x in run["relevant"]]
+            self.assertTrue(all("jobs.smartrecruiters.com/Canva/" in u for u in urls), urls)
+
+    def test_smartrecruiters_normaliser_fields(self):
+        import greenhouse_watch as gw
+        raw = json.load(open(self.FIX))
+        norm = gw.normalize_jobs(raw["jobs"], "smartrecruiters")
+        by = {n["title"].strip(): n for n in norm}
+        pss = by["Product Support Specialist, Education Team  (Full time, 1-year contract)".strip()]
+        self.assertIn("Remote", pss["location"]["name"])
+        self.assertEqual(pss["smartrecruiters"]["typeOfEmployment"], "Contract")
+        self.assertTrue(pss["content"])  # jobAd sections were joined into content
+        self.assertTrue(any(d["name"] for d in pss["departments"]))
+
+    def test_smartrecruiters_url_and_host(self):
+        import greenhouse_watch as gw
+        self.assertEqual(gw.board_url("Canva", ats="smartrecruiters"),
+                         "https://api.smartrecruiters.com/v1/companies/Canva/postings?limit=100&offset=0")
+        self.assertIn("api.smartrecruiters.com", gw.ALLOWED_HOSTS)
+        with self.assertRaises(gw.InputError):
+            gw.board_url("Canva/../x", ats="smartrecruiters")

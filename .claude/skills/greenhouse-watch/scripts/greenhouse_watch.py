@@ -18,8 +18,8 @@ import argparse, datetime as dt, html, json, os, re, sys, urllib.request, urllib
 
 ALLOWED_HOSTS = {"boards-api.greenhouse.io", "boards.greenhouse.io",
                  "job-boards.greenhouse.io", "job-boards.eu.greenhouse.io",
-                 "api.ashbyhq.com"}
-ATS_CHOICES = ("greenhouse", "ashby")
+                 "api.ashbyhq.com", "api.smartrecruiters.com"}
+ATS_CHOICES = ("greenhouse", "ashby", "smartrecruiters")
 RESUME_REQUIRED = {"personal": dict, "education": list, "experience": list, "skills": dict}
 DEFAULT_SCHEME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "scheme.default.json")
 SCHEME_VERSION_KEY = "scheme_version"
@@ -31,6 +31,11 @@ class InputError(Exception):
 
 # ----------------------------------------------------------------- inputs
 def board_url(slug, content=True, ats="greenhouse"):
+    if ats == "smartrecruiters":
+        # company identifier = the segment after careers.smartrecruiters.com/ (e.g. "Canva")
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{0,63}", slug):
+            raise InputError(f"smartrecruiters company identifier looks wrong: {slug!r}")
+        return f"https://api.smartrecruiters.com/v1/companies/{slug}/postings?limit=100&offset=0"
     if ats == "ashby":
         # Ashby board names may carry spaces and capitals ("Jasper AI"); URL-encode them.
         if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 ._-]{0,63}", slug):
@@ -48,6 +53,33 @@ def normalize_jobs(jobs, ats):
     id, title, location.name, content, absolute_url, first_published, updated_at, departments[].name.
     The raw response is always saved untouched; this view is only for judging. Ashby extras
     (employmentType, isRemote, workplaceType, compensation) ride along under `ashby`."""
+    if ats == "smartrecruiters":
+        out = []
+        for j in jobs:
+            loc = j.get("location") or {}
+            name = loc.get("fullLocation") or ", ".join(x for x in (loc.get("city"), loc.get("region"), loc.get("country")) if x)
+            if loc.get("remote"):
+                name = (name + " • Remote") if name else "Remote"
+            secs = ((j.get("jobAd") or {}).get("sections") or {})
+            content = " ".join((v or {}).get("text") or "" for v in secs.values())
+            cf = {f.get("fieldLabel"): f.get("valueLabel") for f in (j.get("customField") or [])}
+            depts = [x for x in ((j.get("function") or {}).get("label"), cf.get("Org"), (j.get("department") or {}).get("label")) if x]
+            out.append({
+                "id": j.get("id"),
+                "title": j.get("name") or "",
+                "location": {"name": name},
+                "content": content,
+                "absolute_url": j.get("postingUrl") or "",
+                "first_published": j.get("releasedDate") or "",
+                "updated_at": j.get("releasedDate") or "",
+                "departments": [{"name": d} for d in depts],
+                "smartrecruiters": {"typeOfEmployment": (j.get("typeOfEmployment") or {}).get("label"),
+                                    "workerType": cf.get("Worker type"), "recruitmentType": cf.get("Recruitment type"),
+                                    "remote": loc.get("remote"), "hybrid": loc.get("hybrid"),
+                                    "experienceLevel": (j.get("experienceLevel") or {}).get("label"),
+                                    "compensation": j.get("compensation")},
+            })
+        return out
     if ats != "ashby":
         return jobs
     out = []
@@ -90,6 +122,31 @@ def fetch_board(url, timeout=30):
     opener = urllib.request.build_opener(NoRedirect)
     with opener.open(req, timeout=timeout) as r:
         return json.loads(r.read().decode("utf-8"))
+
+
+def fetch_smartrecruiters(list_url, timeout=30, pause=0.05):
+    """SmartRecruiters exposes a paged listing (no ad text) and a per-posting detail record (with the
+    jobAd sections). One run = every listing page + one detail call per posting, all on the one
+    allow-listed host, no redirects. Returns {"jobs": [detail records], "totalFound": n}."""
+    import time
+    base = list_url.split("?")[0]
+    jobs, offset = [], 0
+    while True:
+        page = fetch_board(f"{base}?limit=100&offset={offset}", timeout=timeout)
+        content = page.get("content") or []
+        jobs.extend(content)
+        offset += len(content)
+        if not content or offset >= int(page.get("totalFound") or 0):
+            break
+    details = []
+    for j in jobs:
+        try:
+            d = fetch_board(f"{base}/{j['id']}", timeout=timeout)
+        except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError) as e:
+            d = {**j, "_detail_error": str(e)}  # keep the listing record; content will be empty
+        details.append(d)
+        time.sleep(pause)
+    return {"jobs": details, "totalFound": len(details)}
 
 
 def load_resume(path):
@@ -322,7 +379,7 @@ def main(argv=None):
             source = f"fixture:{a.fixture}"
         else:
             try:
-                payload = fetch_board(url)
+                payload = fetch_smartrecruiters(url) if a.ats == "smartrecruiters" else fetch_board(url)
             except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, json.JSONDecodeError) as e:
                 print(f"FETCH FAILED for {url}: {e} — state file untouched", file=sys.stderr)
                 return 3

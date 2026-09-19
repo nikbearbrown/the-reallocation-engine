@@ -1,0 +1,269 @@
+{
+ "jobs": [
+  {
+   "id": "6000000001399105",
+   "name": "Program Manager: Education Content (FTC)",
+   "uuid": "5a876979-e9f2-4e68-8611-68debeec0d03",
+   "jobId": "47063948-8574-4cca-ad9a-85d4d49f02ec",
+   "jobAdId": "d34e2a81-731b-4243-8ae5-aedbd6281659",
+   "defaultJobAd": true,
+   "refNumber": "R103021",
+   "company": {
+    "name": "Canva",
+    "identifier": "Canva"
+   },
+   "location": {
+    "city": "Sydney",
+    "country": "au",
+    "remote": false,
+    "hybrid": true,
+    "fullLocation": "Sydney, , Australia"
+   },
+   "customField": [
+    {
+     "fieldId": "651ba508aac0da4b9cbd91cb",
+     "fieldLabel": "Worker type",
+     "valueId": "d588c41a446c11de98360015c5e6daf6",
+     "valueLabel": "Employee"
+    },
+    {
+     "fieldId": "67db425d21ec03315da962cb",
+     "fieldLabel": "Org",
+     "valueId": "552b243cafd4100169ad1e83af2a0000",
+     "valueLabel": "Product"
+    },
+    {
+     "fieldId": "651b99e25ddc3c31d9224321",
+     "fieldLabel": "Group",
+     "valueId": "1a1ea3580bc810018a09aa0e64a40000",
+     "valueLabel": "Learning Experience"
+    },
+    {
+     "fieldId": "651ba171eec5b66729429433",
+     "fieldLabel": "Subspecialty",
+     "valueId": "220b5c7e743d017fd8021af4b7002d13",
+     "valueLabel": "Program Management (Operations)"
+    },
+    {
+     "fieldId": "651b8b8aaac0da4b9cbd91c9",
+     "fieldLabel": "Recruitment type",
+     "valueId": "ebb715ae-0c50-4bc4-b6b9-d3613ed950d5",
+     "valueLabel": "Fixed Term"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "au",
+     "valueLabel": "Australia"
+    },
+    {
+     "fieldId": "6514d94a9c140e09b2e649f5",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Canva"
+    },
+    {
+     "fieldId": "651ba0b93066d20abe11145b",
+     "fieldLabel": "Specialty",
+     "valueId": "220b5c7e743d0190003cdca7b8008d13",
+     "valueLabel": "Operations"
+    },
+    {
+     "fieldId": "651b8bc23066d20abe111459",
+     "fieldLabel": "Supergroup",
+     "valueId": "220b5c7e743d014650a59bcd9700e305",
+     "valueLabel": "Teams & Education"
+    },
+    {
+     "fieldId": "651b8a7b58759b40ab8abd45",
+     "fieldLabel": "Employment type",
+     "valueId": "01ca83be4eaa01c10689432ca5005501",
+     "valueLabel": "Fixed Term (Fixed Term)"
+    },
+    {
+     "fieldId": "651ba1c7aac0da4b9cbd91ca",
+     "fieldLabel": "Role level",
+     "valueId": "B3",
+     "valueLabel": "B3"
+    },
+    {
+     "fieldId": "651ba22058759b40ab8abd46",
+     "fieldLabel": "Time type",
+     "valueId": "2ca83e80de45013371c1658ff3029500",
+     "valueLabel": "Full time"
+    }
+   ],
+   "releasedDate": "2026-09-11T06:57:11.694Z",
+   "postingUrl": "https://jobs.smartrecruiters.com/Canva/6000000001399105-program-manager-education-content-ftc-",
+   "applyUrl": "https://jobs.smartrecruiters.com/Canva/6000000001399105-program-manager-education-content-ftc-?oga=true",
+   "referralUrl": "https://jobs.smartrecruiters.com/external-referrals/company/Canva/publication/5a876979-e9f2-4e68-8611-68debeec0d03?dcr_ci=Canva",
+   "jobAd": {
+    "sections": {
+     "companyDescription": {
+      "title": "Company Description",
+      "text": ""
+     },
+     "jobDescription": {
+      "title": "Job Description",
+      "text": "<p><strong>This is a 24 month fixed term contract.</strong></p><p>&#xa0;</p><p>Join the team redefining how the world experiences design.</p><p>Hey, g'day, mabuhay, kia ora, \u4f60\u597d, hallo, v\u00edtejte!</p><p>Thanks for stopping by. We know job hunting can be a little time consuming and you're probably keen to find out what's on offer, so we'll get straight to the point.</p><p><strong>Where and how you can work</strong><br>\nOur flagship Sydney campus is uniquely Canva - an extension of our Surry Hills neighbourhood. It\u2019s a thoughtfully designed space with plenty of room to collaborate, focus, and connect.<br>\n<br>\nThis role is based in <strong>Sydney</strong>, and we\u2019re looking for someone who calls it home. Our hybrid way of working gives you the flexibility to work remotely, and to come together on campus for meaningful in-person collaboration and connection when it matters most. We trust our C"
+     },
+     "qualifications": {
+      "title": "Qualifications",
+      "text": ""
+     },
+     "additionalInformation": {
+      "title": "Additional Information",
+      "text": ""
+     }
+    }
+   },
+   "active": true,
+   "visibility": "PUBLIC",
+   "industry": {
+    "id": "computer_software",
+    "label": "Computer Software"
+   },
+   "function": {
+    "id": "administrative",
+    "label": "Administrative"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "typeOfEmployment": {
+    "id": "permanent",
+    "label": "Full-time"
+   },
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  },
+  {
+   "id": "6000000001287750",
+   "name": "Product Support Specialist, Education Team  (Full time, 1-year contract)",
+   "uuid": "6848a68a-8bb7-4bd3-9a8b-e08ebd42ed75",
+   "jobId": "7774589d-4790-481c-8234-f5039e5fd2cc",
+   "jobAdId": "d7d7cb7a-4dce-442a-a47b-c729e532c568",
+   "defaultJobAd": true,
+   "refNumber": "REF4327H",
+   "company": {
+    "name": "Canva",
+    "identifier": "Canva"
+   },
+   "location": {
+    "city": "Bengaluru",
+    "country": "in",
+    "remote": true,
+    "hybrid": false,
+    "fullLocation": "Bengaluru, , India"
+   },
+   "customField": [
+    {
+     "fieldId": "651ba508aac0da4b9cbd91cb",
+     "fieldLabel": "Worker type",
+     "valueId": "d588c334446c11de98360015c5e6daf6",
+     "valueLabel": "Contingent Worker"
+    },
+    {
+     "fieldId": "651b99e25ddc3c31d9224321",
+     "fieldLabel": "Group",
+     "valueId": "a8bf775b9259100124de29c73ba70000",
+     "valueLabel": "CJKI"
+    },
+    {
+     "fieldId": "651ba171eec5b66729429433",
+     "fieldLabel": "Subspecialty",
+     "valueId": "220b5c7e743d019635a001f4b700b312",
+     "valueLabel": "Tech Support"
+    },
+    {
+     "fieldId": "COUNTRY",
+     "fieldLabel": "Country/Region",
+     "valueId": "in",
+     "valueLabel": "India"
+    },
+    {
+     "fieldId": "6514d94a9c140e09b2e649f5",
+     "fieldLabel": "Brands",
+     "valueId": "default",
+     "valueLabel": "Canva"
+    },
+    {
+     "fieldId": "651ba0b93066d20abe11145b",
+     "fieldLabel": "Specialty",
+     "valueId": "220b5c7e743d0198d58fd8a7b8007b13",
+     "valueLabel": "Technology"
+    },
+    {
+     "fieldId": "651ba626aac0da4b9cbd91cc",
+     "fieldLabel": "Contingent Worker Type",
+     "valueId": "765a07ed-569d-4833-971d-bc3752c6d970",
+     "valueLabel": "Contractor"
+    },
+    {
+     "fieldId": "651b8bc23066d20abe111459",
+     "fieldLabel": "Supergroup",
+     "valueId": "d7055559fd68100169cd12caf0fe0000",
+     "valueLabel": "International"
+    },
+    {
+     "fieldId": "651ba1c7aac0da4b9cbd91ca",
+     "fieldLabel": "Role level",
+     "valueId": "B1",
+     "valueLabel": "B1"
+    }
+   ],
+   "releasedDate": "2026-08-05T09:54:49.140Z",
+   "postingUrl": "https://jobs.smartrecruiters.com/Canva/6000000001287750-product-support-specialist-education-team-full-time-1-year-contract-",
+   "applyUrl": "https://jobs.smartrecruiters.com/Canva/6000000001287750-product-support-specialist-education-team-full-time-1-year-contract-?oga=true",
+   "referralUrl": "https://jobs.smartrecruiters.com/external-referrals/company/Canva/publication/6848a68a-8bb7-4bd3-9a8b-e08ebd42ed75?dcr_ci=Canva",
+   "jobAd": {
+    "sections": {
+     "companyDescription": {
+      "title": "Company Description",
+      "text": "<p><strong>Join the team redefining how the world experiences design.</strong></p><p>Hey, g'day, namaste, kia ora, \u4f60\u597d, hallo, v\u00edtejte!<br>\n<br>\nReady to make meaningful impact? You're in the right place.</p><p>Thanks for stopping by. We know job hunting can be a little time consuming and you're probably keen to find out what's on offer, so we'll get straight to the point. Every role supporting Canva contributes to something bigger. Here's what this contract opportunity involves and what we're looking for.</p><p><strong>Where and how you can work</strong></p><p>This is a<strong> 12-month</strong> independent contractor opportunity, where you'll provide services within a defined scope, with the flexibility to shape how you deliver your impact.</p><p>Designed for a hybrid way of working, this opportunity is remote and open to candidates based anywhere in India, so you can align on key touch"
+     },
+     "jobDescription": {
+      "title": "Job Description",
+      "text": "<p><strong>What you'll be working on</strong><br>\n<br>\nAs Canva Education continues to grow, change is part of how we move forward. That means the services you'll provide may evolve, and we'd discuss that with you from time to time.</p><p>Right now, most schools and school systems find the technical side of getting started harder than it should be \u2014 Single Sign-On, domain verification, and connecting their Google or Microsoft backends can take far longer than anyone would like, and State partnerships often run across several different authentication pathways at once. You'll be the person who makes all of that smooth.</p><p>You'll be engaged to provide services aimed at:</p><ul><li>Guiding school systems and Education Depts through SSO setup, domain verification, and account provisioning, so teachers and students can get into Canva Education quickly and securely.</li><li>Supporting integr"
+     },
+     "qualifications": {
+      "title": "Qualifications",
+      "text": "<p><strong>You're probably a match if</strong></p><ul><li>You've supported SSO, SAML/OAuth, or identity and access setups before, and you can explain how they work to non-technical people without losing them.</li><li>You know your way around Google Workspace and Microsoft 365 / Entra ID administration, including domain verification, provisioning, and directory sync.</li><li>You've spent at least 3 years in technical support, implementation, or solutions roles \u2014 ideally supporting schools, government systems, or large organizations.</li><li>You stay calm and methodical when an integration breaks, and you're happy owning a problem until it's genuinely fixed.</li><li>You communicate clearly in English and Hindi, both in writing and on calls.</li><li>You're comfortable juggling multiple school systems, timelines, and stakeholders at once, and you flag risks early with a plan to fix them.</li"
+     },
+     "additionalInformation": {
+      "title": "Additional Information",
+      "text": "<p>Other stuff to know</p><p>We make hiring decisions based on your experience, skills and passion, as well as how you can enhance Canva and our culture. When you apply, please tell us the pronouns you use and any reasonable adjustments you may need during the interview process.</p><p>We celebrate all types of skills and backgrounds at Canva so even if you don\u2019t feel like your skills quite match what\u2019s listed above - we still want to hear from you!</p><p>Please note that interviews are conducted virtually.</p>"
+     }
+    }
+   },
+   "active": true,
+   "visibility": "PUBLIC",
+   "industry": {
+    "id": "computer_software",
+    "label": "Computer Software"
+   },
+   "function": {
+    "id": "engineering",
+    "label": "Engineering"
+   },
+   "experienceLevel": {
+    "id": "mid_senior_level",
+    "label": "Mid-Senior Level"
+   },
+   "typeOfEmployment": {
+    "id": "contract",
+    "label": "Contract"
+   },
+   "language": {
+    "code": "en",
+    "label": "English",
+    "labelNative": "English (US)"
+   }
+  }
+ ],
+ "totalFound": 2
+}

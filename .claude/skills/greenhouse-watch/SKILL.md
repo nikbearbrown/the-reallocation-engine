@@ -30,13 +30,21 @@ python3 .claude/skills/greenhouse-watch/scripts/greenhouse_watch.py \
   --resume <path to resume JSON> \
   --state  search/greenhouse-watch/<slug>.state.json \
   --out    search/greenhouse-watch/<slug>/ \
-  [--ats ashby]
+  [--ats ashby | --ats smartrecruiters]
 ```
 
 - `--ats ashby` watches an **Ashby** board instead: `https://api.ashbyhq.com/posting-api/job-board/<name>`,
   where `<name>` is the segment after `jobs.ashbyhq.com/` (it may carry spaces and capitals —
   `writer`, `"Jasper AI"`). Ashby jobs are normalised onto the Greenhouse-shaped fields the matcher
   reads; the raw response is still saved untouched. Same state/diff/scheme/report contract.
+- `--ats smartrecruiters` watches a **SmartRecruiters** board: `https://api.smartrecruiters.com/v1/companies/<id>/postings`,
+  where `<id>` is the segment after `careers.smartrecruiters.com/` (`Canva`). SmartRecruiters' listing
+  feed carries no ad text, so one run = every listing page (100 per page) **plus one detail call per
+  posting**, all to the one allow-listed host, ~0.05 s apart. Canva (248 postings) takes about 3½ minutes.
+  A failed detail call keeps the listing record with empty content and an `_detail_error` note.
+- Known board tokens that are not the company name: Miro is Greenhouse `realtimeboardglobal`
+  (their old name); Jasper is Ashby `"Jasper AI"`. Framer (hand-built pages) and Adobe (Workday) are
+  not reachable through this skill.
 
 - `<slug>` is the company's board name: the `<slug>` in
   `https://boards-api.greenhouse.io/v1/boards/<slug>/jobs`. If the user gives a careers
@@ -113,7 +121,8 @@ cd .claude/skills/greenhouse-watch && python3 -m unittest tests/test_greenhouse_
 ```
 
 Offline, fixture-driven (`tests/fixture-board.json`, three real Airbnb postings with
-trimmed content, captured 2026-09-16). Covers: baseline, diff, same-second runs, dry-run,
+trimmed content, captured 2026-09-16; `fixture-ashby-board.json` two Writer postings and
+`fixture-smartrecruiters-board.json` two Canva postings, 2026-09-19). Covers: baseline, diff, same-second runs, dry-run,
 malformed and wrong-shape résumés, corrupt state, empty board, bad response, bad slug,
 bad host, and each scheme rule.
 
@@ -123,14 +132,14 @@ bad host, and each scheme rule.
 |---|---|
 | `SKILL.md` | this workflow |
 | `README.md` | one-screen orientation and the assignment link |
-| `scripts/greenhouse_watch.py` | the stored script (stdlib only); `--ats greenhouse\|ashby` |
+| `scripts/greenhouse_watch.py` | the stored script (stdlib only); `--ats greenhouse\|ashby\|smartrecruiters` |
 | `scripts/board_cards.py` | one run → ALL / TENTATIVE / KEEP Markdown, executive summary first |
 | `scheme.default.json` | the default matching scheme, with a plain-language reading of every rule (incl. `ignore_skills`) |
 | `tests/test_greenhouse_watch.py` · `tests/fixture-board.json` | unittest + offline fixture |
 
 ## Laws this skill obeys
 
-- **P2** only the stored script touches the network; allow-listed hosts are the Greenhouse boards API and `api.ashbyhq.com`.
+- **P2** only the stored script touches the network; allow-listed hosts are the Greenhouse boards API, `api.ashbyhq.com`, and `api.smartrecruiters.com`.
 - **P3** every justification line names a résumé field path and a posting field.
 - **P4** the human gate is stated in the report and the run record; the skill never clears it.
 - **Privacy** `search/resume.json` is read-only and never leaves `search/`.
