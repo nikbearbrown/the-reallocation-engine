@@ -67,3 +67,13 @@ Webflow Senior Developer Educator is US-remote; none part-time). Two exploratory
 of the SmartRecruiters API preceded the provider code (shape reconnaissance). Human keeps:
 Webflow 8204002; Notion 6f7c5ae6…, 0cc39c60…; Writer 04ad3b44…; Figma 6176134004.
 Gate open on all boards.
+
+### 2026-09-23 — greenhouse-watch · fix: justification lines now sum to the score
+Found while building the INFO 7375 Professor Bear demo on Figma (persona Aarav): a London ML
+role showed lines +3.0, +3.0, +1.0, −1.0 (= 6.0) against score 3.5. Scoring was correct; the
+report was not. (1) The title weight is credited once, but a line printed "+3.0" for every
+matching résumé title; repeats now read "(already counted, +0)". (2) The `skill_any` bonus
+(+0.5) was added but never printed; it now has its own line. New test
+`test_justification_lines_sum_to_score` fails on the old script (lines 10.0 vs score 7.5)
+and passes on the new; 23 tests pass. Verdicts and scores are unchanged, so earlier runs'
+decisions stand; only their printed justifications under-explained them.

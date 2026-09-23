@@ -163,6 +163,16 @@ class TestScheme(unittest.TestCase):
         joined = "\n".join(why)
         self.assertIn("familiar_with_not_shipped", joined); self.assertIn("+0.25", joined)
 
+    def test_justification_lines_sum_to_score(self):
+        # A reader who adds up the report lines must get the score. Aarav has two
+        # "Software Engineer" titles: the title weight is credited once, and the
+        # skill_any bonus is its own line (bug seen on Figma, 2026-09-23: lines said 6.0, score 3.5).
+        import re
+        for loc in ("Remote", "London, England"):
+            ok, score, why, reason = gw.judge(self.job("Software Engineer, Platform", loc, "<p>Python, Kubernetes, Kafka.</p>"), self.feats, self.scheme)
+            total = sum(float(m) for line in why for m in re.findall(r"([+-]\d+(?:\.\d+)?)$", line))
+            self.assertAlmostEqual(total, score, msg="\n".join(why))
+
 
 if __name__ == "__main__":
     unittest.main()

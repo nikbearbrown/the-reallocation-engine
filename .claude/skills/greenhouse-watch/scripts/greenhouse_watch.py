@@ -246,8 +246,9 @@ def judge(job, feats, scheme):
     hit_titles = [(t, p) for t, p in titles if phrase_in(t, title_lc)]
     if hit_titles:
         score += w.get("title", 0)
-        for t, p in hit_titles:
-            why.append(f"title «{title}» contains résumé title «{t}» ({p}) +{w.get('title', 0)}")
+        for i, (t, p) in enumerate(hit_titles):  # the title weight is credited once, however many résumé titles match
+            why.append(f"title «{title}» contains résumé title «{t}» ({p}) "
+                       + (f"+{w.get('title', 0)}" if i == 0 else "(already counted, +0)"))
     else:
         for t, p in titles:
             toks = [x for x in re.findall(r"[a-z]+", t.lower()) if len(x) > 3]
@@ -273,6 +274,7 @@ def judge(job, feats, scheme):
         why.append(f"{len(hits) - cap} further skill hits not counted (scheme.max_skill_hits={cap})")
     if hits:
         score += w.get("skill_any", 0)
+        why.append(f"at least one résumé skill appears in the posting (scheme.weights.skill_any) +{w.get('skill_any', 0)}")
 
     for term, p in degrees:
         if phrase_in(term, content_lc):
