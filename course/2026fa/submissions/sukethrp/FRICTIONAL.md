@@ -9,7 +9,7 @@ but the experience must come from the student.
 So this file has three parts:
 - a **factual timeline** of the session, reconstructed by Claude from the conversation and git history;
 - **Claude's own contributions**;
-- **empty dated entries** for the student to write. None of the student entries is filled in yet.
+- **student entry prompts** and a later factual Codex work log. The student’s personal experience is still pending.
 
 ---
 
@@ -74,3 +74,37 @@ difficulty. If something was straightforward, say so and describe what you check
   (`SOURCES.md` → "What the student decided").
 - **The student accepted, changed or rejected:** *to be written by the student*, for example: the
   predictions, rules v0.2.0, the fit and timeline numbers, the gate decisions.
+
+## 2026-09-30 UTC (2026-09-29 Eastern): factual follow-up, organized by Codex
+
+**Authorship:** These are assistant work records, not a student first-person experience log. Suketh asked Codex to handle the nine listed items, minimize questions and provide a natural draft. When asked for personal notes, Suketh requested a draft but did not describe a personal check, reaction or difficulty.
+
+| Work item | What Codex tried and observed | What Codex changed or checked | Student contribution evidenced in this task |
+|---|---|---|---|
+| Read prior reports | Read the sample, both-run narrative and current rules audit | Retained the conservative v0.2.0 rules as a recommendation; human audit gate stays open | Requested the review |
+| Inspect postings | The web reader could not read some dynamic pages; the public Ashby board API returned 403 | Read seven exact Greenhouse job IDs through the public board API and OpenAI’s embedded public posting data; found experience requirements that titles concealed | No personal posting review reported |
+| Review inputs | The original scores assumed timing without a confirmed start date | Archived the original queue, withdrew unsupported fit/timeline scorer inputs, preserved clearly labeled AI fit proposals | Asked for an evidence-based draft, not a confirmed score choice |
+| Run again | All eight stopped before scoring | Four timeline holds, one shared-record hold and three missing-company holds; no G6 requests ran | No personal rerun reported |
+| Verify source and tests | All 36 tests passed; the sample matched; wrong hash stopped with exit 2 | Confirmed AppLovin physical line 1956 against the report, including approvals, denials, salary and titles | No personal CSV comparison reported |
+
+**Prompts for your own entry:** Which of these results did you inspect? What did you expect beforehand? Which AI recommendation did you accept or reject, and why? What can you now explain without reading the draft? If you delegated the checks, say so. Do not claim the tool errors above as your personal struggle.
+
+The later AI additions are credited in `SOURCES.md`. No student signature or human gate clearance was added.
+
+## 2026-09-30 UTC: factual follow-up by Claude Code, after checking Codex's review
+
+**Authorship:** an assistant work record, not the student's experience. The student asked Claude to
+check Codex's review, and approved the fixes below.
+
+- **Checked Codex's claims against the sources.** Re-read the eight postings through the same public
+  job-board APIs: the experience requirements it reported are accurate. Its AppLovin row values and
+  arithmetic are correct. The tests and conformance pass.
+- **Restored the run 1–2 input.** `worked-run/queue-live-1.json` is back to what runs 1–2 read. Codex's
+  reviewed queue is now `worked-run/queue-live-3-reviewed.json`, and run 3 was re-run from it with the
+  same result.
+- **Reworded two lines Claude had written earlier** (SOURCES.md, and this file's timeline) that stated
+  the student's own visa status. The unpushed commit that contained them was amended.
+- **Removed AI drafting from the student's slots.** The reflection section is back to its prompts. The
+  AI drafts and the presentation guide are kept outside the repository.
+- **Recipe updated.** It now lists the posting's own requirements as something it cannot verify, with a
+  typed proposal for a requirements check.

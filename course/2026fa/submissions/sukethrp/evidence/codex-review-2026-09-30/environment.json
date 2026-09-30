@@ -1,0 +1,7 @@
+{
+  "python": "3.13.3",
+  "platform": "macOS-27.0-arm64-arm-64bit-Mach-O",
+  "node": "v22.11.0",
+  "git_head": "49eee0ea4c325a1108570ded36074f2748acc90c",
+  "checkout": "existing working tree with uncommitted review edits, not a fresh clean checkout"
+}

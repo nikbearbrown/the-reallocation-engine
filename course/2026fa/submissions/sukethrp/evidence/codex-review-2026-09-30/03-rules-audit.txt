@@ -1,0 +1,7 @@
+Operator: Codex (AI), not student
+UTC: 2026-09-30T01:58:45.433444+00:00
+Command: python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --audit-rules --out-dir course/2026fa/submissions/sukethrp/evidence/codex-review-2026-09-30/rules-audit
+✓ rules audit: 30369 rows · tiered 1552 · held 28817 · 21 ML/AI titles with no seniority or level marker
+  course/2026fa/submissions/sukethrp/evidence/codex-review-2026-09-30/rules-audit/rules-audit.md  +  course/2026fa/submissions/sukethrp/evidence/codex-review-2026-09-30/rules-audit/rules-audit.json
+
+Exit code: 0

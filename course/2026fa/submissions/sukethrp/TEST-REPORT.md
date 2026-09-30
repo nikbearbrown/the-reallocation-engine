@@ -2,6 +2,8 @@
 
 ## Executive summary
 
+**Follow-up:** Codex reran the 36 tests and offline sample successfully on 2026-09-30 UTC. The reviewed real queue now holds all eight postings. The section “Codex rerun” records this later evidence; the original clean-checkout account below is historical. A student rerun has not been recorded.
+
 This report records how the prototype was tested from a clean copy of the branch: the tool checks
 before and after, the offline tests, the sample run, every named failure case, deliberate attempts to
 break it, the privacy scans, and the exact list of files the branch changes.
@@ -176,5 +178,39 @@ give the details.
 
 ## Student re-run
 
-*To be completed by the student.* Record the commit, the date, the commands you re-ran from a clean
-checkout, and what you saw. Name anything that differed from the tables above.
+**Pending.** Codex ran the checks below; that is not a student-operated rerun. After running them yourself, fill in:
+
+- Student name and actual date/time:
+- Commit and working-tree state:
+- Tests command and observed result:
+- Sample command and observed result:
+- Deliberate break and expected versus observed result:
+- CSV comparison personally performed:
+- Differences or checks not performed:
+
+
+## Codex rerun — 2026-09-30 UTC
+
+Operator: Codex (AI). Starting commit: `49eee0e` (amended to `0754031` before any push, rewording two lines that stated the student's visa status). Follow-up documentation and queue edits were uncommitted at the time. This run uses the existing working checkout, not a newly installed clean copy. Original clean-checkout evidence remains separately labeled above.
+
+| Check | Observed | Evidence |
+|---|---|---|
+| Requested offline test command | 36 tests, OK, exit 0 | `evidence/codex-review-2026-09-30/01-tests.txt` |
+| Requested default sample command | 11 evaluated, six held, five scored: Apply 1, Consider 3, Skip 1; exit 0 | `02-sample.txt`, `sample/` |
+| Title-rules audit | 30,369 rows, 1,552 tiered, 28,817 held; 21 distinct unmarked ML/AI titles | `03-rules-audit.txt`, `rules-audit/` |
+| Deliberately incorrect source hash | Source gate stops, exit 2 | `04-break-hash.txt` |
+| Reviewed queue, third run with `--live` | Eight held, zero scored; no liveness requests and no scorer invocation; exit 0. Re-run by Claude from the renamed `worked-run/queue-live-3-reviewed.json` with network access forbidden: same result | `05-worked-run-3.txt`, `worked-run/terminal-live-3.txt` |
+| AppLovin source line 1956 | Approvals, denials, rate, company median salary and title list all match run 2 | `applovin-row-check.json` |
+
+No human gate was cleared, and no student signature was added. Current source-page availability is separate from the earlier prototype liveness results.
+
+### Follow-up environment and final checks
+
+This follow-up used Python 3.13.3 (the earlier clean checkout used 3.12/3.9). Exact environment versions are saved in `evidence/codex-review-2026-09-30/environment.json`.
+
+- `npm run verify`: exit 0, 172 files conform, manifest passes with the same three repository warnings.
+- `npm run doctor`: exit 0, environment runnable.
+- Working-tree privacy scan: exit 1, only the pre-existing package-lock contact-string finding. New review artifacts introduced no additional findings.
+- Existing committed branch-history scan against `upstream/main`: exit 0. This scan excludes the current uncommitted additions, which the working-tree scan covers.
+- First whitespace check found one extra blank line at the end of SOURCES.md; corrected. Final whitespace check passes.
+- No code, rules, shared data, recipe status, commits or remote branches were changed. Current changes are local documentation, review metadata, the active queue and recorded evidence.

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "01-tests",
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests",
+      "-v"
+    ],
+    "exit_code": 0,
+    "utc": "2026-09-30T01:58:43.068248+00:00"
+  },
+  {
+    "name": "02-sample",
+    "command": [
+      "python3",
+      "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py"
+    ],
+    "exit_code": 0,
+    "utc": "2026-09-30T01:58:44.770893+00:00"
+  },
+  {
+    "name": "03-rules-audit",
+    "command": [
+      "python3",
+      "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py",
+      "--audit-rules",
+      "--out-dir",
+      "course/2026fa/submissions/sukethrp/evidence/codex-review-2026-09-30/rules-audit"
+    ],
+    "exit_code": 0,
+    "utc": "2026-09-30T01:58:45.433444+00:00"
+  },
+  {
+    "name": "04-break-hash",
+    "command": [
+      "python3",
+      "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py",
+      "--csv-sha256",
+      "0000000000000000000000000000000000000000000000000000000000000000",
+      "--out-dir",
+      "output/codex-review-break-hash"
+    ],
+    "exit_code": 2,
+    "utc": "2026-09-30T01:58:45.906871+00:00"
+  }
+]

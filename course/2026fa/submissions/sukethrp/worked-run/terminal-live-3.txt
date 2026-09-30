@@ -1,0 +1,5 @@
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --roles course/2026fa/submissions/sukethrp/worked-run/queue-live-3-reviewed.json --out-dir course/2026fa/submissions/sukethrp/runs/worked-run-3-reviewed --overwrite --live
+# re-run by Claude Code on the student's machine at commit 0754031 from the renamed queue (Codex's reviewed inputs, unchanged), started 2026-09-30T02:25:15Z
+✓ 8 roles → held 8 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions RESOLVE 8
+  course/2026fa/submissions/sukethrp/runs/worked-run-3-reviewed/sponsor-match-report.md  +  course/2026fa/submissions/sukethrp/runs/worked-run-3-reviewed/sponsor-match-log.json
+# exit=0

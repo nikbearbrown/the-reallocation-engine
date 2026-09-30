@@ -1,0 +1,112 @@
+[
+  {
+    "role_id": "r01-discord-mle-new-grad",
+    "company": "DISCORD INC",
+    "title": "Machine Learning Engineer, New Grad",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 0.85,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "r02-etsy-mle-1-search",
+    "company": "ETSY INC",
+    "title": "Machine Learning Engineer I, Search",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 0.85,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.75,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "r03-airbnb-mle-early-career",
+    "company": "AIRBNB INC",
+    "title": "Machine Learning Engineer, Early Career",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 0.85,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.6,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "r07-celestialai-mle",
+    "company": "CELESTIAL AI INC",
+    "title": "Machine Learning Engineer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 0.85,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.65,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "r11-kensho-mle",
+    "company": "KENSHO TECHNOLOGIES INC",
+    "title": "Machine Learning Engineer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 0.5,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input"
+    }
+  }
+]

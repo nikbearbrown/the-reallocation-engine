@@ -1,0 +1,11 @@
+Operator: Codex (AI)
+UTC: 2026-09-30T02:06:16.267833+00:00
+Command: node scripts/pii-scan.mjs
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [contact redacted]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+
+Exit code: 1

@@ -2,6 +2,12 @@
 
 ## Executive summary
 
+**Latest review, 2026-09-30 UTC (Codex AI):** The third run holds **all eight postings** and scores none. Four stop for an unknown timeline, one for a shared sponsorship record, and three for no company match. Employer requirements also expose experience mismatches hidden by the earlier titles. See [Posting review](POSTING-REVIEW.md) and [run 3](runs/worked-run-3-reviewed/sponsor-match-report.md). The earlier TAILOR / NETWORK-FIRST results below are historical, not current recommendations.
+
+**Historical runs 1–2 follow.** They read `worked-run/queue-live-1.json`, which is unchanged
+(sha256 `38a030669592…`). Codex's reviewed inputs are a separate file,
+`worked-run/queue-live-3-reviewed.json` (sha256 `76207422f40e…`), read by run 3.
+
 **What this is.** A real run of the recipe on eight real job postings, found on 30 September 2026, for a
 fictional student in the recipe's exact situation: F-1, graduating in December 2026, looking for a
 new-grad ML/AI engineering job.
@@ -197,18 +203,18 @@ from something they declared.
 
 ## Your decision (the human gate, G8)
 
-*To be filled in by the student. The recipe never makes these decisions.*
+The current prototype result is RESOLVE for all eight roles. The advisory table below is a **Codex draft**, dated 2026-09-30 UTC, for student review. “Deprioritize” is advice based on requirements, not a machine Skip classification and not a cleared human gate. The student must enter their own final decision and reason and sign each row.
 
-| Posting | Suggested | Your decision | Your reason | Name | Date |
+| Posting | Current machine result | AI advisory draft | AI reason | Student decision and reason | Student name and date |
 |---|---|---|---|---|---|
-| AppLovin — Software Engineer, Machine Learning | TAILOR |  |  |  |  |
-| Moloco — Expression of Interest: Machine Learning Engineer | NETWORK-FIRST |  |  |  |  |
-| Nextdoor — Machine Learning Engineer - Ads | RESOLVE |  |  |  |  |
-| Databricks — AI Engineer – Forward Deployed Engineering | RESOLVE |  |  |  |  |
-| PathAI — Machine Learning Engineer II | RESOLVE |  |  |  |  |
-| Scale AI — Software Engineer - New Grad | RESOLVE |  |  |  |  |
-| Anthropic — Applied AI, Research Engineer | RESOLVE |  |  |  |  |
-| OpenAI — Machine Learning Engineer, Core Experimentation | RESOLVE |  |  |  |  |
+| AppLovin — Software Engineer, Machine Learning | RESOLVE | Deprioritize this experienced role; seek a graduate opening. | Requires at least four years developing and deploying production ML systems. Python and PyTorch align with the target, but the fictional profile documents no such experience. No employment start date is specified. | Pending student | Pending student |
+| Nextdoor — Machine Learning Engineer - Ads | RESOLVE | Deprioritize unless the required industry or academic experience can be documented. | Requires at least five years of industry or academic experience applying ML at scale, plus advertising ML and production coding. The profile does not establish this experience. No employment start date is specified. | Pending student | Pending student |
+| Databricks — AI Engineer – Forward Deployed Engineering (AI FDE) | RESOLVE | Deprioritize this posting because it explicitly excludes the target applicant level. | The posting explicitly excludes internship, new-graduate and entry-level applicants. It requires production GenAI deployment experience. No employment start date is specified. | Pending student | Pending student |
+| Moloco — Expression of Interest: Machine Learning Engineer | RESOLVE | Deprioritize this pool for the immediate graduate search; locate a specific early-career opening. | This is an expression-of-interest pool rather than a dated vacancy. It seeks roughly five to twelve-plus years of production ML experience. No hiring or start commitment is offered. | Pending student | Pending student |
+| PathAI — Machine Learning Engineer II (Applied Research & Model Development) | RESOLVE | Deprioritize unless qualifying experience can be documented; the shared sponsorship record also remains unresolved. | Requires a relevant master’s plus two to four years of experience, or a PhD plus zero to two. The fictional master’s profile does not establish the required experience. No employment start date is specified. | Pending student | Pending student |
+| Scale AI — Software Engineer - New Grad | RESOLVE | Prioritize clarification: confirm degree eligibility, internship fit, location, sponsorship and an acceptable start date. | The stated graduation cohort includes fall 2026 or spring 2027. The role asks for software/product internship experience and shipped systems, which the profile does not establish. It emphasizes product engineering alongside AI. No employment start date is specified. | Pending student | Pending student |
+| Anthropic — Applied AI, Research Engineer | RESOLVE | Deprioritize this experienced role and search for a better level match. | Requires at least six years in a relevant technical role, substantial LLM experience and customer-facing work. The profile does not establish these qualifications. No employment start date is specified. | Pending student | Pending student |
+| OpenAI — Machine Learning Engineer, Core Experimentation | RESOLVE | Deprioritize pending evidence of the required leadership and willingness to work in Bellevue. | Requires evidence of leading production ML products and technical direction across teams. It specifies in-person work in Bellevue. It gives no numeric experience minimum or employment start date. The profile does not establish the leadership experience or relocation preference. | Pending student | Pending student |
 
 ## Run analysis (drafted by Claude Code, for the student to check)
 
@@ -242,6 +248,9 @@ from something they declared.
 *To be written by the student, in their own words, after reviewing the run. Prompts: What surprised you
 in the output? Which decision in the table above was hardest, and why? What would you change in the
 recipe before using it on your own search? What did you check yourself?*
+
+*(An AI-written review draft exists outside this repository, as preparation material only. It is not
+part of the submission.)*
 
 ## Attestation
 
@@ -285,3 +294,27 @@ The recipe's `attestation` field stays null either way.*
 - Run 1's report said PathAI had "no usable H-1B record". Fixed in `fe07d1b`.
 - `pii-scan --diff` flagged a decorator line as an email. Replaced it in every commit of the unpushed branch.
 ```
+
+## Worked run 3: requirements reviewed, unsupported inputs withdrawn
+
+Operator: Codex (AI), 2026-09-30 UTC. The title patterns and code are unchanged. All eight postings were read against the fictional profile. Because that profile lacks an experience history and no compatible employment start date was confirmed, proposed fit numbers are kept only in `review` metadata, labeled `model-judgment`; no fit or timeline values are fed to the scorer. The original values remain in `worked-run/queue-live-1.json` and the run 1–2 reports.
+
+Input: `worked-run/queue-live-3-reviewed.json`. Codex first edited `queue-live-1.json` in place, which
+broke runs 1–2's record of what they read. Claude Code then restored that file and moved the reviewed
+version, unchanged, to its own name. Claude re-ran run 3 from it with network access forbidden, and
+got the same result (`worked-run/terminal-live-3.txt`):
+
+```text
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --roles course/2026fa/submissions/sukethrp/worked-run/queue-live-3-reviewed.json --out-dir course/2026fa/submissions/sukethrp/runs/worked-run-3-reviewed --overwrite --live
+✓ 8 roles → held 8 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions RESOLVE 8
+```
+
+- AppLovin, Nextdoor, Databricks and Moloco: `no-timeline-factor`.
+- PathAI: `shared-h1b-record`.
+- Scale AI, Anthropic and OpenAI: `no-company-match`.
+
+The command used `--live`, but **no prototype liveness request ran** because every role stopped at an earlier gate. The scorer was not called. This is a successful demonstration of holding unknown inputs; it is not a new eight-posting liveness verification. Separate employer-page reading is documented in `POSTING-REVIEW.md`.
+
+The fresh source comparison confirms physical CSV line 1956 / data row 1955: AppLovin’s 130 approvals, two denials, 98.484848% approval rate, $150,000 company-wide median salary and sponsored titles match run 2. With proposed fit 0.20, timeline 0.60 would produce 0.225, not Apply; the arithmetic would need timeline 0.80 to reach 0.30. No timeline is asserted.
+
+See `evidence/codex-review-2026-09-30/` for tests, sample, rules audit, deliberate source-hash break, source comparison and command transcripts. Student attestation remains unsigned. The older attestation’s “did not test posting requirements” describes Claude’s earlier work; Codex has since read them, which does not count as the student’s review.

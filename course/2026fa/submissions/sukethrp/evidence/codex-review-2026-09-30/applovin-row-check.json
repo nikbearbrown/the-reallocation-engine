@@ -1,0 +1,26 @@
+{
+  "operator": "Codex (AI), not student",
+  "checked_at": "2026-09-30T02:01:26+00:00",
+  "physical_line": 1956,
+  "data_row": 1955,
+  "company": "APPLOVIN CORP",
+  "approvals": 130,
+  "denials": 2,
+  "approval_rate_pct": 98.48484848484848,
+  "company_median_salary": 150000.0,
+  "titles": [
+    "Software Engineer II",
+    "Machine Learning Engineer",
+    "Technical Support Specialist II",
+    "Product Manager, Lion Studios",
+    "Senior Designer, Motion Graphics"
+  ],
+  "matches_run_2": {
+    "approvals": true,
+    "denials": true,
+    "approval_rate": true,
+    "company_median_salary": true,
+    "sponsored_titles": true
+  },
+  "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270"
+}

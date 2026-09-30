@@ -8,7 +8,7 @@ contributed from what the student decided, checked and still has to do. Read it 
 "who did this?" about any part of the work.
 
 In short:
-- **Claude Code** wrote the code, tests, recipe, card and documents, and ran every command recorded so far.
+- **Claude Code** wrote the code, tests, recipe, card and documents, and ran the original commands. Codex performed the later review and reruns described below.
 - **The student** chose the situation, the recipe direction, the persona approach and the permissions.
   They still have to review the drafted rules and numbers, make the gate decisions, re-run the checks,
   and write their own reflection and Frictional entries.
@@ -59,7 +59,7 @@ Claude Code (Anthropic; model Claude Opus 5.5) in the Claude desktop app · Node
 
 ## Collaborators
 
-None other than the AI assistant.
+AI assistance from Claude Code during the original work and Codex during the follow-up review.
 
 ---
 
@@ -119,6 +119,16 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 - Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.
 
+## Codex follow-up contribution — 2026-09-30 UTC
+
+Codex read the saved sample and rules audit, opened all eight original employer links, read seven Greenhouse postings through their public board API and OpenAI’s public embedded posting data, and prepared `POSTING-REVIEW.md`. Posting URLs, retrieval URLs, timestamps, brief excerpts and text hashes are in `evidence/codex-review-2026-09-30/posting-review.json`. These are employer sources; cached third-party job summaries were not used to assign the review proposals.
+
+Codex recommended keeping the existing title rules, removed unsupported fit/timeline scorer inputs (Claude later moved its edited queue to `worked-run/queue-live-3-reviewed.json` and restored the original `queue-live-1.json`, so each run's recorded input still matches its file), and saved numeric fit proposals as **model judgments in review metadata only**. It executed the third run, 36 offline tests, the sample, a new rules audit and a deliberate wrong-hash break. It checked AppLovin’s source row and prepared a presentation rehearsal guide (kept outside this repository). The final verification files record the actual outcomes.
+
+Codex also organized the factual Frictional follow-up and a reflection draft after Suketh requested a natural draft. The draft is kept outside this repository, and the reflection section is left for the student. These are disclosed AI contributions. The prototype itself still calls no AI model. Its `your-input` label identifies declared configuration and should not be read as proof that Suketh authored or approved the earlier Claude-drafted values. The later AI fit proposals are not scored.
+
 ## What the student checked, changed or rejected
 
-*To be written by the student.*
+**Status, 2026-09-30 UTC:** Suketh requested this review and a natural draft. No statement of personally reading the audits, checking the postings or CSV, running commands, or accepting specific rules or ratings was supplied in this task. No such actions are attributed to the student.
+
+**To complete in the student’s own words:** Name one result you checked, describe what you compared it against, and state one rule or recommendation you accepted, changed or rejected with your reason and date. Record the actual command and result after your own rerun. The AI-authored reflection and factual work log are preparation material, not substitutes for these personal statements.

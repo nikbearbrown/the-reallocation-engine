@@ -152,3 +152,11 @@ computing the timeline factor from OPT dates (the Chapter 10 feed).
 | §5.3 most matched roles land in Likely | Live queue: 2 Proven, 2 Likely, 1 held. Hand-picking across tiers makes this an unfair test. Across the whole file, Likely outnumbers Proven 1,525 to 27 | not tested fairly by the worked run |
 | §5.4 the first draft reports the skip rate only over scored roles | Did not happen. Writing it in this brief led the first draft to report both rates | refuted, because the prediction itself changed the build |
 | *(not predicted)* | Greenhouse boards redirect postings to company sites, which led to a new hold. The report mis-described a shared record. A test decorator tripped the history privacy scan | see `TEST-REPORT.md` → "Broke during testing, fixed" |
+
+### 2026-09-30 UTC — Codex review after reading the postings; student acceptance pending
+
+The original predictions remain above unchanged. Codex disagrees with treating the earlier AppLovin TAILOR result as ready for action: the posting requires four-plus years of production ML work and gives no confirmed start date. Moloco seeks roughly five to twelve-plus years through a talent pool. Databricks explicitly excludes new graduates. These requirements expose an additional failure mode: a successful historical title match does not establish present applicant eligibility.
+
+After withdrawing unsupported fit and timeline scorer inputs, worked run 3 produces eight RESOLVE results and zero scored roles. This does not refute the historical title-tier counts. It shows that the original input assumptions made the queue look more actionable than the evidence supports. The prediction that networking would be the most common next action is not supported by this reviewed queue; resolving missing evidence dominates.
+
+Proposed next change: a requirements review and talent-pool flag before scoring. No new code or threshold was added in this follow-up. This note is Codex’s analysis, not a statement of student disagreement or a retroactive pre-build prediction.

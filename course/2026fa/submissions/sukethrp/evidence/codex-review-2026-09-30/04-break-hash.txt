@@ -1,0 +1,6 @@
+Operator: Codex (AI), not student
+UTC: 2026-09-30T01:58:45.906871+00:00
+Command: python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --csv-sha256 0000000000000000000000000000000000000000000000000000000000000000 --out-dir output/codex-review-break-hash
+STOP at the source gate: data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv has SHA-256 eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270, not the pinned 0000000000000000000000000000000000000000000000000000000000000000. The audits no longer describe this file. Read its audit, then pin the new hash on purpose (--csv-sha256) if you accept it.
+
+Exit code: 2

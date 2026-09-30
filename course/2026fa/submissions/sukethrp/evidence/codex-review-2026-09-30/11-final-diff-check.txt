@@ -1,0 +1,3 @@
+Operator: Codex (AI)
+Command: git diff --check
+Exit code: 0

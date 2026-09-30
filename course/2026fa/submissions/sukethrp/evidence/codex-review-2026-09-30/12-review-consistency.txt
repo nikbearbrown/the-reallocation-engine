@@ -1,0 +1,7 @@
+Operator: Codex (AI)
+Original queue hash matches run 2 input hash: PASS
+Current queue hash matches run 3 input hash: PASS
+Eight roles; no unsupported fit or timeline scorer inputs: PASS
+AI fit proposals attributed only in review metadata: PASS
+Run 3 holds all eight; scores zero; sends no liveness URLs: PASS
+No student attestation signature added.
