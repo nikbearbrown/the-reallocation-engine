@@ -489,8 +489,11 @@ def evaluate_role(role: dict, index: dict, by_row: dict, normalize, rules: dict)
     vouched = None
     if others:
         if not role.get("shared_record_checked"):
-            r["sponsorship"] = {"tier": lab("Unknown", YOU, rule="the H-1B record is shared with a differently "
-                                                                  "named company, so it may not be this one's")}
+            # Show the record, but no tier from it and no number for the scorer: it may be someone else's.
+            r["sponsorship"] = {k: v for k, v in evidence.items() if k not in ("tier", "p")}
+            r["sponsorship"]["tier"] = lab("Unknown", YOU, gap="shared-record",
+                                           rule="the H-1B record also appears on a differently named company, "
+                                                "so it may not be this one's")
             return hold(r, "sponsorship-record", "shared-h1b-record", csv_row=row_no, shared_with=others)
         vouched = f"record also on {len(others)} other company(ies); the person checked: {role['shared_record_checked']}"
     if match_source == YOU or vouched:  # a person vouched: everything read through it is only as good as that call
@@ -770,8 +773,9 @@ def render_report(log: dict) -> str:
                       f"[{sp['approvals']['source']}]; titles: "
                       + "; ".join(md(t) for t in sp["sponsored_titles"]["value"])
                       + f" [{sp['sponsored_titles']['source']}]")
-            check = (f"tier **{sp['tier']['value']}** [{sp['tier']['source']}]: {md(sp['tier']['rule'])}; "
-                     f"p {sp['p']['value']} [{sp['p']['source']}]")
+            check = f"tier **{sp['tier']['value']}** [{sp['tier']['source']}]: {md(sp['tier']['rule'])}"
+            if "p" in sp:
+                check += f"; p {sp['p']['value']} [{sp['p']['source']}]"
         else:
             record = "—" if "company_match" not in r else "no usable H-1B record in the file"
             check = f"tier {sp['tier']['value']} (held)" if sp else "not reached"

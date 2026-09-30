@@ -179,6 +179,13 @@ class EndToEnd(unittest.TestCase):
         gate = self.roles["t19"]["gates"][-1]
         self.assertEqual([c["company_name"] for c in gate["shared_with"]], ["LOOKALYKE LABS INC"])
         self.assertIn("LOOKALYKE LABS INC", self.roles["t19"]["next_action"]["check"])
+        t19 = self.roles["t19"]["sponsorship"]  # the record is shown, but it yields no tier and no number
+        self.assertEqual((t19["approvals"]["value"], t19["tier"]["value"]), (30, "Unknown"))
+        self.assertNotIn("p", t19)
+        row = next(l for l in (self.tmp / "sponsor-match-report.md").read_text().splitlines()
+                   if l.startswith("| Lookalike Labs") and "shared with a lookalike" in l)
+        self.assertIn("30 approvals", row)
+        self.assertNotIn("no usable H-1B record", row)
         t20 = self.roles["t20"]["sponsorship"]
         self.assertEqual(t20["approvals"]["source"], "your-input")   # vouched by a person, not a bare record
         self.assertIn("the person checked", t20["approvals"]["note"])
