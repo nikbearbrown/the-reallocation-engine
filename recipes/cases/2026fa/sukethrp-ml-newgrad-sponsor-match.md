@@ -142,7 +142,8 @@ carries the weakest label among them, so these are your-input:
 - the tier's number for the scorer (Proven 0.9, Likely 0.6, taken from the Chapter 11 worked example);
 - the scorer's composite and recommendation, because fit, timeline and the tier's number are yours.
 
-**Cannot verify.** Each item is stated in every report:
+**Cannot verify.** Items 1–7 are printed in every report's "could not verify" list. Items 8 and 9 are
+limits of the recipe's inputs, stated here and in the card. They are not yet in the report (a next change):
 1. **When** the sponsorship happened. The file has no filing years, so a matching title may be years old.
 2. **Level.** A title with no seniority or level word is not proof of an entry-level hire.
 3. **Completeness.** The title list is a short "top titles" field (867 companies list exactly one title),
@@ -155,6 +156,11 @@ carries the weakest label among them, so these are your-input:
 7. **Law.** OPT, STEM OPT and cap-gap eligibility belong to the DSO or an attorney.
 8. **Evidence files.** A recorded liveness result is labeled `record` only if its saved terminal output
    names the URL. The recipe cannot tell whether that file was edited by hand.
+9. **The posting's own requirements.** The recipe reads the posting's title, never its description, so
+   it cannot see years-of-experience requirements, an explicit "not for new graduates", or a talent pool
+   presented as an opening. Worked run 3's review of eight postings whose titles carried no seniority
+   word found six asking for 2–12+ years or excluding new graduates. A person must read the posting
+   before rating fit.
 
 No model is called anywhere in this recipe, so no value is `model-judgment`. If a later version adds
 one, it must be labeled.
@@ -228,6 +234,7 @@ and refuses to overwrite an earlier run in `course/` without `--overwrite`.
 | Found: identical H-1B records on differently named companies | yes | G4 holds `shared-h1b-record` and names the other companies |
 | Found: `npm run ats:scan -- --dry-run` fails without `data/ats/portals.yml` | for discovery only | the worked run points the scanner at its own config with `REALLOCATION_ENGINE_PORTALS`. The prototype does not call the scanner |
 | Found: Greenhouse boards often 302-redirect a posting to the company's own careers site | yes | a no-redirect first hop holds `redirects-off-allowed-host` and names the target, instead of silently contacting an unnamed host |
+| Found (worked run 3): titles with no seniority word still hide 2–12+ year requirements and new-grad exclusions | yes, not automated | listed under "cannot verify" (item 9). Fit stays the person's rating after reading the posting. An automated check is a typed proposal in `PROPOSED-ADDITIONS.md` |
 
 ## Proposed additions
 
@@ -244,8 +251,9 @@ and refuses to overwrite an earlier run in `course/` without `--overwrite`.
 Conformance: `node scripts/conformance.mjs scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/` passes.
 Handoff: the sample run meets the handoff condition above.
 
-**Not in this version.** Filing-year recency, SOC-level matching, a brand-to-legal-name alias table, and
-computing the timeline factor from OPT dates are proposed, typed and justified in
+**Not in this version.** Filing-year recency, SOC-level matching, a brand-to-legal-name alias table,
+computing the timeline factor from OPT dates, and checking a posting's stated requirements are proposed,
+typed and justified in
 `course/2026fa/submissions/sukethrp/PROPOSED-ADDITIONS.md`. They are deliberately not open items of this
 recipe. None is needed for the steps above to run, and an open item here would return the recipe to
 DRAFT under the lifecycle rules.

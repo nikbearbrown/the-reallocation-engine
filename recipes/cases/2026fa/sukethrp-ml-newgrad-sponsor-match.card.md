@@ -29,6 +29,9 @@ It never guesses: anything it cannot check is held, with the reason.
 - **Whether** the file's company is the posting's employer. The join has no published error rate.
 - **Whether** the company will sponsor this role now.
 - Your fit or your timeline. Those are your numbers.
+- **What the posting itself requires.** The recipe reads titles, not job descriptions. In the worked
+  run, six of eight titles with no seniority word asked for 2–12+ years or excluded new graduates. Read
+  the posting before you rate fit.
 - Visa law. Ask your DSO.
 
 ## Dependencies
