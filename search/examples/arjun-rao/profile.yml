@@ -1,0 +1,30 @@
+# FICTIONAL EXAMPLE PERSONA — safe to commit. Profile-only: there is no résumé pack for this persona.
+# Added in 2026fa (sukethrp, ml-newgrad-sponsor-match) because no existing persona is pre-OPT.
+# Exercises: an explicit needs_sponsorship field, and an F-1 master's student who graduates in December
+# 2026 and whose OPT unemployment clock has not started (it starts at the EAD start date).
+candidate:
+  name: Arjun Rao
+  email: arjun.rao@example.com
+  phone: "(617) 555-0172"
+  linkedin: linkedin.com/in/arjunrao-example
+  github: github.com/arjunrao-example
+  location: Boston, MA
+needs_sponsorship: true
+target_role:
+  primary: Machine Learning Engineer / AI Engineer (new grad)
+  secondary: Applied ML Engineer, LLM Engineer
+  description: New-grad ML/AI engineering roles; Python/PyTorch; startups or large companies, as long as they sponsor.
+  excluded: senior roles, unpaid roles, roles requiring an active security clearance
+visa:
+  type: F-1
+  current_status: "F-1 (MS student, graduating December 2026; OPT not yet started)"
+  ead_start_date: null
+  opt_end_date: null
+  unemployment_days_used: 0
+  unemployment_ceiling: 90
+  buffer_target: 20
+  stem_eligible: true
+  notes: Pre-OPT. Post-completion OPT EAD expected January 2027, not yet issued. A full-time start before the EAD start date is not possible without CPT, which this persona does not have. STEM eligibility is for the school's DSO to confirm.
+geography:
+  current_location: Boston, MA
+  open_to_remote: true

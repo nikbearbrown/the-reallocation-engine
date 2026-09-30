@@ -1,0 +1,120 @@
+{
+  "schema": "sukethrp-ml-newgrad-sponsor-match/roles@1",
+  "as_of": "2026-09-30",
+  "persona": "search/examples/arjun-rao/profile.yml",
+  "note": "Worked run 1 (your-input). Eight real postings found on 2026-09-30 by the engine's own scanner (scripts/ats/scan.mjs with worked-run/portals-worked-run.yml), picked across the recipe's tiers from the rules audit. Greenhouse URLs use the board's canonical form (job-boards.greenhouse.io/<board>/jobs/<id>) for the job id the scanner reported. Fit and timeline were proposed by Claude from the titles only and are pending the student's review.",
+  "roles": [
+    {
+      "role_id": "w01",
+      "company": "AppLovin",
+      "title": "Software Engineer, Machine Learning",
+      "url": "https://job-boards.greenhouse.io/applovin/jobs/4712559006",
+      "fit": {
+        "p": 0.7,
+        "reason": "an ML engineering title with no seniority word, close to the persona's target — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w02",
+      "company": "Nextdoor",
+      "title": "Machine Learning Engineer - Ads",
+      "url": "https://job-boards.greenhouse.io/nextdoor/jobs/6005888",
+      "fit": {
+        "p": 0.7,
+        "reason": "an ML engineering title with no seniority word, close to the persona's target — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w03",
+      "company": "Databricks",
+      "title": "AI Engineer – Forward Deployed Engineering (AI FDE)",
+      "url": "https://job-boards.greenhouse.io/databricks/jobs/8546367002",
+      "fit": {
+        "p": 0.6,
+        "reason": "AI engineering, but customer-facing (forward deployed), one step from the target — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w04",
+      "company": "Moloco",
+      "title": "Expression of Interest: Machine Learning Engineer",
+      "url": "https://job-boards.greenhouse.io/moloco/jobs/7655058003",
+      "fit": {
+        "p": 0.6,
+        "reason": "the right title, but an expression-of-interest pool rather than a specific opening — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w05",
+      "company": "PathAI",
+      "title": "Machine Learning Engineer II (Applied Research & Model Development)",
+      "url": "https://job-boards.greenhouse.io/pathai/jobs/8696752002",
+      "fit": {
+        "p": 0.4,
+        "reason": "a level-II (experienced) title, a stretch for a new grad — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w06",
+      "company": "Scale AI",
+      "title": "Software Engineer - New Grad",
+      "url": "https://job-boards.greenhouse.io/scaleai/jobs/4730836005",
+      "fit": {
+        "p": 0.6,
+        "reason": "new-grad software role, not ML-specific — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.9,
+        "reason": "a new-grad role, usually hiring for a start after graduation; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w07",
+      "company": "Anthropic",
+      "title": "Applied AI, Research Engineer",
+      "url": "https://job-boards.greenhouse.io/anthropic/jobs/5390811008",
+      "fit": {
+        "p": 0.5,
+        "reason": "research-leaning engineering; the persona is a master's student, not a researcher — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    },
+    {
+      "role_id": "w08",
+      "company": "OpenAI",
+      "title": "Machine Learning Engineer, Core Experimentation",
+      "url": "https://jobs.ashbyhq.com/openai/9d4d2727-27f3-4a63-857c-a96466130645",
+      "fit": {
+        "p": 0.6,
+        "reason": "an ML engineering title with no seniority word — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet — proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      }
+    }
+  ]
+}

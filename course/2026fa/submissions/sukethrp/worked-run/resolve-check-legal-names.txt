@@ -1,0 +1,13 @@
+RESOLVE check for the three no-company-match holds in worked run 1 (run by Claude Code, 2026-09-30).
+Search: company_name containing the brand word (case-insensitive); only non-personal columns shown.
+
+'anthropic'    -> 1 row(s)
+    row 1789: ANTHROPIC - A SERIES OF AURUM VP FUND LLC (PLEASANTON, CA) approvals -
+'openai'       -> 0 row(s)
+'open ai'      -> 1 row(s)
+    row 19048: OPEN AI A SERIES OF VUVP FUND LLC (AUSTIN, TX) approvals -
+'scale ai'     -> 1 row(s)
+    row 16867: MINDSCALE AI INC (SAN FRANCISCO, CA) approvals -
+'scaleai'      -> 1 row(s)
+    row 11586: GREYSCALEAI INC (Fremont, CA) approvals -
+'scale labs'   -> 0 row(s)

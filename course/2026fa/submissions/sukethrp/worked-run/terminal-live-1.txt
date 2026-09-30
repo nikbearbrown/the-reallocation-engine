@@ -1,0 +1,5 @@
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --roles course/2026fa/submissions/sukethrp/worked-run/queue-live-1.json --out-dir course/2026fa/submissions/sukethrp/runs/worked-run-1-live --live
+# run by Claude Code on the student's machine, started 2026-09-30T01:26:43Z
+✓ 8 roles → held 6 · scored 2 (Apply 1 · Consider 1 · Skip 0) · actions NETWORK-FIRST 1, RESOLVE 6, TAILOR 1
+  course/2026fa/submissions/sukethrp/runs/worked-run-1-live/sponsor-match-report.md  +  course/2026fa/submissions/sukethrp/runs/worked-run-1-live/sponsor-match-log.json
+# exit=0

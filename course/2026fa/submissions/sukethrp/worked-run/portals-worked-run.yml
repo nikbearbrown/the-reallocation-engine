@@ -1,0 +1,69 @@
+# Discovery config for the worked run (sukethrp · ml-newgrad-sponsor-match).
+# Used with the engine's own scanner, not by the prototype:
+#   REALLOCATION_ENGINE_PORTALS=course/2026fa/submissions/sukethrp/worked-run/portals-worked-run.yml npm run ats:scan -- --dry-run
+# Companies were picked across the recipe's tiers from the rules audit (Proven, Likely, Unknown, and
+# not-in-file). Board slugs are guesses; the scan reports any board that does not exist.
+# Filters are plain case-insensitive substrings (scripts/ats/scan.mjs), so they are deliberately loose.
+
+title_filter:
+  positive:
+    - "machine learning"
+    - "ml engineer"
+    - "ai engineer"
+    - "applied ai"
+    - "applied scientist"
+    - "deep learning"
+    - "computer vision"
+    - "nlp"
+    - "llm"
+    - "ai/ml"
+    - "ml/ai"
+    - "mlops"
+    - "new grad"
+    - "university grad"
+    - "early career"
+  negative:
+    - "senior"
+    - "sr."
+    - "sr "
+    - "staff"
+    - "principal"
+    - "lead"
+    - "manager"
+    - "director"
+    - "head of"
+    - "intern"
+    - "architect"
+
+location_filter:
+  always_allow: ["united states", "usa", "remote - us", "remote (us)", "us remote", "u.s."]
+  block: ["canada", "london", "united kingdom", "india", "germany", "ireland", "toronto", "singapore", "japan", "australia", "brazil", "poland", "amsterdam", "paris", "israel", "tel aviv", "mexico", "spain", "netherlands"]
+  allow: [", ca", ", ny", ", wa", ", ma", ", tx", ", il", "san francisco", "new york", "seattle", "boston", "cambridge", "austin", "chicago", "remote"]
+
+tracked_companies:
+  # Proven under rules v0.2.0
+  - { name: Reddit, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/reddit" }
+  - { name: Discord, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/discord" }
+  - { name: Nextdoor, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/nextdoor" }
+  - { name: AppLovin, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/applovin" }
+  - { name: Socure, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/socure" }
+  - { name: Kensho, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/kensho" }
+  - { name: Lendbuzz, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/lendbuzz" }
+  - { name: Cohere Health, provider: lever, careers_url: "https://jobs.lever.co/coherehealth" }
+  - { name: Vanta, provider: ashby, careers_url: "https://jobs.ashbyhq.com/vanta" }
+  - { name: Gorgias, provider: lever, careers_url: "https://jobs.lever.co/gorgias" }
+  - { name: Modular, provider: ashby, careers_url: "https://jobs.ashbyhq.com/modular" }
+  # Likely under rules v0.2.0
+  - { name: Databricks, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/databricks" }
+  - { name: Airbnb, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/airbnb" }
+  - { name: Twilio, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/twilio" }
+  - { name: Instacart, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/instacart" }
+  - { name: Whoop, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/whoop" }
+  - { name: PathAI, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/pathai" }
+  - { name: Moloco, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/moloco" }
+  # Unknown (in the file, no H-1B record)
+  - { name: Weights & Biases, provider: lever, careers_url: "https://jobs.lever.co/wandb" }
+  # Not in the file
+  - { name: Anthropic, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/anthropic" }
+  - { name: Scale AI, provider: greenhouse, careers_url: "https://job-boards.greenhouse.io/scaleai" }
+  - { name: OpenAI, provider: ashby, careers_url: "https://jobs.ashbyhq.com/openai" }
