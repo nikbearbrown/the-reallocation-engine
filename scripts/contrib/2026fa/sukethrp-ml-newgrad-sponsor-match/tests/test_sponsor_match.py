@@ -262,9 +262,13 @@ class RunLevelGates(unittest.TestCase):
 
     def test_does_not_overwrite_committed_evidence_without_permission(self):
         guarded = REPO / "course/2026fa/submissions/sukethrp/.test-overwrite-guard"
+        shutil.rmtree(guarded, ignore_errors=True)  # a leftover from an interrupted run
         try:
-            guarded.mkdir(parents=True)
-            (guarded / "earlier-run.txt").write_text("an earlier run\n")
+            try:
+                guarded.mkdir(parents=True)
+                (guarded / "earlier-run.txt").write_text("an earlier run\n")
+            except PermissionError as exc:  # e.g. a sandbox that cannot write into the checkout
+                self.skipTest(f"cannot create a folder inside the submission folder here: {exc.strerror}")
             self.assert_stopped(run_fixture(guarded), "input", "already holds a run")
         finally:
             shutil.rmtree(guarded, ignore_errors=True)
