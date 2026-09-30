@@ -1,0 +1,5 @@
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --scorer-profile scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz
+STOP at the scorer-contract gate: the scorer ran as if the persona does not need sponsorship (profile_needs_sponsorship = False), so the sponsorship vote was weighted 0
+VOID 11 roles → held 6 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions 
+  output/break-authz/sponsor-match-report.md  +  output/break-authz/sponsor-match-log.json
+# exit=1

@@ -21,8 +21,9 @@ on `main`.
 
 **Who ran what.** Every command below was run by Claude Code (AI assistant) on the student's machine,
 from a `git worktree` of commit `fe07d1b` on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
-That commit is the last one that changes code. Later commits add documentation only (check with
-`git diff fe07d1b HEAD -- scripts/ search/`). The student re-runs the commands in
+That commit was the last code change until `c242aa5`, a test-only robustness fix; the essential checks
+were re-run on a clean checkout of `c242aa5` (see *Re-check at c242aa5* below). Other later commits
+change documentation only. The student re-runs the commands in
 [Student re-run](#student-re-run) and records the result there.
 
 ---
@@ -163,6 +164,7 @@ The captured evidence files redact that address so that they do not trip the sca
 | identical H-1B records on differently named companies were trusted | trying to break the evidence | new hold `shared-h1b-record` | `b4a72ab` |
 | a live check would follow a 302 to a company site the recipe never names | worked-run discovery | a first hop with redirects off; new hold `redirects-off-allowed-host` | `c11999f` |
 | the report called PathAI's shared record "no usable H-1B record" | reading worked run 1 | a shared record is shown in full, as Unknown, with no number | `fe07d1b` |
+| the overwrite-guard test raised `FileExistsError` when an earlier (sandboxed) run left its temporary folder behind, and `PermissionError` in a sandbox that cannot write into the checkout | re-checking Codex's verification (one intermittent error, then 5 passes; old failure reproduced) | it now clears a leftover first and skips with the reason where it cannot write | `c242aa5` |
 | `pii-scan --diff` flagged a class decorator (the at-sign line for `unittest.skipUnless`) as an email: in diff mode, the patch's leading `+` became the address's local part | the clean-checkout scan | the decorator replaced by an equivalent `setUp` skip in every commit of the unpushed branch (`git filter-branch`; the change brief commit `abdb8bf` kept its hash) | history rewrite before the first push |
 
 ## CI status (outside this contribution's control)
@@ -214,3 +216,21 @@ This follow-up used Python 3.13.3 (the earlier clean checkout used 3.12/3.9). Ex
 - Existing committed branch-history scan against `upstream/main`: exit 0. This scan excludes the current uncommitted additions, which the working-tree scan covers.
 - First whitespace check found one extra blank line at the end of SOURCES.md; corrected. Final whitespace check passes.
 - No code, rules, shared data, recipe status, commits or remote branches were changed. Current changes are local documentation, review metadata, the active queue and recorded evidence.
+
+## Re-check at c242aa5 (after the test-only fix)
+
+Run by Claude Code on the student's machine, 2026-09-30 02:37 UTC, on a clean `git worktree` of
+`c242aa5` (0 untracked files, no `node_modules` before install). Raw output is in
+`evidence/clean-checkout-c242aa5/`.
+
+| Check | Result |
+|---|---|
+| `npm install`, `npm run doctor`, `npm run verify` | exit 0, exit 0, exit 0 |
+| offline tests (Python 3.12 / 3.9.6) | 36 OK / 36 OK |
+| sample run | 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1), exit 0 |
+| break: `--scorer-profile fixtures/BROKEN-authorization-profile.json` | STOP at scorer-contract, VOID, exit 1 (as intended) |
+| `git status --short` after the runs | clean |
+| `node scripts/pii-scan.mjs --diff upstream/main` | `pii-scan: clean ✓` |
+
+Codex's own technical recheck (outside this repository) reported the same results. Its first attempt
+failed with the `PermissionError` described above; that failure is what led to the fix.

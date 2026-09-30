@@ -293,6 +293,7 @@ The recipe's `attestation` field stays null either way.*
 - A live check would follow a 302 to an unnamed host. Added the no-redirect first hop.
 - Run 1's report said PathAI had "no usable H-1B record". Fixed in `fe07d1b`.
 - `pii-scan --diff` flagged a decorator line as an email. Replaced it in every commit of the unpushed branch.
+- The overwrite-guard test broke on a leftover temporary folder and in a sandbox that cannot write. Hardened in `c242aa5`.
 ```
 
 ## Worked run 3: requirements reviewed, unsupported inputs withdrawn

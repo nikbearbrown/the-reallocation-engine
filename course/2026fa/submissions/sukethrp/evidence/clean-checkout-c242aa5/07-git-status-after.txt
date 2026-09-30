@@ -1,0 +1,3 @@
+$ git status --short && echo '(nothing above = clean)'
+(nothing above = clean)
+# exit=0

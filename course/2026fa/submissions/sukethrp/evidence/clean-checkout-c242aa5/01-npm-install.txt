@@ -1,0 +1,11 @@
+# Note: an email address below (npm's deprecation text) is redacted so this evidence file does not trip the PII scanner.
+$ npm install --no-audit --no-fund
+npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting [npm maintainer address in package-lock.json, redacted]
+
+added 55 packages in 1s
+npm warn allow-scripts 2 packages have install scripts not yet covered by allowScripts:
+npm warn allow-scripts   fsevents@2.3.2 (install: (install scripts present))
+npm warn allow-scripts   sharp@0.33.5 (install: node install/check)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+# exit=0
