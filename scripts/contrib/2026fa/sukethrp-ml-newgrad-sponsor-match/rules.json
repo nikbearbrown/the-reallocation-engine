@@ -1,6 +1,9 @@
 {
   "schema": "sukethrp-ml-newgrad-sponsor-match/rules@1",
-  "rules_version": "0.1.0",
+  "rules_version": "0.2.0",
+  "changes": [
+    "0.2.0 (2026-09-29, drafted by Claude Code from the v0.1.0 audit; the student has not yet reviewed it): added role_family.exclude_patterns, the senior marker 'founding', and level_markers (II, L2). Evidence: course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.1.0/ vs rules-audit-v0.2.0/."
+  ],
   "declared_by": "the student (your-input). Every rule below is a declared choice, not a fact: edit it to change what counts as ML/AI and as senior, and every value it produces changes label with it.",
   "role_family": {
     "name": "ML/AI engineering",
@@ -17,7 +20,18 @@
       "\\bllms?\\b",
       "\\bgenerative\\b",
       "\\bgen ?ai\\b"
-    ]
+    ],
+    "exclude_patterns": [
+      "\\badvocate\\b",
+      "\\bsuccess\\b",
+      "\\bproduct manager\\b",
+      "\\bbusiness\\b",
+      "\\binformation systems\\b",
+      "\\bsales\\b",
+      "\\bmarketing\\b",
+      "\\brecruit"
+    ],
+    "exclude_reason": "The v0.1.0 audit counted non-engineering titles as ML/AI: AI DEVELOPER ADVOCATE, AI Success Manager, Enterprise Business Operations Manager - AI, Information Systems Manager, Machine Learning, and Principal Product Manager - Machine Learning. The first five patterns remove exactly those. sales / marketing / recruit do not occur in the file yet and are declared in advance."
   },
   "senior_markers": [
     "\\bsenior\\b",
@@ -35,8 +49,15 @@
     "\\biii\\b",
     "\\biv\\b",
     "\\bdistinguished\\b",
-    "\\bfellow\\b"
+    "\\bfellow\\b",
+    "\\bfounding\\b"
   ],
+  "senior_reason": "'founding' was added in v0.2.0: the v0.1.0 audit counted 'Founding ML Engineer' as entry-level evidence, but a founding engineer is an early, experienced hire.",
+  "level_markers": [
+    "\\bii\\b",
+    "\\bl2\\b"
+  ],
+  "level_reason": "Added in v0.2.0. A level II / L2 title is usually a second-level (experienced) role, so it no longer counts as entry-level evidence (6 titles at 7 companies in the v0.1.0 audit). This is a judgment call with a cost asymmetry: counting it risks a wasted application, while not counting it only costs a networking question. The student should confirm it.",
   "tiers": {
     "proven_min_approvals": 10,
     "proven_min_approvals_reason": "10 is the median approval count among the 1,557 companies with an H-1B record (data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-join-validation-audit.md). Below it, one or two approvals are too thin to call Proven.",

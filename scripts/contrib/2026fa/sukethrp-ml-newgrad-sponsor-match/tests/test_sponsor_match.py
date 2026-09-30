@@ -55,25 +55,36 @@ class TitleRules(unittest.TestCase):
 
     rules = SM.load_rules(SM.DEFAULT_RULES)
 
-    def check(self, title, family, senior):
+    def check(self, title, family, unmarked):
         got = SM.classify_title(title, self.rules)
-        self.assertEqual((got["role_family"], got["senior_marked"]), (family, senior), title)
+        self.assertEqual((got["role_family"], got["unmarked"]), (family, unmarked), title)
 
-    def test_ml_titles_without_a_marker(self):
-        self.check("Machine Learning Engineer", True, False)
-        self.check("Software Engineer, Machine Learning", True, False)
-        self.check("NLP Engineer", True, False)
+    def test_ml_titles_with_no_marker_count_as_role_level_evidence(self):
+        self.check("Machine Learning Engineer", True, True)
+        self.check("Software Engineer, Machine Learning", True, True)
+        self.check("NLP Engineer", True, True)
 
     def test_seniority_markers(self):
-        self.check("Senior Machine Learning Engineer", True, True)
-        self.check("Sr. Software Engineer, Machine Learning", True, True)
-        self.check("Machine Learning Engineer III", True, True)
-        self.check("Staff AI/ML Data Engineer", True, True)
+        self.check("Senior Machine Learning Engineer", True, False)
+        self.check("Sr. Software Engineer, Machine Learning", True, False)
+        self.check("Machine Learning Engineer III", True, False)
+        self.check("Staff AI/ML Data Engineer", True, False)
+        self.check("Founding ML Engineer", True, False)             # v0.2.0, from the v0.1.0 audit
+
+    def test_level_markers_are_not_entry_level_evidence(self):     # v0.2.0, from the v0.1.0 audit
+        self.check("Machine Learning Engineer II", True, False)
+        self.check("Machine Learning Engineer (L2)", True, False)
 
     def test_not_ml(self):
         self.check("Software Engineer", False, False)
         self.check("HTML Developer", False, False)            # 'ml' inside a word is not ML
         self.check("Email Marketing Specialist", False, False)  # 'ai' inside a word is not AI
+
+    def test_non_engineering_titles_are_excluded(self):        # v0.2.0, from the v0.1.0 audit
+        self.check("AI DEVELOPER ADVOCATE", False, False)
+        self.check("AI Success Manager", False, False)
+        self.check("Principal Product Manager - Machine Learning", False, False)
+        self.check("Enterprise Business Operations Manager - AI", False, False)
 
 
 class EndToEnd(unittest.TestCase):

@@ -1,0 +1,740 @@
+{
+  "workflow": "sukethrp-ml-newgrad-sponsor-match",
+  "audit": "rules",
+  "rules_version": "0.2.0",
+  "rules_sha256": "96507d9f5a90fb5d1acb77df23c591b5c78f61bc9383c0d2b7a7be3fb1fe133a",
+  "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+  "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+  "rows": 30369,
+  "held": {
+    "no-h1b-record": 28812,
+    "no-approvals-on-record": 5
+  },
+  "tiers": {
+    "Likely (no-role-family-title)": 1460,
+    "Likely (marked-only)": 47,
+    "Likely (thin-record)": 18,
+    "Proven (role-level match)": 27
+  },
+  "ml_titles": {
+    "AI DEVELOPER ADVOCATE": {
+      "csv_rows": [
+        17105
+      ],
+      "group": "excluded",
+      "matched_by": [
+        "\\bai\\b",
+        "\\badvocate\\b"
+      ],
+      "companies": 1
+    },
+    "AI Design Engineer": {
+      "csv_rows": [
+        27985
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bai\\b"
+      ],
+      "companies": 1
+    },
+    "AI Engineering Lead": {
+      "csv_rows": [
+        11346
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bai\\b",
+        "\\blead\\b"
+      ],
+      "companies": 1
+    },
+    "AI PERFORMANCE ENGINEER": {
+      "csv_rows": [
+        17105
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bai\\b"
+      ],
+      "companies": 1
+    },
+    "AI Research Engineer": {
+      "csv_rows": [
+        16535
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bai\\b"
+      ],
+      "companies": 1
+    },
+    "AI Success Manager": {
+      "csv_rows": [
+        7273
+      ],
+      "group": "excluded",
+      "matched_by": [
+        "\\bai\\b",
+        "\\bsuccess\\b",
+        "\\bmanager\\b"
+      ],
+      "companies": 1
+    },
+    "AI TOOLS ENGINEER": {
+      "csv_rows": [
+        17105
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bai\\b"
+      ],
+      "companies": 1
+    },
+    "AI/DS Engineer": {
+      "csv_rows": [
+        971
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bai\\b"
+      ],
+      "companies": 1
+    },
+    "Computer Vision Engineer": {
+      "csv_rows": [
+        4286,
+        12971,
+        18133,
+        24705
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bcomputer vision\\b"
+      ],
+      "companies": 4
+    },
+    "Computer Vision and Machine Learning Research Engineer": {
+      "csv_rows": [
+        794
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bcomputer vision\\b"
+      ],
+      "companies": 1
+    },
+    "Data Scientist, Machine Learning": {
+      "csv_rows": [
+        9324
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 1
+    },
+    "Deep Learning Engineer": {
+      "csv_rows": [
+        9573,
+        10945,
+        12010
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bdeep learning\\b"
+      ],
+      "companies": 3
+    },
+    "Director of AI": {
+      "csv_rows": [
+        24521
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bai\\b",
+        "\\bdirector\\b"
+      ],
+      "companies": 1
+    },
+    "Engineer, Data and Machine Learning": {
+      "csv_rows": [
+        28687
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 1
+    },
+    "Engineering Manager, Machine Learning Systems": {
+      "csv_rows": [
+        9093
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bmanager\\b"
+      ],
+      "companies": 1
+    },
+    "Enterprise Business Operations Manager - AI": {
+      "csv_rows": [
+        29058
+      ],
+      "group": "excluded",
+      "matched_by": [
+        "\\bai\\b",
+        "\\bbusiness\\b",
+        "\\bmanager\\b"
+      ],
+      "companies": 1
+    },
+    "Founding ML Engineer": {
+      "csv_rows": [
+        22050
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bml\\b",
+        "\\bfounding\\b"
+      ],
+      "companies": 1
+    },
+    "Information Systems Manager, Machine Learning": {
+      "csv_rows": [
+        17370,
+        19707
+      ],
+      "group": "excluded",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\binformation systems\\b",
+        "\\bmanager\\b"
+      ],
+      "companies": 2
+    },
+    "Lead Machine Learning Engineer": {
+      "csv_rows": [
+        11049
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\blead\\b"
+      ],
+      "companies": 1
+    },
+    "Lead Software Engineer - Machine Learning": {
+      "csv_rows": [
+        10465
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\blead\\b"
+      ],
+      "companies": 1
+    },
+    "ML Platform Engineer": {
+      "csv_rows": [
+        27612
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bml\\b"
+      ],
+      "companies": 1
+    },
+    "Machine Learning Engineer": {
+      "csv_rows": [
+        889,
+        981,
+        1694,
+        1955,
+        3876,
+        4985,
+        5181,
+        6083,
+        6673,
+        11334,
+        14287,
+        14406,
+        15077,
+        18131,
+        20894,
+        21677,
+        22842,
+        24948,
+        27914,
+        28337,
+        30307
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 21
+    },
+    "Machine Learning Engineer (L2)": {
+      "csv_rows": [
+        27765
+      ],
+      "group": "level-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bl2\\b"
+      ],
+      "companies": 1
+    },
+    "Machine Learning Engineer / AI Scientist": {
+      "csv_rows": [
+        10900
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bai\\b"
+      ],
+      "companies": 1
+    },
+    "Machine Learning Engineer II": {
+      "csv_rows": [
+        17152,
+        19394,
+        19754,
+        19760
+      ],
+      "group": "level-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bii\\b"
+      ],
+      "companies": 4
+    },
+    "Machine Learning Engineer III": {
+      "csv_rows": [
+        621,
+        19754,
+        19760
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\biii\\b"
+      ],
+      "companies": 3
+    },
+    "Machine Learning Operations Engineer II": {
+      "csv_rows": [
+        29517
+      ],
+      "group": "level-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bii\\b"
+      ],
+      "companies": 1
+    },
+    "Machine Learning Systems Engineer": {
+      "csv_rows": [
+        20740
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 1
+    },
+    "NLP Engineer": {
+      "csv_rows": [
+        20894
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bnlp\\b"
+      ],
+      "companies": 1
+    },
+    "NLP Scientist": {
+      "csv_rows": [
+        6004
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bnlp\\b"
+      ],
+      "companies": 1
+    },
+    "Principal Machine Learning Engineer - Personalization": {
+      "csv_rows": [
+        22736
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bprincipal\\b"
+      ],
+      "companies": 1
+    },
+    "Principal Product Manager - Machine Learning": {
+      "csv_rows": [
+        19394
+      ],
+      "group": "excluded",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bproduct manager\\b",
+        "\\bprincipal\\b",
+        "\\bmanager\\b"
+      ],
+      "companies": 1
+    },
+    "Principal Product Manager \u2013 Machine Learning": {
+      "csv_rows": [
+        19394
+      ],
+      "group": "excluded",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bproduct manager\\b",
+        "\\bprincipal\\b",
+        "\\bmanager\\b"
+      ],
+      "companies": 1
+    },
+    "Robotics and Machine Learning Engineer": {
+      "csv_rows": [
+        20504
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 1
+    },
+    "SENIOR COMPUTER VISION RESEARCH ENGINEER": {
+      "csv_rows": [
+        10644
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bcomputer vision\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "SENIOR MACHINE LEARNING ENGINEER": {
+      "csv_rows": [
+        18541
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Computer Vision Scientist": {
+      "csv_rows": [
+        2652
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bcomputer vision\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Machine Learning DevOps Engineer": {
+      "csv_rows": [
+        6083
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Machine Learning Engineer": {
+      "csv_rows": [
+        1090,
+        3876,
+        4882,
+        12061,
+        12717,
+        13020,
+        16094,
+        18692,
+        19754,
+        19760,
+        20045,
+        21470,
+        26722,
+        27398,
+        27951,
+        30170
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 16
+    },
+    "Senior Machine Learning Engineer I": {
+      "csv_rows": [
+        2571
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Machine Learning Scientist": {
+      "csv_rows": [
+        13343
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Machine Learning Software Engineer": {
+      "csv_rows": [
+        26079
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior NLP Data Scientist": {
+      "csv_rows": [
+        24367
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bnlp\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior NLP Engineer": {
+      "csv_rows": [
+        7431
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bnlp\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior NLP Research Scientist": {
+      "csv_rows": [
+        18518
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bnlp\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Security Machine Learning Researcher": {
+      "csv_rows": [
+        25431
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Software Engineer (AI Platform)": {
+      "csv_rows": [
+        29835
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bai\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Software Engineer - AI/Algo": {
+      "csv_rows": [
+        7277
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bai\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Software Engineer - Machine Learning": {
+      "csv_rows": [
+        4759
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Software Engineer I, Machine Learning": {
+      "csv_rows": [
+        9093
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Senior Software Engineer \u2013 Machine Learning Data Infrastruct": {
+      "csv_rows": [
+        7080
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsenior\\b"
+      ],
+      "companies": 1
+    },
+    "Software Engineer - Data & Machine Learning": {
+      "csv_rows": [
+        28292
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 1
+    },
+    "Software Engineer - Machine Learning": {
+      "csv_rows": [
+        14492
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 1
+    },
+    "Software Engineer - Perception ML": {
+      "csv_rows": [
+        7080
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bml\\b"
+      ],
+      "companies": 1
+    },
+    "Software Engineer, Machine Learning": {
+      "csv_rows": [
+        7770,
+        21989
+      ],
+      "group": "unmarked",
+      "matched_by": [
+        "\\bmachine learning\\b"
+      ],
+      "companies": 2
+    },
+    "Sr. Machine Learning Engineer": {
+      "csv_rows": [
+        6056
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsr\\b"
+      ],
+      "companies": 1
+    },
+    "Sr. Software Engineer, Machine Learning": {
+      "csv_rows": [
+        15355
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bsr\\b"
+      ],
+      "companies": 1
+    },
+    "Staff AI/ML Data Engineer": {
+      "csv_rows": [
+        7590
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bml\\b",
+        "\\bai\\b",
+        "\\bstaff\\b"
+      ],
+      "companies": 1
+    },
+    "Staff Backend Engineer, ML Operations": {
+      "csv_rows": [
+        21562
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bml\\b",
+        "\\bstaff\\b"
+      ],
+      "companies": 1
+    },
+    "Staff Data Scientist, Machine Learning Analytics": {
+      "csv_rows": [
+        10020
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bstaff\\b"
+      ],
+      "companies": 1
+    },
+    "Staff Machine Learning Engineer": {
+      "csv_rows": [
+        20045,
+        27807
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bstaff\\b"
+      ],
+      "companies": 2
+    },
+    "Staff Software Engineer - Machine Learning": {
+      "csv_rows": [
+        26795
+      ],
+      "group": "senior-marked",
+      "matched_by": [
+        "\\bmachine learning\\b",
+        "\\bstaff\\b"
+      ],
+      "companies": 1
+    }
+  }
+}

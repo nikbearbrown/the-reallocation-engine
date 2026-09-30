@@ -222,7 +222,9 @@ def run_scorer(roles_path: Path, out_dir: Path, profile: Path | None) -> subproc
 def load_rules(path: Path) -> dict:
     rules = json.loads(path.read_text(encoding="utf-8"))
     rules["_family"] = [re.compile(p, re.I) for p in rules["role_family"]["include_patterns"]]
+    rules["_exclude"] = [re.compile(p, re.I) for p in rules["role_family"].get("exclude_patterns", [])]
     rules["_senior"] = [re.compile(p, re.I) for p in rules["senior_markers"]]
+    rules["_level"] = [re.compile(p, re.I) for p in rules.get("level_markers", [])]
     rules["_sha256"] = sha256_file(path)
     return rules
 
@@ -318,10 +320,17 @@ def load_sponsorship(csv_path: Path, normalize) -> tuple[dict, dict, int]:
 # ── the role-level check (the new signal) ───────────────────────────────────
 
 def classify_title(title: str, rules: dict) -> dict:
+    """ML/AI family = an include pattern matches and no exclude pattern does.
+    'unmarked' = in the family with no seniority and no level marker: the closest
+    the record gets to 'entry level'. No marker is still not proof of a junior hire."""
     family = [p.pattern for p in rules["_family"] if p.search(title)]
+    excluded = [p.pattern for p in rules["_exclude"] if p.search(title)] if family else []
     senior = [p.pattern for p in rules["_senior"] if p.search(title)]
-    return {"title": title, "role_family": bool(family), "senior_marked": bool(senior),
-            "family_patterns": family, "senior_patterns": senior}
+    level = [p.pattern for p in rules["_level"] if p.search(title)]
+    in_family = bool(family) and not excluded
+    return {"title": title, "role_family": in_family, "senior_marked": bool(senior), "level_marked": bool(level),
+            "unmarked": in_family and not senior and not level,
+            "family_patterns": family, "excluded_by": excluded, "senior_patterns": senior, "level_patterns": level}
 
 
 def sponsorship_evidence(row: dict, rules: dict):
@@ -340,18 +349,19 @@ def sponsorship_evidence(row: dict, rules: dict):
     titles = [str(t).strip() for t in titles]
     classified = [classify_title(t, rules) for t in titles]
     family = [c["title"] for c in classified if c["role_family"]]
-    below_senior = [c["title"] for c in classified if c["role_family"] and not c["senior_marked"]]
+    unmarked = [c["title"] for c in classified if c["unmarked"]]
     floor = rules["tiers"]["proven_min_approvals"]
-    if below_senior and approvals >= floor:
-        tier, why = "Proven", (f"{len(below_senior)} sponsored ML/AI title(s) without a seniority marker, "
+    if unmarked and approvals >= floor:
+        tier, why = "Proven", (f"{len(unmarked)} sponsored ML/AI title(s) with no seniority or level marker, "
                                f"and {approvals} approvals (at least {floor})")
         gap = None
-    elif below_senior:
-        tier, why = "Likely", (f"ML/AI title(s) without a seniority marker, but only {approvals} "
+    elif unmarked:
+        tier, why = "Likely", (f"ML/AI title(s) with no seniority or level marker, but only {approvals} "
                                f"approvals in total (fewer than {floor})")
         gap = "thin-record"
     elif family:
-        tier, why, gap = "Likely", "every sponsored ML/AI title carries a seniority marker", "senior-only"
+        tier, why, gap = ("Likely", "every sponsored ML/AI title carries a seniority or level marker",
+                          "marked-only")
     else:
         tier, why, gap = "Likely", "no ML/AI title among the listed sponsored titles", "no-role-family-title"
     return {
@@ -365,9 +375,9 @@ def sponsorship_evidence(row: dict, rules: dict):
                                 note="a short 'top titles' list, not every title the company sponsored"),
         "title_checks": lab(classified, YOU, derived_from="sponsored_titles + the declared title rules"),
         "ml_titles": lab(family, YOU, derived_from="title_checks"),
-        "ml_titles_below_senior": lab(below_senior, YOU, derived_from="title_checks"),
+        "ml_titles_unmarked": lab(unmarked, YOU, derived_from="title_checks"),
         "tier": lab(tier, YOU, rule=why, gap=gap,
-                    derived_from="approvals + ml_titles_below_senior + tiers.proven_min_approvals"),
+                    derived_from="approvals + ml_titles_unmarked + tiers.proven_min_approvals"),
         "p": lab(rules["tiers"]["p"][tier], YOU, mapping=f"tiers.p.{tier}", reason=rules["tiers"]["p_reason"]),
     }, None
 
@@ -557,12 +567,13 @@ def contract_problems(sent: list[dict], scored: dict) -> list[str]:
 
 # Which titles each question quotes: the ones that make the evidence soft.
 QUESTIONS = {
-    "senior-only": ("ml_titles", "Your company's public H-1B record lists these ML/AI titles: {titles}. All of "
-                    "them are senior. Has the team sponsored a new-grad ML/AI engineer, or only senior hires?"),
+    "marked-only": ("ml_titles", "Your company's public H-1B record lists these ML/AI titles: {titles}. All of "
+                    "them carry a seniority or level marker. Has the team sponsored a new-grad ML/AI engineer, "
+                    "or only experienced hires?"),
     "no-role-family-title": ("sponsored_titles", "Your company's public H-1B record lists these sponsored "
                              "titles: {titles}. None of them is an ML/AI role. Does the company sponsor ML/AI "
                              "engineers, and at the new-grad level?"),
-    "thin-record": ("ml_titles_below_senior", "Your company's public H-1B record lists {titles}, from "
+    "thin-record": ("ml_titles_unmarked", "Your company's public H-1B record lists {titles}, from "
                     "{approvals} approval(s) in total. Is sponsoring a new-grad ML/AI hire something the "
                     "company still does?"),
 }
@@ -592,8 +603,8 @@ def next_action(r: dict) -> dict:
         return {"action": "SKIP", "why": r["scorer"]["reason"],
                 "check": "No research or application time. Reallocate it."}
     if rec == "Apply":
-        return {"action": "TAILOR", "why": "the record shows this company sponsoring ML/AI titles below "
-                                           "senior level, and every gate is open",
+        return {"action": "TAILOR", "why": "the record shows this company sponsoring an ML/AI title with no "
+                                           "seniority or level marker, and every gate is open",
                 "check": "Spend research-and-apply time here, and confirm sponsorship with the recruiter early."}
     if tier["value"] == "Likely":
         field, template = QUESTIONS[tier["gap"]]
@@ -639,15 +650,16 @@ def render_report(log: dict) -> str:
         o += ["**This run is VOID.** The engine's scorer did not keep its side of the contract, so no",
               "decision below can be trusted. What went wrong: " + "; ".join(log["stop"]["problems"]) + ".", ""]
     o += [f"This report checks {s['evaluated']} job postings from one job-search queue against the public "
-          "H-1B sponsorship record. For each company, the question is whether the record includes ML/AI "
-          "job titles below senior level, not merely whether the company has ever sponsored anyone. "
-          "Read it before spending application or networking time on any of these roles.", ""]
+          "H-1B sponsorship record. For each company, the question is whether the record includes an ML/AI "
+          "job title with no seniority or level marker (the closest the record gets to 'entry level'), not "
+          "merely whether the company has ever sponsored anyone. Read it before spending application or "
+          "networking time on any of these roles.", ""]
     if sample:
         o += ["*Sample mode: the postings and page snapshots in this queue are illustrative fixtures. The "
               "sponsorship evidence is read from the real sponsorship file.*", ""]
     if not void:
         o += [f"**What it found.** {s['role_level_evidence']} of {s['evaluated']} postings come from a company "
-              "whose record shows ML/AI titles below senior level. "
+              "whose record includes an ML/AI title with no seniority or level marker. "
               f"Suggested use of time: tailor an application for {acts.get('TAILOR', 0)}, "
               f"network first at {acts.get('NETWORK-FIRST', 0)}, consider {acts.get('CONSIDER', 0)}, "
               f"skip {acts.get('SKIP', 0)}, and resolve {acts.get('RESOLVE', 0)} before spending any effort, "
@@ -764,10 +776,12 @@ def audit_rules(args) -> int:
         key = f"{evidence['tier']['value']} ({evidence['tier']['gap'] or 'role-level match'})"
         tiers[key] = tiers.get(key, 0) + 1
         for c in evidence["title_checks"]["value"]:
-            if c["role_family"]:
-                entry = titles.setdefault(c["title"], {"csv_rows": [], "senior_marked": c["senior_marked"],
-                                                       "family_patterns": c["family_patterns"],
-                                                       "senior_patterns": c["senior_patterns"]})
+            if c["family_patterns"]:  # every title an include pattern touched, excluded ones too
+                group = ("excluded" if c["excluded_by"] else "senior-marked" if c["senior_marked"]
+                         else "level-marked" if c["level_marked"] else "unmarked")
+                entry = titles.setdefault(c["title"], {"csv_rows": [], "group": group,
+                                                       "matched_by": c["family_patterns"] + c["excluded_by"]
+                                                       + c["senior_patterns"] + c["level_patterns"]})
                 if row_no not in entry["csv_rows"]:
                     entry["csv_rows"].append(row_no)
     for entry in titles.values():
@@ -776,30 +790,31 @@ def audit_rules(args) -> int:
               "rules_sha256": rules["_sha256"], "csv": show(csv_path), "csv_sha256": actual, "rows": row_count,
               "held": holds, "tiers": tiers, "ml_titles": dict(sorted(titles.items()))}
     (out_dir / "rules-audit.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
-    below = {t: v for t, v in titles.items() if not v["senior_marked"]}
+    unmarked = {t: v for t, v in titles.items() if v["group"] == "unmarked"}
     o = [f"# Title-rules audit — rules v{rules['rules_version']}", "", "## Executive summary", "",
          "This audit shows what the declared title rules do to every company in the sponsorship file: how "
          "many companies land in each tier, and every sponsored title the rules counted as ML/AI. It is "
          "for a person to read before trusting the rules. It says what the rules found; it does not say "
          "the rules are right.", "",
          f"Of {row_count} companies, {sum(holds.values())} have no usable H-1B record, and "
-         f"{sum(tiers.values())} were tiered. {len(below)} distinct ML/AI titles carry no seniority marker "
-         "and so count as role-level evidence. Read that list first: any title in it that is not an ML/AI "
-         "engineering job, or not an entry-level one, is a rule to fix.", "",
+         f"{sum(tiers.values())} were tiered. {len(unmarked)} distinct ML/AI titles carry no seniority or "
+         "level marker, so they count as role-level evidence. Read that list first: any title in it that "
+         "is not an ML/AI engineering job, or not an entry-level one, is a rule to fix.", "",
          "## Tiers", "", "| Tier | Companies |", "|---|---|"]
     o += [f"| {k} | {v} |" for k, v in sorted(tiers.items())]
     o += [f"| held: {k} | {v} |" for k, v in sorted(holds.items())]
-    for heading, want in (("ML/AI titles without a seniority marker (these create Proven)", False),
-                          ("ML/AI titles with a seniority marker", True)):
-        group = {t: v for t, v in titles.items() if v["senior_marked"] == want}
+    for heading, want in (("ML/AI titles with no seniority or level marker (these create Proven)", "unmarked"),
+                          ("ML/AI titles with a level marker", "level-marked"),
+                          ("ML/AI titles with a seniority marker", "senior-marked"),
+                          ("Titles an ML/AI pattern touched but an exclusion removed", "excluded")):
+        group = {t: v for t, v in titles.items() if v["group"] == want}
         o += ["", f"## {heading} — {len(group)}", "", "| Title | Companies | Matched by |", "|---|---|---|"]
-        o += [f"| {md(t)} | {v['companies']} | {md(', '.join(v['family_patterns'] + v['senior_patterns']))} |"
-              for t, v in sorted(group.items())]
+        o += [f"| {md(t)} | {v['companies']} | {md(', '.join(v['matched_by']))} |" for t, v in sorted(group.items())]
     o += ["", "## Run record", "", f"- Rules: `{show(Path(args.rules))}` v{rules['rules_version']} "
           f"(sha256 `{rules['_sha256'][:12]}…`)", f"- Sponsorship file: `{show(csv_path)}` · sha256 `{actual}`", ""]
     (out_dir / "rules-audit.md").write_text("\n".join(o), encoding="utf-8")
     print(f"✓ rules audit: {row_count} rows · tiered {sum(tiers.values())} · held {sum(holds.values())} · "
-          f"{len(below)} ML/AI titles without a seniority marker")
+          f"{len(unmarked)} ML/AI titles with no seniority or level marker")
     print(f"  {show(out_dir / 'rules-audit.md')}  +  {show(out_dir / 'rules-audit.json')}")
     return 0
 
