@@ -90,6 +90,11 @@ HOLD_CHECKS = {
                      "H-1B / LCA records or ask the recruiter before spending effort.",
     "no-approvals-on-record": "The H-1B record shows zero approvals. Read the record yourself before "
                               "deciding; the recipe will not call it either way.",
+    "shared-h1b-record": "This company's H-1B record appears, value for value, on another company in the "
+                         "file under a different name. The join behind the file can copy one employer's "
+                         "history onto a lookalike, so this record may not be this company's. Check public "
+                         "H-1B / LCA records for this employer. If the record really is theirs, add "
+                         "`shared_record_checked` with your reason to the queue.",
     "unparseable-sponsored-titles": "The file's sponsored-title list for this company could not be "
                                     "read, so the role-level check cannot run. Read the row yourself.",
     "no-timeline-factor": "No timeline factor was given. This recipe does not compute one. State your "
@@ -266,6 +271,8 @@ def load_queue(path: Path) -> dict:
             problems.append(f"{where}.csv_row must be a positive row number")
         if "override" in role and role["override"].get("decision") not in ("Apply", "Consider", "Skip"):
             problems.append(f"{where}.override.decision must be Apply, Consider or Skip")
+        if "shared_record_checked" in role and not str(role["shared_record_checked"]).strip():
+            problems.append(f"{where}.shared_record_checked must say what you checked")
     if problems:
         raise Stop("input", "the role queue failed the input gate:\n  - " + "\n  - ".join(problems))
     return queue
@@ -302,8 +309,14 @@ def source_gate(csv_path: Path, expected: str) -> str:
     return actual
 
 
+def h1b_signature(row: dict) -> tuple:
+    return tuple(row[c] for c in H1B_COLUMNS)
+
+
 def load_sponsorship(csv_path: Path, normalize) -> tuple[dict, dict, int]:
-    index, by_row = {}, {}
+    """index: normalized name → rows; by_row: row → kept columns plus '_key' (normalized
+    name) and '_shared_with' (other rows carrying the identical H-1B record)."""
+    index, by_row, by_record = {}, {}, {}
     with open(csv_path, newline="", encoding="utf-8") as fh:
         reader = csv.DictReader(fh)
         missing = [c for c in KEEP_COLUMNS if c not in (reader.fieldnames or [])]
@@ -312,9 +325,25 @@ def load_sponsorship(csv_path: Path, normalize) -> tuple[dict, dict, int]:
         n = 0
         for n, row in enumerate(reader, start=1):
             kept = {c: (row.get(c) or "").strip() for c in KEEP_COLUMNS}
+            kept["_key"] = normalize(kept["company_name"])
             by_row[n] = kept
-            index.setdefault(normalize(kept["company_name"]), []).append(n)
+            index.setdefault(kept["_key"], []).append(n)
+            if kept["Total Approvals"]:
+                by_record.setdefault(h1b_signature(kept), []).append(n)
+    for rows in by_record.values():
+        for r in rows:
+            by_row[r]["_shared_with"] = [x for x in rows if x != r]
     return index, by_row, n
+
+
+def lookalikes(row_no: int, by_row: dict) -> list[dict]:
+    """Other companies, under a different name, that carry this row's H-1B record value for value.
+    The file's join can copy one employer's history onto a lookalike (for example two
+    similarly named biotechs), so a shared record may not belong to this company."""
+    row = by_row[row_no]
+    return [{"csv_row": n, "company_name": by_row[n]["company_name"], "city": by_row[n]["city"],
+             "state": by_row[n]["state"]}
+            for n in row.get("_shared_with", []) if by_row[n]["_key"] != row["_key"]]
 
 
 # ── the role-level check (the new signal) ───────────────────────────────────
@@ -427,10 +456,19 @@ def evaluate_role(role: dict, index: dict, by_row: dict, normalize, rules: dict)
     if reason:
         r["sponsorship"] = {"tier": lab("Unknown", YOU, rule="no usable H-1B record; Unknown is not Avoid")}
         return hold(r, "sponsorship-record", reason, csv_row=row_no)
-    if match_source == YOU:  # a person chose the row, so everything read through it is only as good as that choice
+    others = lookalikes(row_no, by_row)
+    vouched = None
+    if others:
+        if not role.get("shared_record_checked"):
+            r["sponsorship"] = {"tier": lab("Unknown", YOU, rule="the H-1B record is shared with a differently "
+                                                                  "named company, so it may not be this one's")}
+            return hold(r, "sponsorship-record", "shared-h1b-record", csv_row=row_no, shared_with=others)
+        vouched = f"record also on {len(others)} other company(ies); the person checked: {role['shared_record_checked']}"
+    if match_source == YOU or vouched:  # a person vouched: everything read through it is only as good as that call
+        why = "read through a row the person chose" if match_source == YOU else vouched
         for k in ("approvals", "denials", "approval_rate_pct", "median_salary_offered_company", "sponsored_titles"):
             evidence[k]["source"] = YOU
-            evidence[k]["note"] = (evidence[k].get("note", "") + " · read through a row the person chose").strip(" ·")
+            evidence[k]["note"] = (evidence[k].get("note", "") + " · " + why).strip(" ·")
     r["sponsorship"] = evidence
     r["gates"].append({"gate": "sponsorship-record", "result": "pass", "tier": evidence["tier"]["value"]})
 
@@ -590,6 +628,9 @@ def next_action(r: dict) -> dict:
         if gate.get("candidates"):
             check += " Candidates: " + "; ".join(f"row {c['csv_row']} {c['company_name']} ({c['city']}, {c['state']})"
                                                  for c in gate["candidates"]) + "."
+        if gate.get("shared_with"):
+            check += " Same record on: " + "; ".join(f"row {c['csv_row']} {c['company_name']} ({c['city']}, "
+                                                     f"{c['state']})" for c in gate["shared_with"]) + "."
         return {"action": "RESOLVE", "why": f"held at the {gate['gate']} gate ({r['hold_reason']})", "check": check}
     rec = r["scorer"]["recommendation"]
     tier = r["sponsorship"]["tier"]
@@ -786,9 +827,12 @@ def audit_rules(args) -> int:
                     entry["csv_rows"].append(row_no)
     for entry in titles.values():
         entry["companies"] = len(entry["csv_rows"])
+    shared = {n: lookalikes(n, by_row) for n in by_row if by_row[n]["Total Approvals"] and lookalikes(n, by_row)}
     result = {"workflow": WORKFLOW, "audit": "rules", "rules_version": rules["rules_version"],
               "rules_sha256": rules["_sha256"], "csv": show(csv_path), "csv_sha256": actual, "rows": row_count,
-              "held": holds, "tiers": tiers, "ml_titles": dict(sorted(titles.items()))}
+              "held": holds, "tiers": tiers, "ml_titles": dict(sorted(titles.items())),
+              "records_shared_with_a_differently_named_company": {
+                  str(n): {"company_name": by_row[n]["company_name"], "also_on": v} for n, v in shared.items()}}
     (out_dir / "rules-audit.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     unmarked = {t: v for t, v in titles.items() if v["group"] == "unmarked"}
     o = [f"# Title-rules audit — rules v{rules['rules_version']}", "", "## Executive summary", "",
@@ -810,6 +854,13 @@ def audit_rules(args) -> int:
         group = {t: v for t, v in titles.items() if v["group"] == want}
         o += ["", f"## {heading} — {len(group)}", "", "| Title | Companies | Matched by |", "|---|---|---|"]
         o += [f"| {md(t)} | {v['companies']} | {md(', '.join(v['matched_by']))} |" for t, v in sorted(group.items())]
+    o += ["", f"## H-1B records shared with a differently named company — {len(shared)} companies", "",
+          "Each of these companies carries an H-1B record that appears value for value on another company "
+          "with a different normalized name. A run holds any role at these companies until a person checks "
+          "whose record it is.", "", "| Row | Company | Same record on |", "|---|---|---|"]
+    o += [f"| {n} | {md(by_row[n]['company_name'])} | "
+          + md("; ".join(f"row {c['csv_row']} {c['company_name']} ({c['city']}, {c['state']})" for c in v)) + " |"
+          for n, v in sorted(shared.items())]
     o += ["", "## Run record", "", f"- Rules: `{show(Path(args.rules))}` v{rules['rules_version']} "
           f"(sha256 `{rules['_sha256'][:12]}…`)", f"- Sponsorship file: `{show(csv_path)}` · sha256 `{actual}`", ""]
     (out_dir / "rules-audit.md").write_text("\n".join(o), encoding="utf-8")

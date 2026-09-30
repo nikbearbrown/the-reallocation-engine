@@ -8,3 +8,5 @@ TWIN NAME INC,Other Technology,example.com,Boston,MA,02101,(617) 555-0100,2019,7
 TWIN NAME LLC,Other Technology,example.com,Boston,MA,02101,(617) 555-0100,2019,7,['Pat Example'],['Sam Placeholder'],5000000.0,5000000.0,Series A,2025-01-15,4.0,0.0,100.0,110000.0,['Software Engineer']
 ZERO APPROVALS INC,Other Technology,example.com,Boston,MA,02101,(617) 555-0100,2019,7,['Pat Example'],['Sam Placeholder'],5000000.0,5000000.0,Series A,2025-01-15,0.0,3.0,0.0,0.0,[]
 BAD TITLES INC,Other Technology,example.com,Boston,MA,02101,(617) 555-0100,2019,7,['Pat Example'],['Sam Placeholder'],5000000.0,5000000.0,Series A,2025-01-15,5.0,0.0,100.0,100000.0,['Machine Learning Engineer'
+LOOKALIKE LABS INC,Other Technology,example.com,Boston,MA,02101,(617) 555-0100,2019,7,['Pat Example'],['Sam Placeholder'],5000000.0,5000000.0,Series A,2025-01-15,30.0,0.0,100.0,150000.0,['Machine Learning Engineer']
+LOOKALYKE LABS INC,Other Technology,example.com,Springfield,MA,02101,(617) 555-0100,2019,7,['Pat Example'],['Sam Placeholder'],5000000.0,5000000.0,Series A,2025-01-15,30.0,0.0,100.0,150000.0,['Machine Learning Engineer']

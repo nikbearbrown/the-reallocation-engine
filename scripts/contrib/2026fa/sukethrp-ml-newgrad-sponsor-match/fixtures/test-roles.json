@@ -311,6 +311,41 @@
       "liveness": {
         "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
       }
+    },
+    {
+      "role_id": "t19",
+      "company": "Lookalike Labs",
+      "title": "ML Engineer (record shared with a lookalike)",
+      "url": "https://jobs.example.com/test/t19",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t20",
+      "company": "Lookalike Labs",
+      "title": "ML Engineer (shared record checked by a person)",
+      "url": "https://jobs.example.com/test/t20",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      },
+      "shared_record_checked": "test fixture: the public LCA search lists this employer with these titles"
     }
   ]
 }

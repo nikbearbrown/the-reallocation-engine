@@ -88,7 +88,7 @@ class TitleRules(unittest.TestCase):
 
 
 class EndToEnd(unittest.TestCase):
-    """One run over the 18-role fixture queue: one role per gate branch."""
+    """One run over the 20-role fixture queue: one role per gate branch."""
 
     @classmethod
     def setUpClass(cls):
@@ -130,6 +130,8 @@ class EndToEnd(unittest.TestCase):
             "t16": ("ready", None, "CONSIDER"),                     # fit not rated
             "t17": ("ready", None, "TAILOR"),                       # human override with a reason
             "t18": ("ready", None, "NETWORK-FIRST"),                # row chosen by a person
+            "t19": ("held", "shared-h1b-record", "RESOLVE"),        # record copied onto a lookalike
+            "t20": ("ready", None, "TAILOR"),                       # a person checked the shared record
         }
         got = {k: (r["status"], r["hold_reason"], r["next_action"]["action"]) for k, r in self.roles.items()}
         self.assertEqual(got, expected)
@@ -173,6 +175,18 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(t18["company_match"]["source"], "your-input")
         self.assertEqual(t18["sponsorship"]["approvals"]["source"], "your-input")
 
+    def test_a_record_shared_with_a_lookalike_is_held_until_a_person_checks_it(self):
+        gate = self.roles["t19"]["gates"][-1]
+        self.assertEqual([c["company_name"] for c in gate["shared_with"]], ["LOOKALYKE LABS INC"])
+        self.assertIn("LOOKALYKE LABS INC", self.roles["t19"]["next_action"]["check"])
+        t20 = self.roles["t20"]["sponsorship"]
+        self.assertEqual(t20["approvals"]["source"], "your-input")   # vouched by a person, not a bare record
+        self.assertIn("the person checked", t20["approvals"]["note"])
+
+    def test_same_name_duplicates_are_not_called_lookalikes(self):
+        # TWIN NAME INC / LLC share a record and a normalized name: that is one employer, not a lookalike.
+        self.assertEqual(self.roles["t18"]["status"], "ready")
+
     def test_ambiguous_match_lists_candidates_and_picks_none(self):
         gate = self.roles["t07"]["gates"][-1]
         self.assertEqual(sorted(c["csv_row"] for c in gate["candidates"]), [6, 7])
@@ -190,9 +204,9 @@ class EndToEnd(unittest.TestCase):
 
     def test_summary_counts_held_roles_separately(self):
         s = self.log["summary"]
-        self.assertEqual((s["evaluated"], s["held"], s["scored"]), (18, 8, 10))
-        self.assertEqual((s["apply"], s["consider"], s["skip"]), (4, 5, 1))
-        self.assertEqual(s["skip_rate_of_scored"], "10%")
+        self.assertEqual((s["evaluated"], s["held"], s["scored"]), (20, 9, 11))
+        self.assertEqual((s["apply"], s["consider"], s["skip"]), (5, 5, 1))
+        self.assertEqual(s["skip_rate_of_scored"], "9%")
 
 
 class RunLevelGates(unittest.TestCase):
