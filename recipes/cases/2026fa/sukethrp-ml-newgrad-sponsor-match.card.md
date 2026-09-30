@@ -92,3 +92,6 @@ A JSON log carries the same evidence for agents. The scorer's own files come out
 6. **Free-text visa status.** The engine's scorer reads "work authorized (EAD)" as "no sponsorship
    needed" and weights sponsorship 0. This recipe never sends that text. If the scorer ever reports it,
    the run is void.
+7. **A posting that lives somewhere else.** Many Greenhouse boards forward a posting to the company's
+   own careers site. The recipe will not follow a forward to a host it does not name. It holds the role
+   and names where the posting went, and you open that posting yourself.

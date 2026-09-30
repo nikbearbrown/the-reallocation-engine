@@ -102,7 +102,7 @@ to the scorer, and never given a guessed value.
 | **G3 Company match** (role) | exactly one CSV row has the posting's normalized company name, or the person gave `csv_row` | tiered next | hold `no-company-match` / `ambiguous-company-match` (candidates listed) / `csv-row-not-found` | the right row number, chosen by the person (labeled your-input) |
 | **G4 Sponsorship record** (role) | the row has H-1B fields, approvals > 0, a parseable title list, and a record not shared value for value with a differently named row | tier Proven or Likely | hold `no-h1b-record` / `no-approvals-on-record` / `unparseable-sponsored-titles` / `shared-h1b-record` (tier Unknown; **never** Avoid) | an external check of public H-1B/LCA records, or a recruiter's answer. For a shared record, `shared_record_checked` + reason |
 | **G5 Timeline** (role) | `timeline.factor` given, with a reason | continue | hold `no-timeline-factor`. The scorer is never allowed to default it to 1.0 | the person's own factor and why |
-| **G6 Liveness** (role) | the posting classified `active` or `expired` by `classifyLiveness` (saved page) or `check-liveness.mjs` (live), dated within 7 days of the run date. Live mode fetches only hosts in `rules.json` | `active` → factor 1.0; `expired` → factor 0.0 (the scorer closes the gate → Skip) | hold `liveness-uncertain` / `liveness-unchecked` / `stale-liveness` / `host-not-allowed` / `liveness-check-failed` / `liveness-date-after-run-date` | open the posting, or re-run with `--live` |
+| **G6 Liveness** (role) | the posting classified `active` or `expired` by `classifyLiveness` (saved page) or `check-liveness.mjs` (live), dated within 7 days of the run date. Live mode fetches only hosts in `rules.json`. It first makes one request with redirects off, because many Greenhouse boards forward postings to the company's own site and the engine's checker would follow them | `active` → factor 1.0; `expired` → factor 0.0 (the scorer closes the gate → Skip) | hold `liveness-uncertain` / `liveness-unchecked` / `stale-liveness` / `host-not-allowed` / `redirects-off-allowed-host` / `liveness-check-failed` / `liveness-date-after-run-date` | open the posting yourself, or re-run with `--live` |
 | **G7 Scorer contract** (run) | the scorer exits 0; `role-scores.json` parses; it has exactly the roles sent; `profile_needs_sponsorship` is `true`; every term keeps the label it was sent with | continue | **run void**, exit 1: log `status: void`, report headed VOID, no next actions | fix the input or the scorer, then re-run |
 | **G8 Human decision** (run) | the report's decision table has a decision, reason, name and date for every role | the person acts | the recipe stops here by design | the person's own judgment |
 
@@ -226,7 +226,8 @@ and refuses to overwrite an earlier run in `course/` without `--overwrite`.
 | Found: missing gates score as open (1.0) | yes | G5 and G6 hold instead, and `roles.json` always carries both gates |
 | Found: `applyProfile` treats "authorized" as "no sponsorship needed" | yes | no profile is sent; G7 voids a run whose scorer says otherwise (the break test reproduces it) |
 | Found: identical H-1B records on differently named companies | yes | G4 holds `shared-h1b-record` and names the other companies |
-| Found: `npm run ats:scan -- --dry-run` fails without `data/ats/portals.yml` | no | not used. Liveness is checked per posting instead |
+| Found: `npm run ats:scan -- --dry-run` fails without `data/ats/portals.yml` | for discovery only | the worked run points the scanner at its own config with `REALLOCATION_ENGINE_PORTALS`. The prototype does not call the scanner |
+| Found: Greenhouse boards often 302-redirect a posting to the company's own careers site | yes | a no-redirect first hop holds `redirects-off-allowed-host` and names the target, instead of silently contacting an unnamed host |
 
 ## Proposed additions
 
@@ -238,6 +239,7 @@ and refuses to overwrite an earlier run in `course/` without `--overwrite`.
 | Fail-closed gate builder | the scorer treats a missing gate as open | `evaluate_role`, `liveness_stage`; tests `test_gates_reach_the_scorer_explicitly`, `test_held_roles_never_reach_the_scorer` |
 | Scorer-contract check | a sponsorship-needing persona can be silently scored as not needing it | `contract_problems`; test `test_authorization_text_that_zeroes_sponsorship_voids_the_run` |
 | Shared-record hold | a lookalike's sponsorship history can arrive through the join | `lookalikes`; tests `test_a_record_shared_with_a_lookalike_is_held_until_a_person_checks_it`, `test_same_name_duplicates_are_not_called_lookalikes` |
+| Redirect pre-check for live liveness | the engine's checker follows redirects to hosts a recipe never named | `first_hop`, `liveness_stage`; tests in `RedirectPreCheck` (network replaced by stubs) |
 
 Conformance: `node scripts/conformance.mjs scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/` passes.
 Handoff: the sample run meets the handoff condition above.

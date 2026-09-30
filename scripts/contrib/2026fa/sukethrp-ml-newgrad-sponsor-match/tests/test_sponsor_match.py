@@ -297,6 +297,45 @@ class BreakAttempts(unittest.TestCase):
         self.assertTrue(all(r["hold_reason"] == "host-not-allowed" for r in reached))
 
 
+class RedirectPreCheck(unittest.TestCase):
+    """Live mode with both network calls replaced by in-process stubs (still offline)."""
+
+    rules = SM.load_rules(SM.DEFAULT_RULES)
+
+    def live(self, hop):
+        role = {"role_id": "x", "company": "C", "title": "T", "url": "https://job-boards.greenhouse.io/example/jobs/1"}
+        r = {"role_id": "x", "gates": [], "status": "pending", "hold_reason": None, "flags": []}
+        fetched = []
+
+        def fake_check(urls):
+            fetched.extend(urls)
+            done = subprocess.CompletedProcess(args=[], returncode=0, stdout="", stderr="")
+            return done, {u: {"result": "active", "reason": ""} for u in urls}
+
+        saved = SM.first_hop, SM.check_live
+        SM.first_hop, SM.check_live = (lambda url: hop), fake_check
+        try:
+            ran = SM.liveness_stage([(role, r)], self.rules, SM.dt.date(2026, 9, 30), True)
+        finally:
+            SM.first_hop, SM.check_live = saved
+        return r, fetched, ran
+
+    def test_a_board_that_forwards_to_an_unnamed_host_is_held_and_never_fetched(self):
+        r, fetched, ran = self.live((302, "https://careers.example.com/jobs/1"))
+        self.assertEqual(r["hold_reason"], "redirects-off-allowed-host")
+        self.assertEqual(fetched, [])
+        self.assertEqual(ran["first_hops"][0]["status"], 302)
+
+    def test_a_posting_that_stays_on_the_board_is_checked(self):
+        r, fetched, _ = self.live((200, None))
+        self.assertEqual((r["status"], r["liveness"]["value"], r["liveness"]["source"]), ("ready", "active", "record"))
+        self.assertEqual(fetched, ["https://job-boards.greenhouse.io/example/jobs/1"])
+
+    def test_a_redirect_between_named_hosts_is_followed(self):
+        r, fetched, _ = self.live((301, "https://boards.greenhouse.io/example/jobs/1"))
+        self.assertEqual(r["status"], "ready")
+
+
 class RealDataContract(unittest.TestCase):
     """The shipped sponsorship file is the one the audits describe."""
 

@@ -48,7 +48,7 @@ fails the test instead of reaching the network.
 | Command | What it does |
 |---|---|
 | `… sponsor_match.py --roles <queue.json> --out-dir <dir>` | your own queue (format below). Paths in the queue are relative to the repo root |
-| `… sponsor_match.py --roles <queue.json> --out-dir <dir> --live` | checks each posting live with `scripts/ats/check-liveness.mjs` (Playwright; run `npx playwright install chromium` once). Only hosts listed in `rules.json` are fetched |
+| `… sponsor_match.py --roles <queue.json> --out-dir <dir> --live` | checks each posting live with `scripts/ats/check-liveness.mjs` (Playwright; run `npx playwright install chromium` once). Only hosts listed in `rules.json` are fetched. Each posting first gets one request with redirects off. A board that forwards the posting to another site is held (`redirects-off-allowed-host`), not followed |
 | `… sponsor_match.py --audit-rules --out-dir <dir>` | audits the title rules over every company in the file: tier counts and every title counted as ML/AI. Read this before trusting the rules |
 
 Writes inside the repo go only to `output/` (scratch), `course/2026fa/submissions/sukethrp/` or this

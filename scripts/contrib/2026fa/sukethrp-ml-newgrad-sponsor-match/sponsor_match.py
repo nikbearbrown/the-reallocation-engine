@@ -48,8 +48,10 @@ import os
 import re
 import subprocess
 import sys
+import urllib.error
+import urllib.request
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urljoin, urlparse
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[3]  # scripts/contrib/2026fa/<this folder>/ → repo root
@@ -107,6 +109,9 @@ HOLD_CHECKS = {
     "liveness-date-after-run-date": "The posting check is dated after this run's date. Fix the date.",
     "host-not-allowed": "Live mode only fetches job-board hosts this recipe names. Open this posting "
                         "yourself, or add the host to the rules and the recipe first.",
+    "redirects-off-allowed-host": "The job board forwards this posting to the company's own careers site, a "
+                                  "host this recipe does not name, so the recipe did not follow it. Open the "
+                                  "posting yourself and record what you saw in the queue.",
     "liveness-check-failed": "The live check did not return a result for this posting. See the "
                              "liveness output in the log.",
 }
@@ -197,10 +202,34 @@ def classify_snapshots(snapshots: list[dict]) -> list[dict]:
     return json.loads(proc.stdout)
 
 
+def network_guard() -> None:
+    if os.environ.get("SPONSOR_MATCH_FORBID_NETWORK"):
+        raise Stop("liveness", "a network call was attempted while SPONSOR_MATCH_FORBID_NETWORK is set", code=1)
+
+
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None  # report the redirect instead of following it
+
+
+def first_hop(url: str) -> tuple[int | None, str | None]:
+    """One request to the posting's own (allowed) host, redirects NOT followed.
+    Returns (HTTP status, Location header or error). Network."""
+    network_guard()
+    opener = urllib.request.build_opener(_NoRedirect)
+    request = urllib.request.Request(url, headers={"User-Agent": f"{WORKFLOW}/{RECIPE_VERSION} (redirect pre-check)"})
+    try:
+        with opener.open(request, timeout=30) as response:
+            return response.status, None
+    except urllib.error.HTTPError as exc:
+        return exc.code, exc.headers.get("Location")
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        return None, str(getattr(exc, "reason", exc))
+
+
 def check_live(urls: list[str]) -> tuple[subprocess.CompletedProcess, dict]:
     """scripts/ats/check-liveness.mjs (Playwright) on real postings. Network."""
-    if os.environ.get("SPONSOR_MATCH_FORBID_NETWORK"):
-        raise Stop("liveness", "a live check was attempted while SPONSOR_MATCH_FORBID_NETWORK is set", code=1)
+    network_guard()
     proc = node([str(LIVENESS_CLI), *urls])
     found, lines = {}, proc.stdout.splitlines()
     for i, line in enumerate(lines):
@@ -514,13 +543,22 @@ def liveness_stage(pending: list[tuple[dict, dict]], rules: dict, as_of: dt.date
 
     if live:
         allowed = set(rules["liveness"]["live_hosts"])
-        to_check = []
+        to_check, hops = [], []
         for role, r in pending:
             parsed = urlparse(role["url"])
             if parsed.scheme != "https" or parsed.hostname not in allowed:
                 hold(r, "liveness", "host-not-allowed", host=parsed.hostname)
+                continue
+            # The engine's checker follows redirects, so look at the first hop ourselves: a board
+            # that forwards to the company's own site would otherwise reach a host the recipe never names.
+            status, location = first_hop(role["url"])
+            target = urlparse(urljoin(role["url"], location)).hostname if location and status and 300 <= status < 400 else None
+            hops.append({"url": role["url"], "status": status, "location": location})
+            if target and target not in allowed:
+                hold(r, "liveness", "redirects-off-allowed-host", status=status, redirect_to=location, host=target)
             else:
                 to_check.append((role, r))
+        ran["first_hops"] = hops
         if to_check:
             urls = [role["url"] for role, _ in to_check]
             ran["live_urls"] = urls
