@@ -1,0 +1,180 @@
+# TEST-REPORT — ml-newgrad-sponsor-match
+
+## Executive summary
+
+This report records how the prototype was tested from a clean copy of the branch: the tool checks
+before and after, the offline tests, the sample run, every named failure case, deliberate attempts to
+break it, the privacy scans, and the exact list of files the branch changes.
+
+Everything behaved as designed:
+- 36 offline tests pass on Python 3.12 and 3.9.
+- The sample run completes. Each attempt to break it stops with a clear message, and none produces a
+  guessed value.
+- The branch touches only this contribution's own folders, plus one new fictional persona.
+- The privacy scan of the branch's history is clean.
+
+Two things are not clean, and neither comes from this contribution. The working-tree privacy scan fails
+on a false positive that ships with the engine. The course's contribution CI check is already failing
+on `main`.
+
+**Who ran what.** Every command below was run by Claude Code (AI assistant) on the student's machine,
+from a `git worktree` of commit `fe07d1b` on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
+That commit is the last one that changes code. Later commits add documentation only (check with
+`git diff fe07d1b HEAD -- scripts/ search/`). The student re-runs the commands in
+[Student re-run](#student-re-run) and records the result there.
+
+---
+
+## Environment
+
+macOS (Darwin 27), Node v22.11.0, npm 11.16.0, Python 3.12.7 (tests also under the system Python 3.9.6),
+PyYAML 6.0.1 (used only by the engine's own conformance script), Playwright Chromium
+(`npx playwright install chromium`, needed only for `--live`).
+
+Clean checkout: `git worktree add --detach <tmp> fe07d1b`, with 0 untracked files and no `node_modules`
+before `npm install` (`evidence/clean-checkout/00-checkout.txt`).
+
+## Toolchain baseline, before and after
+
+| Check | Before the prototype ran | After every run below |
+|---|---|---|
+| `npm run doctor` | exit 0 · "environment: ✓ runnable" · 33/33 recipes carry frontmatter | exit 0, identical |
+| `npm run verify` | exit 0 · all files conform · manifest check passed (3 warnings that ship with the engine) | exit 0, identical |
+| `git status --short` | clean | clean. Every output went to the gitignored `output/` (`evidence/clean-checkout/15-git-status-after.txt`) |
+
+## Offline tests
+
+```
+$ python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v
+...
+Ran 36 tests in 1.475s
+
+OK
+```
+
+Also `OK` under Python 3.9.6 (`04b-tests-python39.txt`). No test touches the network: every CLI run sets
+`SPONSOR_MATCH_FORBID_NETWORK=1`, and the three live-mode tests replace both network calls with
+in-process stubs. The tests fall into these groups:
+
+| Group | Tests | What they check |
+|---|---|---|
+| `TitleRules` | 5 | ML/AI vs. not ML/AI, seniority markers, level markers (II, L2), exclusions (advocate, success/product/business managers) |
+| `EndToEnd` | 15 | one run over 20 fictional roles, one per gate branch. Checks: expected status, hold reason and next action for all 20; held roles never reach the scorer; every scorer term labeled; gates always explicit; evidence-backed liveness labeled `record`; unrated fit dropped and flagged; overrides named as the person's; a chosen row relabels what is read through it; lookalike records held (and shown); personal columns never in any output; executive summary first; held roles counted separately |
+| `RunLevelGates` | 7 | wrong source hash; another file without a hash; missing queue fields; persona without `needs_sponsorship`; a profile outside `search/examples/`; writing into engine folders; overwriting committed evidence |
+| `BreakAttempts` | 2 | the scorer's "work authorized" parsing voids the run; live mode fetches only named hosts |
+| `RedirectPreCheck` | 3 | a board that forwards to an unnamed host is held and never fetched; same-board and named-host redirects proceed |
+| `RealDataContract` | 3 | the shipped file matches the pinned SHA-256; 30,369 rows and 1,557 with H-1B fields, as the join audit reports; the company-name rule is the engine's own |
+| `RecipeFrontmatter` | 1 | status ≤ RUNNABLE-SAMPLE, `attestation: null`, `todos_open` equals the `[TODO` count in the recipe body |
+
+## The sample run (real repo data, illustrative queue)
+
+```
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
+✓ 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) · actions CONSIDER 1, NETWORK-FIRST 2, RESOLVE 6, SKIP 1, TAILOR 1
+  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-report.md  +  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-log.json
+```
+
+The full report is in `evidence/clean-checkout/06-sample-run-report.md`. It matches the expectation
+written in the recipe before this run.
+
+## Each named failure case, exercised
+
+| Failure case (from the change brief) | Exercised by | Observed | Expected |
+|---|---|---|---|
+| company missing from the file | sample role `r05` (Instacart); live roles `w06`–`w08` (Scale AI, Anthropic, OpenAI); test `t06` | held `no-company-match`, no tier, not scored | same |
+| in the file, no H-1B record | sample `r04` (Hugging Face → HUGGING FACE INC), `r06` (Meta → META CO); test `t05` | held `no-h1b-record`, tier Unknown, matched row and city shown | same (Unknown, never Avoid) |
+| two rows sharing a normalized name | sample `r08` (Peloton → INC and LLC); test `t07` | held `ambiguous-company-match`, both candidate rows listed, none picked | same |
+| posting 404s | sample `r07` (saved 404 page); test `t08` | `classifyLiveness` says expired, so the scorer gets liveness 0.0 and returns Skip "gated" | same |
+| "work authorized" free text | `--scorer-profile fixtures/BROKEN-authorization-profile.json` (below) | the scorer weights sponsorship 0 and the run is void (exit 1) | same |
+| *not predicted:* a record shared with a lookalike | live `w05` (PathAI / PATHRAI INC); test `t19` | held `shared-h1b-record`, the other company named | added after it was found |
+| *not predicted:* a board that redirects off Greenhouse | live `w02` Nextdoor, `w03` Databricks (302 to their own sites); `RedirectPreCheck` | held `redirects-off-allowed-host`, target named, not fetched | added after it was found |
+
+## Deliberate break attempts (CLI, clean checkout)
+
+```
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --scorer-profile scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz
+STOP at the scorer-contract gate: the scorer ran as if the persona does not need sponsorship (profile_needs_sponsorship = False), so the sponsorship vote was weighted 0
+VOID 11 roles → held 6 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions
+# exit=1
+```
+
+```
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --csv data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv --csv-sha256 0000000000000000000000000000000000000000000000000000000000000000 --out-dir output/break-hash
+STOP at the source gate: data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv has SHA-256 eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270, not the pinned 0000000000000000000000000000000000000000000000000000000000000000. The audits no longer describe this file. Read its audit, then pin the new hash on purpose (--csv-sha256) if you accept it.
+# exit=2
+```
+
+```
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --persona private/README.md --out-dir output/break-persona
+STOP at the input gate: persona private/README.md is not a fictional persona under search/examples/. This prototype never reads real profiles.
+# exit=2
+```
+
+```
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --out-dir data/examples/should-not-exist
+STOP at the input gate: --out-dir data/examples/should-not-exist/ is outside this contribution's folders (output/, course/2026fa/submissions/sukethrp/, scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/)
+# exit=2
+```
+
+## Scope: `git diff --stat` against upstream `main`
+
+33 files, all additions, all under this contribution's namespaces plus one sanctioned persona:
+- `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/`
+- `recipes/cases/2026fa/`
+- `course/2026fa/submissions/sukethrp/`
+- `search/examples/arjun-rao/profile.yml`, a new fictional persona. `DATA_CONTRACT.md` allows adding one
+  under `search/examples/`, and the CI scope gate allowlists that path.
+
+No maintained engine file is changed. `logs/RUN_LOG.md` is not touched. Full list:
+`evidence/clean-checkout/16b-diff-names.txt`; stat: `16-diff-stat.txt`. The documentation commits made
+after `fe07d1b` add files only under `course/2026fa/submissions/sukethrp/` and
+`logs/runs/2026fa-sukethrp-1.md`.
+
+## Privacy scans
+
+| Scan | Result | Why |
+|---|---|---|
+| `node scripts/pii-scan.mjs --diff upstream/main` (the whole branch history, what CI runs on a PR) | `pii-scan: clean ✓` (exit 0) | |
+| `node scripts/pii-scan.mjs` (working tree) | exit 1, one finding: `[email] package-lock.json` | npm's deprecation text for `glob` contains a maintainer's contact address. It ships with the engine, `main` fails the same way, and this branch does not touch `package-lock.json` (defect D5 in `PROPOSED-ADDITIONS.md`) |
+
+The captured evidence files redact that address so that they do not trip the scanner themselves.
+
+## What the gates leave for a person
+
+- **Rules:** read the rules audit (`evidence/rules-audit-v0.2.0/rules-audit.md`) and confirm what counts
+  as ML/AI, senior, and level-marked. Rules v0.2.0, and especially the II/L2 rule, were drafted by Claude
+  and await the student's decision.
+- **Held roles:** each one names a single check. Examples: open a posting that redirects, choose a row
+  when names collide, check public H-1B/LCA records when the record is missing or shared.
+- **The decision table (G8):** a decision, a reason, a name and a date for every role before any effort
+  is spent. The prototype never makes these decisions.
+
+## Broke during testing, fixed
+
+| What failed | Found by | What changed | Commit |
+|---|---|---|---|
+| the first run crashed: `hold() got multiple values for argument 'reason'` | first sample run | the liveness detail field renamed to `why` | `9864112` (before first commit) |
+| the network-first question quoted every sponsored title and called them all senior | reading the sample report | it now quotes only the titles that make the evidence soft | `9864112` (before first commit) |
+| held roles did not show which row was matched, hiding "Meta → META CO, Portola Valley" | reading the sample report | the matched row, city and state are shown on every held role | `9864112` (before first commit) |
+| the committed v0.1.0 rules audit counted title listings, not companies | reading the audit JSON | regenerated with the committed code (one count: 22 → 21) | `3652123` |
+| rules v0.1.0 counted non-engineering titles as ML/AI, and "Founding" and II/L2 as entry level | the v0.1.0 rules audit over all 30,369 companies | rules v0.2.0: exclusions, `founding`, level markers. Proven 33 → 27; 11 companies change tier | `d421abe` |
+| identical H-1B records on differently named companies were trusted | trying to break the evidence | new hold `shared-h1b-record` | `b4a72ab` |
+| a live check would follow a 302 to a company site the recipe never names | worked-run discovery | a first hop with redirects off; new hold `redirects-off-allowed-host` | `c11999f` |
+| the report called PathAI's shared record "no usable H-1B record" | reading worked run 1 | a shared record is shown in full, as Unknown, with no number | `fe07d1b` |
+| `pii-scan --diff` flagged a class decorator (the at-sign line for `unittest.skipUnless`) as an email: in diff mode, the patch's leading `+` became the address's local part | the clean-checkout scan | the decorator replaced by an equivalent `setUp` skip in every commit of the unpushed branch (`git filter-branch`; the change brief commit `abdb8bf` kept its hash) | history rewrite before the first push |
+
+## CI status (outside this contribution's control)
+
+The course's **Contrib Gate** workflow has failed on every push to upstream `main` since at least
+2026-09-17. Two things cause it:
+- its `harness-regression` job calls four scripts that do not exist;
+- its `doctor-and-pii` job stops on the `package-lock.json` false positive.
+
+A PR from this branch inherits both failures. The **verify** workflow (conformance + manifest check) runs
+the same commands as `npm run verify`, which passes above. Defects D4 and D5 in `PROPOSED-ADDITIONS.md`
+give the details.
+
+## Student re-run
+
+*To be completed by the student.* Record the commit, the date, the commands you re-ran from a clean
+checkout, and what you saw. Name anything that differed from the tables above.

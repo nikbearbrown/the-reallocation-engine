@@ -1,0 +1,4 @@
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
+✓ 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) · actions CONSIDER 1, NETWORK-FIRST 2, RESOLVE 6, SKIP 1, TAILOR 1
+  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-report.md  +  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-log.json
+# exit=0

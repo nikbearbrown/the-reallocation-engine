@@ -1,0 +1,36 @@
+$ git diff --stat upstream/main...HEAD
+ course/2026fa/submissions/sukethrp/CHANGE-BRIEF.md |  139 ++
+ .../submissions/sukethrp/PROPOSED-ADDITIONS.md     |   37 +
+ .../evidence/rules-audit-v0.1.0/rules-audit.json   |  828 +++++++++++
+ .../evidence/rules-audit-v0.1.0/rules-audit.md     |   95 ++
+ .../evidence/rules-audit-v0.2.0/rules-audit.json   | 1519 ++++++++++++++++++++
+ .../evidence/rules-audit-v0.2.0/rules-audit.md     |  181 +++
+ .../rules-v0.1.0-to-v0.2.0-tier-changes.txt        |   17 +
+ .../runs/worked-run-1-live/role-scores.json        |  109 ++
+ .../sukethrp/runs/worked-run-1-live/role-scores.md |   12 +
+ .../sukethrp/runs/worked-run-1-live/roles.json     |   46 +
+ .../runs/worked-run-1-live/sponsor-match-log.json  | 1189 +++++++++++++++
+ .../runs/worked-run-1-live/sponsor-match-report.md |   77 +
+ .../sukethrp/worked-run/portals-worked-run.yml     |   69 +
+ .../sukethrp/worked-run/queue-live-1.json          |  120 ++
+ .../worked-run/resolve-check-legal-names.txt       |   13 +
+ .../sukethrp/worked-run/terminal-live-1.txt        |    5 +
+ .../sukethrp-ml-newgrad-sponsor-match.card.md      |   97 ++
+ .../2026fa/sukethrp-ml-newgrad-sponsor-match.md    |  299 ++++
+ .../sukethrp-ml-newgrad-sponsor-match/README.md    |  116 ++
+ .../fixtures/BROKEN-authorization-profile.json     |    4 +
+ .../fixtures/evidence/test-liveness-output.txt     |    6 +
+ .../fixtures/sample-roles.json                     |  107 ++
+ .../fixtures/snapshots/active-apply.json           |    9 +
+ .../fixtures/snapshots/expired-404.json            |    9 +
+ .../fixtures/snapshots/stale-active.json           |    9 +
+ .../fixtures/snapshots/uncertain-no-apply.json     |    9 +
+ .../fixtures/test-roles.json                       |  351 +++++
+ .../fixtures/test-sponsorship.csv                  |   12 +
+ .../node_bridge.mjs                                |   30 +
+ .../sukethrp-ml-newgrad-sponsor-match/rules.json   |   86 ++
+ .../sponsor_match.py                               | 1061 ++++++++++++++
+ .../tests/test_sponsor_match.py                    |  380 +++++
+ search/examples/arjun-rao/profile.yml              |   30 +
+ 33 files changed, 7071 insertions(+)
+# exit=0

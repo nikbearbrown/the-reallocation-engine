@@ -1,0 +1,1312 @@
+{
+  "workflow": "sukethrp-ml-newgrad-sponsor-match",
+  "recipe": "recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.md",
+  "recipe_version": "0.1.0",
+  "run_id": "2026-09-30-live-38a03066",
+  "status": "complete",
+  "mode": "live",
+  "as_of": "2026-09-30",
+  "generated_at": "2026-09-30T01:33:23+00:00",
+  "labels": {
+    "record": "read from a repo record",
+    "your-input": "declared by the person",
+    "model-judgment": "not used: no model is called in this run"
+  },
+  "inputs": {
+    "roles": {
+      "path": "course/2026fa/submissions/sukethrp/worked-run/queue-live-1.json",
+      "sha256": "38a0306695924a4ea54d157e0b1ca8b6193afc958f84a5c40f7a093e45a1dee0"
+    },
+    "persona": {
+      "path": "search/examples/arjun-rao/profile.yml",
+      "needs_sponsorship": {
+        "value": true,
+        "source": "your-input"
+      },
+      "name": "Arjun Rao",
+      "target_role": "Machine Learning Engineer / AI Engineer (new grad)",
+      "fictional": true
+    },
+    "rules": {
+      "path": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/rules.json",
+      "version": "0.2.0",
+      "sha256": "96507d9f5a90fb5d1acb77df23c591b5c78f61bc9383c0d2b7a7be3fb1fe133a"
+    }
+  },
+  "source": {
+    "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "pinned": true,
+    "rows": 30369,
+    "audit": "data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-audit.md",
+    "columns_read": [
+      "company_name",
+      "industry",
+      "city",
+      "state",
+      "website",
+      "Total Approvals",
+      "Total Denials",
+      "Approval_Rate",
+      "median_salary_offered",
+      "top_job_titles_sponsored"
+    ]
+  },
+  "liveness_run": {
+    "mode": "live",
+    "classified_snapshots": 0,
+    "live_urls": [
+      "https://job-boards.greenhouse.io/applovin/jobs/4712559006",
+      "https://job-boards.greenhouse.io/moloco/jobs/7655058003"
+    ],
+    "first_hops": [
+      {
+        "url": "https://job-boards.greenhouse.io/applovin/jobs/4712559006",
+        "status": 200,
+        "location": null
+      },
+      {
+        "url": "https://job-boards.greenhouse.io/nextdoor/jobs/6005888",
+        "status": 302,
+        "location": "https://about.nextdoor.com/careers-list/?gh_jid=6005888"
+      },
+      {
+        "url": "https://job-boards.greenhouse.io/databricks/jobs/8546367002",
+        "status": 302,
+        "location": "https://databricks.com/company/careers/open-positions/job?gh_jid=8546367002"
+      },
+      {
+        "url": "https://job-boards.greenhouse.io/moloco/jobs/7655058003",
+        "status": 200,
+        "location": null
+      }
+    ],
+    "command": "node scripts/ats/check-liveness.mjs https://job-boards.greenhouse.io/applovin/jobs/4712559006 https://job-boards.greenhouse.io/moloco/jobs/7655058003",
+    "exit_code": 0,
+    "stdout": "Checking 2 URL(s)...\n\n\u2705 active     https://job-boards.greenhouse.io/applovin/jobs/4712559006\n\u2705 active     https://job-boards.greenhouse.io/moloco/jobs/7655058003\n\nResults: 2 active  0 expired  0 uncertain\n",
+    "stderr": ""
+  },
+  "scorer": {
+    "command": "node scripts/score/role-scorer.mjs course/2026fa/submissions/sukethrp/runs/worked-run-2-live/roles.json --out-dir course/2026fa/submissions/sukethrp/runs/worked-run-2-live",
+    "exit_code": 0,
+    "stdout": "\u2713 scored 2 roles \u2192 Apply 1 \u00b7 Consider 1 \u00b7 Skip 0 (skip 0%)\n  course/2026fa/submissions/sukethrp/runs/worked-run-2-live/role-scores.json  +  course/2026fa/submissions/sukethrp/runs/worked-run-2-live/role-scores.md\n",
+    "stderr": ""
+  },
+  "roles": [
+    {
+      "role_id": "w01",
+      "company_on_posting": {
+        "value": "AppLovin",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Software Engineer, Machine Learning",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/applovin/jobs/4712559006",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "pass",
+          "csv_row": 1955
+        },
+        {
+          "gate": "sponsorship-record",
+          "result": "pass",
+          "tier": "Proven"
+        },
+        {
+          "gate": "timeline",
+          "result": "pass",
+          "factor": 0.85
+        },
+        {
+          "gate": "liveness",
+          "result": "pass",
+          "liveness": "active"
+        }
+      ],
+      "status": "ready",
+      "hold_reason": null,
+      "flags": [],
+      "company_match": {
+        "value": "APPLOVIN CORP",
+        "source": "record",
+        "csv_row": 1955,
+        "how": "exact normalized name 'applovin'",
+        "city": "PALO ALTO",
+        "state": "CA",
+        "website": "applovin.com",
+        "industry": "Other Technology"
+      },
+      "sponsorship": {
+        "approvals": {
+          "value": 130,
+          "source": "record",
+          "column": "Total Approvals"
+        },
+        "denials": {
+          "value": 2,
+          "source": "record",
+          "column": "Total Denials"
+        },
+        "approval_rate_pct": {
+          "value": 98.48484848484848,
+          "source": "record",
+          "column": "Approval_Rate"
+        },
+        "median_salary_offered_company": {
+          "value": 150000,
+          "source": "record",
+          "column": "median_salary_offered",
+          "note": "company-wide median across its sponsored filings, not per title"
+        },
+        "sponsored_titles": {
+          "value": [
+            "Software Engineer II",
+            "Machine Learning Engineer",
+            "Technical Support Specialist II",
+            "Product Manager, Lion Studios",
+            "Senior Designer, Motion Graphics"
+          ],
+          "source": "record",
+          "column": "top_job_titles_sponsored",
+          "note": "a short 'top titles' list, not every title the company sponsored"
+        },
+        "title_checks": {
+          "value": [
+            {
+              "title": "Software Engineer II",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": true,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": [
+                "\\bii\\b"
+              ]
+            },
+            {
+              "title": "Machine Learning Engineer",
+              "role_family": true,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": true,
+              "family_patterns": [
+                "\\bmachine learning\\b"
+              ],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Technical Support Specialist II",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": true,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": [
+                "\\bii\\b"
+              ]
+            },
+            {
+              "title": "Product Manager, Lion Studios",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bmanager\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Senior Designer, Motion Graphics",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bsenior\\b"
+              ],
+              "level_patterns": []
+            }
+          ],
+          "source": "your-input",
+          "derived_from": "sponsored_titles + the declared title rules"
+        },
+        "ml_titles": {
+          "value": [
+            "Machine Learning Engineer"
+          ],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "ml_titles_unmarked": {
+          "value": [
+            "Machine Learning Engineer"
+          ],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "tier": {
+          "value": "Proven",
+          "source": "your-input",
+          "rule": "1 sponsored ML/AI title(s) with no seniority or level marker, and 130 approvals (at least 10)",
+          "gap": null,
+          "derived_from": "approvals + ml_titles_unmarked + tiers.proven_min_approvals"
+        },
+        "p": {
+          "value": 0.9,
+          "source": "your-input",
+          "mapping": "tiers.p.Proven",
+          "reason": "0.9 and 0.6 are the Proven and Likely sponsorship values in the Chapter 11 worked example (data/examples/ch11-roles.json). They are adopted here as a declared mapping, not derived from this data."
+        }
+      },
+      "timeline": {
+        "value": 0.85,
+        "source": "your-input",
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "fit": {
+        "value": 0.7,
+        "source": "your-input",
+        "reason": "an ML engineering title with no seniority word, close to the persona's target \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "liveness": {
+        "value": "active",
+        "source": "record",
+        "factor": 1.0,
+        "checked": "2026-09-30",
+        "why": "",
+        "checked_at": "2026-09-30T01:33:23+00:00",
+        "method": "npm run ats:liveness (scripts/ats/check-liveness.mjs)"
+      },
+      "scorer": {
+        "composite": 0.4462,
+        "recommendation": "Apply",
+        "machine_recommendation": "Apply",
+        "reason": "composite 0.446 \u2265 0.3, gates healthy",
+        "override": null,
+        "trace": {
+          "votes": [
+            {
+              "factor": "sponsorship",
+              "value": 0.9,
+              "weight": 0.35,
+              "contribution": 0.315,
+              "source": "your-input"
+            },
+            {
+              "factor": "fit",
+              "value": 0.7,
+              "weight": 0.3,
+              "contribution": 0.21,
+              "source": "your-input"
+            }
+          ],
+          "vote_sum": 0.525,
+          "gates": [
+            {
+              "factor": "liveness",
+              "multiplier": 1,
+              "source": "record"
+            },
+            {
+              "factor": "timeline",
+              "multiplier": 0.85,
+              "source": "your-input"
+            }
+          ],
+          "gate_product": 0.85,
+          "arithmetic": "(0.9\u00b70.35 + 0.7\u00b70.3) \u00d7 1 \u00d7 0.85 = 0.446"
+        },
+        "source": "your-input"
+      },
+      "next_action": {
+        "action": "TAILOR",
+        "why": "the record shows this company sponsoring an ML/AI title with no seniority or level marker, and every gate is open",
+        "check": "Spend research-and-apply time here, and confirm sponsorship with the recruiter early."
+      }
+    },
+    {
+      "role_id": "w02",
+      "company_on_posting": {
+        "value": "Nextdoor",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Machine Learning Engineer - Ads",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/nextdoor/jobs/6005888",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "pass",
+          "csv_row": 18131
+        },
+        {
+          "gate": "sponsorship-record",
+          "result": "pass",
+          "tier": "Proven"
+        },
+        {
+          "gate": "timeline",
+          "result": "pass",
+          "factor": 0.85
+        },
+        {
+          "gate": "liveness",
+          "result": "hold",
+          "reason": "redirects-off-allowed-host",
+          "status": 302,
+          "redirect_to": "https://about.nextdoor.com/careers-list/?gh_jid=6005888",
+          "host": "about.nextdoor.com"
+        }
+      ],
+      "status": "held",
+      "hold_reason": "redirects-off-allowed-host",
+      "flags": [],
+      "company_match": {
+        "value": "NEXTDOOR INC",
+        "source": "record",
+        "csv_row": 18131,
+        "how": "exact normalized name 'nextdoor'",
+        "city": "SAN FRANCISCO",
+        "state": "CA",
+        "website": "nextdoor.com",
+        "industry": "Other Technology"
+      },
+      "sponsorship": {
+        "approvals": {
+          "value": 222,
+          "source": "record",
+          "column": "Total Approvals"
+        },
+        "denials": {
+          "value": 8,
+          "source": "record",
+          "column": "Total Denials"
+        },
+        "approval_rate_pct": {
+          "value": 96.52173913043478,
+          "source": "record",
+          "column": "Approval_Rate"
+        },
+        "median_salary_offered_company": {
+          "value": 157250,
+          "source": "record",
+          "column": "median_salary_offered",
+          "note": "company-wide median across its sponsored filings, not per title"
+        },
+        "sponsored_titles": {
+          "value": [
+            "CUSTOMER ANALYTICS & INSIGHTS MANAGER",
+            "Data Scientist",
+            "Software Engineer",
+            "Software Engineer",
+            "Lead, Software Engineering",
+            "Machine Learning Engineer"
+          ],
+          "source": "record",
+          "column": "top_job_titles_sponsored",
+          "note": "a short 'top titles' list, not every title the company sponsored"
+        },
+        "title_checks": {
+          "value": [
+            {
+              "title": "CUSTOMER ANALYTICS & INSIGHTS MANAGER",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bmanager\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Data Scientist",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Software Engineer",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Software Engineer",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Lead, Software Engineering",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\blead\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Machine Learning Engineer",
+              "role_family": true,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": true,
+              "family_patterns": [
+                "\\bmachine learning\\b"
+              ],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            }
+          ],
+          "source": "your-input",
+          "derived_from": "sponsored_titles + the declared title rules"
+        },
+        "ml_titles": {
+          "value": [
+            "Machine Learning Engineer"
+          ],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "ml_titles_unmarked": {
+          "value": [
+            "Machine Learning Engineer"
+          ],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "tier": {
+          "value": "Proven",
+          "source": "your-input",
+          "rule": "1 sponsored ML/AI title(s) with no seniority or level marker, and 222 approvals (at least 10)",
+          "gap": null,
+          "derived_from": "approvals + ml_titles_unmarked + tiers.proven_min_approvals"
+        },
+        "p": {
+          "value": 0.9,
+          "source": "your-input",
+          "mapping": "tiers.p.Proven",
+          "reason": "0.9 and 0.6 are the Proven and Likely sponsorship values in the Chapter 11 worked example (data/examples/ch11-roles.json). They are adopted here as a declared mapping, not derived from this data."
+        }
+      },
+      "timeline": {
+        "value": 0.85,
+        "source": "your-input",
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "fit": {
+        "value": 0.7,
+        "source": "your-input",
+        "reason": "an ML engineering title with no seniority word, close to the persona's target \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "next_action": {
+        "action": "RESOLVE",
+        "why": "held at the liveness gate (redirects-off-allowed-host)",
+        "check": "Matched row 18131: NEXTDOOR INC (SAN FRANCISCO, CA). First check that this is the employer on the posting. The job board forwards this posting to the company's own careers site, a host this recipe does not name, so the recipe did not follow it. Open the posting yourself and record what you saw in the queue."
+      }
+    },
+    {
+      "role_id": "w03",
+      "company_on_posting": {
+        "value": "Databricks",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "AI Engineer \u2013 Forward Deployed Engineering (AI FDE)",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/databricks/jobs/8546367002",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "pass",
+          "csv_row": 7248
+        },
+        {
+          "gate": "sponsorship-record",
+          "result": "pass",
+          "tier": "Likely"
+        },
+        {
+          "gate": "timeline",
+          "result": "pass",
+          "factor": 0.85
+        },
+        {
+          "gate": "liveness",
+          "result": "hold",
+          "reason": "redirects-off-allowed-host",
+          "status": 302,
+          "redirect_to": "https://databricks.com/company/careers/open-positions/job?gh_jid=8546367002",
+          "host": "databricks.com"
+        }
+      ],
+      "status": "held",
+      "hold_reason": "redirects-off-allowed-host",
+      "flags": [],
+      "company_match": {
+        "value": "DATABRICKS INC",
+        "source": "record",
+        "csv_row": 7248,
+        "how": "exact normalized name 'databricks'",
+        "city": "SAN FRANCISCO",
+        "state": "CA",
+        "website": "databricks.com",
+        "industry": "Other Technology"
+      },
+      "sponsorship": {
+        "approvals": {
+          "value": 1640,
+          "source": "record",
+          "column": "Total Approvals"
+        },
+        "denials": {
+          "value": 8,
+          "source": "record",
+          "column": "Total Denials"
+        },
+        "approval_rate_pct": {
+          "value": 99.51456310679612,
+          "source": "record",
+          "column": "Approval_Rate"
+        },
+        "median_salary_offered_company": {
+          "value": 149422.5,
+          "source": "record",
+          "column": "median_salary_offered",
+          "note": "company-wide median across its sponsored filings, not per title"
+        },
+        "sponsored_titles": {
+          "value": [
+            "Software Engineer",
+            "Senior Software Engineer",
+            "Solutions Architect",
+            "Specialist Solutions Architect",
+            "Senior Solutions Engineer"
+          ],
+          "source": "record",
+          "column": "top_job_titles_sponsored",
+          "note": "a short 'top titles' list, not every title the company sponsored"
+        },
+        "title_checks": {
+          "value": [
+            {
+              "title": "Software Engineer",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Senior Software Engineer",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bsenior\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Solutions Architect",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\barchitect\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Specialist Solutions Architect",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\barchitect\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Senior Solutions Engineer",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bsenior\\b"
+              ],
+              "level_patterns": []
+            }
+          ],
+          "source": "your-input",
+          "derived_from": "sponsored_titles + the declared title rules"
+        },
+        "ml_titles": {
+          "value": [],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "ml_titles_unmarked": {
+          "value": [],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input",
+          "rule": "no ML/AI title among the listed sponsored titles",
+          "gap": "no-role-family-title",
+          "derived_from": "approvals + ml_titles_unmarked + tiers.proven_min_approvals"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input",
+          "mapping": "tiers.p.Likely",
+          "reason": "0.9 and 0.6 are the Proven and Likely sponsorship values in the Chapter 11 worked example (data/examples/ch11-roles.json). They are adopted here as a declared mapping, not derived from this data."
+        }
+      },
+      "timeline": {
+        "value": 0.85,
+        "source": "your-input",
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "fit": {
+        "value": 0.6,
+        "source": "your-input",
+        "reason": "AI engineering, but customer-facing (forward deployed), one step from the target \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "next_action": {
+        "action": "RESOLVE",
+        "why": "held at the liveness gate (redirects-off-allowed-host)",
+        "check": "Matched row 7248: DATABRICKS INC (SAN FRANCISCO, CA). First check that this is the employer on the posting. The job board forwards this posting to the company's own careers site, a host this recipe does not name, so the recipe did not follow it. Open the posting yourself and record what you saw in the queue."
+      }
+    },
+    {
+      "role_id": "w04",
+      "company_on_posting": {
+        "value": "Moloco",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Expression of Interest: Machine Learning Engineer",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/moloco/jobs/7655058003",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "pass",
+          "csv_row": 17152
+        },
+        {
+          "gate": "sponsorship-record",
+          "result": "pass",
+          "tier": "Likely"
+        },
+        {
+          "gate": "timeline",
+          "result": "pass",
+          "factor": 0.85
+        },
+        {
+          "gate": "liveness",
+          "result": "pass",
+          "liveness": "active"
+        }
+      ],
+      "status": "ready",
+      "hold_reason": null,
+      "flags": [],
+      "company_match": {
+        "value": "MOLOCO INC",
+        "source": "record",
+        "csv_row": 17152,
+        "how": "exact normalized name 'moloco'",
+        "city": "Redwood City",
+        "state": "CA",
+        "website": "moloco.com",
+        "industry": "Other Technology"
+      },
+      "sponsorship": {
+        "approvals": {
+          "value": 200,
+          "source": "record",
+          "column": "Total Approvals"
+        },
+        "denials": {
+          "value": 2,
+          "source": "record",
+          "column": "Total Denials"
+        },
+        "approval_rate_pct": {
+          "value": 99.009900990099,
+          "source": "record",
+          "column": "Approval_Rate"
+        },
+        "median_salary_offered_company": {
+          "value": 146242.5,
+          "source": "record",
+          "column": "median_salary_offered",
+          "note": "company-wide median across its sponsored filings, not per title"
+        },
+        "sponsored_titles": {
+          "value": [
+            "Staff Data Scientist",
+            "Data Analyst II",
+            "Sr. Growth Manager",
+            "Growth Associate",
+            "Machine Learning Engineer II"
+          ],
+          "source": "record",
+          "column": "top_job_titles_sponsored",
+          "note": "a short 'top titles' list, not every title the company sponsored"
+        },
+        "title_checks": {
+          "value": [
+            {
+              "title": "Staff Data Scientist",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bstaff\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Data Analyst II",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": true,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": [
+                "\\bii\\b"
+              ]
+            },
+            {
+              "title": "Sr. Growth Manager",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bsr\\b",
+                "\\bmanager\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Growth Associate",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Machine Learning Engineer II",
+              "role_family": true,
+              "senior_marked": false,
+              "level_marked": true,
+              "unmarked": false,
+              "family_patterns": [
+                "\\bmachine learning\\b"
+              ],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": [
+                "\\bii\\b"
+              ]
+            }
+          ],
+          "source": "your-input",
+          "derived_from": "sponsored_titles + the declared title rules"
+        },
+        "ml_titles": {
+          "value": [
+            "Machine Learning Engineer II"
+          ],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "ml_titles_unmarked": {
+          "value": [],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input",
+          "rule": "every sponsored ML/AI title carries a seniority or level marker",
+          "gap": "marked-only",
+          "derived_from": "approvals + ml_titles_unmarked + tiers.proven_min_approvals"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input",
+          "mapping": "tiers.p.Likely",
+          "reason": "0.9 and 0.6 are the Proven and Likely sponsorship values in the Chapter 11 worked example (data/examples/ch11-roles.json). They are adopted here as a declared mapping, not derived from this data."
+        }
+      },
+      "timeline": {
+        "value": 0.85,
+        "source": "your-input",
+        "reason": "Chapter 11 default: a start after the December graduation and the expected January EAD; no start date read from the posting yet \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "fit": {
+        "value": 0.6,
+        "source": "your-input",
+        "reason": "the right title, but an expression-of-interest pool rather than a specific opening \u2014 proposed by Claude Code from the job title only, not checked against the posting text; pending the student's review"
+      },
+      "liveness": {
+        "value": "active",
+        "source": "record",
+        "factor": 1.0,
+        "checked": "2026-09-30",
+        "why": "",
+        "checked_at": "2026-09-30T01:33:23+00:00",
+        "method": "npm run ats:liveness (scripts/ats/check-liveness.mjs)"
+      },
+      "scorer": {
+        "composite": 0.3315,
+        "recommendation": "Consider",
+        "machine_recommendation": "Consider",
+        "reason": "above threshold (0.332) but one soft spot: sponsorship tier \"Likely\"",
+        "override": null,
+        "trace": {
+          "votes": [
+            {
+              "factor": "sponsorship",
+              "value": 0.6,
+              "weight": 0.35,
+              "contribution": 0.21,
+              "source": "your-input"
+            },
+            {
+              "factor": "fit",
+              "value": 0.6,
+              "weight": 0.3,
+              "contribution": 0.18,
+              "source": "your-input"
+            }
+          ],
+          "vote_sum": 0.39,
+          "gates": [
+            {
+              "factor": "liveness",
+              "multiplier": 1,
+              "source": "record"
+            },
+            {
+              "factor": "timeline",
+              "multiplier": 0.85,
+              "source": "your-input"
+            }
+          ],
+          "gate_product": 0.85,
+          "arithmetic": "(0.6\u00b70.35 + 0.6\u00b70.3) \u00d7 1 \u00d7 0.85 = 0.332"
+        },
+        "source": "your-input"
+      },
+      "next_action": {
+        "action": "NETWORK-FIRST",
+        "why": "sponsorship evidence is soft: every sponsored ML/AI title carries a seniority or level marker",
+        "check": "Before applying, ask someone inside the company. A question to start from: Your company's public H-1B record lists these ML/AI titles: 'Machine Learning Engineer II'. All of them carry a seniority or level marker. Has the team sponsored a new-grad ML/AI engineer, or only experienced hires?"
+      }
+    },
+    {
+      "role_id": "w05",
+      "company_on_posting": {
+        "value": "PathAI",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Machine Learning Engineer II (Applied Research & Model Development)",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/pathai/jobs/8696752002",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "pass",
+          "csv_row": 19754
+        },
+        {
+          "gate": "sponsorship-record",
+          "result": "hold",
+          "reason": "shared-h1b-record",
+          "csv_row": 19754,
+          "shared_with": [
+            {
+              "csv_row": 19760,
+              "company_name": "PATHRAI INC",
+              "city": "MOUNTAIN VIEW",
+              "state": "CA"
+            }
+          ]
+        }
+      ],
+      "status": "held",
+      "hold_reason": "shared-h1b-record",
+      "flags": [],
+      "company_match": {
+        "value": "PATHAI INC",
+        "source": "record",
+        "csv_row": 19754,
+        "how": "exact normalized name 'pathai'",
+        "city": "CAMBRIDGE",
+        "state": "MA",
+        "website": "pathai.co",
+        "industry": "Biotechnology"
+      },
+      "sponsorship": {
+        "approvals": {
+          "value": 78,
+          "source": "record",
+          "column": "Total Approvals"
+        },
+        "denials": {
+          "value": 2,
+          "source": "record",
+          "column": "Total Denials"
+        },
+        "approval_rate_pct": {
+          "value": 97.5,
+          "source": "record",
+          "column": "Approval_Rate"
+        },
+        "median_salary_offered_company": {
+          "value": 145600,
+          "source": "record",
+          "column": "median_salary_offered",
+          "note": "company-wide median across its sponsored filings, not per title"
+        },
+        "sponsored_titles": {
+          "value": [
+            "Software Engineer I",
+            "Director of Engineering",
+            "Machine Learning Engineer III",
+            "Senior Machine Learning Engineer",
+            "Machine Learning Engineer II"
+          ],
+          "source": "record",
+          "column": "top_job_titles_sponsored",
+          "note": "a short 'top titles' list, not every title the company sponsored"
+        },
+        "title_checks": {
+          "value": [
+            {
+              "title": "Software Engineer I",
+              "role_family": false,
+              "senior_marked": false,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": []
+            },
+            {
+              "title": "Director of Engineering",
+              "role_family": false,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bdirector\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Machine Learning Engineer III",
+              "role_family": true,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [
+                "\\bmachine learning\\b"
+              ],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\biii\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Senior Machine Learning Engineer",
+              "role_family": true,
+              "senior_marked": true,
+              "level_marked": false,
+              "unmarked": false,
+              "family_patterns": [
+                "\\bmachine learning\\b"
+              ],
+              "excluded_by": [],
+              "senior_patterns": [
+                "\\bsenior\\b"
+              ],
+              "level_patterns": []
+            },
+            {
+              "title": "Machine Learning Engineer II",
+              "role_family": true,
+              "senior_marked": false,
+              "level_marked": true,
+              "unmarked": false,
+              "family_patterns": [
+                "\\bmachine learning\\b"
+              ],
+              "excluded_by": [],
+              "senior_patterns": [],
+              "level_patterns": [
+                "\\bii\\b"
+              ]
+            }
+          ],
+          "source": "your-input",
+          "derived_from": "sponsored_titles + the declared title rules"
+        },
+        "ml_titles": {
+          "value": [
+            "Machine Learning Engineer III",
+            "Senior Machine Learning Engineer",
+            "Machine Learning Engineer II"
+          ],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "ml_titles_unmarked": {
+          "value": [],
+          "source": "your-input",
+          "derived_from": "title_checks"
+        },
+        "tier": {
+          "value": "Unknown",
+          "source": "your-input",
+          "gap": "shared-record",
+          "rule": "the H-1B record also appears on a differently named company, so it may not be this one's"
+        }
+      },
+      "next_action": {
+        "action": "RESOLVE",
+        "why": "held at the sponsorship-record gate (shared-h1b-record)",
+        "check": "Matched row 19754: PATHAI INC (CAMBRIDGE, MA). First check that this is the employer on the posting. This company's H-1B record appears, value for value, on another company in the file under a different name. The join behind the file can copy one employer's history onto a lookalike, so this record may not be this company's. Check public H-1B / LCA records for this employer. If the record really is theirs, add `shared_record_checked` with your reason to the queue. Same record on: row 19760 PATHRAI INC (MOUNTAIN VIEW, CA)."
+      }
+    },
+    {
+      "role_id": "w06",
+      "company_on_posting": {
+        "value": "Scale AI",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Software Engineer - New Grad",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/scaleai/jobs/4730836005",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "hold",
+          "reason": "no-company-match",
+          "normalized": "scaleai"
+        }
+      ],
+      "status": "held",
+      "hold_reason": "no-company-match",
+      "flags": [],
+      "next_action": {
+        "action": "RESOLVE",
+        "why": "held at the company-match gate (no-company-match)",
+        "check": "The company name on the posting matched no company in the sponsorship file exactly. The file uses legal names (for example '\u2026 INC'). Find the legal name, then add the matching row number as `csv_row` in the queue. Otherwise, accept that the file does not cover this company."
+      }
+    },
+    {
+      "role_id": "w07",
+      "company_on_posting": {
+        "value": "Anthropic",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Applied AI, Research Engineer",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://job-boards.greenhouse.io/anthropic/jobs/5390811008",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "hold",
+          "reason": "no-company-match",
+          "normalized": "anthropic"
+        }
+      ],
+      "status": "held",
+      "hold_reason": "no-company-match",
+      "flags": [],
+      "next_action": {
+        "action": "RESOLVE",
+        "why": "held at the company-match gate (no-company-match)",
+        "check": "The company name on the posting matched no company in the sponsorship file exactly. The file uses legal names (for example '\u2026 INC'). Find the legal name, then add the matching row number as `csv_row` in the queue. Otherwise, accept that the file does not cover this company."
+      }
+    },
+    {
+      "role_id": "w08",
+      "company_on_posting": {
+        "value": "OpenAI",
+        "source": "your-input"
+      },
+      "title": {
+        "value": "Machine Learning Engineer, Core Experimentation",
+        "source": "your-input"
+      },
+      "url": {
+        "value": "https://jobs.ashbyhq.com/openai/9d4d2727-27f3-4a63-857c-a96466130645",
+        "source": "your-input"
+      },
+      "gates": [
+        {
+          "gate": "company-match",
+          "result": "hold",
+          "reason": "no-company-match",
+          "normalized": "openai"
+        }
+      ],
+      "status": "held",
+      "hold_reason": "no-company-match",
+      "flags": [],
+      "next_action": {
+        "action": "RESOLVE",
+        "why": "held at the company-match gate (no-company-match)",
+        "check": "The company name on the posting matched no company in the sponsorship file exactly. The file uses legal names (for example '\u2026 INC'). Find the legal name, then add the matching row number as `csv_row` in the queue. Otherwise, accept that the file does not cover this company."
+      }
+    }
+  ],
+  "cannot_verify": [
+    "When the sponsorship happened. The file has no filing years, so a matching title may be years old.",
+    "Whether a title without a seniority word was an entry-level hire. No marker is not evidence of junior level.",
+    "Titles beyond the file's short 'top titles' list. Many companies list a single title, so a missing ML/AI title is not proof that none was sponsored.",
+    "Whether the company in the file is the employer on the posting. The join behind the file has no published error rate (see the join-validation audit).",
+    "Whether this company will sponsor this role now. Policies, budgets and teams change.",
+    "Anything about fit or timeline. Those numbers are your own ratings, not measurements.",
+    "Legal eligibility (OPT, STEM OPT, cap-gap). That is a question for the school's DSO or an attorney."
+  ],
+  "summary": {
+    "evaluated": 8,
+    "held": 6,
+    "scored": 2,
+    "apply": 1,
+    "consider": 1,
+    "skip": 0,
+    "skip_rate_of_scored": "0%",
+    "skip_rate_of_evaluated": "0%",
+    "held_by_reason": {
+      "no-company-match": 3,
+      "redirects-off-allowed-host": 2,
+      "shared-h1b-record": 1
+    },
+    "role_level_evidence": 2,
+    "actions": {
+      "TAILOR": 1,
+      "RESOLVE": 6,
+      "NETWORK-FIRST": 1
+    }
+  },
+  "outputs": {
+    "agent_log": "course/2026fa/submissions/sukethrp/runs/worked-run-2-live/sponsor-match-log.json",
+    "human_report": "course/2026fa/submissions/sukethrp/runs/worked-run-2-live/sponsor-match-report.md",
+    "scorer_input": "course/2026fa/submissions/sukethrp/runs/worked-run-2-live/roles.json",
+    "scorer_output": [
+      "course/2026fa/submissions/sukethrp/runs/worked-run-2-live/role-scores.json",
+      "course/2026fa/submissions/sukethrp/runs/worked-run-2-live/role-scores.md"
+    ]
+  }
+}

@@ -1,0 +1,70 @@
+$ REALLOCATION_ENGINE_PORTALS=course/2026fa/submissions/sukethrp/worked-run/portals-worked-run.yml npm run ats:scan -- --dry-run
+# run by Claude Code on the student's machine, 2026-09-30 (UTC); discovery only, the prototype does not call the scanner
+
+> the-reallocation-engine@1.0.0 ats:scan
+> node scripts/ats/scan.mjs --dry-run
+
+Scanning 22 companies via providers (0 local parser; 0 skipped — no provider matched)
+(dry run — no files will be written)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Portal Scan — 2026-09-30
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Companies scanned:     22
+Total jobs found:      3359
+Filtered by title:     3268 removed
+Filtered by location:  56 removed
+Duplicates:            1 skipped
+New offers added:      34
+
+Errors (8):
+  ✗ Kensho: HTTP 404: {"status":404,"error":"Job not found"}
+  ✗ Socure: HTTP 404: {"status":404,"error":"Job not found"}
+  ✗ Lendbuzz: HTTP 404: {"status":404,"error":"Job not found"}
+  ✗ Whoop: HTTP 404: {"status":404,"error":"Job not found"}
+  ✗ Modular: HTTP 404: Not Found
+  ✗ Gorgias: HTTP 404: {"ok":false,"error":"Document not found"}
+  ✗ Cohere Health: HTTP 404: {"ok":false,"error":"Document not found"}
+  ✗ Weights & Biases: HTTP 404: {"ok":false,"error":"Document not found"}
+
+New offers:
+  + Nextdoor | Machine Learning Engineer - Ads | US Remote
+  + AppLovin | Software Engineer, Machine Learning | Palo Alto, CA
+  + Databricks | AI Engineer – Forward Deployed Engineering (AI FDE) | United States
+  + Anthropic | Applied AI Engineer, Beneficial Deployments (Life Sciences) | San Francisco, CA | New York City, NY
+  + Anthropic | Applied AI Engineer, Enterprise Tech | San Francisco, CA | New York City, NY | Seattle, WA
+  + Anthropic | Applied AI, Research Engineer  | San Francisco, CA | New York City, NY
+  + Anthropic | Machine Learning Infrastructure Engineer, Safeguards Research | San Francisco, CA | New York City, NY
+  + Anthropic | Research Engineer, Machine Learning (Reinforcement Learning)  | San Francisco, CA | New York City, NY
+  + Anthropic | Research Engineer, Machine Learning (RL Velocity) | Remote-Friendly (Travel-Required) | San Francisco, CA | New York City, NY
+  + Scale AI | Frontier Agents Engineer (Applied AI) | San Francisco, CA; New York, NY
+  + Scale AI | Machine Learning Fellow - Human Frontier Collective (US) | United States
+  + Scale AI | Machine Learning Research Scientist, Evaluations | San Francisco, CA; Seattle, WA; New York, NY
+  + Scale AI | Machine Learning Research Scientist, Post-Training | San Francisco, CA; Seattle, WA; New York, NY
+  + Scale AI | Software Engineer - New Grad | San Francisco, CA
+  + Scale AI | Software Engineer, Public Sector - New Grad | San Francisco, CA
+  + Moloco | Expression of Interest: Machine Learning Engineer | Menlo Park, California, United States; New York, New York, United States; Seattle, Washington, United States
+  + OpenAI | Applied AI Engineer, Startups | San Francisco
+  + OpenAI | Machine Learning Data Scientist, Forecasting | San Francisco
+  + OpenAI | Partner Applied AI Engineer  | San Francisco
+  + OpenAI | Applied AI Engineer, Codex | San Francisco
+  + OpenAI | Machine Learning Engineer, Monetization AI/ML | San Francisco
+  + OpenAI | Recruiter, AI/ML Research | San Francisco
+  + OpenAI | Applied AI Engineer, Digital Natives | New York City
+  + OpenAI | Applied AI Engineer, Codex Core Agent | San Francisco
+  + OpenAI | Machine Learning Engineer, API Multicloud | San Francisco
+  + OpenAI | Applied AI Engineer, Cyber | San Francisco
+  + OpenAI | Applied AI Engineer, Enterprise | San Francisco
+  + OpenAI | Applied AI Engineer, Plugins | San Francisco
+  + OpenAI | Applied AI Engineer, Agent Enablement  | San Francisco
+  + OpenAI | Applied AI Software Engineer, GTM Growth Engineering | San Francisco
+  + OpenAI | Machine Learning Engineer, Multimodal Perception and Authentication | San Francisco
+  + OpenAI | Machine Learning Engineer, Core Experimentation | Seattle
+  + PathAI | Machine Learning Engineer II (Applied Research & Model Development) | Boston (Onsite), New York (Onsite) Preferred, or Remote
+  + PathAI | Machine Learning Engineer III (Applied Research & Model Development) | Boston (Onsite), New York (Onsite) Preferred, or Remote
+
+(dry run — run without --dry-run to save results)
+
+Review new offers in data/ats/pipeline.md.
+exit=0

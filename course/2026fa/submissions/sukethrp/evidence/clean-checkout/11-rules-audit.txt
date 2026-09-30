@@ -1,0 +1,4 @@
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --audit-rules
+✓ rules audit: 30369 rows · tiered 1552 · held 28817 · 21 ML/AI titles with no seniority or level marker
+  output/sukethrp-ml-newgrad-sponsor-match/rules-audit/rules-audit.md  +  output/sukethrp-ml-newgrad-sponsor-match/rules-audit/rules-audit.json
+# exit=0

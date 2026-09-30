@@ -1,0 +1,4 @@
+$ node scripts/conformance.mjs scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/ recipes/cases/2026fa/ course/2026fa/submissions/sukethrp/ search/examples/arjun-rao/
+conformance: 28 files (9 md · 14 json · 1 js · 2 py · 2 yaml)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+# exit=0

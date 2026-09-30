@@ -1,0 +1,35 @@
+$ git diff --name-only upstream/main...HEAD
+course/2026fa/submissions/sukethrp/CHANGE-BRIEF.md
+course/2026fa/submissions/sukethrp/PROPOSED-ADDITIONS.md
+course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.1.0/rules-audit.json
+course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.1.0/rules-audit.md
+course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.2.0/rules-audit.json
+course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.2.0/rules-audit.md
+course/2026fa/submissions/sukethrp/evidence/rules-v0.1.0-to-v0.2.0-tier-changes.txt
+course/2026fa/submissions/sukethrp/runs/worked-run-1-live/role-scores.json
+course/2026fa/submissions/sukethrp/runs/worked-run-1-live/role-scores.md
+course/2026fa/submissions/sukethrp/runs/worked-run-1-live/roles.json
+course/2026fa/submissions/sukethrp/runs/worked-run-1-live/sponsor-match-log.json
+course/2026fa/submissions/sukethrp/runs/worked-run-1-live/sponsor-match-report.md
+course/2026fa/submissions/sukethrp/worked-run/portals-worked-run.yml
+course/2026fa/submissions/sukethrp/worked-run/queue-live-1.json
+course/2026fa/submissions/sukethrp/worked-run/resolve-check-legal-names.txt
+course/2026fa/submissions/sukethrp/worked-run/terminal-live-1.txt
+recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.card.md
+recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.md
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/README.md
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/evidence/test-liveness-output.txt
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/sample-roles.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/expired-404.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/stale-active.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/uncertain-no-apply.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/test-roles.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/test-sponsorship.csv
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/node_bridge.mjs
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/rules.json
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
+scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests/test_sponsor_match.py
+search/examples/arjun-rao/profile.yml
+# exit=0

@@ -1,0 +1,8 @@
+$ /usr/bin/python3 --version && /usr/bin/python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests
+Python 3.9.6
+....................................
+----------------------------------------------------------------------
+Ran 36 tests in 1.674s
+
+OK
+# exit=0

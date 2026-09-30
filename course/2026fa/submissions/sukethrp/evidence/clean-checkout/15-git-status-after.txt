@@ -1,0 +1,3 @@
+$ git status --short && echo '(nothing above = no tracked file changed and nothing untracked outside gitignored output/ and node_modules/)'
+(nothing above = no tracked file changed and nothing untracked outside gitignored output/ and node_modules/)
+# exit=0

@@ -1,0 +1,46 @@
+[
+  {
+    "role_id": "w01",
+    "company": "APPLOVIN CORP",
+    "title": "Software Engineer, Machine Learning",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 0.85,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "w04",
+    "company": "MOLOCO INC",
+    "title": "Expression of Interest: Machine Learning Engineer",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 0.85,
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.6,
+      "source": "your-input"
+    }
+  }
+]

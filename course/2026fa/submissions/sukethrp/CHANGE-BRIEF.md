@@ -136,4 +136,19 @@ computing the timeline factor from OPT dates (the Chapter 10 feed).
 
 ## Revisions
 
-*None yet. Add dated entries here; do not edit the sections above.*
+*Add dated entries here; do not edit the sections above.*
+
+### 2026-09-30 — outcomes against the predictions (written by Claude Code after the runs; student review pending)
+
+| Prediction | What happened | Verdict |
+|---|---|---|
+| §4.1 company missing from the file | Sample: "Instacart" matched nothing (the file's name is MAPLEBEAR INC). Live: Scale AI, Anthropic and OpenAI matched nothing. A variant not predicted: "Meta" matched an **unrelated** META CO (Portola Valley, CA) exactly | confirmed, plus a worse variant (a wrong-entity exact match) |
+| §4.2 in the file, no H-1B record → Unknown | Hugging Face, and Meta → META CO, held `no-h1b-record` | confirmed |
+| §4.3 two rows, one normalized name | Peloton INC / LLC held with both candidates | confirmed. Not predicted: 42 records copied onto **differently named** lookalikes (PathAI / PathrAI), which led to a new gate |
+| §4.4 a posting that 404s | Only on a saved fixture page; no real posting in the live queue was expired | confirmed on the fixture only |
+| §4.5 the "work authorized" trap | reproduced: sponsorship weight 0, and the run is void (exit 1) | confirmed |
+| §5.1 over-counting entry level; an "AI" non-engineering title | The v0.1.0 audit counted "AI DEVELOPER ADVOCATE", "Founding ML Engineer" and II/L2 titles as entry-level ML evidence. Rules v0.2.0 fixed them (Proven 33 → 27) | confirmed |
+| §5.2 at least a third of real postings stop at the company match | 3 of 8 did (Scale AI, Anthropic, OpenAI). The cause was not brand vs. legal name, though: these employers are absent, and the only rows with their names are investment funds | confirmed in count; wrong about the cause |
+| §5.3 most matched roles land in Likely | Live queue: 2 Proven, 2 Likely, 1 held. Hand-picking across tiers makes this an unfair test. Across the whole file, Likely outnumbers Proven 1,525 to 27 | not tested fairly by the worked run |
+| §5.4 the first draft reports the skip rate only over scored roles | Did not happen. Writing it in this brief led the first draft to report both rates | refuted, because the prediction itself changed the build |
+| *(not predicted)* | Greenhouse boards redirect postings to company sites, which led to a new hold. The report mis-described a shared record. A test decorator tripped the history privacy scan | see `TEST-REPORT.md` → "Broke during testing, fixed" |
