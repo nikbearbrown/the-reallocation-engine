@@ -1,0 +1,65 @@
+{
+  "schema": "sukethrp-ml-newgrad-sponsor-match/rules@1",
+  "rules_version": "0.1.0",
+  "declared_by": "the student (your-input). Every rule below is a declared choice, not a fact: edit it to change what counts as ML/AI and as senior, and every value it produces changes label with it.",
+  "role_family": {
+    "name": "ML/AI engineering",
+    "include_patterns": [
+      "\\bmachine learning\\b",
+      "\\bml\\b",
+      "\\bmlops\\b",
+      "\\bai\\b",
+      "\\bartificial intelligence\\b",
+      "\\bdeep learning\\b",
+      "\\bnlp\\b",
+      "\\bnatural language\\b",
+      "\\bcomputer vision\\b",
+      "\\bllms?\\b",
+      "\\bgenerative\\b",
+      "\\bgen ?ai\\b"
+    ]
+  },
+  "senior_markers": [
+    "\\bsenior\\b",
+    "\\bsr\\b",
+    "\\bstaff\\b",
+    "\\bprincipal\\b",
+    "\\blead\\b",
+    "\\bmanager\\b",
+    "\\bdirector\\b",
+    "\\bhead\\b",
+    "\\bvp\\b",
+    "\\bvice president\\b",
+    "\\bchief\\b",
+    "\\barchitect\\b",
+    "\\biii\\b",
+    "\\biv\\b",
+    "\\bdistinguished\\b",
+    "\\bfellow\\b"
+  ],
+  "tiers": {
+    "proven_min_approvals": 10,
+    "proven_min_approvals_reason": "10 is the median approval count among the 1,557 companies with an H-1B record (data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-join-validation-audit.md). Below it, one or two approvals are too thin to call Proven.",
+    "p": {
+      "Proven": 0.9,
+      "Likely": 0.6
+    },
+    "p_reason": "0.9 and 0.6 are the Proven and Likely sponsorship values in the Chapter 11 worked example (data/examples/ch11-roles.json). They are adopted here as a declared mapping, not derived from this data."
+  },
+  "liveness": {
+    "max_age_days": 7,
+    "max_age_reason": "A liveness check describes one moment. A week-old 'active' is treated as unchecked.",
+    "live_hosts": [
+      "boards.greenhouse.io",
+      "job-boards.greenhouse.io",
+      "jobs.lever.co",
+      "jobs.ashbyhq.com"
+    ]
+  },
+  "source": {
+    "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "audit": "data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-audit.md",
+    "pin_reason": "The audit records this SHA-256 for the same file. If the file changes, the audits no longer describe it and the source gate stops the run."
+  }
+}

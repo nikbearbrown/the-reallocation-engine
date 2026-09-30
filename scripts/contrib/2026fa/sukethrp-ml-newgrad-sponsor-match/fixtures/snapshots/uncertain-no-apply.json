@@ -1,0 +1,9 @@
+{
+  "provenance": "synthetic-fixture",
+  "note": "Illustrative page with a full description but no visible apply control. Not captured from any real posting.",
+  "captured_at": "2026-09-30",
+  "status": 200,
+  "finalUrl": "https://jobs.example.com/illustrative/posting",
+  "bodyText": "Machine Learning Engineer, New Grad (illustrative page). The team trains ranking and bidding models on large event streams and deploys them to a low-latency serving stack. The page describes the stack, the interview loop and the benefits in detail, and it lists the locations where the team sits. It does not show any button or link to start the process, and it does not say whether the role is still open.",
+  "applyControls": []
+}

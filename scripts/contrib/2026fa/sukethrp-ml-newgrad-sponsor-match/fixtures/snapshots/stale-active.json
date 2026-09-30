@@ -1,0 +1,9 @@
+{
+  "provenance": "synthetic-fixture",
+  "note": "Illustrative page with an apply control, captured four weeks before the run date. Not captured from any real posting.",
+  "captured_at": "2026-09-01",
+  "status": 200,
+  "finalUrl": "https://jobs.example.com/illustrative/posting",
+  "bodyText": "Machine Learning Engineer (illustrative posting). About the team: we build the models that rank, recommend and moderate content for millions of people. What you will do: train and evaluate models in Python and PyTorch, ship them behind feature flags, and measure their effect with online experiments. What we look for: a degree in computer science or a related field, coursework or projects in machine learning, and comfort with SQL and cloud tooling.",
+  "applyControls": ["Apply for this job"]
+}

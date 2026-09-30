@@ -1,0 +1,9 @@
+{
+  "provenance": "synthetic-fixture",
+  "note": "Illustrative page: the posting URL now returns HTTP 404. Not captured from any real posting.",
+  "captured_at": "2026-09-30",
+  "status": 404,
+  "finalUrl": "https://jobs.example.com/illustrative/posting",
+  "bodyText": "Page not found",
+  "applyControls": []
+}

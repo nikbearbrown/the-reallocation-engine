@@ -1,0 +1,4 @@
+{
+  "_note": "BREAK-TEST FIXTURE. Free-text visa status copied from the fictional persona README (search/examples/README.md). The scorer's applyProfile treats the word 'authorized' as 'no sponsorship needed'. Used only by the break test; never pass it in a real run.",
+  "authorization": "F-1 STEM OPT — work authorized (EAD)"
+}

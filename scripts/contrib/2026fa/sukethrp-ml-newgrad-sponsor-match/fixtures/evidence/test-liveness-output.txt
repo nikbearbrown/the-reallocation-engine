@@ -1,0 +1,6 @@
+# Synthetic fixture for the offline test: shaped like `npm run ats:liveness` output. Not a real check.
+Checking 1 URL(s)...
+
+✅ active     https://jobs.example.com/test/t14
+
+Results: 1 active  0 expired  0 uncertain

@@ -1,0 +1,316 @@
+{
+  "schema": "sukethrp-ml-newgrad-sponsor-match/roles@1",
+  "as_of": "2026-09-30",
+  "persona": "search/examples/priya-nair/profile.yml",
+  "note": "Test fixture (your-input): fictional companies from fixtures/test-sponsorship.csv; one role per gate branch.",
+  "roles": [
+    {
+      "role_id": "t01",
+      "company": "Example Robotics",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/test/t01",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t02",
+      "company": "Senior Only Labs",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/test/t02",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t03",
+      "company": "Generalist Software",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/test/t03",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t04",
+      "company": "Tiny ML Startup",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/test/t04",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t05",
+      "company": "No Record AI",
+      "title": "ML Engineer",
+      "url": "https://jobs.example.com/test/t05",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t06",
+      "company": "Missing Company",
+      "title": "ML Engineer",
+      "url": "https://jobs.example.com/test/t06",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t07",
+      "company": "Twin Name",
+      "title": "ML Engineer",
+      "url": "https://jobs.example.com/test/t07",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t08",
+      "company": "Example Robotics",
+      "title": "ML Engineer (posting gone)",
+      "url": "https://jobs.example.com/test/t08",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/expired-404.json"
+      }
+    },
+    {
+      "role_id": "t09",
+      "company": "Example Robotics",
+      "title": "ML Engineer (no apply button)",
+      "url": "https://jobs.example.com/test/t09",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/uncertain-no-apply.json"
+      }
+    },
+    {
+      "role_id": "t10",
+      "company": "Example Robotics",
+      "title": "ML Engineer (no timeline)",
+      "url": "https://jobs.example.com/test/t10",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t11",
+      "company": "Example Robotics",
+      "title": "ML Engineer (old check)",
+      "url": "https://jobs.example.com/test/t11",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/stale-active.json"
+      }
+    },
+    {
+      "role_id": "t12",
+      "company": "Zero Approvals",
+      "title": "ML Engineer",
+      "url": "https://jobs.example.com/test/t12",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t13",
+      "company": "Bad Titles",
+      "title": "ML Engineer",
+      "url": "https://jobs.example.com/test/t13",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t14",
+      "company": "Example Robotics",
+      "title": "ML Engineer (recorded check, evidence saved)",
+      "url": "https://jobs.example.com/test/t14",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "result": "active",
+        "checked_at": "2026-09-29",
+        "method": "npm run ats:liveness",
+        "evidence": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/evidence/test-liveness-output.txt"
+      }
+    },
+    {
+      "role_id": "t15",
+      "company": "Example Robotics",
+      "title": "ML Engineer (recorded check, no evidence)",
+      "url": "https://jobs.example.com/test/t15",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "result": "active",
+        "checked_at": "2026-09-29",
+        "method": "npm run ats:liveness"
+      }
+    },
+    {
+      "role_id": "t16",
+      "company": "Example Robotics",
+      "title": "ML Engineer (fit not rated)",
+      "url": "https://jobs.example.com/test/t16",
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    },
+    {
+      "role_id": "t17",
+      "company": "Generalist Software",
+      "title": "ML Engineer (override)",
+      "url": "https://jobs.example.com/test/t17",
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      },
+      "override": {
+        "decision": "Apply",
+        "reason": "test fixture: the hiring manager said new-grad ML hires are sponsored"
+      }
+    },
+    {
+      "role_id": "t18",
+      "company": "Twin Name",
+      "title": "ML Engineer (row chosen by a person)",
+      "url": "https://jobs.example.com/test/t18",
+      "csv_row": 6,
+      "fit": {
+        "p": 0.7,
+        "reason": "test fixture"
+      },
+      "timeline": {
+        "factor": 0.85,
+        "reason": "test fixture"
+      },
+      "liveness": {
+        "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json"
+      }
+    }
+  ]
+}

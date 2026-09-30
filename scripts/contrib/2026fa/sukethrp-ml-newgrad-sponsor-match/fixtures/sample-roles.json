@@ -1,0 +1,107 @@
+{
+  "schema": "sukethrp-ml-newgrad-sponsor-match/roles@1",
+  "as_of": "2026-09-30",
+  "persona": "search/examples/priya-nair/profile.yml",
+  "note": "Illustrative sample queue (your-input). The companies are real rows in the sponsorship file; the job titles, URLs, page snapshots, fit ratings and timeline factors are invented to exercise every gate. Nothing here is a real posting, and the URLs point at example.com so --live cannot fetch them.",
+  "roles": [
+    {
+      "role_id": "r01-discord-mle-new-grad",
+      "company": "Discord",
+      "title": "Machine Learning Engineer, New Grad",
+      "url": "https://jobs.example.com/discord/mle-new-grad",
+      "fit": { "p": 0.7, "reason": "illustrative self-rating: Python/PyTorch coursework and one shipped ML project match the posting" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after December graduation, inside the OPT window (the Chapter 11 example value)" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r02-etsy-mle-1-search",
+      "company": "Etsy",
+      "title": "Machine Learning Engineer I, Search",
+      "url": "https://jobs.example.com/etsy/mle-1-search",
+      "fit": { "p": 0.75, "reason": "illustrative self-rating: search/ranking project matches the team" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r03-airbnb-mle-early-career",
+      "company": "Airbnb",
+      "title": "Machine Learning Engineer, Early Career",
+      "url": "https://jobs.example.com/airbnb/mle-early-career",
+      "fit": { "p": 0.6, "reason": "illustrative self-rating: partial match, the posting asks for experimentation platforms" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r04-huggingface-mle-open-source",
+      "company": "Hugging Face",
+      "title": "Machine Learning Engineer, Open Source",
+      "url": "https://jobs.example.com/hugging-face/mle-open-source",
+      "fit": { "p": 0.8, "reason": "illustrative self-rating: open-source contributions to model tooling" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r05-instacart-mle-new-grad",
+      "company": "Instacart",
+      "title": "Machine Learning Engineer, New Grad",
+      "url": "https://jobs.example.com/instacart/mle-new-grad",
+      "fit": { "p": 0.7, "reason": "illustrative self-rating" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r06-meta-ai-research-engineer",
+      "company": "Meta",
+      "title": "AI Research Engineer, University Grad",
+      "url": "https://jobs.example.com/meta/ai-research-engineer-university-grad",
+      "fit": { "p": 0.5, "reason": "illustrative self-rating: research-leaning role, MS rather than PhD" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r07-celestialai-mle",
+      "company": "Celestial AI",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/celestial-ai/mle",
+      "fit": { "p": 0.65, "reason": "illustrative self-rating" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/expired-404.json" }
+    },
+    {
+      "role_id": "r08-peloton-mle",
+      "company": "Peloton Interactive",
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/peloton/mle",
+      "fit": { "p": 0.6, "reason": "illustrative self-rating" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r09-applovin-mle-new-grad",
+      "company": "AppLovin",
+      "title": "Machine Learning Engineer, New Grad",
+      "url": "https://jobs.example.com/applovin/mle-new-grad",
+      "fit": { "p": 0.7, "reason": "illustrative self-rating" },
+      "timeline": { "factor": 0.85, "reason": "illustrative: start after graduation" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/uncertain-no-apply.json" }
+    },
+    {
+      "role_id": "r10-databricks-ai-engineer-new-grad",
+      "company": "Databricks",
+      "title": "AI Engineer, New Grad",
+      "url": "https://jobs.example.com/databricks/ai-engineer-new-grad",
+      "fit": { "p": 0.7, "reason": "illustrative self-rating" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    },
+    {
+      "role_id": "r11-kensho-mle",
+      "company": "Kensho",
+      "csv_row": 14287,
+      "title": "Machine Learning Engineer",
+      "url": "https://jobs.example.com/kensho/mle",
+      "fit": { "p": 0.7, "reason": "illustrative self-rating" },
+      "timeline": { "factor": 0.5, "reason": "illustrative: the posting wants a November start, before the OPT card is expected; only a delayed start works" },
+      "liveness": { "snapshot": "scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/snapshots/active-apply.json" }
+    }
+  ]
+}

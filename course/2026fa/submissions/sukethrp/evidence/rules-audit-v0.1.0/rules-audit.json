@@ -1,0 +1,594 @@
+{
+  "workflow": "sukethrp-ml-newgrad-sponsor-match",
+  "audit": "rules",
+  "rules_version": "0.1.0",
+  "rules_sha256": "0c7c33cd20bd49b9c17cea5c93848b6649d6a19be672e95821f2fb914bafea28",
+  "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+  "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+  "rows": 30369,
+  "held": {
+    "no-h1b-record": 28812,
+    "no-approvals-on-record": 5
+  },
+  "tiers": {
+    "Likely (no-role-family-title)": 1456,
+    "Likely (senior-only)": 44,
+    "Likely (thin-record)": 19,
+    "Proven (role-level match)": 33
+  },
+  "ml_titles": {
+    "AI DEVELOPER ADVOCATE": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "AI Design Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "AI Engineering Lead": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\blead\\b"
+      ]
+    },
+    "AI PERFORMANCE ENGINEER": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "AI Research Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "AI Success Manager": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\bmanager\\b"
+      ]
+    },
+    "AI TOOLS ENGINEER": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "AI/DS Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Computer Vision Engineer": {
+      "companies": 4,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bcomputer vision\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Computer Vision and Machine Learning Research Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b",
+        "\\bcomputer vision\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Data Scientist, Machine Learning": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Deep Learning Engineer": {
+      "companies": 3,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bdeep learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Director of AI": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\bdirector\\b"
+      ]
+    },
+    "Engineer, Data and Machine Learning": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Engineering Manager, Machine Learning Systems": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bmanager\\b"
+      ]
+    },
+    "Enterprise Business Operations Manager - AI": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\bmanager\\b"
+      ]
+    },
+    "Founding ML Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bml\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Information Systems Manager, Machine Learning": {
+      "companies": 2,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bmanager\\b"
+      ]
+    },
+    "Lead Machine Learning Engineer": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\blead\\b"
+      ]
+    },
+    "Lead Software Engineer - Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\blead\\b"
+      ]
+    },
+    "ML Platform Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bml\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Machine Learning Engineer": {
+      "companies": 22,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Machine Learning Engineer (L2)": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Machine Learning Engineer / AI Scientist": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b",
+        "\\bai\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Machine Learning Engineer II": {
+      "companies": 4,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Machine Learning Engineer III": {
+      "companies": 3,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\biii\\b"
+      ]
+    },
+    "Machine Learning Operations Engineer II": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Machine Learning Systems Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "NLP Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bnlp\\b"
+      ],
+      "senior_patterns": []
+    },
+    "NLP Scientist": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bnlp\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Principal Machine Learning Engineer - Personalization": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bprincipal\\b"
+      ]
+    },
+    "Principal Product Manager - Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bprincipal\\b",
+        "\\bmanager\\b"
+      ]
+    },
+    "Principal Product Manager \u2013 Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bprincipal\\b",
+        "\\bmanager\\b"
+      ]
+    },
+    "Robotics and Machine Learning Engineer": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "SENIOR COMPUTER VISION RESEARCH ENGINEER": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bcomputer vision\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "SENIOR MACHINE LEARNING ENGINEER": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Computer Vision Scientist": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bcomputer vision\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Machine Learning DevOps Engineer": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Machine Learning Engineer": {
+      "companies": 16,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Machine Learning Engineer I": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Machine Learning Scientist": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Machine Learning Software Engineer": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior NLP Data Scientist": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bnlp\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior NLP Engineer": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bnlp\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior NLP Research Scientist": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bnlp\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Security Machine Learning Researcher": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Software Engineer (AI Platform)": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Software Engineer - AI/Algo": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Software Engineer - Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Software Engineer I, Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Senior Software Engineer \u2013 Machine Learning Data Infrastruct": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsenior\\b"
+      ]
+    },
+    "Software Engineer - Data & Machine Learning": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Software Engineer - Machine Learning": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Software Engineer - Perception ML": {
+      "companies": 1,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bml\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Software Engineer, Machine Learning": {
+      "companies": 2,
+      "senior_marked": false,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": []
+    },
+    "Sr. Machine Learning Engineer": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsr\\b"
+      ]
+    },
+    "Sr. Software Engineer, Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bsr\\b"
+      ]
+    },
+    "Staff AI/ML Data Engineer": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bml\\b",
+        "\\bai\\b"
+      ],
+      "senior_patterns": [
+        "\\bstaff\\b"
+      ]
+    },
+    "Staff Backend Engineer, ML Operations": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bml\\b"
+      ],
+      "senior_patterns": [
+        "\\bstaff\\b"
+      ]
+    },
+    "Staff Data Scientist, Machine Learning Analytics": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bstaff\\b"
+      ]
+    },
+    "Staff Machine Learning Engineer": {
+      "companies": 2,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bstaff\\b"
+      ]
+    },
+    "Staff Software Engineer - Machine Learning": {
+      "companies": 1,
+      "senior_marked": true,
+      "family_patterns": [
+        "\\bmachine learning\\b"
+      ],
+      "senior_patterns": [
+        "\\bstaff\\b"
+      ]
+    }
+  }
+}
