@@ -18,277 +18,403 @@
   },
   "ml_titles": {
     "AI DEVELOPER ADVOCATE": {
-      "companies": 1,
+      "csv_rows": [
+        17105
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "AI Design Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        27985
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "AI Engineering Lead": {
-      "companies": 1,
+      "csv_rows": [
+        11346
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bai\\b"
       ],
       "senior_patterns": [
         "\\blead\\b"
-      ]
+      ],
+      "companies": 1
     },
     "AI PERFORMANCE ENGINEER": {
-      "companies": 1,
+      "csv_rows": [
+        17105
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "AI Research Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        16535
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "AI Success Manager": {
-      "companies": 1,
+      "csv_rows": [
+        7273
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bai\\b"
       ],
       "senior_patterns": [
         "\\bmanager\\b"
-      ]
+      ],
+      "companies": 1
     },
     "AI TOOLS ENGINEER": {
-      "companies": 1,
+      "csv_rows": [
+        17105
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "AI/DS Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        971
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Computer Vision Engineer": {
-      "companies": 4,
+      "csv_rows": [
+        4286,
+        12971,
+        18133,
+        24705
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bcomputer vision\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 4
     },
     "Computer Vision and Machine Learning Research Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        794
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b",
         "\\bcomputer vision\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Data Scientist, Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        9324
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Deep Learning Engineer": {
-      "companies": 3,
+      "csv_rows": [
+        9573,
+        10945,
+        12010
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bdeep learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 3
     },
     "Director of AI": {
-      "companies": 1,
+      "csv_rows": [
+        24521
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bai\\b"
       ],
       "senior_patterns": [
         "\\bdirector\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Engineer, Data and Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        28687
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Engineering Manager, Machine Learning Systems": {
-      "companies": 1,
+      "csv_rows": [
+        9093
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bmanager\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Enterprise Business Operations Manager - AI": {
-      "companies": 1,
+      "csv_rows": [
+        29058
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bai\\b"
       ],
       "senior_patterns": [
         "\\bmanager\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Founding ML Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        22050
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bml\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Information Systems Manager, Machine Learning": {
-      "companies": 2,
+      "csv_rows": [
+        17370,
+        19707
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bmanager\\b"
-      ]
+      ],
+      "companies": 2
     },
     "Lead Machine Learning Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        11049
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\blead\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Lead Software Engineer - Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        10465
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\blead\\b"
-      ]
+      ],
+      "companies": 1
     },
     "ML Platform Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        27612
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bml\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Machine Learning Engineer": {
-      "companies": 22,
+      "csv_rows": [
+        889,
+        981,
+        1694,
+        1955,
+        3876,
+        4985,
+        5181,
+        6083,
+        6673,
+        11334,
+        14287,
+        14406,
+        15077,
+        18131,
+        20894,
+        21677,
+        22842,
+        24948,
+        27914,
+        28337,
+        30307
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 21
     },
     "Machine Learning Engineer (L2)": {
-      "companies": 1,
+      "csv_rows": [
+        27765
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Machine Learning Engineer / AI Scientist": {
-      "companies": 1,
+      "csv_rows": [
+        10900
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b",
         "\\bai\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Machine Learning Engineer II": {
-      "companies": 4,
+      "csv_rows": [
+        17152,
+        19394,
+        19754,
+        19760
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 4
     },
     "Machine Learning Engineer III": {
-      "companies": 3,
+      "csv_rows": [
+        621,
+        19754,
+        19760
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\biii\\b"
-      ]
+      ],
+      "companies": 3
     },
     "Machine Learning Operations Engineer II": {
-      "companies": 1,
+      "csv_rows": [
+        29517
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Machine Learning Systems Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        20740
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "NLP Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        20894
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bnlp\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "NLP Scientist": {
-      "companies": 1,
+      "csv_rows": [
+        6004
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bnlp\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Principal Machine Learning Engineer - Personalization": {
-      "companies": 1,
+      "csv_rows": [
+        22736
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bprincipal\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Principal Product Manager - Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        19394
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
@@ -296,10 +422,13 @@
       "senior_patterns": [
         "\\bprincipal\\b",
         "\\bmanager\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Principal Product Manager \u2013 Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        19394
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
@@ -307,240 +436,331 @@
       "senior_patterns": [
         "\\bprincipal\\b",
         "\\bmanager\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Robotics and Machine Learning Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        20504
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "SENIOR COMPUTER VISION RESEARCH ENGINEER": {
-      "companies": 1,
+      "csv_rows": [
+        10644
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bcomputer vision\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "SENIOR MACHINE LEARNING ENGINEER": {
-      "companies": 1,
+      "csv_rows": [
+        18541
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Computer Vision Scientist": {
-      "companies": 1,
+      "csv_rows": [
+        2652
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bcomputer vision\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Machine Learning DevOps Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        6083
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Machine Learning Engineer": {
-      "companies": 16,
+      "csv_rows": [
+        1090,
+        3876,
+        4882,
+        12061,
+        12717,
+        13020,
+        16094,
+        18692,
+        19754,
+        19760,
+        20045,
+        21470,
+        26722,
+        27398,
+        27951,
+        30170
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 16
     },
     "Senior Machine Learning Engineer I": {
-      "companies": 1,
+      "csv_rows": [
+        2571
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Machine Learning Scientist": {
-      "companies": 1,
+      "csv_rows": [
+        13343
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Machine Learning Software Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        26079
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior NLP Data Scientist": {
-      "companies": 1,
+      "csv_rows": [
+        24367
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bnlp\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior NLP Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        7431
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bnlp\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior NLP Research Scientist": {
-      "companies": 1,
+      "csv_rows": [
+        18518
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bnlp\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Security Machine Learning Researcher": {
-      "companies": 1,
+      "csv_rows": [
+        25431
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Software Engineer (AI Platform)": {
-      "companies": 1,
+      "csv_rows": [
+        29835
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bai\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Software Engineer - AI/Algo": {
-      "companies": 1,
+      "csv_rows": [
+        7277
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bai\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Software Engineer - Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        4759
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Software Engineer I, Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        9093
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Senior Software Engineer \u2013 Machine Learning Data Infrastruct": {
-      "companies": 1,
+      "csv_rows": [
+        7080
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsenior\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Software Engineer - Data & Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        28292
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Software Engineer - Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        14492
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Software Engineer - Perception ML": {
-      "companies": 1,
+      "csv_rows": [
+        7080
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bml\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 1
     },
     "Software Engineer, Machine Learning": {
-      "companies": 2,
+      "csv_rows": [
+        7770,
+        21989
+      ],
       "senior_marked": false,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
-      "senior_patterns": []
+      "senior_patterns": [],
+      "companies": 2
     },
     "Sr. Machine Learning Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        6056
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsr\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Sr. Software Engineer, Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        15355
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bsr\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Staff AI/ML Data Engineer": {
-      "companies": 1,
+      "csv_rows": [
+        7590
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bml\\b",
@@ -548,47 +768,61 @@
       ],
       "senior_patterns": [
         "\\bstaff\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Staff Backend Engineer, ML Operations": {
-      "companies": 1,
+      "csv_rows": [
+        21562
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bml\\b"
       ],
       "senior_patterns": [
         "\\bstaff\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Staff Data Scientist, Machine Learning Analytics": {
-      "companies": 1,
+      "csv_rows": [
+        10020
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bstaff\\b"
-      ]
+      ],
+      "companies": 1
     },
     "Staff Machine Learning Engineer": {
-      "companies": 2,
+      "csv_rows": [
+        20045,
+        27807
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bstaff\\b"
-      ]
+      ],
+      "companies": 2
     },
     "Staff Software Engineer - Machine Learning": {
-      "companies": 1,
+      "csv_rows": [
+        26795
+      ],
       "senior_marked": true,
       "family_patterns": [
         "\\bmachine learning\\b"
       ],
       "senior_patterns": [
         "\\bstaff\\b"
-      ]
+      ],
+      "companies": 1
     }
   }
 }
