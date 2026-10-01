@@ -1,0 +1,64 @@
+{
+  "as_of": "2026-09-30",
+  "source_csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+  "rows_in_csv": 30369,
+  "rows_with_h1b_data": 1557,
+  "roles_built": 183,
+  "skipped": {
+    "unparseable-titles": {
+      "count": 0,
+      "companies": []
+    },
+    "no-approval-rate": {
+      "count": 0,
+      "companies": []
+    }
+  },
+  "tiers": {
+    "Proven": 134,
+    "Likely": 49,
+    "Unknown": 0
+  },
+  "roles_with_fit_above_zero": 173,
+  "assumptions": {
+    "sponsorship_prior": {
+      "value": 0.9812,
+      "source": "record: sum(Total Approvals) / sum(Total Approvals + Total Denials) over the H-1B subset"
+    },
+    "zero_approval_prior": {
+      "value": 0.3,
+      "applies_to": "companies with 0 approvals only",
+      "source": "your-input: chosen, not derived; only 5 zero-approval companies exist and their counts look doubled, so a data-derived prior would not be trustworthy"
+    },
+    "shrinkage_c": {
+      "value": 5,
+      "source": "your-input"
+    },
+    "proven_min_approvals": {
+      "value": 5,
+      "source": "your-input"
+    },
+    "usable_days": {
+      "value": 36,
+      "source": "record: persona profile.yml (ceiling - used - buffer), as of the fixed date"
+    },
+    "lag_days": {
+      "late_stage": 56,
+      "early_stage": 21,
+      "late_stages": [
+        "Series C",
+        "Series D+"
+      ],
+      "source": "your-input, from persona gaps.md"
+    },
+    "fit_target_tokens": {
+      "value": [
+        "ai",
+        "data",
+        "engineer",
+        "ml"
+      ],
+      "source": "record: persona profile.yml target_role"
+    }
+  }
+}

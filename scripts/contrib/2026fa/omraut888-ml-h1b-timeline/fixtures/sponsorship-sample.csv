@@ -1,0 +1,7 @@
+company_name,industry,website,city,state,zip_code,phone,year_incorporated,company_age_years,executive_officers,board_directors,total_funding,latest_funding_amount,latest_funding_stage,latest_funding_date,Total Approvals,Total Denials,Approval_Rate,median_salary_offered,top_job_titles_sponsored
+LATE ML INC,Other Technology,,,,,,,,,,500000000.0,,Series D+,,40.0,2.0,95.23809523809523,150000.0,"['Machine Learning Engineer', 'Product Manager']"
+TINY AI LABS,Other Technology,,,,,,,,,,2000000.0,,Seed,,2.0,0.0,100.0,120000.0,['AI Engineer']
+PLAIN SOFTWARE CO,,,,,,,,,,,,,Series B,,10.0,0.0,100.0,110000.0,['Software Engineer']
+BROKEN TITLES CO,,,,,,,,,,,,,Series A,,3.0,0.0,100.0,100000.0,['Machine Learning Engineer'
+DATA ENTRY SERVICES LLC,,,,,,,,,,,,,Seed,,1.0,1.0,50.0,45000.0,['Data Entry Clerk']
+NO H1B STARTUP,,,,,,,,,,,,,Pre-Seed,,,,,,
