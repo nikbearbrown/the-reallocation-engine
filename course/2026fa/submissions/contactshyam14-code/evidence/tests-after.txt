@@ -1,0 +1,26 @@
+# AFTER — sign-off update on top of c0bceb8 (committed in the next commit)
+$ node --test scripts/contrib/2026fa/contactshyam14-code-em-network-targets/network-targets.test.mjs
+ok 1 - happy path: buckets come from the real scorer, not from this tool
+ok 2 - roles.json never omits a gate, and held companies are never scored
+ok 3 - every evidence value carries one of the three labels
+ok 4 - record values are copied from the CSV, not computed or rounded
+ok 5 - a tier explanation names only the condition that actually failed
+ok 6 - liveness label follows who observed it and whether the board is confirmed
+ok 7 - a person confirming a board makes its liveness your-input — not record, not model-judgment
+ok 8 - F1: OPT end already past → exit 3, nothing written
+ok 9 - OPT not started yet: start reported, unemployment counted from the start, not from today
+ok 10 - an OPT start on or after the OPT end → exit 3, nothing written
+ok 11 - F2: SOC code with no row → exit 3, names the code, nothing written
+ok 12 - F3: liveness observations that match no candidate are reported, never invented
+ok 13 - F6: CSV missing a required column → exit 3, nothing written
+ok 14 - a stale or failed liveness check holds the company instead of closing it
+ok 15 - companies sharing an identical H-1B record are flagged for an identity check
+ok 16 - BLS vocabulary: primary O*NET row by default; "all" pulls in QA titles
+ok 17 - parity check is computed from the file, not hardcoded
+ok 18 - out-dir outside this contribution is refused, nothing written
+ok 19 - out-dir guard holds even when the repository itself sits inside the OS temp dir
+ok 20 - nothing checked yet → scorer is not run (no empty, NaN-rate report)
+ok 21 - upstream characterization: the scorer treats a MISSING liveness gate as open
+# tests 21
+# pass 21
+# fail 0

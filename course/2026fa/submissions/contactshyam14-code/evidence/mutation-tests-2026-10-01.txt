@@ -1,0 +1,36 @@
+=== M1 missing liveness observation treated as open (factor 1)
+pattern hits: 1
+not ok 1 - happy path: buckets come from the real scorer, not from this tool
+not ok 2 - roles.json never omits a gate, and held companies are never scored
+not ok 15 - nothing checked yet → scorer is not run (no empty, NaN-rate report)
+# pass 13
+# fail 3
+=== M2 tier labelled record instead of your-input
+pattern hits: 1
+not ok 3 - every evidence value carries one of the three labels
+# pass 15
+# fail 1
+=== M3 out-dir guard disabled
+pattern hits: 1
+not ok 14 - out-dir outside this contribution is refused, nothing written
+# pass 15
+# fail 1
+=== restored:
+# pass 15
+# fail 1
+
+=== FOUND: the M3 run (guard disabled) wrote 5 files into data/examples/nt-should-not-exist/;
+    the restored suite then failed test 14 on that leftover. Moved the folder out of the repo;
+    test 14 now uses a unique dir name and removes it in finally.
+=== clean suite after hardening:
+# pass 16
+# fail 0
+=== M3 again (guard disabled), hardened test:
+not ok 14 - out-dir outside this contribution is refused, nothing written
+# pass 15
+# fail 1
+=== residue in data/examples after M3:
+none
+=== restored suite:
+# pass 16
+# fail 0

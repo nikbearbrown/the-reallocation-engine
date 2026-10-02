@@ -1,0 +1,31 @@
+# Failure cases re-run on 2026-10-02 with the corrected persona (OPT 2026-12-31 → 2027-12-30).
+# The 2026-10-01 file used the earlier persona, whose OPT end date (2026-12-31) was really the start date.
+
+### F1 OPT end already past (as-of after 2027-12-30)
+$ node scripts/contrib/2026fa/contactshyam14-code-em-network-targets/network-targets.mjs --as-of 2028-01-15 --out-dir course/2026fa/submissions/contactshyam14-code/runs/f1
+STOP (G1): OPT end date 2027-12-30 is on or before the as-of date — refusing to score a window that has already closed
+Nothing was written.
+exit: 3
+output dir exists afterwards: no
+
+### F2 SOC code with no row (13-1082 mistyped as 13-1028)
+$ node scripts/contrib/2026fa/contactshyam14-code-em-network-targets/network-targets.mjs --as-of 2026-10-02 --persona scripts/contrib/2026fa/contactshyam14-code-em-network-targets/fixtures/break-persona-bad-soc.json --out-dir course/2026fa/submissions/contactshyam14-code/runs/f2
+STOP (G1): SOC code 13-1028 has no row in data/bls/compact/soc_occupation_compact.csv — refusing to guess a title list for it
+Nothing was written.
+exit: 3
+output dir exists afterwards: no
+
+### F6 CSV missing a required column (Approval_Rate renamed)
+$ node scripts/contrib/2026fa/contactshyam14-code-em-network-targets/network-targets.mjs --as-of 2026-10-02 --csv scripts/contrib/2026fa/contactshyam14-code-em-network-targets/fixtures/break-companies-missing-column.csv --out-dir course/2026fa/submissions/contactshyam14-code/runs/f6
+STOP (G1): company CSV lacks required column(s) "Approval_Rate": scripts/contrib/2026fa/contactshyam14-code-em-network-targets/fixtures/break-companies-missing-column.csv
+Nothing was written.
+exit: 3
+output dir exists afterwards: no
+
+### Out-dir outside the contribution (would overwrite tracked examples)
+$ node scripts/contrib/2026fa/contactshyam14-code-em-network-targets/network-targets.mjs --as-of 2026-10-02 --out-dir data/examples/should-refuse
+STOP (usage): --out-dir data/examples/should-refuse is outside this contribution's folders; refusing to write there
+Nothing was written.
+exit: 2
+output dir exists afterwards: no
+

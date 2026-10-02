@@ -1,0 +1,6 @@
+$ node scripts/score/role-scorer.mjs <empty roles.json> --out-dir <tmp>
+✓ scored 0 roles → Apply 0 · Consider 0 · Skip 0 (skip NaN%)
+  ..\..\AppData\Local\Temp\tmp.mJvInz3PVx\role-scores.json  +  ..\..\AppData\Local\Temp\tmp.mJvInz3PVx\role-scores.md
+exit: 0
+--- role-scores.md summary line:
+**Summary:** 0 roles → Apply 0 · Consider 0 · Skip 0. **Skip rate NaN%** (below the ~50% a healthy run skips; check the inputs).

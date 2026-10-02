@@ -1,0 +1,54 @@
+# Boards for the em-network-targets worked run, read by the repo's scanner:
+#   REALLOCATION_ENGINE_PORTALS=<this file> node scripts/ats/scan.mjs --dry-run
+#
+# Which board belongs to which company is a judgment (slugs were probed on
+# 2026-10-01; Greenhouse returned a board name, Lever/Ashby do not). The scan
+# output itself is the record. Zero Motorcycles' slug is a deliberate,
+# unconfirmed guess — it should fail and leave that company held, not "closed".
+
+title_filter:
+  positive:
+    - "Project Manager"
+    - "Project Management"
+    - "Project Coordinator"
+    - "Project Administrator"
+    - "Program Manager"
+    - "Program Management"
+    - "Production Manager"
+    - "Plant Manager"
+    - "Manufacturing Manager"
+    - "Factory Manager"
+    - "Assembly Manager"
+  negative:
+    - "Intern"
+
+tracked_companies:
+  - name: IEX Group
+    enabled: true
+    provider: greenhouse
+    careers_url: https://job-boards.greenhouse.io/iex
+
+  - name: Unqork
+    enabled: true
+    provider: greenhouse
+    careers_url: https://job-boards.greenhouse.io/unqork
+
+  - name: Rondo Energy
+    enabled: true
+    provider: greenhouse
+    careers_url: https://job-boards.greenhouse.io/rondoenergy
+
+  - name: Genies
+    enabled: true
+    provider: ashby
+    careers_url: https://jobs.ashbyhq.com/genies
+
+  - name: Senti Biosciences
+    enabled: true
+    provider: lever
+    careers_url: https://jobs.lever.co/sentibio
+
+  - name: Zero Motorcycles
+    enabled: true
+    provider: greenhouse
+    careers_url: https://job-boards.greenhouse.io/zeromotorcycles

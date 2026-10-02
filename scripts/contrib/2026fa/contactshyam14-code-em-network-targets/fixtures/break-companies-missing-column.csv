@@ -1,0 +1,13 @@
+company_name,industry,website,city,state,zip_code,phone,year_incorporated,company_age_years,executive_officers,board_directors,total_funding,latest_funding_amount,latest_funding_stage,latest_funding_date,Total Approvals,Total Denials,Approval_Ratio,median_salary_offered,top_job_titles_sponsored
+ALPHA PRODUCTION SYSTEMS INC,Manufacturing,alpha-production.example.com,Boston,MA,,,2015,11,,,40000000.0,20000000.0,Series B,2025-03-01,24.0,0.0,100.0,120000.0,"['Production Manager', 'Process Engineer']"
+BRAVO PROJECTS INC,Other Technology,bravo-projects.example.com,Boston,MA,,,2012,14,,,90000000.0,30000000.0,Series C,2023-06-01,40.0,2.0,95.23809523809524,110000.0,"['Senior Project Manager', 'Software Engineer']"
+CHARLIE SOFTWARE INC,Other Technology,charlie-software.example.com,Austin,TX,,,2018,8,,,25000000.0,25000000.0,Series B,2022-01-15,30.0,0.0,100.0,150000.0,"['Technical Program Manager']"
+DELTA DEVICES INC,Other Health Care,,Chicago,IL,,,2016,10,,,12000000.0,12000000.0,Series A,2019-05-20,4.0,4.0,50.0,90000.0,"['Project Coordinator']"
+ECHO FOODS INC,Other,echo-foods.example.com,Denver,CO,,,2010,16,,,5000000.0,5000000.0,Seed,2014-02-02,10.0,0.0,100.0,95000.0,"['Software Engineer']"
+FOXTROT LABS INC,Manufacturing,foxtrot-labs.example.com,Detroit,MI,,,2017,9,,,60000000.0,40000000.0,Series C,2024-11-01,6.0,0.0,100.0,130000.0,"['Plant Manager']"
+FOXTROTT LABS INC,Other,,Reno,NV,,,2021,5,,,2000000.0,2000000.0,Seed,2022-03-03,6.0,0.0,100.0,130000.0,"['Plant Manager']"
+GOLF HOLDINGS INC,Other,golf-holdings.example.com,Miami,FL,,,2011,15,,,8000000.0,8000000.0,Series A,2016-08-08,2.0,4.0,33.33333333333333,100000.0,"['Project Manager']"
+HOTEL VENTURES INC,Other,hotel-ventures.example.com,Seattle,WA,,,2019,7,,,3000000.0,3000000.0,Seed,2020-10-10,,,,,
+KILO MACHINES INC,Manufacturing,kilo-machines.example.com,Cleveland,OH,,,2014,12,,,70000000.0,35000000.0,Series C,2025-01-20,12.0,0.0,100.0,125000.0,"['Manufacturing Manager']"
+LIMA INDUSTRIES INC,Manufacturing,lima-industries.example.com,Pittsburgh,PA,,,2013,13,,,50000000.0,10000000.0,Series B,2021-07-07,20.0,0.0,100.0,118000.0,"['Assembly Manager', 'Quality Engineer']"
+MIKE SOFTWARE INC,Other Technology,mike-software.example.com,San Jose,CA,,,2016,10,,,30000000.0,30000000.0,Series B,2023-02-02,16.0,0.0,100.0,140000.0,"['Quality Assurance Manager']"

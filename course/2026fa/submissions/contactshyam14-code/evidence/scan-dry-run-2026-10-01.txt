@@ -1,0 +1,23 @@
+Scanning 6 companies via providers (0 local parser; 0 skipped — no provider matched)
+(dry run — no files will be written)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Portal Scan — 2026-10-02
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Companies scanned:     6
+Total jobs found:      28
+Filtered by title:     27 removed
+Filtered by location:  0 removed
+Duplicates:            0 skipped
+New offers added:      1
+
+Errors (1):
+  ✗ Zero Motorcycles: HTTP 404: {"status":404,"error":"Job not found"}
+
+New offers:
+  + IEX Group | Project Manager  | New York
+
+(dry run — run without --dry-run to save results)
+
+Review new offers in data/ats/pipeline.md.

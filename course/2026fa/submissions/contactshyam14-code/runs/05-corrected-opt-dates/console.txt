@@ -1,0 +1,8 @@
+✓ 57 candidates from 1557 H-1B rows (13-1082: 55, 11-3051: 2)
+  network 4 · apply 1 · check-liveness 52 · skip 0
+  scorer: ✓ scored 5 roles → Apply 1 · Consider 0 · Skip 4 (skip 80%)
+  OPT window: 2026-12-31 → 2027-12-30 (starts in 90 days); 180 days available; timeline factor apply 1, network 1
+  ! parity: all 1557 approval and denial counts are even — counts probably doubled upstream
+  ! identity check needed: CONVEY INC, COVEY INC, LYNDRA THERAPEUTICS INC, LYRA THERAPEUTICS INC, SALESFORCE COM INC, SALESFORCECOM INC
+  gate G4 visa-path: awaiting human sign-off
+  wrote course/2026fa/submissions/contactshyam14-code/runs/05-corrected-opt-dates/network-targets.json + network-targets.md + roles.json + role-scores.json/.md

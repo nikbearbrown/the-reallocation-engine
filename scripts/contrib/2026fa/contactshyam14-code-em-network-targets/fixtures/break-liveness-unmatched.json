@@ -1,0 +1,7 @@
+{
+  "_note": "BREAK INPUT for failure case F3 on the real CSV: one observation for a company that is not in the 80 Days CSV (checked: 0 hits), one for a CSV company that is not a candidate (H-1B record, no project/production title). Not real observations.",
+  "observations": [
+    { "company": "Quillfeather Assembly Works", "checked_on": "2026-10-01", "observed_by": "person", "method": "break test", "result": "no-matching-open" },
+    { "company": "1LIFE HEALTHCARE INC", "checked_on": "2026-10-01", "observed_by": "person", "method": "break test", "result": "no-matching-open" }
+  ]
+}

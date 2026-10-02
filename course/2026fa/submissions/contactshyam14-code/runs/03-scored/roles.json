@@ -1,0 +1,92 @@
+[
+  {
+    "role_id": "nt-genies-l10901",
+    "company": "GENIES INC",
+    "title": "Project Manager (sponsored title per 80 Days CSV)",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 0,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "nt-iexgroup-l12869",
+    "company": "IEX GROUP INC",
+    "title": "Project Manager (sponsored title per 80 Days CSV)",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "nt-rondoenergy-l22817",
+    "company": "RONDO ENERGY INC",
+    "title": "Senior Construction Project Manager (sponsored title per 80 Days CSV)",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 0,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "nt-sentibiosciences-l23704",
+    "company": "SENTI BIOSCIENCES INC",
+    "title": "R&D Project Manager (sponsored title per 80 Days CSV)",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 0,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "nt-unqork-l28039",
+    "company": "UNQORK INC",
+    "title": "Project Manager (sponsored title per 80 Days CSV)",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 0,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  }
+]

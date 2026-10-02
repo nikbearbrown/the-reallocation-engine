@@ -1,0 +1,40 @@
+{
+  "_label": "your-input",
+  "_note": "Persona modelled on the author's situation. No résumé, contacts, or real email. Every value and rule here is the person's own input; edit the rules openly rather than in code.",
+  "persona_id": "shyam-em-opt",
+  "name": "Shyam",
+  "email": "shyam@example.com",
+  "degree": "MS Engineering Management",
+  "visa": {
+    "status": "F-1; 12-month post-completion OPT not started yet",
+    "stem_extension": false,
+    "opt_start_date": "2026-12-31",
+    "opt_end_date": "2027-12-30",
+    "_dates_note": "Start date from Shyam (2026-10-02 correction: December 2026 is the OPT START, not the end). End date is an assumption: start + 12 months - 1 day; replace it with the 'Card Expires' date on the EAD.",
+    "unemployment_days_used": 0,
+    "_unemployment_note": "0 because OPT has not started; as understood, the 90-day unemployment allowance counts from the OPT start date (confirm with the DSO).",
+    "needs_sponsorship": true
+  },
+  "targets": [
+    {
+      "soc": "13-1082",
+      "keywords": ["project manager", "project management", "project coordinator", "project administrator"],
+      "ambiguous_keywords": ["program manager", "program management"]
+    },
+    {
+      "soc": "11-3051",
+      "keywords": ["production manager", "plant manager", "manufacturing manager", "factory manager", "assembly manager"],
+      "ambiguous_keywords": []
+    }
+  ],
+  "use_bls_titles": true,
+  "bls_title_rows": "primary",
+  "rules": {
+    "tier": { "proven_min_approvals": 10, "proven_min_rate": 90, "likely_min_rate": 50 },
+    "tier_to_p": { "Proven": 0.9, "Likely": 0.6, "Possible": 0.3 },
+    "hiring_lag_days": { "apply": 45, "network": 75 },
+    "liveness_max_age_days": 7,
+    "network_tiers": ["Proven", "Likely"],
+    "recent_funding_months": 24
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "_label_rule": "observed_by: script -> record (needs an evidence file), person -> your-input, ai-agent -> model-judgment",
+  "_results": "matching-open | no-matching-open | expired | unchecked",
+  "observations": []
+}

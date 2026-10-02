@@ -1,0 +1,13 @@
+{
+  "observations": [
+    { "company": "Alpha Production Systems", "checked_on": "2026-09-30", "observed_by": "script", "method": "scan.mjs --dry-run", "result": "no-matching-open", "evidence": "fixtures/evidence-not-real.txt" },
+    { "company": "Bravo Projects", "checked_on": "2026-09-30", "observed_by": "script", "method": "scan.mjs --dry-run", "result": "matching-open", "matching_postings": [{ "title": "Senior Project Manager", "location": "Boston", "url": null }], "evidence": "fixtures/evidence-not-real.txt" },
+    { "company": "Charlie Software", "checked_on": "2026-10-01", "observed_by": "person", "method": "looked at the careers page", "result": "no-matching-open" },
+    { "company": "Foxtrot Labs", "checked_on": "2026-10-01", "observed_by": "ai-agent", "method": "agent read the careers page", "result": "no-matching-open" },
+    { "company": "Golf Holdings", "checked_on": "2026-10-01", "observed_by": "script", "method": "scan.mjs --dry-run", "result": "matching-open", "evidence": "fixtures/evidence-not-real.txt" },
+    { "company": "Hotel Ventures", "checked_on": "2026-10-01", "observed_by": "person", "method": "careers page", "result": "matching-open" },
+    { "company": "India Robotics", "checked_on": "2026-10-01", "observed_by": "person", "method": "careers page", "result": "no-matching-open" },
+    { "company": "Kilo Machines", "checked_on": "2026-09-01", "observed_by": "script", "method": "scan.mjs --dry-run", "result": "no-matching-open", "evidence": "fixtures/evidence-not-real.txt" },
+    { "company": "Lima Industries", "checked_on": "2026-10-01", "observed_by": "script", "method": "scan.mjs --dry-run", "result": "no-matching-open" }
+  ]
+}

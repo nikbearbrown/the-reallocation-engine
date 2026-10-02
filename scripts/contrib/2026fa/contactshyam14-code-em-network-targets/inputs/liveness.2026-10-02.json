@@ -1,0 +1,76 @@
+{
+  "_label_rule": "observed_by: script -> record (needs an evidence file), person -> your-input, ai-agent -> model-judgment; board_identity 'unconfirmed' lowers any label to model-judgment",
+  "_results": "matching-open | no-matching-open | expired | unchecked",
+  "_how_made": "Copy of liveness.2026-10-01.json (scanner evidence, transcribed by Claude) plus Shyam's own checks on 2026-10-02: he opened the IEX, Genies and Senti boards in his browser and confirmed (in chat) that the IEX Project Manager job is listed and that the Genies and Senti boards belong to those companies. checked_on stays the scan date.",
+  "observations": [
+    {
+      "company": "IEX Group",
+      "checked_on": "2026-10-01",
+      "observed_by": "script",
+      "method": "scripts/ats/scan.mjs --dry-run, greenhouse",
+      "board_url": "https://job-boards.greenhouse.io/iex",
+      "board_identity": "confirmed: Greenhouse board name \"IEX Group\"",
+      "result": "matching-open",
+      "matching_postings": [
+        {
+          "title": "Project Manager",
+          "location": "New York",
+          "url": null
+        }
+      ],
+      "evidence": "course/2026fa/submissions/contactshyam14-code/evidence/scan-dry-run-2026-10-01.txt",
+      "person_check": "2026-10-02: Shyam Gopalakrishnan opened the board; the \"Project Manager\" job is listed"
+    },
+    {
+      "company": "Unqork",
+      "checked_on": "2026-10-01",
+      "observed_by": "script",
+      "method": "scripts/ats/scan.mjs --dry-run, greenhouse",
+      "board_url": "https://job-boards.greenhouse.io/unqork",
+      "board_identity": "confirmed: Greenhouse board name \"Unqork\"",
+      "result": "no-matching-open",
+      "evidence": "course/2026fa/submissions/contactshyam14-code/evidence/scan-dry-run-2026-10-01.txt"
+    },
+    {
+      "company": "Rondo Energy",
+      "checked_on": "2026-10-01",
+      "observed_by": "script",
+      "method": "scripts/ats/scan.mjs --dry-run, greenhouse",
+      "board_url": "https://job-boards.greenhouse.io/rondoenergy",
+      "board_identity": "confirmed: Greenhouse board name \"Rondo Energy\"",
+      "result": "no-matching-open",
+      "evidence": "course/2026fa/submissions/contactshyam14-code/evidence/scan-dry-run-2026-10-01.txt"
+    },
+    {
+      "company": "Genies",
+      "checked_on": "2026-10-01",
+      "observed_by": "script",
+      "method": "scripts/ats/scan.mjs --dry-run, ashby",
+      "board_url": "https://jobs.ashbyhq.com/genies",
+      "board_identity": "person-confirmed: Shyam Gopalakrishnan opened this board on 2026-10-02 and confirmed it is the company's",
+      "result": "no-matching-open",
+      "evidence": "course/2026fa/submissions/contactshyam14-code/evidence/scan-dry-run-2026-10-01.txt"
+    },
+    {
+      "company": "Senti Biosciences",
+      "checked_on": "2026-10-01",
+      "observed_by": "script",
+      "method": "scripts/ats/scan.mjs --dry-run, lever",
+      "board_url": "https://jobs.lever.co/sentibio",
+      "board_identity": "person-confirmed: Shyam Gopalakrishnan opened this board on 2026-10-02 and confirmed it is the company's",
+      "result": "no-matching-open",
+      "evidence": "course/2026fa/submissions/contactshyam14-code/evidence/scan-dry-run-2026-10-01.txt"
+    },
+    {
+      "company": "Zero Motorcycles",
+      "checked_on": "2026-10-01",
+      "observed_by": "script",
+      "method": "scripts/ats/scan.mjs --dry-run, greenhouse (deliberately unconfirmed slug)",
+      "board_url": "https://job-boards.greenhouse.io/zeromotorcycles",
+      "board_identity": "unconfirmed",
+      "result": "unchecked",
+      "note": "scanner error: HTTP 404 — a failed check is not evidence that nothing is open",
+      "evidence": "course/2026fa/submissions/contactshyam14-code/evidence/scan-dry-run-2026-10-01.txt"
+    }
+  ]
+}

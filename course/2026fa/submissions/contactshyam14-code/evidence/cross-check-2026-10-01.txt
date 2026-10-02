@@ -1,0 +1,36 @@
+GENIES INC  (csv line 10901; titles: ['Avatar Modeler', 'Machine Learning Engineer / AI Scientist ', 'Project Manager', 'Senior Concept Artist'])
+   OK  approvals: csv=22.0 prototype=22
+   OK  denials: csv=0.0 prototype=0
+   OK  approval_rate: csv=100.0 prototype=100
+   OK  latest_funding_date: csv='2021-04-16' prototype='2021-04-16'
+   OK  matched title in CSV list: csv=True prototype=True
+   OK  csv line number: csv=10901 prototype=10901
+IEX GROUP INC  (csv line 12869; titles: ['Project Manager'])
+   OK  approvals: csv=14.0 prototype=14
+   OK  denials: csv=0.0 prototype=0
+   OK  approval_rate: csv=100.0 prototype=100
+   OK  latest_funding_date: csv='2014-08-22' prototype='2014-08-22'
+   OK  matched title in CSV list: csv=True prototype=True
+   OK  csv line number: csv=12869 prototype=12869
+RONDO ENERGY INC  (csv line 22817; titles: ['Senior Construction Project Manager '])
+   OK  approvals: csv=2.0 prototype=2
+   OK  denials: csv=0.0 prototype=0
+   OK  approval_rate: csv=100.0 prototype=100
+   OK  latest_funding_date: csv='2022-01-04' prototype='2022-01-04'
+   OK  matched title in CSV list: csv=True prototype=True
+   OK  csv line number: csv=22817 prototype=22817
+SENTI BIOSCIENCES INC  (csv line 23704; titles: ['R&D Project Manager'])
+   OK  approvals: csv=4.0 prototype=4
+   OK  denials: csv=0.0 prototype=0
+   OK  approval_rate: csv=100.0 prototype=100
+   OK  latest_funding_date: csv='2024-12-09' prototype='2024-12-09'
+   OK  matched title in CSV list: csv=True prototype=True
+   OK  csv line number: csv=23704 prototype=23704
+UNQORK INC  (csv line 28039; titles: ['Lead Quality Assurance Engineer', 'Solutions Architect', 'Lead Automation Test Engineer', 'Project Manager', 'Staff Software Engineer'])
+   OK  approvals: csv=38.0 prototype=38
+   OK  denials: csv=0.0 prototype=0
+   OK  approval_rate: csv=100.0 prototype=100
+   OK  latest_funding_date: csv='2020-09-18' prototype='2020-09-18'
+   OK  matched title in CSV list: csv=True prototype=True
+   OK  csv line number: csv=28039 prototype=28039
+not found in CSV: none

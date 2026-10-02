@@ -1,0 +1,17 @@
+{
+  "metadata": { "quarter": "fixture", "_sample": "fictional filings for the offline test" },
+  "companies": [
+    {
+      "accession_number": "0000000000-26-000001",
+      "company": { "name": "Alpha Production Systems, Inc.", "company_name_normalized": "alphaproductionsystems", "industry": "Manufacturing" },
+      "funding": { "total_offering_amount": 20000000, "total_amount_sold": 15000000, "date_of_first_sale": "2025-02-15" },
+      "filing": { "date_filed": "01-MAR-2025", "submission_type": "D", "quarter": "fixture" }
+    },
+    {
+      "accession_number": "0000000000-26-000002",
+      "company": { "name": "Unrelated Fund LP", "company_name_normalized": "unrelatedfund", "industry": "Pooled Investment Fund" },
+      "funding": { "total_offering_amount": 5000000, "total_amount_sold": 1000000, "date_of_first_sale": "2025-04-01" },
+      "filing": { "date_filed": "15-APR-2025", "submission_type": "D", "quarter": "fixture" }
+    }
+  ]
+}

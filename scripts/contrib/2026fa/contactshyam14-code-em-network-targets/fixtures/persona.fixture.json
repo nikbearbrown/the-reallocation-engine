@@ -1,0 +1,28 @@
+{
+  "_label": "your-input",
+  "_note": "Test persona. Same rule shape as inputs/persona.shyam.json.",
+  "name": "Fixture",
+  "email": "fixture@example.com",
+  "degree": "MS Engineering Management",
+  "visa": {
+    "status": "F-1 post-completion OPT (12-month)",
+    "stem_extension": false,
+    "opt_end_date": "2026-12-31",
+    "unemployment_days_used": null,
+    "needs_sponsorship": true
+  },
+  "targets": [
+    { "soc": "13-1082", "keywords": ["project manager", "project management", "project coordinator"], "ambiguous_keywords": ["program manager"] },
+    { "soc": "11-3051", "keywords": ["production manager", "plant manager", "manufacturing manager"], "ambiguous_keywords": [] }
+  ],
+  "use_bls_titles": true,
+  "bls_title_rows": "primary",
+  "rules": {
+    "tier": { "proven_min_approvals": 10, "proven_min_rate": 90, "likely_min_rate": 50 },
+    "tier_to_p": { "Proven": 0.9, "Likely": 0.6, "Possible": 0.3 },
+    "hiring_lag_days": { "apply": 45, "network": 75 },
+    "liveness_max_age_days": 7,
+    "network_tiers": ["Proven", "Likely"],
+    "recent_funding_months": 24
+  }
+}
