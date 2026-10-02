@@ -1,0 +1,17 @@
+{
+  "FIXTURE PROVEN SPONSOR INC": {
+    "result": "active", "code": "apply_control_visible",
+    "reason": "visible apply control detected",
+    "source": "record (classifyLiveness) over fixture capture"
+  },
+  "FIXTURE EXPIRED POSTING INC": {
+    "result": "expired", "code": "expired_body",
+    "reason": "pattern matched",
+    "source": "record (classifyLiveness) over fixture capture"
+  },
+  "FIXTURE UNCERTAIN POSTING INC": {
+    "result": "uncertain", "code": "no_apply_control",
+    "reason": "content present but no visible apply control found",
+    "source": "record (classifyLiveness) over fixture capture"
+  }
+}

@@ -1,0 +1,367 @@
+{
+  "_scorer": "bayesian-role-scorer",
+  "_chapter": 11,
+  "generated": "2026-10-02",
+  "config": {
+    "weights": {
+      "sponsorship": 0.35,
+      "fit": 0.3,
+      "role_quality": 0
+    },
+    "apply_threshold": 0.3,
+    "consider_floor": 0.2,
+    "gate_zero": 0.05,
+    "soft_sponsorship_tiers": [
+      "likely",
+      "possible",
+      "unknown"
+    ]
+  },
+  "profile_needs_sponsorship": true,
+  "roles": [
+    {
+      "role_id": "dataeng-0000",
+      "company": "ACE-UP INC",
+      "title": "Business Intelligence Analyst",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 1,
+            "weight": 0.35,
+            "contribution": 0.35,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.59,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(1·0.35 + 0.8·0.3) × 0 × 1 = 0.000"
+      }
+    },
+    {
+      "role_id": "dataeng-0001",
+      "company": "ADEPT ID INC",
+      "title": "Research Data Scientist",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 1,
+            "weight": 0.35,
+            "contribution": 0.35,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.59,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(1·0.35 + 0.8·0.3) × 0 × 1 = 0.000"
+      }
+    },
+    {
+      "role_id": "dataeng-0002",
+      "company": "AFFINITY SOLUTIONS INC",
+      "title": "DATA SCIENTIST",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 1,
+            "weight": 0.35,
+            "contribution": 0.35,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.59,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(1·0.35 + 0.8·0.3) × 0 × 1 = 0.000"
+      }
+    },
+    {
+      "role_id": "dataeng-0003",
+      "company": "AGENT TECHNOLOGIES INC",
+      "title": "Machine Learning Engineer",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.982,
+            "weight": 0.35,
+            "contribution": 0.3437,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.5837,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(0.982·0.35 + 0.8·0.3) × 0 × 1 = 0.000"
+      }
+    },
+    {
+      "role_id": "dataeng-0004",
+      "company": "AIM INTELLIGENT MACHINES INC",
+      "title": "Machine Learning Engineer",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 1,
+            "weight": 0.35,
+            "contribution": 0.35,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.59,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(1·0.35 + 0.8·0.3) × 0 × 1 = 0.000"
+      }
+    },
+    {
+      "role_id": "dataeng-0005",
+      "company": "AIRBNB INC",
+      "title": "Data Scientist",
+      "composite": 0.5865,
+      "recommendation": "Apply",
+      "machine_recommendation": "Apply",
+      "reason": "composite 0.587 ≥ 0.3, gates healthy",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.99,
+            "weight": 0.35,
+            "contribution": 0.3465,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.5865,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.99·0.35 + 0.8·0.3) × 1 × 1 = 0.587"
+      }
+    },
+    {
+      "role_id": "dataeng-0006",
+      "company": "ALLAKOS INC",
+      "title": "Data Analyst",
+      "composite": 0.59,
+      "recommendation": "Apply",
+      "machine_recommendation": "Apply",
+      "reason": "composite 0.590 ≥ 0.3, gates healthy",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 1,
+            "weight": 0.35,
+            "contribution": 0.35,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.59,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(1·0.35 + 0.8·0.3) × 1 × 1 = 0.590"
+      }
+    },
+    {
+      "role_id": "dataeng-0007",
+      "company": "ALVEO TECHNOLOGIES INC",
+      "title": "Data Scientist",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 1,
+            "weight": 0.35,
+            "contribution": 0.35,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.59,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "record (classifyLiveness) over fixture capture"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(1·0.35 + 0.8·0.3) × 0 × 1 = 0.000"
+      }
+    }
+  ]
+}

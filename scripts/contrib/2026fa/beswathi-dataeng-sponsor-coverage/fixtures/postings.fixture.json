@@ -1,0 +1,88 @@
+[
+  {
+    "company": "AIRBNB INC",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000001",
+    "status": 200,
+    "finalUrl": "https://boards.greenhouse.io/example/jobs/1000001",
+    "applyControls": [
+      "Apply for this job"
+    ],
+    "bodyText": "Senior Data Engineer. You will build and own batch and streaming pipelines, model warehouse layers, and partner with analytics engineering on dbt models. Requirements include SQL, Python, Spark, Airflow and dimensional modelling experience. We offer visa sponsorship for qualified candidates. Apply for this job below and a recruiter will follow up within a week.",
+    "captured_at": "2026-09-30",
+    "fixture_note": "synthetic capture in the shape ats:liveness returns; expected active via apply control"
+  },
+  {
+    "company": "ALVEO TECHNOLOGIES INC",
+    "posting_url": "https://jobs.lever.co/example/2000002",
+    "status": 200,
+    "finalUrl": "https://jobs.lever.co/example/2000002",
+    "applyControls": [],
+    "bodyText": "This job has expired and is no longer accepting applications. Browse our other openings to find a role that fits your background, or join our talent community to hear about future opportunities on the data platform team.",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected expired via HARD_EXPIRED_PATTERNS"
+  },
+  {
+    "company": "ADEPT ID INC",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000003",
+    "status": 404,
+    "finalUrl": "https://boards.greenhouse.io/example/jobs/1000003",
+    "applyControls": [],
+    "bodyText": "",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected expired via http_gone"
+  },
+  {
+    "company": "AFFINITY SOLUTIONS INC",
+    "posting_url": "https://example.ashbyhq.com/example/4000004",
+    "status": 200,
+    "finalUrl": "https://example.ashbyhq.com/example/4000004",
+    "applyControls": [],
+    "bodyText": "Senior Data Analyst. The analytics team owns reporting for our consumer data products and works across SQL, dbt and Looker. This role sits with the data platform group and reports to the Director of Analytics. Compensation is competitive and benchmarked annually against market survey data for the metro area. Our interview process has four stages and typically runs three to four weeks from first screen to offer.",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected uncertain: real content, no apply control found"
+  },
+  {
+    "company": "AGENT TECHNOLOGIES INC",
+    "posting_url": "https://example.smartrecruiters.com/example/5000005",
+    "status": 200,
+    "finalUrl": "https://example.smartrecruiters.com/example/5000005?error=true",
+    "applyControls": [
+      "Apply"
+    ],
+    "bodyText": "Machine Learning Engineer. Build and deploy models into production services. Strong Python and MLOps background expected.",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected expired via expired_url even though an apply control is present"
+  },
+  {
+    "company": "AIM INTELLIGENT MACHINES INC",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000006",
+    "status": 200,
+    "finalUrl": "https://boards.greenhouse.io/example/jobs/1000006",
+    "applyControls": [],
+    "bodyText": "142 jobs found. Filter by department, location and team to browse current openings across engineering, product and operations.",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected expired via listing_page \u2014 the posting redirected to a board index"
+  },
+  {
+    "company": "ACE-UP INC",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000007",
+    "status": 200,
+    "finalUrl": "https://boards.greenhouse.io/example/jobs/1000007",
+    "applyControls": [],
+    "bodyText": "Careers",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected expired via insufficient_content \u2014 nav shell only"
+  },
+  {
+    "company": "ALLAKOS INC",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/2000008",
+    "status": 200,
+    "finalUrl": "https://jobs.lever.co/example/2000008",
+    "applyControls": [
+      "Submit application"
+    ],
+    "bodyText": "Lead BI Engineer. Own the semantic layer and the reporting models that product and research teams depend on. You will set modelling standards in dbt, review schema changes, and mentor analytics engineers. We sponsor H-1B transfers and new petitions at this level. Submit application at the bottom of this page.",
+    "captured_at": "2026-09-30",
+    "fixture_note": "expected active via apply control; covers the BI Engineer title"
+  }
+]

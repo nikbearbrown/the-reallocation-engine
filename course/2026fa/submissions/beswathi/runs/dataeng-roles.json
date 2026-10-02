@@ -1,0 +1,178 @@
+[
+  {
+    "role_id": "dataeng-0000",
+    "company": "ACE-UP INC",
+    "title": "Business Intelligence Analyst",
+    "sponsorship": {
+      "p": 1.0,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0001",
+    "company": "ADEPT ID INC",
+    "title": "Research Data Scientist",
+    "sponsorship": {
+      "p": 1.0,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0002",
+    "company": "AFFINITY SOLUTIONS INC",
+    "title": "DATA SCIENTIST",
+    "sponsorship": {
+      "p": 1.0,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0003",
+    "company": "AGENT TECHNOLOGIES INC",
+    "title": "Machine Learning Engineer",
+    "sponsorship": {
+      "p": 0.982,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0004",
+    "company": "AIM INTELLIGENT MACHINES INC",
+    "title": "Machine Learning Engineer",
+    "sponsorship": {
+      "p": 1.0,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0005",
+    "company": "AIRBNB INC",
+    "title": "Data Scientist",
+    "sponsorship": {
+      "p": 0.99,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0006",
+    "company": "ALLAKOS INC",
+    "title": "Data Analyst",
+    "sponsorship": {
+      "p": 1.0,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "dataeng-0007",
+    "company": "ALVEO TECHNOLOGIES INC",
+    "title": "Data Scientist",
+    "sponsorship": {
+      "p": 1.0,
+      "tier": "Proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0.0,
+      "source": "record (classifyLiveness) over fixture capture"
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input"
+    }
+  }
+]

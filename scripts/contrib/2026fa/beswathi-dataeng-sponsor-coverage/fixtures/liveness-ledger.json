@@ -1,0 +1,66 @@
+{
+  "AIRBNB INC": {
+    "result": "active",
+    "code": "apply_control_visible",
+    "reason": "visible apply control detected",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000001",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "ALVEO TECHNOLOGIES INC": {
+    "result": "expired",
+    "code": "expired_body",
+    "reason": "pattern matched: this job has expired",
+    "posting_url": "https://jobs.lever.co/example/2000002",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "ADEPT ID INC": {
+    "result": "expired",
+    "code": "http_gone",
+    "reason": "HTTP 404",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000003",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "AFFINITY SOLUTIONS INC": {
+    "result": "uncertain",
+    "code": "no_apply_control",
+    "reason": "content present but no visible apply control found",
+    "posting_url": "https://example.ashbyhq.com/example/4000004",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "AGENT TECHNOLOGIES INC": {
+    "result": "expired",
+    "code": "expired_url",
+    "reason": "redirect to https://example.smartrecruiters.com/example/5000005?error=true",
+    "posting_url": "https://example.smartrecruiters.com/example/5000005",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "AIM INTELLIGENT MACHINES INC": {
+    "result": "expired",
+    "code": "listing_page",
+    "reason": "pattern matched: \\d+\\s+jobs?\\s+found",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000006",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "ACE-UP INC": {
+    "result": "expired",
+    "code": "insufficient_content",
+    "reason": "insufficient content — likely nav/footer only",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/1000007",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  },
+  "ALLAKOS INC": {
+    "result": "active",
+    "code": "apply_control_visible",
+    "reason": "visible apply control detected",
+    "posting_url": "https://boards.greenhouse.io/example/jobs/2000008",
+    "source": "record (classifyLiveness) over fixture capture",
+    "captured_at": "2026-09-30"
+  }
+}
