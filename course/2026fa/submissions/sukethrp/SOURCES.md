@@ -12,7 +12,8 @@ In short:
 - **The student** chose the situation, the recipe direction, the persona approach and the permissions.
   On 2026-10-02 they read the audits, kept the title rules, held all eight postings, and wrote their
   reflection and Frictional entries. The same day they re-ran the tests, the sample, a break attempt and
-  the CSV comparison in their own terminal, and signed the attestation.
+  the CSV comparison in their own terminal, and signed the attestation. Later corrections to the recipe
+  and card voided that signature, and a re-run from a fresh clone and a new signature are pending.
 
 ---
 
@@ -99,6 +100,13 @@ Commits are on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
   - Placed their reflection, Frictional entries and SOURCES text verbatim.
   - Saved their re-run output, with shell prompts and personal CSV columns removed.
   - Typed their signature into the attestation when they asked for it.
+- **Recipe and card corrections, 2026-10-02 (editorial).** Applied after a rubric review, with the student's
+  approval:
+  - the persona rows and the handoff condition for an all-held run;
+  - a typed proposals table and the skip-norm and D9 notes;
+  - the card trimmed to about one page, with "11 companies" corrected to 6.
+
+  No code changed. The edit voided the attestation, as the repo's rules require.
 - **No model at runtime.** No AI model is called by the prototype. Claude's role was authoring and
   operating, not being a data source.
   - **One exception.** The fit and timeline numbers in runs 1–2 were Claude's proposals. The prototype
@@ -134,7 +142,9 @@ Each was a choice among options Claude presented. Where Claude recommended an op
   student's own words above. The recipe is now RUNNABLE-SAMPLE.
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
 - ~~Re-run the tests and the sample run yourself, then sign the attestation.~~ Done 2026-10-02: the re-run is
-  recorded in `TEST-REPORT.md`; the attestation in `WORKED-RUN.md` is signed.
+  recorded in `TEST-REPORT.md`.
+- **Re-run from a fresh clone of the corrected commit, and sign again.** The recipe and card corrections
+  of 2026-10-02 voided the first signature.
 - ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02: a revised
   reflection and three Frictional entries.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.

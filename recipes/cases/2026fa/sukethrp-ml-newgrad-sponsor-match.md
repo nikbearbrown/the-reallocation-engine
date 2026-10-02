@@ -39,7 +39,9 @@ is for the person.
   with a scorer result;
 - `roles.json` contains exactly the `ready` roles, each with explicit `liveness` and `timeline`
   factors and a `source` label on every term;
-- the scorer's `role-scores.json` reports `profile_needs_sponsorship: true`.
+- when at least one role is `ready`: the scorer's `role-scores.json` reports `profile_needs_sponsorship: true`.
+  When every role is held, the scorer is not called, and the log and report say so (worked run 3 is this
+  case).
 
 "The report looks right" is not the condition. The counts and invariants are.
 
@@ -63,7 +65,7 @@ Read in this order before running:
 | Person | international master's student, F-1, graduating December 2026, needs H-1B sponsorship later | U.S. citizens and permanent residents (the scorer sets their sponsorship weight to 0) |
 | Roles | new-grad ML/AI engineering: machine-learning engineer, AI engineer, applied ML, NLP / computer-vision / LLM engineer | senior roles; non-ML roles; product, sales or developer-relations roles with "AI" in the title |
 | Clock | 90 days of allowed OPT unemployment after graduation; STEM OPT only if the school's DSO confirms eligibility | cap-exempt employers (universities, nonprofits); the recipe does not model them |
-| Worked runs | the fictional persona `search/examples/priya-nair/profile.yml` (F-1, AI/ML engineer target, `needs_sponsorship: true`) | any real person's profile, résumé or dates |
+| Personas | fictional only. The sample uses `search/examples/priya-nair/profile.yml` (F-1, AI/ML engineer target, `needs_sponsorship: true`). The worked runs use `search/examples/arjun-rao/profile.yml`, a pre-OPT persona added for this recipe and named in each queue's `persona` field | any real person's profile, résumé or dates |
 
 ## Purpose and source inventory
 
@@ -73,7 +75,7 @@ Read in this order before running:
 | Its audits | `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-audit.md` (same SHA-256), `…-join-validation-audit.md`, `…-entity-resolution-readiness-audit.md` | record | coverage and join limits |
 | Title and tier rules | `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/rules.json` (rules v0.2.0: drafted by Claude Code, kept by the student on 2026-10-02, recorded in `course/2026fa/submissions/sukethrp/SOURCES.md`. The file is left byte-identical so every run's recorded rules hash still matches) | your-input | what counts as ML/AI, as senior, as a level marker; the Proven threshold; the tier-to-p mapping; allowed live hosts |
 | Role queue | a JSON file the person writes (format in the prototype README); sample: `…/fixtures/sample-roles.json` | your-input | company, title, URL, fit, timeline, optional row choice or override |
-| Persona | `search/examples/priya-nair/profile.yml` (fictional) | your-input | only `needs_sponsorship: true`, which must be explicit |
+| Persona | the queue's `persona` field: `search/examples/priya-nair/profile.yml` for the sample, `search/examples/arjun-rao/profile.yml` for the worked runs (both fictional) | your-input | only `needs_sponsorship: true`, which must be explicit |
 | Company-name rule | `scripts/sec/entity-resolution.py` → `normalize_company_name` (imported) | stored script | exact normalized-name match |
 | Liveness | `scripts/ats/liveness-core.mjs` → `classifyLiveness` (saved pages), `scripts/ats/check-liveness.mjs` (`npm run ats:liveness`, live) | stored script | the liveness gate |
 | Scorer | `scripts/score/role-scorer.mjs` (`npm run score`) through its CLI | stored script | votes × gates → Apply / Consider / Skip |
@@ -162,8 +164,11 @@ limits of the recipe's inputs, stated here and in the card. They are not yet in 
    word found six asking for 2–12+ years or excluding new graduates. A person must read the posting
    before rating fit.
 
-No model is called anywhere in this recipe, so no value is `model-judgment`. If a later version adds
-one, it must be labeled.
+No model is called anywhere in this recipe, so the prototype itself produces no `model-judgment` value.
+One gap remains (defect D9). A number declared in the queue is labeled `your-input` even when a model
+proposed it. Worked runs 1–2 did exactly that with Claude's title-based fit and timeline numbers. So a
+person must not declare a model's number as their own without reviewing it. Until proposal 6 is built,
+the report cannot show the difference.
 
 ## Output contract
 
@@ -199,6 +204,15 @@ and refuses to overwrite an earlier run in `course/` without `--overwrite`.
 | scorer Skip (closed gate or low composite) | **SKIP**: no time at all | returned to networking and credibility |
 | held at a gate | **RESOLVE**: the one check the report names | minutes, not an application |
 | a person's override with a reason | the override's action, labeled as the person's call | as above |
+
+**The engine's skip norm.** The engine expects a healthy run to skip at least half of what it evaluates.
+Here a held role gets no application time either, so holds and skips count together. On those terms:
+- the sample gave 7 of 11 roles no application time (6 held, 1 skipped);
+- worked runs 1–2 gave 6 of 8 none (all held);
+- worked run 3 gave 8 of 8 none.
+
+Holds are not counted as skips in the report, because a hold means "check this first", not "this is a
+poor bet".
 
 ## Stop conditions
 
@@ -251,12 +265,20 @@ and refuses to overwrite an earlier run in `course/` without `--overwrite`.
 Conformance: `node scripts/conformance.mjs scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/` passes.
 Handoff: the sample run meets the handoff condition above.
 
-**Not in this version.** Filing-year recency, SOC-level matching, a brand-to-legal-name alias table,
-computing the timeline factor from OPT dates, and checking a posting's stated requirements are proposed,
-typed and justified in
-`course/2026fa/submissions/sukethrp/PROPOSED-ADDITIONS.md`. They are deliberately not open items of this
-recipe. None is needed for the steps above to run, and an open item here would return the recipe to
-DRAFT under the lifecycle rules.
+**Proposed for the next version.** These are typed and justified here. Each one's closure condition is in
+`course/2026fa/submissions/sukethrp/PROPOSED-ADDITIONS.md`, where each carries its typed TODO marker. They
+are not open steps of *this* recipe: none is needed for the steps above to run. Under the lifecycle rules,
+an open marker in this file would return the recipe to DRAFT, and its frontmatter test counts every
+marker.
+
+| # | Type | Proposal | Why it belongs | What it would let the recipe verify |
+|---|---|---|---|---|
+| 1 | DATA SOURCE | the DOL OFLC LCA disclosure files, one per fiscal year | they carry the decision date, title, SOC code and employer for every filing; the engine's readiness audit already names their expected path | recency (cannot-verify item 1) and completeness (item 3) |
+| 2 | DEV | match on LCA SOC codes (15-1252, 15-2051, 15-1221) alongside titles, once item 1 exists | the government's own occupation code is a better role-family test than title words the person declared | role family by classification, not by title words |
+| 3 | DATA SOURCE | a reviewed brand-to-legal-name alias table (Instacart → MAPLEBEAR INC), with who checked each line | brand names miss legal names, and this recipe refuses fuzzy matching | fewer `no-company-match` holds, each alias still labeled your-input |
+| 4 | DEV | compute the timeline factor from the persona's OPT dates and a stated hiring lag | no script computes the Chapter 10 factor today, so the timeline gate rests on a typed number | a timeline gate that does not depend on a hand-typed factor |
+| 5 | DEV | a posting-requirements check before scoring: hold roles that exclude new graduates, state N+ years, or present a talent pool as an opening | worked run 3 found six of eight unmarked titles asking for 2–12+ years or excluding new graduates | fit that no longer rests on the title alone (item 9) |
+| 6 | DEV | carry a declared value's origin into its label (`your-input` or `model-judgment`), fixing defect D9 | runs 1–2 labeled Claude's title-based fit and timeline numbers your-input | the weakest-label rule for declared numbers too |
 
 ## Lifecycle
 
@@ -269,6 +291,16 @@ DRAFT under the lifecycle rules.
   The status moves to RUNNABLE-SAMPLE only when that reading is recorded, and `last_gate` then names who
   read what, and when. Recorded on 2026-10-02: see `last_gate` and `logs/runs/2026fa-sukethrp-1.md`.
 - This recipe does not claim RUNNABLE-LIVE or VERIFIED, and `attestation` stays null.
+- **Editorial revision, 2026-10-02.** Corrections after a rubric review:
+  - the persona rows (the worked runs used arjun-rao);
+  - the handoff condition for an all-held run;
+  - the typed proposals table;
+  - the skip-norm note and the D9 label note;
+  - a shorter card.
+
+  No step, gate, output or line of code changed, so `recipe_version` stays 0.1.0. That matches the
+  prototype's own constant and every logged run. The edit voids the worked run's attestation signed
+  earlier that day; the attestation made after it is in `course/2026fa/submissions/sukethrp/WORKED-RUN.md`.
 
 ## Verification checks
 

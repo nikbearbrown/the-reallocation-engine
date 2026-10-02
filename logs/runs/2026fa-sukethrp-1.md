@@ -89,3 +89,15 @@ Each record below follows the recipe's run-log template, which extends the one i
   `attestation` field stays null until VERIFIED.
 - **Open issues:** the transcript does not print the break's exit code, and the student's run was in the
   existing checkout, not a fresh clone. Claude Code's clean-checkout runs are in `TEST-REPORT.md`.
+
+## Change record — 2026-10-02 — recipe and card corrections (documents only)
+
+- **What changed:** `recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.md` and its card.
+  - Editorial corrections after a rubric review, approved by the student: the persona rows, the handoff
+    condition for an all-held run, a typed proposals table, and the skip-norm and D9 notes.
+  - The card was trimmed to about one page, and "11 companies" was corrected to 6.
+- **What did not change:** steps, gates, outputs, code (unchanged since `c242aa5`), `rules.json`, and
+  `recipe_version` 0.1.0.
+- **Gates:** the worked run's attestation is void until the student re-runs the four checks from a fresh
+  clone and signs again.
+- **Open issues:** the re-run and the re-signature.

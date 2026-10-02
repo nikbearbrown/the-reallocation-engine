@@ -269,14 +269,18 @@ What surprised me was that a relevant ML/AI title and sponsorship history could 
 ## Attestation
 
 - Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0)
-- By: Suketh Reddy Produtoor · 2026-10-02
+- By: ~~Suketh Reddy Produtoor · 2026-10-02~~. Voided by the recipe and card corrections made later on
+  2026-10-02. Re-signature pending the student's re-run from a fresh clone.
 
-*Signed by the student on 2026-10-02. They asked for it in chat, and Claude Code typed in the "By:" line.
-The rows under "Tested" were run by the student in their own terminal, at commit `d1110ea`. Their pasted
-output follows the tables. The clean-checkout suite, the live runs and the other break attempts were run by
-Claude Code and are in `TEST-REPORT.md`. The recipe and its scripts are unchanged since `d1110ea`, and any
-later edit to either voids this attestation. The recipe's `attestation` field stays null, because the
-lifecycle sets it only at VERIFIED.*
+*The student signed on 2026-10-02 at their request in chat, and Claude Code typed in the "By:" line. The
+rows under "Tested" were run by the student in their own terminal, at commit `d1110ea`. Their pasted
+output follows the tables. The clean-checkout suite, the live runs and the other break attempts were run
+by Claude Code and are in `TEST-REPORT.md`.*
+
+*Later that day the recipe and card were corrected. The changes were editorial (see the recipe's
+Lifecycle section), and no code changed. Because any edit to the recipe voids an attestation, this one is
+void until the student re-runs the checks and signs again. The recipe's `attestation` field stays null,
+because the lifecycle sets it only at VERIFIED.*
 
 ### Tested
 | Ran | Saw | Expected |

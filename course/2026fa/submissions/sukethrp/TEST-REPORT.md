@@ -209,6 +209,11 @@ into the chat. Claude Code recorded it below and saved it, with prompts and pers
 - **Differences, or checks not performed:** no output differed from what was expected. The student did not
   run live mode, a fresh clone, Python 3.9 or the rules audit; Claude Code ran those (above).
 
+**Later on 2026-10-02: the recipe and card were corrected.** The changes were editorial (see the recipe's
+Lifecycle section). The prototype code is unchanged since `c242aa5`. The edit voided the student's
+attestation, so the student re-runs the same four checks from a fresh clone of the corrected commit,
+capturing the break's exit code this time. That run is recorded here when it arrives.
+
 
 ## Codex rerun — 2026-09-30 UTC
 
