@@ -10,8 +10,8 @@ student's machine.
 
 The runs completed. Every held role names the check a person must do. One application and one networking
 question came out of the live queue, and six roles need a person first. On 2026-10-02 the student
-recorded reading the sample report and the audits, which moved the recipe to RUNNABLE-SAMPLE. Still open:
-- the student's decisions on the eight postings (gate G8).
+recorded reading the sample report and the audits, which moved the recipe to RUNNABLE-SAMPLE, and decided
+the eight postings (gate G8): all held, Scale AI investigated first.
 
 ## Run record — sample (offline)
 
@@ -41,7 +41,7 @@ recorded reading the sample report and the audits, which moved the recipe to RUN
   - four first hops, redirects off: AppLovin 200, Nextdoor 302 → about.nextdoor.com, Databricks 302 → databricks.com, Moloco 200;
   - one liveness check, `scripts/ats/check-liveness.mjs`, on the two postings that stayed on Greenhouse: both `active`.
 - **Result:** evaluated 8 · held 6 (redirects-off-allowed-host 2, shared-h1b-record 1, no-company-match 3) · scored 2 (Apply 1 · Consider 1) · actions TAILOR 1 (AppLovin), NETWORK-FIRST 1 (Moloco), RESOLVE 6 · identical in both runs
-- **Gates:** G1 pass · G2 pass · G7 pass · G8 open. The decision table is in `course/2026fa/submissions/sukethrp/WORKED-RUN.md`
+- **Gates:** G1 pass · G2 pass · G7 pass · G8 open for these two runs. Decided by the student on 2026-10-02 against run 3's reviewed inputs: see `2026fa-sukethrp-2.md` and the decision table in `course/2026fa/submissions/sukethrp/WORKED-RUN.md`
 - **Audits read:** the sample report (`evidence/clean-checkout/06-sample-run-report.md`), the title-rules audit (v0.2.0) and the posting review, read by Suketh Reddy Produtoor (the student), reported 2026-10-02. This is the human half of SPECIFIED → RUNNABLE-SAMPLE.
 - **Open issues:**
   - fit and timeline values were proposed by Claude from titles only;

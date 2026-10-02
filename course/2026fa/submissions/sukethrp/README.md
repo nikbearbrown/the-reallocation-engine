@@ -72,8 +72,8 @@ Greenhouse, Lever and Ashby hosts.
 ## Still the student's to do
 
 The pending items are listed in [`SOURCES.md` → "Still to be done by the student"](SOURCES.md):
-- review the predictions, the drafted title rules, and the fit and timeline numbers;
-- fill in the decision table;
+- ~~read the audits; decide the title rules, the fit/timeline numbers and the decision table~~ (done
+  2026-10-02: rules v0.2.0 kept; all eight postings held, Scale AI investigated first);
 - re-run the tests and sign the attestation;
-- write the reflection and the Frictional entries;
+- write the reflection, the Frictional entries, and anything else checked in SOURCES.md;
 - give the presentation.

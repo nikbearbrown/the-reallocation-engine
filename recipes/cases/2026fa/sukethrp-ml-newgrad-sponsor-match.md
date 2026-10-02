@@ -71,7 +71,7 @@ Read in this order before running:
 |---|---|---|---|
 | Sponsorship file (80 Days to Stay) | `data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv`, SHA-256 `eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270` | record | approvals, denials, approval rate, company median salary, top sponsored titles. The phone and executive-name columns are never read into outputs |
 | Its audits | `data/80-days-to-stay/data/SEC_DOL_H1b_data_mapped-audit.md` (same SHA-256), `…-join-validation-audit.md`, `…-entity-resolution-readiness-audit.md` | record | coverage and join limits |
-| Title and tier rules | `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/rules.json` (rules v0.2.0) | your-input | what counts as ML/AI, as senior, as a level marker; the Proven threshold; the tier-to-p mapping; allowed live hosts |
+| Title and tier rules | `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/rules.json` (rules v0.2.0: drafted by Claude Code, kept by the student on 2026-10-02, recorded in `course/2026fa/submissions/sukethrp/SOURCES.md`. The file is left byte-identical so every run's recorded rules hash still matches) | your-input | what counts as ML/AI, as senior, as a level marker; the Proven threshold; the tier-to-p mapping; allowed live hosts |
 | Role queue | a JSON file the person writes (format in the prototype README); sample: `…/fixtures/sample-roles.json` | your-input | company, title, URL, fit, timeline, optional row choice or override |
 | Persona | `search/examples/priya-nair/profile.yml` (fictional) | your-input | only `needs_sponsorship: true`, which must be explicit |
 | Company-name rule | `scripts/sec/entity-resolution.py` → `normalize_company_name` (imported) | stored script | exact normalized-name match |

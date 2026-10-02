@@ -107,15 +107,17 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 | 21:25 | chose a **new matching persona** (Claude recommended it) over reusing Priya Nair |
 | 21:25 | chose to use **Claude's proposed fit and timeline values, to review later**, over typing their own |
 | 2026-10-02 | reported reading the sample report, the title-rules audit (v0.2.0) and the posting review. Recorded as the gate that moves the recipe to RUNNABLE-SAMPLE |
+| 2026-10-02 | title rules: **kept all three v0.2.0 choices**, because “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.” |
+| 2026-10-02 | the eight postings: **all held**, Scale AI investigated first: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” Recorded row by row in the decision table |
 
 ## Still to be done by the student (before submission)
 
 - Review the change brief's predictions. Add a dated revision if you disagree or have your own.
-- Decide the title rules. Keep, change or reject v0.2.0, especially the II/L2 rule.
-- Review each fit and timeline number against the actual posting. If any changes, re-run.
+- ~~Decide the title rules.~~ Done 2026-10-02: kept v0.2.0 (see the decisions above).
+- ~~Review each fit and timeline number.~~ Done 2026-10-02: all eight kept held, so no run 4.
 - ~~Read the sample report and the rules audit.~~ Done 2026-10-02, recorded in the run log. The recipe is
   now RUNNABLE-SAMPLE.
-- Fill in the decision table (gate G8) in `WORKED-RUN.md`.
+- ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
 - Re-run the tests and the sample run yourself, then sign the attestation.
 - Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.
@@ -133,6 +135,11 @@ Codex also organized the factual Frictional follow-up and a reflection draft aft
 **Status, 2026-09-30 UTC:** Suketh requested this review and a natural draft. No statement of personally reading the audits, checking the postings or CSV, running commands, or accepting specific rules or ratings was supplied in this task. No such actions are attributed to the student.
 
 **Update, 2026-10-02:** the student reported reading the sample report, the rules audit and the posting
-review. Their own account of what they checked, changed or rejected is still to be written here.
+review, and gave these decisions in their own words:
+
+- **Accepted** the title rules v0.2.0 as drafted: “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.”
+- **Rejected** scoring any of the eight postings for now: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.”
+
+*Anything else the student checked or changed is still to be added here.*
 
 **To complete in the student’s own words:** Name one result you checked, describe what you compared it against, and state one rule or recommendation you accepted, changed or rejected with your reason and date. Record the actual command and result after your own rerun. The AI-authored reflection and factual work log are preparation material, not substitutes for these personal statements.

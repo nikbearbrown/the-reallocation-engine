@@ -19,3 +19,10 @@ Reading the eight employer postings revealed experience requirements and missing
 - Authorship: numeric fit suggestions are AI judgments held in review metadata, not scorer inputs. Reflection is explicitly an AI review draft. Personal experiences and signatures are not fabricated.
 - Artifacts updated: worked run, test report, change brief append-only revision, sources, factual Frictional follow-up, README, posting review and presentation preparation.
 - Lifecycle: SPECIFIED; no human audit clearance or attestation is claimed. Maintained engine code and title rules were not changed.
+
+## Follow-up, 2026-10-02 (recorded by Claude Code)
+
+- **G8 decided by the student** for this run's eight held roles: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” The student's words are in the
+  decision table in `course/2026fa/submissions/sukethrp/WORKED-RUN.md`.
+- **Title rules v0.2.0 kept by the student**, recorded in `SOURCES.md`. `rules.json` is unchanged, so the rules
+  hash recorded by this run still matches the file.
