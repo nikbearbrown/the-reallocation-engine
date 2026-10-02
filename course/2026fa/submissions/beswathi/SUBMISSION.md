@@ -16,7 +16,7 @@
 - **Fork:** `BESWATHI/the-reallocation-engine`
 - **Branch:** `contrib/2026fa-beswathi-dataeng-sponsor-coverage`
 - **PR URL:** https://github.com/nikbearbrown/the-reallocation-engine/pull/6
-- **Submitted commit SHA:** `75400d30df5cba83229fafcc72d16ca149f48566`
+- **Submitted commit SHA:** `47002083cfd40cbcd75fe0776bd272ecd9668307`
   <br>(This file records that SHA, so the commit that *contains* this line is its
   child — `git log -2` on the branch shows both. The ZIP is built from the child.)
 - **Lifecycle stage claimed:** `RUNNABLE-SAMPLE` (v0.2.0) — G3 is **not** cleared, so `RUNNABLE-LIVE` is not claimed
