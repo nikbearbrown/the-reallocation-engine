@@ -106,14 +106,15 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 | 20:50 | allowed local commits as work proceeds. Chose "build now, review the predictions later" over adding a prediction first |
 | 21:25 | chose a **new matching persona** (Claude recommended it) over reusing Priya Nair |
 | 21:25 | chose to use **Claude's proposed fit and timeline values, to review later**, over typing their own |
+| 2026-10-02 | reported reading the sample report, the title-rules audit (v0.2.0) and the posting review. Recorded as the gate that moves the recipe to RUNNABLE-SAMPLE |
 
 ## Still to be done by the student (before submission)
 
 - Review the change brief's predictions. Add a dated revision if you disagree or have your own.
 - Decide the title rules. Keep, change or reject v0.2.0, especially the II/L2 rule.
 - Review each fit and timeline number against the actual posting. If any changes, re-run.
-- Read the sample report and the rules audit. That reading is what moves the recipe from SPECIFIED to
-  RUNNABLE-SAMPLE, recorded in the run log.
+- ~~Read the sample report and the rules audit.~~ Done 2026-10-02, recorded in the run log. The recipe is
+  now RUNNABLE-SAMPLE.
 - Fill in the decision table (gate G8) in `WORKED-RUN.md`.
 - Re-run the tests and the sample run yourself, then sign the attestation.
 - Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.
@@ -130,5 +131,8 @@ Codex also organized the factual Frictional follow-up and a reflection draft aft
 ## What the student checked, changed or rejected
 
 **Status, 2026-09-30 UTC:** Suketh requested this review and a natural draft. No statement of personally reading the audits, checking the postings or CSV, running commands, or accepting specific rules or ratings was supplied in this task. No such actions are attributed to the student.
+
+**Update, 2026-10-02:** the student reported reading the sample report, the rules audit and the posting
+review. Their own account of what they checked, changed or rejected is still to be written here.
 
 **To complete in the student’s own words:** Name one result you checked, describe what you compared it against, and state one rule or recommendation you accepted, changed or rejected with your reason and date. Record the actual command and result after your own rerun. The AI-authored reflection and factual work log are preparation material, not substitutes for these personal statements.

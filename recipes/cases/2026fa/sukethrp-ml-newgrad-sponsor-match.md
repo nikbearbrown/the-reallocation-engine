@@ -1,7 +1,7 @@
 ---
-status: SPECIFIED
+status: RUNNABLE-SAMPLE
 todos_open: 0
-last_gate: null
+last_gate: "sample-run, 2026-10-02, sample report + rules audit v0.2.0 + posting review read by Suketh Reddy Produtoor, logs/runs/2026fa-sukethrp-1.md"
 attestation: null
 recipe_version: 0.1.0
 ---
@@ -267,7 +267,7 @@ DRAFT under the lifecycle rules.
   - the audits are generated **and read by a person**, recorded in a `logs/runs/` entry.
 
   The status moves to RUNNABLE-SAMPLE only when that reading is recorded, and `last_gate` then names who
-  read what, and when.
+  read what, and when. Recorded on 2026-10-02: see `last_gate` and `logs/runs/2026fa-sukethrp-1.md`.
 - This recipe does not claim RUNNABLE-LIVE or VERIFIED, and `attestation` stays null.
 
 ## Verification checks

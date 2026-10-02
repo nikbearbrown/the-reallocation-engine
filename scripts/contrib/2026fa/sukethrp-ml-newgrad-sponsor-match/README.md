@@ -2,7 +2,7 @@
 owner: sukethrp
 term: 2026fa
 component: ml-newgrad-sponsor-match
-status: DRAFT
+status: RUNNABLE-SAMPLE
 promoted_to: null
 ---
 

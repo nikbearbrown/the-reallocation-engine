@@ -62,8 +62,9 @@ Greenhouse, Lever and Ashby hosts.
 
 ## Status
 
-- Recipe lifecycle: **SPECIFIED** (zero open items). It becomes **RUNNABLE-SAMPLE** once the student
-  records reading the sample report and the rules audit. `attestation: null`.
+- Recipe lifecycle: **RUNNABLE-SAMPLE**. The sample run completes and conformance passes. On 2026-10-02 the
+  student recorded reading the sample report, the rules audit and the posting review (see the run log).
+  `attestation: null`.
 - Tests: 36/36 offline on a clean checkout. The branch-history privacy scan is clean. The working-tree
   scan and the course's Contrib Gate CI fail for reasons that ship with the engine; `TEST-REPORT.md`
   explains both.
