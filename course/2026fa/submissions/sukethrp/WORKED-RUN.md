@@ -269,9 +269,10 @@ What surprised me was that a relevant ML/AI title and sponsorship history could 
 ## Attestation
 
 - Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0), at commit `c7eb748`
-- By: — awaiting the student's signature for the fresh-clone run below
+- By: Suketh Reddy Produtoor · 2026-10-02
 
-*The rows under "Tested" were run by the student on 2026-10-02 (evening, Eastern) in their own terminal.
+*Signed by the student on 2026-10-02 at 19:31 Eastern. They wrote "sign" in chat, and Claude Code typed in
+the "By:" line. The rows under "Tested" were run by the student on 2026-10-02 (evening, Eastern) in their own terminal.
 They used a fresh clone of the branch at commit `c7eb748`, after `npm install`, and their pasted output
 follows the tables. The clean-checkout suite, the live runs and the other break attempts were run by
 Claude Code and are in `TEST-REPORT.md`.*

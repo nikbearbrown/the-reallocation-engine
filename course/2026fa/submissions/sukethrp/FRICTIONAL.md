@@ -50,6 +50,7 @@ Quoted text is the student's own wording in chat. The answer naming the student'
 | 19:05 | The student sent a reading confirmation, a third Frictional entry, a revised reflection, a change-brief review and a sources update | placed verbatim, `b09509d` |
 | 19:11 | The student approved the plan to correct the recipe and card, knowing it voids the signature | plan approval in chat; `c7eb748` |
 | 19:16 | The student re-ran the four checks from a fresh clone of `c7eb748`, capturing the break's exit code (1) | `evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt` |
+| 19:31 | The student signed the attestation again and asked to push | “sign, push” |
 
 ## Student entries
 

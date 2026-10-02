@@ -100,7 +100,7 @@ Each record below follows the recipe's run-log template, which extends the one i
   `recipe_version` 0.1.0.
 - **Gates:** the worked run's attestation is void until the student re-runs the four checks from a fresh
   clone and signs again.
-- **Open issues:** the re-signature. The re-run is the next record.
+- **Open issues:** none. The student re-ran from a fresh clone and signed again (next record).
 
 ## Run record — 2026-10-02 — the student's re-run from a fresh clone
 
@@ -116,5 +116,5 @@ Each record below follows the recipe's run-log template, which extends the one i
 - **Outputs:** `course/2026fa/submissions/sukethrp/evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt`; run folders under the clone's `output/`
 - **Result:** 36 tests OK · sample 11 → held 6, scored 5 (Apply 1 · Consider 3 · Skip 1) · break VOID with exit code 1 · CSV line 1956 matches the report's AppLovin row
 - **Gates:** sample G1 pass · G2 pass · G7 pass · break G7 void, as designed
-- **Attestation:** the rows of `course/2026fa/submissions/sukethrp/WORKED-RUN.md` now describe this run; the student's signature is pending.
+- **Attestation:** the rows of `course/2026fa/submissions/sukethrp/WORKED-RUN.md` describe this run. Signed by the student on 2026-10-02 at 19:31 Eastern.
 - **Open issues:** none from the run. The earlier record's missing exit code is now captured.

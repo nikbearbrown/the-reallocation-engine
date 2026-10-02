@@ -14,7 +14,7 @@ In short:
   reflection and Frictional entries. The same day they re-ran the tests, the sample, a break attempt and
   the CSV comparison in their own terminal, and signed the attestation. Later corrections to the recipe
   and card voided that signature. They then re-ran the checks from a fresh clone of the corrected commit,
-  capturing the break's exit code (1), and their new signature is pending.
+  capturing the break's exit code (1), and signed the attestation again.
 
 ---
 
@@ -133,6 +133,7 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 | 2026-10-02 | title rules: **kept all three v0.2.0 choices**, because “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.” `rules.json` itself still says "the student has not yet reviewed it" and "declared_by: the student". Both notes are out of date: Claude Code drafted the rules, and the student reviewed and kept them on this date. The file is left byte-identical so that the rules hash every run recorded still matches |
 | 2026-10-02 | the eight postings: **all held**, Scale AI investigated first: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” Recorded row by row in the decision table |
 | 2026-10-02 | re-ran four checks in their own terminal (`TEST-REPORT.md` → "Student re-run") and **signed the attestation** in `WORKED-RUN.md` |
+| 2026-10-02 | approved the recipe and card corrections, knowing they void the signature; re-ran the four checks from a **fresh clone** of `c7eb748`, capturing the break's exit code; and **signed again** |
 
 ## Still to be done by the student (before submission)
 
@@ -144,8 +145,9 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
 - ~~Re-run the tests and the sample run yourself, then sign the attestation.~~ Done 2026-10-02: the re-run is
   recorded in `TEST-REPORT.md`.
-- ~~Re-run from a fresh clone of the corrected commit~~ (done 2026-10-02, `c7eb748`, exit code captured), **and
-  sign again.** The recipe and card corrections of 2026-10-02 voided the first signature.
+- ~~Re-run from a fresh clone of the corrected commit, and sign again.~~ Done 2026-10-02: the re-run is at
+  `c7eb748`, with the exit code captured, and the attestation is signed again. The recipe and card
+  corrections had voided the first signature.
 - ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02: a revised
   reflection and three Frictional entries.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.

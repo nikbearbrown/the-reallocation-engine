@@ -67,7 +67,7 @@ Greenhouse, Lever and Ashby hosts.
   student recorded reading the sample report, the rules audit and the posting review (see the run log).
   The same day they re-ran four checks themselves and signed the worked run's attestation. Later recipe
   and card corrections voided that signature. The student then re-ran the checks from a fresh clone of
-  the corrected commit, and their new signature is pending. The recipe's `attestation` field stays `null`, because the lifecycle sets it only at VERIFIED.
+  the corrected commit, and signed again. The recipe's `attestation` field stays `null`, because the lifecycle sets it only at VERIFIED.
 - Tests: 36/36 offline on a clean checkout. The branch-history privacy scan is clean. The working-tree
   scan and the course's Contrib Gate CI fail for reasons that ship with the engine; `TEST-REPORT.md`
   explains both.
@@ -78,7 +78,7 @@ The pending items are listed in [`SOURCES.md` → "Still to be done by the stude
 - ~~read the audits; decide the title rules, the fit/timeline numbers and the decision table~~ (done
   2026-10-02: rules v0.2.0 kept; all eight postings held, Scale AI investigated first);
 - ~~re-run the tests; sign the attestation~~ (done 2026-10-02); ~~re-run from a fresh clone after the recipe
-  and card corrections~~ (done 2026-10-02); sign again;
+  and card corrections; sign again~~ (done 2026-10-02);
 - ~~write the reflection, the Frictional entries and the SOURCES note~~ (done 2026-10-02);
 - ~~review the change brief's predictions; confirm the reading in their own words~~ (done 2026-10-02);
 - give the presentation.
