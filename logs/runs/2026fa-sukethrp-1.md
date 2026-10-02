@@ -100,4 +100,21 @@ Each record below follows the recipe's run-log template, which extends the one i
   `recipe_version` 0.1.0.
 - **Gates:** the worked run's attestation is void until the student re-runs the four checks from a fresh
   clone and signs again.
-- **Open issues:** the re-run and the re-signature.
+- **Open issues:** the re-signature. The re-run is the next record.
+
+## Run record — 2026-10-02 — the student's re-run from a fresh clone
+
+- **Operator:** Suketh Reddy Produtoor (the student), in their own terminal, 2026-10-02 (evening, Eastern).
+  They pasted the output into the chat; Claude Code saved it with the prompts, the local path, npm's
+  maintainer email and the CSV row's personal columns removed.
+- **Date / commit:** 2026-10-02 · a fresh `git clone` of the contrib branch at `c7eb748` into a temporary
+  folder, then `npm install` (55 packages). Run ids were not recorded; the terminal output is the record.
+- **Recipe:** v0.1.0, as corrected that day · rules v0.2.0
+- **Mode:** sample (offline), plus one deliberate break and one hand check of the source file
+- **Inputs:** the sample queue and persona · `fixtures/BROKEN-authorization-profile.json` for the break · the pinned sponsorship file
+- **Commands:** the test suite; `sponsor_match.py`; the break with `; echo "exit code: $?"`; `sed -n '1956p'` on the sponsorship file
+- **Outputs:** `course/2026fa/submissions/sukethrp/evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt`; run folders under the clone's `output/`
+- **Result:** 36 tests OK · sample 11 → held 6, scored 5 (Apply 1 · Consider 3 · Skip 1) · break VOID with exit code 1 · CSV line 1956 matches the report's AppLovin row
+- **Gates:** sample G1 pass · G2 pass · G7 pass · break G7 void, as designed
+- **Attestation:** the rows of `course/2026fa/submissions/sukethrp/WORKED-RUN.md` now describe this run; the student's signature is pending.
+- **Open issues:** none from the run. The earlier record's missing exit code is now captured.

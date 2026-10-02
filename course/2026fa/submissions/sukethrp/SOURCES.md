@@ -13,7 +13,8 @@ In short:
   On 2026-10-02 they read the audits, kept the title rules, held all eight postings, and wrote their
   reflection and Frictional entries. The same day they re-ran the tests, the sample, a break attempt and
   the CSV comparison in their own terminal, and signed the attestation. Later corrections to the recipe
-  and card voided that signature, and a re-run from a fresh clone and a new signature are pending.
+  and card voided that signature. They then re-ran the checks from a fresh clone of the corrected commit,
+  capturing the break's exit code (1), and their new signature is pending.
 
 ---
 
@@ -143,8 +144,8 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
 - ~~Re-run the tests and the sample run yourself, then sign the attestation.~~ Done 2026-10-02: the re-run is
   recorded in `TEST-REPORT.md`.
-- **Re-run from a fresh clone of the corrected commit, and sign again.** The recipe and card corrections
-  of 2026-10-02 voided the first signature.
+- ~~Re-run from a fresh clone of the corrected commit~~ (done 2026-10-02, `c7eb748`, exit code captured), **and
+  sign again.** The recipe and card corrections of 2026-10-02 voided the first signature.
 - ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02: a revised
   reflection and three Frictional entries.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.

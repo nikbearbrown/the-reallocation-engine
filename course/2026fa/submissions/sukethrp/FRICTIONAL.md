@@ -47,6 +47,9 @@ Quoted text is the student's own wording in chat. The answer naming the student'
 | 18:08 | The student pasted their own re-run: tests, sample, break attempt, CSV line 1956 | `evidence/student-rerun-2026-10-02/terminal.txt`; `d9f9357` |
 | 18:13 | The student sent a dated update to their reflection and asked to sign the attestation | “And also start with sign”; `56e67e4` |
 | 18:23 | The student asked for a full check against the assignment. An independent AI review and Claude's checks found stale and inconsistent lines, fixed in the next commit | “Now check assignment from the top” |
+| 19:05 | The student sent a reading confirmation, a third Frictional entry, a revised reflection, a change-brief review and a sources update | placed verbatim, `b09509d` |
+| 19:11 | The student approved the plan to correct the recipe and card, knowing it voids the signature | plan approval in chat; `c7eb748` |
+| 19:16 | The student re-ran the four checks from a fresh clone of `c7eb748`, capturing the break's exit code (1) | `evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt` |
 
 ## Student entries
 
@@ -68,7 +71,7 @@ I considered whether to relax the title rules or supply numbers so some postings
 
 I ran the offline test suite, the sample prototype, the broken-authorization profile and the command displaying CSV line 1956. I expected the tests to pass, the sample to reproduce the recorded counts and the broken profile to stop the run. All 36 tests passed; the sample evaluated 11 roles, held six and scored five as Apply 1, Consider 3 and Skip 1. The broken profile printed VOID and stopped at the scorer-contract gate, but my transcript did not capture its exit code. AppLovin’s CSV line showed 130 approvals, two denials and the sponsored Machine Learning Engineer title, matching the report. I now understand why a passing sample and a deliberate failure check establish different things; next I would capture the break’s exit code explicitly and investigate the unresolved evidence for Scale AI.
 
-*Evidence (added by Claude Code):* the student's terminal output, `evidence/student-rerun-2026-10-02/terminal.txt`, recorded in commit `d9f9357`, in `TEST-REPORT.md` → "Student re-run" and in the attestation in `WORKED-RUN.md`. AppLovin's row (row 1955: 130 approvals, 2 denials) appears in the sample report (`evidence/clean-checkout/06-sample-run-report.md`) and in the worked-run reports (`runs/worked-run-2-live/sponsor-match-report.md`).
+*Evidence (added by Claude Code):* the student's terminal output, `evidence/student-rerun-2026-10-02/terminal.txt`, recorded in commit `d9f9357`, in `TEST-REPORT.md` → "Student re-run" and in the attestation in `WORKED-RUN.md`. AppLovin's row (row 1955: 130 approvals, 2 denials) appears in the sample report (`evidence/clean-checkout/06-sample-run-report.md`) and in the worked-run reports (`runs/worked-run-2-live/sponsor-match-report.md`). Later that evening the student re-ran the same four checks from a fresh clone of the corrected commit `c7eb748` and captured the break's exit code, 1 (`evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt`). That completes the first of the two next steps named in the entry.
 
 ## Human and AI contributions
 

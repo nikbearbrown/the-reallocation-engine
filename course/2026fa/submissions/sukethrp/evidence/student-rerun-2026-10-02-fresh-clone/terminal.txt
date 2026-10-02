@@ -1,0 +1,78 @@
+# Student re-run from a fresh clone, 2026-10-02 (evening, Eastern).
+# Run by Suketh Reddy Produtoor in their own terminal. A fresh `git clone` of the contrib branch at c7eb748 went into a
+# temporary folder, followed by npm install and the four checks; the output was pasted into the chat.
+# Saved by Claude Code. Removed before saving:
+#   - the shell prompts (local user and machine name), and the local path in the clone command;
+#   - a maintainer's email address in npm's deprecation warning for glob. It ships in package-lock.json, and the
+#     privacy scan would flag it;
+#   - the CSV row's phone, executive-officer and director columns. These are public filing data, but this recipe
+#     never copies them.
+# Nothing else was changed.
+
+$ git clone --branch contrib/2026fa-sukethrp-ml-newgrad-sponsor-match "<local path>/Assignment 3/the-reallocation-engine" /tmp/ml-fresh
+Cloning into '/tmp/ml-fresh'...
+done.
+$ cd /tmp/ml-fresh && git log -1 --oneline && npm install --no-audit --no-fund
+c7eb748 (HEAD -> contrib/2026fa-sukethrp-ml-newgrad-sponsor-match, origin/contrib/2026fa-sukethrp-ml-newgrad-sponsor-match, origin/HEAD) docs(cases/2026fa): recipe and card corrections; attestation voided pending re-sign
+npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting [maintainer email removed]
+
+added 55 packages in 926ms
+npm warn allow-scripts 2 packages have install scripts not yet covered by allowScripts:
+npm warn allow-scripts   fsevents@2.3.2 (install: (install scripts present))
+npm warn allow-scripts   sharp@0.33.5 (install: node install/check)
+npm warn allow-scripts
+npm warn allow-scripts Run `npm approve-scripts --allow-scripts-pending` to review, or `npm approve-scripts <pkg>` to allow.
+$ cd /tmp/ml-fresh && python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v
+test_authorization_text_that_zeroes_sponsorship_voids_the_run (test_sponsor_match.BreakAttempts.test_authorization_text_that_zeroes_sponsorship_voids_the_run)
+The scorer reads 'work authorized' as 'no sponsorship needed'. The contract gate must catch it. ... ok
+test_live_mode_only_fetches_hosts_the_recipe_names (test_sponsor_match.BreakAttempts.test_live_mode_only_fetches_hosts_the_recipe_names)
+The fixture URLs are on example.com. With the network forbidden, a fetch attempt would fail the run. ... ok
+test_a_record_shared_with_a_lookalike_is_held_until_a_person_checks_it (test_sponsor_match.EndToEnd.test_a_record_shared_with_a_lookalike_is_held_until_a_person_checks_it) ... ok
+test_a_row_chosen_by_a_person_relabels_what_is_read_through_it (test_sponsor_match.EndToEnd.test_a_row_chosen_by_a_person_relabels_what_is_read_through_it) ... ok
+test_ambiguous_match_lists_candidates_and_picks_none (test_sponsor_match.EndToEnd.test_ambiguous_match_lists_candidates_and_picks_none) ... ok
+test_each_role_lands_where_its_gates_send_it (test_sponsor_match.EndToEnd.test_each_role_lands_where_its_gates_send_it) ... ok
+test_every_scorer_term_is_labeled_and_no_model_judgment (test_sponsor_match.EndToEnd.test_every_scorer_term_is_labeled_and_no_model_judgment) ... ok
+test_gates_reach_the_scorer_explicitly (test_sponsor_match.EndToEnd.test_gates_reach_the_scorer_explicitly) ... ok
+test_held_roles_never_reach_the_scorer (test_sponsor_match.EndToEnd.test_held_roles_never_reach_the_scorer) ... ok
+test_liveness_is_a_record_only_when_saved_evidence_backs_it (test_sponsor_match.EndToEnd.test_liveness_is_a_record_only_when_saved_evidence_backs_it) ... ok
+test_override_passes_through_and_is_named_as_yours (test_sponsor_match.EndToEnd.test_override_passes_through_and_is_named_as_yours) ... ok
+test_personal_columns_never_reach_any_output (test_sponsor_match.EndToEnd.test_personal_columns_never_reach_any_output) ... ok
+test_report_opens_with_an_executive_summary (test_sponsor_match.EndToEnd.test_report_opens_with_an_executive_summary) ... ok
+test_run_completes_and_writes_both_outputs (test_sponsor_match.EndToEnd.test_run_completes_and_writes_both_outputs) ... ok
+test_same_name_duplicates_are_not_called_lookalikes (test_sponsor_match.EndToEnd.test_same_name_duplicates_are_not_called_lookalikes) ... ok
+test_summary_counts_held_roles_separately (test_sponsor_match.EndToEnd.test_summary_counts_held_roles_separately) ... ok
+test_unrated_fit_is_dropped_and_flagged (test_sponsor_match.EndToEnd.test_unrated_fit_is_dropped_and_flagged) ... ok
+test_company_names_use_the_engines_own_normalizer (test_sponsor_match.RealDataContract.test_company_names_use_the_engines_own_normalizer) ... ok
+test_counts_match_the_published_audit (test_sponsor_match.RealDataContract.test_counts_match_the_published_audit) ... ok
+test_file_matches_the_pinned_hash (test_sponsor_match.RealDataContract.test_file_matches_the_pinned_hash) ... ok
+test_status_and_todos_are_honest (test_sponsor_match.RecipeFrontmatter.test_status_and_todos_are_honest) ... ok
+test_a_board_that_forwards_to_an_unnamed_host_is_held_and_never_fetched (test_sponsor_match.RedirectPreCheck.test_a_board_that_forwards_to_an_unnamed_host_is_held_and_never_fetched) ... ok
+test_a_posting_that_stays_on_the_board_is_checked (test_sponsor_match.RedirectPreCheck.test_a_posting_that_stays_on_the_board_is_checked) ... ok
+test_a_redirect_between_named_hosts_is_followed (test_sponsor_match.RedirectPreCheck.test_a_redirect_between_named_hosts_is_followed) ... ok
+test_does_not_overwrite_committed_evidence_without_permission (test_sponsor_match.RunLevelGates.test_does_not_overwrite_committed_evidence_without_permission) ... ok
+test_input_gate_names_missing_fields (test_sponsor_match.RunLevelGates.test_input_gate_names_missing_fields) ... ok
+test_never_reads_a_profile_outside_the_fictional_personas (test_sponsor_match.RunLevelGates.test_never_reads_a_profile_outside_the_fictional_personas) ... ok
+test_never_writes_into_tracked_engine_folders (test_sponsor_match.RunLevelGates.test_never_writes_into_tracked_engine_folders) ... ok
+test_persona_must_say_it_needs_sponsorship (test_sponsor_match.RunLevelGates.test_persona_must_say_it_needs_sponsorship) ... ok
+test_source_gate_needs_an_explicit_hash_for_another_file (test_sponsor_match.RunLevelGates.test_source_gate_needs_an_explicit_hash_for_another_file) ... ok
+test_source_gate_stops_on_an_unpinned_hash (test_sponsor_match.RunLevelGates.test_source_gate_stops_on_an_unpinned_hash) ... ok
+test_level_markers_are_not_entry_level_evidence (test_sponsor_match.TitleRules.test_level_markers_are_not_entry_level_evidence) ... ok
+test_ml_titles_with_no_marker_count_as_role_level_evidence (test_sponsor_match.TitleRules.test_ml_titles_with_no_marker_count_as_role_level_evidence) ... ok
+test_non_engineering_titles_are_excluded (test_sponsor_match.TitleRules.test_non_engineering_titles_are_excluded) ... ok
+test_not_ml (test_sponsor_match.TitleRules.test_not_ml) ... ok
+test_seniority_markers (test_sponsor_match.TitleRules.test_seniority_markers) ... ok
+
+----------------------------------------------------------------------
+Ran 36 tests in 1.280s
+
+OK
+$ cd /tmp/ml-fresh && python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
+✓ 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) · actions CONSIDER 1, NETWORK-FIRST 2, RESOLVE 6, SKIP 1, TAILOR 1
+  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-report.md  +  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-log.json
+$ cd /tmp/ml-fresh && python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --scorer-profile scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz; echo "exit code: $?"
+VOID 11 roles → held 6 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions
+  output/break-authz/sponsor-match-report.md  +  output/break-authz/sponsor-match-log.json
+STOP at the scorer-contract gate: the scorer ran as if the persona does not need sponsorship (profile_needs_sponsorship = False), so the sponsorship vote was weighted 0
+exit code: 1
+$ cd /tmp/ml-fresh && sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv
+APPLOVIN CORP,Other Technology,applovin.com,PALO ALTO,CA,94304-1047,[phone removed],,,[executive officers removed],[board directors removed],594499996.0,194500000.0,Series D+,2022-02-23,130.0,2.0,98.48484848484848,150000.0,"['Software Engineer II', 'Machine Learning Engineer', 'Technical Support Specialist II', 'Product Manager, Lion Studios', 'Senior Designer, Motion Graphics']"

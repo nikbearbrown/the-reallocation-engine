@@ -211,8 +211,24 @@ into the chat. Claude Code recorded it below and saved it, with prompts and pers
 
 **Later on 2026-10-02: the recipe and card were corrected.** The changes were editorial (see the recipe's
 Lifecycle section). The prototype code is unchanged since `c242aa5`. The edit voided the student's
-attestation, so the student re-runs the same four checks from a fresh clone of the corrected commit,
-capturing the break's exit code this time. That run is recorded here when it arrives.
+attestation, so the student re-ran the same four checks from a fresh clone of the corrected commit:
+
+### Student re-run from a fresh clone (2026-10-02, evening)
+
+**Done by the student, in their own terminal.** Claude Code saved the output, with the prompts, the local
+path, a maintainer's email in npm's warning, and the CSV row's personal columns removed, in
+`evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt`.
+
+- **Commit and checkout:** a fresh `git clone` of the contrib branch into a temporary folder, at `c7eb748`,
+  then `npm install` (55 packages). No files from the working checkout were present.
+- **Tests:** 36 tests, `OK` (1.280 s).
+- **Sample:** 11 roles, held 6, scored 5 (Apply 1 · Consider 3 · Skip 1), the recipe's expectation.
+- **Deliberate break:** STOP at the scorer-contract gate, run VOID, and `exit code: 1`. The first run's
+  transcript did not print this.
+- **CSV comparison:** line 1956 again printed APPLOVIN CORP with 130 approvals, 2 denials, 98.48%, $150,000
+  and "Machine Learning Engineer", the values in the report's AppLovin row.
+- **Differences, or checks not performed:** no output differed from what was expected. The student did not
+  run live mode, Python 3.9 or the rules audit; Claude Code ran those (above).
 
 
 ## Codex rerun — 2026-09-30 UTC

@@ -268,31 +268,34 @@ What surprised me was that a relevant ML/AI title and sponsorship history could 
 
 ## Attestation
 
-- Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0)
-- By: ~~Suketh Reddy Produtoor · 2026-10-02~~. Voided by the recipe and card corrections made later on
-  2026-10-02. Re-signature pending the student's re-run from a fresh clone.
+- Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0), at commit `c7eb748`
+- By: — awaiting the student's signature for the fresh-clone run below
 
-*The student signed on 2026-10-02 at their request in chat, and Claude Code typed in the "By:" line. The
-rows under "Tested" were run by the student in their own terminal, at commit `d1110ea`. Their pasted
-output follows the tables. The clean-checkout suite, the live runs and the other break attempts were run
-by Claude Code and are in `TEST-REPORT.md`.*
+*The rows under "Tested" were run by the student on 2026-10-02 (evening, Eastern) in their own terminal.
+They used a fresh clone of the branch at commit `c7eb748`, after `npm install`, and their pasted output
+follows the tables. The clean-checkout suite, the live runs and the other break attempts were run by
+Claude Code and are in `TEST-REPORT.md`.*
 
-*Later that day the recipe and card were corrected. The changes were editorial (see the recipe's
-Lifecycle section), and no code changed. Because any edit to the recipe voids an attestation, this one is
-void until the student re-runs the checks and signs again. The recipe's `attestation` field stays null,
-because the lifecycle sets it only at VERIFIED.*
+*The recipe and its scripts are unchanged since `c7eb748`, and any later edit to either voids this
+attestation. The recipe's `attestation` field stays null, because the lifecycle sets it only at VERIFIED.*
+
+*History: the student first signed on 2026-10-02 for the same four checks, run in their existing checkout
+at `d1110ea` (`evidence/student-rerun-2026-10-02/terminal.txt`). Later that day the recipe and card were
+corrected. The changes were editorial and no code changed, but they voided that signature. The run below
+replaces it.*
 
 ### Tested
 | Ran | Saw | Expected |
 |---|---|---|
+| a fresh clone: `git clone --branch contrib/2026fa-sukethrp-ml-newgrad-sponsor-match <repo> /tmp/ml-fresh`, then `npm install` | `c7eb748` checked out; 55 packages installed | a clean copy of the branch, with no local files |
 | `python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v` | 36 tests, OK | all pass, offline |
 | `python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py` | 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) | the expectation written in the recipe |
-| deliberate break: `sponsor_match.py --scorer-profile …/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz` | STOP at the scorer-contract gate; the run is VOID | void, never a decision |
+| deliberate break: `sponsor_match.py --scorer-profile …/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz; echo "exit code: $?"` | STOP at the scorer-contract gate; the run is VOID; exit code 1 | void with exit code 1, never a decision |
 | `sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv` | APPLOVIN CORP: 130 approvals, 2 denials, 98.48% approved, $150,000 company median, titles include "Machine Learning Engineer" | the values in the report's AppLovin row |
 
 ### Did not test
-- Live mode (`--live`), a fresh clone, Python 3.9, the rules audit and the other break attempts. These were
-  run by Claude Code and Codex, not by the signer (see `TEST-REPORT.md`).
+- Live mode (`--live`), Python 3.9, the rules audit and the other break attempts. These were run by
+  Claude Code and Codex, not by the signer (see `TEST-REPORT.md`).
 - A real posting that returns 404 or an expired page. Only a saved fixture page was tested.
 - Live checks on Lever or Ashby. The one Ashby posting (OpenAI) was held before the liveness gate.
 - A real role cleared with `csv_row` or `shared_record_checked`. Only fixtures were tested.
@@ -316,23 +319,32 @@ Found and fixed during development by Claude Code; details in `TEST-REPORT.md`:
 
 ### The student's terminal output, pasted
 
-From `evidence/student-rerun-2026-10-02/terminal.txt`. The 36 per-test lines are left out here; the file has them.
-The saved copy also removes the shell prompts and the CSV row's personal columns.
+From `evidence/student-rerun-2026-10-02-fresh-clone/terminal.txt`. The 36 per-test lines and npm's
+warnings are left out here; the file has them. The saved copy also removes the shell prompts, the local
+path, a maintainer's email in npm's warning, and the CSV row's personal columns.
 
 ```text
-$ python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v
+$ git clone --branch contrib/2026fa-sukethrp-ml-newgrad-sponsor-match "<local path>/Assignment 3/the-reallocation-engine" /tmp/ml-fresh
+Cloning into '/tmp/ml-fresh'...
+done.
+$ cd /tmp/ml-fresh && git log -1 --oneline && npm install --no-audit --no-fund
+c7eb748 (HEAD -> contrib/2026fa-sukethrp-ml-newgrad-sponsor-match, origin/contrib/2026fa-sukethrp-ml-newgrad-sponsor-match, origin/HEAD) docs(cases/2026fa): recipe and card corrections; attestation voided pending re-sign
+… npm warnings …
+added 55 packages in 926ms
+$ cd /tmp/ml-fresh && python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v
 … 36 lines, one per test, each ending in "ok" …
-Ran 36 tests in 1.478s
+Ran 36 tests in 1.280s
 
 OK
-$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
+$ cd /tmp/ml-fresh && python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
 ✓ 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) · actions CONSIDER 1, NETWORK-FIRST 2, RESOLVE 6, SKIP 1, TAILOR 1
   output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-report.md  +  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-log.json
-$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --scorer-profile scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz
+$ cd /tmp/ml-fresh && python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --scorer-profile scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz; echo "exit code: $?"
 VOID 11 roles → held 6 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions
   output/break-authz/sponsor-match-report.md  +  output/break-authz/sponsor-match-log.json
 STOP at the scorer-contract gate: the scorer ran as if the persona does not need sponsorship (profile_needs_sponsorship = False), so the sponsorship vote was weighted 0
-$ sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv
+exit code: 1
+$ cd /tmp/ml-fresh && sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv
 APPLOVIN CORP,Other Technology,applovin.com,PALO ALTO,CA,94304-1047,[phone removed],,,[executive officers removed],[board directors removed],594499996.0,194500000.0,Series D+,2022-02-23,130.0,2.0,98.48484848484848,150000.0,"['Software Engineer II', 'Machine Learning Engineer', 'Technical Support Specialist II', 'Product Manager, Lion Studios', 'Senior Designer, Motion Graphics']"
 ```
 
