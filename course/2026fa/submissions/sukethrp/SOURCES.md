@@ -55,8 +55,9 @@ In short:
 
 ## Tools
 
-Claude Code (Anthropic; model Claude Opus 5.5) in the Claude desktop app · Node 22.11 · Python 3.12.7
-(and 3.9.6 for a compatibility run) · Playwright Chromium · git · GitHub CLI.
+Claude Code (Anthropic; model Claude Opus 5.5) in the Claude desktop app · Codex (OpenAI), for the
+2026-09-30 posting review · Node 22.11 · Python 3.12.7 (and 3.9.6 for a compatibility run) · Playwright
+Chromium · git · GitHub CLI.
 
 ## Collaborators
 
@@ -99,7 +100,12 @@ Commits are on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
   - Saved their re-run output, with shell prompts and personal CSV columns removed.
   - Typed their signature into the attestation when they asked for it.
 - **No model at runtime.** No AI model is called by the prototype. Claude's role was authoring and
-  operating, not being a data source. No value in any report is a model judgment.
+  operating, not being a data source.
+  - **One exception.** The fit and timeline numbers in runs 1–2 were Claude's proposals. The prototype
+    labeled them `your-input` because they were declared in the queue. By the weakest-label rule they are
+    model judgments, and so are the composites built on them (defect D9 in `PROPOSED-ADDITIONS.md`).
+  - Run 3 withdrew those numbers. Codex's later fit proposals are labeled `model-judgment` and were never
+    scored.
 
 ## What the student decided (session of 2026-09-29, Eastern time)
 
@@ -115,7 +121,7 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 | 21:25 | chose a **new matching persona** (Claude recommended it) over reusing Priya Nair |
 | 21:25 | chose to use **Claude's proposed fit and timeline values, to review later**, over typing their own |
 | 2026-10-02 | reported reading the sample report, the title-rules audit (v0.2.0) and the posting review. Recorded as the gate that moves the recipe to RUNNABLE-SAMPLE |
-| 2026-10-02 | title rules: **kept all three v0.2.0 choices**, because “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.” |
+| 2026-10-02 | title rules: **kept all three v0.2.0 choices**, because “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.” `rules.json` itself still says "the student has not yet reviewed it" and "declared_by: the student". Both notes are out of date: Claude Code drafted the rules, and the student reviewed and kept them on this date. The file is left byte-identical so that the rules hash every run recorded still matches |
 | 2026-10-02 | the eight postings: **all held**, Scale AI investigated first: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” Recorded row by row in the decision table |
 | 2026-10-02 | re-ran four checks in their own terminal (`TEST-REPORT.md` → "Student re-run") and **signed the attestation** in `WORKED-RUN.md` |
 

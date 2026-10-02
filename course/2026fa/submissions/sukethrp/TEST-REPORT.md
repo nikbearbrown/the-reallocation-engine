@@ -121,17 +121,25 @@ STOP at the input gate: --out-dir data/examples/should-not-exist/ is outside thi
 
 ## Scope: `git diff --stat` against upstream `main`
 
-33 files, all additions, all under this contribution's namespaces plus one sanctioned persona:
-- `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/`
-- `recipes/cases/2026fa/`
-- `course/2026fa/submissions/sukethrp/`
-- `search/examples/arjun-rao/profile.yml`, a new fictional persona. `DATA_CONTRACT.md` allows adding one
-  under `search/examples/`, and the CI scope gate allowlists that path.
+At the submitted branch tip, the diff has 119 files, all new (`git diff --name-status` shows `A` for every
+one). They sit under this contribution's namespaces, plus one sanctioned persona:
 
-No maintained engine file is changed. `logs/RUN_LOG.md` is not touched. Full list:
-`evidence/clean-checkout/16b-diff-names.txt`; stat: `16-diff-stat.txt`. The documentation commits made
-after `fe07d1b` add files only under `course/2026fa/submissions/sukethrp/` and
-`logs/runs/2026fa-sukethrp-1.md`.
+| Area | Files |
+|---|---|
+| `course/2026fa/submissions/sukethrp/` (documents and evidence) | 100 |
+| `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/` (prototype, tests, fixtures) | 14 |
+| `recipes/cases/2026fa/` (recipe and card) | 2 |
+| `logs/runs/` (`2026fa-sukethrp-1.md`, `2026fa-sukethrp-2.md`) | 2 |
+| `search/examples/arjun-rao/profile.yml`, a new fictional persona | 1 |
+
+`DATA_CONTRACT.md` allows adding a persona under `search/examples/`, and the CI scope gate allowlists that
+path. No existing engine file is changed, and `logs/RUN_LOG.md` is not touched. The pull request's file
+list shows the same set.
+
+The first clean-checkout capture, at `fe07d1b`, had 33 files (`evidence/clean-checkout/16-diff-stat.txt`,
+`16b-diff-names.txt`). Later commits added documents and evidence under the submission folder and
+`logs/runs/`. They also edited the recipe, the card, the prototype README and the test file, all inside the
+same namespaces.
 
 ## Privacy scans
 
@@ -145,8 +153,8 @@ The captured evidence files redact that address so that they do not trip the sca
 ## What the gates leave for a person
 
 - **Rules:** read the rules audit (`evidence/rules-audit-v0.2.0/rules-audit.md`) and confirm what counts
-  as ML/AI, senior, and level-marked. Rules v0.2.0, and especially the II/L2 rule, were drafted by Claude
-  and await the student's decision.
+  as ML/AI, senior, and level-marked. Rules v0.2.0, and especially the II/L2 rule, were drafted by Claude.
+  The student kept all three choices on 2026-10-02 (`SOURCES.md`).
 - **Held roles:** each one names a single check. Examples: open a posting that redirects, choose a row
   when names collide, check public H-1B/LCA records when the record is missing or shared.
 - **The decision table (G8):** a decision, a reason, a name and a date for every role before any effort
@@ -160,7 +168,7 @@ The captured evidence files redact that address so that they do not trip the sca
 | the network-first question quoted every sponsored title and called them all senior | reading the sample report | it now quotes only the titles that make the evidence soft | `9864112` (before first commit) |
 | held roles did not show which row was matched, hiding "Meta → META CO, Portola Valley" | reading the sample report | the matched row, city and state are shown on every held role | `9864112` (before first commit) |
 | the committed v0.1.0 rules audit counted title listings, not companies | reading the audit JSON | regenerated with the committed code (one count: 22 → 21) | `3652123` |
-| rules v0.1.0 counted non-engineering titles as ML/AI, and "Founding" and II/L2 as entry level | the v0.1.0 rules audit over all 30,369 companies | rules v0.2.0: exclusions, `founding`, level markers. Proven 33 → 27; 11 companies change tier | `d421abe` |
+| rules v0.1.0 counted non-engineering titles as ML/AI, and "Founding" and II/L2 as entry level | the v0.1.0 rules audit over all 30,369 companies | rules v0.2.0: exclusions, `founding`, level markers. Proven 33 → 27: 6 companies move from Proven to Likely, and 5 others change their gap label within Likely | `d421abe` |
 | identical H-1B records on differently named companies were trusted | trying to break the evidence | new hold `shared-h1b-record` | `b4a72ab` |
 | a live check would follow a 302 to a company site the recipe never names | worked-run discovery | a first hop with redirects off; new hold `redirects-off-allowed-host` | `c11999f` |
 | the report called PathAI's shared record "no usable H-1B record" | reading worked run 1 | a shared record is shown in full, as Unknown, with no number | `fe07d1b` |
@@ -204,7 +212,7 @@ into the chat. Claude Code recorded it below and saved it, with prompts and pers
 
 ## Codex rerun — 2026-09-30 UTC
 
-Operator: Codex (AI). Starting commit: `49eee0e` (amended to `0754031` before any push, rewording two lines that stated the student's visa status). Follow-up documentation and queue edits were uncommitted at the time. This run uses the existing working checkout, not a newly installed clean copy. Original clean-checkout evidence remains separately labeled above.
+Operator: Codex (AI). Starting commit: `49eee0e` (amended to `0754031` before any push, rewording two lines that stated personal details about the student). Follow-up documentation and queue edits were uncommitted at the time. This run uses the existing working checkout, not a newly installed clean copy. Original clean-checkout evidence remains separately labeled above.
 
 | Check | Observed | Evidence |
 |---|---|---|

@@ -12,10 +12,11 @@ A working prototype checks each posting against the engine's real sponsorship fi
 is live, and hands only fully checked roles to the engine's scorer. It then suggests where the week's
 hours go. It never guesses: anything it cannot verify is held for a person, with the reason.
 
-On the engine's data, only 27 of 30,369 companies pass the strictest test. Eight real postings were
-checked live on 30 September 2026:
+On the engine's data, only 27 of 30,369 companies pass the strictest test. On 30 September 2026, eight
+real postings went through the recipe in live mode. Two of them reached the posting-liveness check; the
+rest were held at earlier gates.
 - **The first two runs** suggested one application (AppLovin) and one networking question first
-  (Moloco). Those results rested on fit and timeline numbers guessed from job titles.
+  (Moloco). Those results rested on fit and timeline numbers that Claude proposed from the job titles.
 - **Then the postings were read.** Six of the eight ask for 2–12+ years of experience or explicitly
   exclude new graduates. Three leading AI employers are absent from the data altogether.
 - **With the unsupported numbers withdrawn**, the latest run holds all eight for a person and scores
@@ -36,7 +37,7 @@ the attestation. What is left for them is listed at the end.
 | Worked run (real output, verified vs. inferred, the student's signed attestation) | [`WORKED-RUN.md`](WORKED-RUN.md) · raw files in `worked-run/` and `runs/worked-run-{1,2}-live/`, `runs/worked-run-3-reviewed/` |
 | Posting review (the eight postings' actual requirements, read by Codex) | [`POSTING-REVIEW.md`](POSTING-REVIEW.md) · sources and text hashes in `evidence/codex-review-2026-09-30/` |
 | Test report (clean checkout, failure cases, break attempts, scope, privacy scans) | [`TEST-REPORT.md`](TEST-REPORT.md) · raw files in `evidence/clean-checkout/` |
-| Run-log entry | [`logs/runs/2026fa-sukethrp-1.md`](../../../../logs/runs/2026fa-sukethrp-1.md) |
+| Run-log entries | [`logs/runs/2026fa-sukethrp-1.md`](../../../../logs/runs/2026fa-sukethrp-1.md) (sample, rules audit, runs 1–2, the student's re-run) · [`logs/runs/2026fa-sukethrp-2.md`](../../../../logs/runs/2026fa-sukethrp-2.md) (run 3, by Codex) |
 | Proposed additions + engine defects found | [`PROPOSED-ADDITIONS.md`](PROPOSED-ADDITIONS.md) |
 | Sources and who did what | [`SOURCES.md`](SOURCES.md) |
 | Frictional log | [`FRICTIONAL.md`](FRICTIONAL.md) |

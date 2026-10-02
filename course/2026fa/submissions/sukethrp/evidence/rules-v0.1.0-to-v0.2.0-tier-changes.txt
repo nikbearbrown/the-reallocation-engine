@@ -15,3 +15,6 @@ row 29058  VOUCH INC                                Likely (marked-only)        
 row 29517  WHOOP INC                                Proven (role-level match)        -> Likely (marked-only)
 
 11 companies changed tier.
+
+Correction, 2026-10-02 (Claude Code): of these 11 companies, 6 changed tier (Proven -> Likely: MOLOCO, OVERJET,
+PATHAI, PATHRAI, TWILIO, WHOOP); the other 5 stayed Likely and changed only their gap label.

@@ -10,7 +10,9 @@ lifecycle rules, an open item inside a recipe returns it to draft, and none of t
 recipe's current steps to run.
 
 Drafted by Claude Code (AI assistant) on 2026-09-29 from findings made while building and testing the
-prototype. Student review: *pending*.
+prototype. Student review of the list as a whole: *not recorded*. In their reflection of 2026-10-02, the
+student names two of these as their next improvements: a posting-requirements check (proposal 5) and
+evidence for the timeline factor (proposal 4).
 
 ---
 
@@ -36,3 +38,12 @@ prototype. Student review: *pending*.
 | D6 | `npm run ats:scan -- --dry-run`, the first command in the assignment's setup, exits 1 on a fresh clone: "portals.yml not found" | fresh-clone run | fall back to `data/ats/portals.example.yml` in dry-run mode, or say to copy it |
 | D7 | 42 H-1B records in the sponsorship file appear value for value on 85 companies, 69 of them differently named lookalikes (e.g. PATHAI INC / PATHRAI INC; AKERO / KEROS THERAPEUTICS). This is consistent with the fuzzy join copying one employer's history onto another | `…/evidence/rules-audit-v0.2.0/rules-audit.md`, table "H-1B records shared with a differently named company" | rerun entity resolution once raw LCA data exists (proposal 1). Until then, flag shared records in the file's audit |
 | D8 | `recipes/local-wage-adjustment.md` points at `data/bls/local-wage/*.csv`, `data/BLS/local-wage-adjustment-audit.md` and `logs/attestations/…`. None of them ships in the Fall 2026 cut | `test -e` on each path | re-ship them, or mark the recipe's inputs missing |
+
+## Known defect in this prototype (documented, not patched)
+
+Found in the 2026-10-02 review. It is not patched because any code change would void the student's signed
+attestation; it is the first change for the next version.
+
+| # | Defect | Evidence | Fix |
+|---|---|---|---|
+| D9 | The prototype labels every declared fit and timeline `your-input` (`scorer_role` in `sponsor_match.py`), even when the queue's own reason says a model proposed the number. Runs 1–2's fit and timeline were Claude's proposals. Under the weakest-label rule they, and the composites built on them (AppLovin 0.446, Moloco 0.332), are model judgments. Run 3 withdrew them, so no current result depends on them | `sponsor_match.py` `scorer_role`; the reasons in `worked-run/queue-live-1.json` | accept a declared `source` (`your-input` or `model-judgment`) on each declared value, and pass the weaker label through to the scorer input and the report; add a fixture test |

@@ -4,6 +4,16 @@
 
 The earlier recommendations relied on job titles rather than requirements. Reading all eight employer postings reveals substantial experience mismatches and no confirmed employment start dates. The revised queue (`worked-run/queue-live-3-reviewed.json`) therefore removes unsupported scoring inputs. The original runs remain available as historical evidence. This review was performed by Codex, an AI assistant, and does not clear the student’s judgment or attestation gates.
 
+**Update, 2026-10-02 (Claude Code).** Codex's text below is unchanged and describes the state on 2026-09-30.
+Since then, the student:
+- reported reading this review, the sample report and the rules audit;
+- kept the v0.2.0 title rules;
+- held all eight postings, investigating Scale AI first (decision table in `WORKED-RUN.md`);
+- re-ran four checks and signed the attestation.
+
+The recipe is RUNNABLE-SAMPLE. The student did not accept the proposed fit numbers below, and none was
+given to the scorer.
+
 ## Review record
 
 Reviewed on 2026-09-30 UTC (2026-09-29 Eastern). Evaluated against the fictional Arjun Rao profile, not Suketh’s résumé. The profile has no work-history evidence and no issued EAD start date. Unknown experience is not proof of no experience.
@@ -19,7 +29,7 @@ Codex read the entire saved sample report and v0.2.0 rules audit. The sample sep
 
 No rule patterns or thresholds were changed. The saved v0.1.0-to-v0.2.0 comparison shows six Proven-to-Likely changes across the combined rule revision and eleven tier/gap changes overall. PathAI also has an independent shared-record hold, so changing a level rule alone would not clear it.
 
-This is Codex’s recommendation to retain the current rules. Student acceptance remains unrecorded.
+This is Codex’s recommendation to retain the current rules. Student acceptance remains unrecorded *(true on 2026-09-30; the student kept all three rules on 2026-10-02, with their reasons, in `SOURCES.md`)*.
 
 ## Eight-posting review
 
@@ -50,6 +60,15 @@ Physical CSV line **1956** is data row **1955**, because line 1 is the header. C
 
 The old calculation is `(0.9 × 0.35 + 0.7 × 0.30) × 0.85 = 0.44625`. At the old fit, 0.60 is sufficient to clear the timeline soft-spot rule and the 0.30 Apply threshold. With the proposed fit of 0.20, the pre-gate sum is 0.375: a timeline of 0.60 produces only **0.225**, in Consider. Reaching 0.30 would require a timeline of at least **0.80**. No such timeline was confirmed, and the requirements mismatch still needs a human decision. The earlier “0.60 is enough” statement depends on keeping fit at 0.70.
 
-## Human review still required
+## Human review still required (as of 2026-09-30)
 
 The student must personally read the audits, decide whether to accept the rules and ratings, make the eight decisions, supply an honest account of personal work, run the demo and sign only after doing the stated checks. The recipe remains SPECIFIED and its attestation remains null.
+
+**Status, 2026-10-02 (Claude Code).** Every item except the demo has a record:
+- the reading, in the run log;
+- the rules and the eight decisions, in `SOURCES.md` and the decision table;
+- the student's own account, in their reflection and Frictional entries;
+- their re-run and signature, in the attestation.
+
+The recipe is RUNNABLE-SAMPLE, and its `attestation` field stays null until VERIFIED. The demo is the
+in-class presentation.

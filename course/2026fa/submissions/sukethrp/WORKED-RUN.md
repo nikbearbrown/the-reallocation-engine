@@ -2,33 +2,35 @@
 
 ## Executive summary
 
-**Latest review, 2026-09-30 UTC (Codex AI):** The third run holds **all eight postings** and scores none. Four stop for an unknown timeline, one for a shared sponsorship record, and three for no company match. Employer requirements also expose experience mismatches hidden by the earlier titles. See [Posting review](POSTING-REVIEW.md) and [run 3](runs/worked-run-3-reviewed/sponsor-match-report.md). The earlier TAILOR / NETWORK-FIRST results below are historical, not current recommendations.
+**What this is.** Three real runs of the recipe on eight real ML/AI job postings, found on 30 September
+2026. They are run for a fictional student in the recipe's exact situation: F-1, graduating in December
+2026, looking for a new-grad ML/AI engineering job. The file also holds the student's decisions, their own
+re-run of the checks, and their signed attestation.
 
-**Historical runs 1–2 follow.** They read `worked-run/queue-live-1.json`, which is unchanged
-(sha256 `38a030669592…`). Codex's reviewed inputs are a separate file,
-`worked-run/queue-live-3-reviewed.json` (sha256 `76207422f40e…`), read by run 3.
+**Why read it.** It shows what the recipe decided, which inputs were records and which were declared or
+judged, how the output was checked, and what went wrong.
 
-**What this is.** A real run of the recipe on eight real job postings, found on 30 September 2026, for a
-fictional student in the recipe's exact situation: F-1, graduating in December 2026, looking for a
-new-grad ML/AI engineering job.
+**What it found.**
+- **Final result.** All eight postings are held for a person, and the student decided to keep them held,
+  investigating Scale AI first (decision table below).
+- **How it got there.**
+  - **Runs 1–2:** suggested one application (AppLovin, whose sponsorship record includes a plain "Machine
+    Learning Engineer") and one networking question (Moloco, whose only sponsored ML title is "Machine
+    Learning Engineer II"). Both results rested on fit and timeline numbers that Claude proposed from the
+    job titles alone.
+  - **The posting review (Codex, 2026-09-30):** six of the eight postings asked for 2–12+ years of
+    experience or excluded new graduates, and none stated a start date.
+  - **Run 3:** withdrew those numbers, and every role stopped at a gate.
+    - Four had no timeline.
+    - One (PathAI) has a sponsorship record that sits, value for value, on a lookalike company.
+    - Three frontier-AI employers (Scale AI, Anthropic, OpenAI) are not in the engine's data at all. The
+      only rows carrying their names are investment funds.
+- **What held up throughout:** the sponsorship evidence. Its values were cross-checked against the source
+  file by hand, by Claude and Codex, and by the student.
 
-**Why read it.** It shows what the recipe decided, which inputs were records and which were declared,
-how the output was checked, and what went wrong.
-
-**What it found.** Of the eight postings:
-- **One earned an application.** AppLovin's sponsorship record includes a "Machine Learning Engineer",
-  and the posting is live.
-- **One earned a networking question first.** Moloco's only sponsored ML title is "Machine Learning
-  Engineer II", although the company has 200 approvals.
-- **Six need a person before any effort:**
-  - two postings (Nextdoor, Databricks) forward to the companies' own websites;
-  - one company's record (PathAI) sits, value for value, on a lookalike company;
-  - three of the AI employers new graduates target most (Scale AI, Anthropic, OpenAI) are not in the
-    engine's data at all. The only rows carrying their names are investment funds.
-
-The run was repeated after a report fix and gave the same decisions. The fit and timeline numbers were
-proposed by Claude from the job titles. On 2026-10-02 the student decided not to use them and held all
-eight postings (decision table below).
+Runs 1–2 read `worked-run/queue-live-1.json` (sha256 `38a030669592…`), which is unchanged. Run 3 read
+`worked-run/queue-live-3-reviewed.json` (sha256 `76207422f40e…`). The sections below follow the order in
+which the work happened: runs 1–2, their checks, the decision, the reflection and attestation, then run 3.
 
 ---
 
@@ -160,18 +162,29 @@ The report's "what to do next" section (run 2, verbatim):
 
 ## Verified vs. inferred, line by line
 
-No AI model was called during the runs, so nothing is labeled model-judgment. "Record" means read from
-the sponsorship file or seen by the live checker. "Your-input" means declared by a person, or computed
-from something they declared.
+No AI model was called during the runs. Two sets of values still came from an AI model, so this split
+has a model-judgment column:
+- **Runs 1–2.**
+  - Claude Code proposed every fit and timeline number from the job title alone.
+  - The student adopted them to review later, and the prototype labeled them `your-input` because they
+    were declared in the queue.
+  - By the weakest-label rule they are model judgments, and so is any composite built on them. The
+    prototype cannot tell who proposed a declared number (defect D9 in `PROPOSED-ADDITIONS.md`).
+- **Run 3.** Codex's fit proposals sit in the queue's review metadata, labeled `model-judgment`. They were
+  not given to the scorer, and the student did not accept them.
 
-| Posting | record | your-input | Result |
-|---|---|---|---|
-| **AppLovin**, SWE, Machine Learning | row 1955 APPLOVIN CORP; 130 approvals, 2 denials; sponsored titles incl. "Machine Learning Engineer"; first hop 200; live check `active` (2026-09-30T01:26:58Z) | tier Proven (rule: an unmarked ML/AI title and ≥ 10 approvals); p 0.9; fit 0.7; timeline 0.85; composite 0.446 | **TAILOR** |
-| **Moloco**, Expression of Interest: MLE | row 17152 MOLOCO INC; 200 approvals, 2 denials; only ML/AI title "Machine Learning Engineer II"; live check `active` | tier Likely (every ML/AI title marked); p 0.6; fit 0.6; timeline 0.85; composite 0.332 | **NETWORK-FIRST** |
-| **Nextdoor**, MLE - Ads | row 18131 NEXTDOOR INC; 222 approvals; titles incl. "Machine Learning Engineer"; first hop 302 to about.nextdoor.com | tier Proven; fit 0.7 and timeline 0.85 (not used: held) | **RESOLVE** (redirect) |
-| **Databricks**, AI Engineer (FDE) | row 7248 DATABRICKS INC; 1,640 approvals; titles: Software Engineer, Senior Software Engineer, Solutions Architect, Specialist Solutions Architect, Senior Solutions Engineer; first hop 302 to databricks.com | tier Likely (no ML/AI title in the list) | **RESOLVE** (redirect) |
-| **PathAI**, MLE II | row 19754 PATHAI INC; 78 approvals; the identical record on row 19760 PATHRAI INC | tier Unknown (record shared with a lookalike) | **RESOLVE** (shared record) |
-| **Scale AI**, SWE New Grad · **Anthropic**, Applied AI Research Engineer · **OpenAI**, MLE Core Experimentation | no row with these normalized names. Keyword search (`worked-run/resolve-check-legal-names.txt`): "ANTHROPIC - A SERIES OF AURUM VP FUND LLC" and "OPEN AI A SERIES OF VUVP FUND LLC" are investment funds; "scale ai" matches only MINDSCALE AI and GREYSCALEAI | — | **RESOLVE** (not in the file) |
+"Record" means read from the sponsorship file or seen by the live checker. "Your-input" means declared by
+a person, or computed from something they declared, such as a tier from the declared title rules.
+
+| Posting | record | your-input | model-judgment | Result |
+|---|---|---|---|---|
+| **AppLovin**, SWE, Machine Learning | row 1955 APPLOVIN CORP; 130 approvals, 2 denials; sponsored titles incl. "Machine Learning Engineer"; first hop 200; live check `active` (2026-09-30T01:26:58Z) | tier Proven (rule: an unmarked ML/AI title and ≥ 10 approvals); p 0.9 | fit 0.7 and timeline 0.85, Claude's proposals (the prototype labeled them your-input); so the composite 0.446 is a judgment too | **TAILOR** (runs 1–2) |
+| **Moloco**, Expression of Interest: MLE | row 17152 MOLOCO INC; 200 approvals, 2 denials; only ML/AI title "Machine Learning Engineer II"; live check `active` | tier Likely (every ML/AI title marked); p 0.6 | fit 0.6 and timeline 0.85, Claude's proposals; composite 0.332 | **NETWORK-FIRST** (runs 1–2) |
+| **Nextdoor**, MLE - Ads | row 18131 NEXTDOOR INC; 222 approvals; titles incl. "Machine Learning Engineer"; first hop 302 to about.nextdoor.com | tier Proven | fit 0.7 and timeline 0.85, Claude's proposals (not used: held) | **RESOLVE** (redirect) |
+| **Databricks**, AI Engineer (FDE) | row 7248 DATABRICKS INC; 1,640 approvals; titles: Software Engineer, Senior Software Engineer, Solutions Architect, Specialist Solutions Architect, Senior Solutions Engineer; first hop 302 to databricks.com | tier Likely (no ML/AI title in the list) | fit and timeline, Claude's proposals (not used: held) | **RESOLVE** (redirect) |
+| **PathAI**, MLE II | row 19754 PATHAI INC; 78 approvals; the identical record on row 19760 PATHRAI INC | tier Unknown (record shared with a lookalike) | fit and timeline, Claude's proposals (not used: held) | **RESOLVE** (shared record) |
+| **Scale AI**, SWE New Grad · **Anthropic**, Applied AI Research Engineer · **OpenAI**, MLE Core Experimentation | no row with these normalized names. Keyword search (`worked-run/resolve-check-legal-names.txt`): "ANTHROPIC - A SERIES OF AURUM VP FUND LLC" and "OPEN AI A SERIES OF VUVP FUND LLC" are investment funds; "scale ai" matches only MINDSCALE AI and GREYSCALEAI | — | fit and timeline, Claude's proposals (not used: held) | **RESOLVE** (not in the file) |
+| **Run 3, all eight** | the same rows as above. No live check ran: every role stopped at an earlier gate | tiers and p as above; no fit or timeline (withdrawn) | Codex's proposed fits, in review metadata only: AppLovin 0.2, Nextdoor 0.2, Databricks 0.0, Moloco 0.1, PathAI 0.3, Scale AI 0.6, Anthropic 0.1, OpenAI 0.2 | **RESOLVE ×8**: no timeline 4, shared record 1, no company match 3 |
 
 ## Verification: how the output was checked
 
@@ -185,7 +198,8 @@ from something they declared.
    row 19754: company_name=PATHAI INC | city=CAMBRIDGE | state=MA | Total Approvals=78.0 | Total Denials=2.0 | Approval_Rate=97.5 | top_job_titles_sponsored=['Software Engineer I', 'Director of Engineering ', 'Machine Learning Engineer III', 'Senior Machine Learning Engineer ', 'Machine Learning Engineer II']
    row 19760: company_name=PATHRAI INC | city=MOUNTAIN VIEW | state=CA | Total Approvals=78.0 | Total Denials=2.0 | Approval_Rate=97.5 | top_job_titles_sponsored=['Software Engineer I', 'Director of Engineering ', 'Machine Learning Engineer III', 'Senior Machine Learning Engineer ', 'Machine Learning Engineer II']
    ```
-   *The student should repeat one of these by opening the CSV at the row number, for the presentation.*
+   *The student repeated the AppLovin check on 2026-10-02 (`sed -n '1956p'` on the same file, line 1956 =
+   data row 1955); see the attestation below.*
 2. **Reproducibility.** Run 2, six minutes after run 1, gave the same first hops, the same live verdicts
    and the same decisions.
 3. **Tests.** 36 of 36 pass on a clean checkout, offline (`TEST-REPORT.md`).
@@ -204,7 +218,7 @@ from something they declared.
 
 ## Your decision (the human gate, G8)
 
-**Student decisions recorded 2026-10-02**, from the student's own statement in chat: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” The last two columns apply it row by row. The current prototype result is RESOLVE for all eight roles. The advisory table below is a **Codex draft**, dated 2026-09-30 UTC, for student review. “Deprioritize” is advice based on requirements, not a machine Skip classification and not a cleared human gate. The student must enter their own final decision and reason and sign each row.
+**Student decisions recorded 2026-10-02**, from the student's own statement in chat: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” The last two columns apply it row by row. The current prototype result is RESOLVE for all eight roles. The advisory table below is a **Codex draft**, dated 2026-09-30 UTC, for student review. “Deprioritize” is advice based on requirements, not a machine Skip classification and not a cleared human gate. Claude Code entered the last two columns from the student's statement in chat; the name and date record the student's decision, not a signature they typed.
 
 | Posting | Current machine result | AI advisory draft | AI reason | Student decision and reason | Student name and date |
 |---|---|---|---|---|---|
@@ -255,19 +269,15 @@ What surprised me was that a relevant ML/AI title and a company’s sponsorship 
 
 ## Attestation
 
-*The rows under "Tested" were run by the student on 2026-10-02 in their own terminal, at commit `d1110ea`.
-Raw output: `evidence/student-rerun-2026-10-02/terminal.txt`. The clean-checkout suite, the live runs and the
-other break attempts were run by Claude Code and are in `TEST-REPORT.md`. The recipe's `attestation` field
-stays null, because the lifecycle sets it only at VERIFIED.*
-
-*Signed by the student on 2026-10-02. They asked for it in chat, and Claude Code typed in the "By:" line.
-The recipe and its scripts are unchanged since `d1110ea`, the commit they tested, and any later edit to
-either voids this attestation.*
-
-```markdown
-## Attestation
 - Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0)
 - By: Suketh Reddy Produtoor · 2026-10-02
+
+*Signed by the student on 2026-10-02. They asked for it in chat, and Claude Code typed in the "By:" line.
+The rows under "Tested" were run by the student in their own terminal, at commit `d1110ea`. Their pasted
+output follows the tables. The clean-checkout suite, the live runs and the other break attempts were run by
+Claude Code and are in `TEST-REPORT.md`. The recipe and its scripts are unchanged since `d1110ea`, and any
+later edit to either voids this attestation. The recipe's `attestation` field stays null, because the
+lifecycle sets it only at VERIFIED.*
 
 ### Tested
 | Ran | Saw | Expected |
@@ -300,6 +310,27 @@ Found and fixed during development by Claude Code; details in `TEST-REPORT.md`:
 - Run 1's report said PathAI had "no usable H-1B record". Fixed in `fe07d1b`.
 - `pii-scan --diff` flagged a decorator line as an email. Replaced it in every commit of the unpushed branch.
 - The overwrite-guard test broke on a leftover temporary folder and in a sandbox that cannot write. Hardened in `c242aa5`.
+
+### The student's terminal output, pasted
+
+From `evidence/student-rerun-2026-10-02/terminal.txt`. The 36 per-test lines are left out here; the file has them.
+The saved copy also removes the shell prompts and the CSV row's personal columns.
+
+```text
+$ python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v
+… 36 lines, one per test, each ending in "ok" …
+Ran 36 tests in 1.478s
+
+OK
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py
+✓ 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) · actions CONSIDER 1, NETWORK-FIRST 2, RESOLVE 6, SKIP 1, TAILOR 1
+  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-report.md  +  output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/sponsor-match-log.json
+$ python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --scorer-profile scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz
+VOID 11 roles → held 6 · scored 0 (Apply 0 · Consider 0 · Skip 0) · actions
+  output/break-authz/sponsor-match-report.md  +  output/break-authz/sponsor-match-log.json
+STOP at the scorer-contract gate: the scorer ran as if the persona does not need sponsorship (profile_needs_sponsorship = False), so the sponsorship vote was weighted 0
+$ sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv
+APPLOVIN CORP,Other Technology,applovin.com,PALO ALTO,CA,94304-1047,[phone removed],,,[executive officers removed],[board directors removed],594499996.0,194500000.0,Series D+,2022-02-23,130.0,2.0,98.48484848484848,150000.0,"['Software Engineer II', 'Machine Learning Engineer', 'Technical Support Specialist II', 'Product Manager, Lion Studios', 'Senior Designer, Motion Graphics']"
 ```
 
 ## Worked run 3: requirements reviewed, unsupported inputs withdrawn
