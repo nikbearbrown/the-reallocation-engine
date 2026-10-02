@@ -156,7 +156,7 @@ belong to a title (`Data Engineer II`, `Analyst 3`) are left alone, which is tes
 
 ## Annotated commands
 
-Offline test — 64 checks across 13 tests, fixtures only, no network:
+Offline test — 67 checks across 14 tests, fixtures only, no network:
 
 ```bash
 python3 scripts/contrib/2026fa/beswathi-dataeng-sponsor-coverage/test_sponsor_coverage.py

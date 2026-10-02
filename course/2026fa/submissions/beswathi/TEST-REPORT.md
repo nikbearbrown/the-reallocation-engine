@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-**64 checks in 13 tests, 0 failed.** Offline, fixtures only, no network.
+**67 checks in 14 tests, 0 failed.** Offline, fixtures only, no network.
 
 ```bash
 python3 scripts/contrib/2026fa/beswathi-dataeng-sponsor-coverage/test_sponsor_coverage.py
@@ -32,6 +32,7 @@ fails in the ways it is supposed to fail.
 | Geography | 7 | `market_by_state` is reported; changing `--home-state` changes **no** scored row, **no** timeline gate and **no** scoring factor |
 | Title parsing | 3 | stringified Python lists parse; malformed cells are reported not guessed; empty cells yield nothing and no false problem |
 | Output contract | 4 | agent output parses; human report written; every evidence term carries a `source`; no private `_coverage` key leaks to the scorer |
+| Determinism | 3 | three runs produce byte-identical `roles.json`, human report and audit dump |
 | Date handling | 2 | a real date sorts above a missing one; an unparseable date does not raise |
 | Network targets | 3 | every target carries a `stage_prior`; the prior states it is not a prediction; the list is sorted by base rate descending |
 
@@ -48,6 +49,31 @@ Each of these is a regression test for a real defect, documented in `FRICTIONAL.
 | `no scored role carries a senior-coded title` | a "sponsor" whose only data title is *Staff Data Scientist* is not reachable at under a year |
 | `kept intact: 'Data Engineer II' / 'Analyst 3'` | the req-id stripper must not eat numerals that belong to the title |
 | `home state does not change any scoring factor` | stops a later revision turning the geography report into a location filter |
+
+## Repeat-run check
+
+The TA's advice on this assignment was to run it several times and watch for
+different outputs. For a prompted LLM that is the right instinct — the answer is
+resampled on every call. This prototype is the other kind of thing: it reads a file
+and computes, so two runs over the same inputs must agree exactly.
+
+```
+$ for i in 1 2 3; do python3 .../sponsor_coverage.py --home-state MA \
+    --liveness-ledger .../liveness-ledger.json --out-dir /tmp/det$i; done
+$ shasum -a256 /tmp/det{1,2,3}/dataeng-roles.json
+2e0f6dd9b3ad7828…  run 1
+2e0f6dd9b3ad7828…  run 2
+2e0f6dd9b3ad7828…  run 3
+```
+
+All three runs byte-identical across **all three** output files, and `npm run score`
+over the same input likewise. The audit dump matches too, which also confirms no
+wall-clock timestamp leaks into the output.
+
+`test_output_is_deterministic` now asserts this, so if a future change introduces
+set iteration order, a timestamp, or an unseeded sample, the suite fails. **A run
+that differed would be a defect, not a feature** — it would mean a verdict was coming
+from somewhere other than the data.
 
 ## Deliberate break attempts
 

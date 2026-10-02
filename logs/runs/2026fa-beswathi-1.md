@@ -121,7 +121,7 @@ regression test now covers it.
 
 ## Verification
 
-- `python3 …/test_sponsor_coverage.py` → **64 checks in 13 tests, 0 failed**, offline,
+- `python3 …/test_sponsor_coverage.py` → **67 checks in 14 tests, 0 failed**, offline,
   fixtures only.
 - `npm run verify` → conformance 167 files, ✓; manifest check ✓ (3 pre-existing warnings).
 - `npm run pii-scan` → 1 finding, an npm maintainer address inside
@@ -202,13 +202,14 @@ which is why it is the first thing to do rather than the easiest.
 | `node .../liveness_from_fixtures.mjs` | `8 postings → active 2 · expired 5 · uncertain 1` | a ledger built by the repo's own `classifyLiveness`, no network |
 | `python3 .../sponsor_coverage.py --home-state MA --liveness-ledger … --out-dir …` | `rows read 30369 · apply 8 · pending G3 126 · senior-only 101 · data problems 21 · timeline 1.0`, exit 0 | a scored list far smaller than the 1,552 companies with a record |
 | `npm run score -- …/dataeng-roles.json --out-dir …` | `8 roles → Apply 2 · Consider 0 · Skip 6 (skip 75%)` | skip rate ≥ 50%, every skip a closed gate not a low vote |
-| `python3 .../test_sponsor_coverage.py` | `64 checks in 13 tests, 0 failed` | all pass, offline, no network |
+| `python3 .../test_sponsor_coverage.py` | `67 checks in 14 tests, 0 failed` | all pass, offline, no network |
 | `npm run verify` | conformance 167 files ✓, manifest ✓ (3 pre-existing warnings) | green |
 | `npm run doctor` | `environment: ✓ runnable · recipes 33/33 carry lifecycle frontmatter` | green |
 | `node scripts/pii-scan.mjs` | 1 finding, pre-existing in `package-lock.json` | nothing introduced by this branch |
 | `node scripts/pii-scan.mjs --diff main` | `pii-scan: clean ✓` | no personal data anywhere in this branch's history |
 | **Break 1 (deliberate):** `--today 2027-03-01` | `GATE timeline=0.0 (opt-start-window-closed)` · **exit 2** | hard stop with a non-zero exit so a chained `&& npm run score` halts |
 | **Break 2 (deliberate):** `--liveness-ledger /nope.json` | `FAIL missing liveness ledger: /nope.json (no verdict invented)` · **exit 1** | refuse rather than assume the posting is live |
+| **Repeat run (3x, TA's suggestion):** same command three times, sha256 of all three outputs | all three byte-identical, including the audit dump | identical — a script that reads a file and computes should not resample |
 | **Break 3 (deliberate):** ran with an empty ledger `{}` | all 134 reachable companies moved to `pending_g3`, 0 scored | absent evidence must mean unscored, never assumed live |
 
 ### Did not test
@@ -221,6 +222,8 @@ which is why it is the first thing to do rather than the easiest.
 - **Whether the 80 Days file is representative.** Someone chose which companies to
   map; I cannot check that selection and did not try.
 - **The scorer itself.** I invoke `npm run score`; I did not test the repo's scorer.
+- **Determinism across machines.** The repeat runs were on one machine with one
+  Python build. Identical output there does not prove identical output elsewhere.
 - **Fresh-clone behaviour on another machine.** Run from a clean checkout of this
   branch on my own machine only.
 

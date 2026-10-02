@@ -27,7 +27,7 @@ npm run score -- course/2026fa/submissions/beswathi/runs/dataeng-roles.json \
 python3 scripts/contrib/2026fa/beswathi-dataeng-sponsor-coverage/test_sponsor_coverage.py
 ```
 
-64 checks across 13 tests. Reads only `fixtures/`, never the 6.4 MB repo CSV, and makes no
+67 checks across 14 tests. Reads only `fixtures/`, never the 6.4 MB repo CSV, and makes no
 network calls.
 
 ## Regenerating the liveness ledger

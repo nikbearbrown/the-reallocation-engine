@@ -307,6 +307,37 @@ def test_requisition_ids_are_stripped_not_guessed():
           bool(sc.TARGET_TITLE_RE.search(sc.strip_req_id("Data Engineer 20516.3745")[0])))
 
 
+def test_output_is_deterministic():
+    """Same inputs must give byte-identical outputs, every time.
+
+    The TA's advice on this assignment was to run it repeatedly and watch for
+    different outputs. That is the right instinct for a prompted LLM, where the
+    answer is resampled each call. This recipe is the other thing: it reads a
+    file and computes. If two runs over identical inputs ever disagree, a
+    verdict is coming from somewhere other than the data, and that is a defect
+    rather than a feature.
+    """
+    import hashlib
+    digests = []
+    for _ in range(3):
+        with tempfile.TemporaryDirectory() as td:
+            res = sc.build(HERE, CSV, TODAY, 0, LEDGER, home_state="MA")
+            sc.write_outputs(res, td)
+            run = []
+            for name in ("dataeng-roles.json", "dataeng-sponsor-coverage.md",
+                         "dataeng-coverage-full.json"):
+                with open(os.path.join(td, name), "rb") as fh:
+                    run.append(hashlib.sha256(fh.read()).hexdigest())
+            digests.append(run)
+
+    check("roles.json identical across 3 runs",
+          digests[0][0] == digests[1][0] == digests[2][0])
+    check("human report identical across 3 runs",
+          digests[0][1] == digests[1][1] == digests[2][1])
+    check("audit dump identical across 3 runs (no wall-clock in the output)",
+          digests[0][2] == digests[1][2] == digests[2][2])
+
+
 if __name__ == "__main__":
     print("test_sponsor_coverage \u2014 offline, no network, fixtures only")
     print()

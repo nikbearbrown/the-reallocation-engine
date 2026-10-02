@@ -38,7 +38,7 @@ instead of two, and turn the resulting silence into a usable prior.
 - Requisition ids stripped from 21 title cells, row kept, every edit reported.
 - G3 liveness and G4 timeline as gates: absent evidence means **unscored**, and the
   G4 hard stop returns exit 2 so a chained `&& npm run score` halts.
-- 64 checks in 13 tests, offline, fixtures only.
+- 67 checks in 14 tests, offline, fixtures only.
 
 **Run result:** 30,369 rows → 8 scored → `Apply 2 · Consider 0 · Skip 6` (75% skip),
 126 companies explicitly unscored for want of liveness evidence.
@@ -99,7 +99,7 @@ Tests — offline, fixtures only:
 python3 scripts/contrib/2026fa/beswathi-dataeng-sponsor-coverage/test_sponsor_coverage.py
 ```
 
-Expected: `64 checks in 13 tests, 0 failed`.
+Expected: `67 checks in 14 tests, 0 failed`.
 
 Break the gates on purpose:
 
