@@ -121,12 +121,12 @@ STOP at the input gate: --out-dir data/examples/should-not-exist/ is outside thi
 
 ## Scope: `git diff --stat` against upstream `main`
 
-At the submitted branch tip, the diff has 119 files, all new (`git diff --name-status` shows `A` for every
+At the submitted branch tip, the diff has 120 files, all new (`git diff --name-status` shows `A` for every
 one). They sit under this contribution's namespaces, plus one sanctioned persona:
 
 | Area | Files |
 |---|---|
-| `course/2026fa/submissions/sukethrp/` (documents and evidence) | 100 |
+| `course/2026fa/submissions/sukethrp/` (documents and evidence) | 101 |
 | `scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/` (prototype, tests, fixtures) | 14 |
 | `recipes/cases/2026fa/` (recipe and card) | 2 |
 | `logs/runs/` (`2026fa-sukethrp-1.md`, `2026fa-sukethrp-2.md`) | 2 |
