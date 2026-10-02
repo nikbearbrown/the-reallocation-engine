@@ -22,8 +22,8 @@ checked live on 30 September 2026:
   none. See [the posting review](POSTING-REVIEW.md) and [run 3](runs/worked-run-3-reviewed/sponsor-match-report.md).
 
 The work was written with AI assistants (Claude Code built it; Codex later reviewed the postings), and
-`SOURCES.md` says exactly who did what. Several decisions are still the student's to make, listed at
-the end.
+`SOURCES.md` says exactly who did what. The student made the decisions, re-ran the checks and signed
+the attestation. What is left for them is listed at the end.
 
 ## Where everything is
 
@@ -33,7 +33,7 @@ the end.
 | Recipe (for the agent) + card (for the person) | [`recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.md`](../../../../recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.md) · [`.card.md`](../../../../recipes/cases/2026fa/sukethrp-ml-newgrad-sponsor-match.card.md) |
 | Prototype, tests, fixtures | [`scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/`](../../../../scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/) |
 | Domain justification (≤ 1 page) | [`DOMAIN-JUSTIFICATION.md`](DOMAIN-JUSTIFICATION.md) |
-| Worked run (real output, verified vs. inferred, attestation draft) | [`WORKED-RUN.md`](WORKED-RUN.md) · raw files in `worked-run/` and `runs/worked-run-{1,2}-live/`, `runs/worked-run-3-reviewed/` |
+| Worked run (real output, verified vs. inferred, the student's signed attestation) | [`WORKED-RUN.md`](WORKED-RUN.md) · raw files in `worked-run/` and `runs/worked-run-{1,2}-live/`, `runs/worked-run-3-reviewed/` |
 | Posting review (the eight postings' actual requirements, read by Codex) | [`POSTING-REVIEW.md`](POSTING-REVIEW.md) · sources and text hashes in `evidence/codex-review-2026-09-30/` |
 | Test report (clean checkout, failure cases, break attempts, scope, privacy scans) | [`TEST-REPORT.md`](TEST-REPORT.md) · raw files in `evidence/clean-checkout/` |
 | Run-log entry | [`logs/runs/2026fa-sukethrp-1.md`](../../../../logs/runs/2026fa-sukethrp-1.md) |
@@ -64,7 +64,8 @@ Greenhouse, Lever and Ashby hosts.
 
 - Recipe lifecycle: **RUNNABLE-SAMPLE**. The sample run completes and conformance passes. On 2026-10-02 the
   student recorded reading the sample report, the rules audit and the posting review (see the run log).
-  `attestation: null`.
+  The same day they re-ran four checks themselves and signed the worked run's attestation. The recipe's
+  `attestation` field stays `null`, because the lifecycle sets it only at VERIFIED.
 - Tests: 36/36 offline on a clean checkout. The branch-history privacy scan is clean. The working-tree
   scan and the course's Contrib Gate CI fail for reasons that ship with the engine; `TEST-REPORT.md`
   explains both.
@@ -74,6 +75,6 @@ Greenhouse, Lever and Ashby hosts.
 The pending items are listed in [`SOURCES.md` → "Still to be done by the student"](SOURCES.md):
 - ~~read the audits; decide the title rules, the fit/timeline numbers and the decision table~~ (done
   2026-10-02: rules v0.2.0 kept; all eight postings held, Scale AI investigated first);
-- ~~re-run the tests~~ (done 2026-10-02); sign the attestation;
+- ~~re-run the tests; sign the attestation~~ (done 2026-10-02);
 - ~~write the reflection, the Frictional entries and the SOURCES note~~ (done 2026-10-02);
 - give the presentation.

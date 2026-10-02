@@ -60,14 +60,16 @@ I was reviewing the explanations of the sample report, rules audit, and posting 
 
 I considered whether to relax the title rules or supply numbers so some postings could be scored. I expected Scale AI’s matching graduation cohort to make it easier to advance, but its qualifications, sponsorship, and start date still needed confirmation. I chose to retain all three v0.2.0 rules and keep all eight postings held, following the evidence-based recommendation. The AI assistants proposed the reasoning; my decision was to prefer conservative screening over unsupported numbers. I still need to complete the hands-on checks and confirm employer-specific details before clearing any hold.
 
-*Evidence (added by Claude Code):* the decisions were recorded in commit `7a45c7a`: the decision table in `WORKED-RUN.md` and `SOURCES.md` → "What the student decided".
+*Evidence (added by Claude Code):* the decisions were recorded in commit `7a45c7a`: the decision table in `WORKED-RUN.md` and `SOURCES.md` → "What the student decided". Later the same day the student ran the hands-on checks themselves (`evidence/student-rerun-2026-10-02/terminal.txt`) and added a dated update to their reflection in `WORKED-RUN.md`. The employer-specific details are still unconfirmed, so every hold stands.
 
 ## Human and AI contributions
 
-- **Claude Code contributed:** every line of code, test, fixture and document drafted so far, and every
-  command run so far. The full list is in `SOURCES.md` → "What Claude Code contributed".
-- **The student decided:** the situation, the recipe direction, the persona approach and the permissions
-  (`SOURCES.md` → "What the student decided").
+- **Claude Code contributed:** every line of code, test, fixture and document drafted, and every command
+  run except Codex's review runs and the student's own re-run. The full list is in `SOURCES.md` → "What
+  Claude Code contributed".
+- **The student decided:** the situation, the recipe direction, the persona approach and the permissions.
+  On 2026-10-02 they also decided the title rules and the eight holds, re-ran four checks themselves and
+  signed the attestation (`SOURCES.md` → "What the student decided").
 - **The student accepted, changed or rejected:** in the student's words, see the entries above and `SOURCES.md` →
   "What the student checked, changed or rejected".
 

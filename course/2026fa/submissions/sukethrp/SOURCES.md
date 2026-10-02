@@ -11,7 +11,8 @@ In short:
 - **Claude Code** wrote the code, tests, recipe, card and documents, and ran the original commands. Codex performed the later review and reruns described below.
 - **The student** chose the situation, the recipe direction, the persona approach and the permissions.
   On 2026-10-02 they read the audits, kept the title rules, held all eight postings, and wrote their
-  reflection and Frictional entries. Their own re-run and the attestation signature are still pending.
+  reflection and Frictional entries. The same day they re-ran the tests, the sample, a break attempt and
+  the CSV comparison in their own terminal, and signed the attestation.
 
 ---
 
@@ -65,7 +66,8 @@ AI assistance from Claude Code during the original work and Codex during the fol
 
 ## What Claude Code contributed
 
-Every item was done by Claude Code in one working session on 2026-09-29/30, on the student's machine.
+Unless dated otherwise, every item was done by Claude Code in one working session on 2026-09-29/30, on
+the student's machine.
 Commits are on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
 
 - **Exploration.** Read the assignment and the repository. Ran the getting-started commands
@@ -77,7 +79,8 @@ Commits are on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
   declared rules (`rules.json` v0.1.0 and v0.2.0), the fixtures and the 36 tests. Found and fixed the
   defects listed under "Broke during testing, fixed" in `TEST-REPORT.md`.
 - **Rules v0.2.0 (`d421abe`).** Proposed the exclusions, the `founding` marker and the II/L2 level rule,
-  from the v0.1.0 audit. *These are proposals: the student has not yet reviewed them.*
+  from the v0.1.0 audit. *These were proposals. The student reviewed them on 2026-10-02 and kept all
+  three.*
 - **Recipe and card (`6410e7d`, updated in `c11999f`).** Wrote both, plus `PROPOSED-ADDITIONS.md`.
 - **Worked run (`d3ef7be` and later).**
   - Wrote the discovery config and chose the eight postings across tiers.
@@ -87,9 +90,14 @@ Commits are on branch `contrib/2026fa-sukethrp-ml-newgrad-sponsor-match`.
 - **Testing.** Ran the clean-checkout suite (`evidence/clean-checkout/`).
 - **History rewrite.** Rewrote the unpushed branch history to remove a scanner false positive; see
   `TEST-REPORT.md`.
-- **Documents.** Drafted `TEST-REPORT.md`, `WORKED-RUN.md` (including its run analysis and the unsigned
-  attestation draft), `DOMAIN-JUSTIFICATION.md` (including the time-saved *estimate*), this file, the
-  run-log entry and the scaffold of `FRICTIONAL.md`.
+- **Documents.** Drafted `TEST-REPORT.md`, `WORKED-RUN.md` (including its run analysis and the
+  attestation draft, which the student later signed), `DOMAIN-JUSTIFICATION.md` (including the
+  time-saved *estimate*), this file, the run-log entry and the scaffold of `FRICTIONAL.md`.
+- **Recording the student's work, 2026-10-02 (`7a45c7a`, `d1110ea`, `d9f9357` and the signing commit).**
+  - Entered the student's decisions in the decision table, condensing their statement in chat into each row.
+  - Placed their reflection, Frictional entries and SOURCES text verbatim.
+  - Saved their re-run output, with shell prompts and personal CSV columns removed.
+  - Typed their signature into the attestation when they asked for it.
 - **No model at runtime.** No AI model is called by the prototype. Claude's role was authoring and
   operating, not being a data source. No value in any report is a model judgment.
 
@@ -109,6 +117,7 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 | 2026-10-02 | reported reading the sample report, the title-rules audit (v0.2.0) and the posting review. Recorded as the gate that moves the recipe to RUNNABLE-SAMPLE |
 | 2026-10-02 | title rules: **kept all three v0.2.0 choices**, because “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.” |
 | 2026-10-02 | the eight postings: **all held**, Scale AI investigated first: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” Recorded row by row in the decision table |
+| 2026-10-02 | re-ran four checks in their own terminal (`TEST-REPORT.md` → "Student re-run") and **signed the attestation** in `WORKED-RUN.md` |
 
 ## Still to be done by the student (before submission)
 
@@ -118,7 +127,8 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 - ~~Read the sample report and the rules audit.~~ Done 2026-10-02, recorded in the run log. The recipe is
   now RUNNABLE-SAMPLE.
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
-- ~~Re-run the tests and the sample run yourself~~ (done 2026-10-02, recorded in `TEST-REPORT.md`), then sign the attestation.
+- ~~Re-run the tests and the sample run yourself, then sign the attestation.~~ Done 2026-10-02: the re-run is
+  recorded in `TEST-REPORT.md`; the attestation in `WORKED-RUN.md` is signed.
 - ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.
 
@@ -142,4 +152,10 @@ review, and gave these decisions in their own words:
 
 **In the student's words (2026-10-02):** I retained the three v0.2.0 title-rule choices and rejected supplying unsupported fit and timeline numbers for the eight postings. My contribution was reviewing the reasoning and selecting those decisions; file inspection and earlier technical checks were performed by AI assistants, and my own command rerun and CSV comparison remain pending.
 
+**The student's later update (verbatim; also placed in their reflection):** 2026-10-02 — I have now completed the command rerun and CSV comparison, so the earlier statements that these checks were pending are out of date.
+
 **To complete in the student’s own words:** Name one result you checked, describe what you compared it against, and state one rule or recommendation you accepted, changed or rejected with your reason and date. Record the actual command and result after your own rerun. The AI-authored reflection and factual work log are preparation material, not substitutes for these personal statements.
+
+*Status, 2026-10-02 (Claude Code):* the rule decisions are in the student's words above. Their re-run's commands and
+results, including the CSV line they compared with the report (line 1956, AppLovin), are recorded in
+`TEST-REPORT.md` → "Student re-run", with the raw output in `evidence/student-rerun-2026-10-02/terminal.txt`.

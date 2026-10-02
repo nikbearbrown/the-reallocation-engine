@@ -2,7 +2,7 @@
 
 ## Executive summary
 
-**Follow-up:** Codex reran the 36 tests and offline sample successfully on 2026-09-30 UTC. The reviewed real queue now holds all eight postings. The section “Codex rerun” records this later evidence; the original clean-checkout account below is historical. A student rerun has not been recorded.
+**Follow-up:** Codex reran the 36 tests and offline sample successfully on 2026-09-30 UTC. The reviewed real queue now holds all eight postings. The section “Codex rerun” records this later evidence; the original clean-checkout account below is historical. A student rerun has not been recorded. **Update, 2026-10-02:** the student has since re-run the tests, the sample, a break attempt and the CSV comparison in their own terminal; see [Student re-run](#student-re-run).
 
 This report records how the prototype was tested from a clean copy of the branch: the tool checks
 before and after, the offline tests, the sample run, every named failure case, deliberate attempts to

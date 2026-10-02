@@ -27,7 +27,8 @@ how the output was checked, and what went wrong.
     engine's data at all. The only rows carrying their names are investment funds.
 
 The run was repeated after a report fix and gave the same decisions. The fit and timeline numbers were
-proposed by Claude from the job titles and still need the student's review.
+proposed by Claude from the job titles. On 2026-10-02 the student decided not to use them and held all
+eight postings (decision table below).
 
 ---
 
@@ -37,7 +38,7 @@ proposed by Claude from the job titles and still need the student's review.
 |---|---|---|
 | Persona | `search/examples/arjun-rao/profile.yml`: fictional; F-1 master's student, graduating December 2026, OPT not started; ML/AI target. The prototype reads only `needs_sponsorship: true` | your-input (fictional) |
 | Queue | `worked-run/queue-live-1.json`: eight real postings from the engine's own scanner (step 1), chosen across the recipe's tiers using the rules audit. Company, title and URL as posted. Greenhouse URLs are in the board's canonical form for the job id the scanner reported | your-input |
-| Fit, timeline | fit 0.4–0.7, timeline 0.85 (0.9 for the new-grad posting). **Proposed by Claude Code from the job title only, not checked against the posting text, and pending the student's review.** Every reason in the queue says so | your-input |
+| Fit, timeline | fit 0.4–0.7, timeline 0.85 (0.9 for the new-grad posting). **Proposed by Claude Code from the job title only, not checked against the posting text.** Every reason in the queue says so. Withdrawn for run 3; on 2026-10-02 the student held all eight postings instead | your-input |
 | Rules | `rules.json` v0.2.0 | your-input |
 | Sponsorship file | `data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv`, SHA-256 `eccdee2a…6270` (pinned, matches its audit) | record |
 
@@ -245,9 +246,12 @@ from something they declared.
 
 ## Student's reflection
 
-*Written by the student on 2026-10-02 and placed here verbatim.*
+*Written by the student on 2026-10-02 and placed here verbatim. The dated update after the paragraph was
+written later the same day, after their own re-run, and is also verbatim.*
 
 What surprised me was that a relevant ML/AI title and a company’s sponsorship history could still lead to a poor recommendation once the posting requirements were considered. Holding all eight was the right call because assigning numbers would hide uncertainty about qualifications and employment timing. Scale AI was the hardest case because its graduation cohort matched, but that alone did not resolve the other requirements. Before using this recipe for my own search, I would add a posting-requirements check before scoring fit and require evidence for the timeline factor. My review focused on the reasoning behind the title rules and holds; I have not personally rerun the commands or compared the reports directly against the CSV.
+
+2026-10-02 — I have now completed the command rerun and CSV comparison, so the earlier statements that these checks were pending are out of date.
 
 ## Attestation
 
@@ -256,10 +260,14 @@ Raw output: `evidence/student-rerun-2026-10-02/terminal.txt`. The clean-checkout
 other break attempts were run by Claude Code and are in `TEST-REPORT.md`. The recipe's `attestation` field
 stays null, because the lifecycle sets it only at VERIFIED.*
 
+*Signed by the student on 2026-10-02. They asked for it in chat, and Claude Code typed in the "By:" line.
+The recipe and its scripts are unchanged since `d1110ea`, the commit they tested, and any later edit to
+either voids this attestation.*
+
 ```markdown
 ## Attestation
 - Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0)
-- By: — awaiting the student's signature (name · date)
+- By: Suketh Reddy Produtoor · 2026-10-02
 
 ### Tested
 | Ran | Saw | Expected |
@@ -316,4 +324,4 @@ The command used `--live`, but **no prototype liveness request ran** because eve
 
 The fresh source comparison confirms physical CSV line 1956 / data row 1955: AppLovin’s 130 approvals, two denials, 98.484848% approval rate, $150,000 company-wide median salary and sponsored titles match run 2. With proposed fit 0.20, timeline 0.60 would produce 0.225, not Apply; the arithmetic would need timeline 0.80 to reach 0.30. No timeline is asserted.
 
-See `evidence/codex-review-2026-09-30/` for tests, sample, rules audit, deliberate source-hash break, source comparison and command transcripts. Student attestation remains unsigned. The older attestation’s “did not test posting requirements” describes Claude’s earlier work; Codex has since read them, which does not count as the student’s review.
+See `evidence/codex-review-2026-09-30/` for tests, sample, rules audit, deliberate source-hash break, source comparison and command transcripts. Student attestation remains unsigned *(true on 2026-09-30; the student signed it on 2026-10-02, see [Attestation](#attestation))*. The older attestation’s “did not test posting requirements” describes Claude’s earlier work; Codex has since read them, which does not count as the student’s review.
