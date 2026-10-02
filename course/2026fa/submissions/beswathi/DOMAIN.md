@@ -57,6 +57,31 @@ lands in those buckets. Mine does:
 A ranked list of 26,337 "opportunities" would serve none of these buckets. The
 routing is the product.
 
+## 2b. What it takes over, and roughly how much time
+
+This is the part of the two research-and-apply hours that goes on *triage* — deciding
+which companies are worth opening a tab for at all, before any tailoring begins.
+
+**An estimate, labelled as one.** Checking a single company by hand — searching
+whether it has sponsored before, finding its funding stage, checking whether the
+posting is still live — takes me somewhere around 5–8 minutes when nothing goes
+wrong. The run below evaluated 134 reachable companies and routed them in about two
+seconds. At 20 companies a week, which is roughly my own pace, that is **90 minutes
+to two hours a week** returned to tailoring and conversations.
+
+I want to be careful about that number. It is arithmetic over my own guess at my own
+speed, not a measurement: I did not time myself doing it by hand and then time the
+tool. It is `your-input`, not `record`. What I can say without estimating is that
+the triage pass is now reproducible and auditable, which the manual version never was
+— I could not previously tell you why I had skipped a company three weeks earlier.
+
+**Where the output goes.** The three buckets map onto the 3-3-2 day directly: `Apply`
+candidates feed the 2 research-and-apply hours, the base-rate-ranked `no-record`
+companies feed the 3 networking hours as conversations rather than applications, and
+the skips feed neither. The 101 senior-only sponsors are a networking list too — they
+hire in my field and cannot hire me *yet*, which is exactly who an informational
+interview is for.
+
 ## 3. The specific defect I am addressing
 
 `mapped_student_employment_targets_v3.csv` holds 30,369 companies. I counted what
@@ -173,6 +198,35 @@ the 75-day hiring lag, which drives the timeline gate and which nothing measured
 
 The last one is the weakest joint in the whole design, and it is `your-input` in the
 output so a reader sees it rather than discovering it.
+
+## 7b. Two failure modes specific to this domain
+
+Not "the model might hallucinate." These are the two errors this recipe can produce
+that would be hardest to catch, and who would struggle most.
+
+**1. A confident silence read as a verdict.** The failure shape: a company with no
+H-1B record gets a funding-stage base rate attached — say 1.4% for Pre-Seed — and a
+reader treats that 1.4% as a statement *about that company*. It is not; it is a
+property of 9,658 other companies. A student who skips a firm that would in fact have
+sponsored them never finds out. There is no feedback signal on a road not taken, so
+the error is invisible by construction, and it compounds: it pushes the search toward
+later-stage firms, which are also where competition concentrates.
+
+Hardest to catch for: someone newly arrived, with no network in the industry to
+contradict the number. A student who already knows people at a Series A startup will
+hear "we sponsored two people last year" and distrust the output. A student with no
+such contact has only the number.
+
+**2. A title match that is not the job.** The filing records *Data Scientist*; the
+role is a research scientist position requiring a PhD, or a thinly-disguised analyst
+role. The recipe matches on the title string because that is all the record holds.
+The failure is quiet — the application simply fails, and the student reads that as
+being unqualified rather than as a mismatch the tool introduced.
+
+Hardest to catch for: a career-changer, who has no prior sense of what a given title
+means inside a given industry and will attribute every rejection to themselves. This
+one bit me in a smaller way already: 21 titles carried a requisition id and still
+matched the pattern cleanly.
 
 ## 8. What would falsify this
 

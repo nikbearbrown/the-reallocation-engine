@@ -151,17 +151,99 @@ regression test now covers it.
   so the SOC wage and ability rows are printed for the human and never fed in.
   Feeding them would change no verdict.
 
+## Reflection
+
+**What worked.** Making the gates refuse things. The design decision that paid off
+most was treating an absent liveness entry as *unscored* rather than *live*: it cut
+the output from 258 roles to 8 and turned a meaningless 0% skip rate into a 75% one.
+The three-state classification did what it was supposed to — 94.9% of the file is
+silence, and the recipe now says so instead of converting it into rejections. The
+funding-stage base rates held up against the one test that mattered: they move when
+the rows move, so they are a computation rather than a decoration.
+
+**What it got wrong, or missed.** Three things, and all three were found by looking
+at output I had already called finished:
+
+1. The run reported `0 data problems` over 30,369 rows and I believed it. 21 title
+   cells carried a requisition id. Worse, my first explanation of those ids — a
+   salary spill — was a guess I had not checked, written inside a tool whose entire
+   premise is not guessing.
+2. The liveness ledger's two live postings belonged to companies the seniority filter
+   removes, so the scorer returned `Apply 0 · Skip 5`. A 100% skip rate passes the
+   course's own "healthy run" heuristic. Every automated check I had was green.
+3. A test I added did not run at all, and the suite reported the same green count as
+   before.
+
+The pattern across all three is the same, and it is the thing I actually learned: a
+number that looks healthy is not evidence, and the ones I liked were the ones I
+checked last.
+
+**What is still missing.** G3 is open. 126 reachable companies have nothing said
+about them. The 75-day hiring lag is invented and drives a gate that can zero
+everything. `fit` is a constant and carries no information.
+
+**One concrete next improvement.** Run `npm run ats:liveness` against the real
+postings for the 126 `pending_g3` companies and replace the fixture ledger with live
+verdicts. That single change is what would move the recipe from `RUNNABLE-SAMPLE` to
+`RUNNABLE-LIVE`, and it would also answer the open question in §8 of the domain
+justification: if liveness clears for most of those 126, then G3 is costing more than
+it protects and the gate's placement needs re-arguing. Either outcome is informative,
+which is why it is the first thing to do rather than the easiest.
+
 ## Attestation
 
-I ran every command recorded above, on 2026-10-02, and the console output quoted
-here is what they printed — not a reconstruction. The two break attempts were run
+- Recipe: `dataeng-sponsor-coverage` v0.2.0
+- By: Swathi Baba Eswarappa (GitHub `BESWATHI`) · 2026-10-02
+
+### Tested
+
+| Ran | Saw | Expected |
+|---|---|---|
+| `node .../liveness_from_fixtures.mjs` | `8 postings → active 2 · expired 5 · uncertain 1` | a ledger built by the repo's own `classifyLiveness`, no network |
+| `python3 .../sponsor_coverage.py --home-state MA --liveness-ledger … --out-dir …` | `rows read 30369 · apply 8 · pending G3 126 · senior-only 101 · data problems 21 · timeline 1.0`, exit 0 | a scored list far smaller than the 1,552 companies with a record |
+| `npm run score -- …/dataeng-roles.json --out-dir …` | `8 roles → Apply 2 · Consider 0 · Skip 6 (skip 75%)` | skip rate ≥ 50%, every skip a closed gate not a low vote |
+| `python3 .../test_sponsor_coverage.py` | `64 checks in 13 tests, 0 failed` | all pass, offline, no network |
+| `npm run verify` | conformance 167 files ✓, manifest ✓ (3 pre-existing warnings) | green |
+| `npm run doctor` | `environment: ✓ runnable · recipes 33/33 carry lifecycle frontmatter` | green |
+| `node scripts/pii-scan.mjs` | 1 finding, pre-existing in `package-lock.json` | nothing introduced by this branch |
+| `node scripts/pii-scan.mjs --diff main` | `pii-scan: clean ✓` | no personal data anywhere in this branch's history |
+| **Break 1 (deliberate):** `--today 2027-03-01` | `GATE timeline=0.0 (opt-start-window-closed)` · **exit 2** | hard stop with a non-zero exit so a chained `&& npm run score` halts |
+| **Break 2 (deliberate):** `--liveness-ledger /nope.json` | `FAIL missing liveness ledger: /nope.json (no verdict invented)` · **exit 1** | refuse rather than assume the posting is live |
+| **Break 3 (deliberate):** ran with an empty ledger `{}` | all 134 reachable companies moved to `pending_g3`, 0 scored | absent evidence must mean unscored, never assumed live |
+
+### Did not test
+
+- **Live liveness.** `npm run ats:liveness` was never run against a real posting. All
+  eight verdicts come from saved captures. **G3 is not cleared.**
+- **That any `Apply` role is a real open job today.** `Apply 2` is a property of the
+  fixture ledger.
+- **The 75-day hiring lag.** It drives the G4 gate and nothing measured it.
+- **Whether the 80 Days file is representative.** Someone chose which companies to
+  map; I cannot check that selection and did not try.
+- **The scorer itself.** I invoke `npm run score`; I did not test the repo's scorer.
+- **Fresh-clone behaviour on another machine.** Run from a clean checkout of this
+  branch on my own machine only.
+
+### Broke during testing, fixed
+
+| What failed | What changed | Where |
+|---|---|---|
+| `Apply 258 · Skip 0` — unverified liveness emitted as `1.0`, so the gate never closed and the scorer rubber-stamped a list I had pre-filtered | absent ledger entry now means **unscored**, not assumed live; 126 companies moved to `pending_g3` | `sponsor_coverage.py` · `classify_sponsorship` / routing |
+| G4 printed its warning and returned **exit 0**, so a chained `&& npm run score` ran anyway on a zeroed role set | `return 2`, plus a regression test asserting the exit code rather than the message | `sponsor_coverage.py:main` · `test_exit_codes_enforce_the_gates` |
+| Timeline factor `0.5 + slack/(2*90)` gave **half credit at zero slack** | `min(1.0, slack/90)`, `slack <= 0` → `0.0`, no floor | `timeline_factor` |
+| Title pattern `a\.?i\.?` unanchored — matched "ai" inside *Supply Chain*, *Affairs*, *Liaison* | every alternative `\b`-anchored; the counts I had already written into the card were wrong and were corrected | `TARGET_TITLE_RE` |
+| Run reported `0 data problems` while accepting `Data Engineer 20516.3745` | requisition ids stripped, row kept, every edit reported; my first fix called them a "salary spill", which was a wrong guess | `strip_req_id` |
+| Scorer returned `Apply 0 · Skip 5 (100%)` — the ledger's only two `active` captures belonged to companies the seniority filter removes | captures retargeted to the first 8 companies in the pipeline's own reachable order, a stated rule rather than a hand-picked set | `fixtures/postings.fixture.json` |
+| New geography test silently did not run; suite still reported the same count | `__main__` now discovers tests by name instead of calling a hand-written list | `test_sponsor_coverage.py` |
+| Audit dump serialised all 26,337 network targets — an **18 MB JSON**, committed | capped at top 250 with a `network_targets_truncated` block stating shown vs total; 249 KB | `write_outputs` |
+| My own run log quoted the pii-scan finding verbatim, creating a **second** finding | the finding is described without reproducing the address | this file |
+
+### Statement
+
+I ran every command in the Tested table on 2026-10-02 and the output quoted in this
+log is what they printed, not a reconstruction. The three break attempts were run
 with the intent of making the gates fail, and their exit codes were read from the
 shell rather than assumed.
 
-No host was contacted at any point. No liveness verdict in this run came from a
-live page; all eight came from `classifyLiveness` applied to saved captures, and
-the output labels them `record (classifyLiveness) over fixture capture` rather than
-`record`. G3 is open. Nothing here authorises sending an application.
-
-The `Apply 2` result is a property of a fixture ledger, not evidence that two jobs
-are open today.
+No host was contacted at any point. No liveness verdict came from a live page. G3 is
+open. Nothing in this run authorises sending an application.

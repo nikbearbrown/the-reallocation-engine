@@ -59,6 +59,73 @@ file, and exit codes were read from the shell rather than assumed:
 | `--today 2027-03-01` | hard stop, non-zero exit | `GATE timeline=0.0 (opt-start-window-closed)` · **exit 2** |
 | `--liveness-ledger /nope.json` | refuse rather than assume live | `FAIL missing liveness ledger: /nope.json (no verdict invented)` · **exit 1** |
 
+## Toolchain baseline — before and after
+
+Run from a clean checkout of this branch, before touching anything and again after
+the full prototype run. Identical both times; the prototype changes no repo state.
+
+**Before**
+
+```
+$ npm run doctor
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+
+$ npm run verify
+conformance: 167 files (88 md · 38 py · 31 js · 6 json · 4 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+✓ manifest check passed (3 warnings)
+```
+
+**After** (same three commands, after `liveness_from_fixtures.mjs`,
+`sponsor_coverage.py` and `npm run score`)
+
+```
+$ npm run doctor
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+
+$ npm run verify
+conformance: 167 files (88 md · 38 py · 31 js · 6 json · 4 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+✓ manifest check passed (3 warnings)
+```
+
+The 3 manifest warnings (`archive/`, `private/`, `data/ats/`) are pre-existing on
+`main` and are not introduced by this branch.
+
+## Scope of the diff
+
+```
+$ git diff --stat main..HEAD | tail -3
+ .../sponsor_coverage.py        |  750 ++
+ .../test_sponsor_coverage.py   |  321 +
+ 22 files changed, 10846 insertions(+)
+
+$ git diff --name-only main..HEAD | sed -E 's#(^[^/]+/[^/]+/[^/]+)/.*#\1#' | sort -u
+course/2026fa/submissions
+logs/runs/2026fa-beswathi-1.md
+recipes/cases/2026fa
+scripts/contrib/2026fa
+```
+
+Four paths, all assigned to this student. **No deletions, no modifications** — every
+one of the 10,846 lines is an addition. `logs/RUN_LOG.md` is untouched, no other
+student's folder is touched, and `package.json` / `package-lock.json` are unmodified.
+
+## What the gate requires a human to judge
+
+The prototype never clears G3. It emits the verdict it was given and labels its
+source; a person must run `npm run ats:liveness -- <job-url>` against the real
+posting and record the result before any application is sent. The two `Apply` rows
+in the sample run are **not** cleared to act on.
+
+The second human judgment is the one the geography table is for: whether to search
+nationally or stay in Boston. The recipe deliberately does not score that, because
+relocation cost is not in the data.
+
 ## Repository checks
 
 | Check | Result |

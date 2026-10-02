@@ -201,7 +201,89 @@ stops being good at a size nobody will open.
   wage and ability data is printed for the human and never fed in. Feeding it would
   change no verdict, and pretending otherwise would be theatre.
 
-## 11. What I would tell someone starting this
+## 11. Human and AI contributions
+
+The assignment asks me to distinguish my work from the AI's. I used Claude (Claude
+Code) throughout, and the split was not even — being vague about that would be the
+one dishonesty this document exists to avoid.
+
+### What the AI did
+
+- Wrote essentially all of the code: `sponsor_coverage.py`, `test_sponsor_coverage.py`,
+  `liveness_from_fixtures.mjs`, and the fixtures.
+- Wrote the first drafts of every document here, including this one.
+- Found most of the defects in §1–§9. The 0% skip rate, the exit-0 gate, the 0.5
+  timeline floor, the unanchored regex, the stale ledger and the 18 MB dump were all
+  caught by the AI checking its own output, not by me reading the code.
+- Verified the statistics against the CSV directly rather than carrying them forward
+  from earlier notes — which is how the wrong "98 vs 143" figure in §7 was caught.
+
+### What I decided
+
+- **The domain.** Data/AI roles under my own OPT clock, with my real I-20 dates. Not
+  suggested to me.
+- **The six target titles.** The first draft had four. I added machine learning
+  engineer, BI engineer and data scientist because those are the jobs I actually
+  apply to — and that addition is what surfaced the "AI Engineer appears zero times"
+  finding in §7, which neither of us had predicted.
+- **The seniority filter.** I said I am a new grad with under a year of experience.
+  Before that the tool was recommending Staff and Principal roles to me. 101
+  companies moved out of the reachable set because of that one sentence.
+- **Pushing for something the cohort would not duplicate.** Every student in this
+  class is using Claude on the same repository. I said so explicitly and asked for an
+  angle that would not be the obvious one, which is where the funding-stage base
+  rates came from rather than a straightforward sponsorship filter.
+- **That geography must not be a filter.** The AI had built the geographic layer and
+  was about to make a Boston shortlist the output. I said I am open to relocating
+  anywhere in the US and to remote work. That reversed the design: geography became a
+  reported number that is never scored, and a test now enforces it
+  (`test_geography_is_reported_not_enforced`). The AI's version would have quietly
+  deleted 89% of my reachable market.
+- **Asking whether it was actually right before submitting.** That check is what
+  found the missing attestation table, the missing submission fields, the absent
+  toolchain baseline, and this section. Four rubric items the AI had not flagged on
+  its own.
+
+### What I rejected or changed
+
+- A Boston-only shortlist as the headline output — rejected, for the reason above.
+- An earlier framing where the requisition ids were described as a "salary spill."
+  That explanation was a guess; the per-company prefix disproves it, and the write-up
+  in §4 now says the first version was wrong rather than quietly correcting it.
+- Claiming `RUNNABLE-LIVE`. The recipe stays `RUNNABLE-SAMPLE` because G3 is not
+  cleared, and I would rather the status be accurate than impressive.
+
+### What I can explain, and the honest edge of that
+
+I can explain every gate, every number in the worked run, and why each one is labelled
+`record`, `model-judgment` or `your-input`. I can explain why a closed gate zeroes the
+composite while a low vote does not, and why an absent ledger entry means unscored
+rather than live.
+
+Where I would be slower: the regex internals of `strip_req_id` and `SENIOR_TITLE_RE`
+are AI-written and I can describe what they match and why, but I did not write those
+patterns character by character. I am recording that rather than implying an
+authorship I do not have.
+
+## 12. Traceability
+
+| Claim in this document | Where to check it |
+|---|---|
+| Commit under review | `35ee3ad` on `contrib/2026fa-beswathi-dataeng-sponsor-coverage` |
+| Pull request | nikbearbrown/the-reallocation-engine#6 |
+| §1 unverified liveness emitted as 1.0 | fixed in `sponsor_coverage.py` routing; locked by `data-title sponsor with no ledger entry is pending, not Apply` |
+| §2 gate exited 0 | `main()` now `return 2`; locked by `G4 gate 0.0 exits 2 so a chained command halts` |
+| §3 half credit at zero slack | `timeline_factor`; locked by `past the OPT start window -> hard 0.0 gate` |
+| §4 requisition ids | `strip_req_id` + `REQ_ID_RE`; locked by `test_requisition_ids_are_stripped_not_guessed` (8 checks, both directions) |
+| §5 test that did not run | `__main__` in `test_sponsor_coverage.py`; count line now reads `N checks in M tests` |
+| §6 stale ledger | `fixtures/postings.fixture.json`; selection rule stated in the recipe and in `SOURCES.md` §3 |
+| §7 unanchored regex | `TARGET_TITLE_RE`; corrected counts recorded in the card with the superseded figures named |
+| §8 pii-scan self-finding | `logs/runs/2026fa-beswathi-1.md`, verification section |
+| §9 18 MB dump | `write_outputs`, `AUDIT_NETWORK_CAP`; audit file is now 249 KB |
+| All revisions R1–R8 | `course/2026fa/submissions/beswathi/CHANGE-BRIEF.md` |
+| Every command and its output | `logs/runs/2026fa-beswathi-1.md`, Attestation → Tested |
+
+## 13. What I would tell someone starting this
 
 Check the results you like. Every defect above produced a number that looked
 healthy: 258 applies, 0 data problems, 49 tests passing, 100% skip rate, a smooth

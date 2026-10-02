@@ -146,3 +146,40 @@ and `logs/runs/`.
 - **Python 3**, standard library only. No `pip install`, no virtualenv.
 - **Node 20+**, for the fixture ledger and `npm run score`. No new npm dependency was
   added; `package.json` and `package-lock.json` are untouched by this branch.
+
+## 8. Credit, and what the AI contributed
+
+**The repository.** `the-reallocation-engine` by Nik Bear Brown, MIT licensed. The
+80 Days to Stay data, the `classifyLiveness` classifier, the role scorer, the
+conformance / PII / manifest checks and the governing documents (`SNICKERDOODLE.md`,
+`DOMAIN.md`, `DATA_CONTRACT.md`, `CONTRIBUTING.md`, `recipes/_shared.md`) are all the
+repository's work, not mine. My contribution sits in four namespaced paths and
+reuses the rest rather than reimplementing it.
+
+**Course material.** Ch. 11 (the Bayesian role scorer, votes vs gates) and the 3-3-2
+split essay.
+
+**Tools.** Claude (Claude Code) — used throughout. Python 3 standard library, Node 20.
+
+**AI versus my own judgment.** The full account is in `FRICTIONAL.md` §11; the short
+version:
+
+- The AI wrote essentially all of the code, the tests, the fixtures and the first
+  draft of every document in this submission, and caught most of the defects in the
+  friction log by checking its own output.
+- I chose the domain and supplied my real OPT dates; expanded the target titles from
+  four to six, which is what surfaced the "AI Engineer appears zero times" finding;
+  specified the seniority constraint that moved 101 companies out of the reachable
+  set; pushed for an angle the rest of the cohort would not duplicate, which produced
+  the funding-stage base rates; and **reversed the geography design** — the AI was
+  about to make a Boston shortlist the headline output, and I said I am open to
+  relocation and remote work, so it became a reported number that is never scored.
+- I rejected claiming `RUNNABLE-LIVE`, and rejected an explanation of the requisition
+  ids ("salary spill") that turned out to be a guess.
+
+**Where my authorship is thinner.** The regular expressions (`TARGET_TITLE_RE`,
+`SENIOR_TITLE_RE`, `REQ_ID_RE`) are AI-written. I can explain what each matches and
+why it is anchored the way it is, but I did not compose them character by character,
+and I would rather say so than imply otherwise.
+
+No collaborators. No data was obtained from anywhere outside this repository.

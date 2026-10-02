@@ -1,26 +1,62 @@
 # Submission — Recipe Design Assignment
 
-**Recipe:** `dataeng-sponsor-coverage`
-**Branch:** `contrib/2026fa-beswathi-dataeng-sponsor-coverage`
-**Date:** 2026-10-02
+- **Assignment:** The Reallocation Engine — Recipe Design Assignment
+- **Student:** Swathi Baba Eswarappa
+- **GitHub handle:** `BESWATHI`
+- **Domain / situation:** F-1 international master's student (Northeastern, Boston), under one year of experience, targeting data engineer / data analyst / data scientist / machine learning engineer / AI engineer / BI engineer roles. I-20 ends 2026-12-15; planned OPT start 2027-01-15; 90 days permitted unemployment. Open to relocation inside the US and to remote work.
+- **Recipe path:** `recipes/cases/2026fa/beswathi-dataeng-sponsor-coverage.md` (card: `….card.md`)
+- **Prototype command:**
+  ```bash
+  python3 scripts/contrib/2026fa/beswathi-dataeng-sponsor-coverage/sponsor_coverage.py \
+    --home-state MA \
+    --liveness-ledger scripts/contrib/2026fa/beswathi-dataeng-sponsor-coverage/fixtures/liveness-ledger.json \
+    --out-dir course/2026fa/submissions/beswathi/runs
+  ```
+- **GitHub repository:** `nikbearbrown/the-reallocation-engine`
+- **Fork:** `BESWATHI/the-reallocation-engine`
+- **Branch:** `contrib/2026fa-beswathi-dataeng-sponsor-coverage`
+- **PR URL:** https://github.com/nikbearbrown/the-reallocation-engine/pull/6
+- **Submitted commit SHA:** `__SHA__`
+- **Lifecycle stage claimed:** `RUNNABLE-SAMPLE` (v0.2.0) — G3 is **not** cleared, so `RUNNABLE-LIVE` is not claimed
 
-## Executive summary
+## Summary of my changes
 
-**The question.** For an F-1 student with a hard OPT clock, which companies are worth
-an application and which are worth a conversation?
+A recipe and prototype that classify sponsorship evidence into **three** states
+instead of two, and turn the resulting silence into a usable prior.
 
-**The finding.** The dataset everyone is using contains **5 recorded "no" answers and
-28,812 silences**. A tool with two states — sponsors / does not sponsor — turns those
-silences into 28,807 rejections that no employer ever issued. This recipe uses three
-states instead, and converts the silence into a computed funding-stage base rate
-(Pre-Seed 1.4% → Series D+ 25.6%, an 18x spread).
+- Three-state classification: `record-positive` / `record-negative` / `no-record`. A
+  `no-record` company carries **no** probability at all.
+- Funding-stage base rates computed over all 30,369 rows at runtime, never hardcoded
+  (Pre-Seed 1.4% → Series D+ 25.6%); stages below n=100 get no rate rather than a
+  noisy one.
+- Seniority filter: 101 companies sponsor data titles only at senior/staff/lead level
+  and are recorded with a reason rather than dropped.
+- Geography reported and never scored, with a test asserting `--home-state` changes
+  no scoring factor.
+- Requisition ids stripped from 21 title cells, row kept, every edit reported.
+- G3 liveness and G4 timeline as gates: absent evidence means **unscored**, and the
+  G4 hard stop returns exit 2 so a chained `&& npm run score` halts.
+- 64 checks in 13 tests, offline, fixtures only.
 
-**The result.** 30,369 companies → 8 scored → `Apply 2 · Consider 0 · Skip 6` (75%
-skip). 126 companies are explicitly **unscored** because no liveness evidence exists
-for them, and 101 sponsor data roles only at senior level.
+**Run result:** 30,369 rows → 8 scored → `Apply 2 · Consider 0 · Skip 6` (75% skip),
+126 companies explicitly unscored for want of liveness evidence.
 
-**What it does not do.** G3 is not cleared. The two `Apply` rows rest on saved page
-captures, not on a live fetch, and nothing here authorises sending an application.
+## Known limitations
+
+- **G3 is not cleared for anything.** All 8 liveness verdicts come from saved page
+  captures classified by the repo's own `classifyLiveness`, labelled
+  `record (classifyLiveness) over fixture capture`. `Apply 2` is a property of a
+  fixture ledger, not evidence that two jobs are open today.
+- **A base rate is not a prediction** about any single company, and this file holds
+  companies someone already chose to map — the rates describe the file, not the economy.
+- **The 75-day hiring lag driving G4 is assumed.** Nothing measured it. It is the
+  weakest input in the recipe and can zero every role.
+- **`fit` is a constant 0.8 `model-judgment`** — it carries no information and is
+  declared as such rather than dressed up.
+- **The networking list contains entities that do not hire data engineers** —
+  investment vehicles and holding companies that file Form D.
+- **`role_quality` is 0.0 in the scorer** (`[VERIFY]`), so SOC wage and ability rows
+  are printed for the human and never fed in. Feeding them would change no verdict.
 
 ## Where everything is
 
