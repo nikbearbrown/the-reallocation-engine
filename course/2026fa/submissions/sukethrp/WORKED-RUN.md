@@ -260,12 +260,11 @@ a person, or computed from something they declared, such as a tier from the decl
 
 ## Student's reflection
 
-*Written by the student on 2026-10-02 and placed here verbatim. The dated update after the paragraph was
-written later the same day, after their own re-run, and is also verbatim.*
+*Written by the student and placed here verbatim. This is their revised paragraph of 2026-10-02, written
+after their own re-run, and it replaces their first version. The first version, and the one-line update
+they added before revising it, are in the git history (commits `d1110ea` and `56e67e4`).*
 
-What surprised me was that a relevant ML/AI title and a company’s sponsorship history could still lead to a poor recommendation once the posting requirements were considered. Holding all eight was the right call because assigning numbers would hide uncertainty about qualifications and employment timing. Scale AI was the hardest case because its graduation cohort matched, but that alone did not resolve the other requirements. Before using this recipe for my own search, I would add a posting-requirements check before scoring fit and require evidence for the timeline factor. My review focused on the reasoning behind the title rules and holds; I have not personally rerun the commands or compared the reports directly against the CSV.
-
-2026-10-02 — I have now completed the command rerun and CSV comparison, so the earlier statements that these checks were pending are out of date.
+What surprised me was that a relevant ML/AI title and sponsorship history could still produce an unsuitable recommendation once the posting requirements were considered. Holding all eight was the right call because assigning numbers would conceal uncertainty about qualifications and employment timing, although Scale AI’s matching graduation cohort made that decision harder. What worked was the separation of records from declared inputs and the scorer-contract gate, which stopped the deliberately broken authorization case instead of producing usable recommendations. I personally reran the tests and sample, observed the VOID result and compared AppLovin’s CSV line with the report. Before using the recipe for my own search, I would add a posting-requirements check before scoring fit and require evidence for the timeline factor.
 
 ## Attestation
 

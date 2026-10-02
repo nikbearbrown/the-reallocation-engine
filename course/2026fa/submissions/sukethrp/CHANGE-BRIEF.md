@@ -15,7 +15,8 @@ of guessing.
 
 **Authorship.** Drafted by Claude Code (AI assistant) on 2026-09-29, from Claude's reading of the
 repository and a first-pass profile of its data, before the prototype existed. The situation and
-the recipe direction were chosen by the student. Student review of these predictions: *pending*.
+the recipe direction were chosen by the student. Student review of these predictions: ~~*pending*~~
+written 2026-10-02, at the end of Revisions.
 The original predictions below are not to be edited. Later revisions go in *Revisions* at the end,
 dated.
 
@@ -160,3 +161,10 @@ The original predictions remain above unchanged. Codex disagrees with treating t
 After withdrawing unsupported fit and timeline scorer inputs, worked run 3 produces eight RESOLVE results and zero scored roles. This does not refute the historical title-tier counts. It shows that the original input assumptions made the queue look more actionable than the evidence supports. The prediction that networking would be the most common next action is not supported by this reviewed queue; resolving missing evidence dominates.
 
 Proposed next change: a requirements review and talent-pool flag before scoring. No new code or threshold was added in this follow-up. This note is Codex’s analysis, not a statement of student disagreement or a retroactive pre-build prediction.
+
+### 2026-10-02 — the student's review of the predictions
+
+*Written by the student and placed here verbatim. It answers the "student review pending" notes on the two
+revisions above.*
+
+The predictions held up partly: title-rule overcounting and missing-company holds occurred, but the reviewed queue required more evidence resolution than the predicted networking activity, and the first report avoided the predicted skip-rate problem by reporting both denominators.

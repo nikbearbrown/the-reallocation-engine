@@ -78,4 +78,5 @@ The pending items are listed in [`SOURCES.md` → "Still to be done by the stude
   2026-10-02: rules v0.2.0 kept; all eight postings held, Scale AI investigated first);
 - ~~re-run the tests; sign the attestation~~ (done 2026-10-02);
 - ~~write the reflection, the Frictional entries and the SOURCES note~~ (done 2026-10-02);
+- ~~review the change brief's predictions; confirm the reading in their own words~~ (done 2026-10-02);
 - give the presentation.

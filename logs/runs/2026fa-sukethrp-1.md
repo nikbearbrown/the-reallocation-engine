@@ -31,7 +31,7 @@ Each record below follows the recipe's run-log template, which extends the one i
 - **Outputs:** `output/sukethrp-ml-newgrad-sponsor-match/2026-09-30-sample/` (gitignored). Copy of the report: `course/2026fa/submissions/sukethrp/evidence/clean-checkout/06-sample-run-report.md`
 - **Result:** evaluated 11 · held 6 (no-h1b-record 2, no-company-match 1, ambiguous-company-match 1, liveness-uncertain 1, no-timeline-factor 1) · scored 5 (Apply 1 · Consider 3 · Skip 1) · actions TAILOR 1, NETWORK-FIRST 2, CONSIDER 1, SKIP 1, RESOLVE 6
 - **Gates:** G1 pass · G2 pass · G7 pass · G8 open (the queue is illustrative; nobody acts on it)
-- **Audits read:** this report, by Suketh Reddy Produtoor (the student), reported 2026-10-02
+- **Audits read:** this report, by Suketh Reddy Produtoor (the student), reported 2026-10-02 and confirmed in their own words (`course/2026fa/submissions/sukethrp/SOURCES.md` → "Reading confirmation")
 - **Open issues:** none for the run. Its six held roles are illustrative fixtures.
 
 ## Run record — 2026-09-30 — title-rules audit
@@ -43,7 +43,7 @@ Each record below follows the recipe's run-log template, which extends the one i
 - **Command:** `python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py --audit-rules --out-dir course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.2.0 --overwrite`
 - **Outputs:** `course/2026fa/submissions/sukethrp/evidence/rules-audit-v0.2.0/` (`rules-audit.md`, `rules-audit.json`). Before/after against rules v0.1.0 (33 Proven): `course/2026fa/submissions/sukethrp/evidence/rules-v0.1.0-to-v0.2.0-tier-changes.txt`. Six companies moved from Proven to Likely; five others changed their gap label within Likely.
 - **Result:** 30,369 rows · tiered 1,552 · held 28,817 · Proven 27 · Likely 1,525 · 21 unmarked ML/AI titles · 69 companies carry a record shared with a differently named company
-- **Audits read:** this audit, by the student, reported 2026-10-02. The student kept all three v0.2.0 choices (`course/2026fa/submissions/sukethrp/SOURCES.md`).
+- **Audits read:** this audit, by the student, reported 2026-10-02 and confirmed in their own words (same place). The student kept all three v0.2.0 choices (`course/2026fa/submissions/sukethrp/SOURCES.md`).
 - **Open issues:** the II/L2 and Founding rules are judgment calls. The file lists only top titles and has no filing years, so a missing entry-level title is not proof of no entry-level sponsorship.
 
 ## Run record — 2026-09-30 — live, worked runs 1 and 2

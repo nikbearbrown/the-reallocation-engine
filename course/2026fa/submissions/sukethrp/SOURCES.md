@@ -120,22 +120,23 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 | 20:50 | allowed local commits as work proceeds. Chose "build now, review the predictions later" over adding a prediction first |
 | 21:25 | chose a **new matching persona** (Claude recommended it) over reusing Priya Nair |
 | 21:25 | chose to use **Claude's proposed fit and timeline values, to review later**, over typing their own |
-| 2026-10-02 | reported reading the sample report, the title-rules audit (v0.2.0) and the posting review. Recorded as the gate that moves the recipe to RUNNABLE-SAMPLE |
+| 2026-10-02 | reported reading the sample report, the title-rules audit (v0.2.0) and the posting review. Recorded as the gate that moves the recipe to RUNNABLE-SAMPLE. Later that day they confirmed it in their own words, naming what they noticed in each document (below) |
 | 2026-10-02 | title rules: **kept all three v0.2.0 choices**, because “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.” `rules.json` itself still says "the student has not yet reviewed it" and "declared_by: the student". Both notes are out of date: Claude Code drafted the rules, and the student reviewed and kept them on this date. The file is left byte-identical so that the rules hash every run recorded still matches |
 | 2026-10-02 | the eight postings: **all held**, Scale AI investigated first: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.” Recorded row by row in the decision table |
 | 2026-10-02 | re-ran four checks in their own terminal (`TEST-REPORT.md` → "Student re-run") and **signed the attestation** in `WORKED-RUN.md` |
 
 ## Still to be done by the student (before submission)
 
-- Review the change brief's predictions. Add a dated revision if you disagree or have your own.
+- ~~Review the change brief's predictions.~~ Done 2026-10-02: the student's revision is at the end of `CHANGE-BRIEF.md`.
 - ~~Decide the title rules.~~ Done 2026-10-02: kept v0.2.0 (see the decisions above).
 - ~~Review each fit and timeline number.~~ Done 2026-10-02: all eight kept held, so no run 4.
-- ~~Read the sample report and the rules audit.~~ Done 2026-10-02, recorded in the run log. The recipe is
-  now RUNNABLE-SAMPLE.
+- ~~Read the sample report and the rules audit.~~ Done 2026-10-02, recorded in the run log and confirmed in the
+  student's own words above. The recipe is now RUNNABLE-SAMPLE.
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
 - ~~Re-run the tests and the sample run yourself, then sign the attestation.~~ Done 2026-10-02: the re-run is
   recorded in `TEST-REPORT.md`; the attestation in `WORKED-RUN.md` is signed.
-- ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02.
+- ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02: a revised
+  reflection and three Frictional entries.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.
 
 ## Codex follow-up contribution — 2026-09-30 UTC
@@ -158,10 +159,24 @@ review, and gave these decisions in their own words:
 
 **In the student's words (2026-10-02):** I retained the three v0.2.0 title-rule choices and rejected supplying unsupported fit and timeline numbers for the eight postings. My contribution was reviewing the reasoning and selecting those decisions; file inspection and earlier technical checks were performed by AI assistants, and my own command rerun and CSV comparison remain pending.
 
-**The student's later update (verbatim; also placed in their reflection):** 2026-10-02 — I have now completed the command rerun and CSV comparison, so the earlier statements that these checks were pending are out of date.
+**The student's later update (verbatim):** 2026-10-02 — I have now completed the command rerun and CSV comparison, so the earlier statements that these checks were pending are out of date.
+
+**Reading confirmation, in the student's words (2026-10-02):**
+- Sample report: I read the report and noticed that RESOLVE roles are held for missing evidence, while TAILOR, NETWORK-FIRST, CONSIDER and SKIP are suggestions; the evidence table also separates source records from declared inputs.
+- Rules audit: I read the audit and noticed that II/L2 titles and non-engineering AI titles cannot establish the strict unmarked ML/AI sponsorship signal, while even an unmarked title does not prove a new-grad hire.
+- Posting review: I read all eight rows and noticed that several relevant-looking titles concealed experience requirements or explicit new-grad exclusions, and none supplied a confirmed employment start date.
+
+**Sources update, in the student's words (2026-10-02):** I checked the saved reports against my rerun output and compared AppLovin’s source line with the reported sponsorship fields. The tests passed, the sample reproduced its recorded counts and the broken authorization profile produced VOID; its process exit code was not captured in my transcript.
+
+**Timing estimate, in the student's words (2026-10-02):** I have not timed individual H-1B lookups, so the time-saving figure remains an estimate rather than a measured result.
 
 **To complete in the student’s own words:** Name one result you checked, describe what you compared it against, and state one rule or recommendation you accepted, changed or rejected with your reason and date. Record the actual command and result after your own rerun. The AI-authored reflection and factual work log are preparation material, not substitutes for these personal statements.
 
-*Status, 2026-10-02 (Claude Code):* the rule decisions are in the student's words above. Their re-run's commands and
-results, including the CSV line they compared with the report (line 1956, AppLovin), are recorded in
-`TEST-REPORT.md` → "Student re-run", with the raw output in `evidence/student-rerun-2026-10-02/terminal.txt`.
+*Status, 2026-10-02 (Claude Code):* answered by the student's texts above:
+- the rule decisions and their reasons;
+- the reading confirmation;
+- the sources update, which names the result they checked (AppLovin's CSV line) and what they compared it
+  against (the report's sponsorship fields).
+
+The commands and the raw output are in `TEST-REPORT.md` → "Student re-run" and in
+`evidence/student-rerun-2026-10-02/terminal.txt`.

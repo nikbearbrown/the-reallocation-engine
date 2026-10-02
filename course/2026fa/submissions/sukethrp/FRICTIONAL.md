@@ -50,19 +50,25 @@ Quoted text is the student's own wording in chat. The answer naming the student'
 
 ## Student entries
 
-*Written by the student and placed here verbatim on 2026-10-02. Only the entry titles were made into headings. The evidence line under each entry was added by Claude Code to link it to files and commits. More entries can follow, for example after the student's own re-run.*
+*Written by the student and placed here verbatim on 2026-10-02: three entries, the third after their own re-run. Only the entry titles were made into headings. The evidence line under each entry was added by Claude Code to link it to files and commits.*
 
 ### 2026-10-02 — Reading and interpreting the results
 
 I was reviewing the explanations of the sample report, rules audit, and posting review. I expected relevant titles and sponsorship history to provide a useful shortlist, but the posting review showed why those signals were insufficient. The AI assistants read and summarized the files; my part was considering the explanations and the proposed decisions. I now understand that RESOLVE means evidence is missing, while SKIP is a recommendation to spend effort elsewhere.
 
-*Evidence (added by Claude Code):* `evidence/clean-checkout/06-sample-run-report.md`, `evidence/rules-audit-v0.2.0/rules-audit.md` and `POSTING-REVIEW.md`. The reading was recorded in commit `d2b3a2e` (recipe → RUNNABLE-SAMPLE) and in `logs/runs/2026fa-sukethrp-1.md`.
+*Evidence (added by Claude Code):* `evidence/clean-checkout/06-sample-run-report.md`, `evidence/rules-audit-v0.2.0/rules-audit.md` and `POSTING-REVIEW.md`. The reading was recorded in commit `d2b3a2e` (recipe → RUNNABLE-SAMPLE) and in `logs/runs/2026fa-sukethrp-1.md`. Later that day the student confirmed it in their own words, naming what they noticed in each of the three documents (`SOURCES.md` → "Reading confirmation").
 
 ### 2026-10-02 — Choosing the rules and keeping the holds
 
 I considered whether to relax the title rules or supply numbers so some postings could be scored. I expected Scale AI’s matching graduation cohort to make it easier to advance, but its qualifications, sponsorship, and start date still needed confirmation. I chose to retain all three v0.2.0 rules and keep all eight postings held, following the evidence-based recommendation. The AI assistants proposed the reasoning; my decision was to prefer conservative screening over unsupported numbers. I still need to complete the hands-on checks and confirm employer-specific details before clearing any hold.
 
-*Evidence (added by Claude Code):* the decisions were recorded in commit `7a45c7a`: the decision table in `WORKED-RUN.md` and `SOURCES.md` → "What the student decided". Later the same day the student ran the hands-on checks themselves (`evidence/student-rerun-2026-10-02/terminal.txt`) and added a dated update to their reflection in `WORKED-RUN.md`. The employer-specific details are still unconfirmed, so every hold stands.
+*Evidence (added by Claude Code):* the decisions were recorded in commit `7a45c7a`: the decision table in `WORKED-RUN.md` and `SOURCES.md` → "What the student decided". Later the same day the student ran the hands-on checks themselves (next entry) and revised their reflection in `WORKED-RUN.md`. The employer-specific details are still unconfirmed, so every hold stands.
+
+### 2026-10-02 — Running the checks and comparing the source
+
+I ran the offline test suite, the sample prototype, the broken-authorization profile and the command displaying CSV line 1956. I expected the tests to pass, the sample to reproduce the recorded counts and the broken profile to stop the run. All 36 tests passed; the sample evaluated 11 roles, held six and scored five as Apply 1, Consider 3 and Skip 1. The broken profile printed VOID and stopped at the scorer-contract gate, but my transcript did not capture its exit code. AppLovin’s CSV line showed 130 approvals, two denials and the sponsored Machine Learning Engineer title, matching the report. I now understand why a passing sample and a deliberate failure check establish different things; next I would capture the break’s exit code explicitly and investigate the unresolved evidence for Scale AI.
+
+*Evidence (added by Claude Code):* the student's terminal output, `evidence/student-rerun-2026-10-02/terminal.txt`, recorded in commit `d9f9357`, in `TEST-REPORT.md` → "Student re-run" and in the attestation in `WORKED-RUN.md`. AppLovin's row (row 1955: 130 approvals, 2 denials) appears in the sample report (`evidence/clean-checkout/06-sample-run-report.md`) and in the worked-run reports (`runs/worked-run-2-live/sponsor-match-report.md`).
 
 ## Human and AI contributions
 
