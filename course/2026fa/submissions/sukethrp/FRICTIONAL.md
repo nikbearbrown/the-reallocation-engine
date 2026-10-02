@@ -9,7 +9,7 @@ but the experience must come from the student.
 So this file has three parts:
 - a **factual timeline** of the session, reconstructed by Claude from the conversation and git history;
 - **Claude's own contributions**;
-- **student entry prompts** and a later factual Codex work log. The student’s personal experience is still pending.
+- **the student's own dated entries**, written 2026-10-02, plus factual work logs by Codex and Claude.
 
 ---
 
@@ -48,23 +48,19 @@ difficulty. If something was straightforward, say so and describe what you check
 
 ## Student entries
 
-*Empty until the student writes them. Suggested moments to write about, from the timeline above:*
-- *why you chose the role-level sponsor match, and what you know about your own search that shaped it;*
-- *reading the rules audit, and your decision on the II/L2 rule;*
-- *checking the fit and timeline numbers against the real postings;*
-- *your gate decisions on the eight postings;*
-- *re-running the prototype yourself;*
-- *anything you did not understand and asked about.*
+*Written by the student and placed here verbatim on 2026-10-02. Only the entry titles were made into headings. The evidence line under each entry was added by Claude Code to link it to files and commits. More entries can follow, for example after the student's own re-run.*
 
-### Entry 1 — YYYY-MM-DD
+### 2026-10-02 — Reading and interpreting the results
 
-- Date and what I was working on:
-- I tried / expected:
-- What happened:
-- What I did:
-- What Claude or another person contributed:
-- What I understand now / still do not understand:
-- Evidence and next step:
+I was reviewing the explanations of the sample report, rules audit, and posting review. I expected relevant titles and sponsorship history to provide a useful shortlist, but the posting review showed why those signals were insufficient. The AI assistants read and summarized the files; my part was considering the explanations and the proposed decisions. I now understand that RESOLVE means evidence is missing, while SKIP is a recommendation to spend effort elsewhere.
+
+*Evidence (added by Claude Code):* `evidence/clean-checkout/06-sample-run-report.md`, `evidence/rules-audit-v0.2.0/rules-audit.md` and `POSTING-REVIEW.md`. The reading was recorded in commit `d2b3a2e` (recipe → RUNNABLE-SAMPLE) and in `logs/runs/2026fa-sukethrp-1.md`.
+
+### 2026-10-02 — Choosing the rules and keeping the holds
+
+I considered whether to relax the title rules or supply numbers so some postings could be scored. I expected Scale AI’s matching graduation cohort to make it easier to advance, but its qualifications, sponsorship, and start date still needed confirmation. I chose to retain all three v0.2.0 rules and keep all eight postings held, following the evidence-based recommendation. The AI assistants proposed the reasoning; my decision was to prefer conservative screening over unsupported numbers. I still need to complete the hands-on checks and confirm employer-specific details before clearing any hold.
+
+*Evidence (added by Claude Code):* the decisions were recorded in commit `7a45c7a`: the decision table in `WORKED-RUN.md` and `SOURCES.md` → "What the student decided".
 
 ## Human and AI contributions
 
@@ -72,8 +68,8 @@ difficulty. If something was straightforward, say so and describe what you check
   command run so far. The full list is in `SOURCES.md` → "What Claude Code contributed".
 - **The student decided:** the situation, the recipe direction, the persona approach and the permissions
   (`SOURCES.md` → "What the student decided").
-- **The student accepted, changed or rejected:** *to be written by the student*, for example: the
-  predictions, rules v0.2.0, the fit and timeline numbers, the gate decisions.
+- **The student accepted, changed or rejected:** in the student's words, see the entries above and `SOURCES.md` →
+  "What the student checked, changed or rejected".
 
 ## 2026-09-30 UTC (2026-09-29 Eastern): factual follow-up, organized by Codex
 

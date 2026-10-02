@@ -245,12 +245,9 @@ from something they declared.
 
 ## Student's reflection
 
-*To be written by the student, in their own words, after reviewing the run. Prompts: What surprised you
-in the output? Which decision in the table above was hardest, and why? What would you change in the
-recipe before using it on your own search? What did you check yourself?*
+*Written by the student on 2026-10-02 and placed here verbatim.*
 
-*(An AI-written review draft exists outside this repository, as preparation material only. It is not
-part of the submission.)*
+What surprised me was that a relevant ML/AI title and a company’s sponsorship history could still lead to a poor recommendation once the posting requirements were considered. Holding all eight was the right call because assigning numbers would hide uncertainty about qualifications and employment timing. Scale AI was the hardest case because its graduation cohort matched, but that alone did not resolve the other requirements. Before using this recipe for my own search, I would add a posting-requirements check before scoring fit and require evidence for the timeline factor. My review focused on the reasoning behind the title rules and holds; I have not personally rerun the commands or compared the reports directly against the CSV.
 
 ## Attestation
 

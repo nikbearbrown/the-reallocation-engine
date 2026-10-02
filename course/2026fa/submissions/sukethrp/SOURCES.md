@@ -10,8 +10,8 @@ contributed from what the student decided, checked and still has to do. Read it 
 In short:
 - **Claude Code** wrote the code, tests, recipe, card and documents, and ran the original commands. Codex performed the later review and reruns described below.
 - **The student** chose the situation, the recipe direction, the persona approach and the permissions.
-  They still have to review the drafted rules and numbers, make the gate decisions, re-run the checks,
-  and write their own reflection and Frictional entries.
+  On 2026-10-02 they read the audits, kept the title rules, held all eight postings, and wrote their
+  reflection and Frictional entries. Their own re-run and the attestation signature are still pending.
 
 ---
 
@@ -119,7 +119,7 @@ Each was a choice among options Claude presented. Where Claude recommended an op
   now RUNNABLE-SAMPLE.
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
 - Re-run the tests and the sample run yourself, then sign the attestation.
-- Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.
+- ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.
 
 ## Codex follow-up contribution — 2026-09-30 UTC
@@ -140,6 +140,6 @@ review, and gave these decisions in their own words:
 - **Accepted** the title rules v0.2.0 as drafted: “II/L2 titles do not establish new-grad sponsorship, non-engineering AI titles do not establish ML/AI engineering sponsorship, and Founding is a conservative seniority flag rather than proof of experience.”
 - **Rejected** scoring any of the eight postings for now: “Keep all eight postings held because the available evidence does not support defensible fit and timeline numbers; investigate Scale AI first because its graduation cohort matches, while qualifications, sponsorship, and start date remain unconfirmed.”
 
-*Anything else the student checked or changed is still to be added here.*
+**In the student's words (2026-10-02):** I retained the three v0.2.0 title-rule choices and rejected supplying unsupported fit and timeline numbers for the eight postings. My contribution was reviewing the reasoning and selecting those decisions; file inspection and earlier technical checks were performed by AI assistants, and my own command rerun and CSV comparison remain pending.
 
 **To complete in the student’s own words:** Name one result you checked, describe what you compared it against, and state one rule or recommendation you accepted, changed or rejected with your reason and date. Record the actual command and result after your own rerun. The AI-authored reflection and factual work log are preparation material, not substitutes for these personal statements.
