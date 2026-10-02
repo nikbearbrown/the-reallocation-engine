@@ -251,36 +251,37 @@ What surprised me was that a relevant ML/AI title and a company’s sponsorship 
 
 ## Attestation
 
-*Draft. The rows under "Tested" were run by Claude Code on 2026-09-30. The student re-runs them and signs.
-The recipe's `attestation` field stays null either way.*
+*The rows under "Tested" were run by the student on 2026-10-02 in their own terminal, at commit `d1110ea`.
+Raw output: `evidence/student-rerun-2026-10-02/terminal.txt`. The clean-checkout suite, the live runs and the
+other break attempts were run by Claude Code and are in `TEST-REPORT.md`. The recipe's `attestation` field
+stays null, because the lifecycle sets it only at VERIFIED.*
 
 ```markdown
 ## Attestation
 - Recipe: ml-newgrad-sponsor-match v0.1.0 (title rules v0.2.0)
-- By: — not yet signed (student: name · date, after re-running the rows below)
+- By: — awaiting the student's signature (name · date)
 
 ### Tested
 | Ran | Saw | Expected |
 |---|---|---|
-| sample run on a clean checkout of fe07d1b | 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) | the expectation written in the recipe |
-| `python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v` | 36 tests OK, also on Python 3.9.6 | all pass, offline |
-| live run on worked-run/queue-live-1.json, twice | 8 → TAILOR 1 (AppLovin), NETWORK-FIRST 1 (Moloco), RESOLVE 6; identical both times | a hold for each redirect, the shared record and the missing companies |
-| rows 1955, 17152, 19754, 19760 read from the CSV | the report's values match; rows 19754 and 19760 identical | match |
-| break: `--scorer-profile fixtures/BROKEN-authorization-profile.json` | STOP at scorer-contract; run VOID; exit 1 | void, never a decision |
-| break: `--csv-sha256 000…` | STOP at source gate; exit 2; nothing written | stop |
-| break: `--persona private/README.md` | STOP at input gate; exit 2 | stop without reading it |
-| break: `--out-dir data/examples/should-not-exist` | STOP at input gate; exit 2; folder not created | stop |
+| `python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v` | 36 tests, OK | all pass, offline |
+| `python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py` | 11 roles → held 6 · scored 5 (Apply 1 · Consider 3 · Skip 1) | the expectation written in the recipe |
+| deliberate break: `sponsor_match.py --scorer-profile …/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz` | STOP at the scorer-contract gate; the run is VOID | void, never a decision |
+| `sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv` | APPLOVIN CORP: 130 approvals, 2 denials, 98.48% approved, $150,000 company median, titles include "Machine Learning Engineer" | the values in the report's AppLovin row |
 
 ### Did not test
+- Live mode (`--live`), a fresh clone, Python 3.9, the rules audit and the other break attempts. These were
+  run by Claude Code and Codex, not by the signer (see `TEST-REPORT.md`).
 - A real posting that returns 404 or an expired page. Only a saved fixture page was tested.
 - Live checks on Lever or Ashby. The one Ashby posting (OpenAI) was held before the liveness gate.
 - A real role cleared with `csv_row` or `shared_record_checked`. Only fixtures were tested.
-- Any posting's start date or requirements. The timeline and fit factors are proposals.
+- Any posting's start date. No posting states one, so all eight stay held.
 - Whether any record is still true today. The file has no dates.
 - A different release of the sponsorship file. Only the pinned one was used.
 - Linux or Windows. Only macOS was tested.
 
 ### Broke during testing, fixed
+Found and fixed during development by Claude Code; details in `TEST-REPORT.md`:
 - The first run crashed on a keyword collision in `hold()`. Renamed the field (before the first commit).
 - The network-first question called non-senior titles senior. It now quotes only the ML/AI titles.
 - Held roles hid which row was matched (Meta → META CO). The matched row and city are now shown.

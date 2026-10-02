@@ -180,15 +180,26 @@ give the details.
 
 ## Student re-run
 
-**Pending.** Codex ran the checks below; that is not a student-operated rerun. After running them yourself, fill in:
+**Done by the student on 2026-10-02.** They ran the commands in their own terminal and pasted the output
+into the chat. Claude Code recorded it below and saved it, with prompts and personal CSV columns removed, in
+`evidence/student-rerun-2026-10-02/terminal.txt`.
 
-- Student name and actual date/time:
-- Commit and working-tree state:
-- Tests command and observed result:
-- Sample command and observed result:
-- Deliberate break and expected versus observed result:
-- CSV comparison personally performed:
-- Differences or checks not performed:
+- **Student name and date:** Suketh Reddy Produtoor · 2026-10-02.
+- **Commit and working-tree state:** `d1110ea` on the contrib branch, working tree clean. This was the
+  existing checkout, not a fresh clone.
+- **Tests:** `python3 -m unittest discover -s scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/tests -v`
+  → 36 tests, `OK` (1.478 s).
+- **Sample:** `python3 scripts/contrib/2026fa/sukethrp-ml-newgrad-sponsor-match/sponsor_match.py` → 11 roles,
+  held 6, scored 5 (Apply 1 · Consider 3 · Skip 1). This is the expectation written in the recipe.
+- **Deliberate break:** `… --scorer-profile …/fixtures/BROKEN-authorization-profile.json --out-dir output/break-authz`.
+  Expected a STOP at the scorer-contract gate and a VOID run; observed exactly that. The transcript does not
+  print the exit code.
+- **CSV comparison:** `sed -n '1956p' data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv`
+  printed APPLOVIN CORP with 130 approvals, 2 denials, a 98.48% approval rate, a $150,000 company median
+  salary, and five sponsored titles including "Machine Learning Engineer". These are the values in the
+  report's AppLovin row.
+- **Differences, or checks not performed:** no output differed from what was expected. The student did not
+  run live mode, a fresh clone, Python 3.9 or the rules audit; Claude Code ran those (above).
 
 
 ## Codex rerun — 2026-09-30 UTC

@@ -118,7 +118,7 @@ Each was a choice among options Claude presented. Where Claude recommended an op
 - ~~Read the sample report and the rules audit.~~ Done 2026-10-02, recorded in the run log. The recipe is
   now RUNNABLE-SAMPLE.
 - ~~Fill in the decision table (gate G8).~~ Recorded 2026-10-02 from the student's decision. Refine any row for a posting-specific reason.
-- Re-run the tests and the sample run yourself, then sign the attestation.
+- ~~Re-run the tests and the sample run yourself~~ (done 2026-10-02, recorded in `TEST-REPORT.md`), then sign the attestation.
 - ~~Write your own reflection in `WORKED-RUN.md` and your entries in `FRICTIONAL.md`.~~ Done 2026-10-02.
 - Prepare the five-minute presentation: run the prototype live and name one limitation.
 
