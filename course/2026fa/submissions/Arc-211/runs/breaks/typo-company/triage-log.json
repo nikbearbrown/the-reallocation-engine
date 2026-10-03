@@ -1,0 +1,216 @@
+{
+  "_tool": "Arc-211-fin-dataeng-stemopt/triage.mjs",
+  "generated": "2026-10-01T21:05:32.247Z",
+  "as_of": "2026-10-01",
+  "config": "course/2026fa/submissions/Arc-211/runs/breaks/typo-company.config.json",
+  "inputs": {
+    "sponsors_csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "bls_csv": "data/bls/compact/soc_occupation_compact.csv",
+    "formd_samples": [
+      {
+        "file": "companies-sec-2025q2-d.sample.json",
+        "records": 50,
+        "quarter": "2025Q2_d",
+        "note": "first 50 of 13325 companies — full file fetched via scripts/sec (see DATA.md)"
+      },
+      {
+        "file": "companies-sec-2025q3-d.sample.json",
+        "records": 50,
+        "quarter": "2025Q3_d",
+        "note": "first 50 of 14138 companies — full file fetched via scripts/sec (see DATA.md)"
+      },
+      {
+        "file": "companies-sec-2025q4-d.sample.json",
+        "records": 50,
+        "quarter": "2025Q4_d",
+        "note": "first 50 of 14885 companies — full file fetched via scripts/sec (see DATA.md)"
+      },
+      {
+        "file": "companies-sec-2026q1-d.sample.json",
+        "records": 50,
+        "quarter": "2026Q1_d",
+        "note": "first 50 of 15981 companies — full file fetched via scripts/sec (see DATA.md)"
+      }
+    ],
+    "liveness_json": "course/2026fa/submissions/Arc-211/inputs/liveness.json",
+    "everify_json": "course/2026fa/submissions/Arc-211/inputs/everify.json"
+  },
+  "data_mode": "sample — Form D is the shipped 50-per-quarter sample only",
+  "census": {
+    "mode": "named candidates (your-input list)"
+  },
+  "target_socs": [
+    {
+      "soc": "15-1243.01",
+      "title": "Data Warehousing Specialists",
+      "median": {
+        "value": 135980,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    },
+    {
+      "soc": "15-1243.00",
+      "title": "Database Architects",
+      "median": {
+        "value": 135980,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    },
+    {
+      "soc": "15-2051.01",
+      "title": "Business Intelligence Analysts",
+      "median": {
+        "value": 112590,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    },
+    {
+      "soc": "15-1242.00",
+      "title": "Database Administrators",
+      "median": {
+        "value": 104620,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    }
+  ],
+  "timeline_gate": {
+    "as_of": "2026-10-01",
+    "program_end": "2026-12-20",
+    "filing_deadline": "2027-02-18",
+    "opt_start_assumed": "2026-12-21",
+    "hiring_lag_days": 60,
+    "earliest_offer": "2026-11-30",
+    "unemployment_days": 90,
+    "factor": 1,
+    "reason": "offer lands before OPT starts — no unemployment days used"
+  },
+  "scorer": {
+    "ran": true,
+    "command": "node scripts/score/role-scorer.mjs course/2026fa/submissions/Arc-211/runs/breaks/typo-company/roles.json --out-dir course/2026fa/submissions/Arc-211/runs/breaks/typo-company",
+    "stdout": "✓ scored 1 roles → Apply 1 · Consider 0 · Skip 0 (skip 0%)\n  course/2026fa/submissions/Arc-211/runs/breaks/typo-company/role-scores.json  +  course/2026fa/submissions/Arc-211/runs/breaks/typo-company/role-scores.md"
+  },
+  "results": [
+    {
+      "company": "SOCAIL FINANCE INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "status": "not-found",
+      "next_action": "not-in-data",
+      "note": "company not in the sponsorship CSV — no value invented"
+    },
+    {
+      "company": "SOCIAL FINANCE INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 182,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Staff Software Engineer",
+          "Senior Director, Marketing Analytics and Data Science",
+          "Business Intelligence Manager, Relay",
+          "Senior Engineer, Software",
+          "Senior Compliance Projects and Program Manager"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Business Intelligence Manager, Relay | Senior Director, Marketing Analytics and Data Science"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 169488,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2020-12-30",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 69,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": "active",
+        "label": "record",
+        "source": "ats:liveness on https://www.sofi.com/careers/job/?gh_jid=7826869003&gh_src=6f00r5g63us (2026-10-01), transcribed"
+      },
+      "posting_title": {
+        "value": "Fraud Model Analyst",
+        "label": "your-input",
+        "source": "title of the posting the student checked"
+      },
+      "fit": {
+        "value": null,
+        "label": "model-judgment",
+        "source": "no target-role match on posting title \"Fraud Model Analyst\" — no fit vote"
+      },
+      "timeline": {
+        "value": 1,
+        "label": "your-input",
+        "source": "offer lands before OPT starts — no unemployment days used"
+      },
+      "everify": {
+        "value": "confirmed",
+        "label": "record",
+        "source": "E-Verify Employer Search \"Social Finance\" (2026-10-01), transcribed: 4 matching record(s) — several SoFi entities enrolled; which entity would employ the student is unknown until an offer"
+      },
+      "status": "scored",
+      "score": {
+        "composite": 0.315,
+        "recommendation": "Apply",
+        "reason": "composite 0.315 ≥ 0.3, gates healthy",
+        "arithmetic": "(0.9·0.35) × 1 × 1 = 0.315"
+      },
+      "next_action": "review-role-fit"
+    }
+  ]
+}

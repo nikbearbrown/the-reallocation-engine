@@ -1,0 +1,21 @@
+[
+  {
+    "role_id": "socialfinance",
+    "company": "SOCIAL FINANCE INC",
+    "title": "Fraud Model Analyst",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "Proven",
+      "source": "record",
+      "derivation": "approvals 182, rate 100% [record] → tier/p by your-input rule"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  }
+]

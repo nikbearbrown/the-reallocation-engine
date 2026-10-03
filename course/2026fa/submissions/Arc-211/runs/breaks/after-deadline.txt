@@ -1,0 +1,5 @@
+$ node scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/triage.mjs --as-of 2027-03-01 --out-dir course/2026fa/submissions/Arc-211/runs/breaks/after-deadline
+✓ triage 2027-03-01: 13 evaluated → tailor-application 0 · verify-everify-then-tailor 0 · review-role-fit 0 · network-into-company 0 · check-posting-by-hand 0 · research-sponsorship 0 · not-in-data 1 · skip 12
+  timeline factor 0 (OPT not filed and the filing window closed on 2027-02-18)
+  course/2026fa/submissions/Arc-211/runs/breaks/after-deadline/triage-log.json  +  course/2026fa/submissions/Arc-211/runs/breaks/after-deadline/triage-report.md
+exit 0

@@ -1,0 +1,5 @@
+$ node scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/triage.mjs --config course/2026fa/submissions/Arc-211/runs/breaks/typo-company.config.json --out-dir course/2026fa/submissions/Arc-211/runs/breaks/typo-company --as-of 2026-10-01
+✓ triage 2026-10-01: 2 evaluated → tailor-application 0 · verify-everify-then-tailor 0 · review-role-fit 1 · network-into-company 0 · check-posting-by-hand 0 · research-sponsorship 0 · not-in-data 1 · skip 0
+  timeline factor 1 (offer lands before OPT starts — no unemployment days used)
+  course/2026fa/submissions/Arc-211/runs/breaks/typo-company/triage-log.json  +  course/2026fa/submissions/Arc-211/runs/breaks/typo-company/triage-report.md
+exit 0

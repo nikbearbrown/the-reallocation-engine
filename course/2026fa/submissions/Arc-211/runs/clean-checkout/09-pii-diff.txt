@@ -1,0 +1,3 @@
+$ node scripts/pii-scan.mjs --diff FETCH_HEAD
+pii-scan: clean ✓
+exit 0

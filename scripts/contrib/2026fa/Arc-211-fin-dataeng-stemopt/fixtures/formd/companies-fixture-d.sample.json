@@ -1,0 +1,6 @@
+{
+  "metadata": { "quarter": "2025Q4_d", "_sample": "fixture — 1 fictional record" },
+  "companies": [
+    { "company": { "name": "Example Ledger, Inc." }, "funding": { "total_offering_amount": 25000000.0 } }
+  ]
+}

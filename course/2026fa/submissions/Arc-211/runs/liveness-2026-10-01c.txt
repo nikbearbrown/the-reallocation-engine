@@ -1,0 +1,10 @@
+
+> the-reallocation-engine@1.0.0 ats:liveness
+> node scripts/ats/check-liveness.mjs https://greendotcorp.wd1.myworkdayjobs.com/en-US/gdc/details/Senior-Data-Analyst_R4136?timeType=f9cf0075511801c7d457c183bf139500&locationCountry=bc33aa3152ec42d4995f4791a106ed09
+
+Checking 1 URL(s)...
+
+❌ expired    https://greendotcorp.wd1.myworkdayjobs.com/en-US/gdc/details/Senior-Data-Analyst_R4136?timeType=f9cf0075511801c7d457c183bf139500&locationCountry=bc33aa3152ec42d4995f4791a106ed09
+           insufficient content — likely nav/footer only
+
+Results: 0 active  1 expired  0 uncertain

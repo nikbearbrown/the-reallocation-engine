@@ -1,0 +1,7 @@
+company_name,industry,Total Approvals,Total Denials,Approval_Rate,median_salary_offered,top_job_titles_sponsored,latest_funding_date
+EXAMPLE LEDGER INC,Other Banking and Financial Services,40.0,1.0,97.5,140000.0,"['Data Engineer', 'Senior Software Engineer']",2025-11-03
+EXAMPLE PAYMENTS LLC,Other Banking and Financial Services,,,,,,2024-06-01
+EXAMPLE INSURE CO,Insurance,12.0,0.0,100.0,80000.0,"['Data Analyst, Claims']",2019-02-14
+EXAMPLE BANK CORP,Investing,55.0,2.0,96.4,150000.0,"['Business Intelligence Developer', 'Quant Researcher']",2022-08-30
+EXAMPLE CREDIT INC,Other Banking and Financial Services,30.0,0.0,100.0,125000.0,"['Analytics Engineer']",2023-01-10
+EXAMPLE CLOUD INC,Other Technology,500.0,5.0,99.0,170000.0,"['Data Engineer', 'Software Engineer']",2025-12-01

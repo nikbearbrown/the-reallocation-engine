@@ -1,0 +1,4 @@
+$ git status --short
+ M course/2026fa/submissions/Arc-211/runs/triage/triage-log.json
+ M package-lock.json
+exit 0

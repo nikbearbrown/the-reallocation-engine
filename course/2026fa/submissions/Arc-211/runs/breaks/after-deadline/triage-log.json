@@ -1,0 +1,1303 @@
+{
+  "_tool": "Arc-211-fin-dataeng-stemopt/triage.mjs",
+  "generated": "2026-10-01T21:05:31.908Z",
+  "as_of": "2027-03-01",
+  "config": "scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/config.json",
+  "inputs": {
+    "sponsors_csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "bls_csv": "data/bls/compact/soc_occupation_compact.csv",
+    "formd_samples": [
+      {
+        "file": "companies-sec-2025q2-d.sample.json",
+        "records": 50,
+        "quarter": "2025Q2_d",
+        "note": "first 50 of 13325 companies — full file fetched via scripts/sec (see DATA.md)"
+      },
+      {
+        "file": "companies-sec-2025q3-d.sample.json",
+        "records": 50,
+        "quarter": "2025Q3_d",
+        "note": "first 50 of 14138 companies — full file fetched via scripts/sec (see DATA.md)"
+      },
+      {
+        "file": "companies-sec-2025q4-d.sample.json",
+        "records": 50,
+        "quarter": "2025Q4_d",
+        "note": "first 50 of 14885 companies — full file fetched via scripts/sec (see DATA.md)"
+      },
+      {
+        "file": "companies-sec-2026q1-d.sample.json",
+        "records": 50,
+        "quarter": "2026Q1_d",
+        "note": "first 50 of 15981 companies — full file fetched via scripts/sec (see DATA.md)"
+      }
+    ],
+    "liveness_json": "course/2026fa/submissions/Arc-211/inputs/liveness.json",
+    "everify_json": "course/2026fa/submissions/Arc-211/inputs/everify.json"
+  },
+  "data_mode": "sample — Form D is the shipped 50-per-quarter sample only",
+  "census": {
+    "mode": "auto: industry filter + sponsored-title match",
+    "csv_rows": 30369,
+    "csv_rows_with_h1b": 1557,
+    "industry_rows": 2425,
+    "industry_rows_with_h1b": 34,
+    "industry_rows_h1b_blank": 2391,
+    "title_matched": 12
+  },
+  "target_socs": [
+    {
+      "soc": "15-1243.01",
+      "title": "Data Warehousing Specialists",
+      "median": {
+        "value": 135980,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    },
+    {
+      "soc": "15-1243.00",
+      "title": "Database Architects",
+      "median": {
+        "value": 135980,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    },
+    {
+      "soc": "15-2051.01",
+      "title": "Business Intelligence Analysts",
+      "median": {
+        "value": 112590,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    },
+    {
+      "soc": "15-1242.00",
+      "title": "Database Administrators",
+      "median": {
+        "value": 104620,
+        "label": "record",
+        "source": "BLS OEWS 2024 national, data/bls/compact/soc_occupation_compact.csv"
+      },
+      "status": "ok"
+    }
+  ],
+  "timeline_gate": {
+    "as_of": "2027-03-01",
+    "program_end": "2026-12-20",
+    "filing_deadline": "2027-02-18",
+    "opt_start_assumed": "2026-12-21",
+    "hiring_lag_days": 60,
+    "earliest_offer": "2027-04-30",
+    "unemployment_days": 90,
+    "factor": 0,
+    "reason": "OPT not filed and the filing window closed on 2027-02-18"
+  },
+  "scorer": {
+    "ran": true,
+    "command": "node scripts/score/role-scorer.mjs course/2026fa/submissions/Arc-211/runs/breaks/after-deadline/roles.json --out-dir course/2026fa/submissions/Arc-211/runs/breaks/after-deadline",
+    "stdout": "✓ scored 4 roles → Apply 0 · Consider 0 · Skip 4 (skip 100%)\n  course/2026fa/submissions/Arc-211/runs/breaks/after-deadline/role-scores.json  +  course/2026fa/submissions/Arc-211/runs/breaks/after-deadline/role-scores.md"
+  },
+  "results": [
+    {
+      "company": "GEMINI SPACE STATION LLC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 24,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Senior Data Scientist",
+          "Manager, Product Design",
+          "Senior Analytics Engineer",
+          "Associate Director, Product"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Senior Analytics Engineer | Senior Data Scientist"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 150000,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2021-11-19",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 63,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": "active",
+        "label": "record",
+        "source": "ats:liveness on https://job-boards.greenhouse.io/embed/job_app?for=gemini&token=8076827 (2026-10-01), transcribed"
+      },
+      "posting_title": {
+        "value": "Senior Data Engineer",
+        "label": "your-input",
+        "source": "title of the posting the student checked"
+      },
+      "fit": {
+        "value": 0.8,
+        "label": "model-judgment",
+        "source": "rule-based strong match on posting title \"Senior Data Engineer\""
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "confirmed",
+        "label": "record",
+        "source": "E-Verify Employer Search \"Gemini\" (2026-10-01), transcribed: 1 matching record(s)"
+      },
+      "status": "scored",
+      "score": {
+        "composite": 0,
+        "recommendation": "Skip",
+        "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+        "arithmetic": "(0.9·0.35 + 0.8·0.3) × 1 × 0 = 0.000"
+      },
+      "next_action": "skip"
+    },
+    {
+      "company": "GREEN DOT CORP",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 92,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Professional 3, Business Analytics",
+          "Lead Engineer, Data Management",
+          "Lead Engineer, Software Development",
+          "Professional 4, Business Intelligence"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Lead Engineer, Data Management | Professional 4, Business Intelligence | Professional 3, Business Analytics"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 122032.5,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2024-09-06",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 29,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": "active",
+        "label": "your-input",
+        "source": "manual check of https://greendotcorp.wd1.myworkdayjobs.com/en-US/gdc/details/Senior-Data-Analyst_R4136?timeType=f9cf0075511801c7d457c183bf139500&locationCountry=bc33aa3152ec42d4995f4791a106ed09 (2026-10-01) — ats:liveness said expired (insufficient content — JS-rendered Workday page); student saw an Apply button in the browser on 2026-10-01 — checker false negative"
+      },
+      "posting_title": {
+        "value": "Senior Data Analyst",
+        "label": "your-input",
+        "source": "title of the posting the student checked"
+      },
+      "fit": {
+        "value": 0.8,
+        "label": "model-judgment",
+        "source": "rule-based strong match on posting title \"Senior Data Analyst\""
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "confirmed",
+        "label": "record",
+        "source": "E-Verify Employer Search \"Green Dot\" (2026-10-01), transcribed: 2 matching record(s) — same-brand non-matches excluded: Green Dot Public Schools; Escobar & Rascon (DBA Green Dot); GDS West Inc"
+      },
+      "status": "scored",
+      "score": {
+        "composite": 0,
+        "recommendation": "Skip",
+        "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+        "arithmetic": "(0.9·0.35 + 0.8·0.3) × 1 × 0 = 0.000"
+      },
+      "next_action": "skip"
+    },
+    {
+      "company": "GUARANTR INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 60,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Systems Coordinator Manager",
+          "Technical Business Analyst",
+          "Senior UX Designer",
+          "Senior Director of Risk",
+          "Engineer Manager"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "weak",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Technical Business Analyst"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 110500,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2017-09-01",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 113,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.5,
+        "label": "model-judgment",
+        "source": "rule-based weak match on fallback — company's sponsored titles (Technical Business Analyst)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "HOULIHAN LOKEY INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 84,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 6,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 93.33333333333331,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Associate",
+          "Financial Analyst",
+          "Vice President",
+          "Senior Business Analyst, HCG",
+          "Business Unit Analyst"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "weak",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Senior Business Analyst, HCG"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 135000,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": null,
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": null,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.5,
+        "label": "model-judgment",
+        "source": "rule-based weak match on fallback — company's sponsored titles (Senior Business Analyst, HCG)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "MULLIGAN FUNDING LLC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 4,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Weak",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.3,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Data Scientist"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "weak",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Data Scientist"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 100000,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2023-04-24",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 46,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.5,
+        "label": "model-judgment",
+        "source": "rule-based weak match on fallback — company's sponsored titles (Data Scientist)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "PROSPER MARKETPLACE INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 184,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 2,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 98.9247311827957,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Credit Risk Analytics Senior Manager",
+          "Business Operations Manager",
+          "Operations Analytics Manager",
+          "Sr. Manager, Business Operations",
+          "Director Vendor Management"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "weak",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Credit Risk Analytics Senior Manager | Operations Analytics Manager"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 131498,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2015-04-07",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 142,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.5,
+        "label": "model-judgment",
+        "source": "rule-based weak match on fallback — company's sponsored titles (Credit Risk Analytics Senior Manager | Operations Analytics Manager)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "REMITLY INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 344,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 4,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 98.85057471264368,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "SENIOR ANALYST, MARKETING ANALYTICS",
+          "Senior Software Development Engineer",
+          "Software Engineer",
+          "Senior IT Auditor",
+          "Product Designer II",
+          "Senior Software Engineer"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "weak",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: SENIOR ANALYST, MARKETING ANALYTICS"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 145274,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2017-11-10",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 111,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": "active",
+        "label": "your-input",
+        "source": "manual check of https://careers.remitly.com/job/23093591/data-analyst/?source=Remitly%20Careers%20Site (2026-10-01) — ats:liveness said uncertain (no apply control found); student saw an Apply button in the browser"
+      },
+      "posting_title": {
+        "value": "Data Analyst",
+        "label": "your-input",
+        "source": "title of the posting the student checked"
+      },
+      "fit": {
+        "value": 0.8,
+        "label": "model-judgment",
+        "source": "rule-based strong match on posting title \"Data Analyst\""
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "confirmed",
+        "label": "record",
+        "source": "E-Verify Employer Search \"Remitly\" (2026-10-01), transcribed: 3 matching record(s) — one older Remitly account is terminated; two are open"
+      },
+      "status": "scored",
+      "score": {
+        "composite": 0,
+        "recommendation": "Skip",
+        "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+        "arithmetic": "(0.9·0.35 + 0.8·0.3) × 1 × 0 = 0.000"
+      },
+      "next_action": "skip"
+    },
+    {
+      "company": "RYAN SPECIALTY GROUP LLC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 14,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Likely",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.6,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Data Analyst, Catastrophe Modeling"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Data Analyst, Catastrophe Modeling"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 92000.22,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2020-09-01",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 77,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.8,
+        "label": "model-judgment",
+        "source": "rule-based strong match on fallback — company's sponsored titles (Data Analyst, Catastrophe Modeling)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "SIMPL INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 2,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Weak",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.3,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Data Scientist"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "weak",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Data Scientist"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 117187,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2021-09-30",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 64,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.5,
+        "label": "model-judgment",
+        "source": "rule-based weak match on fallback — company's sponsored titles (Data Scientist)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "SOCIAL FINANCE INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 182,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Staff Software Engineer",
+          "Senior Director, Marketing Analytics and Data Science",
+          "Business Intelligence Manager, Relay",
+          "Senior Engineer, Software",
+          "Senior Compliance Projects and Program Manager"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Business Intelligence Manager, Relay | Senior Director, Marketing Analytics and Data Science"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 169488,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2020-12-30",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 73,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": "active",
+        "label": "record",
+        "source": "ats:liveness on https://www.sofi.com/careers/job/?gh_jid=7826869003&gh_src=6f00r5g63us (2026-10-01), transcribed"
+      },
+      "posting_title": {
+        "value": "Fraud Model Analyst",
+        "label": "your-input",
+        "source": "title of the posting the student checked"
+      },
+      "fit": {
+        "value": null,
+        "label": "model-judgment",
+        "source": "no target-role match on posting title \"Fraud Model Analyst\" — no fit vote"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "confirmed",
+        "label": "record",
+        "source": "E-Verify Employer Search \"Social Finance\" (2026-10-01), transcribed: 4 matching record(s) — several SoFi entities enrolled; which entity would employ the student is unknown until an offer"
+      },
+      "status": "scored",
+      "score": {
+        "composite": 0,
+        "recommendation": "Skip",
+        "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+        "arithmetic": "(0.9·0.35) × 1 × 0 = 0.000"
+      },
+      "next_action": "skip"
+    },
+    {
+      "company": "SOLAR MOSAIC INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 10,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 0,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 100,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Likely",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.6,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Salesforce Solution Architect",
+          "Customer Experience (CX) Ops Data Analyst"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Customer Experience (CX) Ops Data Analyst"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 143500,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2015-04-23",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 142,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.8,
+        "label": "model-judgment",
+        "source": "rule-based strong match on fallback — company's sponsored titles (Customer Experience (CX) Ops Data Analyst)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "UPSTART NETWORK INC",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sponsorship": {
+        "approvals": {
+          "value": 316,
+          "label": "record",
+          "source": "Total Approvals"
+        },
+        "denials": {
+          "value": 2,
+          "label": "record",
+          "source": "Total Denials"
+        },
+        "approval_rate": {
+          "value": 99.37106918238992,
+          "label": "record",
+          "source": "Approval_Rate"
+        },
+        "tier": {
+          "value": "Proven",
+          "label": "your-input",
+          "source": "tier rule in config.sponsorship_tiers"
+        },
+        "p": {
+          "value": 0.9,
+          "label": "your-input",
+          "source": "p mapping in config.sponsorship_tiers"
+        }
+      },
+      "sponsored_titles": {
+        "value": [
+          "Software Engineer",
+          "Senior Software Engineer",
+          "Product Quality Engineer",
+          "Senior Product Quality Engineer",
+          "Data Engineer"
+        ],
+        "label": "record",
+        "source": "top_job_titles_sponsored (top titles only — not a full list)"
+      },
+      "sponsored_title_match": {
+        "value": "strong",
+        "label": "model-judgment",
+        "source": "rule-based match on sponsored titles: Data Engineer"
+      },
+      "salary": {
+        "company_median_all_titles": {
+          "value": 160000,
+          "label": "record",
+          "source": "median_salary_offered (all sponsored titles, not the data role)"
+        },
+        "floor": {
+          "value": 90000,
+          "label": "your-input",
+          "source": "config.salary_floor"
+        },
+        "check": "meets-floor"
+      },
+      "funding": {
+        "latest_funding_date": {
+          "value": "2013-01-17",
+          "label": "record",
+          "source": "latest_funding_date (80 Days CSV)"
+        },
+        "months_since": 169,
+        "recent": false,
+        "form_d_sample_hits": {
+          "value": [],
+          "label": "record",
+          "source": "Form D samples in data/sec/form-d/processed/sample (first 50/quarter only)"
+        }
+      },
+      "liveness": {
+        "value": null,
+        "label": "record",
+        "source": "not checked"
+      },
+      "fit": {
+        "value": 0.8,
+        "label": "model-judgment",
+        "source": "rule-based strong match on fallback — company's sponsored titles (Data Engineer)"
+      },
+      "timeline": {
+        "value": 0,
+        "label": "your-input",
+        "source": "OPT not filed and the filing window closed on 2027-02-18"
+      },
+      "everify": {
+        "value": "unknown",
+        "label": "your-input",
+        "source": "[TODO: DATA SOURCE] no E-Verify data in repo"
+      },
+      "status": "timeline-closed",
+      "next_action": "skip",
+      "note": "timeline gate closed (OPT not filed and the filing window closed on 2027-02-18) — not worth checking the posting"
+    },
+    {
+      "company": "JPMORGAN CHASE & CO",
+      "csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "status": "not-found",
+      "next_action": "not-in-data",
+      "note": "company not in the sponsorship CSV — no value invented"
+    }
+  ]
+}

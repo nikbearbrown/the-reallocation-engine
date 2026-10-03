@@ -1,0 +1,4 @@
+{
+  "EXAMPLE LEDGER INC": { "url": "https://boards.example.com/ledger/data-engineer", "result": "active", "checked_on": "2026-10-01" },
+  "EXAMPLE BANK CORP": { "url": "https://boards.example.com/bank/bi-developer", "result": "expired", "checked_on": "2026-10-01" }
+}

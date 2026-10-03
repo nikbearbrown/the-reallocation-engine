@@ -1,0 +1,48 @@
+{
+  "_about": "Looked up on 2026-10-01 in the official E-Verify Employer Search (https://www.e-verify.gov/e-verify-employer-search), Business Name filter, Date Enrolled = last 30 years. Run in the built-in browser by the AI agent, and reviewed by the student, who confirmed on 2026-10-01 that they saw the result screens and cleared the gate. An earlier chatbot-generated table claiming 'Verified Enrolled' from H-1B/PERM signals was rejected as non-evidence.",
+  "SOCIAL FINANCE INC": {
+    "status": "confirmed",
+    "method": "e-verify.gov",
+    "checked_on": "2026-10-01",
+    "search_term": "Social Finance",
+    "matched": [
+      "Social Finance, LLC (DBA Social Fina\u2026) \u2014 Open \u2014 enrolled 2016-11-10 \u2014 1,000+",
+      "Social Finance, Inc. (DBA SoFi) \u2014 Open \u2014 enrolled 2014-04-22 \u2014 20 to 99",
+      "Social Finance, Inc. (DBA Social Fina\u2026) \u2014 Open \u2014 enrolled 2020-07-09 \u2014 20 to 99",
+      "Social Finance, Inc. \u2014 Open \u2014 enrolled 2026-05-08 \u2014 100 to 499"
+    ],
+    "caveat": "several SoFi entities enrolled; which entity would employ the student is unknown until an offer"
+  },
+  "GEMINI SPACE STATION LLC": {
+    "status": "confirmed",
+    "method": "e-verify.gov",
+    "checked_on": "2026-10-01",
+    "search_term": "Gemini",
+    "matched": [
+      "Gemini Space Station LLC and its\u2026 (DBA Gemini Sp\u2026) \u2014 Open \u2014 enrolled 2021-05-27 \u2014 500 to 999 \u2014 NY"
+    ]
+  },
+  "REMITLY INC": {
+    "status": "confirmed",
+    "method": "e-verify.gov",
+    "checked_on": "2026-10-01",
+    "search_term": "Remitly",
+    "matched": [
+      "Remitly \u2014 Open \u2014 enrolled 2025-08-11 \u2014 2,500+ \u2014 WA",
+      "Remitly, Inc \u2014 Open \u2014 enrolled 2020-08-25 \u2014 2,500+ \u2014 WA",
+      "Remitly, Inc. \u2014 Terminated 2025-01-21 (enrolled 2017-02-01) \u2014 100 to 499 \u2014 WA"
+    ],
+    "caveat": "one older Remitly account is terminated; two are open"
+  },
+  "GREEN DOT CORP": {
+    "status": "confirmed",
+    "method": "e-verify.gov",
+    "checked_on": "2026-10-01",
+    "search_term": "Green Dot",
+    "matched": [
+      "Green Dot Corporation (DBA GREEN DOT) \u2014 Open \u2014 enrolled 2024-05-14 \u2014 1,000+ \u2014 OH",
+      "Green Dot Corporation \u2014 Open \u2014 enrolled 2013-04-09 \u2014 500 to 999 \u2014 AR, CA, \u2026"
+    ],
+    "caveat": "same-brand non-matches excluded: Green Dot Public Schools; Escobar & Rascon (DBA Green Dot); GDS West Inc"
+  }
+}

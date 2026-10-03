@@ -1,0 +1,59 @@
+{
+  "_about": "break-test config: typo-company",
+  "as_of": null,
+  "out_dir": "course/2026fa/submissions/Arc-211/runs/triage",
+  "paths": {
+    "sponsors_csv": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "bls_csv": "data/bls/compact/soc_occupation_compact.csv",
+    "formd_dir": "data/sec/form-d/processed/sample",
+    "liveness_json": "course/2026fa/submissions/Arc-211/inputs/liveness.json",
+    "everify_json": "course/2026fa/submissions/Arc-211/inputs/everify.json"
+  },
+  "visa": {
+    "program_end_date": "2026-12-20",
+    "grace_days_after_end": 60,
+    "opt_filed": false,
+    "opt_start_date": "2026-12-21",
+    "_opt_start_note": "OPT not filed yet: assumes the earliest possible start (day after program end), which starts the unemployment clock soonest \u2014 the conservative choice.",
+    "unemployment_days": 90,
+    "hiring_lag_days": 60
+  },
+  "target_socs": [
+    "15-1243.01",
+    "15-1243.00",
+    "15-2051.01",
+    "15-1242.00"
+  ],
+  "salary_floor": 90000,
+  "filters": {
+    "industry_pattern": "financ|bank|insur|invest|capital|fintech|payment",
+    "title_strong_pattern": "data engineer|data warehous|etl|business intelligence|\\bbi\\b|data analyst|analytics engineer|database|data management",
+    "title_weak_pattern": "analytics|business analyst|data"
+  },
+  "sponsorship_tiers": {
+    "_reasoning": "No tier thresholds are pinned in the repo (book notes them as pending). Proven = a sustained, clean record; Likely = some record. p values match the Ch.11 worked example (Proven 0.9, Likely 0.6).",
+    "proven": {
+      "min_approvals": 20,
+      "min_approval_rate": 90,
+      "p": 0.9
+    },
+    "likely": {
+      "min_approvals": 5,
+      "p": 0.6
+    },
+    "weak": {
+      "p": 0.3
+    }
+  },
+  "fit": {
+    "strong_p": 0.8,
+    "weak_p": 0.5
+  },
+  "funding_recent_months": 24,
+  "candidates": [
+    "SOCAIL FINANCE INC",
+    "SOCIAL FINANCE INC"
+  ],
+  "extra_candidates": [],
+  "_extra_candidates_note": "your-input: large finance sponsor checked by hand on 2026-10-01; included to show the not-found path on a real name"
+}

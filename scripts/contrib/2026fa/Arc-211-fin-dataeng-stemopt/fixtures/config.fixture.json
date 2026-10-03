@@ -1,0 +1,29 @@
+{
+  "_about": "Offline test fixture. Fictional companies; BLS rows copied verbatim from the repo's compact CSV.",
+  "as_of": "2026-10-01",
+  "out_dir": null,
+  "paths": {
+    "sponsors_csv": "scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/fixtures/companies.csv",
+    "bls_csv": "scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/fixtures/bls.csv",
+    "formd_dir": "scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/fixtures/formd",
+    "liveness_json": "scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/fixtures/liveness.json",
+    "everify_json": "scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/fixtures/everify.json"
+  },
+  "visa": { "program_end_date": "2026-12-20", "grace_days_after_end": 60, "opt_filed": false,
+            "opt_start_date": "2026-12-21", "unemployment_days": 90, "hiring_lag_days": 60 },
+  "target_socs": ["15-1243.01", "15-2051.01", "15-9999.00"],
+  "salary_floor": 90000,
+  "filters": {
+    "industry_pattern": "financ|bank|insur|invest|capital|fintech|payment",
+    "title_strong_pattern": "data engineer|data warehous|etl|business intelligence|\\bbi\\b|data analyst|analytics engineer|database|data management",
+    "title_weak_pattern": "analytics|business analyst|data"
+  },
+  "sponsorship_tiers": {
+    "proven": { "min_approvals": 20, "min_approval_rate": 90, "p": 0.9 },
+    "likely": { "min_approvals": 5, "p": 0.6 },
+    "weak": { "p": 0.3 }
+  },
+  "fit": { "strong_p": 0.8, "weak_p": 0.5 },
+  "funding_recent_months": 24,
+  "candidates": null
+}

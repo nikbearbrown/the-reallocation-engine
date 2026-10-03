@@ -1,0 +1,3 @@
+$ node scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/triage.mjs --config course/2026fa/submissions/Arc-211/runs/breaks/missing-input.config.json --out-dir course/2026fa/submissions/Arc-211/runs/breaks/missing-input
+✗ G1 input missing: data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v4.csv
+exit 2

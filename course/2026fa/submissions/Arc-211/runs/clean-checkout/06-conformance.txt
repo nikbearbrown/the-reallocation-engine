@@ -1,0 +1,4 @@
+$ node scripts/conformance.mjs scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/ recipes/cases/2026fa/ course/2026fa/submissions/Arc-211/ logs/runs/
+conformance: 36 files (14 md · 20 json · 2 js)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+exit 0

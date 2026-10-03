@@ -1,0 +1,28 @@
+$ node --test scripts/contrib/2026fa/Arc-211-fin-dataeng-stemopt/triage.test.mjs
+✔ happy path: proven sponsor, live posting, E-Verify confirmed → tailor-application via the real scorer (107.0105ms)
+✔ every emitted value carries one of the three labels (107.169ms)
+✔ F3: a role with no liveness record is NOT sent to the scorer (107.611ms)
+✔ dead posting at a proven sponsor → gated Skip, routed to networking (105.648ms)
+✔ salary floor applied outside the scorer; below-floor never scored (106.053916ms)
+✔ F2 + F6 in auto mode: blank H-1B rows are counted, not scored; non-finance industry excluded (105.637333ms)
+✔ F1 + F2 with named candidates: not-found and blank H-1B never get a sponsorship value (57.845666ms)
+✔ F4: OPT not filed and filing window closed → timeline 0 → gated Skip (104.747917ms)
+✔ timeline: offer after OPT start consumes unemployment days linearly (105.737291ms)
+✔ F5: a target SOC with no BLS row is flagged missing, never filled (106.699375ms)
+✔ F5 (all missing): exits 3 with a clear message (48.252875ms)
+✔ G1: a missing input file exits 2 and writes nothing (46.42075ms)
+✔ manual liveness check is labeled your-input, not record, all the way into roles.json (108.348958ms)
+✔ extra_candidates: a real-world name absent from the CSV is reported not-found alongside the auto list (106.84525ms)
+✔ fit is judged on the posting title, not the company's past sponsored titles (107.29575ms)
+✔ no fit vote → review-role-fit even when sponsorship alone clears the Apply threshold (106.490625ms)
+✔ E-Verify: a transcribed e-verify.gov lookup is a record; a bare claim stays your-input (107.663708ms)
+✔ closed timeline gate: unchecked postings are skipped too, not sent for a manual check (107.046667ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1814.281
+exit 0

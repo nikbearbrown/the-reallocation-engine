@@ -1,0 +1,15 @@
+
+> the-reallocation-engine@1.0.0 ats:liveness
+> node scripts/ats/check-liveness.mjs https://www.sofi.com/careers/job/?gh_jid=7826869003&gh_src=6f00r5g63us https://careers.upstart.com/jobs/it-support-analyst-columbus-ohio-united-states-512b6273-4051-4784-91a6-48419a4af4e9 https://greendotcorp.wd1.myworkdayjobs.com/en-us/gdc?timeType=f9cf0075511801c7d457c183bf139500&locationCountry=bc33aa3152ec42d4995f4791a106ed09 https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs https://job-boards.greenhouse.io/embed/job_app?for=gemini&token=8076827
+
+Checking 5 URL(s)...
+
+✅ active     https://www.sofi.com/careers/job/?gh_jid=7826869003&gh_src=6f00r5g63us
+✅ active     https://careers.upstart.com/jobs/it-support-analyst-columbus-ohio-united-states-512b6273-4051-4784-91a6-48419a4af4e9
+❌ expired    https://greendotcorp.wd1.myworkdayjobs.com/en-us/gdc?timeType=f9cf0075511801c7d457c183bf139500&locationCountry=bc33aa3152ec42d4995f4791a106ed09
+           pattern matched: search for jobs page is loaded
+⚠️ uncertain  https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs
+           content present but no visible apply control found
+✅ active     https://job-boards.greenhouse.io/embed/job_app?for=gemini&token=8076827
+
+Results: 3 active  1 expired  1 uncertain

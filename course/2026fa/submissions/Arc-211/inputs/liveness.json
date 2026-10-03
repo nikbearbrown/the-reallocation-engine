@@ -1,0 +1,37 @@
+{
+  "SOCIAL FINANCE INC": {
+    "url": "https://www.sofi.com/careers/job/?gh_jid=7826869003&gh_src=6f00r5g63us",
+    "result": "active",
+    "method": "ats:liveness",
+    "checked_on": "2026-10-01",
+    "posting_title": "Fraud Model Analyst",
+    "evidence": "runs/liveness-2026-10-01.txt",
+    "note": "ats:liveness active; student also confirmed the Apply button by eye on 2026-10-01"
+  },
+  "GEMINI SPACE STATION LLC": {
+    "url": "https://job-boards.greenhouse.io/embed/job_app?for=gemini&token=8076827",
+    "result": "active",
+    "method": "ats:liveness",
+    "checked_on": "2026-10-01",
+    "posting_title": "Senior Data Engineer",
+    "evidence": "runs/liveness-2026-10-01.txt"
+  },
+  "REMITLY INC": {
+    "url": "https://careers.remitly.com/job/23093591/data-analyst/?source=Remitly%20Careers%20Site",
+    "result": "active",
+    "method": "manual",
+    "checked_on": "2026-10-01",
+    "posting_title": "Data Analyst",
+    "note": "ats:liveness said uncertain (no apply control found); student saw an Apply button in the browser",
+    "evidence": "runs/liveness-2026-10-01b.txt"
+  },
+  "GREEN DOT CORP": {
+    "url": "https://greendotcorp.wd1.myworkdayjobs.com/en-US/gdc/details/Senior-Data-Analyst_R4136?timeType=f9cf0075511801c7d457c183bf139500&locationCountry=bc33aa3152ec42d4995f4791a106ed09",
+    "result": "active",
+    "method": "manual",
+    "checked_on": "2026-10-01",
+    "posting_title": "Senior Data Analyst",
+    "note": "ats:liveness said expired (insufficient content \u2014 JS-rendered Workday page); student saw an Apply button in the browser on 2026-10-01 \u2014 checker false negative",
+    "evidence": "runs/liveness-2026-10-01c.txt"
+  }
+}
