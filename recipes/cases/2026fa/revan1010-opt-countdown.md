@@ -1,7 +1,7 @@
 ---
 status: DRAFT
 todos_open: 2
-last_gate: null
+last_gate: "sample-run, 2026-10-02, G-A cleared by Revan Chonnad, course/2026fa/submissions/revan1010/runs/opt-countdown/"
 attestation: null
 recipe_version: 0.1.0
 ---
@@ -27,6 +27,13 @@ legal: whether the last allowed day still counts, STEM eligibility, or H-1B timi
 school's international student advisor (DSO). Today the engine's sample jobs carry a hand-typed
 timeline value; this recipe replaces that guess with a number computed from real dates, and shows
 the before/after.
+
+**Lifecycle claim: DRAFT, on purpose.** A full sample run has completed with a human clearing
+gate G-A, and the prototype's tests pass. But `SNICKERDOODLE.md` requires zero open TODOs before
+DRAFT → SPECIFIED, and RUNNABLE-SAMPLE comes after SPECIFIED. Two `[TODO: DATA SOURCE]` items are
+still open (a real hiring-time source; a dated unemployment-day count), and no data in the repo
+can close them. So this recipe claims DRAFT and lists what the sample run showed, rather than
+skipping a stage.
 
 Two customers: this file is for the agent; `recipes/cases/2026fa/revan1010-opt-countdown.card.md`
 is for the human.
