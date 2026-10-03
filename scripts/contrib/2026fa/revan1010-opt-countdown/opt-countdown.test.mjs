@@ -108,6 +108,18 @@ test('F-4 no time frame: missing --lag-days → exit 2, never defaults', () => {
   assert.throws(() => readInputs({ profileDoc: priya(), asOf: '2026-10-02', lagDays: undefined }), InputError);
 });
 
+test('bad values: negative lag → F-4, non-date as-of → F-2, malformed args → exit 2 (not a crash)', () => {
+  const neg = cli(base({ 'lag-days': '=-5' }).map((x) => (x === '--lag-days' ? '--lag-days=-5' : x)).filter((x) => x !== '=-5'));
+  assert.equal(neg.status, 2);
+  assert.match(neg.stderr, /\[F-4\].*whole number > 0/);
+  const notDate = cli(base({ 'as-of': 'Oct 2' }));
+  assert.equal(notDate.status, 2);
+  assert.match(notDate.stderr, /\[F-2\].*--as-of is not a YYYY-MM-DD date/);
+  const malformed = cli([...base({ 'lag-days': null }), '--lag-days', '-5']);
+  assert.equal(malformed.status, 2);
+  assert.match(malformed.stderr, /\[F-1\] bad arguments/);
+});
+
 test('G-A: without --confirmed-by it prints inputs, exits 3, writes nothing', () => {
   const out = tmp();
   const r = cli(base({ 'confirmed-by': null, 'out-dir': out }));

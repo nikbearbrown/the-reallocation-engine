@@ -169,13 +169,19 @@ function renderReport(log) {
 
 // ── run ─────────────────────────────────────────────────────────────────────
 export function run(argv) {
-  const { values: a } = parseArgs({
-    args: argv,
-    options: {
-      profile: { type: 'string' }, roles: { type: 'string' }, 'as-of': { type: 'string' },
-      'lag-days': { type: 'string' }, 'out-dir': { type: 'string' }, 'confirmed-by': { type: 'string' },
-    },
-  });
+  let a;
+  try {
+    ({ values: a } = parseArgs({
+      args: argv,
+      options: {
+        profile: { type: 'string' }, roles: { type: 'string' }, 'as-of': { type: 'string' },
+        'lag-days': { type: 'string' }, 'out-dir': { type: 'string' }, 'confirmed-by': { type: 'string' },
+      },
+    }));
+  } catch (e) {
+    // e.g. `--lag-days -5` reads as a missing value; report it as an input error, exit 2
+    throw new InputError('F-1', `bad arguments: ${e.message.split('\n')[0]} (pass negative numbers as --lag-days=-5)`);
+  }
   for (const f of ['profile', 'roles', 'out-dir'])
     if (!a[f]) throw new InputError('F-1', `--${f} is required`);
   for (const f of ['profile', 'roles'])

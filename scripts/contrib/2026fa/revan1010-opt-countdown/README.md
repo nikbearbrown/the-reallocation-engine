@@ -36,7 +36,8 @@ Needs: Node 20+ and `npm install` (for `js-yaml`). No network, no Python, no `.v
 node --test scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.test.mjs
 ```
 
-14 tests: the formula against hand-worked dates, failure cases F-1 / F-2 / F-4, gate G-A, the
+15 tests: the formula against hand-worked dates, failure cases F-1 / F-2 / F-4, bad argument
+values (negative lag, non-date as-of, malformed flags), gate G-A, the
 roles-folder overwrite guard, a full run through the real scorer (including F-3, the dead-link
 role), gate G-B, and a `BROKEN-` fixture showing the scorer treats a missing timeline as 1.
 Tests write only to the OS temp folder.
