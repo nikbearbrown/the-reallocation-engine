@@ -1,0 +1,83 @@
+{
+  "_label": "your-input",
+  "_status": "CLOSED DEFINE — rationale drafted by tushar-patel28, 2026-10-01",
+  "_what": "Keyword crosswalk from sponsored job titles to three role families. The sponsorship data has no SOC field, so this file IS the definition of 'a title in this family'. It is not a record.",
+  "_rationale": [
+    "Precision over recall. A keyword only maps a title to a family when the title clearly belongs there.",
+    "Ambiguous titles map to no family — e.g. Data Engineer, Solutions Architect, bare 'Engineer'. These count as 'not in top titles (unknown)'.",
+    "A match is a title match only. It verifies nothing about the visa's job category (SOC).",
+    "Known limitation: AI roles filed as 'Software Engineer' are invisible (prediction P1)."
+  ],
+  "_match_rule": "A title belongs to a family when it matches NO exclude_patterns entry AND at least one of the family's patterns (case-insensitive, Python re.search). A title can belong to more than one family (e.g. 'Software Engineer, Machine Learning' is SWE and AI).",
+  "_changes_2026-10-01": {
+    "added": "exclude_patterns: manager/director/exec titles, sales/support/success, product/program/project, QA/test, analyst, design, team lead, and the two ambiguous examples named in the rationale (data engineer; solutions architect/engineer)",
+    "SWE": "'software engineer' now ends at a word boundary (no 'Software Engineering Manager'); back-end/front-end/full-stack/mobile now require engineer|developer (one word may sit between, e.g. 'Full Stack Java Developer'); 'member of technical staff' REMOVED (MTS covers research, ML and hardware roles); 'application developer' widened to 'applications? developer'; added '<engineer|developer> - back-end|front-end|full-stack' (e.g. 'Staff Engineer (Full Stack)')",
+    "AI": "bare 'machine learning', 'ml', 'ai', 'artificial intelligence', 'deep learning', 'nlp', 'computer vision' now require engineer|scientist|researcher (one qualifier word allowed, e.g. 'Machine Learning Software Engineer', 'Computer Vision Research Engineer'); 'applied scientist', 'research scientist' and 'data scientist' REMOVED (wet-lab, analytics and actuarial roles share these titles); added 'ai/ml|ai/ds engineer' and '<engineer> … machine learning|ml|ai' within 25 characters",
+    "Cloud": "bare 'cloud', 'devops', 'infrastructure', 'site reliability', 'kubernetes' now require a role noun; bare 'reliability engineer' REMOVED (hardware/manufacturing reliability) — only site/systems/database reliability engineer remain; added '<engineer> … cloud|infrastructure|devops' within 25 characters"
+  },
+  "_context_soc_codes": "SOC codes per family are used ONLY to look up BLS median wages as report context. They are not used to match titles and do not enter the score. 15-2051 (Data Scientists) stays in the AI wage context as the AI-adjacent code named in the brief, even though 'data scientist' titles no longer map to the AI family.",
+  "exclude_patterns": [
+    "\\b(manager|director|head of|vp|avp|vice president|chief|president|officer)\\b",
+    "\\b(sales|presales|pre-sales|account|marketing|recruit\\w*|success|support)\\b",
+    "\\b(product|program|project)\\b",
+    "\\b(qa|quality|test|tester|testing|sdet)\\b",
+    "\\banalyst\\b",
+    "\\b(design|designer)\\b",
+    "\\bteam lead\\b",
+    "\\bdata engineer\\b",
+    "\\bsolutions? (architect|engineer)\\b"
+  ],
+  "families": {
+    "SWE": {
+      "patterns": [
+        "\\bsoftware (development )?engineer\\b",
+        "\\bsoftware developer\\b",
+        "\\bback[- ]?end( \\w+)? (engineer|developer)\\b",
+        "\\bfront[- ]?end( \\w+)? (engineer|developer)\\b",
+        "\\bfull[- ]?stack( \\w+)? (engineer|developer)\\b",
+        "\\bmobile( \\w+)? (engineer|developer)\\b",
+        "\\b(engineer|developer)\\b[ ,/(–-]+(back[- ]?end|front[- ]?end|full[- ]?stack)\\b",
+        "\\bapplications? developer\\b",
+        "\\bsde\\b"
+      ],
+      "context_soc_codes": [
+        "15-1252.00"
+      ]
+    },
+    "AI": {
+      "patterns": [
+        "\\bmachine learning( \\w+)? (engineer|scientist|researcher)\\b",
+        "\\bml( \\w+)? (engineer|scientist|researcher)\\b",
+        "\\bai( \\w+)? (engineer|scientist|researcher)\\b",
+        "\\bai/(ml|ds) (engineer|scientist)\\b",
+        "\\bdeep learning( \\w+)? (engineer|scientist|researcher)\\b",
+        "\\bcomputer vision( \\w+)? (engineer|scientist|researcher)\\b",
+        "\\bnlp( \\w+)? (engineer|scientist|researcher)\\b",
+        "\\bengineer\\b.{0,25}?\\b(machine learning|ml|ai)\\b"
+      ],
+      "context_soc_codes": [
+        "15-1221.00",
+        "15-2051.00"
+      ]
+    },
+    "Cloud": {
+      "patterns": [
+        "\\bcloud( \\w+)? (engineer|architect|developer)\\b",
+        "\\bdevops( \\w+)? (engineer|architect)\\b",
+        "\\b(site|systems|database) reliability engineer\\b",
+        "\\bsre\\b",
+        "\\binfrastructure (software )?engineer\\b",
+        "\\bengineer\\b.{0,25}?\\b(cloud|infrastructure|devops)\\b",
+        "\\bplatform engineer\\b",
+        "\\bnetwork engineer\\b",
+        "\\bsystems administrator\\b",
+        "\\bkubernetes (engineer|administrator)\\b"
+      ],
+      "context_soc_codes": [
+        "15-1241.00",
+        "15-1244.00",
+        "15-1299.08"
+      ]
+    }
+  }
+}

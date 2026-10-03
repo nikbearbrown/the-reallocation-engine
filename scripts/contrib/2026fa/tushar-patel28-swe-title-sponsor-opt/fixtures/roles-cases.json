@@ -1,0 +1,24 @@
+{
+  "_label": "your-input",
+  "_what": "One role per failure case F1-F6 and per gate break. EAD start in persona.fixture.json is 2027-01-22: f3-before is day -31, early-30 is day -30, late-61 is day 61, f3-after is day 91. Postings are fictional.",
+  "roles": [
+    { "role_id": "matched-in",     "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/1" },
+    { "role_id": "matched-not-in", "company": "Anyscale, Inc.",          "title": "ML Engineer",               "role_family": "AI",    "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/2" },
+    { "role_id": "f1-not-found",   "company": "Zyntheonix Labs, Inc.",   "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/3" },
+    { "role_id": "f2-no-trace",    "company": "Hugging Face, Inc.",      "title": "ML Engineer",               "role_family": "AI",    "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/4" },
+    { "role_id": "f3-before",      "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2026-12-22", "posting_url": "https://jobs.example.com/t/5" },
+    { "role_id": "early-30",       "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2026-12-23", "posting_url": "https://jobs.example.com/t/15" },
+    { "role_id": "late-61",        "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-03-24", "posting_url": "https://jobs.example.com/t/16" },
+    { "role_id": "f3-after",       "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-04-23", "posting_url": "https://jobs.example.com/t/6" },
+    { "role_id": "f4-missing",     "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",                               "posting_url": "https://jobs.example.com/t/7" },
+    { "role_id": "f4-invalid",     "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-02-30", "posting_url": "https://jobs.example.com/t/8" },
+    { "role_id": "f4-text",        "company": "Databricks, Inc.",        "title": "Software Engineer",         "role_family": "SWE",   "start_date": "next spring", "posting_url": "https://jobs.example.com/t/9" },
+    { "role_id": "f5-unreadable",  "company": "Pinecone Systems, Inc.",  "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/10" },
+    { "role_id": "g1-ambiguous",   "company": "Salesforce.com, Inc.",    "title": "Infrastructure Engineer",   "role_family": "Cloud", "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/11" },
+    { "role_id": "g1-namesake",    "company": "Cohere",                  "title": "ML Engineer",               "role_family": "AI",    "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/12" },
+    { "role_id": "g1-near-miss",   "company": "Databricks Labs",         "title": "Software Engineer",         "role_family": "SWE",   "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/13" },
+    { "role_id": "unknown-skip",   "company": "Zyntheonix Labs, Inc.",   "title": "Cloud Engineer",            "role_family": "Cloud", "start_date": "2027-03-24", "posting_url": "https://jobs.example.com/t/17" },
+    { "role_id": "g3-tamper",      "company": "Aiera, Inc.",             "title": "AI Engineer",               "role_family": "AI",    "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/t/14",
+      "liveness": { "factor": 0.2, "checked": true }, "liveness_checked": true }
+  ]
+}

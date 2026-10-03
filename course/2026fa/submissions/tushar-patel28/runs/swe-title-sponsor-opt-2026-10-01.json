@@ -1,0 +1,3285 @@
+{
+  "run": {
+    "recipe": {
+      "value": "tushar-patel28-swe-title-sponsor-opt v0.1.0",
+      "source": "record"
+    },
+    "run_date": {
+      "value": "2026-10-01",
+      "source": "record"
+    },
+    "mode": {
+      "value": "sample (offline; no network calls)",
+      "source": "your-input"
+    },
+    "command": {
+      "value": "python3 scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/title_sponsor_opt.py",
+      "source": "record"
+    },
+    "disclaimer": {
+      "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+      "source": "your-input"
+    },
+    "outputs": {
+      "log": {
+        "value": "course/2026fa/submissions/tushar-patel28/runs/swe-title-sponsor-opt-2026-10-01.json",
+        "source": "record"
+      },
+      "report": {
+        "value": "course/2026fa/submissions/tushar-patel28/runs/swe-title-sponsor-opt-2026-10-01.md",
+        "source": "record"
+      }
+    }
+  },
+  "inputs": {
+    "persona": {
+      "name": {
+        "value": "Ishani Morrow",
+        "source": "your-input"
+      },
+      "email": {
+        "value": "ishani.morrow@example.com",
+        "source": "your-input"
+      },
+      "program": {
+        "value": "MS in Software Engineering (STEM-designated)",
+        "source": "your-input"
+      },
+      "graduation_date": {
+        "value": "2026-12-18",
+        "source": "your-input"
+      },
+      "visa_type": {
+        "value": "F-1",
+        "source": "your-input"
+      },
+      "opt_type": {
+        "value": "post-completion OPT, STEM degree",
+        "source": "your-input"
+      },
+      "ead_start_date": {
+        "value": "2027-01-22",
+        "source": "your-input"
+      },
+      "unemployment_allowance_days": {
+        "value": 90,
+        "source": "your-input"
+      },
+      "priority_order": {
+        "value": [
+          "SWE",
+          "AI",
+          "Cloud"
+        ],
+        "source": "your-input"
+      }
+    },
+    "files": {
+      "csv": {
+        "value": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+        "source": "record",
+        "sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270"
+      },
+      "bls": {
+        "value": "data/bls/compact/soc_occupation_compact.csv",
+        "source": "record",
+        "sha256": "bac5acf77ca2d25268c75b3706084f7f67bcc0c6e3cc68cd03e0ebd2598343d1"
+      },
+      "persona": {
+        "value": "scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/sample/persona.json",
+        "source": "your-input",
+        "sha256": "810ced8c1fef711577869b5da708b0d65e12368de399bdabed0b65ca4ffd1fe0"
+      },
+      "roles": {
+        "value": "scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/sample/candidate-roles.json",
+        "source": "your-input",
+        "sha256": "ee13467af470e0a3c677405783438c80529e7e19135c4f6968687edc2911ea89"
+      },
+      "overrides": {
+        "value": "scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/sample/overrides.json",
+        "source": "your-input",
+        "sha256": "6c8f8f8f69073a3725a2f4c2d3b5fbdde74cf0de16370666c88af8bf6d26a57d"
+      },
+      "crosswalk": {
+        "value": "scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/crosswalk.json",
+        "source": "your-input",
+        "sha256": "0ec0579f29dc4545cb5241921b12aa32946a33edff509a52cc0856d075dd29ad"
+      },
+      "mappings": {
+        "value": "scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/mappings.json",
+        "source": "your-input",
+        "sha256": "c5fd01db96fa8a7243e181a5e4e90df5e94f8da613ad79ec108f80a61dcf3bad"
+      }
+    },
+    "maintained_code_reused": {
+      "normalizer": {
+        "value": "scripts/sec/sec-all-quarters.py::normalize_company_name",
+        "source": "record"
+      },
+      "h1b_presence": {
+        "value": "scripts/sec/validate-h1b-join-sample.py::h1b_present",
+        "source": "record"
+      }
+    },
+    "crosswalk": {
+      "value": {
+        "_label": "your-input",
+        "_status": "CLOSED DEFINE \u2014 rationale drafted by tushar-patel28, 2026-10-01",
+        "_what": "Keyword crosswalk from sponsored job titles to three role families. The sponsorship data has no SOC field, so this file IS the definition of 'a title in this family'. It is not a record.",
+        "_rationale": [
+          "Precision over recall. A keyword only maps a title to a family when the title clearly belongs there.",
+          "Ambiguous titles map to no family \u2014 e.g. Data Engineer, Solutions Architect, bare 'Engineer'. These count as 'not in top titles (unknown)'.",
+          "A match is a title match only. It verifies nothing about the visa's job category (SOC).",
+          "Known limitation: AI roles filed as 'Software Engineer' are invisible (prediction P1)."
+        ],
+        "_match_rule": "A title belongs to a family when it matches NO exclude_patterns entry AND at least one of the family's patterns (case-insensitive, Python re.search). A title can belong to more than one family (e.g. 'Software Engineer, Machine Learning' is SWE and AI).",
+        "_changes_2026-10-01": {
+          "added": "exclude_patterns: manager/director/exec titles, sales/support/success, product/program/project, QA/test, analyst, design, team lead, and the two ambiguous examples named in the rationale (data engineer; solutions architect/engineer)",
+          "SWE": "'software engineer' now ends at a word boundary (no 'Software Engineering Manager'); back-end/front-end/full-stack/mobile now require engineer|developer (one word may sit between, e.g. 'Full Stack Java Developer'); 'member of technical staff' REMOVED (MTS covers research, ML and hardware roles); 'application developer' widened to 'applications? developer'; added '<engineer|developer> - back-end|front-end|full-stack' (e.g. 'Staff Engineer (Full Stack)')",
+          "AI": "bare 'machine learning', 'ml', 'ai', 'artificial intelligence', 'deep learning', 'nlp', 'computer vision' now require engineer|scientist|researcher (one qualifier word allowed, e.g. 'Machine Learning Software Engineer', 'Computer Vision Research Engineer'); 'applied scientist', 'research scientist' and 'data scientist' REMOVED (wet-lab, analytics and actuarial roles share these titles); added 'ai/ml|ai/ds engineer' and '<engineer> \u2026 machine learning|ml|ai' within 25 characters",
+          "Cloud": "bare 'cloud', 'devops', 'infrastructure', 'site reliability', 'kubernetes' now require a role noun; bare 'reliability engineer' REMOVED (hardware/manufacturing reliability) \u2014 only site/systems/database reliability engineer remain; added '<engineer> \u2026 cloud|infrastructure|devops' within 25 characters"
+        },
+        "_context_soc_codes": "SOC codes per family are used ONLY to look up BLS median wages as report context. They are not used to match titles and do not enter the score. 15-2051 (Data Scientists) stays in the AI wage context as the AI-adjacent code named in the brief, even though 'data scientist' titles no longer map to the AI family.",
+        "exclude_patterns": [
+          "\\b(manager|director|head of|vp|avp|vice president|chief|president|officer)\\b",
+          "\\b(sales|presales|pre-sales|account|marketing|recruit\\w*|success|support)\\b",
+          "\\b(product|program|project)\\b",
+          "\\b(qa|quality|test|tester|testing|sdet)\\b",
+          "\\banalyst\\b",
+          "\\b(design|designer)\\b",
+          "\\bteam lead\\b",
+          "\\bdata engineer\\b",
+          "\\bsolutions? (architect|engineer)\\b"
+        ],
+        "families": {
+          "SWE": {
+            "patterns": [
+              "\\bsoftware (development )?engineer\\b",
+              "\\bsoftware developer\\b",
+              "\\bback[- ]?end( \\w+)? (engineer|developer)\\b",
+              "\\bfront[- ]?end( \\w+)? (engineer|developer)\\b",
+              "\\bfull[- ]?stack( \\w+)? (engineer|developer)\\b",
+              "\\bmobile( \\w+)? (engineer|developer)\\b",
+              "\\b(engineer|developer)\\b[ ,/(\u2013-]+(back[- ]?end|front[- ]?end|full[- ]?stack)\\b",
+              "\\bapplications? developer\\b",
+              "\\bsde\\b"
+            ],
+            "context_soc_codes": [
+              "15-1252.00"
+            ]
+          },
+          "AI": {
+            "patterns": [
+              "\\bmachine learning( \\w+)? (engineer|scientist|researcher)\\b",
+              "\\bml( \\w+)? (engineer|scientist|researcher)\\b",
+              "\\bai( \\w+)? (engineer|scientist|researcher)\\b",
+              "\\bai/(ml|ds) (engineer|scientist)\\b",
+              "\\bdeep learning( \\w+)? (engineer|scientist|researcher)\\b",
+              "\\bcomputer vision( \\w+)? (engineer|scientist|researcher)\\b",
+              "\\bnlp( \\w+)? (engineer|scientist|researcher)\\b",
+              "\\bengineer\\b.{0,25}?\\b(machine learning|ml|ai)\\b"
+            ],
+            "context_soc_codes": [
+              "15-1221.00",
+              "15-2051.00"
+            ]
+          },
+          "Cloud": {
+            "patterns": [
+              "\\bcloud( \\w+)? (engineer|architect|developer)\\b",
+              "\\bdevops( \\w+)? (engineer|architect)\\b",
+              "\\b(site|systems|database) reliability engineer\\b",
+              "\\bsre\\b",
+              "\\binfrastructure (software )?engineer\\b",
+              "\\bengineer\\b.{0,25}?\\b(cloud|infrastructure|devops)\\b",
+              "\\bplatform engineer\\b",
+              "\\bnetwork engineer\\b",
+              "\\bsystems administrator\\b",
+              "\\bkubernetes (engineer|administrator)\\b"
+            ],
+            "context_soc_codes": [
+              "15-1241.00",
+              "15-1244.00",
+              "15-1299.08"
+            ]
+          }
+        }
+      },
+      "source": "your-input"
+    },
+    "mappings": {
+      "value": {
+        "_label": "your-input",
+        "_status": "sponsorship, fit, timeline and next_action are CLOSED DEFINEs (rationale drafted by tushar-patel28, 2026-10-01). liveness is an assumption of the offline prototype; g4 is the human gate's contract. None of these values is a record.",
+        "sponsorship": {
+          "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+          "_why": "Evidence state (G1 status x family check) -> scorer tier and p. Tier names are the ones role-scorer.mjs reads (soft_sponsorship_tiers = likely/possible/unknown). These p values mostly set an ORDERING (Likely > Possible > Unknown), not a measured probability.",
+          "matched-h1b+in-top-titles": {
+            "tier": "Likely",
+            "p": 0.6,
+            "why": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven."
+          },
+          "matched-h1b+not-in-top-titles": {
+            "tier": "Possible",
+            "p": 0.4,
+            "why": "The company sponsors, but my family isn't visible in a short top-titles list. Existing sponsorship setup puts it above zero; nothing ties it to my role, so it stays below 0.5. An ordering, not a measured probability."
+          },
+          "matched-h1b+titles-unreadable": {
+            "tier": "Possible",
+            "p": 0.4,
+            "why": "Same as above: the company sponsors, and no family claim can be read from its titles."
+          },
+          "no-h1b-trace": {
+            "tier": "Unknown",
+            "p": null,
+            "why": "No sponsorship evidence either way -> no sponsorship vote (unknown is not no; p=0 would assert non-sponsorship)."
+          },
+          "not-found": {
+            "tier": "Unknown",
+            "p": null,
+            "why": "Company name did not match the data; may be a coverage or name-match gap -> no vote."
+          },
+          "ambiguous": {
+            "tier": "Unknown",
+            "p": null,
+            "why": "More than one row matches; picking one would be a guess -> no vote until a human resolves it."
+          }
+        },
+        "fit": {
+          "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+          "_why": "My priority list is a ranking, so equal steps are the least-assumption encoding. The top is below 1.0 because fit is my own statement, not a verified skills match. The floor is 0.6 because I'd accept all three families. Fit weighs 0.30, so a 0.1 step moves the score by 0.03: it breaks ties and can't outweigh sponsorship evidence.",
+          "SWE": 0.8,
+          "AI": 0.7,
+          "Cloud": 0.6
+        },
+        "timeline": {
+          "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+          "_why": "Planning arithmetic, not immigration advice. days = role start date - EAD start date (day 0 = the EAD start itself). 0.5 is deliberately below the scorer's 0.6 'weak' threshold, so both risk bands get flagged.",
+          "unemployment_allowance_days": 90,
+          "bands": [
+            {
+              "name": "more-than-30-days-before",
+              "min_days": null,
+              "max_days": -31,
+              "factor": 0.0,
+              "why": "too early to negotiate onto the EAD start"
+            },
+            {
+              "name": "1-30-days-before",
+              "min_days": -30,
+              "max_days": -1,
+              "factor": 0.5,
+              "why": "start date must be negotiated to on or after the EAD start"
+            },
+            {
+              "name": "0-60-days-after",
+              "min_days": 0,
+              "max_days": 60,
+              "factor": 1.0,
+              "why": "30-day buffer for slips"
+            },
+            {
+              "name": "61-90-days-after",
+              "min_days": 61,
+              "max_days": 90,
+              "factor": 0.5,
+              "why": "legal, no buffer"
+            },
+            {
+              "name": "more-than-90-days-after",
+              "min_days": 91,
+              "max_days": null,
+              "factor": 0.0,
+              "why": "past the 90-day unemployment allowance (assumption; confirm with the school's international office)"
+            }
+          ]
+        },
+        "liveness": {
+          "_why": "The offline prototype never calls the network. Liveness is ASSUMED open so the scorer can run; it is not checked. It counts as checked only for a role with an accepted G4 entry, whose liveness_checked_on date the human recorded after running the liveness command.",
+          "factor": 1.0,
+          "assumed": true,
+          "checked": false,
+          "clear_with": "npm run ats:liveness -- <posting_url>"
+        },
+        "g4": {
+          "_why": "The only path to Apply. A human checks public labor-filing records and the posting, then fills the overrides file. A complete, allowed entry becomes the scorer's override {decision: 'Apply', reason}. An LCA is evidence of an intent to file, not an approved visa.",
+          "required_fields": [
+            "role_id",
+            "lca_evidence_source",
+            "fiscal_year",
+            "soc_code",
+            "posting_says_no_sponsorship",
+            "liveness_checked_on",
+            "checked_on",
+            "reason"
+          ],
+          "refuse_when": [
+            "a required field is missing or has the wrong type",
+            "posting_says_no_sponsorship is true",
+            "the role's timeline gate is 0",
+            "the role's entity result is ambiguous or not-found",
+            "the role_id is unknown, duplicated in the file, or the role was not scored",
+            "a date is in the future"
+          ]
+        },
+        "next_action": {
+          "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+          "_why": "Likely -> tailor an application. Possible -> network: a conversation can confirm whether the company sponsors this role family. Unknown -> network: a conversation resolves sponsorship policy and an application can't; unknown is not no. Gated -> skip. The two 'blocked' outcomes are kept.",
+          "rules": [
+            {
+              "when": "input error (role not scored)",
+              "action": "blocked: fix the input and re-run"
+            },
+            {
+              "when": "G1 ambiguous (more than one row)",
+              "action": "blocked: pick the right company row, then re-run"
+            },
+            {
+              "when": "gated (timeline factor 0)",
+              "action": "skip"
+            },
+            {
+              "when": "G4 override accepted (scorer Apply)",
+              "action": "apply"
+            },
+            {
+              "when": "tier Likely",
+              "action": "tailor an application"
+            },
+            {
+              "when": "tier Possible",
+              "action": "network into the company",
+              "why": "a conversation can confirm whether the company sponsors this role family"
+            },
+            {
+              "when": "tier Unknown",
+              "action": "network into the company",
+              "why": "a conversation resolves sponsorship policy and an application can't; unknown is not no"
+            }
+          ],
+          "early_start_note": "negotiate the start date to on or after the EAD start",
+          "g3_block_text": "blocked at G3 until npm run ats:liveness is run by a human"
+        }
+      },
+      "source": "your-input"
+    }
+  },
+  "dataset_context": {
+    "csv_rows": {
+      "value": 30369,
+      "source": "record"
+    },
+    "rows_with_h1b_fields": {
+      "value": 1557,
+      "source": "record"
+    },
+    "h1b_rows_with_family_in_top_titles": {
+      "SWE": {
+        "value": 511,
+        "source": "your-input",
+        "basis": "record titles x your-input crosswalk"
+      },
+      "AI": {
+        "value": 86,
+        "source": "your-input",
+        "basis": "record titles x your-input crosswalk"
+      },
+      "Cloud": {
+        "value": 68,
+        "source": "your-input",
+        "basis": "record titles x your-input crosswalk"
+      }
+    },
+    "h1b_rows_with_no_family_in_top_titles": {
+      "value": 967,
+      "source": "your-input",
+      "basis": "record titles x your-input crosswalk"
+    },
+    "h1b_rows_with_unreadable_titles": {
+      "value": 0,
+      "source": "record"
+    }
+  },
+  "bls_context": {
+    "note": {
+      "value": "context only: role_quality weight is 0 in the scorer, so wages do not enter the score",
+      "source": "record"
+    },
+    "families": {
+      "SWE": [
+        {
+          "soc_code": {
+            "value": "15-1252.00",
+            "source": "your-input",
+            "note": "family -> SOC context mapping is mine"
+          },
+          "bls_soc_code": {
+            "value": "15-1252",
+            "source": "record"
+          },
+          "title": {
+            "value": "Software Developers",
+            "source": "record"
+          },
+          "annual_median_wage": {
+            "value": 133080.0,
+            "source": "record",
+            "note": null
+          },
+          "oews_year": {
+            "value": "2024",
+            "source": "record"
+          }
+        }
+      ],
+      "AI": [
+        {
+          "soc_code": {
+            "value": "15-1221.00",
+            "source": "your-input",
+            "note": "family -> SOC context mapping is mine"
+          },
+          "bls_soc_code": {
+            "value": "15-1221",
+            "source": "record"
+          },
+          "title": {
+            "value": "Computer and Information Research Scientists",
+            "source": "record"
+          },
+          "annual_median_wage": {
+            "value": 140910.0,
+            "source": "record",
+            "note": null
+          },
+          "oews_year": {
+            "value": "2024",
+            "source": "record"
+          }
+        },
+        {
+          "soc_code": {
+            "value": "15-2051.00",
+            "source": "your-input",
+            "note": "family -> SOC context mapping is mine"
+          },
+          "bls_soc_code": {
+            "value": "15-2051",
+            "source": "record"
+          },
+          "title": {
+            "value": "Data Scientists",
+            "source": "record"
+          },
+          "annual_median_wage": {
+            "value": 112590.0,
+            "source": "record",
+            "note": null
+          },
+          "oews_year": {
+            "value": "2024",
+            "source": "record"
+          }
+        }
+      ],
+      "Cloud": [
+        {
+          "soc_code": {
+            "value": "15-1241.00",
+            "source": "your-input",
+            "note": "family -> SOC context mapping is mine"
+          },
+          "bls_soc_code": {
+            "value": "15-1241",
+            "source": "record"
+          },
+          "title": {
+            "value": "Computer Network Architects",
+            "source": "record"
+          },
+          "annual_median_wage": {
+            "value": 130390.0,
+            "source": "record",
+            "note": null
+          },
+          "oews_year": {
+            "value": "2024",
+            "source": "record"
+          }
+        },
+        {
+          "soc_code": {
+            "value": "15-1244.00",
+            "source": "your-input",
+            "note": "family -> SOC context mapping is mine"
+          },
+          "bls_soc_code": {
+            "value": "15-1244",
+            "source": "record"
+          },
+          "title": {
+            "value": "Network and Computer Systems Administrators",
+            "source": "record"
+          },
+          "annual_median_wage": {
+            "value": 96800.0,
+            "source": "record",
+            "note": null
+          },
+          "oews_year": {
+            "value": "2024",
+            "source": "record"
+          }
+        },
+        {
+          "soc_code": {
+            "value": "15-1299.08",
+            "source": "your-input",
+            "note": "family -> SOC context mapping is mine"
+          },
+          "bls_soc_code": {
+            "value": "15-1299",
+            "source": "record"
+          },
+          "title": {
+            "value": "Computer Systems Engineers/Architects",
+            "source": "record"
+          },
+          "annual_median_wage": {
+            "value": 108970.0,
+            "source": "record",
+            "note": null
+          },
+          "oews_year": {
+            "value": "2024",
+            "source": "record"
+          }
+        }
+      ]
+    }
+  },
+  "roles": [
+    {
+      "role_id": {
+        "value": "databricks-swe",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Databricks, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Software Engineer, New Grad",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "SWE",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-08",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/databricks/1001",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "databricks",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 7249,
+              "company_name": "DATABRICKS INC",
+              "city": "SAN FRANCISCO",
+              "state": "CA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the SWE family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Software Engineer",
+            "Senior Software Engineer",
+            "Solutions Architect",
+            "Specialist Solutions Architect",
+            "Senior Solutions Engineer"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "Software Engineer",
+            "Senior Software Engineer"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.8,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-08",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 17,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/databricks/1001",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "databricks-swe",
+          "company": "Databricks, Inc.",
+          "title": "Software Engineer, New Grad",
+          "composite": 0.45,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "above threshold (0.450) but one soft spot: sponsorship tier \"Likely\"",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.6,
+                "weight": 0.35,
+                "contribution": 0.21,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.8,
+                "weight": 0.3,
+                "contribution": 0.24,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.45,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.6\u00b70.35 + 0.8\u00b70.3) \u00d7 1 \u00d7 1 = 0.450"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider \u2014 blocked at G3 until npm run ats:liveness is run by a human",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "tailor an application",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "stripe-swe",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Stripe, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Software Engineer, New Grad",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "SWE",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-01-11",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/stripe/1002",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "stripe",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 25633,
+              "company_name": "STRIPE INC",
+              "city": "South San Francisco",
+              "state": "CA",
+              "industry": "Other"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the SWE family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Software Engineer",
+            "Backend Engineer",
+            "Risk Strategist",
+            "Product Manager",
+            "Engineering Manager"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "Software Engineer",
+            "Backend Engineer"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.8,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-01-11",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": -11,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "1-30-days-before",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 0.5,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/stripe/1002",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "stripe-swe",
+          "company": "Stripe, Inc.",
+          "title": "Software Engineer, New Grad",
+          "composite": 0.225,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "composite 0.225 in the Consider band [0.2, 0.3)",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.6,
+                "weight": 0.35,
+                "contribution": 0.21,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.8,
+                "weight": 0.3,
+                "contribution": 0.24,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.45,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 0.5,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 0.5,
+            "arithmetic": "(0.6\u00b70.35 + 0.8\u00b70.3) \u00d7 1 \u00d7 0.5 = 0.225"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider \u2014 blocked at G3 until npm run ats:liveness is run by a human",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "tailor an application",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": {
+          "value": "negotiate the start date to on or after the EAD start",
+          "source": "your-input"
+        }
+      }
+    },
+    {
+      "role_id": {
+        "value": "toast-swe",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Toast, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Software Engineer I",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "SWE",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-03-29",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/toast/1003",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "toast",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 27011,
+              "company_name": "TOAST INC",
+              "city": "BOSTON",
+              "state": "MA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the SWE family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Senior Software Engineer",
+            "Senior Credit Risk Analyst",
+            "Staff Software Engineer/Team Lead Manager",
+            "Senior Systems Architect, Salesforce Engineering",
+            "Staff Software Engineer - Payments Extensibility, Tech Lead"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "Senior Software Engineer",
+            "Staff Software Engineer - Payments Extensibility, Tech Lead"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [
+            "Staff Software Engineer/Team Lead Manager"
+          ],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.8,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-03-29",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 66,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "61-90-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 0.5,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/toast/1003",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "toast-swe",
+          "company": "Toast, Inc.",
+          "title": "Software Engineer I",
+          "composite": 0.225,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "composite 0.225 in the Consider band [0.2, 0.3)",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.6,
+                "weight": 0.35,
+                "contribution": 0.21,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.8,
+                "weight": 0.3,
+                "contribution": 0.24,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.45,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 0.5,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 0.5,
+            "arithmetic": "(0.6\u00b70.35 + 0.8\u00b70.3) \u00d7 1 \u00d7 0.5 = 0.225"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider \u2014 blocked at G3 until npm run ats:liveness is run by a human",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "tailor an application",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "google-swe",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Google",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Software Engineer, Early Career",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "SWE",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-22",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/google/1004",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "google",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "not-found",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "not-applicable",
+          "source": "your-input",
+          "note": "no H-1B trace to read titles from; sponsorship is unknown, not 'does not sponsor'"
+        }
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "not-found",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Unknown",
+          "source": "your-input"
+        },
+        "p": {
+          "value": null,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "Company name did not match the data; may be a coverage or name-match gap -> no vote.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.8,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-22",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 31,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/google/1004",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "google-swe",
+          "company": "Google",
+          "title": "Software Engineer, Early Career",
+          "composite": 0.24,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "composite 0.240 in the Consider band [0.2, 0.3)",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "fit",
+                "value": 0.8,
+                "weight": 0.3,
+                "contribution": 0.24,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.24,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.8\u00b70.3) \u00d7 1 \u00d7 1 = 0.240"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "network into the company",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "mongodb-swe",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "MongoDB, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Software Engineer, New Grad",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "SWE",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "TBD",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/mongodb/1005",
+          "source": "your-input"
+        }
+      },
+      "error": {
+        "value": "role 'mongodb-swe': start_date 'TBD' is missing or not a valid YYYY-MM-DD date; no default is used, so this role is not scored",
+        "source": "your-input",
+        "note": "this role was not sent to the scorer"
+      },
+      "g1_entity": {
+        "normalized_key": {
+          "value": "mongodb",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 17197,
+              "company_name": "MONGODB INC",
+              "city": "NEW YORK",
+              "state": "NY",
+              "industry": "Computers"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the SWE family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Senior Software Engineer",
+            "Software Engineer ",
+            "Senior Product Manager",
+            "Marketing Analytics and Operations Manager",
+            "Senior Solutions Architect",
+            "Senior Software Engineer"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "Senior Software Engineer",
+            "Software Engineer ",
+            "Senior Software Engineer"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.8,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "scorer": null,
+      "decision": {
+        "machine_recommendation": null,
+        "recommendation": null,
+        "shown": {
+          "value": "not scored (input error)",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "blocked: fix the input and re-run",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "aiera-ai",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Aiera, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "AI Engineer",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "AI",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-01",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/aiera/1006",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "aiera",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 972,
+              "company_name": "AIERA INC",
+              "city": "NEW YORK",
+              "state": "NY",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the AI family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Product Manager",
+            "AI/DS Engineer",
+            "QA Automation Engineer"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "AI/DS Engineer"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.7,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-01",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 10,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/aiera/1006",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "aiera-ai",
+          "company": "Aiera, Inc.",
+          "title": "AI Engineer",
+          "composite": 0.42,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "above threshold (0.420) but one soft spot: sponsorship tier \"Likely\"",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.6,
+                "weight": 0.35,
+                "contribution": 0.21,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.7,
+                "weight": 0.3,
+                "contribution": 0.21,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.42,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.6\u00b70.35 + 0.7\u00b70.3) \u00d7 1 \u00d7 1 = 0.420"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider \u2014 blocked at G3 until npm run ats:liveness is run by a human",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "tailor an application",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "anyscale-ai",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Anyscale, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Machine Learning Engineer",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "AI",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-03-01",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/anyscale/1007",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "anyscale",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 1808,
+              "company_name": "ANYSCALE INC",
+              "city": "San Francisco",
+              "state": "CA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "not-in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "AI family not in top titles (unknown) \u2014 the list holds only a few titles, and ambiguous titles map to no family",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Software Engineer",
+            "Solutions Architect"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+not-in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Possible",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.4,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "The company sponsors, but my family isn't visible in a short top-titles list. Existing sponsorship setup puts it above zero; nothing ties it to my role, so it stays below 0.5. An ordering, not a measured probability.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.7,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-03-01",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 38,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/anyscale/1007",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "anyscale-ai",
+          "company": "Anyscale, Inc.",
+          "title": "Machine Learning Engineer",
+          "composite": 0.35,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "above threshold (0.350) but one soft spot: sponsorship tier \"Possible\"",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.4,
+                "weight": 0.35,
+                "contribution": 0.14,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.7,
+                "weight": 0.3,
+                "contribution": 0.21,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.35,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.4\u00b70.35 + 0.7\u00b70.3) \u00d7 1 \u00d7 1 = 0.350"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "network into the company",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "huggingface-ai",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Hugging Face, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Machine Learning Engineer",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "AI",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-01",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/huggingface/1008",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "huggingface",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "no-h1b-trace",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 12615,
+              "company_name": "HUGGING FACE INC",
+              "city": "BROOKLYN",
+              "state": "NY",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "not-applicable",
+          "source": "your-input",
+          "note": "no H-1B trace to read titles from; sponsorship is unknown, not 'does not sponsor'"
+        }
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "no-h1b-trace",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Unknown",
+          "source": "your-input"
+        },
+        "p": {
+          "value": null,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "No sponsorship evidence either way -> no sponsorship vote (unknown is not no; p=0 would assert non-sponsorship).",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.7,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-01",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 10,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/huggingface/1008",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "huggingface-ai",
+          "company": "Hugging Face, Inc.",
+          "title": "Machine Learning Engineer",
+          "composite": 0.21,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "composite 0.210 in the Consider band [0.2, 0.3)",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "fit",
+                "value": 0.7,
+                "weight": 0.3,
+                "contribution": 0.21,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.21,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.7\u00b70.3) \u00d7 1 \u00d7 1 = 0.210"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "network into the company",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "datadog-cloud",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Datadog, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Site Reliability Engineer I",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "Cloud",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-15",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/datadog/1009",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "datadog",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 7258,
+              "company_name": "DATADOG INC",
+              "city": "NEW YORK",
+              "state": "NY",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "not-in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "Cloud family not in top titles (unknown) \u2014 the list holds only a few titles, and ambiguous titles map to no family",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Software Engineer II",
+            "Senior Software Engineer",
+            "Software Engineer",
+            "Privacy Counsel",
+            "PRODUCT MANAGER"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+not-in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Possible",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.4,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "The company sponsors, but my family isn't visible in a short top-titles list. Existing sponsorship setup puts it above zero; nothing ties it to my role, so it stays below 0.5. An ordering, not a measured probability.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.6,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-15",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 24,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/datadog/1009",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "datadog-cloud",
+          "company": "Datadog, Inc.",
+          "title": "Site Reliability Engineer I",
+          "composite": 0.32,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "above threshold (0.320) but one soft spot: sponsorship tier \"Possible\"",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.4,
+                "weight": 0.35,
+                "contribution": 0.14,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.6,
+                "weight": 0.3,
+                "contribution": 0.18,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.32,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.4\u00b70.35 + 0.6\u00b70.3) \u00d7 1 \u00d7 1 = 0.320"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "network into the company",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "everquote-cloud",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "EverQuote, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Cloud Engineer",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "Cloud",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-03-08",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/everquote/1010",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "everquote",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 9170,
+              "company_name": "EVERQUOTE INC",
+              "city": "CAMBRIDGE",
+              "state": "MA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the Cloud family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Senior Cloud Engineer I",
+            "Senior Quantitative Analyst",
+            "Senior Engineer ",
+            "Senior Quantitative Analyst (Business) ",
+            "Product Manager",
+            "Quantitative Analyst "
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "Senior Cloud Engineer I"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.6,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-03-08",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 45,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/everquote/1010",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "everquote-cloud",
+          "company": "EverQuote, Inc.",
+          "title": "Cloud Engineer",
+          "composite": 0.39,
+          "recommendation": "Consider",
+          "machine_recommendation": "Consider",
+          "reason": "above threshold (0.390) but one soft spot: sponsorship tier \"Likely\"",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.6,
+                "weight": 0.35,
+                "contribution": 0.21,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.6,
+                "weight": 0.3,
+                "contribution": 0.18,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.39,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.6\u00b70.35 + 0.6\u00b70.3) \u00d7 1 \u00d7 1 = 0.390"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Consider",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Consider",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Consider \u2014 blocked at G3 until npm run ats:liveness is run by a human",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "tailor an application",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "salesforce-cloud",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Salesforce.com, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Infrastructure Engineer, Early Career",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "Cloud",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-16",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/salesforce/1011",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "salesforcecom",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "ambiguous",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 23115,
+              "company_name": "SALESFORCE COM INC",
+              "city": "SAN FRANCISCO",
+              "state": "CA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          },
+          {
+            "value": {
+              "row": 23116,
+              "company_name": "SALESFORCECOM INC",
+              "city": "SAN FRANCISCO",
+              "state": "CA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "not-applicable",
+          "source": "your-input",
+          "note": "no H-1B trace to read titles from; sponsorship is unknown, not 'does not sponsor'"
+        }
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "ambiguous",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Unknown",
+          "source": "your-input"
+        },
+        "p": {
+          "value": null,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "More than one row matches; picking one would be a guess -> no vote until a human resolves it.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.6,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-02-16",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 25,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "0-60-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/salesforce/1011",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "salesforce-cloud",
+          "company": "Salesforce.com, Inc.",
+          "title": "Infrastructure Engineer, Early Career",
+          "composite": 0.18,
+          "recommendation": "Skip",
+          "machine_recommendation": "Skip",
+          "reason": "composite 0.180 < 0.2 \u2014 time is better spent elsewhere",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "fit",
+                "value": 0.6,
+                "weight": 0.3,
+                "contribution": 0.18,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.18,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 1,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 1,
+            "arithmetic": "(0.6\u00b70.3) \u00d7 1 \u00d7 1 = 0.180"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Skip",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Skip",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Skip",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "blocked: pick the right company row, then re-run",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    },
+    {
+      "role_id": {
+        "value": "coherehealth-cloud",
+        "source": "your-input"
+      },
+      "input": {
+        "company": {
+          "value": "Cohere Health, Inc.",
+          "source": "your-input"
+        },
+        "title": {
+          "value": "Platform Engineer",
+          "source": "your-input"
+        },
+        "role_family": {
+          "value": "Cloud",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-05-03",
+          "source": "your-input"
+        },
+        "posting_url": {
+          "value": "https://jobs.example.com/coherehealth/1012",
+          "source": "your-input"
+        }
+      },
+      "error": null,
+      "g1_entity": {
+        "normalized_key": {
+          "value": "coherehealth",
+          "source": "your-input",
+          "note": "my company name through the repo's normalize_company_name"
+        },
+        "status": {
+          "value": "matched-h1b",
+          "source": "record",
+          "note": "what the CSV holds for that key"
+        },
+        "matched_rows": [
+          {
+            "value": {
+              "row": 6084,
+              "company_name": "COHERE HEALTH INC",
+              "city": "BOSTON",
+              "state": "MA",
+              "industry": "Other Technology"
+            },
+            "source": "record"
+          }
+        ],
+        "human_check": {
+          "value": "confirm the matched row is this company (name, city, state), not a namesake",
+          "source": "your-input"
+        }
+      },
+      "family_check": {
+        "status": {
+          "value": "in-top-titles",
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "claim": {
+          "value": "a title in the Cloud family appears in the company's top sponsored titles (a title match only; it verifies nothing about the visa's job category)",
+          "source": "your-input"
+        },
+        "top_titles": {
+          "value": [
+            "Engineering Manager ",
+            "Senior Software Engineer, Platform",
+            "Senior Machine Learning DevOps Engineer",
+            "Software Engineer II",
+            "Machine Learning Engineer"
+          ],
+          "source": "record"
+        },
+        "matched_titles": {
+          "value": [
+            "Senior Machine Learning DevOps Engineer"
+          ],
+          "source": "your-input",
+          "basis": "record titles x your-input crosswalk"
+        },
+        "excluded_titles": {
+          "value": [],
+          "source": "your-input",
+          "note": "hit a family keyword but also an exclusion, so no family (precision over recall)"
+        },
+        "unreadable_reason": null
+      },
+      "sponsorship_vote": {
+        "evidence_state": {
+          "value": "matched-h1b+in-top-titles",
+          "source": "your-input",
+          "basis": "record G1 status x family check"
+        },
+        "tier": {
+          "value": "Likely",
+          "source": "your-input"
+        },
+        "p": {
+          "value": 0.6,
+          "source": "your-input"
+        },
+        "why": {
+          "value": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven.",
+          "source": "your-input"
+        }
+      },
+      "fit_vote": {
+        "p": {
+          "value": 0.6,
+          "source": "your-input",
+          "basis": "priority order SWE > AI > Cloud"
+        }
+      },
+      "g2_timeline": {
+        "ead_start_date": {
+          "value": "2027-01-22",
+          "source": "your-input"
+        },
+        "start_date": {
+          "value": "2027-05-03",
+          "source": "your-input"
+        },
+        "days_after_ead_start": {
+          "value": 101,
+          "source": "your-input"
+        },
+        "band": {
+          "value": "more-than-90-days-after",
+          "source": "your-input"
+        },
+        "factor": {
+          "value": 0.0,
+          "source": "your-input"
+        },
+        "disclaimer": {
+          "value": "Timeline factors are planning arithmetic, not immigration advice. Confirm OPT dates and the unemployment allowance with your DSO.",
+          "source": "your-input"
+        }
+      },
+      "g3_liveness": {
+        "factor": {
+          "value": 1.0,
+          "source": "your-input"
+        },
+        "assumed": {
+          "value": true,
+          "source": "your-input"
+        },
+        "checked": {
+          "value": false,
+          "source": "record",
+          "note": "no liveness check was run; this prototype makes no network calls"
+        },
+        "clear_with": {
+          "value": "npm run ats:liveness -- https://jobs.example.com/coherehealth/1012",
+          "source": "your-input"
+        }
+      },
+      "scorer": {
+        "value": {
+          "role_id": "coherehealth-cloud",
+          "company": "Cohere Health, Inc.",
+          "title": "Platform Engineer",
+          "composite": 0,
+          "recommendation": "Skip",
+          "machine_recommendation": "Skip",
+          "reason": "gated: timeline \u2248 0.000 (a closed gate zeroes the composite regardless of votes)",
+          "override": null,
+          "trace": {
+            "votes": [
+              {
+                "factor": "sponsorship",
+                "value": 0.6,
+                "weight": 0.35,
+                "contribution": 0.21,
+                "source": "your-input"
+              },
+              {
+                "factor": "fit",
+                "value": 0.6,
+                "weight": 0.3,
+                "contribution": 0.18,
+                "source": "your-input"
+              }
+            ],
+            "vote_sum": 0.39,
+            "gates": [
+              {
+                "factor": "liveness",
+                "multiplier": 1,
+                "source": "your-input"
+              },
+              {
+                "factor": "timeline",
+                "multiplier": 0,
+                "source": "your-input"
+              }
+            ],
+            "gate_product": 0,
+            "arithmetic": "(0.6\u00b70.35 + 0.6\u00b70.3) \u00d7 1 \u00d7 0 = 0.000"
+          }
+        },
+        "source": "record",
+        "file": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "note": "verbatim from the real scorer CLI"
+      },
+      "decision": {
+        "machine_recommendation": {
+          "value": "Skip",
+          "source": "record"
+        },
+        "recommendation": {
+          "value": "Skip",
+          "source": "record",
+          "note": "after the scorer applied any G4 override"
+        },
+        "shown": {
+          "value": "Skip",
+          "source": "your-input"
+        },
+        "next_action": {
+          "value": "skip",
+          "source": "your-input",
+          "rule": "mappings.json next_action"
+        },
+        "note": null
+      }
+    }
+  ],
+  "g4_overrides": {
+    "file": {
+      "value": "scripts/contrib/2026fa/tushar-patel28-swe-title-sponsor-opt/sample/overrides.json",
+      "source": "your-input"
+    },
+    "entries_in_file": {
+      "value": 0,
+      "source": "your-input"
+    },
+    "results": [],
+    "note": {
+      "value": "An LCA is evidence of an intent to file, not an approved visa.",
+      "source": "your-input"
+    }
+  },
+  "scorer_run": {
+    "command": {
+      "value": "npm run score -- course/2026fa/submissions/tushar-patel28/runs/roles.json --out-dir course/2026fa/submissions/tushar-patel28/runs",
+      "source": "record"
+    },
+    "exit_code": {
+      "value": 0,
+      "source": "record"
+    },
+    "stdout": {
+      "value": "> the-reallocation-engine@1.0.0 score\n> node scripts/score/role-scorer.mjs course/2026fa/submissions/tushar-patel28/runs/roles.json --out-dir course/2026fa/submissions/tushar-patel28/runs\n\n\u2713 scored 11 roles \u2192 Apply 0 \u00b7 Consider 9 \u00b7 Skip 2 (skip 18%)\n  course/2026fa/submissions/tushar-patel28/runs/role-scores.json  +  course/2026fa/submissions/tushar-patel28/runs/role-scores.md",
+      "source": "record"
+    },
+    "config": {
+      "value": {
+        "weights": {
+          "sponsorship": 0.35,
+          "fit": 0.3,
+          "role_quality": 0
+        },
+        "apply_threshold": 0.3,
+        "consider_floor": 0.2,
+        "gate_zero": 0.05,
+        "soft_sponsorship_tiers": [
+          "likely",
+          "possible",
+          "unknown"
+        ]
+      },
+      "source": "record"
+    },
+    "profile_needs_sponsorship": {
+      "value": true,
+      "source": "record"
+    },
+    "sponsorship_weight_guard": {
+      "value": "passed: 8 sponsorship term(s), all weight > 0",
+      "source": "record"
+    },
+    "gate_echo_guard": {
+      "value": "passed: scorer multiplied exactly the gates sent; every timeline=0 role is a gated Skip",
+      "source": "record"
+    },
+    "override_guard": {
+      "value": "passed: scorer applied exactly the G4 overrides sent and no others",
+      "source": "record"
+    },
+    "files": {
+      "roles_json": {
+        "value": "course/2026fa/submissions/tushar-patel28/runs/roles.json",
+        "source": "record"
+      },
+      "role_scores_json": {
+        "value": "course/2026fa/submissions/tushar-patel28/runs/role-scores.json",
+        "source": "record"
+      },
+      "role_scores_md": {
+        "value": "course/2026fa/submissions/tushar-patel28/runs/role-scores.md",
+        "source": "record"
+      }
+    }
+  },
+  "summary": {
+    "roles_in": {
+      "value": 12,
+      "source": "your-input"
+    },
+    "roles_scored": {
+      "value": 11,
+      "source": "record"
+    },
+    "roles_not_scored": {
+      "value": 1,
+      "source": "record"
+    },
+    "by_g1_status": {
+      "value": {
+        "matched-h1b": 9,
+        "not-found": 1,
+        "no-h1b-trace": 1,
+        "ambiguous": 1
+      },
+      "source": "record"
+    },
+    "by_scorer_recommendation": {
+      "value": {
+        "Consider": 9,
+        "not scored": 1,
+        "Skip": 2
+      },
+      "source": "record",
+      "note": "the scorer's machine recommendation, before any G4 override"
+    },
+    "by_final_recommendation": {
+      "value": {
+        "Consider": 9,
+        "not scored": 1,
+        "Skip": 2
+      },
+      "source": "record",
+      "note": "after the scorer applied G4 overrides"
+    },
+    "by_next_action": {
+      "value": {
+        "tailor an application": 5,
+        "network into the company": 4,
+        "blocked: fix the input and re-run": 1,
+        "blocked: pick the right company row, then re-run": 1,
+        "skip": 1
+      },
+      "source": "your-input"
+    },
+    "skip_rate_of_scored": {
+      "value": "2/11",
+      "source": "record"
+    },
+    "g4_accepted": {
+      "value": 0,
+      "source": "your-input"
+    },
+    "g4_refused": {
+      "value": 0,
+      "source": "your-input"
+    },
+    "g3_cleared": {
+      "value": 0,
+      "source": "your-input",
+      "note": "only roles whose accepted G4 entry records a human liveness check"
+    }
+  }
+}

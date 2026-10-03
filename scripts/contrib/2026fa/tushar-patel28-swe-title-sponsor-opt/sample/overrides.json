@@ -1,0 +1,16 @@
+{
+  "_label": "your-input",
+  "_why": "G4 human gate — the only path to Apply. This file ships EMPTY on purpose: no real DOL check has been done, and evidence typed here without one would be an invented record. An LCA is evidence of an intent to file, not an approved visa.",
+  "_how": "After checking a role yourself, add one entry per role with every field below, then re-run. The tool refuses any entry that is incomplete, says the posting rules out sponsorship, targets a role whose timeline gate is 0, or targets a role whose company match is ambiguous or not-found.",
+  "_entry_shape": {
+    "role_id": "role_id from the candidate-roles file",
+    "lca_evidence_source": "e.g. DOL OFLC LCA disclosure data (file name / quarter you checked)",
+    "fiscal_year": 2026,
+    "soc_code": "e.g. 15-1252",
+    "posting_says_no_sponsorship": false,
+    "liveness_checked_on": "YYYY-MM-DD, the day you ran npm run ats:liveness -- <posting_url>",
+    "checked_on": "YYYY-MM-DD, the day you checked the LCA record",
+    "reason": "one or two sentences: what you saw and why it justifies applying"
+  },
+  "overrides": []
+}

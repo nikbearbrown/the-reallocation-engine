@@ -1,0 +1,53 @@
+{
+  "_label": "your-input",
+  "_fictional": "FICTIONAL TEST FIXTURE — none of these entries reflects a real DOL/LCA check. Used only by the tests, never by the sample run.",
+  "overrides": [
+    { "role_id": "matched-in",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE (not a real DOL OFLC LCA disclosure record)",
+      "fiscal_year": 2026, "soc_code": "15-1252", "posting_says_no_sponsorship": false,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: certified LCA for SOC 15-1252 in the fixture year; posting live" },
+
+    { "role_id": "matched-not-in",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "posting_says_no_sponsorship": false,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: soc_code deliberately missing" },
+
+    { "role_id": "f2-no-trace",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "soc_code": "15-1221", "posting_says_no_sponsorship": true,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: the posting itself rules out sponsorship" },
+
+    { "role_id": "f3-after",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "soc_code": "15-1252", "posting_says_no_sponsorship": false,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: timeline gate is 0 for this role" },
+
+    { "role_id": "g1-ambiguous",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "soc_code": "15-1244", "posting_says_no_sponsorship": false,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: company match is ambiguous" },
+
+    { "role_id": "f1-not-found",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "soc_code": "15-1252", "posting_says_no_sponsorship": false,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: company match is not-found" },
+
+    { "role_id": "f5-unreadable",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "soc_code": "15-1252", "posting_says_no_sponsorship": "false",
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: posting_says_no_sponsorship is a string, not a bool" },
+
+    { "role_id": "no-such-role",
+      "lca_evidence_source": "FICTIONAL TEST FIXTURE",
+      "fiscal_year": 2026, "soc_code": "15-1252", "posting_says_no_sponsorship": false,
+      "liveness_checked_on": "2026-09-30", "checked_on": "2026-09-30",
+      "reason": "fixture: role_id does not exist" }
+  ]
+}

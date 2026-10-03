@@ -1,0 +1,13 @@
+{
+  "_label": "your-input",
+  "_fictional": "FICTIONAL TEST PERSONA — invented name, example.com address, invented dates.",
+  "name": "Test Persona Rivera",
+  "email": "test.rivera@example.com",
+  "program": "MS in Software Engineering (STEM-designated)",
+  "graduation_date": "2026-12-18",
+  "visa_type": "F-1",
+  "opt_type": "post-completion OPT, STEM degree",
+  "ead_start_date": "2027-01-22",
+  "unemployment_allowance_days": 90,
+  "priority_order": ["SWE", "AI", "Cloud"]
+}

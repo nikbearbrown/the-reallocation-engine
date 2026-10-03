@@ -1,0 +1,18 @@
+{
+  "_label": "your-input",
+  "_fictional": "Company names are real and written the way the persona would type them from a posting. Titles, start dates and posting URLs are FICTIONAL (jobs.example.com). Chosen for realism before the run, not to force any result.",
+  "roles": [
+    { "role_id": "databricks-swe",   "company": "Databricks, Inc.",     "title": "Software Engineer, New Grad",          "role_family": "SWE",   "start_date": "2027-02-08", "posting_url": "https://jobs.example.com/databricks/1001" },
+    { "role_id": "stripe-swe",       "company": "Stripe, Inc.",         "title": "Software Engineer, New Grad",          "role_family": "SWE",   "start_date": "2027-01-11", "posting_url": "https://jobs.example.com/stripe/1002" },
+    { "role_id": "toast-swe",        "company": "Toast, Inc.",          "title": "Software Engineer I",                  "role_family": "SWE",   "start_date": "2027-03-29", "posting_url": "https://jobs.example.com/toast/1003" },
+    { "role_id": "google-swe",       "company": "Google",               "title": "Software Engineer, Early Career",      "role_family": "SWE",   "start_date": "2027-02-22", "posting_url": "https://jobs.example.com/google/1004" },
+    { "role_id": "mongodb-swe",      "company": "MongoDB, Inc.",        "title": "Software Engineer, New Grad",          "role_family": "SWE",   "start_date": "TBD",        "posting_url": "https://jobs.example.com/mongodb/1005" },
+    { "role_id": "aiera-ai",         "company": "Aiera, Inc.",          "title": "AI Engineer",                          "role_family": "AI",    "start_date": "2027-02-01", "posting_url": "https://jobs.example.com/aiera/1006" },
+    { "role_id": "anyscale-ai",      "company": "Anyscale, Inc.",       "title": "Machine Learning Engineer",            "role_family": "AI",    "start_date": "2027-03-01", "posting_url": "https://jobs.example.com/anyscale/1007" },
+    { "role_id": "huggingface-ai",   "company": "Hugging Face, Inc.",   "title": "Machine Learning Engineer",            "role_family": "AI",    "start_date": "2027-02-01", "posting_url": "https://jobs.example.com/huggingface/1008" },
+    { "role_id": "datadog-cloud",    "company": "Datadog, Inc.",        "title": "Site Reliability Engineer I",          "role_family": "Cloud", "start_date": "2027-02-15", "posting_url": "https://jobs.example.com/datadog/1009" },
+    { "role_id": "everquote-cloud",  "company": "EverQuote, Inc.",      "title": "Cloud Engineer",                       "role_family": "Cloud", "start_date": "2027-03-08", "posting_url": "https://jobs.example.com/everquote/1010" },
+    { "role_id": "salesforce-cloud", "company": "Salesforce.com, Inc.", "title": "Infrastructure Engineer, Early Career", "role_family": "Cloud", "start_date": "2027-02-16", "posting_url": "https://jobs.example.com/salesforce/1011" },
+    { "role_id": "coherehealth-cloud","company": "Cohere Health, Inc.", "title": "Platform Engineer",                    "role_family": "Cloud", "start_date": "2027-05-03", "posting_url": "https://jobs.example.com/coherehealth/1012" }
+  ]
+}

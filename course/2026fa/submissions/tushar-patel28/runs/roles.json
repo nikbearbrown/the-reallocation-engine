@@ -1,0 +1,489 @@
+[
+  {
+    "role_id": "databricks-swe",
+    "company": "Databricks, Inc.",
+    "title": "Software Engineer, New Grad",
+    "sponsorship": {
+      "tier": "Likely",
+      "p": 0.6,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "in-top-titles",
+        "matched_titles": [
+          "Software Engineer",
+          "Senior Software Engineer"
+        ],
+        "matched_row": [
+          {
+            "company_name": "DATABRICKS INC",
+            "city": "SAN FRANCISCO",
+            "state": "CA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 17,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "SWE",
+    "posting_url": "https://jobs.example.com/databricks/1001"
+  },
+  {
+    "role_id": "stripe-swe",
+    "company": "Stripe, Inc.",
+    "title": "Software Engineer, New Grad",
+    "sponsorship": {
+      "tier": "Likely",
+      "p": 0.6,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "in-top-titles",
+        "matched_titles": [
+          "Software Engineer",
+          "Backend Engineer"
+        ],
+        "matched_row": [
+          {
+            "company_name": "STRIPE INC",
+            "city": "South San Francisco",
+            "state": "CA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 0.5,
+      "source": "your-input",
+      "days_after_ead_start": -11,
+      "band": "1-30-days-before",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "SWE",
+    "posting_url": "https://jobs.example.com/stripe/1002"
+  },
+  {
+    "role_id": "toast-swe",
+    "company": "Toast, Inc.",
+    "title": "Software Engineer I",
+    "sponsorship": {
+      "tier": "Likely",
+      "p": 0.6,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "in-top-titles",
+        "matched_titles": [
+          "Senior Software Engineer",
+          "Staff Software Engineer - Payments Extensibility, Tech Lead"
+        ],
+        "matched_row": [
+          {
+            "company_name": "TOAST INC",
+            "city": "BOSTON",
+            "state": "MA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 0.5,
+      "source": "your-input",
+      "days_after_ead_start": 66,
+      "band": "61-90-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "SWE",
+    "posting_url": "https://jobs.example.com/toast/1003"
+  },
+  {
+    "role_id": "google-swe",
+    "company": "Google",
+    "title": "Software Engineer, Early Career",
+    "sponsorship": {
+      "tier": "Unknown",
+      "p": null,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "not-found",
+        "g1_source": "record",
+        "family_check": "not-applicable",
+        "matched_titles": null,
+        "matched_row": []
+      }
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 31,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "SWE",
+    "posting_url": "https://jobs.example.com/google/1004"
+  },
+  {
+    "role_id": "aiera-ai",
+    "company": "Aiera, Inc.",
+    "title": "AI Engineer",
+    "sponsorship": {
+      "tier": "Likely",
+      "p": 0.6,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "in-top-titles",
+        "matched_titles": [
+          "AI/DS Engineer"
+        ],
+        "matched_row": [
+          {
+            "company_name": "AIERA INC",
+            "city": "NEW YORK",
+            "state": "NY"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 10,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "AI",
+    "posting_url": "https://jobs.example.com/aiera/1006"
+  },
+  {
+    "role_id": "anyscale-ai",
+    "company": "Anyscale, Inc.",
+    "title": "Machine Learning Engineer",
+    "sponsorship": {
+      "tier": "Possible",
+      "p": 0.4,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "not-in-top-titles",
+        "matched_titles": [],
+        "matched_row": [
+          {
+            "company_name": "ANYSCALE INC",
+            "city": "San Francisco",
+            "state": "CA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 38,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "AI",
+    "posting_url": "https://jobs.example.com/anyscale/1007"
+  },
+  {
+    "role_id": "huggingface-ai",
+    "company": "Hugging Face, Inc.",
+    "title": "Machine Learning Engineer",
+    "sponsorship": {
+      "tier": "Unknown",
+      "p": null,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "no-h1b-trace",
+        "g1_source": "record",
+        "family_check": "not-applicable",
+        "matched_titles": null,
+        "matched_row": [
+          {
+            "company_name": "HUGGING FACE INC",
+            "city": "BROOKLYN",
+            "state": "NY"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 10,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "AI",
+    "posting_url": "https://jobs.example.com/huggingface/1008"
+  },
+  {
+    "role_id": "datadog-cloud",
+    "company": "Datadog, Inc.",
+    "title": "Site Reliability Engineer I",
+    "sponsorship": {
+      "tier": "Possible",
+      "p": 0.4,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "not-in-top-titles",
+        "matched_titles": [],
+        "matched_row": [
+          {
+            "company_name": "DATADOG INC",
+            "city": "NEW YORK",
+            "state": "NY"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.6,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 24,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "Cloud",
+    "posting_url": "https://jobs.example.com/datadog/1009"
+  },
+  {
+    "role_id": "everquote-cloud",
+    "company": "EverQuote, Inc.",
+    "title": "Cloud Engineer",
+    "sponsorship": {
+      "tier": "Likely",
+      "p": 0.6,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "in-top-titles",
+        "matched_titles": [
+          "Senior Cloud Engineer I"
+        ],
+        "matched_row": [
+          {
+            "company_name": "EVERQUOTE INC",
+            "city": "CAMBRIDGE",
+            "state": "MA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.6,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 45,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "Cloud",
+    "posting_url": "https://jobs.example.com/everquote/1010"
+  },
+  {
+    "role_id": "salesforce-cloud",
+    "company": "Salesforce.com, Inc.",
+    "title": "Infrastructure Engineer, Early Career",
+    "sponsorship": {
+      "tier": "Unknown",
+      "p": null,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "ambiguous",
+        "g1_source": "record",
+        "family_check": "not-applicable",
+        "matched_titles": null,
+        "matched_row": [
+          {
+            "company_name": "SALESFORCE COM INC",
+            "city": "SAN FRANCISCO",
+            "state": "CA"
+          },
+          {
+            "company_name": "SALESFORCECOM INC",
+            "city": "SAN FRANCISCO",
+            "state": "CA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.6,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 1.0,
+      "source": "your-input",
+      "days_after_ead_start": 25,
+      "band": "0-60-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "Cloud",
+    "posting_url": "https://jobs.example.com/salesforce/1011"
+  },
+  {
+    "role_id": "coherehealth-cloud",
+    "company": "Cohere Health, Inc.",
+    "title": "Platform Engineer",
+    "sponsorship": {
+      "tier": "Likely",
+      "p": 0.6,
+      "source": "your-input",
+      "evidence": {
+        "g1_status": "matched-h1b",
+        "g1_source": "record",
+        "family_check": "in-top-titles",
+        "matched_titles": [
+          "Senior Machine Learning DevOps Engineer"
+        ],
+        "matched_row": [
+          {
+            "company_name": "COHERE HEALTH INC",
+            "city": "BOSTON",
+            "state": "MA"
+          }
+        ]
+      }
+    },
+    "fit": {
+      "p": 0.6,
+      "source": "your-input",
+      "basis": "priority order SWE > AI > Cloud"
+    },
+    "liveness": {
+      "factor": 1.0,
+      "source": "your-input",
+      "assumed": true,
+      "checked": false
+    },
+    "timeline": {
+      "factor": 0.0,
+      "source": "your-input",
+      "days_after_ead_start": 101,
+      "band": "more-than-90-days-after",
+      "note": "planning arithmetic, not immigration advice"
+    },
+    "role_family": "Cloud",
+    "posting_url": "https://jobs.example.com/coherehealth/1012"
+  }
+]

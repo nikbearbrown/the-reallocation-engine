@@ -1,0 +1,475 @@
+{
+  "_scorer": "bayesian-role-scorer",
+  "_chapter": 11,
+  "generated": "2026-10-02",
+  "config": {
+    "weights": {
+      "sponsorship": 0.35,
+      "fit": 0.3,
+      "role_quality": 0
+    },
+    "apply_threshold": 0.3,
+    "consider_floor": 0.2,
+    "gate_zero": 0.05,
+    "soft_sponsorship_tiers": [
+      "likely",
+      "possible",
+      "unknown"
+    ]
+  },
+  "profile_needs_sponsorship": true,
+  "roles": [
+    {
+      "role_id": "databricks-swe",
+      "company": "Databricks, Inc.",
+      "title": "Software Engineer, New Grad",
+      "composite": 0.45,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "above threshold (0.450) but one soft spot: sponsorship tier \"Likely\"",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.45,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.6·0.35 + 0.8·0.3) × 1 × 1 = 0.450"
+      }
+    },
+    {
+      "role_id": "stripe-swe",
+      "company": "Stripe, Inc.",
+      "title": "Software Engineer, New Grad",
+      "composite": 0.225,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.225 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.45,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.5,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.5,
+        "arithmetic": "(0.6·0.35 + 0.8·0.3) × 1 × 0.5 = 0.225"
+      }
+    },
+    {
+      "role_id": "toast-swe",
+      "company": "Toast, Inc.",
+      "title": "Software Engineer I",
+      "composite": 0.225,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.225 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.45,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.5,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.5,
+        "arithmetic": "(0.6·0.35 + 0.8·0.3) × 1 × 0.5 = 0.225"
+      }
+    },
+    {
+      "role_id": "google-swe",
+      "company": "Google",
+      "title": "Software Engineer, Early Career",
+      "composite": 0.24,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.240 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.24,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.8·0.3) × 1 × 1 = 0.240"
+      }
+    },
+    {
+      "role_id": "aiera-ai",
+      "company": "Aiera, Inc.",
+      "title": "AI Engineer",
+      "composite": 0.42,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "above threshold (0.420) but one soft spot: sponsorship tier \"Likely\"",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.7,
+            "weight": 0.3,
+            "contribution": 0.21,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.42,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.6·0.35 + 0.7·0.3) × 1 × 1 = 0.420"
+      }
+    },
+    {
+      "role_id": "anyscale-ai",
+      "company": "Anyscale, Inc.",
+      "title": "Machine Learning Engineer",
+      "composite": 0.35,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "above threshold (0.350) but one soft spot: sponsorship tier \"Possible\"",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.4,
+            "weight": 0.35,
+            "contribution": 0.14,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.7,
+            "weight": 0.3,
+            "contribution": 0.21,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.35,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.4·0.35 + 0.7·0.3) × 1 × 1 = 0.350"
+      }
+    },
+    {
+      "role_id": "huggingface-ai",
+      "company": "Hugging Face, Inc.",
+      "title": "Machine Learning Engineer",
+      "composite": 0.21,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.210 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "fit",
+            "value": 0.7,
+            "weight": 0.3,
+            "contribution": 0.21,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.21,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.7·0.3) × 1 × 1 = 0.210"
+      }
+    },
+    {
+      "role_id": "datadog-cloud",
+      "company": "Datadog, Inc.",
+      "title": "Site Reliability Engineer I",
+      "composite": 0.32,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "above threshold (0.320) but one soft spot: sponsorship tier \"Possible\"",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.4,
+            "weight": 0.35,
+            "contribution": 0.14,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.6,
+            "weight": 0.3,
+            "contribution": 0.18,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.32,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.4·0.35 + 0.6·0.3) × 1 × 1 = 0.320"
+      }
+    },
+    {
+      "role_id": "everquote-cloud",
+      "company": "EverQuote, Inc.",
+      "title": "Cloud Engineer",
+      "composite": 0.39,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "above threshold (0.390) but one soft spot: sponsorship tier \"Likely\"",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.6,
+            "weight": 0.3,
+            "contribution": 0.18,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.39,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.6·0.35 + 0.6·0.3) × 1 × 1 = 0.390"
+      }
+    },
+    {
+      "role_id": "salesforce-cloud",
+      "company": "Salesforce.com, Inc.",
+      "title": "Infrastructure Engineer, Early Career",
+      "composite": 0.18,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "composite 0.180 < 0.2 — time is better spent elsewhere",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "fit",
+            "value": 0.6,
+            "weight": 0.3,
+            "contribution": 0.18,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.18,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.6·0.3) × 1 × 1 = 0.180"
+      }
+    },
+    {
+      "role_id": "coherehealth-cloud",
+      "company": "Cohere Health, Inc.",
+      "title": "Platform Engineer",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 0.6,
+            "weight": 0.3,
+            "contribution": 0.18,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.39,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(0.6·0.35 + 0.6·0.3) × 1 × 0 = 0.000"
+      }
+    }
+  ]
+}

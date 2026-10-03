@@ -1,0 +1,74 @@
+{
+  "_label": "your-input",
+  "_status": "sponsorship, fit, timeline and next_action are CLOSED DEFINEs (rationale drafted by tushar-patel28, 2026-10-01). liveness is an assumption of the offline prototype; g4 is the human gate's contract. None of these values is a record.",
+
+  "sponsorship": {
+    "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+    "_why": "Evidence state (G1 status x family check) -> scorer tier and p. Tier names are the ones role-scorer.mjs reads (soft_sponsorship_tiers = likely/possible/unknown). These p values mostly set an ORDERING (Likely > Possible > Unknown), not a measured probability.",
+    "matched-h1b+in-top-titles":     { "tier": "Likely",   "p": 0.6,  "why": "A positive record in my family, but no filing year, no SOC, and possibly doubled counts. This is past practice, not current intent, so it stays below Proven." },
+    "matched-h1b+not-in-top-titles": { "tier": "Possible", "p": 0.4,  "why": "The company sponsors, but my family isn't visible in a short top-titles list. Existing sponsorship setup puts it above zero; nothing ties it to my role, so it stays below 0.5. An ordering, not a measured probability." },
+    "matched-h1b+titles-unreadable": { "tier": "Possible", "p": 0.4,  "why": "Same as above: the company sponsors, and no family claim can be read from its titles." },
+    "no-h1b-trace":                  { "tier": "Unknown",  "p": null, "why": "No sponsorship evidence either way -> no sponsorship vote (unknown is not no; p=0 would assert non-sponsorship)." },
+    "not-found":                     { "tier": "Unknown",  "p": null, "why": "Company name did not match the data; may be a coverage or name-match gap -> no vote." },
+    "ambiguous":                     { "tier": "Unknown",  "p": null, "why": "More than one row matches; picking one would be a guess -> no vote until a human resolves it." }
+  },
+
+  "fit": {
+    "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+    "_why": "My priority list is a ranking, so equal steps are the least-assumption encoding. The top is below 1.0 because fit is my own statement, not a verified skills match. The floor is 0.6 because I'd accept all three families. Fit weighs 0.30, so a 0.1 step moves the score by 0.03: it breaks ties and can't outweigh sponsorship evidence.",
+    "SWE": 0.8,
+    "AI": 0.7,
+    "Cloud": 0.6
+  },
+
+  "timeline": {
+    "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+    "_why": "Planning arithmetic, not immigration advice. days = role start date - EAD start date (day 0 = the EAD start itself). 0.5 is deliberately below the scorer's 0.6 'weak' threshold, so both risk bands get flagged.",
+    "unemployment_allowance_days": 90,
+    "bands": [
+      { "name": "more-than-30-days-before", "min_days": null, "max_days": -31, "factor": 0.0, "why": "too early to negotiate onto the EAD start" },
+      { "name": "1-30-days-before",         "min_days": -30,  "max_days": -1,  "factor": 0.5, "why": "start date must be negotiated to on or after the EAD start" },
+      { "name": "0-60-days-after",          "min_days": 0,    "max_days": 60,  "factor": 1.0, "why": "30-day buffer for slips" },
+      { "name": "61-90-days-after",         "min_days": 61,   "max_days": 90,  "factor": 0.5, "why": "legal, no buffer" },
+      { "name": "more-than-90-days-after",  "min_days": 91,   "max_days": null, "factor": 0.0, "why": "past the 90-day unemployment allowance (assumption; confirm with the school's international office)" }
+    ]
+  },
+
+  "liveness": {
+    "_why": "The offline prototype never calls the network. Liveness is ASSUMED open so the scorer can run; it is not checked. It counts as checked only for a role with an accepted G4 entry, whose liveness_checked_on date the human recorded after running the liveness command.",
+    "factor": 1.0,
+    "assumed": true,
+    "checked": false,
+    "clear_with": "npm run ats:liveness -- <posting_url>"
+  },
+
+  "g4": {
+    "_why": "The only path to Apply. A human checks public labor-filing records and the posting, then fills the overrides file. A complete, allowed entry becomes the scorer's override {decision: 'Apply', reason}. An LCA is evidence of an intent to file, not an approved visa.",
+    "required_fields": ["role_id", "lca_evidence_source", "fiscal_year", "soc_code", "posting_says_no_sponsorship",
+                        "liveness_checked_on", "checked_on", "reason"],
+    "refuse_when": [
+      "a required field is missing or has the wrong type",
+      "posting_says_no_sponsorship is true",
+      "the role's timeline gate is 0",
+      "the role's entity result is ambiguous or not-found",
+      "the role_id is unknown, duplicated in the file, or the role was not scored",
+      "a date is in the future"
+    ]
+  },
+
+  "next_action": {
+    "_closure": "rationale drafted by tushar-patel28, 2026-10-01",
+    "_why": "Likely -> tailor an application. Possible -> network: a conversation can confirm whether the company sponsors this role family. Unknown -> network: a conversation resolves sponsorship policy and an application can't; unknown is not no. Gated -> skip. The two 'blocked' outcomes are kept.",
+    "rules": [
+      { "when": "input error (role not scored)",                  "action": "blocked: fix the input and re-run" },
+      { "when": "G1 ambiguous (more than one row)",               "action": "blocked: pick the right company row, then re-run" },
+      { "when": "gated (timeline factor 0)",                      "action": "skip" },
+      { "when": "G4 override accepted (scorer Apply)",            "action": "apply" },
+      { "when": "tier Likely",                                    "action": "tailor an application" },
+      { "when": "tier Possible",                                  "action": "network into the company", "why": "a conversation can confirm whether the company sponsors this role family" },
+      { "when": "tier Unknown",                                   "action": "network into the company", "why": "a conversation resolves sponsorship policy and an application can't; unknown is not no" }
+    ],
+    "early_start_note": "negotiate the start date to on or after the EAD start",
+    "g3_block_text": "blocked at G3 until npm run ats:liveness is run by a human"
+  }
+}
