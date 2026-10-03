@@ -128,6 +128,23 @@ Note from setup: the liveness checker returned **`uncertain`, not `expired`**, f
 
 *(Add dated entries here. Do not edit the sections above.)*
 
+### 2026-10-02: after building the prototype (before the human-signed run)
+
+- **P-A held.** All 5 roles got the same timeline factor (0), so the timeline cannot rank roles
+  against each other.
+- **P-B held.** The binding deadline is the unemployment allowance (2026-11-27), not OPT end
+  (2027-01-31).
+- **Not predicted: a human override beats the timeline gate.** `ch11-roles.json` has one role
+  with a documented override ("Apply"). The scorer keeps "Apply" even with timeline 0. The prototype
+  doesn't change that (it's the scorer's design, Ch.11) but lists the role under G-C with a note.
+- **Not predicted: the scorer's closed-gate line is 0.05, not 0.** The recipe's first break-even
+  number (55 days) was wrong; it is 54. Corrected in the recipe with a dated note.
+- **Not predicted: `CONTRIBUTING.md` says to import `scoreRole` etc. from the scorer, but the
+  scorer exports nothing** and runs on import. The prototype calls it as a command instead, the
+  same way `scripts/score/gate-harness.mjs` does.
+- **F-1, F-2, F-4 behaved as planned** (exit 2, named field, no files). F-3 is exercised through
+  the sample's ghost-posting role (liveness 0 → Skip), not a live 404, so the test stays offline.
+
 ---
 
 ## Who did what

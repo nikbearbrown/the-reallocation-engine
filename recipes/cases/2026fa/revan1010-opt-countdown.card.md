@@ -42,8 +42,8 @@ Before: score the sample jobs with their hand-typed timeline (expected: 2 Apply,
 npm run score -- data/examples/ch11-roles.json --out-dir course/2026fa/submissions/revan1010/runs/baseline
 ```
 
-After: the same jobs with Priya's computed timeline. Prototype not built yet; this is the planned
-command:
+After: the same jobs with Priya's computed timeline (expected on the 2026-10-02 sample: 1 Apply
+by human override, 0 Consider, 4 Skip):
 
 ```bash
 node scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.mjs --profile search/examples/priya-nair/profile.yml --roles data/examples/ch11-roles.json --as-of 2026-10-02 --lag-days 56 --out-dir course/2026fa/submissions/revan1010/runs/opt-countdown --confirmed-by "<name>"

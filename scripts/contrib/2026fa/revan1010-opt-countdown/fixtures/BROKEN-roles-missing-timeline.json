@@ -1,0 +1,6 @@
+[
+  { "role_id": "broken-no-timeline", "company": "Fixture employer D", "title": "Role written WITHOUT a timeline (what opt-countdown must never emit)",
+    "sponsorship": { "p": 0.9, "tier": "Proven", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "liveness": { "factor": 1.0, "source": "record" } }
+]

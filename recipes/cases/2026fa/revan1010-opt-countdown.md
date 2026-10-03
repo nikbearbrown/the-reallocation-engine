@@ -1,6 +1,6 @@
 ---
 status: DRAFT
-todos_open: 3
+todos_open: 2
 last_gate: null
 attestation: null
 recipe_version: 0.1.0
@@ -55,7 +55,7 @@ not the condition.
 | Role scorer | `scripts/score/role-scorer.mjs` · `npm run score -- <roles.json> --out-dir <dir>` | yes | Apply / Consider / Skip + per-term audit. **Run as-is; not copied, not edited.** |
 | Liveness checker | `scripts/ats/check-liveness.mjs` · `npm run ats:liveness -- <url>` | yes (needs `npx playwright install chromium`) | Manual check at gate G-B only. Not called by the prototype (keeps it offline). |
 | Timeline concept | `book/chapters/10-the-visa-timeline-manager.md` | yes | Meaning of 0 / between / 1. Gives examples, **no formula**. |
-| Prototype | `scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.mjs` | **no** | Computes the factor and writes outputs. Not built yet (Proposed addition 1). |
+| Prototype | `scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.mjs` | yes | Computes the factor and writes outputs (Proposed addition 1). |
 
 ### Prior art in this repo
 
@@ -64,7 +64,7 @@ not the condition.
 drafts: no formula, and every step script is still an open development TODO. This recipe differs by fixing an explicit
 formula and shipping a script that runs it.
 
-## The formula (decided, not yet implemented)
+## The formula (decided; implemented in the prototype)
 
 Inputs, all from the profile except the two marked `your-input`:
 
@@ -105,16 +105,25 @@ else: factor = (hard_deadline - expected_start) / (hard_deadline - safe_deadline
   so **factor = 0**.
 
 **Break-even numbers** (also reported per run, so the human sees how far off the job is):
-`max_lag_for_factor_above_0 = hard_deadline - as_of - 1` (Priya: 55 days) and
-`max_lag_for_factor_1 = safe_deadline - as_of` (Priya: 36 days).
+`max_lag_for_factor_above_gate_zero = ceil((hard_deadline - as_of) - gate_zero × buffer) - 1`
+(Priya: 54 days) and `max_lag_for_factor_1 = safe_deadline - as_of` (Priya: 36 days).
+`gate_zero` is read from the scorer's own output (`config.gate_zero`, 0.05 today): the scorer
+treats any gate at or below it as closed, so a factor of exactly 0.05 is still a Skip.
+
+> **Correction (2026-10-02, found while building):** v0.1.0 of this section said "factor above 0,
+> Priya: 55 days." That ignored the scorer's `gate_zero` of 0.05. At 55 days the factor is 0.05,
+> which the scorer treats as closed. The right number is 54.
 
 ## Proposed additions
 
 1. **The prototype script.** Reads the profile and roles, computes the factor per the formula above,
    writes a new roles file with `timeline` replaced, runs the existing scorer on it, then writes the
    agent log and human report. Fails with a named error on F-1, F-2, F-4.
-   `[TODO: DEV]` Implement at `scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.mjs`,
-   with an offline `node --test` file and fixtures beside it.
+   **Closed 2026-10-02.** Built at `scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.mjs`,
+   with an offline `node --test` file (14 tests) and fixtures beside it. Closure evidence (DEV):
+   script exists; `node scripts/conformance.mjs scripts/contrib/2026fa/revan1010-opt-countdown/`
+   passes; handoff condition met on the sample run at
+   `course/2026fa/submissions/revan1010/runs/opt-countdown/` (G-A cleared by Revan Chonnad).
 2. **A real source for hiring time.** Today every role gets the same 8-week assumption, so the
    timeline can't tell a fast employer from a slow one (CHANGE-BRIEF prediction P-A). A per-role
    `lag` needs evidence (e.g. a posting's stated process, or tracked application dates).
@@ -182,7 +191,7 @@ rerunning the script.
 
 ## Workflow
 
-Run from the repo root. All commands below exist today except step 3.
+Run from the repo root. All commands below exist today.
 
 1. Confirm inputs exist:
 
@@ -197,8 +206,7 @@ npm run score -- data/examples/ch11-roles.json --out-dir course/2026fa/submissio
 ```
 
 3. Run the recipe. First without `--confirmed-by` (prints inputs, stops at G-A), then with it.
-   The script is not built yet (Proposed addition 1); the command shape is fixed here so the
-   README can copy it:
+   Same command as the prototype README:
 
 ```bash
 node scripts/contrib/2026fa/revan1010-opt-countdown/opt-countdown.mjs --profile search/examples/priya-nair/profile.yml --roles data/examples/ch11-roles.json --as-of 2026-10-02 --lag-days 56 --out-dir course/2026fa/submissions/revan1010/runs/opt-countdown --confirmed-by "<name>"
@@ -218,7 +226,8 @@ All files go to the `--out-dir` folder. Nothing outside it is written.
 | `opt-countdown-log.json` | agent | inputs with labels; computed dates; per-role factor + source; gate states; scorer exit code; output paths |
 | `opt-countdown-report.md` | human | plain summary first; input echo; date table; per-role before/after decision; G-B / G-C pending lists; break-even lags; "not legal advice" block |
 | `roles-with-timeline.json` | scorer | `ch11-roles.json` with `timeline` replaced; same shape |
-| `role-scores.json` / `role-scores.md` | both | written by the existing scorer, unchanged |
+| `role-scores.json` / `role-scores.md` | both | written by the existing scorer, unchanged (after) |
+| `before/role-scores.json` / `before/role-scores.md` | both | the existing scorer on the unmodified roles file, for the before/after comparison |
 
 Agent-log shape (fields fixed; values illustrative of type only):
 
@@ -237,7 +246,7 @@ Agent-log shape (fields fixed; values illustrative of type only):
     "buffer":  { "value": "<int>",        "source": "record" }
   },
   "dates": { "expected_start": "", "days_out_date": "", "hard_deadline": "", "safe_deadline": "", "binding": "opt_end | unemployment" },
-  "break_even": { "max_lag_for_factor_above_0": 0, "max_lag_for_factor_1": 0 },
+  "break_even": { "gate_zero": 0, "max_lag_for_factor_above_gate_zero": 0, "max_lag_for_factor_1": 0 },
   "roles": [ { "role_id": "", "timeline_before": 0, "timeline_after": 0, "timeline_source": "your-input", "decision_before": "", "decision_after": "" } ],
   "gates": { "G-A": { "cleared_by": "" }, "G-B": { "pending": [] }, "G-C": { "pending": [] }, "G-D": { "note": "not legal advice" } },
   "scorer": { "command": "", "exit_code": 0, "out": "role-scores.json" }
@@ -262,7 +271,7 @@ Stop and do not invent a value when:
 |---|---|---|
 | **Apply** (timeline 1, other votes strong) | tailor the application this week | the 2 research-and-apply hours |
 | **Consider** (timeline between 0 and 1) | apply only if a faster process is realistic; ask the recruiter for the timeline first | 2 hours (one short email) |
-| **Skip, timeline = 0, other votes strong** | don't apply cold. Use the break-even number: reach out to someone at the company and ask whether a process under `max_lag_for_factor_above_0` days is possible | moves to the 3 networking hours |
+| **Skip, timeline = 0, other votes strong** | don't apply cold. Use the break-even number: reach out to someone at the company and ask whether a process under `max_lag_for_factor_above_gate_zero` days is possible | moves to the 3 networking hours |
 | **Skip, other reasons** (non-sponsor, dead posting) | drop it; the time goes back to networking or the credibility project | freed |
 
 ## Run-log template (`logs/runs/2026fa-revan1010-<n>.md`)
