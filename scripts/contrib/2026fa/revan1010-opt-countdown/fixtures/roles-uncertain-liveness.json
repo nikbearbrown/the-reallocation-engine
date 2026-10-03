@@ -1,0 +1,18 @@
+[
+  { "role_id": "live-posting", "company": "Fixture employer A", "title": "Live posting (control)",
+    "sponsorship": { "p": 0.9, "tier": "Proven", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "liveness": { "factor": 1.0, "source": "record" },
+    "timeline": { "factor": 0.85, "source": "your-input" } },
+
+  { "role_id": "uncertain-posting", "company": "Fixture employer B", "title": "Checker said uncertain",
+    "sponsorship": { "p": 0.9, "tier": "Proven", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "liveness": { "factor": 0.5, "source": "record" },
+    "timeline": { "factor": 0.85, "source": "your-input" } },
+
+  { "role_id": "no-liveness", "company": "Fixture employer C", "title": "Liveness never checked",
+    "sponsorship": { "p": 0.9, "tier": "Proven", "source": "record" },
+    "fit": { "p": 0.7, "source": "model-judgment" },
+    "timeline": { "factor": 0.85, "source": "your-input" } }
+]

@@ -1,0 +1,238 @@
+{
+  "recipe": "revan1010-opt-countdown",
+  "recipe_version": "0.1.0",
+  "run_at": "2026-10-03T00:25:35.287Z",
+  "profile_path": "search/examples/priya-nair/profile.yml",
+  "roles_path": "data/examples/ch11-roles.json",
+  "inputs": {
+    "as_of": {
+      "value": "2026-10-02",
+      "source": "your-input"
+    },
+    "lag_days": {
+      "value": 56,
+      "source": "your-input"
+    },
+    "opt_end": {
+      "value": "2027-01-31",
+      "source": "record"
+    },
+    "used": {
+      "value": 34,
+      "source": "record"
+    },
+    "ceiling": {
+      "value": 90,
+      "source": "record"
+    },
+    "buffer": {
+      "value": 20,
+      "source": "record"
+    }
+  },
+  "timeline": {
+    "factor": 0,
+    "source": "your-input",
+    "dates": {
+      "expected_start": "2026-11-27",
+      "days_out_date": "2026-11-27",
+      "hard_deadline": "2026-11-27",
+      "safe_deadline": "2026-11-07",
+      "binding": "unemployment"
+    },
+    "break_even": {
+      "gate_zero": 0.05,
+      "max_lag_for_factor_above_gate_zero": 54,
+      "max_lag_for_factor_1": 36
+    }
+  },
+  "roles": [
+    {
+      "role_id": "biotech-data",
+      "company": "Cambridge biotech (Ch.7)",
+      "title": "Data role (Proven tier)",
+      "timeline_before": 0.85,
+      "timeline_before_source": "your-input",
+      "timeline_after": 0,
+      "timeline_source": "your-input",
+      "scorer_saw_timeline": 0,
+      "liveness": 1,
+      "liveness_source": "record",
+      "decision_before": "Apply",
+      "decision_after": "Skip",
+      "machine_decision_after": "Skip",
+      "override": null,
+      "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)"
+    },
+    {
+      "role_id": "household-nonsponsor",
+      "company": "Household-name non-sponsor",
+      "title": "Same data role",
+      "timeline_before": 0.85,
+      "timeline_before_source": "your-input",
+      "timeline_after": 0,
+      "timeline_source": "your-input",
+      "scorer_saw_timeline": 0,
+      "liveness": 1,
+      "liveness_source": "record",
+      "decision_before": "Skip",
+      "decision_after": "Skip",
+      "machine_decision_after": "Skip",
+      "override": null,
+      "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)"
+    },
+    {
+      "role_id": "ghost-posting",
+      "company": "Proven sponsor (ghost posting)",
+      "title": "Looks perfect, isn't real",
+      "timeline_before": 0.85,
+      "timeline_before_source": "your-input",
+      "timeline_after": 0,
+      "timeline_source": "your-input",
+      "scorer_saw_timeline": 0,
+      "liveness": 0,
+      "liveness_source": "record",
+      "decision_before": "Skip",
+      "decision_after": "Skip",
+      "machine_decision_after": "Skip",
+      "override": null,
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)"
+    },
+    {
+      "role_id": "likely-soft",
+      "company": "Likely-tier sponsor",
+      "title": "Strong but Likely not Proven",
+      "timeline_before": 0.9,
+      "timeline_before_source": "your-input",
+      "timeline_after": 0,
+      "timeline_source": "your-input",
+      "scorer_saw_timeline": 0,
+      "liveness": 1,
+      "liveness_source": "record",
+      "decision_before": "Consider",
+      "decision_after": "Skip",
+      "machine_decision_after": "Skip",
+      "override": null,
+      "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)"
+    },
+    {
+      "role_id": "override-demo",
+      "company": "Non-sponsor, but HM is a contact",
+      "title": "Scorer says Skip, you know better",
+      "timeline_before": 0.85,
+      "timeline_before_source": "your-input",
+      "timeline_after": 0,
+      "timeline_source": "your-input",
+      "scorer_saw_timeline": 0,
+      "liveness": 1,
+      "liveness_source": "record",
+      "decision_before": "Apply",
+      "decision_after": "Apply",
+      "machine_decision_after": "Skip",
+      "override": {
+        "decision": "Apply",
+        "reason": "Hiring manager told me directly they are interviewing and the company started sponsoring last month; LCA record lags."
+      },
+      "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)"
+    }
+  ],
+  "gates": {
+    "G-A": {
+      "cleared_by": "Revan Chonnad"
+    },
+    "G-B": {
+      "pending": []
+    },
+    "G-C": {
+      "pending": [
+        {
+          "role_id": "biotech-data",
+          "factor": 0,
+          "dates": {
+            "expected_start": "2026-11-27",
+            "days_out_date": "2026-11-27",
+            "hard_deadline": "2026-11-27",
+            "safe_deadline": "2026-11-07",
+            "binding": "unemployment"
+          },
+          "note": null
+        },
+        {
+          "role_id": "household-nonsponsor",
+          "factor": 0,
+          "dates": {
+            "expected_start": "2026-11-27",
+            "days_out_date": "2026-11-27",
+            "hard_deadline": "2026-11-27",
+            "safe_deadline": "2026-11-07",
+            "binding": "unemployment"
+          },
+          "note": null
+        },
+        {
+          "role_id": "ghost-posting",
+          "factor": 0,
+          "dates": {
+            "expected_start": "2026-11-27",
+            "days_out_date": "2026-11-27",
+            "hard_deadline": "2026-11-27",
+            "safe_deadline": "2026-11-07",
+            "binding": "unemployment"
+          },
+          "note": null
+        },
+        {
+          "role_id": "likely-soft",
+          "factor": 0,
+          "dates": {
+            "expected_start": "2026-11-27",
+            "days_out_date": "2026-11-27",
+            "hard_deadline": "2026-11-27",
+            "safe_deadline": "2026-11-07",
+            "binding": "unemployment"
+          },
+          "note": null
+        },
+        {
+          "role_id": "override-demo",
+          "factor": 0,
+          "dates": {
+            "expected_start": "2026-11-27",
+            "days_out_date": "2026-11-27",
+            "hard_deadline": "2026-11-27",
+            "safe_deadline": "2026-11-07",
+            "binding": "unemployment"
+          },
+          "note": "the roles file carries a human override, so the scorer still says Apply although the timeline gate is closed"
+        }
+      ]
+    },
+    "G-D": {
+      "note": "not legal advice; STEM eligibility and last-day legality are DSO questions; stem_eligible is not read"
+    }
+  },
+  "counts": {
+    "total": 5,
+    "Apply": 1,
+    "Consider": 0,
+    "Skip": 4,
+    "before": {
+      "Apply": 2,
+      "Consider": 1,
+      "Skip": 2
+    }
+  },
+  "scorer": {
+    "before": {
+      "command": "node scripts/score/role-scorer.mjs data/examples/ch11-roles.json --out-dir course/2026fa/submissions/revan1010/runs/opt-countdown/before",
+      "exit_code": 0,
+      "out": "course/2026fa/submissions/revan1010/runs/opt-countdown/before/role-scores.json"
+    },
+    "after": {
+      "command": "node scripts/score/role-scorer.mjs course/2026fa/submissions/revan1010/runs/opt-countdown/roles-with-timeline.json --out-dir course/2026fa/submissions/revan1010/runs/opt-countdown",
+      "exit_code": 0,
+      "out": "course/2026fa/submissions/revan1010/runs/opt-countdown/role-scores.json"
+    },
+    "note": "scorer run without --profile, so it assumes the candidate needs sponsorship (matches priya-nair needs_sponsorship: true)"
+  }
+}
