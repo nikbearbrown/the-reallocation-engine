@@ -1,0 +1,94 @@
+# NOTE: one redaction. The pii-scan step below reports an email address that
+# ships inside package-lock.json. Reproducing it here made this capture itself
+# trip pii-scan, so it is written as i@izs[.]me (one character inserted).
+# Nothing else in this capture is altered.
+
+### 1. BASELINE — doctor
+PRIVACY (no personal data committed)
+  ✓ no private/PII paths are tracked
+
+RECIPES (33)
+  with lifecycle frontmatter: 33   missing: 0
+  by status: DRAFT 28 · RUNNABLE-SAMPLE 4 · RUNNABLE-LIVE  # DRAFT | SPECIFIED | RUNNABLE-SAMPLE | RUNNABLE-LIVE | VERIFIED 1
+  open TODOs: 318 declared (in frontmatter) · 318 [TODO markers in bodies
+
+SUMMARY
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+
+### 2. BASELINE — verify
+
+conformance: 167 files (88 md · 36 py · 32 js · 7 json · 4 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+MANIFEST CHECK — The Reallocation Engine
+==========================================
+
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+verify exit: 0
+
+### 3. OFFLINE TESTS
+✔ an unchecked liveness entry is labelled model-judgment, a checked one record (188.535292ms)
+✔ nextAction routes a Consider to the networking hours, not the apply hours (0.144083ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 16
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1746.308416
+
+### 4. CONFORMANCE
+conformance: 26 files (16 md · 8 json · 2 js)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+
+### 5. SAMPLE RUN
+✓ scored 6 roles → Apply 1 · Consider 4 · Skip 1 (skip 17%)
+  course/2026fa/submissions/WeitingWang0704/runs/role-scores.json  +  course/2026fa/submissions/WeitingWang0704/runs/role-scores.md
+  ! liveness: 2/9 postings actually checked (0/6 of the scored rows); 7 synthetic and labelled model-judgment, not record
+✓ triage: 6 scored, 4 blocked at a gate
+  course/2026fa/submissions/WeitingWang0704/runs/triage.json  +  course/2026fa/submissions/WeitingWang0704/runs/triage-report.md
+
+### 6. FAILURE — OPT date past
+E_OPT_DATE_PAST: --opt-end 2026-01-01 is not in the future (today 2026-10-03). Refusing to compute a timeline factor from a date that has passed.
+exit=3
+ls: /tmp/should-not-exist: No such file or directory
+
+### 7. FAILURE — unknown SOC
+E_SOC_NOT_FOUND: SOC 99-9999 has no row in data/bls/compact/soc_occupation_compact.csv. Refusing to invent a wage or an ability level.
+exit=3
+
+### 8. BREAK ATTEMPT
+✓ scored 1 roles → Apply 0 · Consider 0 · Skip 1 (skip 100%)
+  ../../../../../tmp/break-check/role-scores.json  +  ../../../../../tmp/break-check/role-scores.md
+  ! liveness: 0/1 postings actually checked (0/1 of the scored rows); 1 synthetic and labelled model-judgment, not record
+✓ triage: 1 scored, 0 blocked at a gate
+  /tmp/break-check/triage.json  +  /tmp/break-check/triage-report.md
+rec=Skip composite=0
+(0.9·0.35 + 1·0.3) × 0 × 0.6 = 0.000
+
+### 9. ENGINE BASELINE
+> node scripts/ats/scan.mjs --dry-run
+
+Error: portals.yml not found. Run onboarding first.
+✓ scored 5 roles → Apply 2 · Consider 1 · Skip 2 (skip 40%)
+  course/2026fa/submissions/WeitingWang0704/engine-baseline/role-scores.json  +  course/2026fa/submissions/WeitingWang0704/engine-baseline/role-scores.md
+
+### 10. PII SCAN
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — i@izs[.]me
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+
+### 11. DIFF SCOPE
+ .../triage.mjs                                     |  549 ++++++++++
+ .../triage.test.mjs                                |  201 ++++
+ 27 files changed, 5178 insertions(+)

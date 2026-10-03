@@ -1,0 +1,5 @@
+{
+  "_synthetic": true,
+  "_why": "BREAK ATTEMPT fixture. SYNTHETIC — nothing was checked; the 404 below is asserted, not observed. Everything else about the role is as strong as the dataset allows.",
+  "break-ghost-001": { "factor": 0.0, "observed": "404 — posting removed", "checked_at": "2026-10-03T14:20:00Z", "url": "https://boards.greenhouse.io/example/jobs/9999999" }
+}

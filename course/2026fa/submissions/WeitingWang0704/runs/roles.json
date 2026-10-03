@@ -1,0 +1,134 @@
+[
+  {
+    "role_id": "tnm-gameplay-001",
+    "company": "That's No Moon Entertainment Inc",
+    "title": "Associate Gameplay Engineer",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "likely",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.85,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 0.6,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "manticore-gameplay-002",
+    "company": "Manticore Games, Inc.",
+    "title": "Gameplay Programmer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 0.6,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "manticore-senior-003",
+    "company": "Manticore Games, Inc.",
+    "title": "Senior Gameplay Programmer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 0,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 0.6,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "roboto-gameplay-004",
+    "company": "Roboto Games Inc",
+    "title": "Gameplay Engineer",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "likely",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.75,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 0.6,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "azra-unity-005",
+    "company": "Azra Games Inc",
+    "title": "Unity Engineer",
+    "sponsorship": {
+      "p": 0.35,
+      "tier": "unknown",
+      "source": "model-judgment"
+    },
+    "fit": {
+      "p": 0.8,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 0.6,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "peloton-swe-007",
+    "company": "Peloton Interactive Inc",
+    "title": "Software Engineer",
+    "sponsorship": {
+      "p": 0.9,
+      "tier": "proven",
+      "source": "record"
+    },
+    "fit": {
+      "p": 0.5,
+      "source": "model-judgment"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "model-judgment"
+    },
+    "timeline": {
+      "factor": 0.6,
+      "source": "your-input"
+    }
+  }
+]

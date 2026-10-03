@@ -1,0 +1,281 @@
+{
+  "_scorer": "bayesian-role-scorer",
+  "_chapter": 11,
+  "generated": "2026-10-03",
+  "config": {
+    "weights": {
+      "sponsorship": 0.35,
+      "fit": 0.3,
+      "role_quality": 0
+    },
+    "apply_threshold": 0.3,
+    "consider_floor": 0.2,
+    "gate_zero": 0.05,
+    "soft_sponsorship_tiers": [
+      "likely",
+      "possible",
+      "unknown"
+    ]
+  },
+  "profile_needs_sponsorship": true,
+  "roles": [
+    {
+      "role_id": "tnm-gameplay-001",
+      "company": "That's No Moon Entertainment Inc",
+      "title": "Associate Gameplay Engineer",
+      "composite": 0.279,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.279 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.85,
+            "weight": 0.3,
+            "contribution": 0.255,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.465,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.6,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.6,
+        "arithmetic": "(0.6·0.35 + 0.85·0.3) × 1 × 0.6 = 0.279"
+      }
+    },
+    {
+      "role_id": "manticore-gameplay-002",
+      "company": "Manticore Games, Inc.",
+      "title": "Gameplay Programmer",
+      "composite": 0.333,
+      "recommendation": "Apply",
+      "machine_recommendation": "Apply",
+      "reason": "composite 0.333 ≥ 0.3, gates healthy",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.9,
+            "weight": 0.35,
+            "contribution": 0.315,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.555,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.6,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.6,
+        "arithmetic": "(0.9·0.35 + 0.8·0.3) × 1 × 0.6 = 0.333"
+      }
+    },
+    {
+      "role_id": "manticore-senior-003",
+      "company": "Manticore Games, Inc.",
+      "title": "Senior Gameplay Programmer",
+      "composite": 0,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.9,
+            "weight": 0.35,
+            "contribution": 0.315,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.7,
+            "weight": 0.3,
+            "contribution": 0.21,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.525,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 0,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.6,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0,
+        "arithmetic": "(0.9·0.35 + 0.7·0.3) × 0 × 0.6 = 0.000"
+      }
+    },
+    {
+      "role_id": "roboto-gameplay-004",
+      "company": "Roboto Games Inc",
+      "title": "Gameplay Engineer",
+      "composite": 0.261,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.261 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.6,
+            "weight": 0.35,
+            "contribution": 0.21,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.75,
+            "weight": 0.3,
+            "contribution": 0.225,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.435,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.6,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.6,
+        "arithmetic": "(0.6·0.35 + 0.75·0.3) × 1 × 0.6 = 0.261"
+      }
+    },
+    {
+      "role_id": "azra-unity-005",
+      "company": "Azra Games Inc",
+      "title": "Unity Engineer",
+      "composite": 0.2175,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.217 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.35,
+            "weight": 0.35,
+            "contribution": 0.1225,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "fit",
+            "value": 0.8,
+            "weight": 0.3,
+            "contribution": 0.24,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.3625,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.6,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.6,
+        "arithmetic": "(0.35·0.35 + 0.8·0.3) × 1 × 0.6 = 0.217"
+      }
+    },
+    {
+      "role_id": "peloton-swe-007",
+      "company": "Peloton Interactive Inc",
+      "title": "Software Engineer",
+      "composite": 0.279,
+      "recommendation": "Consider",
+      "machine_recommendation": "Consider",
+      "reason": "composite 0.279 in the Consider band [0.2, 0.3)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.9,
+            "weight": 0.35,
+            "contribution": 0.315,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 0.5,
+            "weight": 0.3,
+            "contribution": 0.15,
+            "source": "model-judgment"
+          }
+        ],
+        "vote_sum": 0.465,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "model-judgment"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 0.6,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 0.6,
+        "arithmetic": "(0.9·0.35 + 0.5·0.3) × 1 × 0.6 = 0.279"
+      }
+    }
+  ]
+}

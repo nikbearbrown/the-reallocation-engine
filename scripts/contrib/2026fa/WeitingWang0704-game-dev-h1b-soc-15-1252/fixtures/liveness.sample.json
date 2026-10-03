@@ -1,0 +1,20 @@
+{
+  "_synthetic": true,
+  "_source": "SYNTHETIC. These values were NOT observed. No one ran `npm run ats:liveness` against these URLs, and the URLs themselves are invented (boards.greenhouse.io/example/... resolves to nothing). The file exists to exercise the Gate 2 code path offline.",
+  "_what_a_real_file_looks_like": "Identical shape, but every entry written by a person who ran `npm run ats:liveness -- <url>` against a real posting and pasted what they saw. Until that happens, the `source: record` label this prototype attaches to liveness is true of the FILE FORMAT and false of THESE NUMBERS. Do not cite a liveness value from this fixture as a record.",
+  "_why_a_file": "This prototype makes no network calls. In real use liveness becomes a record only because a human went and checked it; the timestamps below are placeholders, not observations.",
+  "_note": "posting azra-tools-006 is deliberately absent — an unchecked posting must block at Gate 2, not default to alive.",
+
+  "_real_checks": "The two entries below marked synthetic:false are the only observed values in this file. Produced by: npm run ats:liveness -- <both urls>, on 2026-10-03, output: `Results: 0 active  2 expired  0 uncertain`. Both postings redirected to the board root with ?error=true, which is this repository's expired signal.",
+
+  "insomniac-real-009": { "factor": 0.0, "synthetic": false, "observed": "expired — redirect to https://job-boards.greenhouse.io/insomniac?error=true", "checked_at": "2026-10-03", "url": "https://job-boards.greenhouse.io/insomniac/jobs/5496937004" },
+  "catdaddy-real-010":  { "factor": 0.0, "synthetic": false, "observed": "expired — redirect to https://job-boards.greenhouse.io/catdaddy?error=true",  "checked_at": "2026-10-03", "url": "https://job-boards.greenhouse.io/catdaddy/jobs/6676343003" },
+
+  "tnm-gameplay-001":      { "factor": 1.0, "observed": "200 OK, role listed on the board", "checked_at": "2026-10-03T14:05:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000001" },
+  "manticore-gameplay-002":{ "factor": 1.0, "observed": "200 OK, role listed on the board", "checked_at": "2026-10-03T14:06:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000002" },
+  "manticore-senior-003":  { "factor": 0.0, "observed": "404 — posting removed from the board", "checked_at": "2026-10-03T14:07:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000003" },
+  "roboto-gameplay-004":   { "factor": 1.0, "observed": "200 OK, role listed on the board", "checked_at": "2026-10-03T14:08:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000004" },
+  "azra-unity-005":        { "factor": 1.0, "observed": "200 OK, role listed on the board", "checked_at": "2026-10-03T14:09:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000005" },
+  "peloton-swe-007":       { "factor": 1.0, "observed": "200 OK, role listed on the board", "checked_at": "2026-10-03T14:10:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000007" },
+  "lanternfish-engine-008":{ "factor": 1.0, "observed": "200 OK, role listed on the board", "checked_at": "2026-10-03T14:11:00Z", "url": "https://boards.greenhouse.io/example/jobs/1000008" }
+}
