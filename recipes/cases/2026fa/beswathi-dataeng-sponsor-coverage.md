@@ -212,7 +212,7 @@ anything. A test now asserts the code.
 - `[TODO: DEV]` `fit` is a constant `0.8` `model-judgment`. It should compare the
   posting text against a résumé skill list; until it does, it carries no information
   and is declared as such rather than dressed up.
-- `[TODO: DATA]` The networking list contains entities that do not hire data
+- `[TODO: DATA SOURCE]` The networking list contains entities that do not hire data
   engineers — investment vehicles and holding companies that file Form D. Ranking by
   funding recency pushes dormant ones down but does not identify them. An industry /
   SIC exclusion would, and has not been written.

@@ -119,6 +119,57 @@ Exit 2 matters specifically because `… && npm run score` would otherwise run o
 fully-zeroed role set. An earlier version printed the warning and exited 0; a
 regression test now covers it.
 
+## Verified vs inferred
+
+Every term that reaches the scorer, split by where its value came from. This is the
+boundary the assignment says is graded hardest, so it is set out term by term rather
+than summarised.
+
+### The four evidence terms, per scored role
+
+| Term | Value | Label | What actually produced it |
+|---|---|---|---|
+| `sponsorship.p` | 1.0 / 0.982 / 0.995 … | **`record`** | `Total Approvals` and `Approval_Rate` as the shipped CSV states them. Nothing computed, nothing guessed. |
+| `fit.p` | **0.8, constant** | **`model-judgment`** | Not measured. It is the same number for every role, so it changes no ranking and carries no information. Declared rather than dressed up. |
+| `liveness.factor` | 1.0 or 0.0 | **`record (classifyLiveness) over fixture capture`** | The repo's own classifier, run over a **saved** page capture. The verdict is real logic; the page is a fixture. **Both halves are in the label** so nobody reads it as a live check. |
+| `timeline.factor` | 1.0 | **`your-input`** | Computed from my I-20 dates and a **75-day hiring lag I assumed**. The dates are real; the lag is invented. |
+
+### Worked example — one row, end to end
+
+`ACE-UP INC — Business Intelligence Analyst`, composite **0.000**, verdict **Skip**.
+
+| Element | Verified or inferred |
+|---|---|
+| The company exists in the file | **verified** — row present |
+| It has sponsored before (`p` 1.0) | **verified** — `Total Approvals` populated and positive |
+| The title matched a target | **verified** — string match against the six titles |
+| It is reachable at new-grad level | **verified** — no senior token in the title |
+| Its posting is not live (factor 0.0) | **inferred** — a saved capture, not today's page |
+| Hiring could finish in time (1.0) | **inferred** — rests on the 75-day assumption |
+| Verdict Skip | **follows from a gate**, not a low score — liveness 0.0 multiplies the composite to zero regardless of the 1.0 sponsorship vote |
+
+### Verified across the whole run
+
+- 30,369 rows read; 1,557 with a populated approvals cell; **5** recorded zeros.
+- The three-state split, the seniority classification, the per-state counts, and the
+  funding-stage rates are all **counted from the file**, recomputed on every run.
+- The base rates are `record` in the sense that they are counted — but they state
+  **how often a record exists** at each stage, not how likely a company is to
+  sponsor anyone. That distinction is the one I would most expect to be asked about.
+
+### Inferred across the whole run
+
+- **`fit` = 0.8** for everything. A placeholder.
+- **The 75-day hiring lag.** Drives G4, which can zero every role. Nothing measured it.
+- **Which six titles count as "my field."** My choice, not the data's.
+- **That a company in this file is a plausible employer at all.** Investment vehicles
+  and holding companies that file Form D sit in the networking list unflagged.
+
+### Not verified at all
+
+**No posting was checked live.** G3 is open for all 134 reachable companies, including
+the 2 marked `Apply`. Those two are a property of a fixture ledger.
+
 ## Verification
 
 - `python3 …/test_sponsor_coverage.py` → **67 checks in 14 tests, 0 failed**, offline,
