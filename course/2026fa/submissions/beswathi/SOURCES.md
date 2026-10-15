@@ -100,6 +100,11 @@ posting, performed by a human, and that has not been done.
 
 ## 4. The OPT timeline — `your-input`
 
+**Persona.** All dates below belong to **Priya Nair**, the fictional example
+persona shipped at `search/examples/priya-nair/` (Northeastern, Boston,
+`priya.nair@example.com`). They are invented and are not any real person's
+immigration dates, per `DATA_CONTRACT.md` §Zero-Conditions.
+
 | Value | Source |
 |---|---|
 | I-20 end date 2026-12-15 | the student's own I-20 |

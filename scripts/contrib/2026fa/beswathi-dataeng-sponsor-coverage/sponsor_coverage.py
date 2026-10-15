@@ -108,6 +108,10 @@ SOC_CODES = ("15-1243.01", "15-2051.00")
 
 # --- your-input: this student's real OPT arithmetic -----------------------
 # I-20 program end date drives everything below it.
+# Timeline constants belong to the FICTIONAL persona Priya Nair
+# (search/examples/priya-nair/). They are invented dates, not any real person's
+# immigration record — DATA_CONTRACT.md requires a fictional person in every
+# committed file, and that includes dates, not just names and contact details.
 I20_END = dt.date(2026, 12, 15)
 # OGS advises the stricter 30-day rule; a requested start must fall in the
 # 60-day window that opens the day after the I-20 ends.

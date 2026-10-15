@@ -95,7 +95,8 @@ Each gate has a testable condition against a path that **exists today**.
    *Liaison*. Label: `your-input` (which titles), `record` (what the file says).
 4. **Classify sponsorship into three states.** `record-positive` /
    `record-negative` / `no-record`. A `no-record` row carries **no** `p`.
-5. **Compute G4 timeline.** From the I-20 end date, the planned OPT start, the 90-day
+5. **Compute G4 timeline.** (Dates are the fictional persona Priya Nair's; see
+   `search/examples/priya-nair/`.) From the I-20 end date, the planned OPT start, the 90-day
    unemployment allowance and a 75-day hiring-lag assumption. Label: `your-input`.
 6. **Apply G3 liveness.** Only a ledger verdict of `active` yields
    `liveness.factor: 1.0`. `expired` and `uncertain` both yield `0.0` — unverified is

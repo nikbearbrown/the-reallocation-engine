@@ -88,8 +88,10 @@ def test_timeline_gate():
     check("past the OPT start window -> hard 0.0 gate",
           f_late == 0.0 and r_late == "opt-start-window-closed", (f_late, r_late))
 
-    # A date where the hiring lag overruns the 90-day unemployment allowance.
-    f_lag, r_lag = sc.timeline_factor(dt.date(2027, 1, 20))
+    # A date where the hiring lag overruns the 90-day unemployment allowance but
+    # the start window is still open — so this exercises the lag branch, not the
+    # window branch. Under the persona's dates that band is 2027-01-30..2027-02-13.
+    f_lag, r_lag = sc.timeline_factor(dt.date(2027, 2, 6))
     check("hiring lag past the unemployment deadline -> 0.0 gate",
           f_lag == 0.0 and r_lag == "hiring-lag-exceeds-unemployment-window", (f_lag, r_lag))
 

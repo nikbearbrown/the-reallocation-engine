@@ -22,6 +22,11 @@ should go.
 
 ## 1. The domain and why it is mine
 
+**Persona.** All dates below belong to **Priya Nair**, the fictional example
+persona shipped at `search/examples/priya-nair/` (Northeastern, Boston,
+`priya.nair@example.com`). They are invented and are not any real person's
+immigration dates, per `DATA_CONTRACT.md` §Zero-Conditions.
+
 I am an international student on an F-1 visa finishing a master's at Northeastern,
 with under a year of experience, looking for data engineer, data analyst, data
 scientist, machine learning engineer, AI engineer and BI engineer roles. My I-20

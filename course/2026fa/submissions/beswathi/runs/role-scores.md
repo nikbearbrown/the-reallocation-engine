@@ -1,4 +1,4 @@
-# Role Scorer report — 2026-10-02
+# Role Scorer report — 2026-10-15
 
 *Bayesian Role Scorer (Ch.11). Weights: sponsorship 0.35, fit 0.3, role_quality 0 [role_quality weight is **[VERIFY]** — not pinned by the chapter]. Threshold 0.3. Profile requires sponsorship.*
 
