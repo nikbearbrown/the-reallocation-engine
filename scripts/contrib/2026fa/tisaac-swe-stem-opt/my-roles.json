@@ -5,15 +5,16 @@
     "title": "Software Engineer",
     "sponsorship": {
       "p": 0.8,
+      "tier": "h1b-history",
       "source": "record"
     },
     "fit": {
       "p": 1,
-      "source": "model-judgment"
+      "source": "your-input"
     },
     "liveness": {
       "factor": 1,
-      "source": "record"
+      "source": "your-input"
     },
     "timeline": {
       "factor": 1,
@@ -26,15 +27,16 @@
     "title": "Software Engineer",
     "sponsorship": {
       "p": 0,
-      "source": "no-matched"
+      "tier": "no-matched",
+      "source": "your-input"
     },
     "fit": {
       "p": 1,
-      "source": "model-judgment"
+      "source": "your-input"
     },
     "liveness": {
       "factor": 1,
-      "source": "record"
+      "source": "your-input"
     },
     "timeline": {
       "factor": 1,
@@ -47,15 +49,16 @@
     "title": "Software Engineer",
     "sponsorship": {
       "p": 0,
-      "source": "no-matched"
+      "tier": "no-matched",
+      "source": "your-input"
     },
     "fit": {
       "p": 1,
-      "source": "model-judgment"
+      "source": "your-input"
     },
     "liveness": {
       "factor": -1,
-      "source": "record"
+      "source": "your-input"
     },
     "timeline": {
       "factor": 1,
