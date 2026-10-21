@@ -9,7 +9,7 @@ mode's DRAFT status (2 typed TODOs open). **What it found.** With full SEC fundi
 filing records, the mode checked 6 real Boston job leads for a fictional OPT student. Result: 2 to
 tailor, 1 to network into, 1 to skip, and 2 for a person to resolve. The filing records contradicted the
 sponsor list twice. A "Proven" analyst sponsor (Benefits Science) has no analyst filing anywhere in the
-FY2026 file, and HubSpot, which is missing from the sponsor list, filed one. The run also found three
+FY2026 file, and HubSpot, which is missing from the sponsor list, filed one. The run also found four
 problems in the engine and one in my own new script.
 
 ## Run record
@@ -192,8 +192,13 @@ The recipe's handoff and gate tests, run against this log:
 ```
 
 The 3 manifest warnings are the same ones a fresh clone shows (section 1); `private/` and `data/ats/`
-are ignored as `/private/*` and `/data/ats/*`. The doctor's TODO count fell from 318 to 316: this
-recipe declared 4 open TODOs in v0.1.1 and declares 2 now, and declared still equals body.
+are ignored as `/private/*` and `/data/ats/*`. The doctor's TODO count stays at 318 whatever this
+recipe declares, because the doctor reads only top-level `recipes/*.md` and never `recipes/cases/`,
+where student recipes go. So I checked this recipe's count by hand:
+
+```text
+{{file:runs/14-doctor-scope-and-todo-handcheck.txt}}
+```
 
 ## 6. Deliberate attempts to break it
 
@@ -211,6 +216,9 @@ recipe declared 4 open TODOs in v0.1.1 and declares 2 now, and declared still eq
 3. **The brief's `npm run score` needs a roles file**, and the brief's `python3 scripts/sec/refresh-recent-sec-quarters.py`
    needs the quarters downloaded first. Neither works as written on a fresh clone.
 4. **SEC had not posted 2026 Q2 or Q3** on 2026-10-20 (HTTP 404), so the newest funding data is about seven months old.
+5. **`npm run doctor` cannot see student recipes.** It lists `recipes/*.md` only, while CONTRIBUTING puts
+   student recipes in `recipes/cases/<term>/`. Its status dashboard and TODO totals leave out every student
+   mode, and I first misread its unchanged total as evidence about mine.
 
 ## Reflection
 
@@ -274,3 +282,4 @@ folder-mismatch fix upstream as its own one-file PR.
 - `lca_slice.py` counted 595,239 blank rows as filings → blank rows skipped and reported; new test; re-sliced, CSV byte-identical.
 - My own test expected the wrong median (90,000, not 93,600) → test corrected; the script was right.
 - Break 1's first capture printed the exit code of `sed`, not the tool (0) → re-checked: exit 2. The file says so.
+- I first wrote that the doctor's TODO total "fell from 318 to 316" after the closures. It had not moved, because the doctor never reads `recipes/cases/` (engine finding 5) → claim removed, count checked by hand (`runs/14-…`).

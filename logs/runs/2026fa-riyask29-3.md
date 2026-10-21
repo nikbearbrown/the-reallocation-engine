@@ -24,4 +24,5 @@
   - G4 — EverQuote LCA "Senior Quantitative Analyst; Senior Analyst" (15-2051.00): **counts as analyst work** — riyask29, 2026-10-20
   - G4 — Benefits Science "Data Analyst": matches by definition; noted that it has no FY2026 LCA
 - **TODO closures (this entry):** TODO 1 (DOL LCA) and TODO 2 (full Form D) closed by riyask29's provenance confirmation above; TODO 3 (liveness) closed by its DEV evidence. TODO 4 kept open by riyask29's decision (no hiring-lag source exists; not descoped).
+- **Engine finding:** `npm run doctor` reads only top-level `recipes/*.md`, so it never counts student recipes in `recipes/cases/`; this recipe's TODOs checked by hand (declared 2 = body 2).
 - **Open issues:** TODO 4 (hiring-lag evidence) has no source; TODO 5 engine folder-mismatch defect; the persona's unemployment days are a fixed input (41), not a running count; the LCA file is one fiscal year at Massachusetts worksites, exact names only.
