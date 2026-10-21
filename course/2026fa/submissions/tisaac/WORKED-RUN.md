@@ -123,7 +123,7 @@ SWE STEM-OPT prototype — offline test
 
 ## Attestation
 - Recipe: SWE STEM-OPT Runway v0.2.0
-- By: Isaac Tai (tisaac) · 2026-10-21 — *drafted from the runs above; Isaac to confirm before submission*
+- By: Isaac Tai (tisaac) · 2026-10-21
 
 ### Tested
 | Ran | Saw | Expected |
