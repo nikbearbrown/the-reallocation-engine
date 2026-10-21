@@ -1,0 +1,26 @@
+[
+  {
+    "id": "job-1-real",
+    "company": "1LIFE HEALTHCARE INC",
+    "title": "Software Engineer",
+    "url": "https://boards.greenhouse.io/1life/jobs/111",
+    "fit": 1.0,
+    "timeline": 1.0
+  },
+  {
+    "id": "job-2-fake",
+    "company": "Isaac Super Fake Tech LLC",
+    "title": "Software Engineer",
+    "url": "https://boards.greenhouse.io/fake/jobs/222",
+    "fit": 1.0,
+    "timeline": 1.0
+  },
+  {
+    "id": "job-3-bad-url",
+    "company": "Non-ATS Startup",
+    "title": "Software Engineer",
+    "url": "https://isaac-portfolio.com/jobs",
+    "fit": 1.0,
+    "timeline": 1.0
+  }
+]

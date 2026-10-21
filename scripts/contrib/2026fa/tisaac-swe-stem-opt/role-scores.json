@@ -1,0 +1,152 @@
+{
+  "_scorer": "bayesian-role-scorer",
+  "_chapter": 11,
+  "generated": "2026-10-21",
+  "config": {
+    "weights": {
+      "sponsorship": 0.35,
+      "fit": 0.3,
+      "role_quality": 0
+    },
+    "apply_threshold": 0.3,
+    "consider_floor": 0.2,
+    "gate_zero": 0.05,
+    "soft_sponsorship_tiers": [
+      "likely",
+      "possible",
+      "unknown"
+    ]
+  },
+  "profile_needs_sponsorship": true,
+  "roles": [
+    {
+      "role_id": "job-1-real",
+      "company": "1LIFE HEALTHCARE INC",
+      "title": "Software Engineer",
+      "composite": 0.58,
+      "recommendation": "Apply",
+      "machine_recommendation": "Apply",
+      "reason": "composite 0.580 ≥ 0.3, gates healthy",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0.8,
+            "weight": 0.35,
+            "contribution": 0.28,
+            "source": "record"
+          },
+          {
+            "factor": "fit",
+            "value": 1,
+            "weight": 0.3,
+            "contribution": 0.3,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.58,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0.8·0.35 + 1·0.3) × 1 × 1 = 0.580"
+      }
+    },
+    {
+      "role_id": "job-2-fake",
+      "company": "Isaac Super Fake Tech LLC",
+      "title": "Software Engineer",
+      "composite": 0.3,
+      "recommendation": "Apply",
+      "machine_recommendation": "Apply",
+      "reason": "composite 0.300 ≥ 0.3, gates healthy",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0,
+            "weight": 0.35,
+            "contribution": 0,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 1,
+            "weight": 0.3,
+            "contribution": 0.3,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.3,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": 1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": 1,
+        "arithmetic": "(0·0.35 + 1·0.3) × 1 × 1 = 0.300"
+      }
+    },
+    {
+      "role_id": "job-3-bad-url",
+      "company": "Non-ATS Startup",
+      "title": "Software Engineer",
+      "composite": -0.3,
+      "recommendation": "Skip",
+      "machine_recommendation": "Skip",
+      "reason": "gated: liveness ≈ -1.000 (a closed gate zeroes the composite regardless of votes)",
+      "override": null,
+      "trace": {
+        "votes": [
+          {
+            "factor": "sponsorship",
+            "value": 0,
+            "weight": 0.35,
+            "contribution": 0,
+            "source": "your-input"
+          },
+          {
+            "factor": "fit",
+            "value": 1,
+            "weight": 0.3,
+            "contribution": 0.3,
+            "source": "your-input"
+          }
+        ],
+        "vote_sum": 0.3,
+        "gates": [
+          {
+            "factor": "liveness",
+            "multiplier": -1,
+            "source": "your-input"
+          },
+          {
+            "factor": "timeline",
+            "multiplier": 1,
+            "source": "your-input"
+          }
+        ],
+        "gate_product": -1,
+        "arithmetic": "(0·0.35 + 1·0.3) × -1 × 1 = -0.300"
+      }
+    }
+  ]
+}
