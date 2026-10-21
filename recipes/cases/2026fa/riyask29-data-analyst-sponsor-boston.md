@@ -47,6 +47,20 @@ Two customers: this file is for the agent;
 `recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.card.md` is for the
 human.
 
+## Purpose
+
+**What it does:** for each job lead, decide one next action (tailor, network first, skip, or a
+person checks something) from records: H-1B sponsorship history for analyst-type titles, DOL
+H-1B filings (LCAs) by analyst occupation code, SEC Form D funding, whether the posting is open,
+and whether hiring fits the OPT clock.
+
+**Use it exactly when:** you are an F-1 OPT (or soon-OPT) job-seeker who needs H-1B sponsorship,
+targeting Data Analyst / BI Analyst work in Massachusetts, and you have a short list of leads
+(company + posting URL, or company only) to sort *before* spending an hour tailoring each.
+
+**Do not use it** to find leads (it checks a list, it does not search), for roles that need no
+sponsorship, for other states without re-cutting the LCA slice, or as legal advice on OPT or STEM OPT.
+
 ## Run record and handoff
 
 **Handoff condition (done when):** both outputs exist in the out-dir; in
@@ -117,7 +131,7 @@ scorer and carries no invented value. Liveness and timeline are gates
 | **G1 Company identity** | Exactly one CSV row whose normalised `company_name` (case, punctuation, Inc/LLC/Corp/Co/Ltd/LP/PBC stripped) equals the query, **and** that row has a non-empty `Total Approvals`. | tier + wage + Form D | `not-in-dataset`, `no-h1b-record`, `ambiguous`, or `not-exact-near-matches` → stop; `sponsorship: null`; near matches listed | the near-match names, to pick one or accept "unknown" |
 | **G3 Timeline** | `hiring_lag_weeks` is present. Factor = `clamp((min(days_to_opt_end, ceiling − used) − lag_days) / buffer, 0, 1)`. | factor goes to the scorer as a multiplier | lag missing → stop (`missing-hiring-lag`); OPT already ended or past the cliff → factor 0 → scorer Skip | the dates and the arithmetic line |
 | **G2 Liveness** | The lead has a URL and liveness is `active` or `expired`. | `active` → 1, `expired` → 0, both scored | no URL → `no-posting` (not scored; network or skip); `uncertain` / not checked → stop | the URL; a person opens the page |
-| **G4 Title review** | Every Proven or Likely tier lists the sponsored title(s) and the keyword that matched. | report lists them under *Gates a person must clear* | — (this gate never clears itself) | each matched title, to confirm it is work the student would do |
+| **G4 Title review** | Every Proven or Likely tier lists the sponsored title(s) and the keyword that matched; with `--lca`, every lead also lists its certified LCAs by SOC code (or "none under this name"). | report lists both under *Gates a person must clear* | — (this gate never clears itself) | each matched title and each SOC line, to confirm it is work the student would do |
 
 G3 is evaluated before G2 so that every lead whose company passed G1 shows its
 timeline arithmetic, including leads with no posting.
@@ -234,7 +248,7 @@ decisions in `logs/runs/2026fa-riyask29-<n>.md`. Never edit `logs/RUN_LOG.md`.
 |---|---|
 | 1. `role_quality` weight is 0.0 `[VERIFY]` | The wage check is **not** sent to the scorer and the weight is not changed. It appears in the human report as a ratio with its caveat, so the person can use it outside the score. |
 | 2. `bls:local-wage` feeds nothing | Not used. National OEWS medians only, labeled national. |
-| 3. Only Form D samples ship | Joined anyway, with coverage printed on every lead ("200 of 58,329 companies across 4 sample files"). `not-in-sample` is never read as "no funding", and there is no funding vote (the scorer has no funding weight). |
+| 3. Only Form D samples ship | v0.2.0: full quarters are fetched locally (Workflow 3b) and used with `--formd-dir data/sec/form-d/processed`; without them the samples are joined with coverage printed ("200 of 58,329 companies"). `not-in-sample` and `not-filed-under-this-name` are never read as "no funding", and there is no funding vote (the scorer has no funding weight). |
 | 4. `data/raw/`, `data/verified/`, `logs/gate-decisions/` do not exist | Gates point at `out/analyst-check-log.json`; decisions go in `logs/runs/`. |
 | 5. The `snickerdoodle` CLI is roadmap | No command in this recipe uses it. |
 | 7. `bls:local-wage` needs `.venv` | Not needed; Node only. |
@@ -359,9 +373,10 @@ Refuse, in this recipe, to:
 
 ## Logging rules and run-log template
 
-One file per run: `logs/runs/2026fa-riyask29-<n>.md`. Never edit
-`logs/RUN_LOG.md`. No real names, emails or phone numbers. The persona is
-fictional.
+The brief and SNICKERDOODLE name `logs/RUN_LOG.md`. In this repository that file is CI-protected
+for students (its header says so), so the same entry goes to one file per run:
+`logs/runs/2026fa-riyask29-<n>.md`, which the maintainer indexes into `logs/RUN_LOG.md`. No real
+names, emails or phone numbers. The persona is fictional.
 
 ```markdown
 ## YYYY-MM-DD — riyask29-data-analyst-sponsor-boston sample run <n>

@@ -417,7 +417,42 @@ HubSpot: 0 issuer row(s) containing 'hubspot'
 
   A substring join would have credited Abacus Insights with a $94M raise by an unrelated Florida fund.
 - **Parsed the JSON log:** the handoff and G1 to G4 gate commands above read `analyst-check-log.json` and exit 0.
-- **Conformance and privacy:** `npm run verify`, `npm run doctor` and `node scripts/pii-scan.mjs`, run on this branch (section 8).
+- **Conformance and privacy:** `npm run verify`, `npm run doctor` and `node scripts/pii-scan.mjs`, run on this branch (below).
+
+### Conformance and privacy on this branch, after all changes
+
+```text
+$ npm run verify
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+MANIFEST CHECK — The Reallocation Engine
+==========================================
+
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+
+$ npm run doctor   (summary lines)
+PRIVACY (no personal data committed)
+  ✓ no private/PII paths are tracked
+  open TODOs: 318 declared (in frontmatter) · 318 [TODO markers in bodies
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+
+$ node scripts/pii-scan.mjs --diff upstream/main   (what CI runs on the PR branch history)
+pii-scan: clean ✓
+
+$ node scripts/conformance.mjs <my paths>
+conformance: 62 files (20 md · 4 js · 34 json · 3 py · 1 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+```
+
+The 3 manifest warnings are the same ones a fresh clone shows (section 1); `private/` and `data/ats/`
+are ignored as `/private/*` and `/data/ats/*`. The doctor's TODO count is unchanged (318 = 318) because
+this recipe still declares 4 open TODOs, as v0.1.1 did, and declared equals body.
 
 ## 6. Deliberate attempts to break it
 

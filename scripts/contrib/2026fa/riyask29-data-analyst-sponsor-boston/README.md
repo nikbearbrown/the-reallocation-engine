@@ -20,8 +20,10 @@ unemployment days run out. It then hands each lead to the engine's existing
 scorer and says what to do next: tailor an application, network into the
 company first, or skip it.
 
-It runs on the sample data that ships with the repository. It does not prove
-that a company will sponsor *you*, and it is not legal advice.
+It runs on the sample data that ships with the repository, and (v0.2.0) on full
+SEC Form D quarters and a DOL H-1B filing slice by occupation code (`--formd-dir`,
+`--lca`; see the recipe's Workflow 3b). It does not prove that a company will
+sponsor *you*, and it is not legal advice.
 
 ## Run it (one command, from the repo root)
 
@@ -45,7 +47,9 @@ node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.m
 ## Test it (offline, no network)
 
 ```bash
-node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs
+node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs    # 10 tests
+node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/liveness_frames.test.mjs  # 3 tests (Chromium, no network)
+python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_slice.py              # 5 tests (openpyxl)
 ```
 
 ## Files
@@ -53,13 +57,17 @@ node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_
 | Path | What |
 |---|---|
 | `analyst_check.mjs` | the CLI: gates, `roles.json`, calls the real scorer, writes both outputs |
-| `lib.mjs` | pure functions (CSV, company match, title classifier, timeline, wage, Form D) |
+| `lib.mjs` | pure functions (CSV, company match, title classifier, timeline, wage, Form D, DOL LCA) |
+| `lca_slice.py` | cuts a DOL LCA disclosure workbook to employer × SOC counts for one state (no case numbers, no person data) |
+| `config/lca-soc-families.json` | which SOC codes count as core vs adjacent analyst work (**your-input**) |
+| `data/lca-ma-analyst-fy2026q3.csv` (+ `-audit.md`) | the Massachusetts slice of DOL `LCA_Disclosure_Data_FY2026_Q3.xlsx` and its rows-in/rows-out audit (**record**) |
 | `config/title-families.json` | my keyword rules and tier → p mapping (**your-input**) |
 | `inputs/persona.example.json` | fictional persona "Sneha Patil" (`@example.com`, 555 number) |
 | `inputs/candidates.json` | real public postings found 2026-10-02 + my hiring-lag and fit estimates |
 | `inputs/liveness.gate-cleared.json` | gate G2 cleared: machine results plus my browser checks (`source: your-input`) |
 | `fixtures/` | test data: rows cut verbatim from the real repo files, plus test personas |
-| `analyst_check.test.mjs` | 8 offline tests, including a deliberate break attempt |
+| `analyst_check.test.mjs` | 10 offline tests, including deliberate break attempts |
+| `liveness_frames.test.mjs`, `test_lca_slice.py` | offline tests for the liveness iframe fix (3) and the LCA slicer (5) |
 | `out/` | the final run's outputs (run 3, after the gates were cleared) |
 
 ## Outputs (in `--out-dir`, default `out/`)
@@ -76,7 +84,7 @@ node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_
 
 | Value | Label | Why |
 |---|---|---|
-| H-1B counts, sponsored titles, BLS wages, Form D filings | record | read straight from repo data files |
+| H-1B counts, sponsored titles, BLS wages, Form D filings, LCA counts by SOC | record | read straight from repo data files (Form D full quarters and the LCA workbook are fetched; see the recipe) |
 | posting active / expired / uncertain | record | output of `liveness-browser.mjs`, with a timestamp |
 | posting open, seen by a person | your-input | a G2 check in the liveness file with `"source": "your-input"` |
 | title → family classification, tier, tier → p | your-input | my keyword rules and my mapping |

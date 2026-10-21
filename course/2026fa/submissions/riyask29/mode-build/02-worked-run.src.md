@@ -183,7 +183,17 @@ The recipe's handoff and gate tests, run against this log:
 
   A substring join would have credited Abacus Insights with a $94M raise by an unrelated Florida fund.
 - **Parsed the JSON log:** the handoff and G1 to G4 gate commands above read `analyst-check-log.json` and exit 0.
-- **Conformance and privacy:** `npm run verify`, `npm run doctor` and `node scripts/pii-scan.mjs`, run on this branch (section 8).
+- **Conformance and privacy:** `npm run verify`, `npm run doctor` and `node scripts/pii-scan.mjs`, run on this branch (below).
+
+### Conformance and privacy on this branch, after all changes
+
+```text
+{{file:runs/13-branch-verify-doctor-pii.txt}}
+```
+
+The 3 manifest warnings are the same ones a fresh clone shows (section 1); `private/` and `data/ats/`
+are ignored as `/private/*` and `/data/ats/*`. The doctor's TODO count is unchanged (318 = 318) because
+this recipe still declares 4 open TODOs, as v0.1.1 did, and declared equals body.
 
 ## 6. Deliberate attempts to break it
 
