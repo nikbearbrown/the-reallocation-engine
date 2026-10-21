@@ -1,0 +1,53 @@
+{
+  "https://example.test/bs-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/bs-dead": {
+    "result": "expired",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/eq-unsure": {
+    "result": "uncertain",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/eq-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/ss-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/kl-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/hs-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/wr-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/ab-live": {
+    "result": "active",
+    "reason": "fixture",
+    "checked_at": "2026-10-02T00:00:00Z"
+  },
+  "https://example.test/bs-human": {
+    "result": "active",
+    "reason": "fixture: a person opened the page and saw the application form",
+    "checked_at": "2026-10-02T00:00:00Z",
+    "source": "your-input"
+  }
+}

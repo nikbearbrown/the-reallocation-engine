@@ -1,0 +1,93 @@
+{
+  "_note": "test fixture — one lead per gate/failure case. URLs under example.test are never fetched (liveness comes from liveness.fixture.json).",
+  "candidates": [
+    {
+      "role_id": "t-proven-live",
+      "company": "Benefits Science LLC",
+      "title": "Data Analyst",
+      "url": "https://example.test/bs-live",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-human-confirmed",
+      "company": "Benefits Science LLC",
+      "title": "Data Analyst",
+      "url": "https://example.test/bs-human",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-proven-dead",
+      "company": "Benefits Science",
+      "title": "Data Analyst",
+      "url": "https://example.test/bs-dead",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-uncertain",
+      "company": "EverQuote",
+      "title": "Analyst",
+      "url": "https://example.test/eq-unsure",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.7
+    },
+    {
+      "role_id": "t-slow-hire",
+      "company": "EverQuote",
+      "title": "Analyst",
+      "url": "https://example.test/eq-live",
+      "hiring_lag_weeks": 12,
+      "fit_self_rating": 0.9
+    },
+    {
+      "role_id": "t-cyber-only",
+      "company": "SimSpace Corp",
+      "title": "Data Analyst",
+      "url": "https://example.test/ss-live",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-no-lag",
+      "company": "Klaviyo",
+      "title": "Analyst",
+      "url": "https://example.test/kl-live",
+      "hiring_lag_weeks": null,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-not-in-csv",
+      "company": "HubSpot",
+      "title": "Data Analyst",
+      "url": "https://example.test/hs-live",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-no-h1b-record",
+      "company": "Writer",
+      "title": "Analyst",
+      "url": "https://example.test/wr-live",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-ambiguous",
+      "company": "Abacus",
+      "title": "Analyst",
+      "url": "https://example.test/ab-live",
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    },
+    {
+      "role_id": "t-formd-hit",
+      "company": "Databricks",
+      "title": "Analyst",
+      "url": null,
+      "hiring_lag_weeks": 3,
+      "fit_self_rating": 0.8
+    }
+  ]
+}

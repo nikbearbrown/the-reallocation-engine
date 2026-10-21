@@ -1,0 +1,24 @@
+[
+  {
+    "role_id": "klaviyo-analytics-eng",
+    "company": "KLAVIYO INC",
+    "title": "Analytics Engineer",
+    "sponsorship": {
+      "p": 0.15,
+      "tier": "Unknown",
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.65,
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "record"
+    },
+    "timeline": {
+      "factor": 0,
+      "source": "your-input"
+    }
+  }
+]

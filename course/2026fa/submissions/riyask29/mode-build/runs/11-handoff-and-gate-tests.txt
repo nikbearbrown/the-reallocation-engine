@@ -1,0 +1,20 @@
+# Handoff + gate tests from the recipe, run against ./course/2026fa/submissions/riyask29/mode-build/runs/run-b-final/analyst-check-log.json
+$ handoff
+handoff ok {"candidates":6,"scored":3,"stopped":{"G1":2,"G2":0,"G3":0,"no-posting":1},"form_d_in_sample":0}
+exit=0
+$ G1
+writer-expired no-h1b-record 
+hubspot-da not-in-dataset 
+exit=0
+$ G2
+scored with bad liveness: 0
+exit=0
+$ G3
+everquote-sem 0.7 Consider
+abacus-growth-analytics 1 Consider
+klaviyo-analytics-eng 0 Skip
+exit=0
+$ G4
+abacus-growth-analytics "Business Analyst Manager - Data Distribution Team" -> ambiguous-analyst (business analyst)
+benefits-science-da "Data Analyst" -> data-analyst-family (data analyst)
+exit=0

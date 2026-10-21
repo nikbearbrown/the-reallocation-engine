@@ -1,0 +1,10 @@
+$ npm run ats:liveness -- <same 3 URLs>   (this branch: ATS-iframe fix in scripts/ats/liveness-browser.mjs)
+
+Checking 3 URL(s)...
+
+✅ active     https://careers.everquote.com/job/?gh_jid=7999629003
+✅ active     https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002
+❌ expired    https://jobs.ashbyhq.com/writer/04ad3b44-51df-4fa6-a17c-cab6875f70cd
+           pattern matched: job (listing )?not found
+
+Results: 2 active  1 expired  0 uncertain

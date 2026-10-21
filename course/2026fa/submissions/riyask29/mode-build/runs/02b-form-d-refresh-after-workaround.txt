@@ -1,0 +1,17 @@
+# Defect: download-form-d-quarters.py extracts to extracted/<q>-d/<YYYYQn>_d/, but refresh-recent-sec-quarters.py
+# resolve_quarter_dir() only checks extracted/<q>-d and extracted/<q>-d/<q>-d, so it reports every quarter "Missing".
+# Workaround (local, gitignored data only; no code change): move the TSVs up one level.
+$ mv data/sec/form-d/extracted/2025q2-d/2025Q2_d/* data/sec/form-d/extracted/2025q2-d/
+$ mv data/sec/form-d/extracted/2025q3-d/2025Q3_d/* data/sec/form-d/extracted/2025q3-d/
+$ mv data/sec/form-d/extracted/2025q4-d/2025Q4_d/* data/sec/form-d/extracted/2025q4-d/
+$ mv data/sec/form-d/extracted/2026q1-d/2026Q1_d/* data/sec/form-d/extracted/2026q1-d/
+
+$ python3 scripts/sec/refresh-recent-sec-quarters.py
+✅ 2025q2-d        - 13325 companies → companies-sec-2025q2-d.json
+✅ 2025q3-d        - 14138 companies → companies-sec-2025q3-d.json
+✅ 2025q4-d        - 14885 companies → companies-sec-2025q4-d.json
+✅ 2026q1-d        - 15981 companies → companies-sec-2026q1-d.json
+
+Summary
+Processed: 4
+Missing: 0

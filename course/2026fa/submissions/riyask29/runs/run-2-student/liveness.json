@@ -1,0 +1,17 @@
+{
+  "https://careers.everquote.com/job/?gh_jid=7999629003": {
+    "result": "uncertain",
+    "reason": "content present but no visible apply control found",
+    "checked_at": "2026-10-02T17:47:59.825Z"
+  },
+  "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002": {
+    "result": "uncertain",
+    "reason": "navigation error: page.goto: Timeout 15000ms exceeded.",
+    "checked_at": "2026-10-02T17:48:14.828Z"
+  },
+  "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003": {
+    "result": "active",
+    "reason": "visible apply control detected",
+    "checked_at": "2026-10-02T17:48:18.531Z"
+  }
+}

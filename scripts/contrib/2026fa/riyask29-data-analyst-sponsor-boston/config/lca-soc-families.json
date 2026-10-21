@@ -1,0 +1,5 @@
+{
+  "_note": "your-input (DEFINE, riyask29). Which SOC codes count as data-analyst work in DOL LCA filings. 'core' = the persona's target SOCs (Data Analyst has no SOC of its own; O*NET files it under Business Intelligence Analysts 15-2051.01 and Market Research Analysts 13-1161.00). 'adjacent' = codes employers commonly use for analyst roles (data scientist, statistician, operations research, computer systems and management analysts); they are shown, but a person decides whether each is work the student would do (G4).",
+  "core": ["15-2051.01", "13-1161.00"],
+  "adjacent": ["15-2051.00", "15-2041.00", "15-2031.00", "15-1211.00", "13-1111.00"]
+}

@@ -1,0 +1,26 @@
+$ npm run verify
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+MANIFEST CHECK — The Reallocation Engine
+==========================================
+
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+
+$ npm run doctor   (summary lines)
+PRIVACY (no personal data committed)
+  ✓ no private/PII paths are tracked
+  open TODOs: 318 declared (in frontmatter) · 318 [TODO markers in bodies
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+
+$ node scripts/pii-scan.mjs --diff upstream/main   (what CI runs on the PR branch history)
+pii-scan: clean ✓
+
+$ node scripts/conformance.mjs <my paths>
+conformance: 62 files (20 md · 4 js · 34 json · 3 py · 1 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.

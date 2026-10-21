@@ -1,0 +1,41 @@
+## Break 1: --lca names a file that does not exist
+$ node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --lca scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/does-not-exist.csv --liveness-file scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/liveness.gate-cleared.json --out-dir course/2026fa/submissions/riyask29/mode-build/runs/break/b1
+✗ data path missing: scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/does-not-exist.csv
+exit=2  outputs written: 0   (exit code re-checked without the sed pipe; the first capture printed sed's status)
+
+## Break 2: shortened / re-cased company names ("Abacus", "hubspot inc.") with full Form D + LCA
+$ node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --candidates course/2026fa/submissions/riyask29/mode-build/runs/break/candidates.name-variants.json --formd-dir data/sec/form-d/processed --lca scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv --liveness-file scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/liveness.gate-cleared.json --today 2026-10-20 --out-dir course/2026fa/submissions/riyask29/mode-build/runs/break/b2
+✓ 2 leads · scored 0 · stopped G1 2 · G2 0 · G3 0 · no-posting 0
+  scorer: no role reached the scorer
+  abacus-short             resolve-company      company identity: not-exact-near-matches
+  hubspot-lower            resolve-company      company identity: not-in-dataset
+exit=0 (both leads stop at G1 as intended; a stop is not an error)
+  abacus-short | G1: not-exact-near-matches | near: ABACUS BIOSCIENCE INC; ABACUS INSIGHTS INC; OREGON ABACUS MULTIFAMILY ASSOCIATES LP | sponsorship: null | LCA: none-under-this-name core 0 adj 0
+  hubspot-lower | G1: not-in-dataset | near: - | sponsorship: null | LCA: found core 0 adj 1
+
+## Break 3: LCA workbook with a missing column / no rows (offline unit tests)
+$ python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_slice.py
+test_break_empty_file_halts (__main__.T.test_break_empty_file_halts) ... ok
+test_break_missing_column_halts (__main__.T.test_break_missing_column_halts) ... ok
+test_filters_and_counts (__main__.T.test_filters_and_counts) ... ~/Documents/INFO7375/the-reallocation-engine/scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_slice.py:36: ResourceWarning: unclosed file <_io.TextIOWrapper name='/var/folders/1p/7w5125fs48n4wcwcfpgjs9w00000gn/T/tmpb3hdoja7/out.csv' mode='r' encoding='UTF-8'>
+test_never_writes_people_or_case_numbers (__main__.T.test_never_writes_people_or_case_numbers) ... ~/Documents/INFO7375/the-reallocation-engine/scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_slice.py:36: ResourceWarning: unclosed file <_io.TextIOWrapper name='/var/folders/1p/7w5125fs48n4wcwcfpgjs9w00000gn/T/tmp79bzy69n/out.csv' mode='r' encoding='UTF-8'>
+Ran 4 tests in 0.876s
+OK
+
+## Break 4: mutant liveness checkers against the offline frame test
+# mutant A = upstream checker (ignores iframes); mutant B = reads EVERY iframe (no ATS host allow-list)
+$ node --test liveness_frames.test.mjs   (mutant A)
+✖ apply form inside a Greenhouse embed iframe → active (2403.454167ms)
+✔ break attempt: "Apply now" inside a non-ATS widget iframe is NOT read → uncertain (2016.24725ms)
+✔ job text with no apply control anywhere → still uncertain (no regression) (2012.753958ms)
+ℹ pass 2
+ℹ fail 1
+$ node --test liveness_frames.test.mjs   (mutant B)
+✔ apply form inside a Greenhouse embed iframe → active (2179.347459ms)
+✖ break attempt: "Apply now" inside a non-ATS widget iframe is NOT read → uncertain (2017.974292ms)
+✔ job text with no apply control anywhere → still uncertain (no regression) (2014.575667ms)
+ℹ pass 2
+ℹ fail 1
+$ node --test liveness_frames.test.mjs   (patched, restored)
+ℹ pass 3
+ℹ fail 0

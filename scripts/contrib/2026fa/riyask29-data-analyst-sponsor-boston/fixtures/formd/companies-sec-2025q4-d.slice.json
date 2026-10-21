@@ -1,0 +1,102 @@
+{
+ "metadata": {
+  "quarter": "2025Q4_d",
+  "generated_at": "2026-05-28T16:37:25.295149",
+  "total_companies": 14885,
+  "total_executives": 52362,
+  "_sample": "first 50 of 14885 companies \u2014 full file fetched via scripts/sec (see DATA.md)",
+  "_fixture": "riyask29 test slice: only the Databricks entry of companies-sec-2025q4-d.sample.json"
+ },
+ "companies": [
+  {
+   "accession_number": "0001587468-25-000010",
+   "company": {
+    "name": "Databricks, Inc.",
+    "company_name_normalized": "databricks",
+    "fein": null,
+    "address": {
+     "street1": "160 SPEAR STREET",
+     "street2": "15TH FLOOR",
+     "city": "SAN FRANCISCO",
+     "state": "CA",
+     "zip": "94105",
+     "phone": null
+    },
+    "entity_type": "Corporation",
+    "year_incorporated": null,
+    "industry": "Other Technology"
+   },
+   "funding": {
+    "total_offering_amount": 5000000000.0,
+    "total_amount_sold": 4082050250.0,
+    "total_remaining": 917949750.0,
+    "number_of_investors": 153,
+    "date_of_first_sale": "2025-12-16",
+    "stage_estimate": "Series D+"
+   },
+   "filing": {
+    "date_filed": "31-DEC-2025",
+    "submission_type": "D",
+    "quarter": "2025Q4_d"
+   },
+   "company_age": {
+    "years_since_incorporation": null,
+    "months_since_funding": 4,
+    "funding_recency": "very_recent"
+   },
+   "metadata": {
+    "source_quarter": "2025Q4_d",
+    "processed_date": "2026-05-28T16:37:07.141701",
+    "prediction_scores": {
+     "international_hiring": null,
+     "recent_grad_hiring": null
+    }
+   }
+  },
+  {
+   "accession_number": "0001587468-25-000009",
+   "company": {
+    "name": "Databricks, Inc.",
+    "company_name_normalized": "databricks",
+    "fein": null,
+    "address": {
+     "street1": "160 SPEAR STREET",
+     "street2": "15TH FLOOR",
+     "city": "SAN FRANCISCO",
+     "state": "CA",
+     "zip": "94105",
+     "phone": null
+    },
+    "entity_type": "Corporation",
+    "year_incorporated": null,
+    "industry": "Other Technology"
+   },
+   "funding": {
+    "total_offering_amount": 23017200.0,
+    "total_amount_sold": 23017200.0,
+    "total_remaining": 0.0,
+    "number_of_investors": 15,
+    "date_of_first_sale": "2025-09-30",
+    "stage_estimate": "Series B"
+   },
+   "filing": {
+    "date_filed": "31-DEC-2025",
+    "submission_type": "D",
+    "quarter": "2025Q4_d"
+   },
+   "company_age": {
+    "years_since_incorporation": null,
+    "months_since_funding": 4,
+    "funding_recency": "very_recent"
+   },
+   "metadata": {
+    "source_quarter": "2025Q4_d",
+    "processed_date": "2026-05-28T16:37:07.146726",
+    "prediction_scores": {
+     "international_hiring": null,
+     "recent_grad_hiring": null
+    }
+   }
+  }
+ ]
+}

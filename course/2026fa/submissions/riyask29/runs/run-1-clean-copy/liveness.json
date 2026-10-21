@@ -1,0 +1,17 @@
+{
+  "https://careers.everquote.com/job/?gh_jid=7999629003": {
+    "result": "uncertain",
+    "reason": "content present but no visible apply control found",
+    "checked_at": "2026-10-02T17:37:34.168Z"
+  },
+  "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002": {
+    "result": "active",
+    "reason": "visible apply control detected",
+    "checked_at": "2026-10-02T17:37:38.162Z"
+  },
+  "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003": {
+    "result": "active",
+    "reason": "visible apply control detected",
+    "checked_at": "2026-10-02T17:37:41.748Z"
+  }
+}

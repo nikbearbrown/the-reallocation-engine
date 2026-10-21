@@ -1,0 +1,21 @@
+{
+  "_note": "your-input — real public postings found by riyask29 on 2026-10-02 via the companies' public Greenhouse boards. hiring_lag_weeks and fit_self_rating are the student's own estimates.",
+  "candidates": [
+    { "role_id": "everquote-sem", "company": "EverQuote", "title": "Senior Analyst, SEM",
+      "url": "https://careers.everquote.com/job/?gh_jid=7999629003",
+      "hiring_lag_weeks": 5, "fit_self_rating": 0.75 },
+    { "role_id": "abacus-growth-analytics", "company": "Abacus Insights", "title": "Growth Analytics Manager, Payment Integrity",
+      "url": "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002",
+      "hiring_lag_weeks": 4, "fit_self_rating": 0.7 },
+    { "role_id": "klaviyo-analytics-eng", "company": "Klaviyo", "title": "Analytics Engineer",
+      "url": "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003",
+      "hiring_lag_weeks": 10, "fit_self_rating": 0.65 },
+    { "role_id": "benefits-science-da", "company": "Benefits Science LLC", "title": "Data Analyst (no open posting found)",
+      "url": null, "hiring_lag_weeks": 4, "fit_self_rating": 0.85 },
+    { "role_id": "writer-expired", "company": "Writer", "title": "Posting from repo examples",
+      "url": "https://jobs.ashbyhq.com/writer/04ad3b44-51df-4fa6-a17c-cab6875f70cd",
+      "hiring_lag_weeks": 6, "fit_self_rating": 0.6 },
+    { "role_id": "hubspot-da", "company": "HubSpot", "title": "Data Analyst",
+      "url": null, "hiring_lag_weeks": 6, "fit_self_rating": 0.8 }
+  ]
+}

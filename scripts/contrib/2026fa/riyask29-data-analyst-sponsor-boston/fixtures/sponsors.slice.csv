@@ -1,0 +1,10 @@
+company_name,industry,website,city,state,zip_code,phone,year_incorporated,company_age_years,executive_officers,board_directors,total_funding,latest_funding_amount,latest_funding_stage,latest_funding_date,Total Approvals,Total Denials,Approval_Rate,median_salary_offered,top_job_titles_sponsored
+ABACUS BIOSCIENCE INC,Other,abacusbioscience.com,SAMMAMISH,WA,98075,,,,,,4413591.0,4413591.0,Seed,2023-01-19,,,,,
+ABACUS INSIGHTS INC,Other Technology,abacusinsights.com,BOSTON,MA,2110,,2017.0,8.0,,,118157605.0,11742458.0,Series A,2024-10-01,22.0,0.0,100.0,110510.0,"['Software Engineer', 'Business Analyst Manager - Data Distribution Team']"
+BENEFITS SCIENCE LLC,Other,benefitsscience.com,WALTHAM,MA,2452,,2011.0,14.0,,,4113000.0,3000000.0,Seed,2018-07-16,18.0,0.0,100.0,82535.0,"['Data Engineer II (00049724)', 'Software Engineer', 'Data Analyst']"
+DATABRICKS INC,Other Technology,databricks.com,SAN FRANCISCO,CA,94105,,2013.0,12.0,,,18421062869.0,1074999900.0,Series D+,2025-09-08,1640.0,8.0,99.51456310679612,149422.5,"['Software Engineer', 'Senior Software Engineer', 'Solutions Architect', 'Specialist Solutions Architect', 'Senior Solutions Engineer']"
+EVERQUOTE INC,Other Technology,everquote.com,CAMBRIDGE,MA,2139,,,,,,52440551.0,14999999.0,Series A,2022-02-23,56.0,0.0,100.0,117640.0,"['Senior Cloud Engineer I', 'Senior Quantitative Analyst', 'Senior Engineer ', 'Senior Quantitative Analyst (Business) ', 'Product Manager', 'Quantitative Analyst ']"
+KLAVIYO INC,Other,klaviyo.com,BOSTON,MA,2110,,,,,,649999194.0,99999983.0,Series C,2022-07-26,154.0,4.0,97.46835443037976,126000.0,"['Business Intelligence Engineer', 'Software Engineer II', 'Engineering Manager Data Exchange', 'Engineering Manager II- SMS', 'Senior Software Engineer']"
+OREGON ABACUS MULTIFAMILY ASSOCIATES LP,Investing,,NEW YORK,NY,10017,,2020.0,5.0,,,250000000.0,250000000.0,Series D+,2020-07-28,,,,,
+SIMSPACE CORP,Other Technology,simspace.com,BOSTON,MA,2210,,,,,,55003356.0,55003356.0,Series C,2023-12-11,6.0,0.0,100.0,95000.0,['Cyber Analyst I']
+WRITER INC,Other Technology,writer.com,SAN FRANCISCO,CA,94108,,,,,,199999483.0,199999483.0,Series D+,2024-11-06,,,,,

@@ -1,0 +1,5 @@
+# doctor reads only top-level recipes/*.md (scripts/doctor.mjs: fs.readdirSync("recipes")); student recipes live in recipes/cases/<term>/.
+$ grep -n "readdirSync(.recipes.)" scripts/doctor.mjs
+92:const recipes = fs.readdirSync('recipes')
+$ hand check of this recipe: declared todos_open vs [TODO markers in the body
+declared: 2   body [TODO markers: 2

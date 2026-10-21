@@ -1,0 +1,21 @@
+## 2026-10-02 — riyask29-data-analyst-sponsor-boston: student re-run (run 2), gates cleared, final run (run 3)
+
+- **Recipe:** recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md v0.1.1 (DRAFT)
+- **Who ran it:** riyask29, in their own terminal (runs 2 and 3, plus the offline test). Run 1 (`2026fa-riyask29-1.md`) was run by the AI assistant.
+- **Inputs:** same persona and 6 leads as run 1. Run 2: live Playwright liveness. Run 3: `scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/liveness.gate-cleared.json` (run 2's machine results plus riyask29's browser checks, labeled `your-input`).
+- **Commands:**
+  - `node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs` → pass 8, fail 0
+  - run 2: `node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --today 2026-10-02`
+  - run 3: `node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --liveness-file scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/liveness.gate-cleared.json --today 2026-10-02`
+- **Outputs:** run 2 → `course/2026fa/submissions/riyask29/runs/run-2-student/`; run 3 → `scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/out/`
+- **Result, run 2:** 6 leads · scored 1 · stopped G1 2 · G2 **2** · no-posting 1 · scorer: Skip 1. **Abacus changed from `active` (run 1, 17:23Z) to `uncertain`** ("navigation error: page.goto: Timeout 15000ms exceeded", 17:48Z) while the job was still listed in the Greenhouse API (HTTP 200). The gate stopped it rather than guessing.
+- **Result, run 3:** 6 leads · scored 3 · stopped G1 2 · G2 0 · no-posting 1 · scorer: Apply 0 · Consider 2 · Skip 1. EverQuote Consider 0.231 (`(0.3·0.35 + 0.75·0.3) × 1 × 0.7`); Abacus Consider 0.420; Klaviyo Skip (timeline 0); Benefits Science → network; Writer, HubSpot → resolve-company. The scorer's "skip 33%" counts only the 3 scored leads.
+- **Gate decisions (human):**
+  - G1 — Writer (`no-h1b-record`), HubSpot (`not-in-dataset`): **unknown, not non-sponsors; check manually** before deciding — riyask29, 2026-10-02
+  - G2 — EverQuote: **open.** Opened in a browser; job page with an "Apply for this job" form. The checker looks for an apply *button* and missed the form — riyask29, 2026-10-02
+  - G2 — Abacus Insights: **open.** Opened in a browser; title matches, Apply button shown — riyask29, 2026-10-02
+  - G3 — hiring lags (Abacus 4 wk, EverQuote 5 wk, Klaviyo 10 wk): **accepted as realistic** — riyask29, 2026-10-02
+  - G4 — Abacus "Business Analyst Manager - Data Distribution Team": **counts** as data-analyst-type evidence (tier stays Likely) — riyask29, 2026-10-02
+  - G4 — EverQuote "Quantitative Analyst" ×3: **does not count.** Rule changed: `quantitative analyst` moved from `ambiguous_analyst` to `other_analyst_examples` in `config/title-families.json`; EverQuote Likely → Possible — riyask29, 2026-10-02
+  - G4 — Benefits Science "Data Analyst": matches by definition; no change
+- **Open issues:** liveness is not repeatable (same URL, different result 25 minutes apart); the liveness checker misses form-style applications; typo "Abacus Insight" still gets no near-match hint; Writer and HubSpot still need a manual sponsorship check outside this dataset.

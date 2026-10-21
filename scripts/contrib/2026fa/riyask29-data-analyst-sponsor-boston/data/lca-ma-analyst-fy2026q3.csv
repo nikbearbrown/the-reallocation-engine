@@ -1,0 +1,1072 @@
+employer_name,soc_code,soc_title,family,certified_lcas,top_job_titles,worksite_cities,median_annual_wage_offered,first_decision,last_decision,source_file
+Wayfair LLC,15-2051.00,Data Scientists,adjacent,44,Machine Learning Scientist Ii; Data Scientist Ii; Machine Learning Scientist Iii,Boston,150512,2025-11-05,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amazon.com Services LLC,15-2051.00,Data Scientists,adjacent,28,Data Scientist Ii; Data Engineer Ii; Data Scientist I,North Reading; Boston,143000,2025-12-09,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Boston Consulting Group, Inc.",13-1111.00,Management Analysts,adjacent,23,Consultant; Project Leader; Associate,Boston,190000,2025-11-18,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amazon.com Services LLC,15-2051.01,Business Intelligence Analysts,core,18,Business Intel Engineer Ii; Business Intelligence Engineer Ii; Business Intelligence Engineer I,Boston; North Reading,121637,2025-11-28,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wayfair LLC,15-2051.01,Business Intelligence Analysts,core,18,"Senior Analyst, Global Business Analytics; Manager, Global Business Analytics; Machine Learning Scientist Ii",Boston,137514,2025-11-14,2026-04-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fidelity Technology Group, LLC d/b/a Fidelity Investments",15-2051.00,Data Scientists,adjacent,16,"Senior Manager, Data Science; Director, Data Science; Senior Data Scientist",Boston,150000,2025-12-15,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wayfair LLC,15-2031.00,Operations Research Analysts,adjacent,16,"Senior Analyst, Global Business Analytics; Analyst; Data Scientist Ii",Boston,127082,2025-11-21,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fidelity Brokerage Services LLC d/b/a Fidelity Investments,15-2051.00,Data Scientists,adjacent,15,"Senior Manager, Advanced Data Analytics And Insights; Director, Advanced Data Analytics And Insights; Manager, Advanced Data Analytics And Insights",Boston; Medford,143525,2025-12-03,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+General Hospital Corporation,15-2051.00,Data Scientists,adjacent,13,Data Scientist; Senior Data Analyst; Senior Data Scientist,Boston; Somerville,75275,2025-12-15,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Boston Consulting Group, Inc.",15-2051.00,Data Scientists,adjacent,12,Forward Deployed Ai Scientist; Data Scientist; Senior Forward Deployed Ai Scientist,Boston,152500,2025-11-14,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Accenture LLP,15-1211.00,Computer Systems Analysts,adjacent,11,"Business Architecture Manager; Packaged App Development Manager; Data Eng, Mgmt And Governance Assoc Dir",Boston; Westwood,156300,2026-01-08,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+John Hancock Life Insurance Company (USA),15-2051.00,Data Scientists,adjacent,11,Senior Data Scientist; Data Scientist; Associate Data Scientist,Boston,146925,2026-02-26,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"LLX Solutions, LLC",15-2041.00,Statisticians,adjacent,11,Statistician Ii; Sas Programmer I; Statistician,Waltham,108784,2025-12-30,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Staples, Inc.",15-2051.00,Data Scientists,adjacent,11,Data Engineer Iii; Data Analyst Iii; Sr. Data Scientist (Sc),Framingham,120000,2025-11-14,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Development Center Americas, Inc.",15-2041.00,Statisticians,adjacent,11,"Manager, Statistics; Associate Director, Statistics; Senior Manager, Statistics",Cambridge; Cmabridge,145000,2025-11-14,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Citizens Financial Group, Inc.",15-2051.00,Data Scientists,adjacent,10,Data Scientist; Sr Data Analyst; Sr Data Scientist,Westwood; Boston,114088,2025-11-14,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dana-Farber Cancer Institute,15-2041.00,Statisticians,adjacent,10,Statistician; Statistician I; Statistician Iii,Boston; Bostons,100000,2025-11-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"MCKINSEY & COMPANY, INC. UNITED STATES",13-1111.00,Management Analysts,adjacent,10,Senior Business Analyst (Management Consultant); Associate (Management Consultant); Engagement Manager (Management Consultant),Boston,192000,2026-01-23,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Santander Bank, N.A.",15-2051.00,Data Scientists,adjacent,9,"Associate, Product Analytics; Senior Associate, Data Stewardship; Sr. Associate, Product Analytics",Boston; Quincy,139999,2026-01-21,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"A.T. Kearney, Inc.",13-1111.00,Management Analysts,adjacent,8,Associate; Manager; Principal,Boston; Cambridge,200000,2026-04-30,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CVS Shared Services Resources LLC,15-2051.00,Data Scientists,adjacent,8,Data Scientist; Senior Data Scientist,Wellesley,130000,2025-11-07,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cartesian, Inc",15-2031.00,Operations Research Analysts,adjacent,8,Business Analyst; Consultant; Senior Business Analyst,Boston,100000,2026-04-30,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Chewy, Inc.",15-2051.00,Data Scientists,adjacent,8,Data Engineer Ii; Data Scientist Ii; Data Engineer Iii,Boston,139525,2025-11-21,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"McKinsey & Company, Inc. United States",15-2051.00,Data Scientists,adjacent,8,Data Engineer Ii; Principal Data Scientist I; Senior Data Scientist I,Boston,165750,2026-02-24,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+State Street Bank and Trust Company,15-1211.00,Computer Systems Analysts,adjacent,8,Senior Business Analyst [00089686]; Product Development [00089065]; Technical Product Management [00095863],Burlington; Boston,146806,2025-11-14,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Adobe Inc.,15-2051.00,Data Scientists,adjacent,7,Machine Learning Engineer; Software Development Engineer; Research Scientist/Engineer (118.4456.8),Waltham; Cambridge,162000,2025-12-12,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BAIN & COMPANY, INC.",13-1111.00,Management Analysts,adjacent,7,Senior Manager; Consultant; Senior Associate Consultant,Boston,202000,2026-02-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Deloitte Consulting LLP,15-2031.00,Operations Research Analysts,adjacent,7,Manager; Specialist Master; Senior Consultant,Boston; Cambridge,115086,2025-12-01,2026-03-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ernst & Young U.S. LLP,13-1111.00,Management Analysts,adjacent,7,Management Analysts - Kbgfjg218390-8; Management Analysts - Kbgfjg194339-10; Management Analysts - Kbgfjg339814-5,Boston; Revere,205000,2026-01-16,2026-04-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+FMR LLC d/b/a Fidelity Investments,13-1111.00,Management Analysts,adjacent,7,"Management Consultant Ii; Management Consultant Iii; Director, Asset Management Strategy & Planning",Boston,160000,2025-12-26,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"McKinsey & Company, Inc. United States",13-1111.00,Management Analysts,adjacent,7,Knowledge Specialist; Associate Partner (Management Consultant); Expert,Boston,192000,2025-11-21,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PricewaterhouseCoopers Advisory Services LLC,15-2031.00,Operations Research Analysts,adjacent,7,Senior Associate,Boston,180000,2026-02-18,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+State Street Bank and Trust Company,15-2051.00,Data Scientists,adjacent,7,Business Analysis [00083114]; It Business Analysis [00096377]; Front & Middle Office Data Engineer - Alpha [00109596],Quincy; Boston,114088,2025-11-14,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Westernacher & Partner Consulting, Inc.",15-1211.00,Computer Systems Analysts,adjacent,7,Senior Associate (Consultant); Associate (Consultant); Principal (Consultant),Wellesley,160000,2025-11-14,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+eClinicalWorks LLC,15-2031.00,Operations Research Analysts,adjacent,7,Product Analyst; Product Manager; Product Analyst-Rcm,North Grafton; Westborough,77000,2026-03-09,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Brigham and Women's Hospital,15-2051.00,Data Scientists,adjacent,6,Data Analyst Ii; Data Analyst I; Senior Data Engineer,Boston; Somerville,75137,2025-11-25,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dana-Farber Cancer Institute,15-2051.00,Data Scientists,adjacent,6,Sr. Advanced Analytics Engineer; Bioinformatics Engineer I; Sr Advanced Analytics Engineer,Boston,97500,2025-11-18,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Mutual Life Insurance Company,15-2051.00,Data Scientists,adjacent,6,Data Engineer; Data Analyst; Data Analytics Consultant,Springfield; Boston,143123,2025-12-01,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sensata Technologies, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,6,Product Marketing Specialist; Product Specialist; Product Manager,Attleboro,100007,2026-02-19,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Staples, Inc.",15-2031.00,Operations Research Analysts,adjacent,6,Sr. Analyst Sc Ops Research; Senior Manager Automation & Robotics Engineer; Senior Automation Engineer,Framingham,122625,2026-02-23,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vertex Pharmaceuticals Incorporated,15-2051.01,Business Intelligence Analysts,core,6,"Business Engagement & Technology Principal Engineer; Director, Business Engagement & Technology; Patient Safety Systems Principal Analyst",Boston,161803,2025-11-14,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ZS Associates, Inc.",15-2031.00,Operations Research Analysts,adjacent,6,Decision Analytics Consultant; Decision Analytics Associate Consultant,Boston,164600,2026-01-20,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Analog Devices, Inc.",15-2051.00,Data Scientists,adjacent,5,"Lead Analyst, Data Scientist; Senior Engineer, Data Engineering; Engineer, Ai/Ml Software",Boston; Wilmington,152994,2025-11-18,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Medical Center Corporation,15-2051.00,Data Scientists,adjacent,5,Population Health Senior Analyst; Senior Quality Improvement Data Analyst; Data Analyst,Boston,98530,2026-03-27,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"COMPUNNEL SOFTWARE GROUP, INC",15-1211.00,Computer Systems Analysts,adjacent,5,Systems Analyst,Boston; North Quincy,107000,2025-12-17,2026-04-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cotiviti, Inc.",15-2051.00,Data Scientists,adjacent,5,Data And Insight Analyst; Generative Ai Scientist; Data Engineer,Attleboro; Jamaica Plain,111340,2026-04-29,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+FMR LLC d/b/a Fidelity Investments,15-2051.01,Business Intelligence Analysts,core,5,"Principal Product Delivery Analyst, Crypto Payments; Principal Systems Analyst; Manager, Systems Analysis - Digital Assets",Boston,109870,2026-01-02,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SCHNEIDER ELECTRIC USA, INC.",15-2051.00,Data Scientists,adjacent,5,"Lead, Data Scientist; Lead, Data Engineer",Boston; Andover,147627,2026-04-22,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+State Street Bank and Trust Company,15-2051.01,Business Intelligence Analysts,core,5,Business Analysis [00083114]; Software Engineering & Development [00094859]; Data Analytics & Management [00095641],Boston; Quincy,153567,2025-11-19,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Trinity Partners, LLC",15-2031.00,Operations Research Analysts,adjacent,5,"Senior Business Intelligence Developer; Senior Consultant, Commercial Strategy; Senior Consultant - Real World Evidence, Client Engagement",Waltham; Boston,140000,2026-02-27,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aetna Resources LLC,15-2051.01,Business Intelligence Analysts,core,4,"Sr Analyst, Business Analytics; Sr Manager, Business Consultant; Sr Mgr, Project Prog Mgt",Wellesley; Salem,120740,2026-04-08,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Arthur D. Little, LLC",15-2031.00,Operations Research Analysts,adjacent,4,Business Analyst; Consultant; Business Analyst 2,Boston,115086,2026-05-22,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aspentech Corporation,15-2051.00,Data Scientists,adjacent,4,Sr. Data Scientist; Principal Data Scientist,Bedford; Woburn,148623,2026-05-12,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Axtria INC,15-2031.00,Operations Research Analysts,adjacent,4,Senior Associate (Associate Band); Project Lead (Associate Band),Waltham; Cambridge,93000,2026-04-30,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BJ's Wholesale Club, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,4,Lead Market Intelligence Analyst; Lead Membership Analyst; Digital Marketplace Analyst,Marlborough,103962,2026-04-07,2026-04-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Biogen, Inc.",15-2031.00,Operations Research Analysts,adjacent,4,"Sr. Manager, Business Insights & Analytics; Sr Ci Engineer; Manager, Business Analysis",Cambridge,131500,2026-02-26,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Biogen, Inc.",15-2051.01,Business Intelligence Analysts,core,4,"Associate Director, Business Insights & Analytics; Associate Director, Commercial Data Management; Sr. Director, Customer & Market Insights",Cambridge,162000,2026-03-31,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"COMPUNNEL SOFTWARE GROUP, INC",13-1111.00,Management Analysts,adjacent,4,Management Analyst/ Lead Consultant; Management Analyst/Lead Consultant; Business Analyst,Boston,120000,2026-01-29,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Chewy, Inc.",15-2051.01,Business Intelligence Analysts,core,4,Merchandising Analytics Manager; Senior Marketing Analytics Manager; Senior Merchandising Data Analyst,Boston,133774,2025-12-18,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EMD MILLIPORE CORPORATION,15-2051.00,Data Scientists,adjacent,4,"Sustainability Data Engineer; Sr. Analyst, Market Intelligence; Senior Marketing Data Science Lead",Bedford; Boston,138401,2026-05-12,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Eli Lilly and Company,15-2041.00,Statisticians,adjacent,4,Principal Scientist - Scientific Data; Principal Computational Statistician; Director - Statistics,Boston; Quincy,139340,2025-11-14,2026-03-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ernst & Young U.S. LLP,15-2031.00,Operations Research Analysts,adjacent,4,Operations Research Analysts - Kbgfjg180932-8; Operations Research Analysts - Kbgfjg180247-7; Operations Research Analysts - Kbgfjg22219-25,Boston; Raynham,185000,2025-12-15,2026-02-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Global GP LLC,15-2051.01,Business Intelligence Analysts,core,4,Analytics Engineer; Business Intelligence Analyst; Business Intelligence Specialist,Waltham; Newton,110650,2025-11-04,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Humana Inc.,15-2051.00,Data Scientists,adjacent,4,Senior Data Scientist; Cognitive/Machine Learning Lead; Lead Data Scientist,Boston; Natick,152212,2025-12-09,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Keystone Strategy LLC,13-1111.00,Management Analysts,adjacent,4,Consultant I (Management Analyst); Principal (Management Analyst),Boston,118726,2025-12-12,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Keystone Strategy LLC,15-2051.00,Data Scientists,adjacent,4,Data Scientist Ii; Investigations Engineer Ii; Sr. Data Engineer,Boston,137946,2026-05-08,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+L.E.K. Consulting LLC,13-1111.00,Management Analysts,adjacent,4,Consultant,Boston,185000,2026-03-02,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Liberty Mutual Group Inc.,15-2051.00,Data Scientists,adjacent,4,"Analyst Ii, Data Science; Asst Dir, Data Science (Stp); Analyst Ii, Data Science (Stp)",Boston,137946,2026-01-28,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Microsoft Corporation,15-2051.00,Data Scientists,adjacent,4,Data Engineering; Data Science; Applied Sciences,Cambridge; Burlington,173270,2025-11-14,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SAP America, Inc.",15-1211.00,Computer Systems Analysts,adjacent,4,It Technology Services Senior Specialist; Technology Senior Consultant; Senior Value Advisor,Burlington; Boston,166799,2025-11-26,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SAR TECH LLC,15-2051.01,Business Intelligence Analysts,core,4,Business Intelligence Analyst,Quincy; Mansfield,106329,2026-06-10,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SCHNEIDER ELECTRIC USA, INC.",15-2051.01,Business Intelligence Analysts,core,4,"Senior Data Analyst; Senior Manager, Corporate Strategic Intelligence; Strategic Intelligence Data Analyst",Boston,150296,2026-03-24,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SCOOTAROUND, INC.",13-1161.00,Market Research Analysts and Marketing Specialists,core,4,Senior Corporate Strategy And Development Analyst,Brighton,132000,2026-06-05,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SS&C Technologies, Inc.",15-2051.00,Data Scientists,adjacent,4,Lead Data Scientist [00107529]; Senior Data Scientist (00112243); Sr Data Scientist (00112247),Waltham,157500,2026-04-23,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Salesforce, Inc.",15-2051.00,Data Scientists,adjacent,4,Software Engineering Mts; Data Scientist; Senior Ai Scientist,Burlington; Boston,177092,2026-03-13,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+WHOOP Inc.,15-2051.00,Data Scientists,adjacent,4,Machine Learning Engineer Ii; Senior Data & Ml Observability Analyst; Machine Learning Engineer,Boston,148250,2026-06-01,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+WIPRO LIMITED,15-1211.00,Computer Systems Analysts,adjacent,4,Techno Functional Consultant L2,North Quincy; Waltham,116970,2025-11-21,2026-01-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"XPO Enterprise Services, LLC",15-2051.00,Data Scientists,adjacent,4,"Scientist, Data Science",Boston,114088,2026-01-22,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Akamai Technologies, Inc.",15-2051.01,Business Intelligence Analysts,core,3,Senior Services Analyst; Business Operations Analyst Ii,Cambridge,116514,2026-03-09,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alkermes, Inc.",15-2051.01,Business Intelligence Analysts,core,3,"Sr. Analyst, Sales & Marketing Analytics; Senior Manager, Market Access Analytics; Director, Commercial Forecasting",Waltham,131000,2026-02-18,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alnylam US, Inc.",15-2051.00,Data Scientists,adjacent,3,"Director Finance Operations- Digital Enablement; Principal Statistical Programmer; Associate Director, Insights & Analytics",Cambridge,185000,2025-11-20,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amgen Inc.,15-2051.00,Data Scientists,adjacent,3,Principal Data Scientist; Senior Data Scientist; Sr Data Scientist,Cambridge,155250,2026-01-30,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Analysis Group, Inc.",15-2051.00,Data Scientists,adjacent,3,Senior Data Scientist; Data Scientist,Boston,160000,2026-01-30,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Medical Center Corporation,15-2051.01,Business Intelligence Analysts,core,3,Manager Ehr & Data Analytics Grmdc; Hospital Reporting And Analytics Senior Manager; Population Health Senior Analyst,Roslindale; Boston,102000,2025-11-24,2026-03-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CRA International, Inc.",15-2031.00,Operations Research Analysts,adjacent,3,Analyst - Energy; Associate - Energy,Boston,92500,2026-04-28,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CVS Pharmacy Inc.,15-2051.00,Data Scientists,adjacent,3,"Decision Scientist; Data Scientist; Manager, Financial Planning And Analysis",Wellesley; Whitman,131336,2026-04-03,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cambridge Mobile Telematics, Inc.",15-2051.00,Data Scientists,adjacent,3,Senior Data Analyst; Senior Data Scientist; Machine Learning Engineer Ii,Cambridge,137946,2025-11-14,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Caremark LLC,15-2051.00,Data Scientists,adjacent,3,Sr. Data Scientist; Sr Data Scientist,Wellesley,153348,2026-01-23,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ChopChop Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,3,Chief Marketing Officer; Marketing Specialist,Everett,104000,2026-06-04,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Dark Horse Consulting Group, Inc.",13-1111.00,Management Analysts,adjacent,3,Senior Consultant,Framingham; Boston,154776,2025-12-18,2026-01-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Everest Clinical Research Corporation,15-2041.00,Statisticians,adjacent,3,Sr. Statistical Programmer,Everett,130000,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+FMR LLC d/b/a Fidelity Investments,15-2051.00,Data Scientists,adjacent,3,"Senior Manager, Data Science; Director, Data Science",Boston,161803,2025-12-26,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"FNA Consulting Group, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,3,Market Research Analyst; Marketing Research Analyst,Woburn,60570,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Federal Express Corporation,15-2051.00,Data Scientists,adjacent,3,Sr Data Analyst; Data Scientist Ii,Boston,123750,2026-01-26,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+General Hospital Corporation,15-2031.00,Operations Research Analysts,adjacent,3,Senior Project Manager; Senior Data Analyst; Project Manager I,Boston,78603,2025-12-22,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Global GP LLC,15-2051.00,Data Scientists,adjacent,3,Senior Machine Learning Engineer; Data Scientist; Senior Data Scientist,Waltham; Newton,160500,2025-12-02,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Google LLC,15-2051.00,Data Scientists,adjacent,3,Data Scientist; Engineering Analyst; Data Scientist - Product,Cambridge; Grafton,185000,2026-04-07,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Grantham, Mayo, Van Otterloo & Co. LLC",15-2051.00,Data Scientists,adjacent,3,Research Data Analyst; Research Data Engineer; Quantitative Operations Lead,Boston,155000,2026-03-30,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Hebrew Rehabilitation Center,15-2051.00,Data Scientists,adjacent,3,Data Scientist Ii; Data Scientist I,Roslindale,86424,2026-02-05,2026-02-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+IQVIA Inc.,15-2031.00,Operations Research Analysts,adjacent,3,"Associate Consultant, Strategy/Life Science; Consultant; Consultant 2, Strategy/Life Sciences",Boston,125000,2026-05-22,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+InterSystems Corporation,15-1211.00,Computer Systems Analysts,adjacent,3,Developer Support Engineer Ii; Senior Cloud Architect,Boston,106434,2025-11-18,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Kraft Group LLC,15-2051.00,Data Scientists,adjacent,3,Ai Data Scientist,Foxborough; Foxboro,110000,2026-03-13,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Liberty Mutual Group Inc.,15-2041.00,Statisticians,adjacent,3,"Senior Actuarial Analyst; Asst Dir, Data Science (Stp); Director Ii, Data Science",Boston,150000,2026-02-09,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Magnite, Inc.",15-2051.00,Data Scientists,adjacent,3,Data Scientist; Senior Data Scientist,Boston,137946,2025-11-19,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Institute of Technology,15-2031.00,Operations Research Analysts,adjacent,3,Research Scientist; Postdoctoral Associate,Cambridge,90000,2025-11-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Mutual Life Insurance Company,15-1211.00,Computer Systems Analysts,adjacent,3,Business Systems Analyst (Data Strategy); Business Consultant,Springfield; Boston,124800,2025-11-14,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"McKinsey & Company, Inc. United States",15-2051.01,Business Intelligence Analysts,core,3,Senior Analyst; Software Delivery Specialist; Knowledge Expert,Boston,150500,2026-02-24,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Mobi Systems, Inc.",15-2031.00,Operations Research Analysts,adjacent,3,Staff Research Scientist,Somerville,170000,2026-03-26,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"New Balance Athletics, Inc.",15-2051.00,Data Scientists,adjacent,3,Principal Analytics Engineer; Inventory Systems Optimization Manager,Boston; Brighton,137946,2025-12-24,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Northeastern University,15-2051.00,Data Scientists,adjacent,3,Lead Data Scientist; Associate Research Scientist,Boston,131325,2026-03-23,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Quantexa Inc.,15-2051.00,Data Scientists,adjacent,3,Senior Data Engineer; Data Engineer,Boston,137946,2026-05-08,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Roland Berger LP,13-1111.00,Management Analysts,adjacent,3,Senior Consultant; Principal; Project Manager,Boston,215000,2026-04-23,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Staples, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,3,"Senior Customer Analyst-Growth & Retention; Director, Pricing & Analytics - Marketplace; Brand Analyst",Framingham,124848,2026-04-28,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TRUSTEES OF BOSTON UNIVERSITY,15-2041.00,Statisticians,adjacent,3,Statistical Programmer Ii; Senior Data Analyst,Boston,80000,2025-10-01,2026-03-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Development Center Americas, Inc.",15-2051.00,Data Scientists,adjacent,3,Senior Data Engineer; Data Scientist; Digital Scientist,Cambridge,147870,2026-04-21,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+The Nasdaq Stock Market LLC,15-2051.00,Data Scientists,adjacent,3,Sr. Specialist - Data Science,Boston,161803,2026-06-08,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Massachusetts Office of the President,15-2051.00,Data Scientists,adjacent,3,Data Analyst; Analytics Specialist I,Westborough,74318,2025-12-11,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vertex Pharmaceuticals Incorporated,15-2051.00,Data Scientists,adjacent,3,Senior Data Scientist Ii; People Analytics Senior Manager; Commercial Analytics Associate Director,Boston,161803,2025-12-24,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+WIPRO LIMITED,13-1111.00,Management Analysts,adjacent,3,Domain Consultant L4; Domain Consultant L3,North Quincy; Waltham,149552,2026-01-26,2026-03-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+XORIANT CORPORATION,15-1211.00,Computer Systems Analysts,adjacent,3,Business Analyst/Product Owner; Business Analyst,North Quincy,126700,2026-01-21,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+eClinicalWorks LLC,15-1211.00,Computer Systems Analysts,adjacent,3,Technical Support Analyst; Product Analyst - Phm; Technical Product Analyst,Shrewsbury; North Grafton,81000,2026-05-28,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+7TECHNIX LLC,15-1211.00,Computer Systems Analysts,adjacent,2,Deputy Director Of Finance And Analytics; Business Systems Finance Data And Analytics,Somerville,126630,2026-06-24,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AI TECHNOLOGIES LLC,15-2051.01,Business Intelligence Analysts,core,2,Integrated Business Analyst; Business System Analyst,Worcester,75816,2026-01-02,2026-01-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AIR Worldwide Corporation,15-2051.00,Data Scientists,adjacent,2,"Lead, Data Science And Business Intelligence Generalist; Team Lead Data Science",Boston,114250,2026-02-23,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AMERICAN TOWER CORPORATION,15-1211.00,Computer Systems Analysts,adjacent,2,Senior Business Application Analyst; Senior Systems Application Analyst,Woburn,130275,2025-11-24,2025-11-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ARC ADVISORY GROUP, INC.",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Senior Market Research Analyst,Westford,102000,2026-04-24,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ARROWMINDS INC,15-1211.00,Computer Systems Analysts,adjacent,2,Computer Systems Analyst,Worcester,98051,2026-06-11,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ARTIFINT TECHNOLOGIES LLC,15-2051.00,Data Scientists,adjacent,2,Data Scientist / Investment Performance Data Analyst; Data Scientist,Somerville; Boston,102159,2026-06-15,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Accenture LLP,13-1111.00,Management Analysts,adjacent,2,Tech Architecture Assoc Manager; Management Consulting Manager,Melrose; Westborough,155726,2026-04-13,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aetna Resources LLC,15-2031.00,Operations Research Analysts,adjacent,2,"Sr Analyst, Business Consultant; Mgr, Hc Qual Proj Mgt (Ic)",Manchester; Quincy,83951,2026-03-26,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aetna Resources LLC,15-2041.00,Statisticians,adjacent,2,"Avp, Data Science",Wellesley,329688,2026-04-17,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Airocean Gases, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Market Research Analyst,Chelsea,70606,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Airocean Gases, LLC",15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst,Chelsea,102159,2026-04-14,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Akamai Technologies, Inc.",15-2051.00,Data Scientists,adjacent,2,Senior Ii Data Scientist Lead; Manager Data Science,Cambridge,162051,2026-05-13,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alexion Pharmaceuticals, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Global/Us Market Research & Ci Partner; Commercial Leadership Development Associate,Boston,163633,2025-12-18,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alkermes, Inc.",15-2051.00,Data Scientists,adjacent,2,"Associate Director, Sales & Marketing Analytics; Manager, Market Access Analytics",Waltham,163475,2026-01-16,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Alyfar,15-1211.00,Computer Systems Analysts,adjacent,2,Computer Systems Analysts,Worcester; Boston,94500,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ambit RD Inc,13-1111.00,Management Analysts,adjacent,2,Consultant (Life Science); Consultant,Boston; Cambridge,127500,2025-11-14,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amgen Inc.,15-2031.00,Operations Research Analysts,adjacent,2,Development Data & Analytics Manager; Strategic Planning & Operations Sr. Manager,Dorchester; Cambridge,156532,2026-02-26,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ampion, PBC",15-2041.00,Statisticians,adjacent,2,Revenue Operations Analyst Ii; Revenue Operations Analyst,Winchester; Stoneham,76000,2026-05-07,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Analog Devices, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,"Senior Specialist, Marketing",Wilmington,112750,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Apple Inc.,15-2051.00,Data Scientists,adjacent,2,Machine Learning Research; Machine Learning,Cambridge,161400,2026-03-13,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aptiv U.S. Services General Partnership,13-1111.00,Management Analysts,adjacent,2,"Director, Strategy; Corporate Strategy Analyst",Boston,165552,2026-02-02,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aptiv US Services General Partnership,13-1111.00,Management Analysts,adjacent,2,"Director, Strategy; Strategy Analyst",Boston,186863,2026-01-29,2026-01-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Arbella Insurance Group,15-2051.00,Data Scientists,adjacent,2,Data Scientist I; Actuarial Data Analyst Ii,Quincy,96323,2026-05-27,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Aurus, Inc.",15-1211.00,Computer Systems Analysts,adjacent,2,"Analyst, Auruspay",Norwood,184145,2026-02-09,2026-02-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BJ's Wholesale Club, Inc.",15-2051.00,Data Scientists,adjacent,2,Sr Data Scientist; Lead Data Scientist,Marlborough; Marlboruogh,164443,2026-04-07,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+BLUE PLANET INC,15-2031.00,Operations Research Analysts,adjacent,2,Business Analytics Manager; Operations Research Analyst,Brockton,85654,2025-11-14,2026-02-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Blue Matter Consulting LLC,13-1111.00,Management Analysts,adjacent,2,Consultant,Boston,118726,2025-11-17,2025-11-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Blue Ocean Realty LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Market Research Analyst; Marketing Research Analyst,Allston; Boston,70606,2026-04-14,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Board Americas, Inc.",15-2051.00,Data Scientists,adjacent,2,"Product Enablement Manager, Academy",Boston,124250,2025-11-17,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+BonCamel Inc.,15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst,Brookline,114400,2026-05-12,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Boston Consulting Group, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Senior Analyst – Bcg Vantage; Senior Manager - Bcg Vantage,Boston,135550,2026-06-02,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Boston Consulting Group, Inc.",15-2051.01,Business Intelligence Analysts,core,2,Senior Analyst - Bcg Vantage; Global Product Manager,Boston,125300,2026-05-19,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Energy Trading and Marketing LLC,15-1211.00,Computer Systems Analysts,adjacent,2,"Real Time Systems Analyst, Scada/Generation",Boston,163749,2025-11-19,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Medical Center Corporation,15-2031.00,Operations Research Analysts,adjacent,2,"Operations Manager, Nursing Resources; Senior Revenue Cycle Business Analyst",Boston,96000,2025-11-24,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Scientific Corporation,15-2031.00,Operations Research Analysts,adjacent,2,"Fellow Analyst, Supply Chain; Commercial Operations Analyst",Marlborough,119978,2026-03-13,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bright Vision Technologies,15-2051.00,Data Scientists,adjacent,2,Data Scientist,Reading; Somerville,137946,2026-05-14,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CALPASINTAI INC.,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Market Research Analysts And Market; Market Research Analysts And Marketing Specialists,Boston,100693,2026-02-23,2026-02-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CRA International, Inc.",15-2041.00,Statisticians,adjacent,2,Consulting Associate - Competition; Consulting Associate - Financial Markets,Boston,117750,2025-11-14,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CRRC MA CORPORATION,15-2031.00,Operations Research Analysts,adjacent,2,Hr Operations Analyst; Procurement Operations Specialist,Quincy; Springfield,87827,2025-11-07,2026-03-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Callodine Capital Management LP,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,"Business Development Analyst; Analyst, Marketing And Investor Relations",Boston,100693,2026-05-05,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Calsoft Labs Inc,15-2041.00,Statisticians,adjacent,2,Sr. Statistical Programmer,Marlborough,108784,2026-04-03,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cambridge Computer Services, Inc.",15-1211.00,Computer Systems Analysts,adjacent,2,Technical Solution Consultant,Waltham,110000,2026-03-16,2026-03-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cartesian, Inc",15-2051.01,Business Intelligence Analysts,core,2,Senior Business Analyst; Consultant,Boston,125000,2026-02-20,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cohere Health, Inc.",15-2051.00,Data Scientists,adjacent,2,Senior Machine Learning Engineer; Sr. Business Intelligence Engineer,Needham; Boston,131650,2026-03-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Columbus Trading Partners USA Inc,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Sales Analyst (00101059); Sales Analyst (00108537),Boston,72821,2026-03-05,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Conflux Systems Inc,15-2051.01,Business Intelligence Analysts,core,2,Business Analyst,Boston,114088,2026-02-11,2026-02-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DELL MARKETING L.P.,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,"Senior Analyst, Channel Marketing; Advisor, Channel Marketing",Hopkinton,101400,2026-06-12,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DOTCOM TEAM LLC,15-2041.00,Statisticians,adjacent,2,Data Scientist; Data Analyst,Somerville,90000,2025-10-01,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Da Tiny Homes LLC,13-1111.00,Management Analysts,adjacent,2,Management Analyst,Leominster,95722,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dana-Farber Cancer Institute,15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst; Sr. Business Intelligence Analyst,Boston,94875,2025-11-04,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Definitive Healthcare, LLC",15-2031.00,Operations Research Analysts,adjacent,2,"Avp, Insights And Analytics",Framingham,250000,2026-01-30,2026-02-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Deloitte & Touche LLP,15-2051.00,Data Scientists,adjacent,2,Audit & Assurance Senior Consultant; Audit And Assurance Senior Consultant,Waltham; Boston,125144,2026-03-30,2026-03-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Deloitte Consulting LLP,13-1111.00,Management Analysts,adjacent,2,Manager; Project Delivery Specialist,Boston,139355,2026-02-04,2026-03-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Deloitte Consulting LLP,15-2051.00,Data Scientists,adjacent,2,Specialist Master,Quincy; Boston,5085901,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Deloitte LLP,13-1111.00,Management Analysts,adjacent,2,Lead Independence Analyst,Boston; Sudbury,123613,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dynamic Ideas LLC,15-2051.00,Data Scientists,adjacent,2,Data Scientist [00108550]; Data Scientist [00108549],Waltham,126473,2026-05-19,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EMD MILLIPORE CORPORATION,15-2051.01,Business Intelligence Analysts,core,2,"Manager, Inhouse Consulting; Ls Ddit Ace Portfolio Manager",Burlington,140000,2025-11-20,2026-02-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"EMD Serono, Inc.",15-2051.00,Data Scientists,adjacent,2,"Assoc. Director, Business Intelligence Architect & Report; Senior Data Scientist",Boston,178200,2026-01-28,2026-03-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ehomie Boston Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Data Analyst; Marketing Specialist,Boston,80642,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Energy Exemplar, LLC",15-2031.00,Operations Research Analysts,adjacent,2,Senior Energy Market Analyst (Data); Energy Market Analyst,Cambridge; Boston,132267,2026-02-04,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Epsilon Data Management LLC,15-2051.00,Data Scientists,adjacent,2,"Staff Research Scientist, Decision Sciences; Senior Staff Research Scientist, Decision Sciences",Boston,156806,2026-05-19,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ernst & Young U.S. LLP,15-2041.00,Statisticians,adjacent,2,Statisticians - Kbgfjg266332-3,Boston,93600,2026-03-04,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Everquote, Inc.",15-2051.00,Data Scientists,adjacent,2,Senior Quantitative Analyst; Senior Analyst,Cambridge,90230,2025-12-15,2026-03-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fetch Rewards, Inc.",15-2051.00,Data Scientists,adjacent,2,Senior Data Analyst; Machine Learning Engineer,Medford; Amherst,141038,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fidelity Brokerage Services LLC d/b/a Fidelity Investments,15-2051.01,Business Intelligence Analysts,core,2,"Senior Manager, Advanced Data Analytics And Insights; Manager, Advanced Data Analytics And Insights",Boston,135000,2026-04-14,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fidelity Technology Group, LLC d/b/a Fidelity Investments",15-2051.01,Business Intelligence Analysts,core,2,Principal It Data Analyst; Senior Systems Analyst,Boston,109076,2026-05-12,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"GRANITE TELECOMMUNICATIONS, LLC",15-1211.00,Computer Systems Analysts,adjacent,2,Technical Business Analyst; Software Engineer Iv,Quincy,107460,2025-12-10,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"GRANITE TELECOMMUNICATIONS, LLC",15-2051.00,Data Scientists,adjacent,2,Ai Engineer I; Machine Learning Data Engineer,Quincy,116750,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Geisinger System Services,15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst Senior; Business Intelligence Analyst Lead,Woburn; Sharon,104582,2026-01-02,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Genscape Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Market Analyst - Kbgfjg274921-3; Market Analyst - Kbgfjg253122-4,Boston,85392,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Genscape, Inc.",15-2051.01,Business Intelligence Analysts,core,2,Market Associate (Wmc); Market Analyst Lead,Boston,91993,2026-04-21,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Genzyme Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,"Sr. Product Manager - U.S. Allergy Marketing; Manager, Commercial Leadership Development Program",Cambridge,122250,2026-04-07,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Global Youth Consultancy LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Market Research Analyst,Brookline,122720,2026-05-26,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ground Truth Analytics, LLC",15-2051.00,Data Scientists,adjacent,2,Ai Research Associate,Cambridge,165000,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"GroupM Worldwide, LLC",15-2051.00,Data Scientists,adjacent,2,"Manager, Data & Analytics",Framingham; Boston,102000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Gupta Media Holdings LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Business Analyst,Boston,85000,2026-05-01,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HEYLII LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Market Research Analyst,Boston,102000,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Harvard University,15-2051.00,Data Scientists,adjacent,2,Research Associate; Postdoctoral Fellow,Cambridge,84659,2025-12-23,2026-04-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Health Advances, LLC",15-2031.00,Operations Research Analysts,adjacent,2,Senior Analyst,Newton,116000,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Homesite Group Incorporated,15-2051.00,Data Scientists,adjacent,2,Senior Data Engineer; Senior Engineer,Boston,122499,2026-01-13,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ITARKS INC,15-2031.00,Operations Research Analysts,adjacent,2,Business Analyst,Boston,100381,2026-05-21,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ideal Source Inc,15-1211.00,Computer Systems Analysts,adjacent,2,Software Systems Analyst,Quincy,106434,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Infinite Computer Solutions, Inc.",15-1211.00,Computer Systems Analysts,adjacent,2,Senior System Engineer; Computer Systems Analyst,Hingham; Somerville,106434,2026-02-17,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Insurance Services Office, Inc",15-2051.00,Data Scientists,adjacent,2,Data Engineer Ii; Data Scientist,Boston,117060,2026-04-13,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Integration Developer Network LLC,15-2051.01,Business Intelligence Analysts,core,2,Business Analyst,Needham Heights,126017,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+J&J Solutions Consulting Inc,15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst; Business Analyst,Revere; Waltham,114088,2026-05-29,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Janssen Research & Development, LLC",15-2051.00,Data Scientists,adjacent,2,"Principal Data Scientist, Real World Evidence (Rwe); Associate Director, Data Science&Digital Health-Neuroscience",Cambridge,190000,2025-11-14,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Klaviyo, Inc.",15-2051.00,Data Scientists,adjacent,2,Ai Engineer Ii; Sr. Data Scientist,Boston,129000,2026-05-05,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LandGate Corp,15-2031.00,Operations Research Analysts,adjacent,2,Jr. Transmission Engineer,Boston,78301,2026-05-26,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LandGate Corp.,15-2031.00,Operations Research Analysts,adjacent,2,Transmission Engineer,Boston,100381,2026-05-26,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Leadoo Academy LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Marketing Analyst,Watertown,100693,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Logging-in.com, LLC",15-2051.00,Data Scientists,adjacent,2,Data Analyst,Dorchester; Boston,115000,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MAPFRE U.S.A. Corp.,15-2051.00,Data Scientists,adjacent,2,Data Scientist Iii [00099232]; Data Scientist Ii [00113810],Webster,142064,2026-04-16,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Man Investments USA Holdings Inc,15-2031.00,Operations Research Analysts,adjacent,2,Portfolio Analyst,Boston,100381,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Marvel Technology Solutions Inc,15-1211.00,Computer Systems Analysts,adjacent,2,Business Analyst; Interface Analyst,North Quincy,106434,2026-04-08,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Mutual Life Insurance Company,15-2051.01,Business Intelligence Analysts,core,2,Business Analytics Director; Product Management Consultant,Boston; Springfield,122823,2026-01-16,2026-04-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"McKinsey & Company, Inc. United States",15-2041.00,Statisticians,adjacent,2,Senior Capabilities And Insights Analyst; Capabilities And Insights Specialist,Boston,129050,2025-12-02,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ModernaTX, Inc.",15-2051.00,Data Scientists,adjacent,2,"Data Scientist; Associate Director, Data, Agentic Ai & Automation Architect",Cambridge,161803,2026-01-16,2026-04-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Morgan Stanley Smith Barney LLC,15-2041.00,Statisticians,adjacent,2,Senior Vice President,Boston,108784,2026-04-30,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Morph Management Inc,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Business Development Consultant; Market Research Analyst,Woburn,72821,2026-04-08,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NATIONAL GRID USA SERVICE COMPANY, INC.",15-2051.00,Data Scientists,adjacent,2,"Senior Data Scientist; Associate Quantitative Analyst, Data Science",Waltham,128429,2026-02-23,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+NJS  ASSOCIATES  COMPANY,15-2041.00,Statisticians,adjacent,2,Data  Analyst; Biostatistician,Waltham,106500,2025-12-10,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Neoss, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Senior Lead Marketing Specialist,Westborough,124484,2026-06-11,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Newfold Digital, inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,2,Sr. Marketing Analyst,Watertown; Waltham,100786,2026-05-07,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Northern Management Group LLC,15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst,Dedham,115000,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Northland Investment Corporation,15-1211.00,Computer Systems Analysts,adjacent,2,Business Systems Analyst Ii,Newton,110967,2026-04-13,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Olympus Corporation of the Americas,15-2031.00,Operations Research Analysts,adjacent,2,"Senior Data Analyst, Global Logistics & Transportation",Westborough,96533,2026-04-20,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Optum Services, Inc.",15-2031.00,Operations Research Analysts,adjacent,2,Business Analyst Consultant,Brighton,117668,2026-04-22,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Oracle America, Inc.",15-2051.00,Data Scientists,adjacent,2,Data Scientist,Burlington,137945,2026-02-02,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Pharmaessentia Innovation Research Center Inc.,15-1211.00,Computer Systems Analysts,adjacent,2,Senior Computational Biologist,Bedford,143400,2026-05-22,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Plymouth Rock Home Assurance Corporation,15-2051.00,Data Scientists,adjacent,2,Senior Advanced Analytics Manager; Associate Data Scientist,Boston,176750,2026-01-06,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Populus Group LLC,15-2051.00,Data Scientists,adjacent,2,Data Analyst; Sr. Data Engineer,Cambridge; Norwood,129355,2026-05-07,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PricewaterhouseCoopers Advisory Services LLC,15-2051.00,Data Scientists,adjacent,2,Senior Associate; Senior Manager,Boston,184500,2026-04-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ProcDNA Inc.,15-2051.01,Business Intelligence Analysts,core,2,Director - Analytics; Associate Engagement Lead,Boston,172061,2025-12-30,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Quantiphi, Inc.",15-2031.00,Operations Research Analysts,adjacent,2,Senior Business Analyst; Associate Product Manager,Marlborough,116543,2026-05-08,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Quantiphi, Inc.",15-2051.00,Data Scientists,adjacent,2,Machine Learning Engineer; Senior Machine Learning Engineer,Marlborough,114795,2026-05-08,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Red Hat, LLC",15-2051.00,Data Scientists,adjacent,2,Senior Datacenter Operations Engineer; Data Scientist,Lowell; Boston,135000,2026-05-29,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Rigelsky, Inc.",13-1111.00,Management Analysts,adjacent,2,Business Systems Analyst,Woburn,118726,2026-04-29,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SPOTIFY USA, INC.",15-2051.00,Data Scientists,adjacent,2,Senior Machine Learning Engineer,Boston,268870,2026-01-23,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SURGE TECHNOLOGY SOLUTIONS INC,15-2051.00,Data Scientists,adjacent,2,Data Scientist,Roxbury,114088,2026-06-22,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SYSTALYZE INC.,15-2051.00,Data Scientists,adjacent,2,Ai/Ml Engineer,Cambridge,172500,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sagitec Solutions, LLC",15-1211.00,Computer Systems Analysts,adjacent,2,Lead Business Analyst,Worcester,114006,2026-02-12,2026-03-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Samara Cabinetry, Inc.",15-2031.00,Operations Research Analysts,adjacent,2,Operations Research Analyst,North Reading,72000,2026-06-03,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Samrajya Services LLC,15-2051.00,Data Scientists,adjacent,2,Data Engineer; Senior Data Engineer,Northborough,97953,2025-12-09,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Sanofi US Services Inc.,15-2051.00,Data Scientists,adjacent,2,Data Engineer,Cambridge,114088,2025-11-14,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Santander Holdings USA, Inc.",15-2041.00,Statisticians,adjacent,2,"Senior Analyst, Risk Modeling",Boston; New York,97500,2026-06-08,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sensata Technologies, Inc.",13-1111.00,Management Analysts,adjacent,2,Business Analyst - Servicenow; Strategic Transformation Lead,Attleboro,140110,2026-03-06,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ServiceNow, Inc.",15-2051.00,Data Scientists,adjacent,2,"Lead, Senior Data Scientist; Senior Data Scientist",Boston; Waltham,149874,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SharkNinja Operating LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,2,"Marketing Operations Lead; Director, Commercial Analytics & Insights",Needham,152000,2026-04-20,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SharkNinja Operating LLC,15-2051.00,Data Scientists,adjacent,2,"Manager, Core Quality Engineering; Senior Data Engineer",Needham,144901,2026-02-02,2026-03-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SharkNinja Operating LLC,15-2051.01,Business Intelligence Analysts,core,2,Category Analyst; Sr. Analytics Engineer,Needham,94250,2026-05-20,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Strategic Advisers LLC d/b/a Fidelity Investments,15-2051.00,Data Scientists,adjacent,2,"Senior Associate, Financial Solutions; Senior Manager, Data Strategy",Boston,118792,2026-04-06,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+T1 Consulting LLC.,15-2031.00,Operations Research Analysts,adjacent,2,Operations Research Analyst,Waltham,100381,2026-04-29,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TALENTECH CONSULTING LLC,15-2041.00,Statisticians,adjacent,2,Senior Statistical Programmer,Brighton,108784,2026-05-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TATA CONSULTANCY SERVICES LIMITED,15-1211.00,Computer Systems Analysts,adjacent,2,Functional Consultant,Cambridge; Marlborough,106434,2026-03-23,2026-03-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"TD Bank, National Association",15-2051.00,Data Scientists,adjacent,2,Applied Machine Learning Scientist; Data Scientist,Boston,118994,2026-04-14,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TEKSOFT SYSTEMS INC.,15-2051.00,Data Scientists,adjacent,2,Data Analyst,South Grafton; Hopkinton,105997,2026-05-13,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tata Consultancy Services Limited,15-1211.00,Computer Systems Analysts,adjacent,2,Analyst,Burlington; North Quincy,106434,2026-06-16,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TechData Service Company LLC,15-2041.00,Statisticians,adjacent,2,Sr.  Statistical  Analyst; Senior  Statistician,Arlington; Lynn,120000,2026-02-13,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Teradyne, Inc.",13-1111.00,Management Analysts,adjacent,2,Product Manager,North Reading,135000,2026-04-17,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+The Veritas Healthcare Solutions LLC,15-2051.00,Data Scientists,adjacent,2,Data Analyst,Hopkinton; Cambridge,114088,2026-06-16,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Tiger Analytics, Inc.",15-2031.00,Operations Research Analysts,adjacent,2,Data Engineering Analyst; Data Science Analyst,Boston,124000,2026-05-06,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Trestellae Inc,15-2051.00,Data Scientists,adjacent,2,Data Scientist,Shrewsbury,87000,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tufts University,15-2051.00,Data Scientists,adjacent,2,Postdoctoral Scholar,Medford,77159,2026-03-13,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+UNIUNI LOGISTICS INC.,15-2031.00,Operations Research Analysts,adjacent,2,"Business Operations Analyst And Logistics Management; Logistics Operations Research Analyst, Warehouse Automation",Malden; Revere,70949,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vertex Pharmaceuticals Incorporated,15-2041.00,Statisticians,adjacent,2,Senior Statistical Programmer Ii,Quincy; Needham Heights,129600,2026-03-06,2026-03-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Xometry Inc.,15-2051.00,Data Scientists,adjacent,2,"Data Scientist Ii, Product Analytics; Director, Data Science",Waltham,177500,2025-12-12,2025-12-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+YORKSHIRE GLOBAL SOLUTIONS INC,15-2051.01,Business Intelligence Analysts,core,2,Business Intelligence Analyst,Boston; Taunton,107250,2026-03-11,2026-03-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Yankee Book Peddler, Inc",15-2051.00,Data Scientists,adjacent,2,Business/Data Analyst Ii,Haverhill,99012,2026-04-14,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ZoomInfo Technologies, LLC",15-2051.00,Data Scientists,adjacent,2,Data Engineer Iii; Data Scientist Ii,Waltham,128660,2025-12-08,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ZoomInfo Technologies, LLC",15-2051.01,Business Intelligence Analysts,core,2,"Senior Business Intelligence Analyst; Data Engineer Iii, Data Services",Waltham,123365,2026-06-11,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"athenahealth, Inc.",15-2031.00,Operations Research Analysts,adjacent,2,"Product Analytics, Manager",Boston,116307,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+new edge technology,15-1211.00,Computer Systems Analysts,adjacent,2,Business Analyst,Boston,126880,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"1Life Healthcare, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer Ii,Cambridge,166000,2026-02-03,2026-02-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+360 IDE LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Ukg Wfm Consultant,Jamaica Plain,108160,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+360insights (USA) Ltd.,15-2051.01,Business Intelligence Analysts,core,1,Senior Bi Analyst/Developer,Medway,126080,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"4CONSULTING, INC",15-1211.00,Computer Systems Analysts,adjacent,1,Functional Analyst,Wilbraham,76211,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"89 Degrees, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Senior Marketing Analyst,Boston,110000,2025-12-29,2025-12-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ADUSA Procurement, LLC",15-2051.01,Business Intelligence Analysts,core,1,Analyst Iv Sc Advanced Analytics,Quincy,114088,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"AFT Analytics, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Chicopee,190000,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"AGIOS PHARMACEUTICALS, INC.",15-2051.01,Business Intelligence Analysts,core,1,"Director, Commercial Analytics",Lexington,260100,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AI SYNC INNOVATIONS LLC,13-1111.00,Management Analysts,adjacent,1,Management Analyst,East Boston,118726,2026-05-22,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AJK TECH INSIGHTS LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Malden,115000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AMERICAN TOWER CORPORATION,13-1111.00,Management Analysts,adjacent,1,"Senior Director, Finance Process Strategy",Boston,226565,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AMERISOURCEBERGEN SERVICES CORPORATION,15-2031.00,Operations Research Analysts,adjacent,1,Business Solutions Analyst Ii,Reading,95680,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AMERITECH GLOBAL INC.,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Boston,106434,2026-02-12,2026-02-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"AMUR TECHNOLOGIES, INC.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Worcester,97906,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ANet Achievement Network,15-2051.01,Business Intelligence Analysts,core,1,Data Scientist,Grafton,134836,2026-03-06,2026-03-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ARPELS INVESTMENT LLC,15-2031.00,Operations Research Analysts,adjacent,1,Business Operations Research Analyst,Boston,100381,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ARTIFINT TECHNOLOGIES LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Senior Consultant - Marketing,Revere,80642,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ARTIFINT TECHNOLOGIES LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst (Cpq Analyst),Waltham,90230,2026-01-06,2026-01-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ASRK LLC,15-2051.00,Data Scientists,adjacent,1,Microsoft Power Platform Developer,Southborough,97906,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AVANT-GARDE HEALTH INC,15-2051.00,Data Scientists,adjacent,1,Data Engineer – Client Implementation,Boston,130000,2025-12-12,2025-12-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Abacus Insights, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer,Revere,120000,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Acadian Asset Management LLC.,15-2051.00,Data Scientists,adjacent,1,"Analyst, Data Implementation Engineering",Boston,138000,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Accendra Health, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer,Allston,90230,2026-05-22,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Accenture LLP,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Digital Marketing Strategy Senior Analyst,Boston,87200,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Accrete, Inc.",15-2051.00,Data Scientists,adjacent,1,"Vice-President, Ai Research",Wellesley,260000,2025-12-09,2025-12-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Adbakx LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Analyst,Springfield,104125,2026-03-26,2026-03-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Adobe Inc.,15-2051.01,Business Intelligence Analysts,core,1,Professional Services Consultant,Ashland,185000,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Adroit Associates, Inc.",13-1111.00,Management Analysts,adjacent,1,Business Analyst,Everett,118726,2026-03-25,2026-03-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Advantage Sales & Marketing LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Sr Analyst Market Research,East Weymouth,81783,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Advantage Technical Resourcing, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Governance Lead,Quincy,161803,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Advisor360, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist Iii,Needham,138000,2026-05-15,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Aetna Resources LLC,15-2051.00,Data Scientists,adjacent,1,"Sr. Analyst, Informatics",Boston,97850,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Affirm, Inc.",15-2041.00,Statisticians,adjacent,1,Quantitative Analyst Ii,Boston,127858,2026-02-17,2026-02-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Agama Solutions Corp,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Boston,114088,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ahead, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Associate Consultant,Lynn,92700,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ahold Delhaize USA Services, LLC",15-2051.00,Data Scientists,adjacent,1,Manager I Machine Learning,Quincy,161803,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ahold Delhaize USA Services, LLC",15-2051.01,Business Intelligence Analysts,core,1,Business Systems Analyst Ii,Quincy,73250,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ailux Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Director Of Corporate Communications,South Boston,121316,2026-04-03,2026-04-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Airflow Dynamics LLC,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boston,90230,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Akamai Technologies, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Program Specialist,Cambridge,96900,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Akamai Technologies, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Senior Business Operations Analyst,Cambridge,121161,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Akoya LLC,13-1111.00,Management Analysts,adjacent,1,Product Manager,Boston,126480,2025-11-28,2025-11-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alexion Pharmaceuticals, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,"Associate Director, Rdu It - Innovation Accelerator",Boston,145396,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alexion Pharmaceuticals, Inc.",15-2051.01,Business Intelligence Analysts,core,1,"Associate Director, Commercial Data Analytics And Reporting",Boston,161803,2026-01-28,2026-01-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Alira Health Boston LLC,15-2031.00,Operations Research Analysts,adjacent,1,Engagement Manager,Framingham,163000,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"AlixPartners, LLP",13-1111.00,Management Analysts,adjacent,1,"Director, Performance",Boston,293000,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alkermes, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,"Sr. Business Analyst Ii, Enterprisewide Business Systems",Waltham,154000,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AlphaSense Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Analyst Ii, Channel And Customer Research",Westborough,76500,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Alphonso Inc,15-2051.01,Business Intelligence Analysts,core,1,"Sr. Analyst, Technical Operations",Boston,131445,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alterego AI, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Data Operational Analyst,Cambridge,71000,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Altman Solon US, LP",13-1111.00,Management Analysts,adjacent,1,Manager,Boston,225000,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Altman Solon US, LP",15-2031.00,Operations Research Analysts,adjacent,1,Manager,Boston,225000,2026-04-14,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Altman Solon US, LP",15-2051.00,Data Scientists,adjacent,1,"Analyst, Analytics Innovation",Boston,111650,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Alvarez & Marsal Infrastructure & Capital Projects, LLC",13-1111.00,Management Analysts,adjacent,1,Manager,Boston,170000,2026-03-24,2026-03-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Amazon Data Services, Inc",15-2031.00,Operations Research Analysts,adjacent,1,Technical Business Developer Iii,Boston,182000,2025-12-09,2025-12-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Amazon Web Services, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Functional Marketing Ii,Boston,80642,2025-11-17,2025-11-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Amazon Web Services, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Product Manager Iii,Boston,142600,2025-12-12,2025-12-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Amazon Web Services, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer I,Boston,90230,2026-03-04,2026-03-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amazon.com Services LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Instock Manager I,Westborough,68000,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amazon.com Services LLC,15-2031.00,Operations Research Analysts,adjacent,1,Agentic Ai Teacher,Boston,73000,2025-11-19,2025-11-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amazon.com Services LLC,15-2041.00,Statisticians,adjacent,1,Tech Training Specialist Ii,Westborough,135300,2025-12-30,2025-12-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"American Family Mutual Insurance Company, S.I.",15-2051.00,Data Scientists,adjacent,1,Senior Data Engineer,Boston,129322,2025-12-24,2025-12-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"American Technology Consulting, LLC",13-1111.00,Management Analysts,adjacent,1,Business Technical Operations Consultant Ii,Quincy,118726,2025-12-04,2025-12-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"American Technology Consulting, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Boston,93600,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+American Tower Corporation,15-2051.01,Business Intelligence Analysts,core,1,Business Reporting Developer,Woburn,124861,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Amgen Inc.,15-2051.01,Business Intelligence Analysts,core,1,Sr. Associate Is Engineer,Everett,100605,2026-06-09,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ampersand Biomedicines, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer Ii,Boston,115000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Amplified Industries, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Boston,116000,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Anagh Technologies Inc,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Westborough,120640,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Analog Devices, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,"Senior Manager, Data Scientist",Wilmington,178035,2025-12-17,2025-12-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Anansys Software Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Workday Consultant,Attleboro,110000,2026-01-14,2026-01-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Anxin Management LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Analyst,Boston,62000,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Apexsync Technologies LLC,15-2051.00,Data Scientists,adjacent,1,Data Analyst,Boston,97760,2025-12-23,2025-12-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Application Engineering Group, Inc.",15-2051.00,Data Scientists,adjacent,1,Sr. Data Scientist,Worchester,153920,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Applied Materials, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Gloucester,147541,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Apps Associates LLC,15-2051.01,Business Intelligence Analysts,core,1,Senior Consultant,Westford,114100,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Aprio Advisory Group, LLC",15-2051.00,Data Scientists,adjacent,1,Ai Engineer,Boston,120000,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Arbella Insurance Group,15-1211.00,Computer Systems Analysts,adjacent,1,Hris Business Analyst Ii,Quincy,114109,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Arch Insurance Group Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Analyst Iii,Lowell,127500,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Arrow Electronics, Inc.",15-2051.00,Data Scientists,adjacent,1,Artificial Intelligence Engineer,Medford,132000,2026-02-25,2026-02-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Arrowstreet Capital, Limited Partnership",15-2051.00,Data Scientists,adjacent,1,"Associate, Quantitative Researcher",Boston,180000,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Arteriocyte Medical Systems, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Product Manager,Hopkinton,120765,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Association for Corporate Growth,15-2041.00,Statisticians,adjacent,1,Statistician,Boston,89731,2026-04-14,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+AstraDx Inc,15-2051.00,Data Scientists,adjacent,1,Ai/Ml Engineer,Beverly,150000,2025-12-10,2025-12-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Authright Inc.,15-2051.01,Business Intelligence Analysts,core,1,Business & Market Intelligence Analyst,Dedham,105144,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Automated Tire, Inc.",15-2051.00,Data Scientists,adjacent,1,Computer Vision Data Scientist,Boston,115000,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Availity, LLC",15-2051.00,Data Scientists,adjacent,1,Machine Learning Engineer,Boston,155000,2025-12-26,2025-12-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Avco Consulting, Inc.",15-2051.00,Data Scientists,adjacent,1,Business Analyst,Quincy,114088,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Avco Consulting, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Quincy,114088,2026-05-28,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Avira Digital LLC.,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Boston,120000,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Axcelis Technologies Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Production Planner Ii,Beverly,87550,2025-12-23,2025-12-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Axtria INC,15-1211.00,Computer Systems Analysts,adjacent,1,Senior Manager (Manager Band),Waltham,151000,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ayer Media, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Project Manager/Business Analyst,Boston,80642,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ayna.AI LLC,13-1111.00,Management Analysts,adjacent,1,Associate,Cambridge,120000,2026-06-12,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BAIN CAPITAL, LP",15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Manager [00104217],Boston,175000,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BAIN CAPITAL, LP",15-2051.00,Data Scientists,adjacent,1,Business Systems Analyst (Treasury & Inv. Finance Systems),Boston,114088,2026-04-03,2026-04-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BEBETTERNOW, Inc.",13-1111.00,Management Analysts,adjacent,1,E-Commerce Operations And Internal Controls Manager,Salem,163405,2025-12-29,2025-12-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BET Information Systems, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boston,138000,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BLEND360, LLC",15-2051.00,Data Scientists,adjacent,1,Senior Decision Architect,Tewksbury,137946,2026-05-15,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+BLUE PLANET INC.,15-2051.01,Business Intelligence Analysts,core,1,Data Analyst,Brockton,90230,2026-04-06,2026-04-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+BONCAMEL INC.,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Brookline,114088,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BORA Capital, LLC",15-2051.01,Business Intelligence Analysts,core,1,Investment Data & Analytics Associate,Woburn,119600,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BackOffice Associates, LLC",15-2051.00,Data Scientists,adjacent,1,Senior Consultant,Brighton,137946,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BarkBox, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Sales And Operations Planning Manager,Boston,110000,2026-05-08,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Baycare Health Partners, Inc.",15-2051.00,Data Scientists,adjacent,1,Bi Developer/Analyst,Springfield,99450,2026-04-07,2026-04-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bayer HealthCare Pharmaceuticals Inc.,15-2051.00,Data Scientists,adjacent,1,Sr. Clinical Quantitative Scientist,Cambridge,170000,2025-11-20,2025-11-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BeOne Medicines US Manufacturing Co., Inc.",15-2041.00,Statisticians,adjacent,1,Senior Statistician,Needham,144900,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Beacon Climate Innovations LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Distributed Energy Resource (Der) Tech. Mkt. Strategy Lead,Somerville,121160,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Beghou Consulting,13-1111.00,Management Analysts,adjacent,1,Associate Partner,Boston,256300,2026-06-30,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Beghou Consulting LLC,15-2031.00,Operations Research Analysts,adjacent,1,Senior Consultant,Boston,129100,2025-12-19,2025-12-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Beijing Herbal Foot SPA INC,13-1111.00,Management Analysts,adjacent,1,Management Analyst,Salem,120640,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Beijing Taste LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Brighton,83200,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Bentley Systems, Incorporated",15-1211.00,Computer Systems Analysts,adjacent,1,Senior Consultant,Acton,192146,2025-12-02,2025-12-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Berkshire Hathaway Specialty Insurance Company,15-2051.00,Data Scientists,adjacent,1,"Senior Vice President, Ai & Emerging Technology",Boston,450000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Berry Global, Inc.",15-2051.00,Data Scientists,adjacent,1,Manager Of Applied Data Science,Devens,185000,2026-02-20,2026-02-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Beth Israel Deaconess Medical Center, Inc.",15-2041.00,Statisticians,adjacent,1,Senior Clinical Research Coordinator,Boston,61381,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Beth Israel Deaconess Medical Center,Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Analyst,Boston,81598,2026-02-20,2026-02-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bicycle Therapeutics Inc.,15-2051.00,Data Scientists,adjacent,1,"Senior Manager, Data Science",Lexington,192500,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BioCurie, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Ai/Ml Engineer,Cambridge,170000,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Biocytogen Boston Corp.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Associate,Waltham,80642,2026-04-15,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Biogen Inc.,15-2041.00,Statisticians,adjacent,1,"Principal Analyst, Statistical Programming",Cambridge,127858,2025-12-22,2025-12-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Biogen, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Assoc Director, Market Access",Cambridge,171000,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Biogen, Inc.",15-2041.00,Statisticians,adjacent,1,"Principal Analyst, Statistical Programming",Medway,127858,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Biogen, Inc.",15-2051.00,Data Scientists,adjacent,1,"Scientist, Chem & Mol Therapeutics",Cambridge,137946,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Bioinfo Systems, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Sr Business Analyst,Quincy,107120,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Bioverativ Therapeutics, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Integration Expert,Waltham,146806,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"BlackRock Financial Management, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Associate,Boston,135100,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Blue Cross Blue Shield of Massachusetts,15-2031.00,Operations Research Analysts,adjacent,1,Data Solutions Consultant,Hopkinton,132702,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Blue Cross Blue Shield of Massachusetts,15-2051.00,Data Scientists,adjacent,1,"Senior Manager, Reporting Analytics – Provider Operations",Hingham,141000,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boise State University,15-2051.00,Data Scientists,adjacent,1,Data Warehouse Developer 3,Rutland,117561,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+BonCamel Inc.,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Brookline,114400,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bos Auto Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Quincy,100693,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Beer Corporation,15-2051.01,Business Intelligence Analysts,core,1,"Business Analyst, Enterprise Data",Boston,112750,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston College,15-2041.00,Statisticians,adjacent,1,Assistant Research Director,Chestnut Hill,116982,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston College,15-2051.00,Data Scientists,adjacent,1,Reporting & Systems Manager,Chestnut Hill,105500,2026-02-05,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston College,15-2051.01,Business Intelligence Analysts,core,1,"Assistant Director, Reporting & Data Analytics",Newton,86424,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Housing Authority,15-2031.00,Operations Research Analysts,adjacent,1,Operations Systems Analyst Ii,Boston,85654,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Moves Real Estate LLC,15-2051.01,Business Intelligence Analysts,core,1,Market Intelligence Analyst,Boston,90230,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Music Project (BMP),13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Development Operations Assistant,Boston,63315,2025-12-22,2025-12-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Public Health Commission,15-1211.00,Computer Systems Analysts,adjacent,1,Enterprise Systems Analyst Ii,Boston,111072,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Scientific Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Field Sales Business Analyst Ii,Marlborough,80642,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Boston Scientific Corporation,15-2051.00,Data Scientists,adjacent,1,Principal Commercial Data Solutions Analyst,Marlborough,137946,2026-02-25,2026-02-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Bounteous, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Business Analyst,Boston,120000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Bricz, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Supply Chain Principal,Jamaica Plain,164383,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bridgenext Digital Engineering Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Simcorp Dimension Technical Consultant,Boston,97000,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bright Horizons Children's Centers LLC,15-2051.01,Business Intelligence Analysts,core,1,Senior Product Data Management Director,Newton,177650,2025-12-16,2025-12-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bristol- Myers Squibb Company,15-1211.00,Computer Systems Analysts,adjacent,1,"Manager, Biologics Development It Business Partner",Devens,126630,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bristol-Myers Squibb Company,15-2041.00,Statisticians,adjacent,1,"Manager, Senior Statistician",Devens,130000,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Bristol-Myers Squibb Company,15-2051.00,Data Scientists,adjacent,1,"Manager, Ai Engineering & Enablement",Devens,128750,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Buchanan Technologies, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Westborough,136500,2026-01-16,2026-01-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ButcherBox OpCo, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Product Analyst,Watertown,109200,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ButcherBox OpCo, LLC",15-2031.00,Operations Research Analysts,adjacent,1,Merchandising Analyst Iii,Watertown,158080,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Button Vena LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Malden,83200,2025-12-08,2025-12-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CABOT PROPERTIES, INC.",15-2051.01,Business Intelligence Analysts,core,1,"Business Development And Capital Markets, Associate",Boston,115345,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CAC Auto Group Boston LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Southborough,88629,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CALIFORNIA CREATIVE SOLUTIONS, INC.",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,New Bedford,98571,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CANDID,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Brighton,118179,2025-12-22,2025-12-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CDM Smith Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Lead Erp Applications Developer,Boston,174907,2025-11-05,2025-11-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CGT INNOVATIONS COMPANY,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Cambridge,127000,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CIMCON Software, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Westford,135000,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CLOUD5 SOLUTIONS INC,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Boston,106500,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CRA International, Inc.",15-2051.00,Data Scientists,adjacent,1,Associate Principal - Competition,Boston,250000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CSX Transportation, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Sr. Operations Research Scientist I,Burlington,146885,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CUBICOID SOLUTIONS LLC,15-2051.00,Data Scientists,adjacent,1,Technical Business Analyst,Quincy,114088,2026-02-20,2026-02-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CVS Pharmacy Inc.,15-2041.00,Statisticians,adjacent,1,Data Engineer,Wellesley,116185,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CVS Pharmacy Inc.,15-2051.01,Business Intelligence Analysts,core,1,Lead Decision Scientist,Ashland,180873,2026-01-21,2026-01-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CVS Shared Services Resources LLC,15-2051.01,Business Intelligence Analysts,core,1,Decision Scientist,Wellesley,120840,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cambridge Mobile Telematics, Inc.",15-2041.00,Statisticians,adjacent,1,Principal Data Scientist I,Cambridge,145100,2025-11-18,2025-11-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Candex Solutions, Inc.",13-1111.00,Management Analysts,adjacent,1,Senior Product Manager,Boston,205000,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Candex Solutions, Inc.",15-2051.00,Data Scientists,adjacent,1,Associate Data Engineer,Quincy,115000,2026-04-30,2026-04-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CapExpert Company,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Amherst,90000,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Capital One Services, LLC",15-2051.00,Data Scientists,adjacent,1,Data Analysis Manager,Cambridge,161803,2025-11-19,2025-11-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Capital One, National Association",15-2051.00,Data Scientists,adjacent,1,"Principal Associate, Data Scientist",Cambridge,128990,2025-12-11,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CarGurus, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Product Data Analyst,Boston,138200,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Caremark LLC,15-2041.00,Statisticians,adjacent,1,Sr Data Scientist,Wellesley,165429,2026-01-27,2026-01-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Caremark LLC,15-2051.01,Business Intelligence Analysts,core,1,Lead Decision Scientist,Wellesley Hills,184000,2025-11-20,2025-11-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Carna Health (Carna Inc.),13-1111.00,Management Analysts,adjacent,1,"Vice President, Global Growth",Boston,150000,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cartesian Systems, Inc.",15-2051.00,Data Scientists,adjacent,1,Machine Learning Scientist,Cambridge,162000,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cartesian, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Business Analyst,Boston,90000,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Casella Waste Systems, Inc.",15-2051.01,Business Intelligence Analysts,core,1,"Bi (Business Intelligence) & Data Warehouse Analyst, Sr.",Holden,112681,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Catalytic Consulting, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Hudson,90230,2026-01-02,2026-01-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cedar Cares, Inc.",15-2051.00,Data Scientists,adjacent,1,Applied Ai/Ml Scientist,Cambridge,168000,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cengage Learning, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Strategy Analyst,Somerville,99210,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CenturyLink Communications LLC,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Quincy,90230,2026-03-04,2026-03-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cepheid,13-1111.00,Management Analysts,adjacent,1,Senior Manufacturing Operations Data Analyst,Burlington,131664,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cermax Corp.,15-2051.00,Data Scientists,adjacent,1,Data Analyst,Boston,174720,2026-01-02,2026-01-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Certified Kernel Tech LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Data Analyst,Watertown,97400,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cervello Inc.,13-1111.00,Management Analysts,adjacent,1,Consultant,Boston,90000,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cherish Health, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist Iii,Boston,137946,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cherry Technologies Inc.,15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Boston,200000,2026-01-16,2026-01-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Children's Hospital Corporation,15-2051.00,Data Scientists,adjacent,1,Computational Health Information Data Manager,Boston,74318,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ciena Corporation,15-2051.00,Data Scientists,adjacent,1,Routing/Ip Software Engineer,Bridgewater,98500,2025-12-04,2025-12-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cimpress USA Incorporated,15-2051.01,Business Intelligence Analysts,core,1,Senior Analytics Engineer,Waltham,114100,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cirkul, Inc",15-2051.00,Data Scientists,adjacent,1,Senior Performance Marketing Analytics Manager,Newton,175000,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cisco Systems, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Data Analyst,Boston,100200,2025-12-30,2025-12-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cisco Systems, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boxborough,161400,2026-02-10,2026-02-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Citibank, N.A.",15-2051.01,Business Intelligence Analysts,core,1,Risk Reporting Officer,Boston,161803,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Citizen Codex LLC,15-2051.00,Data Scientists,adjacent,1,Machine Learning Engineer,Beverly,130000,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Citizens Financial Group, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Compliance Senior Manager,Boston,137946,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+City of Boston Treasury Division,13-1111.00,Management Analysts,adjacent,1,Policy And Planning Advisor,Boston,100006,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+City of Boston Treasury Division,15-2031.00,Operations Research Analysts,adjacent,1,Optimization Analyst,Boston,76794,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Clark University,15-2031.00,Operations Research Analysts,adjacent,1,Research Analyst,Worcester,75990,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Clark University,15-2051.00,Data Scientists,adjacent,1,Senior Analyst,Worcester,4160000,2025-11-25,2025-11-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Clone Holdings Inc,15-1211.00,Computer Systems Analysts,adjacent,1,Senior Computer Systems Analyst,Somerville,126630,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CloudEQS LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Project Manager,Burlington,86300,2025-11-06,2025-11-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cloudbridge Solutions Inc,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Marlborough,114088,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Coalition Inc.,15-2051.00,Data Scientists,adjacent,1,Data Science Engineer Ii,Boston,153012,2025-12-24,2025-12-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CodaMetrix, Inc.",15-2051.00,Data Scientists,adjacent,1,Applied Data Scientist Iii,Boston,175000,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Coforge Limited,13-1111.00,Management Analysts,adjacent,1,Senior Business Analyst,Boston,114015,2026-05-15,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cogent Biosciences Inc.,15-2051.00,Data Scientists,adjacent,1,"Senior Manager, Commercial Data Management",Waltham,170000,2026-01-29,2026-01-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Cognex Corporation,15-2051.01,Business Intelligence Analysts,core,1,Cpq Process Lead,Natick,180600,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+CoinWorldCap Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Boston,80642,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Coinbase, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Machine Learning Engineer,Needham Heights,202500,2026-03-23,2026-03-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Collaborate Solutions Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Quincy,106434,2026-06-12,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Collaborate Solutions Inc.,15-2051.00,Data Scientists,adjacent,1,Business Analyst,Quincy,114088,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Collectors Universe, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Analyst,Charlestown,161803,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Colliers International WA, LLC",15-2051.00,Data Scientists,adjacent,1,Data Engineer,Cambridge,90500,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Columbus Trading Partners USA Inc,15-2051.01,Business Intelligence Analysts,core,1,Merchandise Planning Operations Business Manager (00101058),Boston,90230,2026-03-05,2026-03-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Comcast Cable Communications, LLC",15-2051.00,Data Scientists,adjacent,1,Sr. Machine Learning Scientist,Newton,114088,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Commonwealth Health Insurance Connector Authority,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boston,119600,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Concept Property Group, LLC",15-2051.00,Data Scientists,adjacent,1,"Director Of Enterprise Data, Ai & Real Estate Architecture",Boston,180000,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Constant Contact, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Waltham,145322,2026-02-20,2026-02-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Coordinai Inc,15-2031.00,Operations Research Analysts,adjacent,1,Senior Operations Research Consultant,Milton,100381,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Corporation Service Company,15-2031.00,Operations Research Analysts,adjacent,1,Senior Data Analyst,Action,86000,2026-03-16,2026-03-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Cox Automotive Corporate Services, LLC",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Senior Analyst,Wakefield,113575,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Creo Advisors LLC,13-1111.00,Management Analysts,adjacent,1,Senior Associate,Medford,120000,2026-05-28,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Crimson Education USA Inc,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Lead Conversion Specialist,Cambridge,70000,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Crocs, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Senior Business Analyst,Boston,105000,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Crocs, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Digital Analyst,Westwood,94349,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Curriculum Associates, LLC",15-2051.00,Data Scientists,adjacent,1,"Senior Product Manager, Artificial Intelligence",Chestnut Hill,161803,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CustomerInsights.AI, Inc.",15-2051.00,Data Scientists,adjacent,1,Engagement Manager,Cambridge,137946,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"CyberArk Software, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Senior Internal Audit Analyst,Newton,107848,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"DANTA TECHNOLOGIES, INC.",15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Malden,100381,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DEB Group LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Boston,100700,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DEV-X Consulting LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Raynham,119600,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DK Crown Holdings Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Senior Site Reliability Engineer,Boston,150550,2025-12-11,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DK Crown Holdings Inc.,15-2051.00,Data Scientists,adjacent,1,Senior Machine Learning Engineer,Boston,131997,2026-06-30,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DK Crown Holdings Inc.,15-2051.01,Business Intelligence Analysts,core,1,Senior Data Science Engineer,Boston,120800,2026-01-22,2026-01-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"DOTHOUSE HEALTH, INC.",13-1111.00,Management Analysts,adjacent,1,Public Health Project Manager,Dorchester,94786,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DUCK CREEK TECHNOLOGIES LLC,15-1211.00,Computer Systems Analysts,adjacent,1,"Solutions Support Engineer, Sr. Manager.",Franklin,174700,2026-03-20,2026-03-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dassault Systemes Americas Corp,15-2051.00,Data Scientists,adjacent,1,Enovia Program & Project Data Science Specialist,Waltham,121868,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dassault Systemes Americas Corp,15-2051.01,Business Intelligence Analysts,core,1,Sales Ops Excellence,Waltham,71822,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"DataEconomy, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Westwood,106500,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DataStack Technologies LLC,15-2051.00,Data Scientists,adjacent,1,Databricks Engineer,Quincy,114088,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Definitive Healthcare, LLC",13-1111.00,Management Analysts,adjacent,1,Principal Insights And Analytics,Boston,186944,2026-02-05,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Delart Technology Services LLC,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Boston,114088,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Delivery Associates Ltd,13-1111.00,Management Analysts,adjacent,1,Project Leader (00106933),Somerville,165000,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Dell USA L.P.,15-2051.00,Data Scientists,adjacent,1,"Consultant, Data Science",Hopkinton,231000,2026-02-10,2026-02-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Deltek, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Strategist,Waltham,145000,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+DigiM Solution LLC,15-2051.00,Data Scientists,adjacent,1,Application Scientist,Woburn,90230,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Digital Plastics, Inc",15-2051.00,Data Scientists,adjacent,1,Lead Machine Learning Engineer,Boston,165000,2026-03-27,2026-03-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Digitas, Inc.",15-2051.00,Data Scientists,adjacent,1,Lead Data Scientist,Boston,148000,2026-03-09,2026-03-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Digitech Services Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Ai Technical And Strategy Analyst,New Bedford,99300,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Discord, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Cambridge,265000,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+District Management Group LLC,15-2041.00,Statisticians,adjacent,1,Senior Associate - Product Development,Boston,127858,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"DoorDash, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Quincy,178800,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Douglas R. Crabtree,15-2041.00,Statisticians,adjacent,1,Tax Data Analyst,Hyannis,78000,2026-03-20,2026-03-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Ducker Research NA, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Analyst,Boston,100980,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+E Ink Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Materials Informatics Scientist,Billerica,135000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"E Source Companies, LLC",15-2051.00,Data Scientists,adjacent,1,Solutions Architect,Waltham,170000,2026-04-15,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+E-CQR INC.,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,Boston,106434,2026-02-04,2026-02-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EASTBRIDGE URBAN DEVELOPMENT INC.,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Medfield,85654,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EBSCO Publishing,15-2051.00,Data Scientists,adjacent,1,Business/Data Analyst Ii,Haverhill,99012,2026-03-02,2026-03-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ECLINICAL SOLUTIONS LLC,15-2051.00,Data Scientists,adjacent,1,Senior Data Engineer,Mansfield,115788,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ELEVATED MANAGEMENT COMPANY LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Digital Marketing Specialist,Plymouth,81000,2026-01-20,2026-01-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EMC CORPORATION,13-1111.00,Management Analysts,adjacent,1,"Senior Advisor, Transformation Pm",Hopkinton,170340,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EMC CORPORATION,15-1211.00,Computer Systems Analysts,adjacent,1,Senior Principal Software Engineer - It,Hopkinton,151940,2025-12-19,2025-12-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EMC CORPORATION,15-2041.00,Statisticians,adjacent,1,Software Engineer 2,Hopkinton,140000,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EMC CORPORATION,15-2051.00,Data Scientists,adjacent,1,"Consultant, Product Management",Hopkinton,194750,2026-03-26,2026-03-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+EQORE Inc.,15-2051.00,Data Scientists,adjacent,1,"Founding Engineer, Machine Learning And Controls",Somerville,114088,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ERPMARK, INC.",15-1211.00,Computer Systems Analysts,adjacent,1,System Engineer,Hingham,106434,2026-03-26,2026-03-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+East Coast RE LTD,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Analytics Specialist,Boston,100000,2026-03-09,2026-03-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Economic Modelling, LLC",15-2051.00,Data Scientists,adjacent,1,Team Lead - Data Science,Boston,154253,2026-01-26,2026-01-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Elevance Health, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Science Solution Consultant Sr,Shrewsbury,154204,2026-01-15,2026-01-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Emergtech Business Solutions, Inc",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,North Attleborough,98571,2025-11-17,2025-11-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Emugen Therapeutics LLC,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Woburn,114088,2026-03-12,2026-03-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Endevor LLC,15-2051.00,Data Scientists,adjacent,1,Data Science Analyst,Worcester,100000,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Epsilon Data Management LLC,15-2031.00,Operations Research Analysts,adjacent,1,"Senior Analytics Architect, Analytics Operations",Wakefield,130000,2026-02-05,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Epsilon Data Management LLC,15-2051.01,Business Intelligence Analysts,core,1,"Senior Manager, Campaign Business Systems Analysis",Wakefield,149227,2025-11-07,2025-11-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Eric Eve & Company LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Consultant,Somerville,80642,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Etsy, Inc.",15-2051.00,Data Scientists,adjacent,1,Applied Scientist Ii,Cambridge,190000,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Evenflo Company, Inc",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Business Analyst (00102685),Canton,71578,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Eversource Energy Service Company,15-2051.00,Data Scientists,adjacent,1,"Senior Data Analyst, Engineering",Westwood,114088,2026-05-28,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Eversource Energy Service Company,15-2051.01,Business Intelligence Analysts,core,1,"Analyst, Project Controls",Westwood,114088,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Everyday Health Media, LLC",15-2051.00,Data Scientists,adjacent,1,"Manager, Revenue Analytics",Woburn,137946,2025-12-17,2025-12-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"EvidenceCare, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer,Westford,239200000,2026-02-19,2026-02-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"FINTRX, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist [00100617],Hingham,115000,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+FORD MOTOR COMPANY,15-2051.00,Data Scientists,adjacent,1,"Manager, People Analytics And Planning",Needham Heights,137946,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Falmouth Pharma LLC,15-2031.00,Operations Research Analysts,adjacent,1,Business Operations Analyst,North Falmouth,110032,2026-03-10,2026-03-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Family Farms Inc,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Sales Analyst,Rutland,73400,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fanatics Holdings, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Analyst Business Systems,Natick,142800,2026-04-01,2026-04-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fidelity Brokerage Services LLC d/b/a Fidelity Investments,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Manager, Marketing Research",Boston,113400,2026-05-08,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fidelity Investments Institutional Operations Company d/b/a Fidelity Investments,15-2051.01,Business Intelligence Analysts,core,1,"Senior Manager, Data Analytics And Insights",Boston,108595,2025-12-04,2025-12-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fidelity Management & Research Company LLC d/b/a Fidelity Investments,13-1111.00,Management Analysts,adjacent,1,"Director, Asset Management Strategy & Planning",Boston,130498,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fidelity Management & Research Company LLC d/b/a Fidelity Investments,15-2051.00,Data Scientists,adjacent,1,Asset Management Risk Manager,Boston,90230,2026-03-19,2026-03-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fidelity Technology Group, LLC d/b/a Fidelity Investments",15-2031.00,Operations Research Analysts,adjacent,1,Vice President,Boston,124301,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Finovax Technologies Inc.,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Boylston,97906,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+First Date Labs Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Boston,100880,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"First Mile Group, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Watertown,240000,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Flexible Architecture and Simplified Technology, Inc.",15-2051.01,Business Intelligence Analysts,core,1,"Sr. Analyst, Implementation & Product/Service Delivery",Worcester,120000,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fogg Auto Sales Inc,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analysts,Taunton,141648,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Formlabs, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Customer Strategy And Operations Lead,Somerville,155200,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Foundation LLM Technologies, Inc.",15-2051.00,Data Scientists,adjacent,1,Research Engineer,Winchester,140000,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"FourthSquare, LLC",15-2051.00,Data Scientists,adjacent,1,Ai / Data Engineer,Dorchester,90230,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fractal Analytics, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,"Senior Consultant, Advanced Analytics",Cambridge,70949,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Freedom Logistics LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,B2B Marketing Specialist,Westborough,73500,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Freedom Mortgage Corporation,15-2051.00,Data Scientists,adjacent,1,Data Science Pred Modeler,Charlestown,90230,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fujitsu North America, Inc.",13-1111.00,Management Analysts,adjacent,1,Management Analyst,Cambridge,149552,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fulcrum Consulting Group LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Consultant I,Boston,105000,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Fulcrum Digital ,Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Application Programmer,North Andover,95000,2025-12-12,2025-12-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Fusion Analytics Software Development Partners LLC,15-2051.01,Business Intelligence Analysts,core,1,Product Manager,Woburn,130500,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+G-SOL LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Analyst,Wilmington,126630,2025-12-19,2025-12-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"G. Greene Construction Company, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Allston,95160,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+GRASSHOPPER BANK NATIONAL ASSOCIATION,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Cambridge,112200,2026-06-09,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+GTECH LLC,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boston,132000,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Gaea Global Technologies, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Marlborough,90230,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Galaxy Software Solutions, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Salesforce Business Analyst,Worcester,114088,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Galaxy US Opco Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Senior Associate,Boston,120000,2026-01-23,2026-01-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Gen Digital Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Analytics Specialist,Boston,85000,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+General Hospital Corporation,13-1111.00,Management Analysts,adjacent,1,"Manager, Analytics",Somerville,130333,2026-03-19,2026-03-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Genpact LLC,13-1111.00,Management Analysts,adjacent,1,Managing Consultant,Boston,149552,2026-06-23,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Genpact LLC,15-2051.00,Data Scientists,adjacent,1,Principal Consultant,Needham,117050,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Genscape, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Market Associate, North American Power",Boston,70000,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Genzyme Corporation,13-1111.00,Management Analysts,adjacent,1,"Senior Director, Us Commercial Insights And Analytics",Cambridge,206250,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Genzyme Corporation,15-2031.00,Operations Research Analysts,adjacent,1,"Associate Director, Forecasting Rare Blood Disorders",Cambridge,148500,2026-03-05,2026-03-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Geotab USA, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Revenue Operations Business Analyst,Medford,108952,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Get Pegasus Inc.,15-2051.00,Data Scientists,adjacent,1,Principal Ai Scientist,Amherst,300000,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+GlaxoSmithKline LLC,15-2051.00,Data Scientists,adjacent,1,Data Engineer I,Cambridge,90230,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Global Competitiveness Corp.,15-2031.00,Operations Research Analysts,adjacent,1,Mechanical Engineering Group Level 3 Research Position,Boston,96246,2026-03-20,2026-03-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Gradiant Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Product Strategy & Business Development,Woburn,105000,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Grantham, Mayo, Van Otterloo & Co. LLC",15-2051.01,Business Intelligence Analysts,core,1,Reporting And Business Intelligence Systems Developer,Boston,115000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Gray Decision Intelligence, Inc.",15-2041.00,Statisticians,adjacent,1,Analyst,Concord,83000,2025-11-05,2025-11-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Grid Dynamics Holdings, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Analyst,Newtonville,100000,2026-06-12,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Growbie, LLC",15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Boston,100880,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"GrowthArc, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer,Quincy,140000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Gupta Media Holdings LLC,15-2051.00,Data Scientists,adjacent,1,Marketing Data Analyst Ii,Boston,100000,2025-11-07,2025-11-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HEMISPHERE DEVELOPMENT GROUP LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Real Estate Market Research Analyst,Waltham,100693,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"HITE Hedge Asset Management, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Braintree,90230,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HJZ BOSTON LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Allston,83200,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HP Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Data Analyst 3,Arlington,85654,2026-03-09,2026-03-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HTHM Operations LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Marlborough,80700,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HUGHES SHIPPING INC.,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Cambridge,86000,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HV Law Group LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Communications Specialist,Sterling,55000,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hair Days, Inc.",15-2051.00,Data Scientists,adjacent,1,Head Of Ai,Boston,161803,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hands-On America Services, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Analyst,Billerica,60570,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hasbro, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Analyst Ecommerce Operations,Boston,85655,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hayden AI Technologies, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Brookline,137946,2026-04-14,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HealthEdge Software,15-2051.01,Business Intelligence Analysts,core,1,Lead Business Intel Analy,Boston,114273,2026-01-27,2026-01-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"HealthEdge Software, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Senior Solutions Analyst,Boston,112230,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Healthcare Financial, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Data Analyst,Quincy,114088,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Hearts & Science LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Manager, Digital",Boston,85000,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Hector Systems Inc,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Norwood,114088,2025-12-11,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Hewlett Packard Enterprise Company,15-2051.00,Data Scientists,adjacent,1,Sales Operations  Analyst Iv,Westford,133890,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hexaware Technologies, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst,North Quincy,106434,2026-01-29,2026-01-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+HinduACTion,15-2031.00,Operations Research Analysts,adjacent,1,Analytical Strategist,Cambridge,85800,2025-11-25,2025-11-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Holistic Hospital Optimization LLC,15-2051.00,Data Scientists,adjacent,1,Data Scientist [00108554],Waltham,137946,2026-05-28,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hologic, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Sr. Business Intelligence Analyst,Marlborough,96000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Home Depot Management Company LLC,15-2031.00,Operations Research Analysts,adjacent,1,Mgr Interconnected Strategy,Medford,199619,2025-12-09,2025-12-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hooke Laboratories, LLC",15-2051.00,Data Scientists,adjacent,1,Data Analyst,Lawrence,90230,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hooli Homes Boston, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Digital Marketing Analyst,Brookline,80642,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hooli Homes Boston, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Operation Analyst,Brookline,85654,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Hotli Inc,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Social Media Strategy & Content Lead,Auburndale,62000,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"HubSpot, Inc.",15-2041.00,Statisticians,adjacent,1,Senior Statistical Analyst,Cambridge,127858,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Humana Inc.,15-2041.00,Statisticians,adjacent,1,Lead Data Scientist,Brookline,155000,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Humana Inc.,15-2051.01,Business Intelligence Analysts,core,1,Senior Business Intelligence Engineer,Natick,117300,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Hydration Labs, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,"Manager, Business Intelligence",Charlestown,168000,2025-11-24,2025-11-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+IBM Corporation,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Belmont,159081,2026-01-20,2026-01-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ICE MORTGAGE TECHNOLOGY, INC.",15-2051.00,Data Scientists,adjacent,1,Lead Data Scientist,Boston,161900,2025-12-26,2025-12-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ID Business Solutions, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Malden,104218,2025-11-06,2025-11-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"INDEGENE, INC",13-1111.00,Management Analysts,adjacent,1,Senior Director - Strategic Solutions,Boston,180378,2026-06-30,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"INDEGENE, INC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Manager - Prma,Tewksbury,100693,2026-05-15,2026-05-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+INFOSYS LIMITED,13-1111.00,Management Analysts,adjacent,1,Domain Consultant 3,Medford,149552,2026-02-06,2026-02-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"INFUSE, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Waltham,80642,2025-12-10,2025-12-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"IQLogg, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Boston,115398,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+IQVIA Inc.,13-1111.00,Management Analysts,adjacent,1,Engagement Manager,Boston,218153,2025-12-04,2025-12-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+IQVIA Inc.,15-2051.00,Data Scientists,adjacent,1,Ai Solutions Delivery 2,Brookline,128613,2025-12-01,2025-12-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+IQVIA RDS INC.,15-2041.00,Statisticians,adjacent,1,Principal Statistical Programmer,Holliston,170000,2026-03-20,2026-03-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"IT MINDS, LLC.",15-2051.01,Business Intelligence Analysts,core,1,Data Scientist,Boston,161803,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+IT TRAILBLAZERS LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst / Business Systems Analyst,Belmont,114088,2026-02-11,2026-02-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Imperial Distributors, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Developer Analyst,Worcester,78416,2026-01-30,2026-01-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Infojini, Inc.",15-2051.00,Data Scientists,adjacent,1,Analyst,Boston,90230,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Innovation AI,15-2051.00,Data Scientists,adjacent,1,Data Analyst,Medford,90230,2026-02-27,2026-02-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Insilicom LLC,15-2051.00,Data Scientists,adjacent,1,Ai Data Scientist,Malden,108000,2025-11-17,2025-11-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Inspire Resources, LLC",15-2051.01,Business Intelligence Analysts,core,1,Lead Database Developer,Canton,144760,2026-03-24,2026-03-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Insulet Corporation,15-2051.01,Business Intelligence Analysts,core,1,Staff Business Intelligence Analyst,Acton,160000,2026-01-23,2026-01-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Insurify, Inc.",15-2051.00,Data Scientists,adjacent,1,Product Manager,Cambridge,158050,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Intellia Therapeutics, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Software Engineer Ii,Cambridge,177900,2025-12-01,2025-12-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Intellisoft Technologies, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Technical Data Analyst,Quincy,114088,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+InterSystems Corporation,15-2031.00,Operations Research Analysts,adjacent,1,Product Specialist,Boston,107192,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+International Recruiting LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Beverly,114088,2026-06-09,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Iris Software, Inc",15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Analyst,Boston,135000,2026-04-06,2026-04-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+JNIT Technologies Inc,13-1111.00,Management Analysts,adjacent,1,Business Analyst,Boston,118726,2026-02-11,2026-02-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"JOHN MATOUK & CO., INC (Successor In Interest to Matouk Textile Works, Inc.)",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Fall River,151612,2026-06-09,2026-06-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+JPMorgan Chase & Co.,15-2031.00,Operations Research Analysts,adjacent,1,Fund Servicing Associate I,Boston,86000,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+JPMorgan Chase & Co.,15-2051.01,Business Intelligence Analysts,core,1,"Senior Associate, Platform Management Associate",Boston,140000,2026-01-30,2026-01-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+JY CARRIERS LLC,13-1111.00,Management Analysts,adjacent,1,Business Analyst,Lawrence,118726,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Jack P Milgram,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Quincy,104000,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Jamsan Hotel Management, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,It Systems Analyst,Lexington,126630,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Jedox, Inc.",13-1111.00,Management Analysts,adjacent,1,Vp Customer Success And Growth,Boston,190000,2026-03-12,2026-03-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Jiayun International Logistics LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Analyst,Boston,81120,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Jill Acquisition LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Is Corporate System Analyst,Quincy,106434,2026-02-05,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Jiten Hotel Management, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Intelligence Analyst,Brockton,80642,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+KAYAK Software Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Cambridge,148846,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+KAYAK Software Corporation,15-2051.01,Business Intelligence Analysts,core,1,"Analyst, Commercial Analytics",Cambridge,99910,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+KBR Wyle Services LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Technical Professional–Test Engineering - Kbgfjg116550-8,Shrewsbury,125638,2025-12-30,2025-12-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+KFORCE INC.,15-2031.00,Operations Research Analysts,adjacent,1,Advanced Business Analyst,Boston,110822,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+KFORCE INC.,15-2051.01,Business Intelligence Analysts,core,1,Senior Data Analyst,Wilmington,114088,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+KODEVA LLC.,15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Boston,108160,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Kakudi Inc.,15-2051.00,Data Scientists,adjacent,1,Data Analytics,Boston,100000,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Keystone Strategy LLC,15-2031.00,Operations Research Analysts,adjacent,1,Ai Program Analyst,Boston,85654,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Keystone Strategy LLC,15-2051.01,Business Intelligence Analysts,core,1,Managing Technologist - Data Engineering,Boston,196914,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Kian Corp,15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Milford,98051,2025-12-05,2025-12-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Kira AI LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Lead Systems Analyst & Founder,Stoneham,106434,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Klaviyo, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Deliverability Operations Analyst,Somerville,114088,2026-01-23,2026-01-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Kognitiv, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Hcm Manager,Newton,150000,2025-12-10,2025-12-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Kosma Tech Inc,15-2051.00,Data Scientists,adjacent,1,Genai Analyst,Worcester,98000,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"LG Energy Solution Vertech, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Integration Engineer,Westborough,100000,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"LGC Clinical Diagnostics, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Associate Marketing Program Manager,Milford,90000,2025-11-26,2025-11-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"LMCG Investments, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Investor Relations And Marketing Associate,Boston,60570,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LONG FINCH TECHNOLOGIES LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Analyst,Allston,87360,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LTIMindtree Limited,15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Boston,126630,2026-02-12,2026-02-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LTM Limited,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Allston,114089,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Lakeview Loan Servicing, LLC",15-2051.01,Business Intelligence Analysts,core,1,Sr. Business Analyst,Brookline,120000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Lakshya Technologies Inc,15-2051.00,Data Scientists,adjacent,1,Data Analyst,Quincy,114088,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Lapp USA, Inc",15-2051.01,Business Intelligence Analysts,core,1,Business Systems Analyst,Watertown,114088,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Last Brand Inc.,15-2051.00,Data Scientists,adjacent,1,Senior Data Analyst,Medford,153000,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Lendbuzz, Inc.",15-2051.00,Data Scientists,adjacent,1,Machine Learning Research Scientist,Boston,161803,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Liberty Mutual Group Inc.,15-2051.01,Business Intelligence Analysts,core,1,"Asst Dir, Data Solutions (Stp)",Boston,137946,2026-02-05,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Life360, Inc.",15-2051.00,Data Scientists,adjacent,1,Lead Data Analyst,Everett,180000,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LightHouse Tech Consulting Inc.,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Braintree,114088,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+LinkedIn Corporation,15-2051.01,Business Intelligence Analysts,core,1,Data Insights – Tech Manager,Boston,161803,2026-03-27,2026-03-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Logic Loops, LLC",15-2051.00,Data Scientists,adjacent,1,Data Engineer,North Quincy,114088,2025-11-05,2025-11-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"London Stock Exchange Group Holdings, Inc.",15-2051.00,Data Scientists,adjacent,1,Quant Analayst,Boston,118800,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Lukka Inc,15-2051.01,Business Intelligence Analysts,core,1,Digital Asset Data Senior Specialist,Brookline,115000,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Lynn Community Health, Inc",15-1211.00,Computer Systems Analysts,adjacent,1,Clinical Applications Analyst,Lynn,80642,2026-02-11,2026-02-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MAGNATE SOLUTIONS LLC.,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Waltham,124800,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MCA Connect LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Sr Consultant,Cambridge,148000,2025-11-07,2025-11-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"MCKINSEY & COMPANY, INC. UNITED STATES",15-2041.00,Statisticians,adjacent,1,Senior Capabilities And Insights Analyst,Boston,116700,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"MCKINSEY & COMPANY, INC. UNITED STATES",15-2051.00,Data Scientists,adjacent,1,Capabilities And Insights Analytics Expert,Boston,228300,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"MCKINSEY & COMPANY, INC. UNITED STATES",15-2051.01,Business Intelligence Analysts,core,1,Senior Data Analytics Specialist,Boston,186300,2025-11-17,2025-11-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MKS Inc.,15-2051.00,Data Scientists,adjacent,1,Business Systems Analyst,Andover,97613,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MOEE SYSTEM INC.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Boston,95000,2026-04-30,2026-04-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MOREFUN LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Boston,81120,2026-06-23,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"MORTGAGE CONNECT, LP",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Developer,Shrewsbury,80000,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+MULTI SERVICE TECHNOLOGY SOLUTIONS INC.,15-2051.00,Data Scientists,adjacent,1,Decision Science Analyst (Data Scientist),Boston,114088,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Machinify, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Boston,161803,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Magna Services of America, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Business Intelligence Engineer,Lowell,148000,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Maia Medical Billing Corp,15-2051.00,Data Scientists,adjacent,1,Vice President Of Artificial Intelligence,Woburn,138000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Mass General Brigham Health Plan,15-2051.00,Data Scientists,adjacent,1,Data Scientist Senior [00099296],Framingham,161803,2026-03-26,2026-03-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Mass General Brigham Incorporated,15-2031.00,Operations Research Analysts,adjacent,1,Senior Project Manager,Boston,109845,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Institute of Technology,15-2041.00,Statisticians,adjacent,1,Postdoctoral Associate,Cambridge,73500,2025-11-24,2025-11-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Institute of Technology,15-2051.00,Data Scientists,adjacent,1,Research Scientist,Cambridge,106605,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Mutual Life Insurance Company,13-1161.00,Marketing Research Analysts and Marketing Specialists,core,1,Consumer Insights Consultant,Boston,110400,2025-11-19,2025-11-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Mutual Life Insurance Company,15-2041.00,Statisticians,adjacent,1,Lead Data Scientist,Boston,167800,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Massachusetts Teachers Association,15-2031.00,Operations Research Analysts,adjacent,1,Education Research And Policy Specialist,Quincy,134195,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Mastercard Technologies, LLC",15-2051.00,Data Scientists,adjacent,1,Senior Data Engineer,Boston,161803,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+McKesson Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Dedham,160052,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"McKinsey & Company, Inc. United States",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market & Competitive Intelligence Manager,Boston,210600,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"McKinsey & Company, Inc. United States",15-2031.00,Operations Research Analysts,adjacent,1,Data Analytics Manager,Boston,193400,2026-03-09,2026-03-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Mental Health Association, Inc.",13-1111.00,Management Analysts,adjacent,1,Data Analyst,Chicopee,76898,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Merck Research Laboratories Massachusetts, LLC",15-2051.00,Data Scientists,adjacent,1,"Sr. Specialist, Data Science",Boston,161803,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Merck Sharp & Dohme LLC,15-2041.00,Statisticians,adjacent,1,"Scientist, Statistical Programming",Quincy,94300,2025-12-11,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Meridian Realty Group LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Boston,86000,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Meta Platforms, Inc",15-2051.00,Data Scientists,adjacent,1,Data Science Manager,Boston,281064,2026-02-04,2026-02-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Michael Allen Company,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Consultant,Cambridge,130000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Microsoft Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Business Planning,Cambridge,174295,2026-02-02,2026-02-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Millennium Campus Network, Inc.",13-1111.00,Management Analysts,adjacent,1,Managing Director,Waltham,77002,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Minerva Space Medicine, PLLC",15-1211.00,Computer Systems Analysts,adjacent,1,Senior Systems Analyst,Boston,147500,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Mitsubishi Electric Research Laboratories, Inc.",15-2051.00,Data Scientists,adjacent,1,Research Scientist,Cambridge,142785,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Mobile Pixels Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Analyst,Burlington,60570,2026-04-15,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Moderna Services, Inc.",15-2041.00,Statisticians,adjacent,1,"Manager, Statistical Programming",Cambridge,153900,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ModernaTX, Inc.",13-1111.00,Management Analysts,adjacent,1,"Associate Director, Cmc-Mba Leadership Accelerator Program",Cambridge,206000,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Montai Therapeutics, Inc.",15-2051.00,Data Scientists,adjacent,1,"Senior Data Engineer Ii, Pre-Clin Drug Discovery",Cambridge,165000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Morgan Stanley Smith Barney LLC,15-2051.00,Data Scientists,adjacent,1,Vice President,Boston,174000,2026-01-23,2026-01-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Morrownest Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Boston,110000,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Mott MacDonald Group Inc.,15-2051.00,Data Scientists,adjacent,1,Specialist Iii Data Scientist,Westwood,90230,2026-05-08,2026-05-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NAGARRO, INC",13-1111.00,Management Analysts,adjacent,1,Business Analyst,Boston,118726,2025-11-26,2025-11-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+NASUFUN Corp.,15-2031.00,Operations Research Analysts,adjacent,1,Social Research & Operations Analyst,Boston,100381,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NATIONAL GRID USA SERVICE COMPANY, INC.",13-1111.00,Management Analysts,adjacent,1,"Senior Data Analyst, Management Data Analysis",Waltham,125660,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NATIONAL GRID USA SERVICE COMPANY, INC.",15-1211.00,Computer Systems Analysts,adjacent,1,"Analyst, Technology And Innovation",Waltham,93831,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NATIONAL GRID USA SERVICE COMPANY, INC.",15-2031.00,Operations Research Analysts,adjacent,1,"Lead Analyst, Us Market Analytics",Boston,148512,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+NE Force LLC,15-2031.00,Operations Research Analysts,adjacent,1,Girls Soccer Operations Lead,Pembroke,98322,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+NETCRACKER TECHNOLOGY CORPORATION,15-2031.00,Operations Research Analysts,adjacent,1,Senior Business Process Analyst,Waltham,115000,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NEXTGEN IT SOLUTIONS, INC.",15-1211.00,Computer Systems Analysts,adjacent,1,Sap S4 Abap Developer,Marlborough,106434,2026-01-02,2026-01-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NEXZENTEK SOLUTIONS, INC.",15-1211.00,Computer Systems Analysts,adjacent,1,Business System Analyst,Milford,98051,2025-12-01,2025-12-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NIKE, Inc.",15-2051.00,Data Scientists,adjacent,1,Lead Data Scientist,Boston,216961,2025-12-12,2025-12-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+NORTHERN MANAGEMENT GROUP LLC,13-1111.00,Management Analysts,adjacent,1,Management Analyst,Dedham,120000,2026-01-22,2026-01-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NTT DATA Americas, Inc.",15-2051.01,Business Intelligence Analysts,core,1,It Senior Director,Canton,161803,2026-01-27,2026-01-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+National Financial Services LLC d/b/a Fidelity Investments,15-2041.00,Statisticians,adjacent,1,"Director, Financial Engineering",Boston,127858,2026-03-23,2026-03-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+National Financial Services LLC d/b/a Fidelity Investments,15-2051.00,Data Scientists,adjacent,1,"Senior Manager, Data Analytics & Insights",Boston,108595,2026-01-02,2026-01-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+National Instruments Corporation,15-2051.01,Business Intelligence Analysts,core,1,Senior Product Manager,Jamaica Plain,116237,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"National Medical Care Inc., a Fresenius Medical Care N.A. company",15-1211.00,Computer Systems Analysts,adjacent,1,"Sr Business Systems Analyst, Revenue Cycle",Lexington,127880,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Netflix, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Cambridge,123531,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"New England Mutual Trading, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Chelsea,70949,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+New England Sports Network,15-2051.00,Data Scientists,adjacent,1,Product Data Scientist,Watertown,90230,2026-04-15,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Nielsen Consumer LLC,15-2041.00,Statisticians,adjacent,1,Senior Data Scientist,Mattapan,111760,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Nitto Denko Avecia, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Sap Technical Lead,Milford,157182,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Noble Club Financial Services, LLC",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Newton,114088,2025-12-26,2025-12-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NobleSoft Solutions, Inc.",15-2051.00,Data Scientists,adjacent,1,Bi Developer,Boston,114088,2025-11-19,2025-11-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Northeastern University,15-2031.00,Operations Research Analysts,adjacent,1,Senior Data Analyst,Sudbury,78603,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Novartis Institutes for BioMedical Research, Inc.",15-2051.00,Data Scientists,adjacent,1,Ai Specialist,Cambridge,114088,2026-03-27,2026-03-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Novo Nordisk Research & Development US, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist Iii,Lexington,135000,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Nucona,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Head Of Marketing And Community Relations,Cambridge,125000,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Nuvert Inc,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Allston,141440,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"NxStage Medical Inc., a Fresenius Medical Care N.A. company",15-2031.00,Operations Research Analysts,adjacent,1,Supply Chain Analyst,Burlington,85550,2026-03-09,2026-03-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+OCEAN IT SOFT LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Project Manager/ Business Systems Analyst,Medford,126630,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+OHMV LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Attleborough,79227,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"OM Diagnostic Laboratories, Inc",15-2051.01,Business Intelligence Analysts,core,1,Operations Analyst (Data Analytics & Database Management),Norwood,114088,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ONEUS Technologies LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Lab Systems Engineer,Boston,86258,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+OPTIVENT GROUP INC,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Medford,114088,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Oak Forest Realty,15-2051.00,Data Scientists,adjacent,1,Data Scientists,Boston,90230,2025-12-10,2025-12-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Oishii Farm Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Machine Learning Engineer,Allston,170000,2026-02-26,2026-02-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Okapi Sports Intelligence, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Burlington,114400,2026-05-28,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Oliver Wyman, LLC",13-1111.00,Management Analysts,adjacent,1,Principal,Boston,250000,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+OneMain General Services Corporation,15-2041.00,Statisticians,adjacent,1,Analytics Manager,Needham,127858,2025-12-12,2025-12-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Opportunity Financial, LLC",15-2051.01,Business Intelligence Analysts,core,1,Sr. Analyst Business Intelligence Analytics,Northborough,102500,2026-04-28,2026-04-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Optum Services, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist 2,Boston,122202,2026-01-23,2026-01-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Oracle America, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Technical Analyst,Burlington,125234,2026-01-29,2026-01-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Orsted North America Inc.,15-2051.01,Business Intelligence Analysts,core,1,"Analyst, Asset Performance",Boston,95000,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"OuterProduct, Inc.",15-2041.00,Statisticians,adjacent,1,Head Of Product,Cambridge,170000,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"OuterProduct, Inc.",15-2051.00,Data Scientists,adjacent,1,Head Of Go-To-Market,Cambridge,170000,2025-12-09,2025-12-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Overseas Students Services Corp.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,East Boston,80642,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PALM Care Inc.,15-2051.00,Data Scientists,adjacent,1,Software Engineer (Data),Allston,95000,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"PC Connection, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Seo Manager,Everett,79028,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PEGASYSTEMS INC.,15-2051.00,Data Scientists,adjacent,1,Senior Cloud Data Analyst,Waltham,115000,2026-06-23,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"PERITUS, INC.",15-2051.00,Data Scientists,adjacent,1,Data Analyst,Holyoke,108160,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PERSIVIA INC,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Marlborough,75000,2025-11-07,2025-11-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PFIZER INC.,15-2041.00,Statisticians,adjacent,1,"Manager, Statistics",Cambridge,120000,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PTC Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Senior Specialist, Marketing Analytics",Boston,108637,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PUBLIC PARTNERSHIPS LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Data Analyst,Boston,110000,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PWK Realty LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Lexington,114088,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Panametrics, LLC",15-2051.00,Data Scientists,adjacent,1,"Lead Engineer, Maths & Data Sci., Prod. Design & Engineering",Billerica,115265,2025-12-12,2025-12-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Panoplia Laboratories, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Cambridge,79650,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Partners Capital Investment Group LLP,13-1111.00,Management Analysts,adjacent,1,"Principal, Transformation Office",Boston,182675,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Payroc WorldAccess, LLC",15-2051.00,Data Scientists,adjacent,1,Bi Data Analyst,Waltham,132225,2025-12-01,2025-12-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Penn State Health Corporation,15-2051.01,Business Intelligence Analysts,core,1,Programmer Analyst,Burlington,81266,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Performance Architects Inc,15-2051.01,Business Intelligence Analysts,core,1,Senior Manager / Architect,Boston,185220,2026-03-30,2026-03-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Performance Architects, Inc.",15-2051.00,Data Scientists,adjacent,1,Business Consultant,Boston,94710,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Performance Technology Partners, LLC",15-2031.00,Operations Research Analysts,adjacent,1,Customer Experience Analyst,North Andover,70949,2026-02-11,2026-02-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Perk USA Inc,13-1111.00,Management Analysts,adjacent,1,Senior Product Manager,Boston,181000,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Persivia Inc.,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Marlborough,114088,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Persivia Inc.,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Marlborough,114088,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Petco Animal Supplies Stores, Inc.",15-2051.00,Data Scientists,adjacent,1,"Senior Analyst, Data Science And Analytics",Ashland,112000,2026-02-03,2026-02-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PharmaEssentia USA Corporation,13-1111.00,Management Analysts,adjacent,1,"Manager, Corporate Strategy",Burlington,165000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PharmaEssentia USA Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Investor Relations & Corporate Communications Specialist,Burlington,85000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Philips Healthcare Informatics, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Pacs Support And Development Engineer,Cambridge,126630,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Philips North America LLC,13-1111.00,Management Analysts,adjacent,1,Program Lead/Director,Cambridge,180378,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Philips North America LLC,15-2051.00,Data Scientists,adjacent,1,Data And Ai Engineer,Cambridge,137946,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Philips North America LLC,15-2051.01,Business Intelligence Analysts,core,1,Senior Strategic Pricing Manager,Cambridge,161803,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Pinterest, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist Ii,Everett,161803,2026-02-04,2026-02-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Pitney Bowes Inc.,15-2051.01,Business Intelligence Analysts,core,1,"Sr. Data Analyst, Global Financial Applications",Berlin,115360,2026-02-20,2026-02-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Pluto Health, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Springfield,115500,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Plymouth Rock Assurance Corporation,15-2031.00,Operations Research Analysts,adjacent,1,Senior Product Analyst,Boston,105000,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Plymouth Rock Assurance Corporation,15-2051.00,Data Scientists,adjacent,1,Associate Data Scientist,Boston,100000,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Plymouth Rock Home Assurance Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Senior Marketing Data Analyst,Boston,100043,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Point2Point Global LLC,15-2051.01,Business Intelligence Analysts,core,1,Global Data Strategy Lead,Wilmington,165000,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Power Advocate, Inc.",13-1111.00,Management Analysts,adjacent,1,Managing Consultant - Kbgfjg321542-2,Boston,150000,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PowerGEM LLC,15-2031.00,Operations Research Analysts,adjacent,1,Energy Analyst,Cambridge,100381,2026-06-23,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PreScouter Inc.,13-1111.00,Management Analysts,adjacent,1,Technical Project Manager,Revere,100000,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ProcDNA Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Sr. Analyst,Boston,90000,2026-05-22,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ProcDNA Inc.,15-2051.00,Data Scientists,adjacent,1,Data Science Lead,Boston,175000,2026-06-16,2026-06-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Promotion Execution Partners, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Account Executive,Malden,61375,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Prowess IT Solutions LLC,15-2051.00,Data Scientists,adjacent,1,Data Engineer,North Quincy,115000,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Psivant Therapeutics, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Science Lead,Watertown,165600,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Putnam Associates, LLC",13-1111.00,Management Analysts,adjacent,1,Life Sciences Consultant,Boston,120000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Putnam Associates, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist I,Boston,120000,2026-04-09,2026-04-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+PwC US Business Advisory LLP,15-2051.01,Business Intelligence Analysts,core,1,Senior Associate,Boston,135000,2026-04-03,2026-04-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Quadrant Technologies LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Cambridge,106434,2026-02-24,2026-02-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+QuantumID Technologies,15-1211.00,Computer Systems Analysts,adjacent,1,Vp Digital Experience,Cambridge,146806,2026-06-23,2026-06-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"RANDSTAD DIGITAL, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,System Analyst,Hudson,115000,2025-12-29,2025-12-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"RANDSTAD DIGITAL, LLC",15-2051.00,Data Scientists,adjacent,1,System Analyst,Hudson,115000,2025-12-18,2025-12-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"REALSOFT TECHNOLOGIES, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Waltham,114100,2025-12-11,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"RESOURCE POINT, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Ashland,106434,2026-02-26,2026-02-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+RETAILSOLUTIONS NORTH AMERICA LIMITED,15-1211.00,Computer Systems Analysts,adjacent,1,Senior Financial Consultant,Sommerville,225000,2026-02-25,2026-02-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"RGG Services, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Principal Business Intelligence Engineer,Boston,137946,2026-06-30,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+RPA TECHNOLOGIES LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst (Cpq Analyst),Waltham,90230,2025-12-29,2025-12-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+RUBIK SYSTEMS LLC,15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Business Analyst,Boston,106920,2025-12-29,2025-12-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Rabin Strategic Partners, Inc",13-1111.00,Management Analysts,adjacent,1,Consultant,Boston,90000,2026-03-24,2026-03-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Red Hat, Inc.",15-2051.00,Data Scientists,adjacent,1,Principal Data Scientist,Boston,174800,2026-01-02,2026-01-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Red Hat, LLC",13-1111.00,Management Analysts,adjacent,1,Tme Ecosystem Sales Operations Business Partner,Everett,118726,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Red Hat, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Associate Principal Specialist Solution Architect,Stoneham,171616,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Red Oak Sourcing, LLC",15-2051.00,Data Scientists,adjacent,1,Senior Analyst - Strategy & Analytics,Foxboro,105174,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Referral Rock Inc,15-1211.00,Computer Systems Analysts,adjacent,1,Product Solutions Specialist,Boston,87000,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Repli Gen AI LLC,13-1111.00,Management Analysts,adjacent,1,Business Analyst,Boston,119000,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Repligen Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Data Engineer / Architect,Waltham,161803,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Resourcesoft Inc,15-2051.00,Data Scientists,adjacent,1,Ai Engineer,Worcester,119974,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Rethink Priorities,15-2051.00,Data Scientists,adjacent,1,Research Scientist,Boston,137946,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Rhoda AI Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Member Of The Technical Staff,Allston,399984,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Rippleworks, Inc.",13-1111.00,Management Analysts,adjacent,1,Venture Success Partner,Cambridge,168000,2026-04-15,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Risk Management Foundation of Harvard Medical Institutions, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Systems Analyst,Boston,116150,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Risk Management Foundation of Harvard Medical Institutions, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Engineer Ii,Worcester,138000,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"RoadMap Technologies, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Beverly,90230,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Rochester Electronics, LLC",15-2051.01,Business Intelligence Analysts,core,1,Senior Revenue Operations Analyst,Newburyport,90230,2026-01-06,2026-01-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"RockLoans Marketplace, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist Ii,"Jamaica Plain, Boston",114088,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Rockland Trust Company,15-2051.01,Business Intelligence Analysts,core,1,Data Analyst Ii,Rockland,100936,2025-12-04,2025-12-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Roku, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Data Scientist,Boston,187000,2026-06-02,2026-06-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+RxAdvance Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Data Analyst,Southborough,97906,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+RxAdvance Corporation,15-2051.01,Business Intelligence Analysts,core,1,"Senior Analyst, Business Strategy & Operations",Southborough,140000,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"S2 Global, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Engineer,Billerica,119070,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SCHNEIDER ELECTRIC SYSTEMS USA INC.,15-1211.00,Computer Systems Analysts,adjacent,1,Principal Customer Support Engineer,Foxborough,145000,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SCHNEIDER ELECTRIC USA, INC.",13-1111.00,Management Analysts,adjacent,1,Solutions Risks Management Analyst And Controller,Boston,180378,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SEE ID INC,15-1211.00,Computer Systems Analysts,adjacent,1,Embedded Qa Engineer,Shirley,88000,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SHUTTERSTOCK, INC.",15-2051.01,Business Intelligence Analysts,core,1,Sr. Business Intelligence Analyst,Stoneham,140846,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SILVA, BRAGA & SCHERR, LLC",13-1111.00,Management Analysts,adjacent,1,Management Analyst,Saugus,95680,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SOFT 2001 Inc,15-1211.00,Computer Systems Analysts,adjacent,1,It Systems Analyst,Worcester,98100,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SOPHiA GENETICS, Inc",15-2051.01,Business Intelligence Analysts,core,1,Senior Interoperability And Integration Lead,Northbridge,155000,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SPARK DATA SOLUTIONS INC.,13-1111.00,Management Analysts,adjacent,1,Business Analyst,Boston,118726,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SPLINT PHARMA LLC,15-2051.01,Business Intelligence Analysts,core,1,Product Manager,Boston,114088,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SSI (U.S) Inc.,13-1111.00,Management Analysts,adjacent,1,"Senior Associate, Professional Services",Boston,154000,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"STAPLES, INC.",15-2031.00,Operations Research Analysts,adjacent,1,Data Analyst - Sales Operations,Framingham,90000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"STMICROELECTRONICS,INC",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst Iii,Burlington,95481,2026-01-28,2026-01-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SageSure Capital Holdings, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Innovation Product Manager,Woburn,105000,2026-05-22,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sai Life Sciences, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Analyst,Watertown,90230,2026-01-22,2026-01-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Saint-Gobain Abrasives, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Pim Solution Architect,Worcester,133182,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Saint-Gobain Ceramics & Plastics, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Northborough,115000,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Salesforce, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Principal Swarm Lead,Burlington,144290,2026-02-05,2026-02-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Sanaira Global LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Lowell,86000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Sanofi US Services Inc.,13-1111.00,Management Analysts,adjacent,1,"Heva Bsns Partner-Respiratory & Gi Indications, Rhinology Ld",Cambridge,178500,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Sanofi US Services Inc.,15-2051.01,Business Intelligence Analysts,core,1,Global Workplace Transformation Project Lead – Workplace Exp,Cambridge,148125,2026-01-13,2026-01-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Santander Bank, N.A.",15-2051.01,Business Intelligence Analysts,core,1,"Senior Advisor, Compliance",Boston,125000,2025-12-18,2025-12-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Santander Holdings USA Inc.,15-2041.00,Statisticians,adjacent,1,"Associate, Risk Modeling",Boston,132228,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Santander Holdings USA, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,"Senior Associate, Business Systems Analysis",Quincy,155000,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ScottMadden, Inc.",13-1111.00,Management Analysts,adjacent,1,Senior Analyst,Framingham,87901,2026-04-14,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ScribeEMR Inc,15-2051.00,Data Scientists,adjacent,1,Lead Data Scientist & Ai Project Manager,Woburn,114088,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Selhi Associates LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Cambridge,70980,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SenseMesh, Inc.",15-2051.00,Data Scientists,adjacent,1,Ai Engineer- Data Scientist,Boston,161803,2026-04-23,2026-04-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ServiceNow, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Core Buss Services Workflows Strategic Operations Specialist,Waltham,80642,2026-03-16,2026-03-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Servier Pharmaceuticals LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,"Senior Manager, Sales Operations",Boston,176092,2025-12-10,2025-12-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Seurat Technologies, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Deep Learning Data Scientist,Wilmington,165000,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Seven Hills Foundation,15-2031.00,Operations Research Analysts,adjacent,1,Operations Analyst,Worcester,76190,2026-03-27,2026-03-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Shared Technology Services Group LLC,15-2031.00,Operations Research Analysts,adjacent,1,Senior System Analyst,Boston,132971,2026-04-07,2026-04-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Shared Technology Services Group LLC,15-2051.00,Data Scientists,adjacent,1,Lead Business Analyst,Boston,137946,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Shipco Transport Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Braintree,62400,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Siemens Industry Software Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Coordinator,Boston,97000,2026-03-30,2026-03-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Siemens Medical Solutions USA, Inc.",15-2051.00,Data Scientists,adjacent,1,Htm Business Analyst,Boston,95680,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+SimSpace Corporation,15-2051.00,Data Scientists,adjacent,1,Cyber Analyst Ii,Boston,114088,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"SimpliSafe, Inc.",15-2051.00,Data Scientists,adjacent,1,Machine Learning Scientist Ii,Boston,150000,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Sirtex Medical US Holdings Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Global Leadership Rotational Associate (00104944),Woburn,71000,2026-03-12,2026-03-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Snowstack LLC,15-2051.00,Data Scientists,adjacent,1,Data & Analytics Engineer,Brockton,114088,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Snyk Ltd.,13-1111.00,Management Analysts,adjacent,1,Executive Initiatives Director,Boston,230000,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Solidus Labs, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Product Operations Manager,Newton,140000,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Soniya Hotel LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Framingham,85654,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Soteria Reinsurance Holdings LLC d/b/a Fidelity Investments,13-1111.00,Management Analysts,adjacent,1,"Vice President, Strategy And Operations",Boston,180378,2026-01-13,2026-01-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Spear Bio Inc.,15-2051.01,Business Intelligence Analysts,core,1,"Manager, Sales Operations",Woburn,135000,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Spring LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Market Research Analyst,Boston,80642,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Stellix Global Services, Inc.",15-2051.00,Data Scientists,adjacent,1,"Digital, Data, And Analytics Engineer",Foxborough,96035,2026-06-30,2026-06-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Stout Risius Ross, LLC",15-2041.00,Statisticians,adjacent,1,Associate Business Valuation,Boston,105000,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Strategic Staffing Solutions, L.C.",15-2051.00,Data Scientists,adjacent,1,Data Science Consultant Iii,Ayer,197600,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Stripe, LLC",15-2051.01,Business Intelligence Analysts,core,1,Data Analyst,Watertown,121800,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Styleme, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Sr. Marketing Specialist,Allston,83200,2026-06-12,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Suffolk Construction Company, Inc.",15-2051.00,Data Scientists,adjacent,1,Associate Data Scientist,Boston,95000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Suffolk University,15-2031.00,Operations Research Analysts,adjacent,1,Research Analyst,Boston,73750,2026-04-01,2026-04-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sumitomo Pharma America, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,"Senior Manager, Pharmacovigilance Informatics",Marlborough,176575,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sumitomo Pharma America, Inc.",15-2051.00,Data Scientists,adjacent,1,"Manager, Data Engineer",Marlborough,163005,2026-03-11,2026-03-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sun Life Financial (U.S.) Services Company, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Data Engineer,Wellesley Hills,107000,2026-06-26,2026-06-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Sun Life Financial (U.S.) Services Company, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Wellesley Hills,114088,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Sweet Tooth LLC,13-1111.00,Management Analysts,adjacent,1,Management Consultant,Hobrook,118726,2026-06-04,2026-06-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Symbotic LLC,15-2051.00,Data Scientists,adjacent,1,Data Analyst,Wilmington,104884,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Synchrony Bank,15-2041.00,Statisticians,adjacent,1,"Senior Analyst, Credit Model Development",Natick,105000,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Synkriom, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Senior Business Analyst,Boston,100381,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Synopsys, Inc.",15-2051.01,Business Intelligence Analysts,core,1,People Technology,Marlborough,111765,2026-03-13,2026-03-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"TD Bank, National Association",15-2041.00,Statisticians,adjacent,1,Applied Machine Learning Scientist,Boston,155000,2025-11-24,2025-11-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"TD Bank, National Association",15-2051.01,Business Intelligence Analysts,core,1,Business Insights Specialist,Boston,114088,2026-01-28,2026-01-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TEN ONE HOLDING INC,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Boston,114088,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"TESSELLATI, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Digital Marketing Campaign Analyst,Salem,92000,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+THEMIS AI INC.,15-2051.00,Data Scientists,adjacent,1,Machine Learning Scientist,Quincy,165000,2026-04-24,2026-04-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TRUSTEES OF BOSTON UNIVERSITY,15-2031.00,Operations Research Analysts,adjacent,1,Senior Power Platform Developer,Boston,112310,2026-06-25,2026-06-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TRUSTEES OF BOSTON UNIVERSITY,15-2051.00,Data Scientists,adjacent,1,Graduate Admissions Operations & Data Manager,Boston,78000,2026-02-26,2026-02-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"TUV SUD America, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Digital Marketing Analyst [00095247],Wakefield,80642,2026-03-10,2026-03-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tadd LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Business Analyst,Middleton,80642,2025-11-24,2025-11-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Development Center Americas, Inc.",13-1111.00,Management Analysts,adjacent,1,Portfolio Partner,Cambridge,185040,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Development Center Americas, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Sr. System Owner – Revvity Signals,Cambridge,175000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Development Center Americas, Inc.",15-2051.01,Business Intelligence Analysts,core,1,"Associate Director, Gdo Business Analytics And Insights",Cambridgge,196350,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Pharmaceuticals USA, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Analytics Project Lead,Cambridge,123360,2026-05-12,2026-05-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Takeda Pharmaceuticals USA, Inc.",15-2051.00,Data Scientists,adjacent,1,"Brand Insights And Analytics Lead, Us Oncology",Cambridge,190000,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"TechData Service Company, LLC",15-2041.00,Statisticians,adjacent,1,Sas Programmer,Burlington,138000,2026-04-01,2026-04-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Techstand LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Shrewsbury,99840,2026-06-17,2026-06-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tek Excel Inc.,15-2051.00,Data Scientists,adjacent,1,Data Engineer,Lowell,114088,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Teladoc Health Inc.,15-2051.00,Data Scientists,adjacent,1,Data Scientist Iii,Westborough,119974,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Thalassocracy Global Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Senior Marketing Specialist,Cambridge,240000,2025-12-11,2025-12-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+The Children's Hospital Corporation,15-2031.00,Operations Research Analysts,adjacent,1,Senior Quality Improvement Consultant,Brookline,93999,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"The Elevance Health Companies, Inc.",15-2041.00,Statisticians,adjacent,1,Biostatistician,Newton,130771,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+The Florida State University,15-2051.00,Data Scientists,adjacent,1,Professional Research Assistant (Technical Project Manager),Cambridge,74318,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"The Fountain Group, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist I,Somerville,139360,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+The Hartford Steam Boiler Inspection and Insurance Co.,15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Boston,149100,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+The Huntington National Bank,15-1211.00,Computer Systems Analysts,adjacent,1,Salesforce Coe Business System Analyst Lead,Billerica,121000,2026-04-20,2026-04-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"The Lotus Group, LLC",15-2041.00,Statisticians,adjacent,1,Principle Statistical Programmer,Arlington,162240,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"The MathWorks, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Senior It Business Analyst,Natick,105100,2026-03-04,2026-03-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"The Phia Group, LLC",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Assistant,Worcester,119974,2026-05-27,2026-05-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ThoughtFocus, Inc.",15-2051.00,Data Scientists,adjacent,1,Sr. Data Analyst,Somerset,108201,2025-12-18,2025-12-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Thrive Market, Inc.",15-2051.00,Data Scientists,adjacent,1,"Senior Data Analyst, Merchandising",Ashland,180000,2026-03-31,2026-03-31,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Thrive Software Technologies LLC,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Boston,114088,2026-05-07,2026-05-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tianjiuhua Group Corp.,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boston,137946,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Todai Inc.,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Brighton,137946,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Toole Design Group LLC,15-2051.00,Data Scientists,adjacent,1,Analyst Ii,Boston,91811,2026-05-06,2026-05-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TraceLink Inc.,15-2051.00,Data Scientists,adjacent,1,Data Scientist Iii,Wilmington,169332,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Transat Ventures lab, LLC",13-1111.00,Management Analysts,adjacent,1,Vp Of Operational Excellence & Digital Transformation,Boston,150200,2026-06-24,2026-06-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Transfyr Bio, Inc.",15-2051.00,Data Scientists,adjacent,1,Perception Engineer,Cambridge,200000,2026-04-03,2026-04-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tredence Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Associate Manager – Supply Chain Management,Cambridge,140000,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Trinity Partners, LLC",15-2051.00,Data Scientists,adjacent,1,"Associate Consultant, Enterprise Analytics Delivery",Waltham,94813,2026-05-26,2026-05-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TripAdvisor LLC,15-2051.01,Business Intelligence Analysts,core,1,Marketing Analyst,Acton,120000,2026-01-14,2026-01-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Triple M Investment LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Real Estate Analyst,Boston,60757,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Triton Sensors LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Brighton,85700,2026-04-27,2026-04-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+TruLeague Incorporated,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Newton,130000,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Truffle Homes Inc.,15-2051.00,Data Scientists,adjacent,1,Data Operations Director,Boston,90230,2026-02-12,2026-02-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tufts University,15-2031.00,Operations Research Analysts,adjacent,1,Data Analytics Project Manager,Medford,110000,2026-02-17,2026-02-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tuskira Inc.,15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Boston,180000,2026-01-06,2026-01-06,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Tutor Intelligence Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Robotics Solutions Specialist,Watertown,147000,2026-06-10,2026-06-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Twilio, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Analytics Manager,Hopkinton,141750,2025-12-17,2025-12-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Two Circles Inc.,15-2051.01,Business Intelligence Analysts,core,1,Consultant,Cambridge,90230,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+UBIKLY LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Analyst,Medford,83200,2025-11-21,2025-11-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"UHOMES.COM NEW YORK, INC.",15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Braintree,102856,2026-04-03,2026-04-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"UKG Kronos Systems, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Principal Software Engineer,Lowell,228759,2026-01-12,2026-01-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"UMass Memorial Medical Center, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Worcester,86424,2026-01-30,2026-01-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"UMass Memorial Medical Center, Inc.",15-2051.01,Business Intelligence Analysts,core,1,Senior Reporting Reimbursement Analyst,Worcester,74318,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"UNITED SITE SERVICES, INC.",15-1211.00,Computer Systems Analysts,adjacent,1,Senior Systems Developer,Sudbury,177902,2026-03-09,2026-03-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"URL Systems, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Programmer Analyst,Quincy,108181,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+USR Parent Inc.,15-2031.00,Operations Research Analysts,adjacent,1,Analyst Operations,Framingham,86870,2026-05-28,2026-05-28,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Udemy, Inc.",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Customer Success Team Lead,Somerville,116500,2026-04-29,2026-04-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Unify AI Tech LLC,15-2051.00,Data Scientists,adjacent,1,Sr. Data Scientist,Malden,215000,2026-04-30,2026-04-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Unistress Corp.,15-1211.00,Computer Systems Analysts,adjacent,1,Business Systems Analyst,Pittsfield,97656,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+United Services Automobile Association,15-2031.00,Operations Research Analysts,adjacent,1,Business Intelligence Analyst I,East Boston,129167,2026-01-12,2026-01-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Colorado Denver / Anschutz,15-2051.00,Data Scientists,adjacent,1,Assistant Professor,Watertown,98530,2026-03-04,2026-03-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Massachusetts Boston,15-2051.00,Data Scientists,adjacent,1,Director Of Enrollment Information And Analytics,Boston,100500,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Massachusetts Chan Medical School,15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Business System Analyst,Acton,150541,2026-01-30,2026-01-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Massachusetts Chan Medical School,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Worcester,100154,2025-12-08,2025-12-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Massachusetts Chan Medical School,15-2051.01,Business Intelligence Analysts,core,1,Sr. Business System Analyst,Acton,150541,2026-02-20,2026-02-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+University of Massachusetts Dartmouth,15-2051.00,Data Scientists,adjacent,1,Systems And Data Integration Specialist,North Dartmouth,70000,2025-10-01,2025-10-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Urban Outfitters, Inc.",15-2051.00,Data Scientists,adjacent,1,Senior Analyst,Chelmsford,90230,2026-04-08,2026-04-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ushur Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Solution Acceleration Engineer,Brighton,106434,2026-05-22,2026-05-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+VALIDIT SOLUTIONS LLC,15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Lawrence,100782,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+VIRTUSA CORPORATION,15-1211.00,Computer Systems Analysts,adjacent,1,Business Analyst 2,Marlborough,135000,2026-02-04,2026-02-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+VISTAR3D INC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Woburn,68000,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+VISYS CLOUD SOLUTIONS LLC,15-2051.00,Data Scientists,adjacent,1,Data Scientist,Everett,161803,2026-06-18,2026-06-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+VOYA RETIREMENT INSURANCE AND ANNUITY COMPANY,15-2051.01,Business Intelligence Analysts,core,1,"Senior Predictive Modeler, Enterprise Ai And Data Science",North Grafton,154100,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+VVA Drees & Sommer LLC,13-1111.00,Management Analysts,adjacent,1,Associate - Cost Management,Boston,118726,2026-05-04,2026-05-04,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vantage Services LLC,15-2051.00,Data Scientists,adjacent,1,"Senior Data Engineer, Data Science Enablement",Revere,120900,2026-05-14,2026-05-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vegetation Assurance Inc,15-2051.00,Data Scientists,adjacent,1,Lead Ai Engineer,Boston,230000,2026-02-09,2026-02-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ventois Inc,15-2051.00,Data Scientists,adjacent,1,Azure Data Engineer,Shrewsbury,97906,2026-06-12,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ventois Inc,15-2051.01,Business Intelligence Analysts,core,1,Bi/Data Analyst,Shrewsbury,97906,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Ventrix Supply LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Analyst,Woburn,60570,2026-02-27,2026-02-27,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vertex Pharmaceuticals Incorporated,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Commercial Analytics Associate Director,Boston,157800,2026-03-23,2026-03-23,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Viasat Inc.,15-2051.01,Business Intelligence Analysts,core,1,Analytics Engineer,Woburn,185000,2026-04-13,2026-04-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vicor Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Data Analyst & Business Intelligence Specialist,Andover,128000,2026-04-14,2026-04-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Vicor Corporation,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Business Leader (00109207),Andover,114088,2026-06-03,2026-06-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Viken Detection Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Data Scientist,Burlington,137946,2026-06-05,2026-06-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Viking River Cruises Inc.,15-2051.01,Business Intelligence Analysts,core,1,"Sr. Manager, Strategic Planning & Business Operations",Boston,133952,2025-11-14,2025-11-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Vocadian, Inc.",15-2051.00,Data Scientists,adjacent,1,Head Of Ai,Allston,104000,2026-03-03,2026-03-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+WELLNESS PET LLC,15-2051.01,Business Intelligence Analysts,core,1,Senior Report Developer,Burlington,130703,2026-04-21,2026-04-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"WHITE COLLAR TECHNOLOGIES, INC",15-2031.00,Operations Research Analysts,adjacent,1,Business Analytics Analyst,Woburn,85654,2026-02-17,2026-02-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+WHOOP Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Product Manager I,Boston,125000,2026-06-12,2026-06-12,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Walkky LLC,15-2051.00,Data Scientists,adjacent,1,Principal Ai Scientist,Arlington,158760,2026-05-20,2026-05-20,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Waters Technologies Corporation,15-2051.00,Data Scientists,adjacent,1,Senior Data Analyst,Milford,120000,2025-12-02,2025-12-02,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Waters Technologies Corporation,15-2051.01,Business Intelligence Analysts,core,1,Data And Analytics Director,Milford,188100,2026-03-19,2026-03-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Wave Life Sciences USA, Inc.",15-2051.00,Data Scientists,adjacent,1,"Director, Statistical Programming",Lexington,213000,2026-03-30,2026-03-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wavesoft Solutions Inc,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Boston,114100,2026-03-10,2026-03-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wayfair LLC,13-1111.00,Management Analysts,adjacent,1,"Manager, Global Business Analytics",Boston,161041,2026-01-30,2026-01-30,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wellington Management Company LLP,15-2051.00,Data Scientists,adjacent,1,It Business Systems Analysis - Senior Professional (P3),Needham,125000,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wellington Management Company LLP,15-2051.01,Business Intelligence Analysts,core,1,Senior Systems Analyst,Boston,150000,2025-12-03,2025-12-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Wellspring Care, Inc.",15-2051.01,Business Intelligence Analysts,core,1,"Business Intelligence Analyst, Ma Team",Braintree,180250,2026-05-01,2026-05-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Whitridge Associates, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Collateral Business Support Analyst,Quincy,146806,2026-02-25,2026-02-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Whittier Street Health Center Committee, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Electronic Health Records System Analyst,Roxbury,101531,2026-01-14,2026-01-14,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Whittier Street Health Center Committee, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Application Reporting Specialist,Boston,85654,2026-05-11,2026-05-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Wink Tech Limited,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Lexington,60570,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"WuXi Biologics USA, LLC",13-1111.00,Management Analysts,adjacent,1,"Manager, Business Development Research Services, East Coast",Malden,130000,2025-12-24,2025-12-24,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"WurQ, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Operations Research Analyst,Cambridge,101000,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"XLYSI, LLC",15-2051.00,Data Scientists,adjacent,1,Data Scientist,Boston,114100,2025-12-09,2025-12-09,LCA_Disclosure_Data_FY2026_Q3.xlsx
+XORIANT CORPORATION,13-1111.00,Management Analysts,adjacent,1,Business Analyst,North Quincy,118750,2026-04-22,2026-04-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Xceedance Inc.,15-1211.00,Computer Systems Analysts,adjacent,1,Ba Manager,Boston,123200,2025-11-17,2025-11-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Xellar, Inc.",15-2051.00,Data Scientists,adjacent,1,Associate Data Scientist,Boston,105000,2026-04-10,2026-04-10,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Xeno-Animals LLC,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Senior Marketing Analyst,Brookline,120765,2026-06-22,2026-06-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+XtalPi Inc.,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Business Development Supervisor,Somerville,75426,2026-04-03,2026-04-03,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Y2House Corporation,13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Marketing Specialist,Boston,60570,2026-04-16,2026-04-16,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Yalai Inc,15-2051.01,Business Intelligence Analysts,core,1,Business Analyst,Burlington,137946,2026-04-17,2026-04-17,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Yes Energy LLC,15-2031.00,Operations Research Analysts,adjacent,1,Data Quality Analyst Iii,Dedham,100381,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Yesmail, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Senior Solutions Manager,Methuen,126630,2026-06-15,2026-06-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Yipit, LLC",13-1161.00,Market Research Analysts and Marketing Specialists,core,1,Performance Marketing Manager,Brookline,100693,2026-03-25,2026-03-25,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Yipit, LLC",15-2031.00,Operations Research Analysts,adjacent,1,Data Product Analyst,Malden,100381,2026-05-13,2026-05-13,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Yoh, A Day & Zimmermann Company",15-1211.00,Computer Systems Analysts,adjacent,1,Sr. Systems Analyst,Boston,150000,2025-11-07,2025-11-07,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Yoh, A Day & Zimmermann Company",15-2051.01,Business Intelligence Analysts,core,1,Systems Analyst,Boston,149760,2026-05-05,2026-05-05,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Yrobot Inc.,15-2051.00,Data Scientists,adjacent,1,Data Scientist/Ceo,Cambridge,161803,2026-06-11,2026-06-11,LCA_Disclosure_Data_FY2026_Q3.xlsx
+Z3 TECHNOLOGIES INC,15-1211.00,Computer Systems Analysts,adjacent,1,Sap Functional Consultant,Cambridge,106434,2026-05-29,2026-05-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ZETA GLOBAL CORP.,15-2051.00,Data Scientists,adjacent,1,Senior Analyst,Boston,90230,2025-12-26,2025-12-26,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ZGC Capital Corporation,15-2051.01,Business Intelligence Analysts,core,1,Business Intelligence Analyst,Revere,90272,2025-12-29,2025-12-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+ZPods Holdings LLC,15-2031.00,Operations Research Analysts,adjacent,1,Senior Operation Analyst,Allston,100381,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"ZS Associates, Inc.",13-1111.00,Management Analysts,adjacent,1,Strategy Insights & Planning Consultant,Boston,169400,2026-06-01,2026-06-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Zenon, LLC",15-2031.00,Operations Research Analysts,adjacent,1,Senior Data Scientist,Roslindale,105000,2025-12-08,2025-12-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Zensar Technologies, Inc.",15-1211.00,Computer Systems Analysts,adjacent,1,Computer Systems Analyst,Marlborough,130000,2026-01-22,2026-01-22,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Zipcar, Inc.",15-2051.00,Data Scientists,adjacent,1,Growth Analyst,Boston,90230,2025-10-01,2025-10-01,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"Zscaler, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Analyst,Boston,120000,2026-05-18,2026-05-18,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"athenahealth, Inc.",15-2051.01,Business Intelligence Analysts,core,1,"Senior Product Management Associate, Patient Pay & Insurance",Boston,118039,2026-06-08,2026-06-08,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"i360 Holdings, LLC",15-1211.00,Computer Systems Analysts,adjacent,1,Product Manager - Kbgfjg209631-6,Hopkinton,185000,2026-04-15,2026-04-15,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"iOffer Technologies, Inc",15-2051.01,Business Intelligence Analysts,core,1,Sr. Business Analyst,Acton,161803,2026-05-21,2026-05-21,LCA_Disclosure_Data_FY2026_Q3.xlsx
+iRobot Corporation,15-2051.00,Data Scientists,adjacent,1,Data Analyst,Bedford,100000,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"mPulse Mobile, Inc.",15-2031.00,Operations Research Analysts,adjacent,1,Consulting Analyst,Boston,100381,2026-05-19,2026-05-19,LCA_Disclosure_Data_FY2026_Q3.xlsx
+"mPulse Mobile, Inc.",15-2051.00,Data Scientists,adjacent,1,Data Integration Engineer,Revere,114088,2026-06-29,2026-06-29,LCA_Disclosure_Data_FY2026_Q3.xlsx

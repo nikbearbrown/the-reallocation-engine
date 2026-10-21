@@ -1,0 +1,9 @@
+# pandas.read_excel(usecols=['CASE_STATUS', 'VISA_CLASS', 'SOC_CODE', 'EMPLOYER_NAME', 'WORKSITE_STATE']) on LCA_Disclosure_Data_FY2026_Q3.xlsx
+rows read: 437496
+kept (certified H-1B, MA worksite, analyst families): 1842   <- lca_slice.py said 1,842
+Everquote, Inc.: 2
+Abacus Insights, Inc.: 1
+Klaviyo, Inc.: 3
+HubSpot, Inc.: 1
+
+# 'Benefits Science' anywhere in the file (any state, SOC, status): 0

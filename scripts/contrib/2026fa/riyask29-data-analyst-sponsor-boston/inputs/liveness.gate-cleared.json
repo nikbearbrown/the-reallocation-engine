@@ -1,0 +1,30 @@
+{
+  "_note": "G2 gate clearance by riyask29, 2026-10-02 ~13:55 local. Machine results from run 2 kept as-is unless a person checked the page. Entries with source your-input are a person's check, not a record.",
+  "https://careers.everquote.com/job/?gh_jid=7999629003": {
+    "result": "active",
+    "reason": "riyask29 opened the page in a browser: job page with an 'Apply for this job' application form (the checker looks for an apply button and missed the form)",
+    "checked_at": "2026-10-02T17:55:36Z",
+    "source": "your-input",
+    "machine_result": {
+      "result": "uncertain",
+      "reason": "content present but no visible apply control found",
+      "checked_at": "2026-10-02T17:47:59.825Z"
+    }
+  },
+  "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002": {
+    "result": "active",
+    "reason": "riyask29 opened the page in a browser: job title matches and an Apply button is shown (the checker timed out after 15s in run 2)",
+    "checked_at": "2026-10-02T17:55:22Z",
+    "source": "your-input",
+    "machine_result": {
+      "result": "uncertain",
+      "reason": "navigation error: page.goto: Timeout 15000ms exceeded.",
+      "checked_at": "2026-10-02T17:48:14.828Z"
+    }
+  },
+  "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003": {
+    "result": "active",
+    "reason": "visible apply control detected",
+    "checked_at": "2026-10-02T17:48:18.531Z"
+  }
+}

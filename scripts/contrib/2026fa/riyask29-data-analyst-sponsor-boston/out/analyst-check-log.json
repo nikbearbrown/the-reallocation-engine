@@ -1,0 +1,608 @@
+{
+  "_prototype": "riyask29-data-analyst-sponsor-boston",
+  "_version": "0.1.0",
+  "run": {
+    "today": "2026-10-02",
+    "prototype": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs",
+    "liveness_mode": "recorded results from `scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/liveness.gate-cleared.json`",
+    "inputs": {
+      "persona": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/persona.example.json",
+      "candidates": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/candidates.json",
+      "families": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/config/title-families.json",
+      "sponsors": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "bls": "data/bls/compact/soc_occupation_compact.csv",
+      "formd_dir": "data/sec/form-d/processed/sample"
+    },
+    "outputs": [
+      "roles.json",
+      "scorer-profile.json",
+      "role-scores.json",
+      "role-scores.md",
+      "analyst-check-log.json",
+      "analyst-check-report.md"
+    ]
+  },
+  "persona": {
+    "name": "Sneha Patil",
+    "fictional": true,
+    "binding_clock": "unemployment-days",
+    "runway_days": 49,
+    "source": "your-input"
+  },
+  "counts": {
+    "candidates": 6,
+    "scored": 3,
+    "stopped": {
+      "G1": 2,
+      "G2": 0,
+      "G3": 0,
+      "no-posting": 1
+    },
+    "form_d_in_sample": 0
+  },
+  "scorer_stdout": "✓ scored 3 roles → Apply 0 · Consider 2 · Skip 1 (skip 33%)\n  scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/out/role-scores.json  +  scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/out/role-scores.md",
+  "roles": [
+    {
+      "role_id": "everquote-sem",
+      "company_query": "EverQuote",
+      "title": "Senior Analyst, SEM",
+      "url": "https://careers.everquote.com/job/?gh_jid=7999629003",
+      "fit": {
+        "p": 0.75,
+        "source": "your-input"
+      },
+      "stopped_at": null,
+      "company_match": {
+        "status": "found",
+        "matched_name": "EVERQUOTE INC",
+        "near_matches": [],
+        "source": "record"
+      },
+      "funding": {
+        "status": "not-in-sample",
+        "filings": [],
+        "source": "record",
+        "coverage": "200 of 58329 companies across 4 sample quarter file(s)",
+        "meaning": "absent from the SAMPLE — says nothing about whether it raised money"
+      },
+      "wage_check": [
+        {
+          "soc": "15-2051.01",
+          "title": "Business Intelligence Analysts",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 112590,
+          "company_median_salary_offered": 117640,
+          "ratio_company_to_bls": 1.04,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        },
+        {
+          "soc": "13-1161.00",
+          "title": "Market Research Analysts and Marketing Specialists",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 76950,
+          "company_median_salary_offered": 117640,
+          "ratio_company_to_bls": 1.53,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        }
+      ],
+      "sponsorship": {
+        "total_approvals": 56,
+        "total_denials": 0,
+        "approval_rate": 100,
+        "counts_source": "record",
+        "sponsored_titles": [
+          {
+            "title": "Senior Cloud Engineer I",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Senior Quantitative Analyst",
+            "family": "other-analyst",
+            "matched": "quantitative analyst"
+          },
+          {
+            "title": "Senior Engineer",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Senior Quantitative Analyst (Business)",
+            "family": "other-analyst",
+            "matched": "quantitative analyst"
+          },
+          {
+            "title": "Product Manager",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Quantitative Analyst",
+            "family": "other-analyst",
+            "matched": "quantitative analyst"
+          }
+        ],
+        "titles_source": "record",
+        "classification_source": "your-input",
+        "tier": "Possible",
+        "p": 0.3,
+        "p_source": "your-input",
+        "caveat": "top_job_titles_sponsored is a truncated \"top\" list; absence of a title is not evidence it was never sponsored"
+      },
+      "g4_review": [],
+      "timeline": {
+        "source": "your-input",
+        "today": "2026-10-02",
+        "opt_end_date": "2027-04-30",
+        "days_to_opt_end": 210,
+        "unemployment_days_left": 49,
+        "runway_days": 49,
+        "hiring_lag_days": 35,
+        "buffer_days": 20,
+        "binding_clock": "unemployment-days",
+        "slack_days": 14,
+        "factor": 0.7,
+        "status": "inside-buffer",
+        "arithmetic": "slack = min(210, 49) − 35 = 14; factor = clamp(slack / 20, 0, 1)"
+      },
+      "liveness": {
+        "result": "active",
+        "reason": "riyask29 opened the page in a browser: job page with an 'Apply for this job' application form (the checker looks for an apply button and missed the form)",
+        "checked_at": "2026-10-02T17:55:36Z",
+        "source": "your-input",
+        "machine_result": {
+          "result": "uncertain",
+          "reason": "content present but no visible apply control found",
+          "checked_at": "2026-10-02T17:47:59.825Z"
+        }
+      },
+      "scorer": {
+        "recommendation": "Consider",
+        "composite": 0.231,
+        "reason": "composite 0.231 in the Consider band [0.2, 0.3)",
+        "arithmetic": "(0.3·0.35 + 0.75·0.3) × 1 × 0.7 = 0.231",
+        "source": "scripts/score/role-scorer.mjs"
+      },
+      "next_action": {
+        "action": "review-then-tailor",
+        "hours": "apply (2h)",
+        "why": "composite 0.231 in the Consider band [0.2, 0.3)"
+      }
+    },
+    {
+      "role_id": "abacus-growth-analytics",
+      "company_query": "Abacus Insights",
+      "title": "Growth Analytics Manager, Payment Integrity",
+      "url": "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002",
+      "fit": {
+        "p": 0.7,
+        "source": "your-input"
+      },
+      "stopped_at": null,
+      "company_match": {
+        "status": "found",
+        "matched_name": "ABACUS INSIGHTS INC",
+        "near_matches": [],
+        "source": "record"
+      },
+      "funding": {
+        "status": "not-in-sample",
+        "filings": [],
+        "source": "record",
+        "coverage": "200 of 58329 companies across 4 sample quarter file(s)",
+        "meaning": "absent from the SAMPLE — says nothing about whether it raised money"
+      },
+      "wage_check": [
+        {
+          "soc": "15-2051.01",
+          "title": "Business Intelligence Analysts",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 112590,
+          "company_median_salary_offered": 110510,
+          "ratio_company_to_bls": 0.98,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        },
+        {
+          "soc": "13-1161.00",
+          "title": "Market Research Analysts and Marketing Specialists",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 76950,
+          "company_median_salary_offered": 110510,
+          "ratio_company_to_bls": 1.44,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        }
+      ],
+      "sponsorship": {
+        "total_approvals": 22,
+        "total_denials": 0,
+        "approval_rate": 100,
+        "counts_source": "record",
+        "sponsored_titles": [
+          {
+            "title": "Software Engineer",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Business Analyst Manager - Data Distribution Team",
+            "family": "ambiguous-analyst",
+            "matched": "business analyst"
+          }
+        ],
+        "titles_source": "record",
+        "classification_source": "your-input",
+        "tier": "Likely",
+        "p": 0.6,
+        "p_source": "your-input",
+        "caveat": "top_job_titles_sponsored is a truncated \"top\" list; absence of a title is not evidence it was never sponsored"
+      },
+      "g4_review": [
+        {
+          "title": "Business Analyst Manager - Data Distribution Team",
+          "family": "ambiguous-analyst",
+          "matched": "business analyst"
+        }
+      ],
+      "timeline": {
+        "source": "your-input",
+        "today": "2026-10-02",
+        "opt_end_date": "2027-04-30",
+        "days_to_opt_end": 210,
+        "unemployment_days_left": 49,
+        "runway_days": 49,
+        "hiring_lag_days": 28,
+        "buffer_days": 20,
+        "binding_clock": "unemployment-days",
+        "slack_days": 21,
+        "factor": 1,
+        "status": "clear",
+        "arithmetic": "slack = min(210, 49) − 28 = 21; factor = clamp(slack / 20, 0, 1)"
+      },
+      "liveness": {
+        "result": "active",
+        "reason": "riyask29 opened the page in a browser: job title matches and an Apply button is shown (the checker timed out after 15s in run 2)",
+        "checked_at": "2026-10-02T17:55:22Z",
+        "source": "your-input",
+        "machine_result": {
+          "result": "uncertain",
+          "reason": "navigation error: page.goto: Timeout 15000ms exceeded.",
+          "checked_at": "2026-10-02T17:48:14.828Z"
+        }
+      },
+      "scorer": {
+        "recommendation": "Consider",
+        "composite": 0.42,
+        "reason": "above threshold (0.420) but one soft spot: sponsorship tier \"Likely\"",
+        "arithmetic": "(0.6·0.35 + 0.7·0.3) × 1 × 1 = 0.420",
+        "source": "scripts/score/role-scorer.mjs"
+      },
+      "next_action": {
+        "action": "review-then-tailor",
+        "hours": "apply (2h)",
+        "why": "above threshold (0.420) but one soft spot: sponsorship tier \"Likely\""
+      }
+    },
+    {
+      "role_id": "klaviyo-analytics-eng",
+      "company_query": "Klaviyo",
+      "title": "Analytics Engineer",
+      "url": "https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003",
+      "fit": {
+        "p": 0.65,
+        "source": "your-input"
+      },
+      "stopped_at": null,
+      "company_match": {
+        "status": "found",
+        "matched_name": "KLAVIYO INC",
+        "near_matches": [],
+        "source": "record"
+      },
+      "funding": {
+        "status": "not-in-sample",
+        "filings": [],
+        "source": "record",
+        "coverage": "200 of 58329 companies across 4 sample quarter file(s)",
+        "meaning": "absent from the SAMPLE — says nothing about whether it raised money"
+      },
+      "wage_check": [
+        {
+          "soc": "15-2051.01",
+          "title": "Business Intelligence Analysts",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 112590,
+          "company_median_salary_offered": 126000,
+          "ratio_company_to_bls": 1.12,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        },
+        {
+          "soc": "13-1161.00",
+          "title": "Market Research Analysts and Marketing Specialists",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 76950,
+          "company_median_salary_offered": 126000,
+          "ratio_company_to_bls": 1.64,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        }
+      ],
+      "sponsorship": {
+        "total_approvals": 154,
+        "total_denials": 4,
+        "approval_rate": 97.46835443037976,
+        "counts_source": "record",
+        "sponsored_titles": [
+          {
+            "title": "Business Intelligence Engineer",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Software Engineer II",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Engineering Manager Data Exchange",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Engineering Manager II- SMS",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Senior Software Engineer",
+            "family": "non-analyst",
+            "matched": null
+          }
+        ],
+        "titles_source": "record",
+        "classification_source": "your-input",
+        "tier": "Unknown",
+        "p": 0.15,
+        "p_source": "your-input",
+        "caveat": "top_job_titles_sponsored is a truncated \"top\" list; absence of a title is not evidence it was never sponsored"
+      },
+      "g4_review": [],
+      "timeline": {
+        "source": "your-input",
+        "today": "2026-10-02",
+        "opt_end_date": "2027-04-30",
+        "days_to_opt_end": 210,
+        "unemployment_days_left": 49,
+        "runway_days": 49,
+        "hiring_lag_days": 70,
+        "buffer_days": 20,
+        "binding_clock": "unemployment-days",
+        "slack_days": -21,
+        "factor": 0,
+        "status": "start-after-cliff",
+        "arithmetic": "slack = min(210, 49) − 70 = -21; factor = clamp(slack / 20, 0, 1)"
+      },
+      "liveness": {
+        "result": "active",
+        "reason": "visible apply control detected",
+        "checked_at": "2026-10-02T17:48:18.531Z",
+        "source": "record"
+      },
+      "scorer": {
+        "recommendation": "Skip",
+        "composite": 0,
+        "reason": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)",
+        "arithmetic": "(0.15·0.35 + 0.65·0.3) × 1 × 0 = 0.000",
+        "source": "scripts/score/role-scorer.mjs"
+      },
+      "next_action": {
+        "action": "skip",
+        "hours": "—",
+        "why": "gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)"
+      }
+    },
+    {
+      "role_id": "benefits-science-da",
+      "company_query": "Benefits Science LLC",
+      "title": "Data Analyst (no open posting found)",
+      "url": null,
+      "fit": {
+        "p": 0.85,
+        "source": "your-input"
+      },
+      "stopped_at": "no-posting",
+      "company_match": {
+        "status": "found",
+        "matched_name": "BENEFITS SCIENCE LLC",
+        "near_matches": [],
+        "source": "record"
+      },
+      "funding": {
+        "status": "not-in-sample",
+        "filings": [],
+        "source": "record",
+        "coverage": "200 of 58329 companies across 4 sample quarter file(s)",
+        "meaning": "absent from the SAMPLE — says nothing about whether it raised money"
+      },
+      "wage_check": [
+        {
+          "soc": "15-2051.01",
+          "title": "Business Intelligence Analysts",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 112590,
+          "company_median_salary_offered": 82535,
+          "ratio_company_to_bls": 0.73,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        },
+        {
+          "soc": "13-1161.00",
+          "title": "Market Research Analysts and Marketing Specialists",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 76950,
+          "company_median_salary_offered": 82535,
+          "ratio_company_to_bls": 1.07,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        }
+      ],
+      "sponsorship": {
+        "total_approvals": 18,
+        "total_denials": 0,
+        "approval_rate": 100,
+        "counts_source": "record",
+        "sponsored_titles": [
+          {
+            "title": "Data Engineer II (00049724)",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Software Engineer",
+            "family": "non-analyst",
+            "matched": null
+          },
+          {
+            "title": "Data Analyst",
+            "family": "data-analyst-family",
+            "matched": "data analyst"
+          }
+        ],
+        "titles_source": "record",
+        "classification_source": "your-input",
+        "tier": "Proven",
+        "p": 0.9,
+        "p_source": "your-input",
+        "caveat": "top_job_titles_sponsored is a truncated \"top\" list; absence of a title is not evidence it was never sponsored"
+      },
+      "g4_review": [
+        {
+          "title": "Data Analyst",
+          "family": "data-analyst-family",
+          "matched": "data analyst"
+        }
+      ],
+      "timeline": {
+        "source": "your-input",
+        "today": "2026-10-02",
+        "opt_end_date": "2027-04-30",
+        "days_to_opt_end": 210,
+        "unemployment_days_left": 49,
+        "runway_days": 49,
+        "hiring_lag_days": 28,
+        "buffer_days": 20,
+        "binding_clock": "unemployment-days",
+        "slack_days": 21,
+        "factor": 1,
+        "status": "clear",
+        "arithmetic": "slack = min(210, 49) − 28 = 21; factor = clamp(slack / 20, 0, 1)"
+      },
+      "liveness": {
+        "result": "no-posting",
+        "source": "your-input"
+      },
+      "next_action": {
+        "action": "network",
+        "hours": "networking (3h)",
+        "why": "Proven analyst sponsor with no posting to apply to"
+      }
+    },
+    {
+      "role_id": "writer-expired",
+      "company_query": "Writer",
+      "title": "Posting from repo examples",
+      "url": "https://jobs.ashbyhq.com/writer/04ad3b44-51df-4fa6-a17c-cab6875f70cd",
+      "fit": {
+        "p": 0.6,
+        "source": "your-input"
+      },
+      "stopped_at": "G1",
+      "company_match": {
+        "status": "no-h1b-record",
+        "matched_name": "WRITER INC",
+        "near_matches": [],
+        "source": "record"
+      },
+      "funding": {
+        "status": "not-in-sample",
+        "filings": [],
+        "source": "record",
+        "coverage": "200 of 58329 companies across 4 sample quarter file(s)",
+        "meaning": "absent from the SAMPLE — says nothing about whether it raised money"
+      },
+      "wage_check": [
+        {
+          "soc": "15-2051.01",
+          "title": "Business Intelligence Analysts",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 112590,
+          "company_median_salary_offered": null,
+          "ratio_company_to_bls": null,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        },
+        {
+          "soc": "13-1161.00",
+          "title": "Market Research Analysts and Marketing Specialists",
+          "status": "ok",
+          "source": "record",
+          "oews_year": "2024",
+          "bls_annual_median": 76950,
+          "company_median_salary_offered": null,
+          "ratio_company_to_bls": null,
+          "caveat": "company median spans ALL its sponsored roles, not analyst roles only"
+        }
+      ],
+      "sponsorship": null,
+      "next_action": {
+        "action": "resolve-company",
+        "hours": "research (2h)",
+        "why": "company identity: no-h1b-record"
+      }
+    },
+    {
+      "role_id": "hubspot-da",
+      "company_query": "HubSpot",
+      "title": "Data Analyst",
+      "url": null,
+      "fit": {
+        "p": 0.8,
+        "source": "your-input"
+      },
+      "stopped_at": "G1",
+      "company_match": {
+        "status": "not-in-dataset",
+        "matched_name": null,
+        "near_matches": [],
+        "source": "record"
+      },
+      "sponsorship": null,
+      "next_action": {
+        "action": "resolve-company",
+        "hours": "research (2h)",
+        "why": "company identity: not-in-dataset"
+      }
+    }
+  ],
+  "cannot_verify": [
+    "Whether a company sponsored data analysts specifically: the sponsor CSV lists job titles, not SOC codes, and only a truncated \"top\" list of them.",
+    "Whether the title keyword rules are right: they are the student's rules, and every match is shown for human review (G4).",
+    "Funding: the shipped Form D files are 50-company samples per quarter, so \"not-in-sample\" means nothing either way.",
+    "What a specific employer pays an analyst: the company median covers all its sponsored roles, and BLS OEWS is an occupation survey, not an offer.",
+    "Hiring lag and fit: both are the student's own estimates.",
+    "Visa law: the timeline factor is planning arithmetic. STEM-extension eligibility needs a DSO."
+  ]
+}

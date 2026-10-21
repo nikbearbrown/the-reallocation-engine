@@ -1,0 +1,21 @@
+{
+  "_note": "BREAK INPUT: company names shortened/varied on purpose. Same URLs as inputs/candidates.json.",
+  "candidates": [
+    {
+      "role_id": "abacus-short",
+      "company": "Abacus",
+      "title": "Growth Analytics Manager, Payment Integrity",
+      "url": "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002",
+      "hiring_lag_weeks": 4,
+      "fit_self_rating": 0.7
+    },
+    {
+      "role_id": "hubspot-lower",
+      "company": "hubspot inc.",
+      "title": "Data Analyst",
+      "url": null,
+      "hiring_lag_weeks": 6,
+      "fit_self_rating": 0.8
+    }
+  ]
+}

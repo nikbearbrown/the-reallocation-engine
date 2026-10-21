@@ -1,0 +1,27 @@
+{
+  "_note": "FICTIONAL test persona \u2014 missing opt_end_date",
+  "candidate": {
+    "name": "Sneha Patil",
+    "email": "sneha.patil@example.com",
+    "phone": "(617) 555-0172",
+    "location": "Boston, MA",
+    "degree": "MS Information Systems (STEM-designated)"
+  },
+  "needs_sponsorship": true,
+  "visa": {
+    "type": "F-1",
+    "current_status": "F-1 OPT (post-completion, year 1)",
+    "unemployment_days_used": 41,
+    "unemployment_ceiling": 90,
+    "buffer_target_days": 20,
+    "stem_extension_filed": false
+  },
+  "target_roles": [
+    "Data Analyst",
+    "Business Intelligence Analyst"
+  ],
+  "target_soc": [
+    "15-2051.01",
+    "13-1161.00"
+  ]
+}
