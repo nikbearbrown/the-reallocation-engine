@@ -191,9 +191,19 @@ export function lcaLookup(rows, companyName, file = '') {
   };
 }
 
+// ── seniority (Gate G0): title words only ─────────────────────────────────────
+// A your-input rule: a title containing one of `words` (whole words) signals more experience than
+// the persona's max_years_experience. It cannot read the posting's own "N+ years" requirement.
+export function seniorityCheck(title, words = []) {
+  const toks = String(title || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  const hit = words.find((w) => toks.includes(w.toLowerCase()));
+  return { status: hit ? 'too-senior' : 'ok', matched: hit ?? null };
+}
+
 // ── what the student does next (the 3-3-2 hand-off) ─────────────────────────
 export function nextAction(e) {
   const strong = ['Proven', 'Likely'].includes(e.sponsorship?.tier);
+  if (e.stopped_at === 'G0') return { action: 'skip', hours: '—', why: `seniority: title word "${e.seniority.matched}" signals more than ${e.seniority.max_years} years of experience` };
   if (e.stopped_at === 'G1') return { action: 'resolve-company', hours: 'research (2h)', why: `company identity: ${e.company_match.status}` };
   if (e.stopped_at === 'G2') return { action: 'check-posting-by-hand', hours: 'research (2h)', why: `liveness: ${e.liveness.result}` };
   if (e.stopped_at === 'G3') return { action: 'fix-input', hours: 'research (2h)', why: `timeline: ${e.timeline.status}` };

@@ -60,7 +60,7 @@ answer, the tool says so and stops. It does not guess.
 
 ## Annotated commands
 
-Offline test (expected: `pass 10`, `fail 0`; no network):
+Offline test (expected: `pass 11`, `fail 0`; no network):
 
 ```bash
 node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs
@@ -100,6 +100,7 @@ informational chat, not an application), **skip**, or a **human check**
 
 | Gate | You look at | You decide |
 |---|---|---|
+| G0 Seniority | leads skipped for a senior title word (Senior, Sr, Lead, Manager, …), when your persona sets a maximum of years | whether a title misleads (an entry-level "Lead"); the posting's own years line you check at G2 |
 | G1 Company | the near-match names for any lead marked *not in dataset*, *no H-1B record* or *ambiguous* | which company it is, or "unknown" (not "non-sponsor") |
 | G2 Posting | the URL of every *active* or *uncertain* posting | whether it is really open |
 | G3 Timeline | the dates and arithmetic line | whether your estimate of hiring time is honest; ask your DSO about anything legal |

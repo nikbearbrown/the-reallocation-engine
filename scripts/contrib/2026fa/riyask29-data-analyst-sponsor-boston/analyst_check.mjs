@@ -23,7 +23,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   SRC, readCsv, findCompany, parseTitleList, classifyTitle, sponsorshipTier,
-  timelineFactor, wageCheck, formDLookup, formDComplete, lcaLookup, nextAction,
+  timelineFactor, wageCheck, formDLookup, formDComplete, lcaLookup, seniorityCheck, nextAction,
 } from './lib.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -102,6 +102,11 @@ function evaluate(c, ctx) {
     e.wage_check = wageCheck(ctx.bls, ctx.persona.target_soc, m.status === 'found' ? m.row : null);
   }
   if (ctx.lca) e.lca = lcaLookup(ctx.lca, m.row?.company_name ?? c.company, ctx.lcaFile);
+  // G0 — seniority (only when the persona sets max_years_experience)
+  if (Number.isFinite(ctx.persona.max_years_experience)) {
+    e.seniority = { ...seniorityCheck(c.title, ctx.families.seniority_words), max_years: ctx.persona.max_years_experience, source: SRC.input };
+    if (e.seniority.status === 'too-senior') { e.sponsorship = null; e.stopped_at = 'G0'; return e; }
+  }
   if (m.status !== 'found') {
     e.sponsorship = null; // never p = 0: "not in this list" is not "never sponsored"
     e.stopped_at = 'G1';
@@ -216,6 +221,7 @@ function renderReport(log) {
         ? `- Wage check ${w.soc} ${w.title} [record]: BLS median ${fmtMoney(w.bls_annual_median)} (OEWS ${w.oews_year}) vs company median offered ${fmtMoney(w.company_median_salary_offered)} → ratio ${w.ratio_company_to_bls ?? '—'} — ${w.caveat}. *Not a scorer input.*`
         : `- Wage check ${w.soc} [record]: **${w.status}**, no value substituted`);
     if (e.funding) o.push(`- Form D [record]: ${e.funding.status} — ${e.funding.meaning} (${e.funding.coverage})`);
+    if (e.seniority) o.push(`- Seniority [your-input rule]: ${e.seniority.status}${e.seniority.matched ? ` (title word "${e.seniority.matched}")` : ''} — target is at most ${e.seniority.max_years} years of experience; the posting's own requirement is checked at G2`);
     if (e.lca) o.push(`- DOL LCA [record]: ${e.lca.status} — core ${e.lca.core_lcas}, adjacent ${e.lca.adjacent_lcas} — ${e.lca.meaning}`);
     if (e.timeline) o.push(`- Timeline [your-input]: factor ${e.timeline.factor ?? '—'} (${e.timeline.status}); ${e.timeline.arithmetic || `hiring lag ${e.timeline.hiring_lag_days} days`}`);
     if (e.liveness) o.push(`- Posting [${e.liveness.source}]: ${e.liveness.result}${e.liveness.reason ? ` — ${e.liveness.reason}` : ''}${e.liveness.checked_at ? ` (checked ${e.liveness.checked_at})` : ''}`);
@@ -226,7 +232,8 @@ function renderReport(log) {
 
   o.push('## Gates a person must clear', '');
   o.push('- **G1 Company identity.** For every lead marked *not-in-dataset*, *no-h1b-record*, *ambiguous* or *near matches*: confirm the right company or accept "unknown". Missing from this dataset does not mean the company never sponsors.');
-  o.push('- **G2 Posting.** Open every *active* posting yourself before tailoring. Open any *uncertain* one before it is scored.');
+  o.push('- **G0 Seniority.** Leads skipped for a senior title word are listed above; if a title misleads (a "Lead" that is entry-level), say so and re-run.');
+  o.push('- **G2 Posting.** Open every *active* posting yourself before tailoring, and check its required years of experience (the tool reads only the title). Open any *uncertain* one before it is scored.');
   o.push('- **G3 Timeline.** Check the dates in each timeline line. If you are unsure about STEM-extension eligibility, ask your DSO, not this tool.');
   o.push('- **G4 Title review.** For each Proven or Likely lead, read the matched titles below and confirm they are work you would do:');
   for (const e of log.roles) for (const t of e.g4_review || []) o.push(`  - ${e.company_query}: "${t.title}" matched \`${t.matched}\` → ${t.family}`);
@@ -295,7 +302,7 @@ async function main() {
     persona: { name: persona.candidate?.name, fictional: true, binding_clock: tl.binding_clock, runway_days: tl.runway_days, source: SRC.input },
     counts: {
       candidates: roles.length, scored: scorable.length,
-      stopped: Object.fromEntries(['G1', 'G2', 'G3', 'no-posting'].map((g) => [g, roles.filter((e) => e.stopped_at === g).length])),
+      stopped: Object.fromEntries(['G0', 'G1', 'G2', 'G3', 'no-posting'].map((g) => [g, roles.filter((e) => e.stopped_at === g).length])),
       form_d_in_sample: roles.filter((e) => ['in-sample', 'filed'].includes(e.funding?.status)).length,
     },
     scorer_stdout: scorerStdout,
@@ -316,7 +323,7 @@ async function main() {
   fs.writeFileSync(path.join(a.outDir, 'analyst-check-log.json'), JSON.stringify(log, null, 2) + '\n');
   fs.writeFileSync(path.join(a.outDir, 'analyst-check-report.md'), renderReport(log));
 
-  console.log(`✓ ${roles.length} leads · scored ${scorable.length} · stopped G1 ${log.counts.stopped.G1} · G2 ${log.counts.stopped.G2} · G3 ${log.counts.stopped.G3} · no-posting ${log.counts.stopped['no-posting']}`);
+  console.log(`✓ ${roles.length} leads · scored ${scorable.length} · stopped G0 ${log.counts.stopped.G0} · G1 ${log.counts.stopped.G1} · G2 ${log.counts.stopped.G2} · G3 ${log.counts.stopped.G3} · no-posting ${log.counts.stopped['no-posting']}`);
   console.log(`  scorer: ${scorerStdout.split('\n')[0]}`);
   for (const e of roles) console.log(`  ${e.role_id.padEnd(24)} ${e.next_action.action.padEnd(20)} ${e.next_action.why}`);
   console.log(`  → ${rel(path.join(a.outDir, 'analyst-check-log.json'))}  +  ${rel(path.join(a.outDir, 'analyst-check-report.md'))}`);

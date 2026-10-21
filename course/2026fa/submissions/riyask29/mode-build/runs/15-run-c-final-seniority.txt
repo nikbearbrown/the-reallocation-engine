@@ -1,0 +1,12 @@
+$ node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --today 2026-10-20 --formd-dir data/sec/form-d/processed --lca scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv --out-dir course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority   (persona now sets max_years_experience: 3)
+Checking 1 posting URL(s) with Playwright…
+  liveness active    https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003
+✓ 6 leads · scored 1 · stopped G0 2 · G1 2 · G2 0 · G3 0 · no-posting 1
+  scorer: ✓ scored 1 roles → Apply 0 · Consider 0 · Skip 1 (skip 100%)
+  everquote-sem            skip                 seniority: title word "senior" signals more than 3 years of experience
+  abacus-growth-analytics  skip                 seniority: title word "manager" signals more than 3 years of experience
+  klaviyo-analytics-eng    skip                 gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)
+  benefits-science-da      network              Proven analyst sponsor with no posting to apply to
+  writer-expired           resolve-company      company identity: no-h1b-record
+  hubspot-da               resolve-company      company identity: not-in-dataset
+  → course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority/analyst-check-log.json  +  course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority/analyst-check-report.md

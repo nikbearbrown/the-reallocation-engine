@@ -10,13 +10,13 @@ notes, not a script to read aloud.
 
 1. **The situation (45 s).** An international student on OPT, Boston, wants data analyst jobs and
    needs H-1B sponsorship: 49 unemployment days left. Show the report's executive summary
-   (`runs/run-b-final/analyst-check-report.md`).
+   (`runs/run-c-final-seniority/analyst-check-report.md`).
 2. **The asymmetry (60 s).** "Data Analyst" has no occupation code, so a sponsor list says a company
    sponsored *someone*, not an analyst. Show the G4 section: the title guesses, then the same check by
    occupation code from DOL's own filings.
 3. **A real run (90 s).** Run it live (about 15 s, opens 3 postings):
    `node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --today <today> --formd-dir data/sec/form-d/processed --lca scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv --out-dir /tmp/demo`.
-   Point at the next-action column: tailor 2, network 1, skip 1, a person checks 2.
+   Point at the next-action column: network 1, skip 3 (two for seniority: "Senior", "Manager"), a person checks 2.
 4. **What I learned from running it (60 s).** Pick one:
    - Benefits Science is "Proven" in the sponsor list but has **zero** analyst LCAs in Massachusetts
      this year. The label was old history.

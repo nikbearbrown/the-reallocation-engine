@@ -40,7 +40,8 @@ Department of Labor's own H-1B filing records (certified LCAs at Massachusetts
 worksites), so "has this company filed for analyst work?" is a record, not a
 title-keyword guess. Funding uses every company in four full SEC Form D quarters
 instead of a 200-company sample. The posting checker now sees application forms
-that career sites embed from their applicant-tracking system.
+that career sites embed from their applicant-tracking system. A seniority gate
+skips titles above the persona's experience target (at most 3 years).
 
 Two customers: this file is for the agent;
 `recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.card.md` is for the
@@ -115,6 +116,7 @@ Not used, on purpose: `npm run bls:local-wage` (fails on a fresh clone with no
 | `needs_sponsorship` (true/false) | persona | yes; the run refuses if missing | your-input |
 | `visa.current_status`, `opt_end_date` (YYYY-MM-DD), `unemployment_days_used`, `unemployment_ceiling`, `buffer_target_days` | persona | yes; the run refuses if any is missing | your-input |
 | `target_soc` (O*NET codes, e.g. `15-2051.01`, `13-1161.00`) | persona | yes | your-input |
+| `max_years_experience` (e.g. `3`) | persona | optional; turns on gate G0 | your-input |
 | `company`, `title`, `url` (or `null` when no posting is known) | candidates | yes | your-input |
 | `hiring_lag_weeks` | candidates | yes; a missing value stops the lead at G3 | your-input |
 | `fit_self_rating` (0–1) | candidates | optional; without it the fit vote is absent | your-input |
@@ -127,9 +129,10 @@ scorer and carries no invented value. Liveness and timeline are gates
 
 | Gate | Testable condition | Pass | Fail → | Human must see |
 |---|---|---|---|---|
+| **G0 Seniority** (when the persona sets `max_years_experience`) | The lead's title contains none of `seniority_words` (whole words: senior, sr, lead, principal, staff, manager, director, head, vp, iii, iv) in `config/title-families.json`. | evaluated further | stop (`stopped_at: G0`), `sponsorship: null`, next action **skip** with the matched word | the title, if a word misleads (an entry-level "Lead"); the posting's own years requirement is checked at G2 |
 | **G1 Company identity** | Exactly one CSV row whose normalised `company_name` (case, punctuation, Inc/LLC/Corp/Co/Ltd/LP/PBC stripped) equals the query, **and** that row has a non-empty `Total Approvals`. | tier + wage + Form D | `not-in-dataset`, `no-h1b-record`, `ambiguous`, or `not-exact-near-matches` → stop; `sponsorship: null`; near matches listed | the near-match names, to pick one or accept "unknown" |
 | **G3 Timeline** | `hiring_lag_weeks` is present. Factor = `clamp((min(days_to_opt_end, ceiling − used) − lag_days) / buffer, 0, 1)`. | factor goes to the scorer as a multiplier | lag missing → stop (`missing-hiring-lag`); OPT already ended or past the cliff → factor 0 → scorer Skip | the dates and the arithmetic line |
-| **G2 Liveness** | The lead has a URL and liveness is `active` or `expired`. | `active` → 1, `expired` → 0, both scored | no URL → `no-posting` (not scored; network or skip); `uncertain` / not checked → stop | the URL; a person opens the page |
+| **G2 Liveness** | The lead has a URL and liveness is `active` or `expired`. | `active` → 1, `expired` → 0, both scored | no URL → `no-posting` (not scored; network or skip); `uncertain` / not checked → stop | the URL; a person opens the page and checks its required years of experience |
 | **G4 Title review** | Every Proven or Likely tier lists the sponsored title(s) and the keyword that matched; with `--lca`, every lead also lists its certified LCAs by SOC code (or "none under this name"). | report lists both under *Gates a person must clear* | — (this gate never clears itself) | each matched title and each SOC line, to confirm it is work the student would do |
 
 G3 is evaluated before G2 so that every lead whose company passed G1 shows its
@@ -138,6 +141,8 @@ timeline arithmetic, including leads with no posting.
 Gate tests, run against the log of a finished run (each exits non-zero on failure):
 
 ```bash
+# G0: every seniority stop names its word, carries no sponsorship value, and is skipped
+node -e "const l=require('./scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/out/analyst-check-log.json');const g=l.roles.filter(e=>e.stopped_at==='G0');const bad=g.filter(e=>e.sponsorship!==null||!e.seniority.matched||e.next_action.action!=='skip');g.forEach(e=>console.log(e.role_id,JSON.stringify(e.title),'->',e.seniority.matched));process.exit(bad.length?1:0)"
 # G1: no stopped lead carries a sponsorship value; list why each stopped
 node -e "const l=require('./scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/out/analyst-check-log.json');const g=l.roles.filter(e=>e.stopped_at==='G1');const bad=g.filter(e=>e.sponsorship!==null);g.forEach(e=>console.log(e.role_id,e.company_match.status,e.company_match.near_matches.join('; ')));process.exit(bad.length?1:0)"
 # G2: only active/expired postings reached the scorer
@@ -237,6 +242,7 @@ decisions in `logs/runs/2026fa-riyask29-<n>.md`. Never edit `logs/RUN_LOG.md`.
 | The company sponsored a data analyst at all (SOC-level) | **not verifiable** | the CSV stores titles, not SOC codes, and only a truncated "top" list |
 | The company raised money recently | **not verifiable on samples**; **verified (record) on full quarters**, exact name only | Form D ships 50 companies per quarter; with the four full quarters a hit is a record of a private raise. A miss (`not-filed-under-this-name`) is not "no money": public companies never file Form D, entity names differ, and the newest quarter SEC had posted on 2026-10-20 was 2026 Q1 |
 | The company filed H-1B LCAs for analyst SOC codes in MA | **verified (record)** | DOL LCA disclosure FY2026 Q3 (Oct 2025–Jun 2026), certified, MA worksite, exact employer name |
+| The role needs at most 1–3 years of experience | **inferred (your-input rule) from the title only** | G0 skips senior title words; a posting's "N+ years" line is not read, so a person checks it at G2 |
 | Those LCAs became approved H-1Bs, or cover one worker each | **not verifiable** | an LCA is filed before the petition; one LCA can cover several workers |
 | The company will sponsor *this* student | **not verifiable** | no data source answers this |
 | STEM-extension eligibility, status rules | **not verifiable** | legal question; DSO only |
@@ -300,10 +306,11 @@ tracked repo file outside that folder.
 _prototype, _version,
 run { today, prototype, liveness_mode, inputs{...paths}, outputs[] },
 persona { name, fictional, binding_clock [opt-end-date | unemployment-days], runway_days, source },
-counts { candidates, scored, stopped { G1, G2, G3, no-posting }, form_d_in_sample },
+counts { candidates, scored, stopped { G0, G1, G2, G3, no-posting }, form_d_in_sample },
 scorer_stdout,
 roles[] {
-  role_id, company_query, title, url, stopped_at [null | G1 | G2 | G3 | no-posting],
+  role_id, company_query, title, url, stopped_at [null | G0 | G1 | G2 | G3 | no-posting],
+  seniority    null | { status [ok | too-senior], matched, max_years, source },
   company_match { status, matched_name, near_matches[], source },
   sponsorship  null | { total_approvals, total_denials, approval_rate, counts_source,
                         sponsored_titles[{title, family, matched}], titles_source,
@@ -345,6 +352,7 @@ clear* (G1–G4, with the G4 title list) → *What this run could not verify*.
 | Posting expired, tier Proven/Likely | `network` | the 3 networking hours: informational chat before the next opening |
 | No posting, tier Proven/Likely | `network` | the 3 networking hours |
 | Scorer **Skip** for any other reason (timeline 0, weak tier) | `skip` | none; time goes back to the day |
+| Stopped at G0 (senior title) | `skip` | none; the role is above the persona's experience target |
 | Stopped at G1 | `resolve-company` | a person, once; then re-run |
 | Stopped at G2 (`uncertain`) | `check-posting-by-hand` | a person opens the URL |
 | Stopped at G3 (no lag) | `fix-input` | a person adds the estimate |

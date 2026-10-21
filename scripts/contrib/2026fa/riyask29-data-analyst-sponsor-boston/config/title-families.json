@@ -2,7 +2,8 @@
   "_source": "your-input — keyword rules written by riyask29 on 2026-10-02; a human reviews every match at gate G4",
   "_how": "A sponsored title is checked only if it contains 'analyst'. data_analyst_family is checked first, then ambiguous_analyst; anything else with 'analyst' is other-analyst.",
   "_changelog": [
-    "2026-10-02 — riyask29 at gate G4: moved 'quantitative analyst' from ambiguous_analyst to other_analyst_examples. Quant analyst work (stats, pricing models, forecasting) is not data-analyst evidence for this persona; EverQuote drops from Likely to Possible."
+    "2026-10-02 — riyask29 at gate G4: moved 'quantitative analyst' from ambiguous_analyst to other_analyst_examples. Quant analyst work (stats, pricing models, forecasting) is not data-analyst evidence for this persona; EverQuote drops from Likely to Possible.",
+    "2026-10-20 — riyask29: added seniority_words for gate G0. Riya targets roles needing at most 1–3 years of experience, so a title with one of these words is skipped. Title only: the posting's own 'N+ years' line is checked by a person at G2."
   ],
   "data_analyst_family": [
     "data analyst",
@@ -40,5 +41,18 @@
     "Likely": 0.6,
     "Possible": 0.3,
     "Unknown": 0.15
-  }
+  },
+  "seniority_words": [
+    "senior",
+    "sr",
+    "lead",
+    "principal",
+    "staff",
+    "manager",
+    "director",
+    "head",
+    "vp",
+    "iii",
+    "iv"
+  ]
 }

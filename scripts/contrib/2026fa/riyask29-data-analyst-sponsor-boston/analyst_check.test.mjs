@@ -10,7 +10,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { readCsv, findCompany, classifyTitle, timelineFactor, wageCheck, formDLookup, lcaLookup } from './lib.mjs';
+import { readCsv, findCompany, classifyTitle, timelineFactor, wageCheck, formDLookup, lcaLookup, seniorityCheck, nextAction } from './lib.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const FX = path.join(HERE, 'fixtures');
@@ -168,4 +168,18 @@ test('DOL LCA: SOC-level counts by exact employer name; absence is never "does n
   assert.match(miss.meaning, /^no certified analyst-family LCA/);
   assert.doesNotMatch(miss.meaning, /does not sponsor/i);
   assert.match(miss.meaning, /not evidence/);
+});
+
+test('G0 seniority: whole-word title match only, and a senior lead is skipped with the reason', () => {
+  const words = JSON.parse(fs.readFileSync(path.join(HERE, 'config/title-families.json'), 'utf8')).seniority_words;
+  assert.equal(seniorityCheck('Senior Analyst, SEM', words).matched, 'senior');
+  assert.equal(seniorityCheck('Growth Analytics Manager, Payment Integrity', words).matched, 'manager');
+  assert.equal(seniorityCheck('Sr. Data Analyst', words).matched, 'sr');
+  assert.equal(seniorityCheck('Data Analyst', words).status, 'ok');
+  assert.equal(seniorityCheck('Analytics Engineer', words).status, 'ok');
+  assert.equal(seniorityCheck('Data Analyst II', words).status, 'ok');           // II is not on the list
+  assert.equal(seniorityCheck('Leadership Data Analyst', words).status, 'ok');   // "lead" must be a whole word
+  const e = { stopped_at: 'G0', seniority: { matched: 'senior', max_years: 3 } };
+  assert.equal(nextAction(e).action, 'skip');
+  assert.match(nextAction(e).why, /senior.*3 years/);
 });

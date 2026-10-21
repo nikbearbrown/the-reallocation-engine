@@ -47,7 +47,7 @@ node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.m
 ## Test it (offline, no network)
 
 ```bash
-node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs    # 10 tests
+node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs    # 11 tests
 node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/liveness_frames.test.mjs  # 3 tests (Chromium, no network)
 python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_slice.py              # 5 tests (openpyxl)
 ```
@@ -66,7 +66,7 @@ python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_sli
 | `inputs/candidates.json` | real public postings found 2026-10-02 + my hiring-lag and fit estimates |
 | `inputs/liveness.gate-cleared.json` | gate G2 cleared: machine results plus my browser checks (`source: your-input`) |
 | `fixtures/` | test data: rows cut verbatim from the real repo files, plus test personas |
-| `analyst_check.test.mjs` | 10 offline tests, including deliberate break attempts |
+| `analyst_check.test.mjs` | 11 offline tests, including deliberate break attempts and the seniority gate |
 | `liveness_frames.test.mjs`, `test_lca_slice.py` | offline tests for the liveness iframe fix (3) and the LCA slicer (5) |
 | `out/` | the final run's outputs (run 3, after the gates were cleared) |
 

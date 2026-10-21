@@ -6,8 +6,10 @@
 pasted in, what the data established against what was judged, how the output was checked, the
 deliberate attempts to break it, and what it got wrong. **Why read it.** It is the evidence behind the
 mode's DRAFT status (2 typed TODOs open). **What it found.** With full SEC funding data and the Department of Labor's own H-1B
-filing records, the mode checked 6 real Boston job leads for a fictional OPT student. Result: 2 to
-tailor, 1 to network into, 1 to skip, and 2 for a person to resolve. The filing records contradicted the
+filing records, the mode checked 6 real Boston job leads for a fictional OPT student. Before the seniority gate: 2 to
+tailor, 1 to network into, 1 to skip, and 2 for a person to resolve. With the gate Riya asked for (roles
+needing at most 1–3 years), the two to tailor were a "Senior" and a "Manager" role, so the final result is
+0 to tailor, 1 to network into, 3 to skip, and 2 to resolve. The filing records contradicted the
 sponsor list twice. A "Proven" analyst sponsor (Benefits Science) has no analyst filing anywhere in the
 FY2026 file, and HubSpot, which is missing from the sponsor list, filed one. The run also found four
 problems in the engine and one in my own new script.
@@ -361,10 +363,58 @@ benefits-science-da "Data Analyst" -> data-analyst-family (data analyst)
 exit=0
 ```
 
+## 5b. The seniority gate (G0), added at Riya's request
+
+Riya targets roles that need at most 1–3 years of experience. Two of the three leads that reached the
+scorer above were a *Senior* and a *Manager* role. So the persona now carries `max_years_experience: 3`,
+and a new gate G0 skips any lead whose title contains a senior word (`seniority_words` in
+`config/title-families.json`; a new unit test covers whole-word matching, e.g. "Leadership" is not "lead").
+The final run:
+
+```text
+$ node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs --today 2026-10-20 --formd-dir data/sec/form-d/processed --lca scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv --out-dir course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority   (persona now sets max_years_experience: 3)
+Checking 1 posting URL(s) with Playwright…
+  liveness active    https://www.klaviyo.com/careers/jobs/7737707003?gh_jid=7737707003
+✓ 6 leads · scored 1 · stopped G0 2 · G1 2 · G2 0 · G3 0 · no-posting 1
+  scorer: ✓ scored 1 roles → Apply 0 · Consider 0 · Skip 1 (skip 100%)
+  everquote-sem            skip                 seniority: title word "senior" signals more than 3 years of experience
+  abacus-growth-analytics  skip                 seniority: title word "manager" signals more than 3 years of experience
+  klaviyo-analytics-eng    skip                 gated: timeline ≈ 0.000 (a closed gate zeroes the composite regardless of votes)
+  benefits-science-da      network              Proven analyst sponsor with no posting to apply to
+  writer-expired           resolve-company      company identity: no-h1b-record
+  hubspot-da               resolve-company      company identity: not-in-dataset
+  → course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority/analyst-check-log.json  +  course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority/analyst-check-report.md
+```
+
+```text
+# Handoff + gate tests from the recipe, run against ./course/2026fa/submissions/riyask29/mode-build/runs/run-c-final-seniority/analyst-check-log.json
+$ handoff
+handoff ok {"candidates":6,"scored":1,"stopped":{"G0":2,"G1":2,"G2":0,"G3":0,"no-posting":1},"form_d_in_sample":0}
+exit=0
+$ G0 (every G0 stop names its word, has no sponsorship value, and is skipped)
+everquote-sem "Senior Analyst, SEM" -> senior
+abacus-growth-analytics "Growth Analytics Manager, Payment Integrity" -> manager
+exit=0
+$ G1
+writer-expired no-h1b-record
+hubspot-da not-in-dataset
+exit=0
+$ G2
+scored with bad liveness: 0
+exit=0
+$ G3
+klaviyo-analytics-eng 0 Skip
+exit=0
+```
+
+The gate reads the title only. A posting called "Data Analyst" can still ask for 5+ years, so G2 now
+tells the person who opens the posting to check its years requirement.
+
 ## Verified vs inferred, line by line
 
 | Claim in the output | Verified (record or script) | Inferred (a rule or a judgment) |
 |---|---|---|
+| EverQuote and Abacus are above the 1–3 year target (G0) | the title words "Senior", "Manager" | that a senior title means more than 3 years (a rule), and that an untitled role does not (checked at G2) |
 | EverQuote, Abacus, Klaviyo postings were open at run time | Playwright liveness, timestamped in `liveness.json` | that they will still be open when Riya applies (G2: she opens each) |
 | EverQuote has 56 H-1B approvals, 0 denials | sponsor CSV row | — |
 | EverQuote tier "Possible", Abacus "Likely", Benefits Science "Proven" | the titles themselves (CSV) | the tier: my keyword rules (`title-families.json`) and p mapping |
@@ -535,6 +585,8 @@ a guess. The independent recount was worth doing: it matched the result *and* ex
   overstated what was read. Fixed, tested, and re-sliced (the CSV was byte-identical).
 - The tier still comes from titles. The LCA record sits beside it at G4 and does not change it, so a
   person must read both. Benefits Science still shows "Proven".
+- With the 1–3 year rule, none of the six leads is left to apply to. That is a correct result for these leads, but the lead list was
+  built before the rule and should be refreshed with entry-level postings.
 - The persona's 41 used unemployment days are a fixed input. Eighteen days after the first run, a real
   student would have used more, and the timeline would be tighter. The mode does not count days for you.
 - Names must match exactly. Fidelity files LCAs under at least four legal names, and the mode sees each separately.
@@ -553,7 +605,8 @@ folder-mismatch fix upstream as its own one-file PR.
 ### Tested
 | Ran | Saw | Expected |
 |---|---|---|
-| `node --test …/analyst_check.test.mjs` | pass 10, fail 0 | all pass |
+| `node --test …/analyst_check.test.mjs` | pass 11, fail 0 (incl. the G0 test) | all pass |
+| final run with the seniority gate (run C) | G0 stops 2 ("senior", "manager"); Klaviyo Skip; next actions: network 1, skip 3, resolve 2 | senior roles skipped with the word shown |
 | `node --test …/liveness_frames.test.mjs` | pass 3, fail 0 | all pass |
 | `python3 …/test_lca_slice.py` | 5 tests OK | all pass |
 | **(riyask29)** opened the EverQuote, Abacus Insights and Klaviyo postings in a browser (G2) | all three open | the machine's `active` is right |
@@ -576,6 +629,7 @@ folder-mismatch fix upstream as its own one-file PR.
 - Liveness on Lever, Ashby or Workday postings that are open (only Greenhouse-embedded and one expired Ashby posting).
 - Node 20 (CI's version); only Node 24 locally. The CI harness jobs, which fail upstream for missing scripts (not this branch).
 - Whether any tier would change if LCA counts fed the score: deliberately not done.
+- The postings' own years-of-experience requirements (G0 reads titles only).
 - Timing the manual research the mode replaces.
 
 ### Broke during testing, fixed

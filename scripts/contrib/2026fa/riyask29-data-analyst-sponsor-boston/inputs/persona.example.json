@@ -18,5 +18,6 @@
     "stem_extension_filed": false
   },
   "target_roles": ["Data Analyst", "Business Intelligence Analyst"],
-  "target_soc": ["15-2051.01", "13-1161.00"]
+  "target_soc": ["15-2051.01", "13-1161.00"],
+  "max_years_experience": 3
 }

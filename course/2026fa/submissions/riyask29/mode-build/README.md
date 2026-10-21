@@ -22,7 +22,7 @@ from), and two typed TODOs are open: hiring-lag evidence, which no source provid
 | [`02-worked-run.md`](02-worked-run.md) | The run: commands and pasted output, verified vs inferred, verification, break attempts, reflection, attestation (built from `02-worked-run.src.md` by `build-worked-run.py`, which pastes `runs/` verbatim) |
 | [`03-run-log-entry.md`](03-run-log-entry.md) | The run-log entry (committed as `logs/runs/2026fa-riyask29-3.md`) |
 | [`04-show-and-tell-notes.md`](04-show-and-tell-notes.md) | Outline for the five-minute in-class show and tell |
-| [`runs/`](runs) | Every command's real output, and both runs' JSON logs and Markdown reports |
+| [`runs/`](runs) | Every command's real output, and each run's JSON log and Markdown report (`run-c-final-seniority/` is the final run) |
 | `make-zip.sh` | Builds `reallocation-riyask29-mode.zip` for the course site |
 
 New or changed code (all in the contribution namespace except one declared patch):
@@ -32,7 +32,7 @@ New or changed code (all in the contribution namespace except one declared patch
 | `scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/lca_slice.py` + `test_lca_slice.py` | Cuts a DOL LCA workbook to employer × SOC counts; 5 offline tests |
 | `…/data/lca-ma-analyst-fy2026q3.csv` + `-audit.md` | The slice (no case numbers, no person's name or contact) and its rows-in/rows-out audit |
 | `…/config/lca-soc-families.json` | Which SOC codes count as core vs adjacent analyst work (your-input) |
-| `…/lib.mjs`, `…/analyst_check.mjs`, `…/analyst_check.test.mjs` | LCA join, full-quarter Form D wording, liveness retry; 10 tests |
+| `…/lib.mjs`, `…/analyst_check.mjs`, `…/analyst_check.test.mjs` | LCA join, full-quarter Form D wording, seniority gate G0 (roles ≤ 3 years), liveness retry; 11 tests |
 | `…/liveness_frames.test.mjs` | 3 offline tests for the liveness fix |
 | `scripts/ats/liveness-browser.mjs` | **The one declared maintained-file patch:** read apply controls in ATS-hosted iframes |
 | `logs/runs/2026fa-riyask29-3.md` | Run-log entry |
@@ -52,7 +52,7 @@ The brief was written for the Summer 2026 repository. This repository's `CONTRIB
 ## Reproduce (from the repository root)
 
 ```bash
-node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs      # 10 pass, offline
+node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs      # 11 pass, offline
 node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/liveness_frames.test.mjs    # 3 pass, offline
 python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/test_lca_slice.py                # 5 OK, needs openpyxl
 node scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs \
