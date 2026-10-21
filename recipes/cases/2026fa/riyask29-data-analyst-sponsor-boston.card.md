@@ -5,7 +5,7 @@ which Data / BI Analyst leads deserve an application this week, or the person
 checking their work.  
 **Agent twin:** `recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md`  
 **Status:** DRAFT (v0.2.0). It runs on the repo's sample data, and on full SEC Form D quarters and a
-DOL H-1B filing slice when you fetch them; it has not been attested. 4 typed TODOs are open.
+DOL H-1B filing slice when you fetch them; it has not been attested. 2 typed TODOs are open (hiring-lag evidence; an engine folder bug).
 
 ## Executive summary
 

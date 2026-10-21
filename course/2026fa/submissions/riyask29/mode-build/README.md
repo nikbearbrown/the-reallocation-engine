@@ -10,13 +10,14 @@ sample data" to "runs on full public records": every company in four SEC Form D 
 Department of Labor's own H-1B filings by occupation code. It also fixes the engine's posting checker. **What it
 found.** The DOL records contradicted the sponsor list twice. A "Proven" analyst sponsor had no analyst
 filing in the FY2026 file, and a company missing from the list had filed one. The mode stays a **DRAFT**:
-four typed TODOs are open, and two of them close only when Riya signs where the data came from.
+three of the four original TODOs are closed with evidence (Riya confirmed where both datasets came
+from), and two typed TODOs are open: hiring-lag evidence, which no source provides, and an engine bug the run found.
 
 ## Files
 
 | File | What it is |
 |---|---|
-| [`../../../../recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md`](../../../../recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md) | **The mode file** (v0.2.0, DRAFT, 4 typed TODOs), with its human card `…​.card.md` |
+| [`../../../../recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md`](../../../../recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md) | **The mode file** (v0.2.0, DRAFT, 2 typed TODOs open), with its human card `…​.card.md` |
 | [`01-domain-justification.md`](01-domain-justification.md) | One page: who, the information gap, the engine layers, two domain failure modes |
 | [`02-worked-run.md`](02-worked-run.md) | The run: commands and pasted output, verified vs inferred, verification, break attempts, reflection, attestation (built from `02-worked-run.src.md` by `build-worked-run.py`, which pastes `runs/` verbatim) |
 | [`03-run-log-entry.md`](03-run-log-entry.md) | The run-log entry (committed as `logs/runs/2026fa-riyask29-3.md`) |

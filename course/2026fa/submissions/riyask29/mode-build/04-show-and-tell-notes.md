@@ -28,7 +28,7 @@ notes, not a script to read aloud.
 
 ## If asked
 
-- *Why DRAFT?* Four typed TODOs are open. Two DATA SOURCE ones need my own provenance sign-off, one has
-  no data source anywhere, and one is an engine bug this run found.
+- *Why DRAFT?* Two typed TODOs are still open: hiring-lag evidence (no data source exists, so I kept it open
+  rather than descoping it) and an engine bug this run found. SPECIFIED needs zero.
 - *Why not edit `logs/RUN_LOG.md`?* CI rejects it for students; the entry is in `logs/runs/`.
 - *Why exact names only?* "Abacus" in Form D matches 12 unrelated funds, one with a $94M raise.

@@ -5,7 +5,7 @@
 **What this is.** The record of running the mode against real data: every command, its real output
 pasted in, what the data established against what was judged, how the output was checked, the
 deliberate attempts to break it, and what it got wrong. **Why read it.** It is the evidence behind the
-mode's DRAFT status. **What it found.** With full SEC funding data and the Department of Labor's own H-1B
+mode's DRAFT status (2 typed TODOs open). **What it found.** With full SEC funding data and the Department of Labor's own H-1B
 filing records, the mode checked 6 real Boston job leads for a fictional OPT student. Result: 2 to
 tailor, 1 to network into, 1 to skip, and 2 for a person to resolve. The filing records contradicted the
 sponsor list twice. A "Proven" analyst sponsor (Benefits Science) has no analyst filing anywhere in the
@@ -192,8 +192,8 @@ The recipe's handoff and gate tests, run against this log:
 ```
 
 The 3 manifest warnings are the same ones a fresh clone shows (section 1); `private/` and `data/ats/`
-are ignored as `/private/*` and `/data/ats/*`. The doctor's TODO count is unchanged (318 = 318) because
-this recipe still declares 4 open TODOs, as v0.1.1 did, and declared equals body.
+are ignored as `/private/*` and `/data/ats/*`. The doctor's TODO count fell from 318 to 316: this
+recipe declared 4 open TODOs in v0.1.1 and declares 2 now, and declared still equals body.
 
 ## 6. Deliberate attempts to break it
 
@@ -229,7 +229,7 @@ a guess. The independent recount was worth doing: it matched the result *and* ex
 - Names must match exactly. Fidelity files LCAs under at least four legal names, and the mode sees each separately.
 - One fiscal year, one state: an employer whose analysts sit outside Massachusetts reads as "none".
 
-**Next steps.** (1) Riya confirms the two provenance lines, which closes TODO 1 and 2. (2) Use the LCA
+**Next steps.** (1) Done during this run: Riya confirmed both provenance lines (TODO 1 and 2 closed) and cleared G1–G4. (2) Use the LCA
 record in the tier itself, a scoring decision that needs a written rule and a test first. (3) Add an
 employer alias list (legal name → brand) with its source, so "Fidelity" means all its entities.
 (4) Make the unemployment-day count a running count from a start date. (5) Report the Form D
@@ -237,7 +237,7 @@ folder-mismatch fix upstream as its own one-file PR.
 
 ## Attestation
 - Recipe: riyask29-data-analyst-sponsor-boston v0.2.0 (DRAFT)
-- By: the AI assistant (Claude Code) for riyask29 · 2026-10-20. Riya has not yet re-run these herself; a row she runs will be marked **(riyask29)**.
+- By: the AI assistant (Claude Code) for riyask29 · 2026-10-20. Rows marked **(riyask29)** Riya did herself; she also recorded the provenance and G1–G4 decisions in `logs/runs/2026fa-riyask29-3.md`.
 
 ### Tested
 | Ran | Saw | Expected |
@@ -245,6 +245,8 @@ folder-mismatch fix upstream as its own one-file PR.
 | `node --test …/analyst_check.test.mjs` | pass 10, fail 0 | all pass |
 | `node --test …/liveness_frames.test.mjs` | pass 3, fail 0 | all pass |
 | `python3 …/test_lca_slice.py` | 5 tests OK | all pass |
+| **(riyask29)** opened the EverQuote, Abacus Insights and Klaviyo postings in a browser (G2) | all three open | the machine's `active` is right |
+| **(riyask29)** checked the DOL workbook and the SEC quarters are the files she downloaded / that were fetched today | confirmed | provenance for TODO 1 and 2 |
 | `npm run ats:liveness` on the EverQuote posting, upstream vs this branch | `uncertain` vs `active` | open posting reads active |
 | same command on the expired Writer posting, this branch | `expired` (pattern: job not found) | still expired |
 | final run with full Form D + LCA, live | 6 leads: Consider 2, Skip 1, network 1, resolve-company 2 | gates stop G1 cases; no invented values |
@@ -257,7 +259,7 @@ folder-mismatch fix upstream as its own one-file PR.
 | **break:** substring Form D join on "abacus" | 12 unrelated funds | exact-name join is required |
 
 ### Did not test
-- Riya re-running the commands in her own terminal (the Oct 2 runs were hers; these were the assistant's).
+- Riya re-running the commands in her own terminal (the Oct 2 runs were hers; these were the assistant's; she did the browser and provenance checks).
 - Any state but Massachusetts, any LCA file but FY2026 Q3, or LCA FY2025 to compare years.
 - Employers filing under brand names different from their legal names, beyond the Fidelity example.
 - Liveness on Lever, Ashby or Workday postings that are open (only Greenhouse-embedded and one expired Ashby posting).

@@ -1,18 +1,17 @@
 ---
 status: DRAFT          # DRAFT | SPECIFIED | RUNNABLE-SAMPLE | RUNNABLE-LIVE
-todos_open: 4
+todos_open: 2
 last_gate: null
 attestation: null      # no named-human attestation; set only by a human who signed one
 recipe_version: 0.2.0
 ---
 
 <!-- Why still DRAFT (v0.2.0, Mode Build, 2026-10-20): v0.1.1 had four typed
-     TODOs. One is closed by its evidence (the liveness DEV fix). Two DATA
-     SOURCE TODOs have their files in place but stay open until a named human
-     writes the provenance line (SNICKERDOODLE: DATA SOURCE is closed by a
-     human). One (hiring-lag evidence) has no data source anywhere. The run
-     found one new DEV defect in the engine. Four open, so DRAFT. Real runs
-     with full data are logged in logs/runs/2026fa-riyask29-3.md. -->
+     TODOs. Three are closed with their evidence: the liveness DEV fix, and the
+     two DATA SOURCE TODOs, whose provenance riyask29 confirmed in
+     logs/runs/2026fa-riyask29-3.md. Two are open: hiring-lag evidence (no
+     source exists; kept open by riyask29's decision, not descoped) and a new
+     engine defect the run found. SPECIFIED needs zero open TODOs, so DRAFT. -->
 
 # riyask29-data-analyst-sponsor-boston — Data-Analyst Sponsor Check
 
@@ -257,18 +256,18 @@ decisions in `logs/runs/2026fa-riyask29-<n>.md`. Never edit `logs/RUN_LOG.md`.
 
 ## Proposed additions
 
-1. [TODO: DATA SOURCE] DOL LCA disclosure records by employer **and** SOC code.
-   *Evidence in place (2026-10-20):* `data/lca-ma-analyst-fy2026q3.csv` + audit, cut
+1. CLOSED (DATA SOURCE, 2026-10-20, riyask29). DOL LCA disclosure records by employer **and** SOC code.
+   *Evidence:* `data/lca-ma-analyst-fy2026q3.csv` + audit, cut
    by `lca_slice.py` (5 offline tests) from DOL OFLC `LCA_Disclosure_Data_FY2026_Q3.xlsx`
    (sha256 `f8ca8448…28b3`, 251,850,891 bytes, downloaded 2026-10-20 by riyask29 in a
-   browser from dol.gov/media/). Closes when riyask29 writes the provenance line in
+   browser from dol.gov/media/). Provenance confirmed by riyask29 in
    `logs/runs/2026fa-riyask29-3.md`. Belongs here because title matching was this
    recipe's weakest inference; G4 now shows SOC-level records beside the titles.
-2. [TODO: DATA SOURCE] Full SEC Form D quarters. *Evidence in place (2026-10-20):*
+2. CLOSED (DATA SOURCE, 2026-10-20, riyask29). Full SEC Form D quarters. *Evidence:*
    `data/sec/form-d/processed/companies-sec-{2025q2,2025q3,2025q4,2026q1}-d.json`
    (58,329 companies; gitignored), fetched with `scripts/sec/download-form-d-quarters.py`
    and processed by `refresh-recent-sec-quarters.py`. 2026 Q2 and Q3 returned HTTP 404
-   (not yet posted by SEC). Closes when riyask29 writes the provenance line.
+   (not yet posted by SEC). Provenance confirmed by riyask29 in `logs/runs/2026fa-riyask29-3.md`.
 3. CLOSED (DEV, 2026-10-20). Liveness that a person does not have to redo.
    Cause found: careers.everquote.com embeds the Greenhouse application form in an
    iframe (`job-boards.greenhouse.io/embed/job_app`), and the checker read only the
@@ -281,7 +280,7 @@ decisions in `logs/runs/2026fa-riyask29-<n>.md`. Never edit `logs/RUN_LOG.md`.
    branch (`course/2026fa/submissions/riyask29/mode-build/runs/engine-05*`, `05b*`).
 4. [TODO: DEV] Per-company hiring-lag evidence. Today `hiring_lag_weeks` is the
    student's guess and the timeline gate is only as good as that guess. No public
-   source was found; kept open rather than descoped.
+   source was found; kept open rather than descoped (riyask29's decision, 2026-10-20).
 5. [TODO: DEV] Engine defect found by this run: `download-form-d-quarters.py`
    extracts each zip to `extracted/<q>-d/<YYYYQn>_d/`, but
    `refresh-recent-sec-quarters.py` looks only in `extracted/<q>-d` and
