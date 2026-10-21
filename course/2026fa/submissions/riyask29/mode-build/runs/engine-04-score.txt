@@ -1,0 +1,6 @@
+$ npm run score
+
+> the-reallocation-engine@1.0.0 score
+> node scripts/score/role-scorer.mjs
+
+Usage: role-scorer.mjs <roles.json> [--profile p.json] [--out-dir dir] [--md report.md]

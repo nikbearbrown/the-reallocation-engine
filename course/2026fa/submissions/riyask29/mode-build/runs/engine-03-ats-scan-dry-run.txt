@@ -1,0 +1,31 @@
+$ REALLOCATION_ENGINE_PORTALS=data/ats/portals.example.yml npm run ats:scan -- --dry-run
+  + Databricks | Sr. Forward Deployed Engineer (FDE) - Digital Native Business  | Remote - New York
+  + Databricks | Sr. Forward Deployed Engineer (FDE) - Financial Services | Central - United States
+  + Databricks | Sr. Forward Deployed Engineer (FDE) - Public Sector  | Alabama; Remote - Virginia; Remote - Washington D.C.
+  + Databricks | Sr. Forward Deployed Engineer (FDE) - Retail | Northeast - United States; Southeast - United States
+  + Databricks | Sr. Forward Deployed Engineer - National Security | Boston, Massachusetts; Delaware; Maryland; Remote - California; Remote - New York; Remote - Washington D.C.; Virginia; West Virginia
+  + Databricks | Sr. Industry Marketing Manager, Manufacturing & Supply Chain | United States
+  + Databricks | Sr. Manager, Field Engineering | Chicago, Illinois; Connecticut; New Jersey; Remote - New York; Remote - Washington D.C.; San Francisco, California
+  + Databricks | Sr. Manager, Field Engineering - Sports | Northeast - United States
+  + Databricks | Sr. Manager, Field Engineering - Telco | United States
+  + Databricks | Sr. Partner Marketing Manager, AWS & AI Partners | United States
+  + Databricks | Sr Platform Monitoring Engineer | United States
+  + Databricks | Sr. Product Marketing Manager, Lakewatch & Agentic Apps | West Coast - United States
+  + Databricks | Sr. Security Engineer, Enterprise Security | Remote - California
+  + Databricks | Sr. Solutions Architect - Retail, Travel & Hospitality | Atlanta, Georgia; Chicago, Illinois; Dallas, Texas; Phoenix, Arizona; Portland, Oregon; Remote - California; Remote - North Carolina; Seattle, Washington
+  + Databricks | Sr. Solutions Engineer - Digital Native Business (Strategic Accounts) | Remote - California; Remote - Colorado; Remote - Oregon; Remote - Washington
+  + Databricks | Sr. Staff Security Software Engineer - Agentic Security Engineering | Remote - California
+  + Databricks | Sr. Technology Partner Director - AI Code-Gen & Apps | Remote - California; San Francisco, California
+  + Databricks | Staff Enterprise Security Engineer | Remote - California
+  + Databricks | Staff Forward Deployed Engineer | Remote - India
+  + Databricks | Staff Product Manager, US Public Sector | Remote - California; Remote - Virginia; Remote - Washington D.C.
+  + Databricks | Staff Security Assurance Engineer  | Remote - Washington D.C.; Washington, D.C.
+  + Databricks | Staff Security Engineer, Incident Response | United States
+  + Databricks | Staff Unified Communications Engineer | San Francisco, California; United States
+  + Databricks | Strategic Account Executive - Retail vertical  | Remote - California
+  + Databricks | Strategic Core Account Executive - Retail  | Remote - Ohio
+  + Databricks | Technical Enablement Specialist  - Field Engineering Onboarding | United States
+
+(dry run — run without --dry-run to save results)
+
+Review new offers in data/ats/pipeline.md.

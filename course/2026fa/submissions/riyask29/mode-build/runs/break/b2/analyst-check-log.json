@@ -1,0 +1,132 @@
+{
+  "_prototype": "riyask29-data-analyst-sponsor-boston",
+  "_version": "0.1.0",
+  "run": {
+    "today": "2026-10-20",
+    "prototype": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.mjs",
+    "liveness_mode": "recorded results from `scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/liveness.gate-cleared.json`",
+    "form_d_complete": true,
+    "inputs": {
+      "persona": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/inputs/persona.example.json",
+      "candidates": "course/2026fa/submissions/riyask29/mode-build/runs/break/candidates.name-variants.json",
+      "families": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/config/title-families.json",
+      "sponsors": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "bls": "data/bls/compact/soc_occupation_compact.csv",
+      "formd_dir": "data/sec/form-d/processed",
+      "lca": "scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv"
+    },
+    "outputs": [
+      "roles.json",
+      "scorer-profile.json",
+      "role-scores.json",
+      "role-scores.md",
+      "analyst-check-log.json",
+      "analyst-check-report.md"
+    ]
+  },
+  "persona": {
+    "name": "Sneha Patil",
+    "fictional": true,
+    "binding_clock": "unemployment-days",
+    "runway_days": 49,
+    "source": "your-input"
+  },
+  "counts": {
+    "candidates": 2,
+    "scored": 0,
+    "stopped": {
+      "G1": 2,
+      "G2": 0,
+      "G3": 0,
+      "no-posting": 0
+    },
+    "form_d_in_sample": 0
+  },
+  "scorer_stdout": "no role reached the scorer",
+  "roles": [
+    {
+      "role_id": "abacus-short",
+      "company_query": "Abacus",
+      "title": "Growth Analytics Manager, Payment Integrity",
+      "url": "https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002",
+      "fit": {
+        "p": 0.7,
+        "source": "your-input"
+      },
+      "stopped_at": "G1",
+      "company_match": {
+        "status": "not-exact-near-matches",
+        "matched_name": null,
+        "near_matches": [
+          "ABACUS BIOSCIENCE INC",
+          "ABACUS INSIGHTS INC",
+          "OREGON ABACUS MULTIFAMILY ASSOCIATES LP"
+        ],
+        "source": "record"
+      },
+      "lca": {
+        "status": "none-under-this-name",
+        "core_lcas": 0,
+        "adjacent_lcas": 0,
+        "by_soc": [],
+        "source": "record",
+        "coverage": "certified H-1B LCAs at the slice's worksite state, lca-ma-analyst-fy2026q3.csv",
+        "meaning": "no certified analyst-family LCA under this exact employer name in this file; not evidence that it never sponsors"
+      },
+      "sponsorship": null,
+      "next_action": {
+        "action": "resolve-company",
+        "hours": "research (2h)",
+        "why": "company identity: not-exact-near-matches"
+      }
+    },
+    {
+      "role_id": "hubspot-lower",
+      "company_query": "hubspot inc.",
+      "title": "Data Analyst",
+      "url": null,
+      "fit": {
+        "p": 0.8,
+        "source": "your-input"
+      },
+      "stopped_at": "G1",
+      "company_match": {
+        "status": "not-in-dataset",
+        "matched_name": null,
+        "near_matches": [],
+        "source": "record"
+      },
+      "lca": {
+        "status": "found",
+        "core_lcas": 0,
+        "adjacent_lcas": 1,
+        "by_soc": [
+          {
+            "soc_code": "15-2041.00",
+            "soc_title": "Statisticians",
+            "family": "adjacent",
+            "certified_lcas": 1,
+            "top_job_titles": "Senior Statistical Analyst"
+          }
+        ],
+        "source": "record",
+        "coverage": "certified H-1B LCAs at the slice's worksite state, lca-ma-analyst-fy2026q3.csv",
+        "meaning": "filed certified LCAs only in adjacent analyst SOC codes: a person decides if that work fits (G4)"
+      },
+      "sponsorship": null,
+      "next_action": {
+        "action": "resolve-company",
+        "hours": "research (2h)",
+        "why": "company identity: not-in-dataset"
+      }
+    }
+  ],
+  "cannot_verify": [
+    "Sponsorship by SOC code (DOL LCA, one fiscal-year file, Massachusetts worksites, exact employer name): an LCA is filed before the H-1B petition, so it is not an approval, one LCA can cover several workers, and a company filing under another legal name, or outside Massachusetts, reads as \"none\".",
+    "Whether the title keyword rules are right: they are the student's rules, and every match is shown for human review (G4).",
+    "Funding: full Form D quarters were used, but only exact-name matches count, Form D covers private raises only, and the newest quarter available lags months behind.",
+    "What a specific employer pays an analyst: the company median covers all its sponsored roles, and BLS OEWS is an occupation survey, not an offer.",
+    "Hiring lag and fit: both are the student's own estimates.",
+    "Visa law: the timeline factor is planning arithmetic. STEM-extension eligibility needs a DSO."
+  ]
+}

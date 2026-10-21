@@ -1,0 +1,11 @@
+$ npm run ats:liveness -- <EverQuote URL> <Abacus URL> <Writer expired URL> (fresh clone = upstream checker, no iframe fix)
+
+Checking 3 URL(s)...
+
+⚠️ uncertain  https://careers.everquote.com/job/?gh_jid=7999629003
+           content present but no visible apply control found
+✅ active     https://boards.greenhouse.io/abacusinsights/jobs/8770716002?gh_jid=8770716002
+❌ expired    https://jobs.ashbyhq.com/writer/04ad3b44-51df-4fa6-a17c-cab6875f70cd
+           pattern matched: job (listing )?not found
+
+Results: 1 active  1 expired  1 uncertain

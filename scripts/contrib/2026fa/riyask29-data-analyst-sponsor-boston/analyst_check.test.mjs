@@ -10,7 +10,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { readCsv, findCompany, classifyTitle, timelineFactor, wageCheck } from './lib.mjs';
+import { readCsv, findCompany, classifyTitle, timelineFactor, wageCheck, formDLookup, lcaLookup } from './lib.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const FX = path.join(HERE, 'fixtures');
@@ -136,4 +136,36 @@ test('missing OPT end date → refuses to guess a timeline', () => {
   assert.equal(r.status, 2);
   assert.match(r.stderr, /opt_end_date/);
   assert.equal(r.log, null);
+});
+
+test('Form D: absent from a SAMPLE says nothing; absent from FULL quarters is "not filed under this name", never "no funding"', () => {
+  const co = (name) => ({ company: { name }, filing: { quarter: '2026q1-d', date_filed: '2026-02-03' }, funding: { total_amount_sold: 5e6 } });
+  const sample = [{ metadata: { quarter: '2026q1-d', total_companies: 15981 }, companies: [co('Acme Data Inc')] }];
+  const full = [{ metadata: { quarter: '2026q1-d', total_companies: 2 }, companies: [co('Acme Data Inc'), co('Other LLC')] }];
+  assert.equal(formDLookup(sample, 'Missing Co').status, 'not-in-sample');
+  assert.match(formDLookup(sample, 'Missing Co').meaning, /says nothing/);
+  assert.equal(formDLookup(full, 'ACME DATA, INC.').status, 'filed');          // name normalisation still applies
+  const miss = formDLookup(full, 'Missing Co');
+  assert.equal(miss.status, 'not-filed-under-this-name');
+  assert.doesNotMatch(miss.meaning, /no funding|did not raise/i);
+  assert.match(miss.coverage, /all 2 companies in 1 full quarter file/);
+});
+
+test('DOL LCA: SOC-level counts by exact employer name; absence is never "does not sponsor"', () => {
+  const rows = [
+    { employer_name: 'Example Analytics, Inc.', soc_code: '15-2051.01', soc_title: 'Business Intelligence Analysts', family: 'core', certified_lcas: '4', top_job_titles: 'Data Analyst' },
+    { employer_name: 'Example Analytics, Inc.', soc_code: '15-1211.00', soc_title: 'Computer Systems Analysts', family: 'adjacent', certified_lcas: '2', top_job_titles: 'Systems Analyst' },
+    { employer_name: 'Adjacent Only LLC', soc_code: '13-1111.00', soc_title: 'Management Analysts', family: 'adjacent', certified_lcas: '3', top_job_titles: 'Consultant' },
+  ];
+  const hit = lcaLookup(rows, 'EXAMPLE ANALYTICS INC', 'f.csv');
+  assert.equal(hit.status, 'found');
+  assert.equal(hit.core_lcas, 4);
+  assert.equal(hit.adjacent_lcas, 2);
+  assert.equal(hit.by_soc.length, 2);
+  assert.match(lcaLookup(rows, 'Adjacent Only', 'f.csv').meaning, /only in adjacent/);
+  const miss = lcaLookup(rows, 'Example', 'f.csv');                 // partial name is not a match
+  assert.equal(miss.status, 'none-under-this-name');
+  assert.match(miss.meaning, /^no certified analyst-family LCA/);
+  assert.doesNotMatch(miss.meaning, /does not sponsor/i);
+  assert.match(miss.meaning, /not evidence/);
 });

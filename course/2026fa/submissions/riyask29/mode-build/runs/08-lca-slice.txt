@@ -1,0 +1,6 @@
+$ python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/lca_slice.py --xlsx ~/Downloads/LCA_Disclosure_Data_FY2026_Q3.xlsx --state MA --out scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv --audit scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3-audit.md
+# source sha256 f8ca8448a528671f784d3692923775a13741c99caec2816b2fe30c8885bd28b3 (251,850,891 bytes), downloaded 2026-10-20 from https://www.dol.gov/media/LCA_Disclosure_Data_FY2026_Q3.xlsx
+[lca_slice] read 1,032,735 · kept 1,842 · 855 employers · 1071 rows → scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv
+real 138.51
+user 136.67
+sys 0.96

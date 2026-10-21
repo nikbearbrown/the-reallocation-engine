@@ -140,19 +140,54 @@ export function wageCheck(blsRows, socCodes, companyRow) {
   });
 }
 
-// ── Form D join (samples only — Fact 3) ─────────────────────────────────────
+// ── Form D join ──────────────────────────────────────────────────────────────
+// The repo ships 50-company SAMPLES per quarter (Fact 3). Full quarters are fetched
+// locally (gitignored) with scripts/sec/download-form-d-quarters.py + refresh-recent-
+// sec-quarters.py. A file is "complete" when it holds every company its metadata counts.
+export function formDComplete(formD) {
+  return formD.length > 0 && formD.every((f) => (f.metadata?.total_companies || 0) === f.companies.length);
+}
+
 export function formDLookup(formD, companyName) {
   const n = normalizeName(companyName);
   const hits = [];
   for (const f of formD) for (const c of f.companies)
     if (normalizeName(c.company?.name) === n)
       hits.push({ quarter: c.filing?.quarter, date_filed: c.filing?.date_filed, amount_sold: c.funding?.total_amount_sold ?? null });
-  const sampled = formD.reduce((s, f) => s + f.companies.length, 0);
-  const full = formD.reduce((s, f) => s + (f.metadata?.total_companies || 0), 0);
+  const held = formD.reduce((s, f) => s + f.companies.length, 0);
+  const total = formD.reduce((s, f) => s + (f.metadata?.total_companies || 0), 0);
+  const quarters = formD.map((f) => f.metadata?.quarter).filter(Boolean).join(', ');
+  if (formDComplete(formD)) {
+    return {
+      status: hits.length ? 'filed' : 'not-filed-under-this-name', filings: hits, source: SRC.record, complete: true,
+      coverage: `all ${total} companies in ${formD.length} full quarter file(s): ${quarters}`,
+      meaning: hits.length
+        ? 'filed a Form D in these quarters (a private raise; it says nothing about hiring or sponsorship)'
+        : 'no Form D under this exact name in these quarters; public companies, other entity names and older raises are not covered',
+    };
+  }
   return {
-    status: hits.length ? 'in-sample' : 'not-in-sample', filings: hits, source: SRC.record,
-    coverage: `${sampled} of ${full} companies across ${formD.length} sample quarter file(s)`,
+    status: hits.length ? 'in-sample' : 'not-in-sample', filings: hits, source: SRC.record, complete: false,
+    coverage: `${held} of ${total} companies across ${formD.length} sample quarter file(s)`,
     meaning: hits.length ? 'filed a Form D in a sampled quarter' : 'absent from the SAMPLE — says nothing about whether it raised money',
+  };
+}
+
+// ── DOL LCA join (SOC-level sponsorship evidence; closes recipe TODO 1) ───────
+// rows: lca_slice.py output (employer x SOC counts of certified H-1B LCAs, one state).
+export function lcaLookup(rows, companyName, file = '') {
+  const n = normalizeName(companyName);
+  const hits = rows.filter((r) => normalizeName(r.employer_name) === n);
+  const sum = (fam) => hits.filter((r) => r.family === fam).reduce((s, r) => s + Number(r.certified_lcas || 0), 0);
+  const core = sum('core'), adjacent = sum('adjacent');
+  return {
+    status: hits.length ? 'found' : 'none-under-this-name', core_lcas: core, adjacent_lcas: adjacent,
+    by_soc: hits.map((r) => ({ soc_code: r.soc_code, soc_title: r.soc_title, family: r.family,
+      certified_lcas: Number(r.certified_lcas), top_job_titles: r.top_job_titles })),
+    source: SRC.record, coverage: `certified H-1B LCAs at the slice's worksite state, ${file}`,
+    meaning: hits.length
+      ? (core ? 'filed certified LCAs in the target analyst SOC codes' : 'filed certified LCAs only in adjacent analyst SOC codes: a person decides if that work fits (G4)')
+      : 'no certified analyst-family LCA under this exact employer name in this file; not evidence that it never sponsors',
   };
 }
 

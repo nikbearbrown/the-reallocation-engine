@@ -45,6 +45,64 @@ function rejectPrivateOrInvalid(url) {
   return null;
 }
 
+// Runs inside the page (and inside ATS embed frames): visible clickable
+// elements outside nav/header/footer, reduced to their text labels.
+const collectApplyControls = () => {
+  const candidates = Array.from(
+    document.querySelectorAll('a, button, input[type="submit"], input[type="button"], [role="button"]')
+  );
+
+  return candidates
+    .filter((element) => {
+      if (element.closest('nav, header, footer')) return false;
+      if (element.closest('[aria-hidden="true"]')) return false;
+
+      const style = window.getComputedStyle(element);
+      if (style.display === 'none' || style.visibility === 'hidden') return false;
+      if (!element.getClientRects().length) return false;
+
+      return Array.from(element.getClientRects()).some((rect) => rect.width > 0 && rect.height > 0);
+    })
+    .map((element) => {
+      const label = [
+        element.innerText,
+        element.value,
+        element.getAttribute('aria-label'),
+        element.getAttribute('title'),
+      ]
+        .filter(Boolean)
+        .join(' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      return label;
+    })
+    .filter(Boolean);
+};
+
+// Career sites often embed the ATS application form in an iframe (e.g.
+// careers.everquote.com embeds job-boards.greenhouse.io/embed/job_app), so the
+// "Submit application" control is invisible to the top document. Only frames
+// served by a known ATS host are read; a chat or ad widget's "Apply" must not
+// make a posting look live.
+const ATS_EMBED_HOSTS = [
+  /(^|\.)greenhouse\.io$/i,
+  /(^|\.)lever\.co$/i,
+  /(^|\.)ashbyhq\.com$/i,
+  /(^|\.)myworkdayjobs\.com$/i,
+  /(^|\.)smartrecruiters\.com$/i,
+  /(^|\.)icims\.com$/i,
+];
+
+function isAtsEmbedFrame(frameUrl) {
+  try {
+    const { hostname } = new URL(frameUrl);
+    return ATS_EMBED_HOSTS.some((pattern) => pattern.test(hostname));
+  } catch {
+    return false;
+  }
+}
+
 export async function checkUrlLiveness(page, url) {
   const guardError = rejectPrivateOrInvalid(url);
   if (guardError) {
@@ -59,38 +117,12 @@ export async function checkUrlLiveness(page, url) {
 
     const finalUrl = page.url();
     const bodyText = await page.evaluate(() => document.body?.innerText ?? '');
-    const applyControls = await page.evaluate(() => {
-      const candidates = Array.from(
-        document.querySelectorAll('a, button, input[type="submit"], input[type="button"], [role="button"]')
-      );
-
-      return candidates
-        .filter((element) => {
-          if (element.closest('nav, header, footer')) return false;
-          if (element.closest('[aria-hidden="true"]')) return false;
-
-          const style = window.getComputedStyle(element);
-          if (style.display === 'none' || style.visibility === 'hidden') return false;
-          if (!element.getClientRects().length) return false;
-
-          return Array.from(element.getClientRects()).some((rect) => rect.width > 0 && rect.height > 0);
-        })
-        .map((element) => {
-          const label = [
-            element.innerText,
-            element.value,
-            element.getAttribute('aria-label'),
-            element.getAttribute('title'),
-          ]
-            .filter(Boolean)
-            .join(' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-
-          return label;
-        })
-        .filter(Boolean);
-    });
+    const applyControls = await page.evaluate(collectApplyControls);
+    for (const frame of page.frames()) {
+      if (frame === page.mainFrame() || !isAtsEmbedFrame(frame.url())) continue;
+      const frameControls = await frame.evaluate(collectApplyControls).catch(() => []);
+      applyControls.push(...frameControls);
+    }
 
     return classifyLiveness({ status, finalUrl, bodyText, applyControls });
   } catch (err) {

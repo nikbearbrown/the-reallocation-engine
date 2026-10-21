@@ -1,0 +1,17 @@
+# first attempt failed: CERTIFICATE_VERIFY_FAILED (python.org Python 3.13 has no CA bundle until "Install Certificates.command" is run). Re-run with certifi bundle:
+$ SSL_CERT_FILE=$(python3 -m certifi) python3 scripts/sec/download-form-d-quarters.py --quarters 2025Q2 2025Q3 2025Q4 2026Q1 2026Q2 2026Q3 --user "<name> <email>"
+SEC Form D quarter refresh
+Output root: ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d
+Quarters: 2025Q2, 2025Q3, 2025Q4, 2026Q1, 2026Q2, 2026Q3
+2025Q2: downloaded, extracted -> ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2025q2-d
+2025Q3: downloaded, extracted -> ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2025q3-d
+2025Q4: downloaded, extracted -> ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2025q4-d
+2026Q1: downloaded, extracted -> ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2026q1-d
+2026Q2: failed HTTP 404
+2026Q3: failed HTTP 404
+
+Summary
+Downloaded: 4
+Skipped: 0
+Failed: 2
+2026Q2: HTTP 404; 2026Q3: HTTP 404

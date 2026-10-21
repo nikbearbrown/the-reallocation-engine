@@ -1,0 +1,11 @@
+$ python3 scripts/sec/refresh-recent-sec-quarters.py
+Missing: ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2025q2-d
+Missing: ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2025q3-d
+Missing: ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2025q4-d
+Missing: ~/Documents/INFO7375/the-reallocation-engine/data/sec/form-d/extracted/2026q1-d
+
+Summary
+Processed: 0
+Missing: 4
+Missing extracted quarter folders. Run download-form-d-quarters.py first.
+python3 scripts/sec/refresh-recent-sec-quarters.py 2>&1  0.37s user 0.11s system 24% cpu 2.007 total

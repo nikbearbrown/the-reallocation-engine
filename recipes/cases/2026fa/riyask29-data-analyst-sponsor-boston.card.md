@@ -4,7 +4,8 @@
 which Data / BI Analyst leads deserve an application this week, or the person
 checking their work.  
 **Agent twin:** `recipes/cases/2026fa/riyask29-data-analyst-sponsor-boston.md`  
-**Status:** DRAFT. It runs on the repo's sample data; it has not been attested.
+**Status:** DRAFT (v0.2.0). It runs on the repo's sample data, and on full SEC Form D quarters and a
+DOL H-1B filing slice when you fetch them; it has not been attested. 4 typed TODOs are open.
 
 ## Executive summary
 
@@ -25,20 +26,25 @@ answer, the tool says so and stops. It does not guess.
 
 - How many H-1B approvals and denials the company has in the engine's dataset.
 - Which job titles appear in the company's top sponsored titles, word for word.
-- Whether the posting showed an apply button when it was checked, and when that was.
+- Whether the posting showed an apply button or an embedded application form when it was checked, and when that was.
+- **How many certified H-1B filings (LCAs) the company made for analyst occupation codes at
+  Massachusetts worksites** in DOL's FY2026 Q3 file, by code, with example job titles (when you run
+  with the LCA slice).
+- Whether the company filed a Form D (a private raise) in 2025 Q2 to 2026 Q1, by exact name (with full quarters).
 - The national BLS median wage for Business Intelligence Analysts (15-2051.01)
   and Market Research Analysts (13-1161), OEWS 2024.
 - The date arithmetic behind the timeline gate, shown line by line.
 
 ## What it cannot verify
 
-- **That a company sponsored a data analyst.** The dataset lists job *titles*,
-  not occupation codes, and only a short "top" list. The tool's keyword rules
-  decide which titles count, and you check them (gate G4).
+- **That a company's LCAs became H-1Bs,** or how many people they cover. An LCA is filed before the
+  petition, and one can cover several workers. A company that files under a different legal name, or
+  outside Massachusetts, reads as "none". The sponsor dataset itself lists only *titles*, so the
+  tool's keyword rules still decide its tier, and you check them (gate G4).
 - **What the company pays an analyst.** The salary in the dataset is the median
   across *all* the company's sponsored jobs, often mostly engineers.
-- **Whether the company raised money recently.** Only small samples of the SEC
-  funding filings ship with the repo.
+- **Whether the company raised money recently,** from the repo alone: only small samples ship. With the
+  full quarters, "not filed under this name" still is not "no money": public companies never file Form D.
 - **That the company will sponsor you,** or how long its hiring really takes.
   Hiring lag is your estimate.
 - **Anything about immigration law.** Ask your DSO about OPT and the STEM extension.
@@ -48,11 +54,13 @@ answer, the tool says so and stops. It does not guess.
 - Node 20+ and `npm install` in the repo.
 - For live posting checks only: `npx playwright install chromium` (once).
 - Data that ships with the repo: the 80 Days to Stay CSV, the BLS compact CSV,
-  and the Form D samples. No Python environment needed.
+  the Form D samples, and the Massachusetts LCA slice (`data/lca-ma-analyst-fy2026q3.csv`).
+- Optional: Python 3 to fetch full Form D quarters (`scripts/sec/`), and Python 3 + openpyxl to
+  re-cut the LCA slice from a DOL workbook you download in a browser.
 
 ## Annotated commands
 
-Offline test (expected: `pass 8`, `fail 0`; no network):
+Offline test (expected: `pass 10`, `fail 0`; no network):
 
 ```bash
 node --test scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/analyst_check.test.mjs

@@ -1,0 +1,9 @@
+$ npm run score -- data/examples/ch11-roles.json --out-dir /tmp/score-out
+
+> the-reallocation-engine@1.0.0 score
+> node scripts/score/role-scorer.mjs data/examples/ch11-roles.json --out-dir /tmp/score-out
+
+✓ scored 5 roles → Apply 2 · Consider 1 · Skip 2 (skip 40%)
+  ../score-out/role-scores.json  +  ../score-out/role-scores.md
+
+# (path note: the --out-dir was a local scratch folder; its path is shown as /tmp/score-out)

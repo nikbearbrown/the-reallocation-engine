@@ -1,0 +1,13 @@
+# Cross-check: any Form D issuer whose name CONTAINS each lead's company word (case-insensitive), all 4 full quarters
+EverQuote: 0 issuer row(s) containing 'everquote'
+Abacus Insights: 12 issuer row(s) containing 'abacus'
+    ('2025q2-d', 'SpaceX 2024 1, a Series of Abacus Capital US Master LLC', 'DE', '27-MAY-2025', 1289556.0)
+    ('2025q2-d', 'Abacus Enhanced Income Plus, LP', 'FL', '13-MAY-2025', 1500000.0)
+    ('2025q2-d', 'Abacus Premier Income Fixed, LP', 'FL', '09-MAY-2025', 92404623.0)
+    ('2025q2-d', 'Abacus Premier Income Fixed, LP', 'FL', '08-MAY-2025', 94404623.0)
+    ('2025q2-d', 'Abacus Enhanced Income Fixed, LP', 'FL', '08-MAY-2025', 3425000.0)
+    ('2025q2-d', 'Abacus Premier Income Plus, LP', 'FL', '08-MAY-2025', 27000000.0)
+Klaviyo: 0 issuer row(s) containing 'klaviyo'
+Benefits Science: 0 issuer row(s) containing 'benefits science'
+Writer: skipped (the word 'writer' matches too many unrelated issuers to be a useful check)
+HubSpot: 0 issuer row(s) containing 'hubspot'

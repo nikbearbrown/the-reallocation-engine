@@ -23,7 +23,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import {
   SRC, readCsv, findCompany, parseTitleList, classifyTitle, sponsorshipTier,
-  timelineFactor, wageCheck, formDLookup, nextAction,
+  timelineFactor, wageCheck, formDLookup, formDComplete, lcaLookup, nextAction,
 } from './lib.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
@@ -43,6 +43,7 @@ function args() {
     sponsors: abs(get('--sponsors', path.join(ROOT, 'data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv'))),
     bls: abs(get('--bls', path.join(ROOT, 'data/bls/compact/soc_occupation_compact.csv'))),
     formdDir: abs(get('--formd-dir', path.join(ROOT, 'data/sec/form-d/processed/sample'))),
+    lca: abs(get('--lca', null)),
     livenessFile: abs(get('--liveness-file', null)),
     outDir: abs(get('--out-dir', path.join(HERE, 'out'))),
     today: get('--today', new Date().toISOString().slice(0, 10)),
@@ -73,8 +74,13 @@ async function checkLiveness(urls) {
   const out = {};
   try {
     for (const u of urls) {
-      const r = await checkUrlLiveness(page, u);
-      out[u] = { result: r.result, reason: r.reason, checked_at: new Date().toISOString() };
+      // One retry, only for a navigation error (timeout, DNS, TLS). On
+      // 2026-10-02 Abacus read `active`, then timed out 25 minutes later.
+      // A page that loaded and showed no apply control is not retried.
+      let r = await checkUrlLiveness(page, u);
+      let attempts = 1;
+      if (r.result === 'uncertain' && r.code === 'navigation_error') { r = await checkUrlLiveness(page, u); attempts = 2; }
+      out[u] = { result: r.result, reason: r.reason, code: r.code, attempts, checked_at: new Date().toISOString() };
       console.log(`  liveness ${r.result.padEnd(9)} ${u}`);
     }
   } finally { await browser.close(); }
@@ -95,6 +101,7 @@ function evaluate(c, ctx) {
     e.funding = formDLookup(ctx.formD, m.row.company_name);
     e.wage_check = wageCheck(ctx.bls, ctx.persona.target_soc, m.status === 'found' ? m.row : null);
   }
+  if (ctx.lca) e.lca = lcaLookup(ctx.lca, m.row?.company_name ?? c.company, ctx.lcaFile);
   if (m.status !== 'found') {
     e.sponsorship = null; // never p = 0: "not in this list" is not "never sponsored"
     e.stopped_at = 'G1';
@@ -176,7 +183,7 @@ function renderReport(log) {
 
   o.push('## Run record', '');
   o.push(`- Prototype: \`${log.run.prototype}\``);
-  o.push(`- Data: sponsors \`${log.run.inputs.sponsors}\` · wages \`${log.run.inputs.bls}\` · Form D \`${log.run.inputs.formd_dir}\` (samples only)`);
+  o.push(`- Data: sponsors \`${log.run.inputs.sponsors}\` · wages \`${log.run.inputs.bls}\` · Form D \`${log.run.inputs.formd_dir}\` (${log.run.form_d_complete ? 'full quarters, fetched locally' : 'samples only'})`);
   o.push(`- Liveness: ${log.run.liveness_mode}`);
   o.push(`- Scorer: \`scripts/score/role-scorer.mjs\` → ${log.scorer_stdout.split('\n')[0]}`, '');
 
@@ -209,6 +216,7 @@ function renderReport(log) {
         ? `- Wage check ${w.soc} ${w.title} [record]: BLS median ${fmtMoney(w.bls_annual_median)} (OEWS ${w.oews_year}) vs company median offered ${fmtMoney(w.company_median_salary_offered)} → ratio ${w.ratio_company_to_bls ?? '—'} — ${w.caveat}. *Not a scorer input.*`
         : `- Wage check ${w.soc} [record]: **${w.status}**, no value substituted`);
     if (e.funding) o.push(`- Form D [record]: ${e.funding.status} — ${e.funding.meaning} (${e.funding.coverage})`);
+    if (e.lca) o.push(`- DOL LCA [record]: ${e.lca.status} — core ${e.lca.core_lcas}, adjacent ${e.lca.adjacent_lcas} — ${e.lca.meaning}`);
     if (e.timeline) o.push(`- Timeline [your-input]: factor ${e.timeline.factor ?? '—'} (${e.timeline.status}); ${e.timeline.arithmetic || `hiring lag ${e.timeline.hiring_lag_days} days`}`);
     if (e.liveness) o.push(`- Posting [${e.liveness.source}]: ${e.liveness.result}${e.liveness.reason ? ` — ${e.liveness.reason}` : ''}${e.liveness.checked_at ? ` (checked ${e.liveness.checked_at})` : ''}`);
     if (e.fit) o.push(`- Fit [your-input]: ${e.fit.p} (self-rated; no model was asked)`);
@@ -222,6 +230,11 @@ function renderReport(log) {
   o.push('- **G3 Timeline.** Check the dates in each timeline line. If you are unsure about STEM-extension eligibility, ask your DSO, not this tool.');
   o.push('- **G4 Title review.** For each Proven or Likely lead, read the matched titles below and confirm they are work you would do:');
   for (const e of log.roles) for (const t of e.g4_review || []) o.push(`  - ${e.company_query}: "${t.title}" matched \`${t.matched}\` → ${t.family}`);
+  if (log.run.inputs.lca) {
+    o.push('', '  The same check by occupation code (DOL LCA records, certified H-1B, Massachusetts worksites):');
+    for (const e of log.roles) for (const s of e.lca?.by_soc || []) o.push(`  - ${e.company_query}: ${s.certified_lcas} × ${s.soc_code} ${s.soc_title} (${s.family}) — e.g. ${s.top_job_titles}`);
+    for (const e of log.roles) if (e.lca && e.lca.status !== 'found') o.push(`  - ${e.company_query}: no certified analyst-family LCA under this name in the file`);
+  }
   o.push('');
   o.push('## What this run could not verify', '');
   for (const x of log.cannot_verify) o.push(`- ${x}`);
@@ -239,7 +252,9 @@ async function main() {
 
   const formD = fs.readdirSync(a.formdDir).filter((f) => f.endsWith('.json')).sort()
     .map((f) => readJson(path.join(a.formdDir, f), `Form D sample ${f}`));
-  const ctx = { persona, families, today: a.today, sponsors: readCsv(a.sponsors), bls: readCsv(a.bls), formD };
+  if (a.lca && !fs.existsSync(a.lca)) die(`data path missing: ${a.lca}`);
+  const ctx = { persona, families, today: a.today, sponsors: readCsv(a.sponsors), bls: readCsv(a.bls), formD,
+    lca: a.lca ? readCsv(a.lca) : null, lcaFile: a.lca ? path.basename(a.lca) : '' };
 
   // pass 1 — everything except liveness, to know which URLs are worth checking
   const pre = cand.map((c) => evaluate(c, { ...ctx, liveness: {} }));
@@ -273,22 +288,26 @@ async function main() {
   const log = {
     _prototype: 'riyask29-data-analyst-sponsor-boston', _version: '0.1.0',
     run: {
-      today: a.today, prototype: rel(path.join(HERE, 'analyst_check.mjs')), liveness_mode: livenessMode,
-      inputs: { persona: rel(a.persona), candidates: rel(a.candidates), families: rel(a.families), sponsors: rel(a.sponsors), bls: rel(a.bls), formd_dir: rel(a.formdDir) },
+      today: a.today, prototype: rel(path.join(HERE, 'analyst_check.mjs')), liveness_mode: livenessMode, form_d_complete: formDComplete(formD),
+      inputs: { persona: rel(a.persona), candidates: rel(a.candidates), families: rel(a.families), sponsors: rel(a.sponsors), bls: rel(a.bls), formd_dir: rel(a.formdDir), lca: a.lca ? rel(a.lca) : null },
       outputs: ['roles.json', 'scorer-profile.json', 'role-scores.json', 'role-scores.md', 'analyst-check-log.json', 'analyst-check-report.md'],
     },
     persona: { name: persona.candidate?.name, fictional: true, binding_clock: tl.binding_clock, runway_days: tl.runway_days, source: SRC.input },
     counts: {
       candidates: roles.length, scored: scorable.length,
       stopped: Object.fromEntries(['G1', 'G2', 'G3', 'no-posting'].map((g) => [g, roles.filter((e) => e.stopped_at === g).length])),
-      form_d_in_sample: roles.filter((e) => e.funding?.status === 'in-sample').length,
+      form_d_in_sample: roles.filter((e) => ['in-sample', 'filed'].includes(e.funding?.status)).length,
     },
     scorer_stdout: scorerStdout,
     roles,
     cannot_verify: [
-      'Whether a company sponsored data analysts specifically: the sponsor CSV lists job titles, not SOC codes, and only a truncated "top" list of them.',
+      ctx.lca
+        ? 'Sponsorship by SOC code (DOL LCA, one fiscal-year file, Massachusetts worksites, exact employer name): an LCA is filed before the H-1B petition, so it is not an approval, one LCA can cover several workers, and a company filing under another legal name, or outside Massachusetts, reads as "none".'
+        : 'Whether a company sponsored data analysts specifically: the sponsor CSV lists job titles, not SOC codes, and only a truncated "top" list of them.',
       'Whether the title keyword rules are right: they are the student\'s rules, and every match is shown for human review (G4).',
-      'Funding: the shipped Form D files are 50-company samples per quarter, so "not-in-sample" means nothing either way.',
+      formDComplete(formD)
+        ? 'Funding: full Form D quarters were used, but only exact-name matches count, Form D covers private raises only, and the newest quarter available lags months behind.'
+        : 'Funding: the shipped Form D files are 50-company samples per quarter, so "not-in-sample" means nothing either way.',
       'What a specific employer pays an analyst: the company median covers all its sponsored roles, and BLS OEWS is an occupation survey, not an offer.',
       'Hiring lag and fit: both are the student\'s own estimates.',
       'Visa law: the timeline factor is planning arithmetic. STEM-extension eligibility needs a DSO.',

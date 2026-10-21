@@ -1,0 +1,2 @@
+$ python3 scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/lca_slice.py --xlsx ~/Downloads/LCA_Disclosure_Data_FY2026_Q3.xlsx --state MA --out scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv --audit scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3-audit.md   (after the blank-row fix)
+[lca_slice] blank rows skipped 595,239 · read 437,496 · kept 1,842 · 855 employers · 1071 rows → scripts/contrib/2026fa/riyask29-data-analyst-sponsor-boston/data/lca-ma-analyst-fy2026q3.csv
