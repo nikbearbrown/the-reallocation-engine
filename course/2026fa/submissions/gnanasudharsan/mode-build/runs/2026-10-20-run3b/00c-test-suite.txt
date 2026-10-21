@@ -1,0 +1,31 @@
+# full suite · 2026-10-21T01:49:49Z · script sha256 f7b09c2df915cd58…
+$ node --test scripts/contrib/2026fa/gnanasudharsan-ai-startup-formd/
+✔ normalizeCompany strips suffixes and punctuation the same way for CSV and posting names (0.573458ms)
+✔ addMonths clamps the day and the runway arithmetic matches the decided anchors (0.64975ms)
+✔ date parsers reject malformed input instead of guessing (0.082042ms)
+✔ AI title family: whole words only, bare ai/ml without a role word is flagged weak (0.266916ms)
+✔ parseLiveness reads saved ats:liveness stdout, including the uncertain/download case (0.312375ms)
+✔ loadClearance refuses a clearance without who/what/when (0.846042ms)
+✔ break: Pooled Investment Fund, blank date, blank amount are stop conditions (0.566584ms)
+✔ break: stale funding and below-minimum funding fail; nothing is filled in (0.215375ms)
+✔ end-to-end: only PASS postings and cleared+live CANNOT-VERIFY postings reach the scorer (59.961875ms)
+✔ break: Approval_Rate is a percentage and is rescaled to 0–1 with its CSV line cited (48.733375ms)
+✔ clearance: cleared CANNOT-VERIFY posting is sample-scored but its verdict stays HOLD (38.283583ms)
+✔ clearance: without a clearance file every CANNOT-VERIFY posting is held (42.111708ms)
+✔ break: ambiguous and unmatched company names are held, never guessed (40.606083ms)
+✔ break: VOUCH-style keyword false positive is flagged weak and is not scored (40.919375ms)
+✔ postings: no URL, missing fit, non-AI title, expired posting (38.15775ms)
+✔ regression: a row with no posting reports only no-posting-supplied, never title-not-ai (7.619208ms)
+✔ Form D: a filing after the snapshot moves the effective date; one before it does not (39.840583ms)
+✔ report: executive summary first, snapshot caveat present, BLS context labeled and not scored (37.16575ms)
+✔ break: snapshot older than the staleness window refuses the whole run (exit 5) (0.735084ms)
+✔ CLI: missing --as-of is a bad-input exit, and decisions are printed into the log (69.777917ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 520.596708
+[exit 0]

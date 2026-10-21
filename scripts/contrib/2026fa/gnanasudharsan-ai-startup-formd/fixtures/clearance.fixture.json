@@ -1,0 +1,8 @@
+{
+  "_fixture": "Fictional clearance for tests only.",
+  "gate": "G-TIMELINE",
+  "by": "Fixture Reviewer (fictional)",
+  "date": "2026-10-20",
+  "condition": "A CANNOT-VERIFY company may be scored ONLY if ats:liveness confirms its AI/ML posting is live today. Live hiring is evidence the company is operating; it does NOT prove funding runway to 2027-10-01. Clearance is for sample scoring only: the human report verdict stays \"HOLD — runway unverified\", never \"Apply\". Companies that fail liveness or have no posting stay HELD and unscored.",
+  "companies": ["VECTORLOOM INC"]
+}

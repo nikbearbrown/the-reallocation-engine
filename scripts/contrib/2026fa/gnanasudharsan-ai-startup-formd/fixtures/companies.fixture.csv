@@ -1,0 +1,14 @@
+company_name,industry,website,city,state,zip_code,phone,year_incorporated,company_age_years,executive_officers,board_directors,total_funding,latest_funding_amount,latest_funding_stage,latest_funding_date,Total Approvals,Total Denials,Approval_Rate,median_salary_offered,top_job_titles_sponsored
+NEURALFORGE LABS INC,Other Technology,,Fictional City,MA,,,2019,7,,,40000000.0,20000000.0,Series B,2025-11-15,40.0,1.0,97.5609756097561,150000.0,"['Machine Learning Engineer', 'Software Engineer']"
+VECTORLOOM INC,Other Technology,,Fictional City,NY,,,2020,6,,,12000000.0,12000000.0,Series A,2025-05-10,12.0,0.0,100.0,140000.0,"['LLM Engineer']"
+QUIETCIRCUIT INC,Other Technology,,Fictional City,CA,,,2018,8,,,60000000.0,30000000.0,Series C,2025-01-20,8.0,0.0,100.0,145000.0,"['Computer Vision Engineer']"
+OLDGROWTH AI INC,Other Technology,,Fictional City,WA,,,2015,11,,,90000000.0,50000000.0,Series D+,2023-06-01,20.0,1.0,95.0,155000.0,"['Machine Learning Engineer']"
+BLANKDATE ROBOTICS INC,Other Technology,,Fictional City,TX,,,2021,5,,,8000000.0,8000000.0,Series A,,5.0,0.0,100.0,130000.0,"['Deep Learning Engineer']"
+BLANKAMOUNT VISION INC,Other Technology,,Fictional City,TX,,,2021,5,,,,,,2025-08-01,5.0,0.0,100.0,130000.0,"['Computer Vision Engineer']"
+TINYSEED ML INC,Other Technology,,Fictional City,CO,,,2023,3,,,2000000.0,2000000.0,Seed,2025-09-01,2.0,0.0,100.0,120000.0,"['ML Engineer']"
+MERIDIAN AI OPPORTUNITIES FUND LP,Pooled Investment Fund,,Fictional City,NY,,,2022,4,,,100000000.0,100000000.0,Series D+,2025-09-01,3.0,0.0,100.0,160000.0,"['Applied Scientist']"
+TWINNAME AI INC,Other Technology,,Fictional City,CA,,,2020,6,,,15000000.0,15000000.0,Series A,2025-10-01,4.0,0.0,100.0,140000.0,"['NLP Engineer']"
+TWINNAME AI LLC,Other Technology,,Fictional City,DE,,,2021,5,,,9000000.0,9000000.0,Seed,2025-10-02,,,,,
+SHIELDCOVER INC,Insurance,,Fictional City,CA,,,2016,10,,,27500001.0,27500001.0,Series B,2025-06-01,12.0,0.0,100.0,135000.0,"['Enterprise Business Operations Manager - AI']"
+PLAINSOFT INC,Other Technology,,Fictional City,IL,,,2019,7,,,9000000.0,9000000.0,Series A,2025-11-01,,,,,
+FRESHFILE AI INC,Other Technology,,Fictional City,OR,,,2020,6,,,18000000.0,18000000.0,Series A,2025-03-15,9.0,1.0,90.0,138000.0,"['Machine Learning Engineer']"

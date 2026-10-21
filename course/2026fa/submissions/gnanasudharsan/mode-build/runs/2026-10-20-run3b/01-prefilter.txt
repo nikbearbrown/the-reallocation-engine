@@ -1,0 +1,8 @@
+# run at 2026-10-21T01:49:49Z · branch contrib/2026fa-gnanasudharsan-ai-startup-formd · HEAD 015843d · script sha256 f7b09c2df915cd58… · node v26.8.2
+$ node scripts/contrib/2026fa/gnanasudharsan-ai-startup-formd/ai-startup-formd.mjs --as-of 2026-10-20 --postings course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3b/inputs/postings.json --liveness course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3b/inputs/ats-liveness-2026-10-20.txt --clearance course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3b/inputs/clearance.json --out-dir course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3b
+run gate: OPEN — snapshot 2025-09-26 is within the 24-month window (cutoff 2024-10-20)
+postings: 4 · scored 1 · held 3 · excluded 0
+screened employers: 107 · {"FAIL:funding-stale":82,"FAIL:funding-below-minimum":15,"CANNOT-VERIFY":4,"FAIL:runway-ends-before-filing":6}
+✓ scored 1 roles → Apply 1 · Consider 0 · Skip 0 (skip 0%)
+  course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3b/role-scores.json  +  course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3b/role-scores.md
+[exit 0]

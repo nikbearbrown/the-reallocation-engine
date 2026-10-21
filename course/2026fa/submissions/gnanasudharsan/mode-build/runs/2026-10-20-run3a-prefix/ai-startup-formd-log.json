@@ -1,0 +1,614 @@
+{
+  "_tool": "ai-startup-formd",
+  "recipe": "recipes/cases/2026fa/gnanasudharsan-ai-startup-formd.md",
+  "generated_at": "2026-10-21T01:47:25.542Z",
+  "as_of": "2026-10-20",
+  "decisions": {
+    "staleness_months": 24,
+    "min_funding_amount": 5000000,
+    "runway_months": 24,
+    "anchor_filing": "2027-04-01",
+    "anchor_start": "2027-10-01",
+    "decided_by": "Gnanasudharsan Ashokumar",
+    "decided_on": "2026-10-20"
+  },
+  "snapshot_date": "2025-09-26",
+  "caveat": "computed from funding snapshot dated 2025-09-26; rounds after that date are not visible",
+  "inputs": {
+    "csv": {
+      "path": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+      "sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+      "rows": 30369
+    },
+    "postings": {
+      "path": "course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3a-prefix/inputs/postings.json",
+      "sha256": "6f47a79da0c0692890b4f4b7978ac3b876154b9eba59b4ef5af93167526b813c",
+      "count": 4
+    },
+    "liveness": {
+      "path": "course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3a-prefix/inputs/ats-liveness-2026-10-20.txt",
+      "sha256": "b7eec717558dce5eb5c9d2ba1ba88613035c97eba17d0661b5f37363ed25cd75"
+    },
+    "clearance": {
+      "path": "course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3a-prefix/inputs/clearance.json",
+      "sha256": "792df1fa8de8657e542f6125abfb9c6b15676f700e2dc018d9988bbf79e943b0"
+    },
+    "formd_dir": "data/sec/form-d/processed/sample",
+    "bls": "data/bls/compact/soc_occupation_compact.csv"
+  },
+  "run_gate": {
+    "status": "OPEN",
+    "detail": "snapshot 2025-09-26 is within the 24-month window (cutoff 2024-10-20)"
+  },
+  "screened": {
+    "definition": "CSV rows with Total Approvals present and at least one AI title in top_job_titles_sponsored",
+    "total": 107,
+    "counts": {
+      "FAIL:funding-stale": 82,
+      "FAIL:funding-below-minimum": 15,
+      "CANNOT-VERIFY": 4,
+      "FAIL:runway-ends-before-filing": 6
+    },
+    "timeline_evaluated": [
+      {
+        "company": "AIERA INC",
+        "csv_line": 972,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-05-15",
+        "latest_funding_amount": 25000000,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-05-15",
+        "effective_funding_date": "2025-05-15",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "AI/DS Engineer"
+        ],
+        "approvals": 102,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "AIM INTELLIGENT MACHINES INC",
+        "csv_line": 982,
+        "industry": "Other Technology",
+        "latest_funding_date": "2024-12-19",
+        "latest_funding_amount": 41069962,
+        "status": "FAIL",
+        "reason": "runway-ends-before-filing",
+        "timeline": "FAIL",
+        "runway_end": "2026-12-19",
+        "effective_funding_date": "2024-12-19",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Machine Learning Engineer"
+        ],
+        "approvals": 10,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "BUTLR TECHNOLOGIES INC",
+        "csv_line": 4552,
+        "industry": "Other Technology",
+        "latest_funding_date": "2024-12-19",
+        "latest_funding_amount": 9316000,
+        "status": "FAIL",
+        "reason": "runway-ends-before-filing",
+        "timeline": "FAIL",
+        "runway_end": "2026-12-19",
+        "effective_funding_date": "2024-12-19",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Applied Scientist II"
+        ],
+        "approvals": 14,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "CELESTIAL AI INC",
+        "csv_line": 5182,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-02-25",
+        "latest_funding_amount": 152935067,
+        "status": "FAIL",
+        "reason": "runway-ends-before-filing",
+        "timeline": "FAIL",
+        "runway_end": "2027-02-25",
+        "effective_funding_date": "2025-02-25",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Machine Learning Engineer",
+          "Machine Learning Engineer"
+        ],
+        "approvals": 56,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "CODAMETRIX INC",
+        "csv_line": 6005,
+        "industry": "Other Health Care",
+        "latest_funding_date": "2025-04-16",
+        "latest_funding_amount": 15000000,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-04-16",
+        "effective_funding_date": "2025-04-16",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "NLP Scientist"
+        ],
+        "approvals": 18,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "COHERE HEALTH INC",
+        "csv_line": 6084,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-05-07",
+        "latest_funding_amount": 89999876,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-05-07",
+        "effective_funding_date": "2025-05-07",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Senior Machine Learning DevOps Engineer",
+          "Machine Learning Engineer"
+        ],
+        "approvals": 104,
+        "denials": 2,
+        "approval_rate": 98.1132075471698
+      },
+      {
+        "company": "FEMTOSENSE INC",
+        "csv_line": 9574,
+        "industry": "Other",
+        "latest_funding_date": "2024-11-26",
+        "latest_funding_amount": 14500000,
+        "status": "FAIL",
+        "reason": "runway-ends-before-filing",
+        "timeline": "FAIL",
+        "runway_end": "2026-11-26",
+        "effective_funding_date": "2024-11-26",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Deep Learning Engineer"
+        ],
+        "approvals": 6,
+        "denials": 2,
+        "approval_rate": 75
+      },
+      {
+        "company": "MEMBRION INC",
+        "csv_line": 16523,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-06-16",
+        "latest_funding_amount": 17113979,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-06-16",
+        "effective_funding_date": "2025-06-16",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Senior Research Engineer"
+        ],
+        "approvals": 6,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "UNDERDOG SPORTS HOLDINGS INC",
+        "csv_line": 27952,
+        "industry": "Other",
+        "latest_funding_date": "2025-01-28",
+        "latest_funding_amount": 175000001,
+        "status": "FAIL",
+        "reason": "runway-ends-before-filing",
+        "timeline": "FAIL",
+        "runway_end": "2027-01-28",
+        "effective_funding_date": "2025-01-28",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Senior Machine Learning Engineer"
+        ],
+        "approvals": 4,
+        "denials": 0,
+        "approval_rate": 100
+      },
+      {
+        "company": "VOUCH INC",
+        "csv_line": 29059,
+        "industry": "Insurance",
+        "latest_funding_date": "2024-11-07",
+        "latest_funding_amount": 27500001,
+        "status": "FAIL",
+        "reason": "runway-ends-before-filing",
+        "timeline": "FAIL",
+        "runway_end": "2026-11-07",
+        "effective_funding_date": "2024-11-07",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null,
+        "ai_titles": [
+          "Enterprise Business Operations Manager - AI"
+        ],
+        "approvals": 12,
+        "denials": 0,
+        "approval_rate": 100
+      }
+    ]
+  },
+  "postings": [
+    {
+      "posting_id": "cohere-health-mle2",
+      "company": "COHERE HEALTH INC",
+      "title": "Machine Learning Engineer II",
+      "url": "https://builtinaustin.com/job/machine-learning-engineer-ii/4500550",
+      "reasons": [],
+      "warnings": [],
+      "csv_line": 6084,
+      "company_gate": {
+        "company": "COHERE HEALTH INC",
+        "csv_line": 6084,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-05-07",
+        "latest_funding_amount": 89999876,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-05-07",
+        "effective_funding_date": "2025-05-07",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null
+      },
+      "title_match": {
+        "match": true,
+        "terms": [
+          "machine learning"
+        ],
+        "weak": false
+      },
+      "liveness": "active",
+      "cleared": {
+        "by": "Gnanasudharsan Ashokumar",
+        "date": "2026-10-20",
+        "verdict": "HOLD — runway unverified"
+      },
+      "status": "scored",
+      "role": {
+        "role_id": "cohere-health-mle2",
+        "company": "COHERE HEALTH INC",
+        "title": "Machine Learning Engineer II",
+        "sponsorship": {
+          "p": 0.9811320754716979,
+          "source": "record",
+          "basis": "Approval_Rate 98.1132075471698% (CSV line 6084) ÷ 100"
+        },
+        "fit": {
+          "p": 0.6,
+          "source": "your-input",
+          "note": "persona judgment: RAG prototype and transformer fine-tuning match the NLP/retrieval work; one 8-month co-op vs the posting's 2+ years of industry ML."
+        },
+        "liveness": {
+          "factor": 1,
+          "source": "record",
+          "basis": "saved ats:liveness: active (https://builtinaustin.com/job/machine-learning-engineer-ii/4500550)"
+        },
+        "timeline": {
+          "factor": 1,
+          "source": "your-input",
+          "basis": "CANNOT-VERIFY cleared for sample scoring by Gnanasudharsan Ashokumar on 2026-10-20"
+        }
+      },
+      "scorer": {
+        "composite": 0.5234,
+        "recommendation": "Apply",
+        "reason": "composite 0.523 ≥ 0.3, gates healthy"
+      },
+      "verdict": "HOLD — runway unverified"
+    },
+    {
+      "posting_id": "codametrix-mle2",
+      "company": "CODAMETRIX INC",
+      "title": "Machine Learning Engineer II",
+      "url": "https://jobs.signalfire.com/companies/codametrix/jobs/53504944-machine-learning-engineer-ii",
+      "reasons": [
+        "liveness-uncertain"
+      ],
+      "warnings": [],
+      "csv_line": 6005,
+      "company_gate": {
+        "company": "CODAMETRIX INC",
+        "csv_line": 6005,
+        "industry": "Other Health Care",
+        "latest_funding_date": "2025-04-16",
+        "latest_funding_amount": 15000000,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-04-16",
+        "effective_funding_date": "2025-04-16",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null
+      },
+      "title_match": {
+        "match": true,
+        "terms": [
+          "machine learning"
+        ],
+        "weak": false
+      },
+      "liveness": "uncertain",
+      "status": "held"
+    },
+    {
+      "posting_id": "aiera-none",
+      "company": "AIERA INC",
+      "title": null,
+      "url": null,
+      "reasons": [
+        "title-not-ai",
+        "no-posting-supplied",
+        "fit-missing"
+      ],
+      "warnings": [],
+      "csv_line": 972,
+      "company_gate": {
+        "company": "AIERA INC",
+        "csv_line": 972,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-05-15",
+        "latest_funding_amount": 25000000,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-05-15",
+        "effective_funding_date": "2025-05-15",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null
+      },
+      "title_match": {
+        "match": false,
+        "terms": [],
+        "weak": false
+      },
+      "status": "held"
+    },
+    {
+      "posting_id": "membrion-none",
+      "company": "MEMBRION INC",
+      "title": null,
+      "url": null,
+      "reasons": [
+        "title-not-ai",
+        "no-posting-supplied"
+      ],
+      "warnings": [],
+      "csv_line": 16523,
+      "company_gate": {
+        "company": "MEMBRION INC",
+        "csv_line": 16523,
+        "industry": "Other Technology",
+        "latest_funding_date": "2025-06-16",
+        "latest_funding_amount": 17113979,
+        "status": "ok",
+        "reason": null,
+        "timeline": "CANNOT-VERIFY",
+        "runway_end": "2027-06-16",
+        "effective_funding_date": "2025-06-16",
+        "formd": {
+          "matches": 0,
+          "newer_than_snapshot": 0
+        },
+        "formd_evidence": null
+      },
+      "title_match": {
+        "match": false,
+        "terms": [],
+        "weak": false
+      },
+      "status": "held"
+    }
+  ],
+  "bls_context": {
+    "note": "context only — does not affect the score; the scorer role_quality weight is 0",
+    "file": "/Users/gnanasudharsanashokumar/Downloads/7375/realloc/data/bls/compact/soc_occupation_compact.csv",
+    "rows": [
+      {
+        "onet_soc_code": "15-1221.00",
+        "title": "Computer and Information Research Scientists",
+        "job_zone": "5",
+        "annual_median_wage": "140910.0",
+        "cognitive_pivot_score": "4.516",
+        "csv_line": 114
+      },
+      {
+        "onet_soc_code": "15-1252.00",
+        "title": "Software Developers",
+        "job_zone": "4",
+        "annual_median_wage": "133080.0",
+        "cognitive_pivot_score": "3.834",
+        "csv_line": 124
+      },
+      {
+        "onet_soc_code": "15-1299.00",
+        "title": "Computer Occupations, All Other",
+        "job_zone": "",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "",
+        "csv_line": 129
+      },
+      {
+        "onet_soc_code": "15-1299.01",
+        "title": "Web Administrators",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "3.697",
+        "csv_line": 130
+      },
+      {
+        "onet_soc_code": "15-1299.02",
+        "title": "Geographic Information Systems Technologists and Technicians",
+        "job_zone": "3",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "3.236",
+        "csv_line": 131
+      },
+      {
+        "onet_soc_code": "15-1299.03",
+        "title": "Document Management Specialists",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "3.471",
+        "csv_line": 132
+      },
+      {
+        "onet_soc_code": "15-1299.04",
+        "title": "Penetration Testers",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "",
+        "csv_line": 133
+      },
+      {
+        "onet_soc_code": "15-1299.05",
+        "title": "Information Security Engineers",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "3.777",
+        "csv_line": 134
+      },
+      {
+        "onet_soc_code": "15-1299.06",
+        "title": "Digital Forensics Analysts",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "",
+        "csv_line": 135
+      },
+      {
+        "onet_soc_code": "15-1299.07",
+        "title": "Blockchain Engineers",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "",
+        "csv_line": 136
+      },
+      {
+        "onet_soc_code": "15-1299.08",
+        "title": "Computer Systems Engineers/Architects",
+        "job_zone": "3",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "4.027",
+        "csv_line": 137
+      },
+      {
+        "onet_soc_code": "15-1299.09",
+        "title": "Information Technology Project Managers",
+        "job_zone": "4",
+        "annual_median_wage": "108970.0",
+        "cognitive_pivot_score": "3.861",
+        "csv_line": 138
+      },
+      {
+        "onet_soc_code": "15-2051.00",
+        "title": "Data Scientists",
+        "job_zone": "4",
+        "annual_median_wage": "112590.0",
+        "cognitive_pivot_score": "",
+        "csv_line": 144
+      },
+      {
+        "onet_soc_code": "15-2051.01",
+        "title": "Business Intelligence Analysts",
+        "job_zone": "4",
+        "annual_median_wage": "112590.0",
+        "cognitive_pivot_score": "3.903",
+        "csv_line": 145
+      },
+      {
+        "onet_soc_code": "15-2051.02",
+        "title": "Clinical Data Managers",
+        "job_zone": "4",
+        "annual_median_wage": "112590.0",
+        "cognitive_pivot_score": "3.738",
+        "csv_line": 146
+      }
+    ]
+  },
+  "clearance": {
+    "gate": "G-TIMELINE",
+    "by": "Gnanasudharsan Ashokumar",
+    "date": "2026-10-20",
+    "condition": "A CANNOT-VERIFY company may be scored ONLY if ats:liveness confirms its AI/ML posting is live today. Live hiring is evidence the company is operating; it does NOT prove funding runway to 2027-10-01. Clearance is for sample scoring only: the human report verdict stays \"HOLD — runway unverified\", never \"Apply\". Companies that fail liveness or have no posting stay HELD and unscored.",
+    "companies": [
+      "AIERA INC",
+      "CODAMETRIX INC",
+      "COHERE HEALTH INC",
+      "MEMBRION INC"
+    ]
+  },
+  "scorer": {
+    "ran": true,
+    "eligible": 1,
+    "exit": 0,
+    "stdout": "✓ scored 1 roles → Apply 1 · Consider 0 · Skip 0 (skip 0%)\n  course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3a-prefix/role-scores.json  +  course/2026fa/submissions/gnanasudharsan/mode-build/runs/2026-10-20-run3a-prefix/role-scores.md",
+    "stderr": "",
+    "command": "node scripts/score/role-scorer.mjs roles.json --profile profile.json --out-dir <out-dir>"
+  }
+}

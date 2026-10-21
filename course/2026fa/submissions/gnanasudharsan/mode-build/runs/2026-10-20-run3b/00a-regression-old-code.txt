@@ -1,0 +1,38 @@
+# PRE-FIX posting checks (reconstructed) · 2026-10-21T01:49:48Z · script sha256 b84342f3b66caa13…
+$ node --test --test-name-pattern=regression scripts/contrib/2026fa/gnanasudharsan-ai-startup-formd/
+✖ regression: a row with no posting reports only no-posting-supplied, never title-not-ai (50.719ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 123.017042
+
+✖ failing tests:
+
+test at scripts/contrib/2026fa/gnanasudharsan-ai-startup-formd/ai-startup-formd.test.mjs:168:1
+✖ regression: a row with no posting reports only no-posting-supplied, never title-not-ai (50.719ms)
+  AssertionError [ERR_ASSERTION]: np-null
+  + actual - expected
+  
+    [
+  +   'title-not-ai',
+      'no-posting-supplied',
+  +   'fit-missing'
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/gnanasudharsanashokumar/Downloads/7375/realloc/scripts/contrib/2026fa/gnanasudharsan-ai-startup-formd/ai-startup-formd.test.mjs:182:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ 'title-not-ai', 'no-posting-supplied', 'fit-missing' ],
+    expected: [ 'no-posting-supplied' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+[exit 1]

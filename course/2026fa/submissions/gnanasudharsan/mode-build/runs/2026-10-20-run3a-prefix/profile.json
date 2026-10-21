@@ -1,0 +1,3 @@
+{
+  "note": "written by ai-startup-formd.mjs; no authorization text on purpose — role-scorer.mjs applyProfile then treats the candidate as needing sponsorship, and this script exits 3 if the scorer reads it otherwise"
+}

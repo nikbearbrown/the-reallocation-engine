@@ -1,0 +1,12 @@
+# FIXED code · 2026-10-21T01:49:48Z · script sha256 f7b09c2df915cd58…
+$ node --test --test-name-pattern=regression scripts/contrib/2026fa/gnanasudharsan-ai-startup-formd/
+✔ regression: a row with no posting reports only no-posting-supplied, never title-not-ai (23.526875ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 69.980041
+[exit 0]

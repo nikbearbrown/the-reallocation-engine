@@ -1,0 +1,23 @@
+{
+  "_fixture": "Fictional companies and URLs for tests only. Fit values are fixture inputs, not anyone's real ratings.",
+  "postings": [
+    { "posting_id": "p01-pass", "company": "NeuralForge Labs, Inc.", "title": "Machine Learning Engineer", "url": "https://jobs.example.com/neuralforge/101", "fit": { "p": 0.8, "source": "your-input", "note": "fixture" } },
+    { "posting_id": "p02-cleared", "company": "VectorLoom Inc", "title": "LLM Engineer", "url": "https://jobs.example.com/vectorloom/201", "fit": { "p": 0.6, "source": "your-input", "note": "fixture" } },
+    { "posting_id": "p03-cleared-but-uncertain", "company": "VectorLoom Inc", "title": "Applied Scientist", "url": "https://jobs.example.com/vectorloom/202", "fit": { "p": 0.6, "source": "your-input", "note": "fixture" } },
+    { "posting_id": "p04-timeline-fail", "company": "QuietCircuit Inc", "title": "Computer Vision Engineer", "url": "https://jobs.example.com/quietcircuit/301", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p05-stale", "company": "OldGrowth AI Inc", "title": "Machine Learning Engineer", "url": "https://jobs.example.com/oldgrowth/401", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p06-blank-date", "company": "BlankDate Robotics Inc", "title": "Deep Learning Engineer", "url": "https://jobs.example.com/blankdate/501", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p07-blank-amount", "company": "BlankAmount Vision Inc", "title": "Computer Vision Engineer", "url": "https://jobs.example.com/blankamount/601", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p08-below-min", "company": "TinySeed ML Inc", "title": "ML Engineer", "url": "https://jobs.example.com/tinyseed/701", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p09-fund", "company": "Meridian AI Opportunities Fund LP", "title": "Applied Scientist", "url": "https://jobs.example.com/meridian/801", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p10-ambiguous", "company": "TwinName AI", "title": "NLP Engineer", "url": "https://jobs.example.com/twinname/901", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p11-weak-title", "company": "ShieldCover Inc", "title": "Enterprise Business Operations Manager - AI", "url": "https://jobs.example.com/shieldcover/1001", "fit": { "p": 0.2, "source": "your-input" } },
+    { "posting_id": "p12-title-not-ai", "company": "NeuralForge Labs Inc", "title": "Product Marketing Manager", "url": "https://jobs.example.com/neuralforge/102", "fit": { "p": 0.5, "source": "your-input" } },
+    { "posting_id": "p13-no-posting", "company": "NeuralForge Labs Inc", "title": "Research Engineer, ML", "url": null, "fit": null },
+    { "posting_id": "p14-fit-missing", "company": "NeuralForge Labs Inc", "title": "Applied Scientist", "url": "https://jobs.example.com/neuralforge/104", "fit": null },
+    { "posting_id": "p15-unmatched", "company": "GhostCo Inc", "title": "AI Engineer", "url": "https://jobs.example.com/ghostco/1501", "fit": { "p": 0.7, "source": "your-input" } },
+    { "posting_id": "p16-no-sponsorship-record", "company": "PlainSoft Inc", "title": "AI Engineer", "url": "https://jobs.example.com/plainsoft/1601", "fit": { "p": 0.5, "source": "your-input" } },
+    { "posting_id": "p17-formd-newer", "company": "FreshFile AI Inc", "title": "Machine Learning Engineer", "url": "https://jobs.example.com/freshfile/1701", "fit": { "p": 0.6, "source": "your-input" } },
+    { "posting_id": "p18-expired", "company": "NeuralForge Labs Inc", "title": "Deep Learning Engineer", "url": "https://jobs.example.com/neuralforge/105", "fit": { "p": 0.7, "source": "your-input" } }
+  ]
+}

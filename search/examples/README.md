@@ -31,3 +31,4 @@ Each persona deliberately exercises a different `applyProfile` /gate branch:
 | Priya Nair | F-1 OPT year 1, explicit `needs_sponsorship: true` | explicit field wins; OPT-window timeline-gate pressure (34/90 unemployment days) |
 | Maya Sehgal | H-1B, seeking transfer | nonimmigrant status decisive; soft-sponsorship tiers |
 | Rohan Desai | U.S. permanent resident, explicit `needs_sponsorship: false` | sponsorship weight → 0 branch (the non-sponsor control case) |
+| Ananya Rao | F-1 pre-OPT (program ends 2026-12), explicit `needs_sponsorship: true` | H-1B cap timeline vs startup funding runway (the ai-startup-formd funding and visa-timeline gates) |

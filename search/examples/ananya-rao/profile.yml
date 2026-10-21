@@ -1,0 +1,31 @@
+# FICTIONAL EXAMPLE PERSONA — safe to commit. No paired CV in resumes/ (search layer only).
+# Demonstrates a pre-OPT student whose H-1B cap timeline (petition filing from
+# April 2027, employment start 2027-10-01) runs past the funding snapshot of the
+# startups she targets — the case recipes/cases/2026fa/gnanasudharsan-ai-startup-formd.md
+# gates on. Explicit needs_sponsorship: true; no work authorization yet.
+candidate:
+  name: Ananya Rao
+  email: ananya.rao@example.com
+  phone: "(617) 555-0171"
+  linkedin: linkedin.com/in/ananyarao-example
+  github: github.com/ananyarao-example
+  location: Boston, MA
+needs_sponsorship: true
+target_role:
+  primary: AI Engineer / Machine Learning Engineer
+  secondary: Applied NLP Engineer
+  description: LLM, retrieval and NLP roles at venture-funded AI startups.
+  excluded: roles requiring active security clearance; unpaid roles
+visa:
+  type: F-1
+  current_status: "F-1 student, pre-OPT (program ends 2026-12-18)"
+  program_end_date: 2026-12-18
+  planned_ead_start_date: 2027-01-15
+  stem_eligible: true
+  h1b_cap_fy: 2028
+  h1b_petition_filing_from: 2027-04-01
+  h1b_employment_start: 2027-10-01
+  notes: The employer must still be operating at petition filing and at the H-1B start date; startup runway is the binding question.
+geography:
+  current_location: Boston, MA
+  open_to_remote: true

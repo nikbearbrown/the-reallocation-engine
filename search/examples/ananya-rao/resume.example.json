@@ -1,0 +1,59 @@
+{
+  "_comment": "FICTIONAL EXAMPLE PERSONA - safe to commit. No paired CV in resumes/ (search layer only).",
+  "attested": true,
+  "attested_date": "2026-10-20",
+  "attestation_note": "Example data: fictional; employer and project names are invented.",
+  "personal": {
+    "name": "Ananya Rao",
+    "location": "Boston, MA",
+    "phone": "(617) 555-0171",
+    "email": "ananya.rao@example.com",
+    "linkedin": "linkedin.com/in/ananyarao-example",
+    "github": "github.com/ananyarao-example"
+  },
+  "education": [
+    {
+      "institution": "Boston University",
+      "location": "Boston, MA",
+      "degree": "MS, Computer Science (AI concentration)",
+      "gpa": "3.8/4.0",
+      "start_date": "2025-01",
+      "end_date": "2026-12",
+      "status": "in progress",
+      "coursework": ["Natural Language Processing", "Deep Learning", "Information Retrieval"]
+    }
+  ],
+  "experience": [
+    {
+      "company": "Lumenwise Health (fictional)",
+      "location": "Boston, MA",
+      "title": "Machine Learning Engineer Co-op",
+      "start_date": "2026-01",
+      "end_date": "2026-08",
+      "bullets": [
+        "Built a retrieval-augmented question-answering prototype over clinical policy documents, evaluated on a 300-question test set.",
+        "Fine-tuned a small transformer classifier for document routing and tracked experiments with MLflow."
+      ],
+      "attestation_correction": ""
+    }
+  ],
+  "projects": [
+    {
+      "name": "rag-eval-lab",
+      "start_date": "2025-09",
+      "end_date": "2025-12",
+      "type": "coursework",
+      "team_size": "1",
+      "bullets": ["Compared three chunking strategies for retrieval quality and latency on a public QA dataset."],
+      "agent_note": "Solo project."
+    }
+  ],
+  "skills": {
+    "languages": ["Python", "SQL"],
+    "ml_nlp": ["PyTorch", "Hugging Face Transformers", "sentence-transformers"],
+    "backend_automation": ["FastAPI", "MLflow"],
+    "database_cloud": ["PostgreSQL", "AWS"],
+    "familiar_with_not_shipped": ["Kubernetes", "Ray"],
+    "agent_note": "No certification claims - none exist for this persona."
+  }
+}

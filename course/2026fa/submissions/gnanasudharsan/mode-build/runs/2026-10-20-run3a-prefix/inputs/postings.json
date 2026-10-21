@@ -1,0 +1,35 @@
+{
+  "_provenance": "Fictional persona Ananya Rao (search/examples/ananya-rao/). The four companies are the CANNOT-VERIFY employers from the local data; the two URLs are public aggregator pages chosen by the author as examples, not the employers' own ATS postings. Fit values are judgments made for the fictional persona against her resume.example.json, set by the author on 2026-10-20.",
+  "postings": [
+    {
+      "posting_id": "cohere-health-mle2",
+      "company": "COHERE HEALTH INC",
+      "title": "Machine Learning Engineer II",
+      "url": "https://builtinaustin.com/job/machine-learning-engineer-ii/4500550",
+      "fit": { "p": 0.6, "source": "your-input", "note": "persona judgment: RAG prototype and transformer fine-tuning match the NLP/retrieval work; one 8-month co-op vs the posting's 2+ years of industry ML." }
+    },
+    {
+      "posting_id": "codametrix-mle2",
+      "company": "CODAMETRIX INC",
+      "title": "Machine Learning Engineer II",
+      "url": "https://jobs.signalfire.com/companies/codametrix/jobs/53504944-machine-learning-engineer-ii",
+      "fit": { "p": 0.6, "source": "your-input", "note": "persona judgment: clinical-document RAG co-op is adjacent to clinical NLP; same experience gap." }
+    },
+    {
+      "posting_id": "aiera-none",
+      "company": "AIERA INC",
+      "title": null,
+      "url": null,
+      "fit": null,
+      "_note": "no live AI posting supplied; liveness gate not run"
+    },
+    {
+      "posting_id": "membrion-none",
+      "company": "MEMBRION INC",
+      "title": null,
+      "url": null,
+      "fit": { "p": 0.1, "source": "your-input", "note": "persona judgment: \"Senior Research Engineer\" at a membrane company is likely non-AI; no materials-science record." },
+      "_note": "no posting supplied; liveness gate not run"
+    }
+  ]
+}

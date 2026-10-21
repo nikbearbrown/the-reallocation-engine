@@ -1,0 +1,29 @@
+{
+  "roles": [
+    {
+      "role_id": "cohere-health-mle2",
+      "company": "COHERE HEALTH INC",
+      "title": "Machine Learning Engineer II",
+      "sponsorship": {
+        "p": 0.9811320754716979,
+        "source": "record",
+        "basis": "Approval_Rate 98.1132075471698% (CSV line 6084) ÷ 100"
+      },
+      "fit": {
+        "p": 0.6,
+        "source": "your-input",
+        "note": "persona judgment: RAG prototype and transformer fine-tuning match the NLP/retrieval work; one 8-month co-op vs the posting's 2+ years of industry ML."
+      },
+      "liveness": {
+        "factor": 1,
+        "source": "record",
+        "basis": "saved ats:liveness: active (https://builtinaustin.com/job/machine-learning-engineer-ii/4500550)"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "basis": "CANNOT-VERIFY cleared for sample scoring by Gnanasudharsan Ashokumar on 2026-10-20"
+      }
+    }
+  ]
+}

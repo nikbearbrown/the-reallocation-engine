@@ -1,0 +1,15 @@
+{
+  "metadata": { "quarter": "2026Q1_d", "_fixture": "Fictional Form D records shaped like data/sec/form-d/processed/sample/*.json" },
+  "companies": [
+    {
+      "company": { "name": "FreshFile AI, Inc.", "company_name_normalized": "freshfileai", "fein": null, "industry": "Other Technology" },
+      "funding": { "total_offering_amount": 10000000.0, "total_amount_sold": 6000000.0 },
+      "filing": { "date_filed": "10-JAN-2026", "submission_type": "D", "quarter": "2026Q1_d" }
+    },
+    {
+      "company": { "name": "QuietCircuit, Inc.", "company_name_normalized": "quietcircuit", "fein": null, "industry": "Other Technology" },
+      "funding": { "total_offering_amount": 30000000.0, "total_amount_sold": 30000000.0 },
+      "filing": { "date_filed": "05-SEP-2025", "submission_type": "D/A", "quarter": "2025Q3_d" }
+    }
+  ]
+}
