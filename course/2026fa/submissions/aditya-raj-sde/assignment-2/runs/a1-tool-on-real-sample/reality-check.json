@@ -1,0 +1,1047 @@
+{
+  "contract": "recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md",
+  "run": {
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/a1-tool-on-real-sample/a1-input.json --out-dir ../../../../var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T/a1-on-a2",
+    "started_at": "2026-10-21T04:15:33.736Z",
+    "run_label": "Assignment 1 tool on the Assignment 2 real sample (comparison)",
+    "persona_ref": "search/examples/tariq-lindqvist/profile.yml",
+    "input_file": "course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/a1-tool-on-real-sample/a1-input.json",
+    "csv_path": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "out_dir": "../../../../var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T/a1-on-a2",
+    "scorer": null
+  },
+  "gate_legend": {
+    "G1": "Input: \"pass\" = the input file passed validation.",
+    "G2": "Liveness: \"pass\" = the posting looked open at the time of the snapshot or observation; \"stop\" = closed (skip) or uncertain/conflicting (a person checks).",
+    "G3": "Vacancy refusal: \"pass\" = no clear refusal found in the supplied posting text (not a promise of sponsorship); \"stop\" = an explicit refusal (skip this application).",
+    "G4": "Timing: \"pass\" means only that an explicit SAMPLE timing assumption was supplied and satisfied the sample rule; actual start-date compatibility (January 2027) was NOT verified for any opening. \"stop\" = no timing input.",
+    "G5": "Sponsorship evidence for this opening: \"pass\" = apparent offer wording for a person to review (not a guarantee); \"stop\" = awaiting vacancy-level sponsorship evidence.",
+    "G6": "Final review: always a person; nothing is applied to automatically."
+  },
+  "labels": {
+    "record": "from a data file, or a recorded observation of a real posting",
+    "model-judgment": "a rule applied to text",
+    "your-input": "a stated sample value or assumption, or anything derived from an invented (SYNTHETIC) test input"
+  },
+  "roles": [
+    {
+      "role_id": "databricks-8864368002",
+      "title": "Senior Software Engineer — Backend (Files Team)",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002",
+      "job_id": "8864368002",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "databricks-8815669002",
+      "title": "Sr. Software Engineer - Ingestion Core team",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002",
+      "job_id": "8815669002",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "databricks-8806934002",
+      "title": "Senior Software Engineer, Compute Infrastructure",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002",
+      "job_id": "8806934002",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "databricks-8798217002",
+      "title": "Staff Systems Development Engineer (GovOps)",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002",
+      "job_id": "8798217002",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "pinterest-8046860",
+      "title": "Sr. Staff Software Engineer, Product ML Infrastructure",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=8046860",
+      "job_id": "8046860",
+      "company": {
+        "query": "Pinterest",
+        "key": "pinterest",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "PINTEREST INC",
+            "approvals": 1364,
+            "denials": 16,
+            "approval_rate": 98.84057971014492
+          }
+        ],
+        "counts": {
+          "approvals": 1364,
+          "denials": 16,
+          "approval_rate": 98.84057971014492,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "expired",
+        "classifier": {
+          "result": "expired",
+          "code": null,
+          "reason": "insufficient content — likely nav/footer only"
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "stop",
+          "reason": "posting closed (recorded): insufficient content — likely nav/footer only"
+        }
+      ],
+      "decision": "skip-application",
+      "next_action": "skip-application",
+      "decision_reason": "posting closed (recorded): insufficient content — likely nav/footer only",
+      "scenario": null
+    },
+    {
+      "role_id": "pinterest-7683977",
+      "title": "Principal Engineer, AI Platform",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683977",
+      "job_id": "7683977",
+      "company": {
+        "query": "Pinterest",
+        "key": "pinterest",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "PINTEREST INC",
+            "approvals": 1364,
+            "denials": 16,
+            "approval_rate": 98.84057971014492
+          }
+        ],
+        "counts": {
+          "approvals": 1364,
+          "denials": 16,
+          "approval_rate": 98.84057971014492,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "expired",
+        "classifier": {
+          "result": "expired",
+          "code": null,
+          "reason": "insufficient content — likely nav/footer only"
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "stop",
+          "reason": "posting closed (recorded): insufficient content — likely nav/footer only"
+        }
+      ],
+      "decision": "skip-application",
+      "next_action": "skip-application",
+      "decision_reason": "posting closed (recorded): insufficient content — likely nav/footer only",
+      "scenario": null
+    },
+    {
+      "role_id": "pinterest-8055266",
+      "title": "Staff Software Engineer, Ads & Core Serving Platform",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=8055266",
+      "job_id": "8055266",
+      "company": {
+        "query": "Pinterest",
+        "key": "pinterest",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "PINTEREST INC",
+            "approvals": 1364,
+            "denials": 16,
+            "approval_rate": 98.84057971014492
+          }
+        ],
+        "counts": {
+          "approvals": 1364,
+          "denials": 16,
+          "approval_rate": 98.84057971014492,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "expired",
+        "classifier": {
+          "result": "expired",
+          "code": null,
+          "reason": "insufficient content — likely nav/footer only"
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "stop",
+          "reason": "posting closed (recorded): insufficient content — likely nav/footer only"
+        }
+      ],
+      "decision": "skip-application",
+      "next_action": "skip-application",
+      "decision_reason": "posting closed (recorded): insufficient content — likely nav/footer only",
+      "scenario": null
+    },
+    {
+      "role_id": "pinterest-7683981",
+      "title": "Principal Engineer, Big Data Platform",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683981",
+      "job_id": "7683981",
+      "company": {
+        "query": "Pinterest",
+        "key": "pinterest",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "PINTEREST INC",
+            "approvals": 1364,
+            "denials": 16,
+            "approval_rate": 98.84057971014492
+          }
+        ],
+        "counts": {
+          "approvals": 1364,
+          "denials": 16,
+          "approval_rate": 98.84057971014492,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "expired",
+        "classifier": {
+          "result": "expired",
+          "code": null,
+          "reason": "insufficient content — likely nav/footer only"
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "stop",
+          "reason": "posting closed (recorded): insufficient content — likely nav/footer only"
+        }
+      ],
+      "decision": "skip-application",
+      "next_action": "skip-application",
+      "decision_reason": "posting closed (recorded): insufficient content — likely nav/footer only",
+      "scenario": null
+    },
+    {
+      "role_id": "stripe-8249901",
+      "title": "Software Engineer",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8249901",
+      "job_id": "8249901",
+      "company": {
+        "query": "Stripe",
+        "key": "stripe",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "STRIPE INC",
+            "approvals": 1250,
+            "denials": 22,
+            "approval_rate": 98.27044025157232
+          }
+        ],
+        "counts": {
+          "approvals": 1250,
+          "denials": 22,
+          "approval_rate": 98.27044025157232,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "stripe-8142952",
+      "title": "Staff Software Engineer, Link - Consumer Identity ",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8142952",
+      "job_id": "8142952",
+      "company": {
+        "query": "Stripe",
+        "key": "stripe",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "STRIPE INC",
+            "approvals": 1250,
+            "denials": 22,
+            "approval_rate": 98.27044025157232
+          }
+        ],
+        "counts": {
+          "approvals": 1250,
+          "denials": 22,
+          "approval_rate": 98.27044025157232,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "stripe-8230952",
+      "title": "Senior Software Engineer, Backend",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8230952",
+      "job_id": "8230952",
+      "company": {
+        "query": "Stripe",
+        "key": "stripe",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "STRIPE INC",
+            "approvals": 1250,
+            "denials": 22,
+            "approval_rate": 98.27044025157232
+          }
+        ],
+        "counts": {
+          "approvals": 1250,
+          "denials": 22,
+          "approval_rate": 98.27044025157232,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "stripe-8198280",
+      "title": "Software Engineer, Backend",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8198280",
+      "job_id": "8198280",
+      "company": {
+        "query": "Stripe",
+        "key": "stripe",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "STRIPE INC",
+            "approvals": 1250,
+            "denials": 22,
+            "approval_rate": 98.27044025157232
+          }
+        ],
+        "counts": {
+          "approvals": 1250,
+          "denials": 22,
+          "approval_rate": 98.27044025157232,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": null
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-21 00:02:07 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": null
+    }
+  ],
+  "summary": {
+    "n": 12,
+    "counts": {
+      "seek-vacancy-sponsorship-evidence": 8,
+      "skip-application": 4
+    },
+    "skip_fraction": "4/12 (sample of 12; not a general rate)",
+    "synthetic": 0,
+    "timing_verified": 0
+  }
+}

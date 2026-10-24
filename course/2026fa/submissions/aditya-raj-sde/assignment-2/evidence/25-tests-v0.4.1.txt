@@ -1,0 +1,11 @@
+## started: 2026-10-21 11:29:23 EDT — all suites at rules v0.4.1
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.test.mjs scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/regression-v04.test.mjs
+# tests 77
+# pass 77
+# fail 0
+[exit=0]
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs   (Assignment 1, unchanged)
+# tests 18
+# pass 18
+# fail 0
+[exit=0]

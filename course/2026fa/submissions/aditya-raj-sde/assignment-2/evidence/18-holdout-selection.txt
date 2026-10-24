@@ -1,0 +1,4 @@
+## started: 2026-10-21 11:25:17 EDT — HOLDOUT selection (fresh feed fetch = network), rules frozen at 4910036
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/holdout.mjs select --private-dir private/a2/holdout --public-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout
+holdout: 6 postings selected (databricks 2 · pinterest 2 · stripe 2)
+[exit=0]

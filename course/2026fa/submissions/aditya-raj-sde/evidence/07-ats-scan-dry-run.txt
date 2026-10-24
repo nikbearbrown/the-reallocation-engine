@@ -1,0 +1,9 @@
+## started: 2026-10-03 17:04:21 EDT
+$ npm run ats:scan -- --dry-run
+
+> the-reallocation-engine@1.0.0 ats:scan
+> node scripts/ats/scan.mjs --dry-run
+
+Error: portals.yml not found. Run onboarding first.
+[exit=1]
+## finished: 2026-10-03 17:04:21 EDT

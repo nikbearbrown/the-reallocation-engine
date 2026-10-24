@@ -1,0 +1,28 @@
+## started: 2026-10-21 00:02:07 EDT — LIVE page liveness (network + Playwright Chromium), one run over the 12 selected URLs
+$ npm run ats:liveness -- https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002 https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002 https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002 https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002 https://www.pinterestcareers.com/jobs/?gh_jid=8046860 https://www.pinterestcareers.com/jobs/?gh_jid=7683977 https://www.pinterestcareers.com/jobs/?gh_jid=8055266 https://www.pinterestcareers.com/jobs/?gh_jid=7683981 https://stripe.com/jobs/search?gh_jid=8249901 https://stripe.com/jobs/search?gh_jid=8142952 https://stripe.com/jobs/search?gh_jid=8230952 https://stripe.com/jobs/search?gh_jid=8198280
+
+> the-reallocation-engine@1.0.0 ats:liveness
+> node scripts/ats/check-liveness.mjs https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002 https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002 https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002 https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002 https://www.pinterestcareers.com/jobs/?gh_jid=8046860 https://www.pinterestcareers.com/jobs/?gh_jid=7683977 https://www.pinterestcareers.com/jobs/?gh_jid=8055266 https://www.pinterestcareers.com/jobs/?gh_jid=7683981 https://stripe.com/jobs/search?gh_jid=8249901 https://stripe.com/jobs/search?gh_jid=8142952 https://stripe.com/jobs/search?gh_jid=8230952 https://stripe.com/jobs/search?gh_jid=8198280
+
+Checking 12 URL(s)...
+
+✅ active     https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002
+✅ active     https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002
+✅ active     https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002
+✅ active     https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002
+❌ expired    https://www.pinterestcareers.com/jobs/?gh_jid=8046860
+           insufficient content — likely nav/footer only
+❌ expired    https://www.pinterestcareers.com/jobs/?gh_jid=7683977
+           insufficient content — likely nav/footer only
+❌ expired    https://www.pinterestcareers.com/jobs/?gh_jid=8055266
+           insufficient content — likely nav/footer only
+❌ expired    https://www.pinterestcareers.com/jobs/?gh_jid=7683981
+           insufficient content — likely nav/footer only
+✅ active     https://stripe.com/jobs/search?gh_jid=8249901
+✅ active     https://stripe.com/jobs/search?gh_jid=8142952
+✅ active     https://stripe.com/jobs/search?gh_jid=8230952
+✅ active     https://stripe.com/jobs/search?gh_jid=8198280
+
+Results: 8 active  4 expired  0 uncertain
+[exit=1]
+## finished: 2026-10-21 00:02:38 EDT

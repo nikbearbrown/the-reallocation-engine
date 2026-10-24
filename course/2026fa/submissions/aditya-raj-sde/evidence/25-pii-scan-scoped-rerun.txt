@@ -1,0 +1,18 @@
+## started: 2026-10-03 18:35:48 EDT
+## RERUN. The contribution-scoped scan over c002f78..bc9cc4a was run at about 18:21 EDT and reported in chat as 'clean' with exit 0, but its output was NOT saved. This is a new execution, not a copy of that output, and it now also covers 684e5b1.
+## CI equivalent: contrib-gate.yml job doctor-and-pii, PR-only step: node scripts/pii-scan.mjs --diff "origin/<base>". Here <base> = upstream/main.
+## checked range: upstream/main..HEAD = 015843d..684e5b1 (scanner runs: git log -p --no-color upstream/main..HEAD)
+
+$ git log --format="%h %ae %s" upstream/main..HEAD
+684e5b1 181499137+aditya-raj-sde@users.noreply.github.com 2026fa aditya-raj-sde: brief Update 1 - F2 acceptance, F1 assumptions, F2 fixtures
+bc9cc4a 181499137+aditya-raj-sde@users.noreply.github.com 2026fa aditya-raj-sde: CHANGE-BRIEF predictions and scope before implementation
+f8f3df8 181499137+aditya-raj-sde@users.noreply.github.com 2026fa aditya-raj-sde: record post-commit scoped PII scan and scope check
+c002f78 181499137+aditya-raj-sde@users.noreply.github.com 2026fa aditya-raj-sde: setup evidence, logs, and baseline for sponsor-live-jan2027
+[exit=0]
+
+$ node scripts/pii-scan.mjs --diff upstream/main
+pii-scan: clean ✓
+[exit=0]
+## sanitization: every email-shaped string in the scanner output is replaced in-stream before saving; lines changed by sanitization: 0
+## coverage note: this file is committed AFTER the range it checks, so the commit that adds it is not covered here; the next recorded scan covers it.
+## finished: 2026-10-03 18:35:48 EDT

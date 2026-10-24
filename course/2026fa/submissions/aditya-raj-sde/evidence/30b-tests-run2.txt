@@ -1,0 +1,105 @@
+## started: 2026-10-03 19:06:07 EDT
+## run 2 of the test suite, after the report-qualifier fix and its new assertion
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+TAP version 13
+# Subtest: no network: source imports nothing that can reach the network; fetch never called
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+  ---
+  duration_ms: 0.654416
+  ...
+# Subtest: maintained scorer is reused through its CLI, not copied
+ok 2 - maintained scorer is reused through its CLI, not copied
+  ---
+  duration_ms: 0.1855
+  ...
+# Subtest: G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+  ---
+  duration_ms: 26.825
+  ...
+# Subtest: G1: an out-dir over tracked repository files is refused (exit 2)
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+  ---
+  duration_ms: 25.254667
+  ...
+# Subtest: G1: missing evidence fields are named, not defaulted
+ok 5 - G1: missing evidence fields are named, not defaulted
+  ---
+  duration_ms: 0.483291
+  ...
+# Subtest: G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+  ---
+  duration_ms: 0.14125
+  ...
+# Subtest: F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+  ---
+  duration_ms: 2.114417
+  ...
+# Subtest: F2(b) F2-0: open posting passes G2
+ok 8 - F2(b) F2-0: open posting passes G2
+  ---
+  duration_ms: 0.088708
+  ...
+# Subtest: F2(b) F2-1: recognized closure phrase → skip-application
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+  ---
+  duration_ms: 0.249708
+  ...
+# Subtest: F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+  ---
+  duration_ms: 0.266625
+  ...
+# Subtest: F2(b) F2-3: uncertain → human review, no application decision
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+  ---
+  duration_ms: 0.125958
+  ...
+# Subtest: F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+  ---
+  duration_ms: 0.085959
+  ...
+# Subtest: F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+  ---
+  duration_ms: 0.053917
+  ...
+# Subtest: F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+  ---
+  duration_ms: 1.276875
+  ...
+# Subtest: F3: matching strips legal suffixes but never fuzzes
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+  ---
+  duration_ms: 0.037167
+  ...
+# Subtest: vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+  ---
+  duration_ms: 0.132834
+  ...
+# Subtest: T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+  ---
+  duration_ms: 153.913125
+  ...
+# Subtest: sample run: two outputs, every value labeled, scenario scores separate from decisions
+ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+  ---
+  duration_ms: 151.902666
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 513.479917
+[exit=0]
+## finished: 2026-10-03 19:06:07 EDT

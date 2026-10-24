@@ -1,0 +1,78 @@
+## started: 2026-10-03 21:04:39 EDT
+## Claude-executed: fast-forward <clean-checkout> to the final code and re-run tests + sample there. Aditya's earlier personal run (a2db6a5, evidence 39) is unaffected.
+
+$ git pull --ff-only
+From <source-repo>
+   a2db6a5..e55ddcd  contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027 -> origin/contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027
+error: The following untracked working tree files would be overwritten by merge:
+	course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/reality-check.json
+	course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/reality-check.md
+	course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/role-scores.json
+	course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/role-scores.md
+	course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/roles.json
+Please move or remove them before you merge.
+Aborting
+Updating a2db6a5..e55ddcd
+[exit=1]
+
+$ git log -1 --format='%h %s'
+a2db6a5 2026fa aditya-raj-sde: second refusal-gate guard in sample test (refinement after break experiment)
+[exit=0]
+
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs 2>&1 | grep -E '^# (tests|pass|fail)'
+# tests 18
+# pass 18
+# fail 0
+[exit=0]
+
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/claude-final-check
+✓ 9 openings → seek-vacancy-sponsorship-evidence 6 · skip-application 2 · review-offer-excerpt 1
+  skip fraction 2/9 (sample of 9; not a general rate); timing verified for 0; scenario (hypothetical) scores: 2
+  course/2026fa/submissions/aditya-raj-sde/runs/claude-final-check/reality-check.json  +  course/2026fa/submissions/aditya-raj-sde/runs/claude-final-check/reality-check.md
+[exit=0]
+
+$ grep -c 'G4\*\* Timing' course/2026fa/submissions/aditya-raj-sde/runs/claude-final-check/reality-check.md
+0
+[exit=1]
+
+$ git status --short
+?? course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/
+?? course/2026fa/submissions/aditya-raj-sde/runs/claude-final-check/
+[exit=0]
+## finished: 2026-10-03 21:04:39 EDT
+
+## RESULT OF THE ABOVE (Claude, 21:05:03 EDT): 'git pull --ff-only' FAILED (exit 1), so the clean checkout stayed at a2db6a5. The tests, sample run, and grep above therefore ran on the OLD code (a2db6a5), not the final code. In particular, runs/claude-final-check inside <clean-checkout> is an old-code run despite its name.
+## Cause (Claude's own step): evidence 39's commit added copies of Aditya's run outputs at the same path where <clean-checkout> holds his untracked originals. Those originals are NOT deleted or moved.
+$ for f in <clean-checkout>/course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/*; do cmp <that file> <source-repo>/course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/<same name>; done
+identical: reality-check.json
+identical: reality-check.md
+identical: role-scores.json
+identical: role-scores.md
+identical: roles.json
+
+## Final-code check in a SEPARATE fresh clone (session scratch dir; Aditya's checkout untouched)
+
+$ git clone -q --branch contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027 <source-repo> <scratch>/final-check && git -C <scratch>/final-check log -1 --format='%h %s'
+e55ddcd 2026fa aditya-raj-sde: gate legend (Aditya's review); recipe v0.4.0 -> RUNNABLE-SAMPLE
+[exit=0]
+
+$ cd <scratch>/final-check && node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs 2>&1 | grep -E '^# (tests|pass|fail)'
+# tests 18
+# pass 18
+# fail 0
+[exit=0]
+
+$ cd <scratch>/final-check && node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/final-check
+✓ 9 openings → seek-vacancy-sponsorship-evidence 6 · skip-application 2 · review-offer-excerpt 1
+  skip fraction 2/9 (sample of 9; not a general rate); timing verified for 0; scenario (hypothetical) scores: 2
+  course/2026fa/submissions/aditya-raj-sde/runs/final-check/reality-check.json  +  course/2026fa/submissions/aditya-raj-sde/runs/final-check/reality-check.md
+[exit=0]
+
+$ cd <scratch>/final-check && grep -c 'G4\*\* Timing' course/2026fa/submissions/aditya-raj-sde/runs/final-check/reality-check.md
+1
+[exit=0]
+
+$ cd <scratch>/final-check && git status --short
+?? course/2026fa/submissions/aditya-raj-sde/runs/final-check/
+[exit=0]
+## finished: 2026-10-03 21:05:04 EDT

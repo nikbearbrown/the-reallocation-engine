@@ -1,0 +1,49 @@
+## started: 2026-10-03 17:48:07 EDT
+## target: Databricks job id (gh_jid) 8635225002 — 'Software Engineer, Web Products', Mountain View. NOTE the board also lists gh_jid 8560779002 with the identical title; this run is about 8635225002 ONLY.
+## baseline demonstration of the repo's liveness check. NOT an endorsement of the role and NOT evidence of sponsorship.
+
+### 1) repo command (the assignment's baseline)
+## observed at: 2026-10-03 17:48:07 EDT
+$ npm run ats:liveness -- 'https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002'
+
+> the-reallocation-engine@1.0.0 ats:liveness
+> node scripts/ats/check-liveness.mjs https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+
+Checking 1 URL(s)...
+
+✅ active     https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+
+Results: 1 active  0 expired  0 uncertain
+[exit=0]
+
+### 2) HTTP-level redirect chain (curl GET, follows Location headers only; cannot see JavaScript redirects)
+## observed at: 2026-10-03 17:48:12 EDT
+$ curl -sS -L -o /dev/null -D - 'https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002' | grep -iE '^(HTTP/|location:)'
+HTTP/2 301 
+location: https://www.databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+HTTP/2 301 
+location: https://www.databricks.com/company/careers/integration-data-engineering-and-applications/software-engineer-web-products-8635225002?gh_jid=8635225002
+HTTP/2 200 
+[exit=0]
+
+### 3) browser-level probe (ad-hoc, read-only, inline below; supplements #1 because check-liveness.mjs does not print the final URL or redirect chain)
+## observed at: 2026-10-03 17:48:29 EDT
+$ node -e 'const {chromium}=require("playwright");(async()=>{const b=await chromium.launch({headless:true});const p=await b.newPage();const r=await p.goto(process.argv[1],{waitUntil:"domcontentloaded",timeout:30000});const chain=[];let q=r.request();while(q){chain.unshift(q.url());q=q.redirectedFrom();}console.log("main-frame request chain:");chain.forEach((u,i)=>console.log("  "+i+": "+u));await p.waitForTimeout(3000);console.log("final page.url() after 3s: "+p.url());console.log("final response status: "+r.status());console.log("document title: "+(await p.title()));const t=await p.evaluate(()=>document.body.innerText);console.log("body mentions job id 8635225002: "+t.includes("8635225002"));console.log("body mentions \"Software Engineer, Web Products\": "+t.includes("Software Engineer, Web Products"));await b.close();})().catch(e=>{console.error("probe error: "+e.message);process.exit(1)})' 'https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002'
+main-frame request chain:
+  0: https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+  1: https://www.databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+  2: https://www.databricks.com/company/careers/integration-data-engineering-and-applications/software-engineer-web-products-8635225002?gh_jid=8635225002
+final page.url() after 3s: https://www.databricks.com/company/careers/integration-data-engineering-and-applications/software-engineer-web-products-8635225002?gh_jid=8635225002
+final response status: 200
+document title: Software Engineer, Web Products - Databricks
+body mentions job id 8635225002: false
+body mentions "Software Engineer, Web Products": true
+[exit=0]
+
+### 4) Greenhouse job record for the same id (public API)
+## observed at: 2026-10-03 17:48:33 EDT
+$ curl -sS https://boards-api.greenhouse.io/v1/boards/databricks/jobs/8635225002 | node <print http, id, title, location, updated_at, absolute_url>
+http=200
+8635225002 | Software Engineer, Web Products | Mountain View, California | 2026-09-21T13:22:12-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+[exit=0]
+## finished: 2026-10-03 17:48:33 EDT

@@ -1,0 +1,15 @@
+## started: 2026-10-03 17:05:42 EDT
+## purpose: check the dependency 'npm run ats:liveness' needs (scripts/ats/check-liveness.mjs imports chromium from playwright) WITHOUT opening any posting URL
+$ npx playwright --version
+Version 1.62.1
+[exit=0]
+$ node -e <print chromium.executablePath() and whether it exists>
+executablePath=~/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing
+exists=false
+[exit=0]
+$ ls ~/Library/Caches/ms-playwright
+b
+mcp-chrome-69ea252
+mcp-chrome-6b6ac22
+[exit=0]
+## finished: 2026-10-03 17:05:43 EDT

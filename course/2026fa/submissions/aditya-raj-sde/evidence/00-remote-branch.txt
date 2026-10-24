@@ -1,0 +1,24 @@
+## started: 2026-10-03 17:01:14 EDT
+
+$ git remote add upstream https://github.com/nikbearbrown/the-reallocation-engine.git
+[exit=0]
+
+$ git fetch upstream
+From https://github.com/nikbearbrown/the-reallocation-engine
+ * [new branch]      main       -> upstream/main
+[exit=0]
+
+$ git rev-parse main upstream/main origin/main
+015843d5047dbadff05068495e4c5db5cd9945f4
+015843d5047dbadff05068495e4c5db5cd9945f4
+015843d5047dbadff05068495e4c5db5cd9945f4
+[exit=0]
+
+$ git switch -c contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027
+Switched to a new branch 'contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027'
+[exit=0]
+
+$ git status --short --branch
+## contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027
+[exit=0]
+## finished: 2026-10-03 17:01:14 EDT

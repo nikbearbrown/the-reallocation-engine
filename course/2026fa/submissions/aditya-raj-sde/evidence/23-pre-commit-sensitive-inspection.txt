@@ -1,0 +1,36 @@
+## started: 2026-10-03 17:55:19 EDT
+## scope: staged added lines only (git diff --cached), 33 files. Non-allowlisted matches are masked in this output so this file cannot leak them.
+
+[email] 3
+  course/2026fa/submissions/aditya-raj-sde/evidence/14-commit-identity.txt :: allowlisted 181499137+aditya-raj-sde@users.noreply.github.com
+  course/2026fa/submissions/aditya-raj-sde/evidence/14-commit-identity.txt :: allowlisted +181499137+aditya-raj-sde@users.noreply.github.com
+  course/2026fa/submissions/aditya-raj-sde/evidence/14-commit-identity.txt :: allowlisted 181499137+aditya-raj-sde@users.noreply.github.com
+
+[phone-shaped] 0
+
+[secret-shaped] 0
+
+[institutional-domain] 0
+
+[local-home-path] 8
+  course/2026fa/submissions/aditya-raj-sde/evidence/16-python-venv-pyyaml.txt :: +[notice] To update, run: /Users/adityaraj/Desktop/the-reallocation-engine/.venv/bin/python -m pip install --u
+  course/2026fa/submissions/aditya-raj-sde/evidence/16-python-venv-pyyaml.txt :: +$ .venv/bin/python -c 'import sys,yaml; print(sys.executable.replace("/Users/adityaraj/Desktop/the-reallocati
+  course/2026fa/submissions/aditya-raj-sde/evidence/16-python-venv-pyyaml.txt :: +$ PATH="$PWD/.venv/bin:$PATH" python3 -c 'import sys,yaml; print("python3 on that PATH ->", sys.executable.re
+  course/2026fa/submissions/aditya-raj-sde/evidence/18-playwright-chromium-install.txt :: +Chrome for Testing 151.0.7922.34 (playwright chromium v1234) downloaded to /Users/adityaraj/Library/Caches/ms
+  course/2026fa/submissions/aditya-raj-sde/evidence/18-playwright-chromium-install.txt :: +FFmpeg (playwright ffmpeg v1011) downloaded to /Users/adityaraj/Library/Caches/ms-playwright/ffmpeg-1011
+  course/2026fa/submissions/aditya-raj-sde/evidence/18-playwright-chromium-install.txt :: +Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) downloaded to /Users/adityaraj
+  course/2026fa/submissions/aditya-raj-sde/evidence/20-pii-upstream-revision.txt :: +/Users/adityaraj/Desktop/the-reallocation-engine  015843d [contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027
+  course/2026fa/submissions/aditya-raj-sde/evidence/22-harness-regression-upstream.txt :: +Error: Cannot find module '/Users/adityaraj/Desktop/the-reallocation-engine/scripts/test/gate-behavior-harnes
+
+[private-path-mention] 0
+[exit=0]
+
+$ git diff --cached --stat | tail -1
+ 33 files changed, 1782 insertions(+)
+$ largest staged files (bytes)
+19493 course/2026fa/submissions/aditya-raj-sde/TEST-REPORT.md
+15715 course/2026fa/submissions/aditya-raj-sde/FRICTIONAL.md
+7529 course/2026fa/submissions/aditya-raj-sde/evidence/07b-ats-scan-dry-run-example-config.txt
+6372 course/2026fa/submissions/aditya-raj-sde/runs/role-scores.json
+4985 course/2026fa/submissions/aditya-raj-sde/SOURCES.md
+## finished: 2026-10-03 17:55:19 EDT

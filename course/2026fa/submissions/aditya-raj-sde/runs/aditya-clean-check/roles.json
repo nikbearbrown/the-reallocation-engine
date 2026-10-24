@@ -1,0 +1,46 @@
+[
+  {
+    "role_id": "example-data-systems-offer-scenario",
+    "company": "Example Data Systems",
+    "title": "Backend Engineer (fictional employer)",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  },
+  {
+    "role_id": "example-analytics-silent-scenario",
+    "company": "Example Analytics",
+    "title": "Platform Engineer (fictional employer)",
+    "sponsorship": {
+      "p": 0.6,
+      "tier": "Likely",
+      "source": "your-input"
+    },
+    "fit": {
+      "p": 0.7,
+      "source": "your-input"
+    },
+    "liveness": {
+      "factor": 1,
+      "source": "your-input"
+    },
+    "timeline": {
+      "factor": 1,
+      "source": "your-input"
+    }
+  }
+]

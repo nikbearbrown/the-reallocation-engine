@@ -1,0 +1,52 @@
+## started: 2026-10-03 17:55:54 EDT
+## after commit c002f78. CI's PR-only step is: node scripts/pii-scan.mjs --diff "origin/<base>"; locally the base is upstream/main (015843d).
+
+$ git rev-parse --short HEAD upstream/main
+fatal: Needed a single revision
+[exit=128]
+
+$ node scripts/pii-scan.mjs --diff upstream/main
+pii-scan: clean ✓
+[exit=0]
+
+$ node scripts/pii-scan.mjs
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [EMAIL REDACTED: pre-existing package-lock.json address]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=1]
+
+$ git diff --stat upstream/main...HEAD | tail -3
+ .../submissions/aditya-raj-sde/runs/role-scores.md |  15 ++
+ logs/runs/2026fa-aditya-raj-sde-1.md               |  74 +++++++
+ 34 files changed, 1825 insertions(+)
+[exit=0]
+
+$ git diff --name-only upstream/main...HEAD | grep -vcE '^(course/2026fa/submissions/aditya-raj-sde/|logs/runs/2026fa-aditya-raj-sde-1\.md$)'
+0
+[exit=1]
+
+$ git log --format='%h %ae' upstream/main..HEAD
+c002f78 181499137+aditya-raj-sde@users.noreply.github.com
+[exit=0]
+
+$ npm run doctor 2>&1 | tail -4
+SUMMARY
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+[exit=0]
+
+$ git status --short
+?? course/2026fa/submissions/aditya-raj-sde/evidence/24-post-commit-scoped-scan.txt
+[exit=0]
+## finished: 2026-10-03 17:55:56 EDT
+
+## CORRECTION (Claude, 17:56:15 EDT): the first command above failed (exit 128) because 'git rev-parse --short' accepts one revision; Claude's syntax error, not a repo problem. Re-run:
+$ git rev-parse --short HEAD; git rev-parse --short upstream/main
+c002f78
+015843d
+[exit=0]
+## note: the grep -vc step above exits 1 by design when the count is 0 (no files outside the namespace).

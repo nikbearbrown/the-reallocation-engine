@@ -1,0 +1,663 @@
+{
+  "run_label": "real public postings (12), captured 2026-10-21",
+  "protocol": "course/2026fa/submissions/aditya-raj-sde/assignment-2/SAMPLE-PROTOCOL.md",
+  "collected": {
+    "started_at": "2026-10-21T04:01:47.683Z",
+    "finished_at": "2026-10-21T04:01:55.201Z",
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/collect.mjs --private-dir private/a2 --public-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample"
+  },
+  "kind": "replay-of-captured-excerpts",
+  "kind_note": "rules re-run on the committed excerpts of postings captured live on 2026-10-21; no network was used for this run",
+  "excerpt_policy": "only sentences any rule reads, with their section headings (SAMPLE-PROTOCOL.md §What is committed)",
+  "observations": [
+    {
+      "obs_id": "databricks-8864368002",
+      "synthetic": false,
+      "employer": "DATABRICKS INC",
+      "company_query": "Databricks",
+      "title": "Senior Software Engineer — Backend (Files Team)",
+      "job_id": "8864368002",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002",
+      "location": "San Francisco, California",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "first_published": "2026-10-02T14:59:02-04:00",
+      "updated_at": "2026-10-02T15:59:16-04:00",
+      "text_sha256": "b53a01507a9bbf8fc59ad03f95cf16584db7e1eeb0c051eabe39ff2261f78c92",
+      "text_chars": 5083,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:51.664Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Senior Software Engineer — Backend (Files Team) - Databricks",
+          "body_chars": 7475,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:02:56.086Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## P-78",
+          "The filesystem has emerged as the preferred runtime interface for agentic AI.",
+          "AI agents use the filesystem for context, memory management, artifact (dashboard, code etc) authoring, version control, sandboxing, and interacting between systems and agents.",
+          "As a Senior Software Engineer on the Files team, you will innovate at the intersection of storage, performance, and distributed systems, directly shaping our filesystem strategy to power next-generation agentic workloads.",
+          "## The Impact You’ll Have",
+          "Design, build, and operate the the filesystem platform powering tens of thousands of data, AI and agentic workloads daily",
+          "## What We’re Looking For",
+          "Bachelor's degree (or higher) in Computer Science or a related field",
+          "5+ years of production-level experience in Java, Scala, C++, Go, Rust, or a similar language",
+          "3+ years of experience developing large-scale distributed systems",
+          "Experience with Kubernetes, Docker, or MicroVM technologies (e.g., Firecracker) and a strong grasp of cloud provider internals (AWS/Azure/GCP).",
+          "Experience building object/blob storage (S3, Azure Blob Storage, GCS etc)",
+          "Systems performance engineering across microservices, down to the Linux level",
+          "## Pay Range Transparency",
+          "The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above."
+        ]
+      }
+    },
+    {
+      "obs_id": "databricks-8815669002",
+      "synthetic": false,
+      "employer": "DATABRICKS INC",
+      "company_query": "Databricks",
+      "title": "Sr. Software Engineer - Ingestion Core team",
+      "job_id": "8815669002",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002",
+      "location": "San Francisco, California",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "first_published": "2026-09-16T18:49:03-04:00",
+      "updated_at": "2026-09-21T13:22:12-04:00",
+      "text_sha256": "349a7838d948522752362a1fd689e388ed007e4d35e1ec8bb8ffe62819f50426",
+      "text_chars": 5258,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:51.664Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Sr. Software Engineer - Ingestion Core team - Databricks",
+          "body_chars": 7667,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:00.738Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "Deeply understanding what’s in the enterprise data has been a challenge that Databricks has been addressing by providing analytics and machine learning tools.",
+          "From data warehousing with Databricks SQL to large-scale distributed processing with Spark and advanced ML tools for experimentation and model serving, we empower our customers to gain insights and drive innovation.",
+          "This role requires building distributed platform systems to incrementally ingest high-volume, petabyte-scale data from diverse sources—including cloud storage (SQS, ADLS, GCS), databases (Oracle, SQL Server, MySQL, Postgres), and file sources (Google Drive, SharePoint)—at high throughput and low cost.",
+          "Join us in making data ingestion effortless and be part of the team that powers the future of AI + data at Databricks!",
+          "## As an engineer on the team, you will work on projects that",
+          "Reduce end-to-end latency, increase throughput, and reduce costs from the time data appears in source systems to when it is available in Delta Lake.",
+          "Collaborate with partner teams to enable use cases like RAG and AI agents.",
+          "Build Agentic SDKs with strong evaluations.",
+          "## Ideal Engineer should have",
+          "5+ years of experience writing production code in one of: Java, Scala, Go, C++, or Python.",
+          "Experience with distributed systems, streaming, Spark, databases, data processing, or CDC.",
+          "## Pay Range Transparency",
+          "The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above."
+        ]
+      }
+    },
+    {
+      "obs_id": "databricks-8806934002",
+      "synthetic": false,
+      "employer": "DATABRICKS INC",
+      "company_query": "Databricks",
+      "title": "Senior Software Engineer, Compute Infrastructure",
+      "job_id": "8806934002",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002",
+      "location": "Mountain View, California",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "first_published": "2026-09-14T16:06:54-04:00",
+      "updated_at": "2026-10-06T07:04:37-04:00",
+      "text_sha256": "2222150e81a30f9a66cdb84754554b5bdd7c402adbfb731621da918d56f0ed97",
+      "text_chars": 4298,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:51.664Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Senior Software Engineer, Compute Infrastructure - Databricks",
+          "body_chars": 6699,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:05.320Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## The Opportunity",
+          "You will tackle the hard problems of distributed systems: sub-second container/MicroVM startup times, multi-tenant security isolation, and building a unified orchestration layer that scales across AWS, Azure, and GCP.",
+          "## What You’ll Do",
+          "Design and build the next generation of our Serverless platform, focusing on high availability, low latency, and scale-to-zero efficiency.",
+          "Work alongside industry experts who have built world-class systems like Borg, Kubernetes, and Uber’s infrastructure.",
+          "## What We’re Looking For",
+          "5+ years of production-level experience in one of: Python, Java, Scala, C++, or a similar language",
+          "4+ years of experience developing large-scale distributed systems from scratch",
+          "Experience with Kubernetes, Docker, or MicroVM technologies (e.g., Firecracker) and a strong grasp of cloud provider internals (AWS/Azure/GCP).",
+          "## Pay Range Transparency",
+          "The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above."
+        ]
+      }
+    },
+    {
+      "obs_id": "databricks-8798217002",
+      "synthetic": false,
+      "employer": "DATABRICKS INC",
+      "company_query": "Databricks",
+      "title": "Staff Systems Development Engineer (GovOps)",
+      "job_id": "8798217002",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002",
+      "location": "McLean, Virginia",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "first_published": "2026-09-10T22:20:17-04:00",
+      "updated_at": "2026-10-07T23:58:33-04:00",
+      "text_sha256": "22667110a8c03300fff5ba8da78ce4357e68bcff2f46a02ff8c2c832c210c01b",
+      "text_chars": 8075,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:51.664Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Staff Systems Development Engineer (GovOps) - Databricks",
+          "body_chars": 10468,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:09.860Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## The Role",
+          "Databricks is seeking a Staff Systems Development Engineer (GovOps) to join our Cleared Engineering team in McLean, VA.",
+          "## The Impact You’ll Have",
+          "Uphold & Evolve Compliance Guardrails: Navigate and refine operational frameworks inside secure facilities (SCIF), ensuring platform interactions and deployment pipelines strictly align with FedRAMP High, ITAR/IL5, and federal security benchmarks.",
+          "## What We're Looking For",
+          "Required: Candidates have active Top Secret / Sensitive Compartmented Information (TS/SCI) security clearance.",
+          "Nice to have: Possession of a current polygraph (Counterintelligence or Full Scope) is highly desired and considered a significant plus.",
+          "Bachelor’s degree in Computer Science, Systems Engineering, Mathematics, or equivalent practical experience.",
+          "7+ years of experience in Systems Engineering, Cloud Infrastructure, Senior Support Engineering, DevSecOps, or a related technical operations role.",
+          "Deep expertise in Linux/Unix operating-system internals, networking, process/resource debugging, and distributed systems.",
+          "Hands-on proficiency in Python, Bash, Go, or Java with the ability to read source code, debug software defects, and write custom diagnostic scripts.",
+          "Proven experience managing, debugging, and operating cloud infrastructure across public or federal cloud boundaries (AWS GovCloud, Azure Government, or GCP).",
+          "Solid working knowledge of Infrastructure-as-Code (IaC) tools such as Terraform or CloudFormation, along with container orchestration mechanics (Docker/Kubernetes).",
+          "3+ years of experience writing clear, succinct written and verbal technical communications, including technical status reports, incident summaries, or cross-team escalations.",
+          "Preferred Qualifications",
+          "Prior experience supporting AWS Worldwide Public Sector (WWPS), isolated defense integration networks, or FedRAMP High / ITAR environments.",
+          "## Pay Range Transparency",
+          "The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above."
+        ]
+      }
+    },
+    {
+      "obs_id": "pinterest-8046860",
+      "synthetic": false,
+      "employer": "PINTEREST INC",
+      "company_query": "Pinterest",
+      "title": "Sr. Staff Software Engineer, Product ML Infrastructure",
+      "job_id": "8046860",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8046860",
+      "location": "Palo Alto, CA, US; San Francisco, CA, US",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "first_published": "2026-09-30T15:41:55-04:00",
+      "updated_at": "2026-10-06T12:32:43-04:00",
+      "text_sha256": "017b480f7eb253e2d6ea3a44165deb61e28473d5c33bf31222dd6c1bb75c435a",
+      "text_chars": 6560,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:53.537Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "expired",
+        "code": "insufficient content — likely nav/footer only",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 403,
+          "document_title": "Just a moment...",
+          "body_chars": 272,
+          "body_has_posting_title": false,
+          "observed_at": "2026-10-21T04:03:14.375Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## About Pinterest",
+          "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product.",
+          "## Sr. Staff Software Engineer, Product ML Infrastructure",
+          "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product.",
+          "Pinterest’s Product ML Infrastructure (PMLI) team enables fast, safe, and efficient delivery of AI/ML solutions across Ads and Core critical products.",
+          "We build unified data, training, feature, and inference infrastructure; this role will set technical direction across model training and serving, with a focus on GPU efficiency and large-scale ranking systems.",
+          "## What you’ll do",
+          "Lead architectures for distributed training, fine-tuning, distillation, evaluation, and high-scale CPU/GPU inference.",
+          "## What we’re looking for",
+          "Deep expertise in distributed ML systems, including production experience with both large-scale training and online inference.",
+          "Strong systems programming and design skills in C++, Java, or Python.",
+          "Bachelor’s degree in Computer Science, Engineering, a related field, or equivalent experience.",
+          "## In-Office Requirement Statement",
+          "Information regarding the culture at Pinterest and benefits available for this position can be found here ."
+        ]
+      }
+    },
+    {
+      "obs_id": "pinterest-7683977",
+      "synthetic": false,
+      "employer": "PINTEREST INC",
+      "company_query": "Pinterest",
+      "title": "Principal Engineer, AI Platform",
+      "job_id": "7683977",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683977",
+      "location": "San Francisco, CA, US; Remote, US",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "first_published": "2026-09-22T14:14:17-04:00",
+      "updated_at": "2026-10-02T10:24:56-04:00",
+      "text_sha256": "481aa8df33eee7f842c230308a8c677e60f59d5f618ee289c300ab9252af356b",
+      "text_chars": 6058,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:53.537Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "expired",
+        "code": "insufficient content — likely nav/footer only",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 403,
+          "document_title": "Just a moment...",
+          "body_chars": 272,
+          "body_has_posting_title": false,
+          "observed_at": "2026-10-21T04:03:18.617Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## About Pinterest",
+          "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product.",
+          "Our team builds the end-to-end engines for petabyte-scale data orchestration, model training and fine-tuning, and high-performance inference, ensuring our models scale seamlessly to hundreds of millions of inferences per second in service of over 600 million monthly active users.",
+          "## What you’ll do",
+          "Generative AI: multimodal data management, post-training, evaluation, and batch/online inference.",
+          "Recommender Systems: feature stores, training infra, and large-scale high performance inference.",
+          "## What we’re looking for",
+          "Deep expertise in AI/ML infrastructure and distributed systems: Hands-on experience designing, building, and operating highly available, production-grade systems at large scale; strong technical judgment; and proficiency in at least one of C++, Java, or Rust.",
+          "Bachelor's degree in Computer Science or a related field.",
+          "## In-Office Requirement Statement ",
+          "Information regarding the culture at Pinterest and benefits available for this position can be found here ."
+        ]
+      }
+    },
+    {
+      "obs_id": "pinterest-8055266",
+      "synthetic": false,
+      "employer": "PINTEREST INC",
+      "company_query": "Pinterest",
+      "title": "Staff Software Engineer, Ads & Core Serving Platform",
+      "job_id": "8055266",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8055266",
+      "location": "Palo Alto, CA, US; San Francisco, CA, US",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "first_published": "2026-09-09T16:59:25-04:00",
+      "updated_at": "2026-10-05T13:02:45-04:00",
+      "text_sha256": "2137738a80866fae39315b30518b8c8153d78d3f47b628792fb28b300aa297ac",
+      "text_chars": 6320,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:53.537Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "expired",
+        "code": "insufficient content — likely nav/footer only",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 403,
+          "document_title": "Just a moment...",
+          "body_chars": 272,
+          "body_has_posting_title": false,
+          "observed_at": "2026-10-21T04:03:22.865Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## About Pinterest",
+          "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product.",
+          "## What you’ll do",
+          "Build and operate scalable, highly available systems with clear performance, reliability, and efficiency goals.",
+          "## What we’re looking for",
+          "8+ years of software engineering experience building and operating production backend or distributed systems.",
+          "Strong expertise in distributed systems, online serving, low-latency services, or infrastructure platforms.",
+          "Demonstrated ability to make sound tradeoffs across latency, reliability, scalability, cost, and developer experience.",
+          "Proficiency in one or more programming languages such as Java, C++, Go, or Python.",
+          "Bachelor’s degree in Computer Science, a related technical field, or equivalent experience.",
+          "Preferred qualifications:",
+          "## In-Office Requirement Statement ",
+          "Information regarding the culture at Pinterest and benefits available for this position can be found here ."
+        ]
+      }
+    },
+    {
+      "obs_id": "pinterest-7683981",
+      "synthetic": false,
+      "employer": "PINTEREST INC",
+      "company_query": "Pinterest",
+      "title": "Principal Engineer, Big Data Platform",
+      "job_id": "7683981",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683981",
+      "location": "San Francisco, CA, US; Remote, US",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "first_published": "2026-09-02T12:50:22-04:00",
+      "updated_at": "2026-10-02T10:24:56-04:00",
+      "text_sha256": "2b863d9470fd8cf90c89f7b9771e60cb3c8b532ee5bb067760cf3043557ef416",
+      "text_chars": 5238,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:53.537Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "expired",
+        "code": "insufficient content — likely nav/footer only",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 403,
+          "document_title": "Just a moment...",
+          "body_chars": 272,
+          "body_has_posting_title": false,
+          "observed_at": "2026-10-21T04:03:27.098Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## About Pinterest",
+          "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product.",
+          "You’ll be working on some of the most exciting big data and AI open source technologies (Flink, Spark, Kubernetes, etc.), at the scale of exabytes of data to help Pinners discover and do what they love.",
+          "## What we’re looking for",
+          "12+ years of industry experience with a proven track record of technical excellence",
+          "8+ years of experience of building and support large scalable Kubernetes or big data platform",
+          "Flink, Spark, Presto, Kubernetes, Ray, PyTorch/TensorFlow)",
+          "Proficiency in one or more programming languages (Java, Go, Scala, Python)",
+          "Experiences in Kubernetes and AWS technologies",
+          "Bachelor’s degree in Computer Science, a related technical field, or equivalent experience.",
+          "## Relocation Statement",
+          "Information regarding the culture at Pinterest and benefits available for this position can be found here ."
+        ]
+      }
+    },
+    {
+      "obs_id": "stripe-8249901",
+      "synthetic": false,
+      "employer": "STRIPE INC",
+      "company_query": "Stripe",
+      "title": "Software Engineer",
+      "job_id": "8249901",
+      "url": "https://stripe.com/jobs/search?gh_jid=8249901",
+      "location": "Seattle, WA",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "first_published": "2026-10-02T14:52:10-04:00",
+      "updated_at": "2026-10-20T17:27:23-04:00",
+      "text_sha256": "fb3cdee4d665839508e30bfb0db9b49969aed0854c5ca56623c3abe870cf6d49",
+      "text_chars": 2404,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:54.614Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Stripe Careers | Software Engineer",
+          "body_chars": 5375,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:31.329Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## Responsibilities",
+          "Design, build, and operate critical tier-0 backend services that must achieve 99.99%+ availability and handle security-sensitive data.",
+          "Design and implement robust, scalable infrastructure, participate in an on-call rotation, and collaborate with engineering teams across the company to plan and safely execute changes in production.",
+          "Set up and operate infrastructure that participates in decentralized distributed systems, including creating deploy pipelines for artifacts.",
+          "## Must have three (3) years of experience in each of the following",
+          "Cloud technologies, including AWS and Azure;",
+          "Go, Python or Java;",
+          "Developing, maintaining and debugging distributed systems;",
+          "Multiple Positions Available.",
+          "Additional benefits for this role may include: equity, company bonus or sales commissions/bonuses; 401(k) plan; medical, dental, and vision benefits; and wellness stipends."
+        ]
+      }
+    },
+    {
+      "obs_id": "stripe-8142952",
+      "synthetic": false,
+      "employer": "STRIPE INC",
+      "company_query": "Stripe",
+      "title": "Staff Software Engineer, Link - Consumer Identity ",
+      "job_id": "8142952",
+      "url": "https://stripe.com/jobs/search?gh_jid=8142952",
+      "location": "San Francisco, Seattle, New York",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "first_published": "2026-09-25T14:11:53-04:00",
+      "updated_at": "2026-10-20T18:14:46-04:00",
+      "text_sha256": "d394ffd19f8020f3756c639dd9899979e77492fa64128548082eb651ffe9cc50",
+      "text_chars": 5218,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:54.614Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Stripe Careers | Staff Software Engineer, Link - Consumer Identity",
+          "body_chars": 8870,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:36.413Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## What you'll do",
+          "You will take ambiguous product opportunities and turn them into reliable, scalable, and intuitive experiences for consumers and merchants.",
+          "## Responsibilities",
+          "Build robust, scalable backend services and high-quality consumer-facing experiences across Java, Ruby, and TypeScript.",
+          "## Who you are",
+          "The preferred qualifications are a bonus, not a requirement.",
+          "## Minimum requirements",
+          "10+ years of backend and/or full-stack software development experience, with a track record of owning large, ambiguous systems end-to-end.",
+          "## Preferred qualifications",
+          "Experience with Java, Ruby, and/or TypeScript.",
+          "Experience building consumer products at scale, particularly products that require a high degree of user trust."
+        ]
+      }
+    },
+    {
+      "obs_id": "stripe-8230952",
+      "synthetic": false,
+      "employer": "STRIPE INC",
+      "company_query": "Stripe",
+      "title": "Senior Software Engineer, Backend",
+      "job_id": "8230952",
+      "url": "https://stripe.com/jobs/search?gh_jid=8230952",
+      "location": "Seattle, WA",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "first_published": "2026-09-24T12:53:45-04:00",
+      "updated_at": "2026-10-20T17:27:22-04:00",
+      "text_sha256": "e42a7009741503aeb607b8393dfe158e225874d900bd7494cc9590cb36634ac1",
+      "text_chars": 3391,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:54.614Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Stripe Careers | Senior Software Engineer, Backend",
+          "body_chars": 6129,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:41.428Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## Responsibilities",
+          "Navigate a complex fintech environment with numerous compliance regulations, translating internal and external business needs into robust software requirements and scalable distributed systems;",
+          "Build large-scale (petabyte-size) financial data platforms, solutions, and pipelines using Big Data technologies and distributed systems;",
+          "## Minimum requirements",
+          "Must have a Bachelor's Degree or foreign equivalent degree in Computer Science, Information Systems Security, or a related field, plus five (5) years of related work experience in Software Engineering.",
+          "## Must also have experience in each of the following",
+          "5 years of experience programming in Java, Scala, or Python;",
+          "5 years of experience designing, building, and maintaining scalable distributed systems;",
+          "5 years of experience debugging production issues across services and multiple levels of the stack;",
+          "5 years of experience with different testing tools and frameworks including JUnit, Mockito, and TestNG;",
+          "4 years of experience developing complex SQL queries, analyzing datasets and designing large-scale data pipelines;",
+          "4 years of experience working in fintech domain;",
+          "4 years of experience leading cross-team projects and building alignment on multi-team technical direction; and",
+          "1 year experience working with Apache Spark or similar modern Big Data technologies.",
+          "Multiple Positions Available.",
+          "Additional benefits for this role may include: equity, company bonus or sales commissions/bonuses; 401(k) plan; medical, dental, and vision benefits; and wellness stipends."
+        ]
+      }
+    },
+    {
+      "obs_id": "stripe-8198280",
+      "synthetic": false,
+      "employer": "STRIPE INC",
+      "company_query": "Stripe",
+      "title": "Software Engineer, Backend",
+      "job_id": "8198280",
+      "url": "https://stripe.com/jobs/search?gh_jid=8198280",
+      "location": "Seattle, WA",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "first_published": "2026-09-14T18:11:13-04:00",
+      "updated_at": "2026-10-20T17:27:21-04:00",
+      "text_sha256": "ce6c630c6d535b93f30fc0875ce5faef74c9280f44618dcda0d7ab655082ac0c",
+      "text_chars": 2595,
+      "feed": {
+        "present": true,
+        "observed_at": "2026-10-21T04:01:54.614Z",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/selection.json"
+      },
+      "page": {
+        "result": "active",
+        "code": null,
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "source": "record",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "probe": {
+          "status": 200,
+          "document_title": "Stripe Careers | Software Engineer, Backend",
+          "body_chars": 5338,
+          "body_has_posting_title": true,
+          "observed_at": "2026-10-21T04:03:46.245Z",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt"
+        }
+      },
+      "content": {
+        "mode": "excerpts",
+        "lines": [
+          "## Responsibilities",
+          "Develop scalable computer systems that manage a large volume of information and use them to fulfill business goals for the company and its partners.",
+          "Improve backend scalability and performance by integrating lightweight backend framework, overhauling APIs and optimizing database systems.",
+          "Design and implement scalable and reliable automated testing suites to reduce manual Quality Assurance tasks.",
+          "## Minimum requirements",
+          "Must have a Master's degree or foreign equivalent in Computer Science, Software Engineering, or a related field, plus six (6) years of software development experience.",
+          "## Must also have four (4) years of experience in each of the following",
+          "Building software solutions in Java, C++, Python, or Ruby;",
+          "Designing, building and maintaining scalable systems;",
+          "Distributed systems; and",
+          "Design and implementation of scalable high-performance RESTful microservices.",
+          "Multiple Positions Available.",
+          "Additional benefits for this role may include: equity, company bonus or sales commissions/bonuses; 401(k) plan; medical, dental, and vision benefits; and wellness stipends."
+        ]
+      }
+    }
+  ]
+}

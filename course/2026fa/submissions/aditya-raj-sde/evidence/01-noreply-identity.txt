@@ -1,0 +1,23 @@
+## started: 2026-10-03 17:02:58 EDT
+## method: token read from the existing git credential helper for github.com (never printed or saved); GitHub REST API /user and /user/emails; only login, id, and noreply-domain addresses are kept
+no stored credential returned
+[exit=1]
+## finished: 2026-10-03 17:02:58 EDT
+
+## CORRECTION (Claude, 17:03:17 EDT): attempt 1 above is invalid. 'timeout' is not installed on this macOS (command -v timeout gtimeout -> exit 1), so the credential helper was never actually invoked; the 'no stored credential returned' message reflects the missing command, not the keychain. Attempt 2 follows, without timeout.
+## attempt 2 started: 2026-10-03 17:03:17 EDT
+$ GET https://api.github.com/user  (fields: login, id)
+{"login":"aditya-raj-sde","id":181499137}
+[http=200]
+$ GET https://api.github.com/user/emails  (only users.noreply.github.com addresses shown)
+non-array response: Not Found
+[http=404]
+[exit=0]
+## attempt 2 finished: 2026-10-03 17:03:18 EDT
+
+## attempt 3 (scope check for the 404) started: 2026-10-03 17:03:35 EDT
+$ HEAD https://api.github.com/user  (response header x-oauth-scopes only)
+HTTP/2 200 
+x-oauth-scopes: gist, repo, workflow
+[exit=0]
+## attempt 3 finished: 2026-10-03 17:03:36 EDT

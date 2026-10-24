@@ -1,0 +1,28 @@
+## started: 2026-10-03 19:39:13 EDT
+## Step 2 PREPARATION (Claude-executed). Isolated copy = detached git worktree of HEAD in the session scratch dir. NO tests are run in this file.
+$ git rev-parse --short HEAD
+d07aba5
+$ git worktree add --detach <scratch>/mutant-refusal-gate HEAD
+Preparing worktree (detached HEAD d07aba5)
+HEAD is now at d07aba5 2026fa aditya-raj-sde: synthetic-derived liveness no longer labeled record (recipe v0.3.0)
+$ sed -i '' "s/  if (vacancy.state === 'explicit-refusal') {/  if (false \&\& vacancy.state === 'explicit-refusal') {/" <scratch>/mutant-refusal-gate/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+[exit=0]
+$ git -C <scratch>/mutant-refusal-gate diff --stat; git -C <scratch>/mutant-refusal-gate diff
+ .../2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs        | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+diff --git a/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs b/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+index 8b58217..499e2f9 100644
+--- a/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
++++ b/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+@@ -276,7 +276,7 @@ export function evaluateRole(role, csv) {
+   gates.push({ id: 'G2', status: 'pass', reason: `active (${liveness.classifier.code || 'recorded observation'})` });
+ 
+   // G3 vacancy refusal — never scored on the decision path
+-  if (vacancy.state === 'explicit-refusal') {
++  if (false && vacancy.state === 'explicit-refusal') {
+     const why = `the posting refuses sponsorship: "${vacancy.excerpts[0]}"`;
+     gates.push({ id: 'G3', status: 'stop', reason: why });
+     return done('skip-application', why);
+$ git -C <main repo> diff --stat -- scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027   (main implementation must be unchanged)
+(empty = unchanged)
+## finished: 2026-10-03 19:39:13 EDT

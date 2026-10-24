@@ -1,0 +1,45 @@
+## started: 2026-10-21 11:29:00 EDT — rules v0.4.1 (DEVELOPMENT evidence on both the original 12 and the 6 holdout postings; the holdout's first result stays runs/holdout-v0.4-first)
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input private/a2/observations-full.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir private/a2/runs/live-full-v0.4.1
+✓ 12 openings (live-full-text (private)) → human-eligibility-review 4 · human-liveness-review 4 · human-requirement-review 2 · skip-application 2
+  experience groups: satisfied+core 0 · unknown+core 2 · awaiting review 5 · documented mismatch 5 · passed/unknown, stack not core 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/observations.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4.1
+✓ 12 openings (replay-of-captured-excerpts) → human-eligibility-review 4 · human-liveness-review 4 · human-requirement-review 2 · skip-application 2
+  experience groups: satisfied+core 0 · unknown+core 2 · awaiting review 5 · documented mismatch 5 · passed/unknown, stack not core 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare private/a2/runs/live-full-v0.4.1/triage.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4.1/triage.json
+compared 12 openings · differences 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4/triage.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4.1/triage.json
+compared 12 openings · differences 12
+  {"obs_id":"databricks-8864368002","field":"decision","a":"human-requirement-review","b":"human-eligibility-review"}
+  {"obs_id":"databricks-8864368002","field":"decided_by","a":"G4","b":"G3"}
+  {"obs_id":"databricks-8864368002","field":"eligibility","a":"none-stated","b":"clearance-or-export-control-wording"}
+  {"obs_id":"databricks-8864368002","field":"gates","a":"pass,pass,pass,review,pass-unknown,pass,stop,review","b":"pass,pass,review,review,pass-unknown,pass,stop,review"}
+  {"obs_id":"databricks-8815669002","field":"decision","a":"human-requirement-review","b":"human-eligibility-review"}
+  {"obs_id":"databricks-8815669002","field":"decided_by","a":"G4","b":"G3"}
+  {"obs_id":"databricks-8815669002","field":"eligibility","a":"none-stated","b":"clearance-or-export-control-wording"}
+  {"obs_id":"databricks-8815669002","field":"gates","a":"pass,pass,pass,review,pass-unknown,review,stop,review","b":"pass,pass,review,review,pass-unknown,review,stop,review"}
+  {"obs_id":"databricks-8806934002","field":"decision","a":"human-requirement-review","b":"human-eligibility-review"}
+  {"obs_id":"databricks-8806934002","field":"decided_by","a":"G4","b":"G3"}
+  {"obs_id":"databricks-8806934002","field":"eligibility","a":"none-stated","b":"clearance-or-export-control-wording"}
+  {"obs_id":"databricks-8806934002","field":"gates","a":"pass,pass,pass,review,pass-unknown,pass,stop,review","b":"pass,pass,review,review,pass-unknown,pass,stop,review"}
+[exit=1]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input private/a2/holdout/observations-full.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir private/a2/runs/holdout-full-v0.4.1
+✓ 6 openings (live-full-text (private)) → human-eligibility-review 2 · human-liveness-review 2 · human-requirement-review 2
+  experience groups: satisfied+core 0 · unknown+core 2 · awaiting review 3 · documented mismatch 1 · passed/unknown, stack not core 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/observations.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/holdout-v0.4.1-dev-rerun
+✓ 6 openings (holdout-replay-of-captured-excerpts) → human-eligibility-review 2 · human-liveness-review 2 · human-requirement-review 2
+  experience groups: satisfied+core 0 · unknown+core 2 · awaiting review 3 · documented mismatch 1 · passed/unknown, stack not core 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare private/a2/runs/holdout-full-v0.4.1/triage.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/holdout-v0.4.1-dev-rerun/triage.json
+compared 6 openings · differences 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/fixtures/synthetic-cases.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.4.1
+✓ 40 openings (synthetic) → skip-application 11 · seek-vacancy-sponsorship-evidence 7 · human-requirement-review 13 · human-start-window-review 5 · human-liveness-review 3 · review-offer-excerpt 1
+  experience groups: satisfied+core 20 · unknown+core 1 · awaiting review 10 · documented mismatch 6 · passed/unknown, stack not core 3
+[exit=0]
+$ holdout dev rerun vs Claude-reviewed expectations (DEVELOPMENT, not holdout performance)
+  still differs stripe-8197135 G4_state: expected alternative-requirements | program scoped-duration-unknown
+dev rerun agreement 47/48; final steps 6/6

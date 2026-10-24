@@ -1,0 +1,61 @@
+## started: 2026-10-03 19:06:22 EDT
+
+$ node scripts/conformance.mjs scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/ recipes/cases/2026fa/ course/2026fa/submissions/aditya-raj-sde/
+conformance: 24 files (11 md · 10 json · 3 js)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+
+$ PATH="$PWD/.venv/bin:$PATH" npm run verify
+
+> the-reallocation-engine@1.0.0 verify
+> node scripts/conformance.mjs && node scripts/manifest-check.mjs
+
+conformance: 170 files (88 md · 36 py · 33 js · 9 json · 4 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+MANIFEST CHECK — The Reallocation Engine
+==========================================
+
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+[exit=0]
+
+$ npm run doctor 2>&1 | tail -6
+  open TODOs: 318 declared (in frontmatter) · 318 [TODO markers in bodies
+
+SUMMARY
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+[exit=0]
+
+$ node scripts/pii-scan.mjs
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [EMAIL REDACTED: pre-existing package-lock.json address]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=1]
+
+$ git status --short
+ M course/2026fa/submissions/aditya-raj-sde/CHANGE-BRIEF.md
+ M course/2026fa/submissions/aditya-raj-sde/FRICTIONAL.md
+ M recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md
+?? course/2026fa/submissions/aditya-raj-sde/evidence/29-hypothesis-probe-f1a-f2a.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/30-tests-run1.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/30b-tests-run2.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/31-sample-run.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/31b-sample-run2.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/32-checks-after-prototype.txt
+?? course/2026fa/submissions/aditya-raj-sde/runs/sample/
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/README.md
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/hypothesis-probe.mjs
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+[exit=0]
+## note: the working-tree pii-scan runs BEFORE these files are committed; the contribution-scoped --diff scan is recorded after the commit.
+## finished: 2026-10-03 19:06:26 EDT

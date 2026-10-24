@@ -1,0 +1,40 @@
+## started: 2026-10-21 00:23:06 EDT — conformance + doctor + PII (all new files staged)
+$ PATH=<main-checkout>/.venv/bin:$PATH npm run verify
+==========================================
+
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+[exit=0]
+$ npm run doctor
+  open TODOs: 318 declared (in frontmatter) · 318 [TODO markers in bodies
+SUMMARY
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+[exit=0]
+$ node scripts/pii-scan.mjs   (working tree)
+  [email] package-lock.json — [EMAIL REDACTED: the pre-existing package-lock.json address]
+[exit=1]
+$ node scripts/pii-scan.mjs --diff 1a618e7   (every Assignment 2 commit + staged tree vs the graded commit — history mode reads commits only)
+pii-scan: clean ✓
+[exit=0]
+$ node scripts/pii-scan.mjs --diff upstream/main   (what CI will scan)
+pii-scan: clean ✓
+[exit=0]
+$ grep -c "\[TODO" recipes/cases/2026fa/aditya-raj-sde-java-backend-early2027.md  (frontmatter declares todos_open: 6)
+6
+$ node scripts/conformance.mjs <every Assignment 2 path>
+conformance: 43 files (17 md · 8 js · 17 json · 1 yaml)
+
+✗ 1 file(s) FAILED conformance:
+  • search/examples/tariq-lindqvist/profile.yml — ModuleNotFoundError: No module named 'yaml'
+[exit=1]
+## the failure above is environmental (system python3 has no PyYAML); re-run with the main checkout .venv on PATH, as for npm run verify:
+$ PATH=<main-checkout>/.venv/bin:$PATH node scripts/conformance.mjs <every Assignment 2 path>
+conformance: 43 files (17 md · 8 js · 17 json · 1 yaml)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]

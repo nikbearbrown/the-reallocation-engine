@@ -1,0 +1,254 @@
+## started: 2026-10-03 19:44:07 EDT
+## Step 2 EXECUTION (Claude-executed), after Aditya's prediction was committed (da180a2, 19:43:47).
+
+### A. mutation present in the isolated copy, absent from the main implementation
+$ grep -c "false && vacancy.state === 'explicit-refusal'" <scratch>/mutant-refusal-gate/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+1
+$ grep -c "false && vacancy.state === 'explicit-refusal'" scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs   (main)
+0
+
+### B. FULL test suite on the MUTATED copy (complete output)
+$ (cd <scratch>/mutant-refusal-gate && node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs)
+TAP version 13
+# Subtest: no network: source imports nothing that can reach the network; fetch never called
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+  ---
+  duration_ms: 0.871625
+  ...
+# Subtest: maintained scorer is reused through its CLI, not copied
+ok 2 - maintained scorer is reused through its CLI, not copied
+  ---
+  duration_ms: 0.20875
+  ...
+# Subtest: G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+  ---
+  duration_ms: 26.57475
+  ...
+# Subtest: G1: an out-dir over tracked repository files is refused (exit 2)
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+  ---
+  duration_ms: 25.518917
+  ...
+# Subtest: G1: missing evidence fields are named, not defaulted
+ok 5 - G1: missing evidence fields are named, not defaulted
+  ---
+  duration_ms: 0.435167
+  ...
+# Subtest: G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+  ---
+  duration_ms: 0.133834
+  ...
+# Subtest: F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+not ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+  ---
+  duration_ms: 1.712167
+  location: '<scratch>/mutant-refusal-gate/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs:77:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    f1b-fit-0.7
+    + actual - expected
+    
+    + 'seek-vacancy-sponsorship-evidence'
+    - 'skip-application'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'skip-application'
+  actual: 'seek-vacancy-sponsorship-evidence'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<scratch>/mutant-refusal-gate/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs:81:12)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: F2(b) F2-0: open posting passes G2
+ok 8 - F2(b) F2-0: open posting passes G2
+  ---
+  duration_ms: 0.345208
+  ...
+# Subtest: F2(b) F2-1: recognized closure phrase → skip-application
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+  ---
+  duration_ms: 0.239375
+  ...
+# Subtest: F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+  ---
+  duration_ms: 0.305333
+  ...
+# Subtest: F2(b) F2-3: uncertain → human review, no application decision
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+  ---
+  duration_ms: 0.141417
+  ...
+# Subtest: F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+  ---
+  duration_ms: 0.092083
+  ...
+# Subtest: F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+  ---
+  duration_ms: 0.059625
+  ...
+# Subtest: F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+  ---
+  duration_ms: 1.324833
+  ...
+# Subtest: F3: matching strips legal suffixes but never fuzzes
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+  ---
+  duration_ms: 0.037042
+  ...
+# Subtest: vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+  ---
+  duration_ms: 0.438875
+  ...
+# Subtest: T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+  ---
+  duration_ms: 148.202375
+  ...
+# Subtest: sample run: two outputs, every value labeled, scenario scores separate from decisions
+ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+  ---
+  duration_ms: 149.976084
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 17
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 501.896667
+[exit=1]
+
+### C. mutated program on the F1b refusal roles (to observe next steps and scenario scoring)
+$ (cd <scratch>/mutant-refusal-gate && node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input <tmp>/f1b-input.json --out-dir <tmp>/f1b-out)
+✓ 3 openings → seek-vacancy-sponsorship-evidence 3
+  skip fraction 0/3 (sample of 3; not a general rate); timing verified for 0; scenario (hypothetical) scores: 1
+  ../../../../../../..<tmp>/f1b-out/reality-check.json  +  ../../../../../../..<tmp>/f1b-out/reality-check.md
+[exit=0]
+$ node -e <per role: vacancy state, last gate, next_action, scenario label>
+f1b-fit-0.7 | vacancy=explicit-refusal | gates=G1:pass,G2:pass,G3:pass,G4:pass,G5:stop | next_action=seek-vacancy-sponsorship-evidence | scenario=none
+f1b-fit-0.9 | vacancy=explicit-refusal | gates=G1:pass,G2:pass,G3:pass,G4:pass,G5:stop | next_action=seek-vacancy-sponsorship-evidence | scenario=none
+f1b-fit-1.0 | vacancy=explicit-refusal | gates=G1:pass,G2:pass,G3:pass,G4:pass,G5:stop | next_action=seek-vacancy-sponsorship-evidence | scenario=Apply (provisional: timing not verified) composite 0.615
+
+### D. FULL test suite on the UNMODIFIED main implementation (complete output)
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+TAP version 13
+# Subtest: no network: source imports nothing that can reach the network; fetch never called
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+  ---
+  duration_ms: 0.618083
+  ...
+# Subtest: maintained scorer is reused through its CLI, not copied
+ok 2 - maintained scorer is reused through its CLI, not copied
+  ---
+  duration_ms: 0.185042
+  ...
+# Subtest: G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+  ---
+  duration_ms: 25.621834
+  ...
+# Subtest: G1: an out-dir over tracked repository files is refused (exit 2)
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+  ---
+  duration_ms: 24.071375
+  ...
+# Subtest: G1: missing evidence fields are named, not defaulted
+ok 5 - G1: missing evidence fields are named, not defaulted
+  ---
+  duration_ms: 0.443417
+  ...
+# Subtest: G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+  ---
+  duration_ms: 0.135541
+  ...
+# Subtest: F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+  ---
+  duration_ms: 1.893667
+  ...
+# Subtest: F2(b) F2-0: open posting passes G2
+ok 8 - F2(b) F2-0: open posting passes G2
+  ---
+  duration_ms: 0.081125
+  ...
+# Subtest: F2(b) F2-1: recognized closure phrase → skip-application
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+  ---
+  duration_ms: 0.238
+  ...
+# Subtest: F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+  ---
+  duration_ms: 0.266792
+  ...
+# Subtest: F2(b) F2-3: uncertain → human review, no application decision
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+  ---
+  duration_ms: 0.124959
+  ...
+# Subtest: F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+  ---
+  duration_ms: 0.085458
+  ...
+# Subtest: F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+  ---
+  duration_ms: 0.053958
+  ...
+# Subtest: F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+  ---
+  duration_ms: 1.201333
+  ...
+# Subtest: F3: matching strips legal suffixes but never fuzzes
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+  ---
+  duration_ms: 0.04475
+  ...
+# Subtest: vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+  ---
+  duration_ms: 0.150208
+  ...
+# Subtest: T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+  ---
+  duration_ms: 160.141625
+  ...
+# Subtest: sample run: two outputs, every value labeled, scenario scores separate from decisions
+ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+  ---
+  duration_ms: 157.778542
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 513.805875
+[exit=0]
+
+### E. cleanup of the isolated copy (generated, rebuildable)
+$ git worktree remove --force <scratch>/mutant-refusal-gate && git worktree list
+/Users/adityaraj/Desktop/the-reallocation-engine  da180a2 [contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027]
+## finished: 2026-10-03 19:44:08 EDT

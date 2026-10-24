@@ -1,0 +1,33 @@
+## started: 2026-10-03 19:05:35 EDT
+## the sample run, using the README's one documented command
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/sample
+✓ 9 openings → seek-vacancy-sponsorship-evidence 6 · skip-application 2 · review-offer-excerpt 1
+  skip fraction 2/9 (sample of 9; not a general rate); timing verified for 0; scenario (hypothetical) scores: 2
+  course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.json  +  course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.md
+[exit=0]
+$ ls -la course/2026fa/submissions/aditya-raj-sde/runs/sample
+ 
+224 .
+160 ..
+26159 reality-check.json
+15107 reality-check.md
+2792 role-scores.json
+1143 role-scores.md
+917 roles.json
+$ git status --short
+ M course/2026fa/submissions/aditya-raj-sde/CHANGE-BRIEF.md
+ M course/2026fa/submissions/aditya-raj-sde/FRICTIONAL.md
+ M recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md
+?? course/2026fa/submissions/aditya-raj-sde/evidence/29-hypothesis-probe-f1a-f2a.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/30-tests-run1.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/31-sample-run.txt
+?? course/2026fa/submissions/aditya-raj-sde/runs/sample/
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/README.md
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/hypothesis-probe.mjs
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+?? scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+## finished: 2026-10-03 19:05:35 EDT
+
+## DEFECT found by Claude reading the first report (19:05:53 EDT): the executive summary repeats the sample qualifier. Exact line from runs/sample/reality-check.md (first run):
+7:Result for this sample of 9: 6 × seek-vacancy-sponsorship-evidence, 2 × skip-application, 1 × review-offer-excerpt. Skip fraction 2/9 (sample of 9; not a general rate) (sample of 9; not a general rate). Timing was **not verified** for any opening. 8 of 9 postings are SYNTHETIC test postings.
+## cause: renderReport() appends '(sample of N; not a general rate)' to summary.skip_fraction, which already contains it. Fix + test assertion, then re-run (31b).

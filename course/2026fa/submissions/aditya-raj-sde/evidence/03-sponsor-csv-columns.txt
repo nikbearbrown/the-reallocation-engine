@@ -1,0 +1,30 @@
+## started: 2026-10-03 17:04:17 EDT
+$ head -1 data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv | tr ',' '
+' | nl; echo 'data rows (wc -l minus header):'; echo $(($(wc -l < data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv) - 1)); echo 'columns matching soc|year|fiscal|fy (case-insensitive):'; head -1 data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv | tr ',' '
+' | grep -i -c -E 'soc|year|fiscal|^fy' 
+     1	company_name
+     2	industry
+     3	website
+     4	city
+     5	state
+     6	zip_code
+     7	phone
+     8	year_incorporated
+     9	company_age_years
+    10	executive_officers
+    11	board_directors
+    12	total_funding
+    13	latest_funding_amount
+    14	latest_funding_stage
+    15	latest_funding_date
+    16	Total Approvals
+    17	Total Denials
+    18	Approval_Rate
+    19	median_salary_offered
+    20	top_job_titles_sponsored
+data rows (wc -l minus header):
+30369
+columns matching soc|year|fiscal|fy (case-insensitive):
+2
+[exit=0]
+## finished: 2026-10-03 17:04:17 EDT

@@ -1,0 +1,318 @@
+{
+  "run_label": "Assignment 1 tool on the Assignment 2 real sample (comparison)",
+  "persona_ref": "search/examples/tariq-lindqvist/profile.yml",
+  "roles": [
+    {
+      "role_id": "databricks-8864368002",
+      "title": "Senior Software Engineer — Backend (Files Team)",
+      "company_query": "Databricks",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002",
+      "job_id": "8864368002",
+      "vacancy_text": "The filesystem has emerged as the preferred runtime interface for agentic AI. AI agents use the filesystem for context, memory management, artifact (dashboard, code etc) authoring, version control, sandboxing, and interacting between systems and agents. As a Senior Software Engineer on the Files team, you will innovate at the intersection of storage, performance, and distributed systems, directly shaping our filesystem strategy to power next-generation agentic workloads. Design, build, and operate the the filesystem platform powering tens of thousands of data, AI and agentic workloads daily Bachelor's degree (or higher) in Computer Science or a related field 5+ years of production-level experience in Java, Scala, C++, Go, Rust, or a similar language 3+ years of experience developing large-scale distributed systems Experience with Kubernetes, Docker, or MicroVM technologies (e.g., Firecracker) and a strong grasp of cloud provider internals (AWS/Azure/GCP). Experience building object/blob storage (S3, Azure Blob Storage, GCS etc) Systems performance engineering across microservices, down to the Linux level The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "databricks-8815669002",
+      "title": "Sr. Software Engineer - Ingestion Core team",
+      "company_query": "Databricks",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002",
+      "job_id": "8815669002",
+      "vacancy_text": "Deeply understanding what’s in the enterprise data has been a challenge that Databricks has been addressing by providing analytics and machine learning tools. From data warehousing with Databricks SQL to large-scale distributed processing with Spark and advanced ML tools for experimentation and model serving, we empower our customers to gain insights and drive innovation. This role requires building distributed platform systems to incrementally ingest high-volume, petabyte-scale data from diverse sources—including cloud storage (SQS, ADLS, GCS), databases (Oracle, SQL Server, MySQL, Postgres), and file sources (Google Drive, SharePoint)—at high throughput and low cost. Join us in making data ingestion effortless and be part of the team that powers the future of AI + data at Databricks! Reduce end-to-end latency, increase throughput, and reduce costs from the time data appears in source systems to when it is available in Delta Lake. Collaborate with partner teams to enable use cases like RAG and AI agents. Build Agentic SDKs with strong evaluations. 5+ years of experience writing production code in one of: Java, Scala, Go, C++, or Python. Experience with distributed systems, streaming, Spark, databases, data processing, or CDC. The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "databricks-8806934002",
+      "title": "Senior Software Engineer, Compute Infrastructure",
+      "company_query": "Databricks",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002",
+      "job_id": "8806934002",
+      "vacancy_text": "You will tackle the hard problems of distributed systems: sub-second container/MicroVM startup times, multi-tenant security isolation, and building a unified orchestration layer that scales across AWS, Azure, and GCP. Design and build the next generation of our Serverless platform, focusing on high availability, low latency, and scale-to-zero efficiency. Work alongside industry experts who have built world-class systems like Borg, Kubernetes, and Uber’s infrastructure. 5+ years of production-level experience in one of: Python, Java, Scala, C++, or a similar language 4+ years of experience developing large-scale distributed systems from scratch Experience with Kubernetes, Docker, or MicroVM technologies (e.g., Firecracker) and a strong grasp of cloud provider internals (AWS/Azure/GCP). The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "databricks-8798217002",
+      "title": "Staff Systems Development Engineer (GovOps)",
+      "company_query": "Databricks",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002",
+      "job_id": "8798217002",
+      "vacancy_text": "Databricks is seeking a Staff Systems Development Engineer (GovOps) to join our Cleared Engineering team in McLean, VA. Uphold & Evolve Compliance Guardrails: Navigate and refine operational frameworks inside secure facilities (SCIF), ensuring platform interactions and deployment pipelines strictly align with FedRAMP High, ITAR/IL5, and federal security benchmarks. Required: Candidates have active Top Secret / Sensitive Compartmented Information (TS/SCI) security clearance. Nice to have: Possession of a current polygraph (Counterintelligence or Full Scope) is highly desired and considered a significant plus. Bachelor’s degree in Computer Science, Systems Engineering, Mathematics, or equivalent practical experience. 7+ years of experience in Systems Engineering, Cloud Infrastructure, Senior Support Engineering, DevSecOps, or a related technical operations role. Deep expertise in Linux/Unix operating-system internals, networking, process/resource debugging, and distributed systems. Hands-on proficiency in Python, Bash, Go, or Java with the ability to read source code, debug software defects, and write custom diagnostic scripts. Proven experience managing, debugging, and operating cloud infrastructure across public or federal cloud boundaries (AWS GovCloud, Azure Government, or GCP). Solid working knowledge of Infrastructure-as-Code (IaC) tools such as Terraform or CloudFormation, along with container orchestration mechanics (Docker/Kubernetes). 3+ years of experience writing clear, succinct written and verbal technical communications, including technical status reports, incident summaries, or cross-team escalations. Preferred Qualifications Prior experience supporting AWS Worldwide Public Sector (WWPS), isolated defense integration networks, or FedRAMP High / ITAR environments. The total compensation package for this position may also include eligibility for annual performance bonus, equity, and the benefits listed above.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "pinterest-8046860",
+      "title": "Sr. Staff Software Engineer, Product ML Infrastructure",
+      "company_query": "Pinterest",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=8046860",
+      "job_id": "8046860",
+      "vacancy_text": "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product. At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product. Pinterest’s Product ML Infrastructure (PMLI) team enables fast, safe, and efficient delivery of AI/ML solutions across Ads and Core critical products. We build unified data, training, feature, and inference infrastructure; this role will set technical direction across model training and serving, with a focus on GPU efficiency and large-scale ranking systems. Lead architectures for distributed training, fine-tuning, distillation, evaluation, and high-scale CPU/GPU inference. Deep expertise in distributed ML systems, including production experience with both large-scale training and online inference. Strong systems programming and design skills in C++, Java, or Python. Bachelor’s degree in Computer Science, Engineering, a related field, or equivalent experience. Information regarding the culture at Pinterest and benefits available for this position can be found here .",
+      "recorded_liveness": {
+        "result": "expired",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": "insufficient content — likely nav/footer only"
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "pinterest-7683977",
+      "title": "Principal Engineer, AI Platform",
+      "company_query": "Pinterest",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683977",
+      "job_id": "7683977",
+      "vacancy_text": "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product. Our team builds the end-to-end engines for petabyte-scale data orchestration, model training and fine-tuning, and high-performance inference, ensuring our models scale seamlessly to hundreds of millions of inferences per second in service of over 600 million monthly active users. Generative AI: multimodal data management, post-training, evaluation, and batch/online inference. Recommender Systems: feature stores, training infra, and large-scale high performance inference. Deep expertise in AI/ML infrastructure and distributed systems: Hands-on experience designing, building, and operating highly available, production-grade systems at large scale; strong technical judgment; and proficiency in at least one of C++, Java, or Rust. Bachelor's degree in Computer Science or a related field. Information regarding the culture at Pinterest and benefits available for this position can be found here .",
+      "recorded_liveness": {
+        "result": "expired",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": "insufficient content — likely nav/footer only"
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "pinterest-8055266",
+      "title": "Staff Software Engineer, Ads & Core Serving Platform",
+      "company_query": "Pinterest",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=8055266",
+      "job_id": "8055266",
+      "vacancy_text": "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product. Build and operate scalable, highly available systems with clear performance, reliability, and efficiency goals. 8+ years of software engineering experience building and operating production backend or distributed systems. Strong expertise in distributed systems, online serving, low-latency services, or infrastructure platforms. Demonstrated ability to make sound tradeoffs across latency, reliability, scalability, cost, and developer experience. Proficiency in one or more programming languages such as Java, C++, Go, or Python. Bachelor’s degree in Computer Science, a related technical field, or equivalent experience. Preferred qualifications: Information regarding the culture at Pinterest and benefits available for this position can be found here .",
+      "recorded_liveness": {
+        "result": "expired",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": "insufficient content — likely nav/footer only"
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "pinterest-7683981",
+      "title": "Principal Engineer, Big Data Platform",
+      "company_query": "Pinterest",
+      "synthetic": false,
+      "posting_url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683981",
+      "job_id": "7683981",
+      "vacancy_text": "At Pinterest, we’re on a mission to bring everyone the inspiration to create a life they love, and that starts with the people behind the product. You’ll be working on some of the most exciting big data and AI open source technologies (Flink, Spark, Kubernetes, etc.), at the scale of exabytes of data to help Pinners discover and do what they love. 12+ years of industry experience with a proven track record of technical excellence 8+ years of experience of building and support large scalable Kubernetes or big data platform Flink, Spark, Presto, Kubernetes, Ray, PyTorch/TensorFlow) Proficiency in one or more programming languages (Java, Go, Scala, Python) Experiences in Kubernetes and AWS technologies Bachelor’s degree in Computer Science, a related technical field, or equivalent experience. Information regarding the culture at Pinterest and benefits available for this position can be found here .",
+      "recorded_liveness": {
+        "result": "expired",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": "insufficient content — likely nav/footer only"
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "stripe-8249901",
+      "title": "Software Engineer",
+      "company_query": "Stripe",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8249901",
+      "job_id": "8249901",
+      "vacancy_text": "Design, build, and operate critical tier-0 backend services that must achieve 99.99%+ availability and handle security-sensitive data. Design and implement robust, scalable infrastructure, participate in an on-call rotation, and collaborate with engineering teams across the company to plan and safely execute changes in production. Set up and operate infrastructure that participates in decentralized distributed systems, including creating deploy pipelines for artifacts. Must have a Bachelor's degree or foreign equivalent in Computer Science or a related field, plus three (3) years of software engineering or related experience. Must have three (3) years of experience in each of the following Cloud technologies, including AWS and Azure; Go, Python or Java; Developing, maintaining and debugging distributed systems; Multiple Positions Available. Additional benefits for this role may include: equity, company bonus or sales commissions/bonuses; 401(k) plan; medical, dental, and vision benefits; and wellness stipends.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "stripe-8142952",
+      "title": "Staff Software Engineer, Link - Consumer Identity ",
+      "company_query": "Stripe",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8142952",
+      "job_id": "8142952",
+      "vacancy_text": "You will take ambiguous product opportunities and turn them into reliable, scalable, and intuitive experiences for consumers and merchants. Build robust, scalable backend services and high-quality consumer-facing experiences across Java, Ruby, and TypeScript. The preferred qualifications are a bonus, not a requirement. 10+ years of backend and/or full-stack software development experience, with a track record of owning large, ambiguous systems end-to-end. Experience with Java, Ruby, and/or TypeScript. Experience building consumer products at scale, particularly products that require a high degree of user trust.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "stripe-8230952",
+      "title": "Senior Software Engineer, Backend",
+      "company_query": "Stripe",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8230952",
+      "job_id": "8230952",
+      "vacancy_text": "Navigate a complex fintech environment with numerous compliance regulations, translating internal and external business needs into robust software requirements and scalable distributed systems; Build large-scale (petabyte-size) financial data platforms, solutions, and pipelines using Big Data technologies and distributed systems; Must have a Bachelor's Degree or foreign equivalent degree in Computer Science, Information Systems Security, or a related field, plus five (5) years of related work experience in Software Engineering. 5 years of experience programming in Java, Scala, or Python; 5 years of experience designing, building, and maintaining scalable distributed systems; 5 years of experience debugging production issues across services and multiple levels of the stack; 5 years of experience with different testing tools and frameworks including JUnit, Mockito, and TestNG; 4 years of experience developing complex SQL queries, analyzing datasets and designing large-scale data pipelines; 4 years of experience working in fintech domain; 4 years of experience leading cross-team projects and building alignment on multi-team technical direction; and 1 year experience working with Apache Spark or similar modern Big Data technologies. Multiple Positions Available. Additional benefits for this role may include: equity, company bonus or sales commissions/bonuses; 401(k) plan; medical, dental, and vision benefits; and wellness stipends.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    },
+    {
+      "role_id": "stripe-8198280",
+      "title": "Software Engineer, Backend",
+      "company_query": "Stripe",
+      "synthetic": false,
+      "posting_url": "https://stripe.com/jobs/search?gh_jid=8198280",
+      "job_id": "8198280",
+      "vacancy_text": "Develop scalable computer systems that manage a large volume of information and use them to fulfill business goals for the company and its partners. Improve backend scalability and performance by integrating lightweight backend framework, overhauling APIs and optimizing database systems. Design and implement scalable and reliable automated testing suites to reduce manual Quality Assurance tasks. Must have a Master's degree or foreign equivalent in Computer Science, Software Engineering, or a related field, plus six (6) years of software development experience. Must also have four (4) years of experience in each of the following Building software solutions in Java, C++, Python, or Ruby; Designing, building and maintaining scalable systems; Distributed systems; and Design and implementation of scalable high-performance RESTful microservices. Multiple Positions Available. Additional benefits for this role may include: equity, company bonus or sales commissions/bonuses; 401(k) plan; medical, dental, and vision benefits; and wellness stipends.",
+      "recorded_liveness": {
+        "result": "active",
+        "source": "record",
+        "observed_at": "2026-10-21 00:02:07 EDT",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt",
+        "code_note": null
+      },
+      "fit": {
+        "p": 0.5,
+        "source": "your-input",
+        "note": "comparison placeholder: Assignment 1 does not use fit for its decision"
+      },
+      "timeline": {
+        "factor": 1,
+        "source": "your-input",
+        "assumption": "Assignment 1 cannot check start dates; 1.0 supplied only so its gates run (comparison only)"
+      }
+    }
+  ]
+}

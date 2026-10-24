@@ -1,0 +1,7 @@
+{
+  "_comment": "Deliberate break (mutant, v0.4). Treats any 'expired' page verdict — including a thin/blocked page such as an HTTP 403 challenge — as closure evidence. Applied only inside a temporary worktree by break-test.mjs.",
+  "file": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs",
+  "find": "  const closureEvidence = page.state === 'expired' && (CLOSURE_CODES.has(code) || CLOSURE_REASON.test(reason));",
+  "replace": "  const closureEvidence = page.state === 'expired';",
+  "protects": "G2: a challenge or thin page alone never establishes closure (with or without a feed observation)"
+}

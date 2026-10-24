@@ -1,0 +1,46 @@
+## started: 2026-10-03 18:52:42 EDT
+## stage: evidence contract (recipe + card + fixtures), before any prototype code
+
+$ node scripts/conformance.mjs recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.card.md scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures
+conformance: 8 files (2 md · 6 json)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+
+$ node -e <path check: every backticked repo-path token in recipe+card exists, or its line carries a typed TODO (DEV / DATA SOURCE)>
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:130  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:131  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/hypothesis-probe.mjs
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:132  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:133  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/README.md
+  MISSING, untagged: recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:149  search/resume.json
+  MISSING, untagged: recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:151  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+paths existing=23 todo-tagged=4 missing-untagged=2
+[exit=1]
+
+$ todos_open (frontmatter) vs [TODO markers (body) in the recipe
+frontmatter: todos_open: 6
+body markers: 6
+   1 [TODO: APPROVE]
+   1 [TODO: DEFINE]
+   4 [TODO: DEV]
+[exit=0]
+## finished: 2026-10-03 18:52:42 EDT
+
+## RE-RUN (Claude, 18:53:17 EDT) after fixing the 2 findings above:
+##  - recipe workflow step 2 named the unbuilt script path without a typed TODO -> reworded to point at the Proposed-additions DEV items (no path asserted)
+##  - search/resume.json appears in a prohibition list; checker change: a line containing 'Prohibited, never read' is reported as PROHIBITED-REFERENCE (existence not claimed), not counted as existing
+
+$ node scripts/conformance.mjs recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.card.md scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures
+conformance: 8 files (2 md · 6 json)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+$ node -e <same path check + prohibited-reference category>
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:130  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:131  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/hypothesis-probe.mjs
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:132  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+  TODO-tagged (not yet built): recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:133  scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/README.md
+  PROHIBITED-REFERENCE: recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:150  search/resume.json  exists=false
+  PROHIBITED-REFERENCE: recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md:150  data/ats/  exists=true
+paths existing=22 todo-tagged=4 prohibited-references=2 missing-untagged=0
+[exit=0]
+frontmatter: todos_open: 6; body markers: 6
+## finished: 2026-10-03 18:53:17 EDT

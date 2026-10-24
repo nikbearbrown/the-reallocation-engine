@@ -1,0 +1,66 @@
+{
+  "fixture_version": "0.1.0",
+  "purpose": "F1 (CHANGE-BRIEF section 9 and U1.2). F1a: the maintained scorer, run directly on scorer_roles, characterizes how a refusal entered as sponsorship p=0 is labeled. F1b: the prototype on prototype_roles (same values plus a refusal excerpt) must stop every role at G3 'skip-application' whatever the scorer would say.",
+  "assumptions": {
+    "scorer_config": "unchanged scripts/score/role-scorer.mjs CONFIG",
+    "profile": "none passed (needsSponsor = true)",
+    "sponsorship": "p 0, tier None",
+    "liveness_factor": 1.0,
+    "timeline_factor": 1.0,
+    "override": "absent",
+    "label_note": "Controlled p values are labeled your-input (fixture controls). CHANGE-BRIEF U1.2 listed source 'record'; the label does not enter the scorer's arithmetic, so the prediction is unaffected. See the CHANGE-BRIEF revision dated 2026-10-03."
+  },
+  "predicted_scorer_labels": {
+    "f1-fit-0.7": { "composite": 0.21, "label": "Consider" },
+    "f1-fit-0.9": { "composite": 0.27, "label": "Consider" },
+    "f1-fit-1.0": { "composite": 0.30, "label": "Apply" }
+  },
+  "scorer_roles": [
+    { "role_id": "f1-fit-0.7", "company": "Example Refusal Co (fictional)", "title": "F1 characterization, fit 0.7",
+      "sponsorship": { "p": 0, "tier": "None", "source": "your-input" },
+      "fit": { "p": 0.7, "source": "your-input" },
+      "liveness": { "factor": 1.0, "source": "your-input" },
+      "timeline": { "factor": 1.0, "source": "your-input" } },
+    { "role_id": "f1-fit-0.9", "company": "Example Refusal Co (fictional)", "title": "F1 characterization, fit 0.9",
+      "sponsorship": { "p": 0, "tier": "None", "source": "your-input" },
+      "fit": { "p": 0.9, "source": "your-input" },
+      "liveness": { "factor": 1.0, "source": "your-input" },
+      "timeline": { "factor": 1.0, "source": "your-input" } },
+    { "role_id": "f1-fit-1.0", "company": "Example Refusal Co (fictional)", "title": "F1 characterization, fit 1.0",
+      "sponsorship": { "p": 0, "tier": "None", "source": "your-input" },
+      "fit": { "p": 1.0, "source": "your-input" },
+      "liveness": { "factor": 1.0, "source": "your-input" },
+      "timeline": { "factor": 1.0, "source": "your-input" } }
+  ],
+  "prototype_input": {
+    "persona_ref": "search/examples/aarav-patel/profile.yml",
+    "run_label": "F1b: refusal gate must hold against high fit",
+    "roles": [
+      { "role_id": "f1b-fit-0.7", "title": "F1b refusal, fit 0.7", "company_query": "Example Refusal Co",
+        "posting_url": "https://jobs.example.com/example-refusal/f1b-07", "job_id": "f1b-07", "synthetic": true,
+        "snapshot": { "status": 200, "finalUrl": "https://jobs.example.com/example-refusal/f1b-07",
+          "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+          "applyControls": ["Apply for this job"] },
+        "vacancy_text": "We are unable to sponsor visas for this position.",
+        "fit": { "p": 0.7, "source": "your-input", "note": "F1 control value" },
+        "timeline": { "factor": 1.0, "source": "your-input", "assumption": "F1 control value; not a timing claim" } },
+      { "role_id": "f1b-fit-0.9", "title": "F1b refusal, fit 0.9", "company_query": "Example Refusal Co",
+        "posting_url": "https://jobs.example.com/example-refusal/f1b-09", "job_id": "f1b-09", "synthetic": true,
+        "snapshot": { "status": 200, "finalUrl": "https://jobs.example.com/example-refusal/f1b-09",
+          "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+          "applyControls": ["Apply for this job"] },
+        "vacancy_text": "Candidates must be able to work in the U.S. without sponsorship.",
+        "fit": { "p": 0.9, "source": "your-input", "note": "F1 control value" },
+        "timeline": { "factor": 1.0, "source": "your-input", "assumption": "F1 control value; not a timing claim" } },
+      { "role_id": "f1b-fit-1.0", "title": "F1b refusal, fit 1.0, with a scenario vote", "company_query": "Example Refusal Co",
+        "posting_url": "https://jobs.example.com/example-refusal/f1b-10", "job_id": "f1b-10", "synthetic": true,
+        "snapshot": { "status": 200, "finalUrl": "https://jobs.example.com/example-refusal/f1b-10",
+          "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+          "applyControls": ["Apply for this job"] },
+        "vacancy_text": "This role does not offer visa sponsorship. We will not sponsor employment visas.",
+        "fit": { "p": 1.0, "source": "your-input", "note": "F1 control value" },
+        "timeline": { "factor": 1.0, "source": "your-input", "assumption": "F1 control value; not a timing claim" },
+        "demo_sponsorship_vote": { "p": 0.9, "tier": "Proven", "source": "your-input", "rationale": "Stress control: even a high scenario vote must not override an explicit refusal." } }
+    ]
+  }
+}

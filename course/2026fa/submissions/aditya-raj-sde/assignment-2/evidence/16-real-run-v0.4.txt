@@ -1,0 +1,36 @@
+## started: 2026-10-21 11:22:21 EDT — rules v0.4 on the real sample (development evidence: same 12 postings); v0.3 outputs kept
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs extract --collection private/a2/collection.json --page-liveness course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/03-live-page-liveness.txt --page-probe course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/04-page-probe.txt --out course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/observations.json --full-out private/a2/observations-full.json
+✓ extracted 12 observations · committed excerpt chars 15938 of 60498 full-text chars
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input private/a2/observations-full.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir private/a2/runs/live-full-v0.4
+✓ 12 openings (live-full-text (private)) → human-requirement-review 5 · human-eligibility-review 1 · human-liveness-review 4 · skip-application 2
+  experience groups: satisfied+core 0 · unknown+core 2 · awaiting review 5 · documented mismatch 5 · passed/unknown, stack not core 0
+  private/a2/runs/live-full-v0.4/triage.json  +  private/a2/runs/live-full-v0.4/triage.md
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/observations.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4
+✓ 12 openings (replay-of-captured-excerpts) → human-requirement-review 5 · human-eligibility-review 1 · human-liveness-review 4 · skip-application 2
+  experience groups: satisfied+core 0 · unknown+core 2 · awaiting review 5 · documented mismatch 5 · passed/unknown, stack not core 0
+  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4/triage.json  +  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4/triage.md
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare private/a2/runs/live-full-v0.4/triage.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4/triage.json
+compared 12 openings · differences 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3/triage.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.4/triage.json
+compared 12 openings · differences 13
+  {"obs_id":"databricks-8864368002","field":"decision","a":"skip-application","b":"human-requirement-review"}
+  {"obs_id":"databricks-8864368002","field":"experience","a":"documented-mismatch","b":"scoped-duration-unknown"}
+  {"obs_id":"databricks-8864368002","field":"gates","a":"pass,pass,pass,stop,pass-unknown,pass,stop,review","b":"pass,pass,pass,review,pass-unknown,pass,stop,review"}
+  {"obs_id":"databricks-8806934002","field":"decision","a":"skip-application","b":"human-requirement-review"}
+  {"obs_id":"databricks-8806934002","field":"experience","a":"documented-mismatch","b":"scoped-duration-unknown"}
+  {"obs_id":"databricks-8806934002","field":"gates","a":"pass,pass,pass,stop,pass-unknown,pass,stop,review","b":"pass,pass,pass,review,pass-unknown,pass,stop,review"}
+  {"obs_id":"stripe-8249901","field":"decision","a":"seek-vacancy-sponsorship-evidence","b":"human-requirement-review"}
+  {"obs_id":"stripe-8249901","field":"decided_by","a":"G7","b":"G4"}
+  {"obs_id":"stripe-8249901","field":"experience","a":"meets-stated-required-minimums","b":"scoped-duration-unknown"}
+  {"obs_id":"stripe-8249901","field":"gates","a":"pass,pass,pass,pass,pass-unknown,pass,stop,review","b":"pass,pass,pass,review,pass-unknown,pass,stop,review"}
+  {"obs_id":"stripe-8230952","field":"decision","a":"skip-application","b":"human-requirement-review"}
+  {"obs_id":"stripe-8230952","field":"experience","a":"documented-mismatch","b":"coop-would-change-result"}
+  {"obs_id":"stripe-8230952","field":"gates","a":"pass,pass,pass,stop,pass-unknown,pass,stop,review","b":"pass,pass,pass,review,pass-unknown,pass,stop,review"}
+[exit=1]
+$ cmp <v0.3 observations.json> <v0.4 observations.json>   (did the excerpt extraction change?)
+identical
+[exit=0]

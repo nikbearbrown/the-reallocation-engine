@@ -1,0 +1,22 @@
+## started: 2026-10-03 17:46:19 EDT
+## source: address supplied by Aditya (screenshot of github.com/settings/emails, 'Keep my email addresses private' panel); its numeric prefix matches the id from authenticated GET /user in evidence 01 (181499137)
+
+$ git config --global --get user.email >/dev/null && echo 'global user.email: set (value not recorded; unchanged by this step)' || echo 'global user.email: not set'
+global user.email: set (value not recorded; unchanged by this step)
+[exit=0]
+
+$ git config --local user.email 181499137+aditya-raj-sde@users.noreply.github.com
+[exit=0]
+
+$ git config --local --get user.email
+181499137+aditya-raj-sde@users.noreply.github.com
+[exit=0]
+
+$ git config --show-origin --get user.email
+file:.git/config	181499137+aditya-raj-sde@users.noreply.github.com
+[exit=0]
+
+$ git config --global --get user.email | grep -c noreply
+0
+[exit=1]
+## finished: 2026-10-03 17:46:19 EDT

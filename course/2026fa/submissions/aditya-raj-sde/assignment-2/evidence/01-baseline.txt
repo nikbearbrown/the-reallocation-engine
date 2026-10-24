@@ -1,0 +1,33 @@
+## started: 2026-10-20 23:55:36 EDT — baseline on the new branch at 1a618e7, before any A2 code
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 502.194084
+[exit=0]
+$ PATH=<main-checkout>/.venv/bin:$PATH npm run verify
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+[exit=0]
+$ npm run doctor
+SUMMARY
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+[exit=0]
+$ node scripts/pii-scan.mjs
+
+  [email] package-lock.json — [EMAIL REDACTED by Claude 2026-10-21: the pre-existing package-lock.json address the scanner printed]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=1]

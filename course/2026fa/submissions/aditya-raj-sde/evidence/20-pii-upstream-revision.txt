@@ -1,0 +1,33 @@
+## started: 2026-10-03 17:48:46 EDT
+## question: does the working-tree PII step that CI runs (.github/workflows/contrib-gate.yml, job doctor-and-pii, step 'PII scan (working tree)': node scripts/pii-scan.mjs) fail on the UNCHANGED upstream revision, using that revision's own scanner?
+## method: detached worktree of upstream/main in the session scratch dir (outside the repo tree); no npm install there (the scanner skips node_modules; evidence 15 showed npm install only drops libc fields, not the flagged line).
+
+$ git rev-parse upstream/main
+015843d5047dbadff05068495e4c5db5cd9945f4
+[exit=0]
+
+$ git worktree add --detach <scratch>/upstream-main upstream/main
+Preparing worktree (detached HEAD 015843d)
+HEAD is now at 015843d fix(greenhouse-watch): justification lines now sum to the score
+[exit=0]
+
+$ cd <scratch>/upstream-main && git rev-parse HEAD && git status --short | wc -l && node scripts/pii-scan.mjs 2>&1 | sed 's/i@izs\.me/[EMAIL REDACTED: package-lock glob deprecation address]/g'; echo "scanner exit (pipestatus[1]) = ${pipestatus[1]}"
+015843d5047dbadff05068495e4c5db5cd9945f4
+       0
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [EMAIL REDACTED: package-lock glob deprecation address]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+scanner exit (pipestatus[1]) = 1
+[exit=0]
+
+$ cd <scratch>/upstream-main && grep -n 'deprecated' package-lock.json | sed 's/i@izs\.me/[EMAIL REDACTED]/g'
+606:      "deprecated": "Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting [EMAIL REDACTED]",
+[exit=0]
+
+$ git worktree remove <scratch>/upstream-main && git worktree list
+/Users/adityaraj/Desktop/the-reallocation-engine  015843d [contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027]
+[exit=0]
+## finished: 2026-10-03 17:48:47 EDT

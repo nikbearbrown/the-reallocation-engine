@@ -1,0 +1,14 @@
+{
+  "fixture_version": "0.1.0",
+  "purpose": "G1 validation: a timeline labeled 'record' (a sample assumption presented as a record) must fail the whole run with exit 2, a named error, and no outputs.",
+  "persona_ref": "search/examples/aarav-patel/profile.yml",
+  "run_label": "G1 invalid label",
+  "roles": [
+    { "role_id": "invalid-timeline-label", "title": "Mislabeled timeline (fictional employer)", "company_query": "Example Timing Co",
+      "posting_url": "https://jobs.example.com/invalid/label", "job_id": "i-1", "synthetic": true,
+      "recorded_liveness": { "result": "active", "code": "fixture", "observed_at": "fixture", "evidence": "fixture value: not an observation", "source": "your-input" },
+      "vacancy_text": null,
+      "fit": { "p": 0.7, "source": "your-input", "note": "control value" },
+      "timeline": { "factor": 1.0, "source": "record", "assumption": "Deliberately mislabeled as a record." } }
+  ]
+}

@@ -1,0 +1,241 @@
+{
+  "run": {
+    "protocol": "course/2026fa/submissions/aditya-raj-sde/assignment-2/HOLDOUT-PROTOCOL.md",
+    "rules_frozen_at": "49100364213f4f07ab2a602906fdd3e01dad12bf",
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/holdout.mjs select --private-dir private/a2/holdout --public-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout",
+    "started_at": "2026-10-21T15:25:20.194Z",
+    "postings_selected": 6
+  },
+  "boards": [
+    {
+      "slug": "databricks",
+      "employer": "DATABRICKS INC",
+      "unique_cohort": 29,
+      "walked": [
+        {
+          "position": 1,
+          "id": "8864368002",
+          "outcome": "original-12"
+        },
+        {
+          "position": 2,
+          "id": "8815669002",
+          "outcome": "original-12"
+        },
+        {
+          "position": 3,
+          "id": "8806934002",
+          "outcome": "original-12"
+        },
+        {
+          "position": 4,
+          "id": "8798217002",
+          "outcome": "original-12"
+        },
+        {
+          "position": 5,
+          "id": "8798198002",
+          "title": "Staff Software Engineer, Lakeflow Pipelines DR",
+          "outcome": "selected"
+        },
+        {
+          "position": 6,
+          "id": "8552484002",
+          "title": "Staff Software Engineer - AI Research Infrastructure",
+          "outcome": "selected"
+        }
+      ],
+      "fresh_feed_observed_at": "2026-10-21T15:25:18.087Z",
+      "fresh_feed_error": null,
+      "selected": 2
+    },
+    {
+      "slug": "pinterest",
+      "employer": "PINTEREST INC",
+      "unique_cohort": 7,
+      "walked": [
+        {
+          "position": 1,
+          "id": "8046860",
+          "outcome": "original-12"
+        },
+        {
+          "position": 2,
+          "id": "7683977",
+          "outcome": "original-12"
+        },
+        {
+          "position": 3,
+          "id": "8055266",
+          "outcome": "original-12"
+        },
+        {
+          "position": 4,
+          "id": "7683981",
+          "outcome": "original-12"
+        },
+        {
+          "position": 5,
+          "id": "7494668",
+          "title": "Staff Software Engineer, Capacity Engineering",
+          "outcome": "selected"
+        },
+        {
+          "position": 6,
+          "id": "8011573",
+          "title": "Sr. Systems Engineer, Sales & Marketing",
+          "outcome": "selected"
+        }
+      ],
+      "fresh_feed_observed_at": "2026-10-21T15:25:19.157Z",
+      "fresh_feed_error": null,
+      "selected": 2
+    },
+    {
+      "slug": "stripe",
+      "employer": "STRIPE INC",
+      "unique_cohort": 13,
+      "walked": [
+        {
+          "position": 1,
+          "id": "8249901",
+          "outcome": "original-12"
+        },
+        {
+          "position": 2,
+          "id": "8142952",
+          "outcome": "original-12"
+        },
+        {
+          "position": 3,
+          "id": "8230952",
+          "outcome": "original-12"
+        },
+        {
+          "position": 4,
+          "id": "8198280",
+          "outcome": "original-12"
+        },
+        {
+          "position": 5,
+          "id": "8198207",
+          "title": "Software Engineer, Payins Card Networks",
+          "outcome": "selected"
+        },
+        {
+          "position": 6,
+          "id": "8197135",
+          "title": "Software Engineer, High Availability and Disaster Recovery",
+          "outcome": "selected"
+        }
+      ],
+      "fresh_feed_observed_at": "2026-10-21T15:25:19.590Z",
+      "fresh_feed_error": null,
+      "selected": 2
+    }
+  ],
+  "selected": [
+    {
+      "employer": "DATABRICKS INC",
+      "board_name": "Databricks",
+      "board_slug": "databricks",
+      "job_id": "8798198002",
+      "title": "Staff Software Engineer, Lakeflow Pipelines DR",
+      "location": "Mountain View, California; San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8798198002",
+      "first_published": "2026-09-10T21:14:53-04:00",
+      "updated_at": "2026-09-21T13:22:12-04:00",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "protocol_position": 5,
+      "present_in_board_api": true,
+      "feed_observed_at": "2026-10-21T15:25:18.087Z",
+      "fresh_content_changed": false,
+      "text_sha256": "beadce977d99901b3773e20699c10ad2ddbf85522ae3f541a22f8deae93598f3"
+    },
+    {
+      "employer": "DATABRICKS INC",
+      "board_name": "Databricks",
+      "board_slug": "databricks",
+      "job_id": "8552484002",
+      "title": "Staff Software Engineer - AI Research Infrastructure",
+      "location": "New York City, New York; San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8552484002",
+      "first_published": "2026-05-15T14:58:23-04:00",
+      "updated_at": "2026-09-21T13:22:12-04:00",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "protocol_position": 6,
+      "present_in_board_api": true,
+      "feed_observed_at": "2026-10-21T15:25:18.087Z",
+      "fresh_content_changed": false,
+      "text_sha256": "65785b49276197da1fa2aaefdbc1f7d27adc1685537cff2f18b69678df6aac02"
+    },
+    {
+      "employer": "PINTEREST INC",
+      "board_name": "Pinterest",
+      "board_slug": "pinterest",
+      "job_id": "7494668",
+      "title": "Staff Software Engineer, Capacity Engineering",
+      "location": "San Francisco, CA, US; Remote, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=7494668",
+      "first_published": "2026-07-16T12:47:45-04:00",
+      "updated_at": "2026-10-07T18:47:05-04:00",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "protocol_position": 5,
+      "present_in_board_api": true,
+      "feed_observed_at": "2026-10-21T15:25:19.157Z",
+      "fresh_content_changed": false,
+      "text_sha256": "b1881597089847f1382b8a4f21b0dc0dfa0b6577a760660a1945a1f1faba17f4"
+    },
+    {
+      "employer": "PINTEREST INC",
+      "board_name": "Pinterest",
+      "board_slug": "pinterest",
+      "job_id": "8011573",
+      "title": "Sr. Systems Engineer, Sales & Marketing",
+      "location": "San Francisco, CA, US; Remote, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8011573",
+      "first_published": "2026-07-02T16:27:35-04:00",
+      "updated_at": "2026-10-05T20:21:40-04:00",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "protocol_position": 6,
+      "present_in_board_api": true,
+      "feed_observed_at": "2026-10-21T15:25:19.157Z",
+      "fresh_content_changed": false,
+      "text_sha256": "3d7e41c0f7bb204f068369697bc506a4a3648fd597a9f62c4937666145817ca2"
+    },
+    {
+      "employer": "STRIPE INC",
+      "board_name": "Stripe",
+      "board_slug": "stripe",
+      "job_id": "8198207",
+      "title": "Software Engineer, Payins Card Networks",
+      "location": "Seattle, WA",
+      "url": "https://stripe.com/jobs/search?gh_jid=8198207",
+      "first_published": "2026-09-14T17:46:08-04:00",
+      "updated_at": "2026-10-20T17:27:21-04:00",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "protocol_position": 5,
+      "present_in_board_api": true,
+      "feed_observed_at": "2026-10-21T15:25:19.590Z",
+      "fresh_content_changed": false,
+      "text_sha256": "191f67f1d2168ae007d09daf32f775e0a4c2ed6e23bed44d65cebf72491bd01f"
+    },
+    {
+      "employer": "STRIPE INC",
+      "board_name": "Stripe",
+      "board_slug": "stripe",
+      "job_id": "8197135",
+      "title": "Software Engineer, High Availability and Disaster Recovery",
+      "location": "Seattle, WA",
+      "url": "https://stripe.com/jobs/search?gh_jid=8197135",
+      "first_published": "2026-09-14T17:21:04-04:00",
+      "updated_at": "2026-10-20T17:27:21-04:00",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "protocol_position": 6,
+      "present_in_board_api": true,
+      "feed_observed_at": "2026-10-21T15:25:19.590Z",
+      "fresh_content_changed": false,
+      "text_sha256": "72c0894b4e5e4439d486e3c68e37541d1d36b60659e94a69c2f89ac9afd3d80c"
+    }
+  ]
+}

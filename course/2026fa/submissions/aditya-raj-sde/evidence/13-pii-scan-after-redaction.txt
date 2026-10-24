@@ -1,0 +1,23 @@
+## started: 2026-10-03 17:08:47 EDT
+$ node scripts/pii-scan.mjs
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [EMAIL REDACTED by Claude 2026-10-03: pre-existing package-lock.json address]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=]
+## note: the address in this output is redacted in-stream (sed) before saving; exit code is the scanner's own (PIPESTATUS[0])
+## finished: 2026-10-03 17:08:47 EDT
+
+## CORRECTION (Claude): '[exit=]' above is blank because PIPESTATUS is bash syntax and this shell is zsh. Re-run below captures the exit code directly.
+## re-run started: 2026-10-03 17:08:58 EDT
+$ node scripts/pii-scan.mjs
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [EMAIL REDACTED by Claude 2026-10-03: pre-existing package-lock.json address]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=1]
+## re-run finished: 2026-10-03 17:08:59 EDT

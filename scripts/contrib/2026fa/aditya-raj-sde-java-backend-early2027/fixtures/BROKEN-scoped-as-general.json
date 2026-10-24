@@ -1,0 +1,7 @@
+{
+  "_comment": "Deliberate break (mutant, v0.4). Treats every years requirement as total-career experience, so 'N years of Java' is 'met' by career length. Applied only inside a temporary worktree by break-test.mjs.",
+  "file": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs",
+  "find": "  if (m && GENERAL_TAIL.test(m[1])) return { scope: 'general', scope_text: after };",
+  "replace": "  return { scope: 'general', scope_text: after };",
+  "protects": "G4 general-vs-scoped distinction: total career years never establish a skill-specific duration"
+}

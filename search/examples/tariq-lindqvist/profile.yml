@@ -1,0 +1,30 @@
+# FICTIONAL EXAMPLE PERSONA — safe to commit. Invented for the 2026fa mode
+# "Experienced Java Backend Opening Triage for an Early-2027 Start"
+# (recipes/cases/2026fa/aditya-raj-sde-java-backend-early2027.md).
+# Every employer, date, and detail below is invented test data chosen to exercise
+# the mode's rules (4.5 years full-time + a separately recorded 6-month co-op;
+# availability 2027-02-01). It is not anyone's biography or résumé.
+candidate:
+  name: Tariq Lindqvist
+  email: tariq.lindqvist@example.com
+  phone: "(401) 555-0193"
+  linkedin: linkedin.com/in/tariqlindqvist-example
+  github: github.com/tariqlindqvist-example
+  location: Providence, RI
+target_role:
+  primary: Software Engineer (Backend, Java/Spring)
+  secondary: Platform Engineer; applied-AI backend / infrastructure engineer
+  description: Experienced-hire Java/Spring backend roles (distributed systems, messaging, cloud infrastructure); not new-grad programs.
+  excluded: internship-only roles, pure-frontend roles, people-management roles
+visa:
+  type: F-1
+  current_status: "F-1; post-completion OPT application pending (fictional)"
+  needs_sponsorship: true
+  requested_opt_start_date: 2027-02-01
+  notes: >
+    The requested start date is a candidate-supplied availability date, not an approval.
+    Nothing in this persona establishes work authorization. Future H-1B sponsorship is needed.
+geography:
+  current_location: Providence, RI
+  open_to_relocation: true
+  scope_assumption: US roles nationwide (a stated assumption, not a constraint check)

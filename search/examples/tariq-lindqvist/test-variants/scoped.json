@@ -1,0 +1,119 @@
+{
+  "_comment": "FICTIONAL TEST VARIANT of the Tariq Lindqvist persona \u2014 an explicitly supplied scoped-experience input (TEST-ONLY invented value) to exercise the scoped-input path. Used only by offline tests; never by public runs.",
+  "attested": true,
+  "attested_date": "2026-10-21",
+  "attestation_note": "Example data: every entry is fictional and internally consistent with profile.yml in this folder.",
+  "personal": {
+    "name": "Tariq Lindqvist",
+    "location": "Providence, RI",
+    "phone": "(401) 555-0193",
+    "email": "tariq.lindqvist@example.com",
+    "linkedin": "linkedin.com/in/tariqlindqvist-example",
+    "github": "github.com/tariqlindqvist-example"
+  },
+  "education": [
+    {
+      "institution": "Northeastern University",
+      "location": "Boston, MA",
+      "degree": "MS, Computer Science",
+      "start_date": "2024-09",
+      "end_date": "2027-01",
+      "status": "expected",
+      "coursework": [
+        "Distributed Systems",
+        "Cloud Computing",
+        "Machine Learning Systems"
+      ]
+    },
+    {
+      "institution": "Coastal Institute of Technology (fictional)",
+      "location": "Chennai, India",
+      "degree": "B.Tech, Electronics and Communication Engineering",
+      "start_date": "2015-07",
+      "end_date": "2019-06",
+      "status": "completed"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Meridian Vale Labs (fictional)",
+      "location": "Austin, TX",
+      "title": "Applied AI Platform Engineer (Co-op)",
+      "employment_type": "co-op",
+      "start_date": "2025-06",
+      "end_date": "2025-11",
+      "bullets": [
+        "Built a Java 21/Spring Boot retrieval service with a Python embedding worker over RabbitMQ.",
+        "Added tracing and replay tests for an LLM tool-calling workflow."
+      ],
+      "attestation_correction": ""
+    },
+    {
+      "company": "Quillfield Logistics (fictional)",
+      "location": "Pune, India",
+      "title": "Software Engineer II",
+      "employment_type": "full-time",
+      "start_date": "2021-08",
+      "end_date": "2024-01",
+      "bullets": [
+        "Built Kafka event-driven shipment-tracking microservices in Java 17/Spring Boot on Kubernetes (AWS EKS).",
+        "Owned a REST API for carrier integrations; reduced p99 latency through query and connection-pool tuning."
+      ],
+      "attestation_correction": ""
+    },
+    {
+      "company": "Harborline Payments (fictional)",
+      "location": "Pune, India",
+      "title": "Software Engineer",
+      "employment_type": "full-time",
+      "start_date": "2019-08",
+      "end_date": "2021-07",
+      "bullets": [
+        "Maintained Java 11/Spring Boot settlement services on PostgreSQL with idempotent batch reconciliation."
+      ],
+      "attestation_correction": ""
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "languages": [
+      "Java",
+      "Python",
+      "SQL"
+    ],
+    "backend_automation": [
+      "Spring Boot",
+      "Kafka",
+      "RabbitMQ",
+      "REST APIs",
+      "Microservices"
+    ],
+    "database_cloud": [
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "Terraform"
+    ],
+    "devops_cicd": [
+      "GitHub Actions",
+      "Jenkins"
+    ],
+    "familiar_with_not_shipped": [
+      "Go",
+      "Scala"
+    ],
+    "agent_note": "familiar_with_not_shipped is honest: listed nowhere as production experience."
+  },
+  "scoped_experience": [
+    {
+      "terms": [
+        "java"
+      ],
+      "months": 60,
+      "source": "your-input",
+      "basis": "TEST-ONLY invented value to exercise the input path; NOT part of the public persona"
+    }
+  ]
+}

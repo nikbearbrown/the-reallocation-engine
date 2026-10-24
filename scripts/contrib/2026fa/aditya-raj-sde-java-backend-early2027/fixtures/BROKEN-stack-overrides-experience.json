@@ -1,0 +1,7 @@
+{
+  "_comment": "Deliberate break (mutant). Lets strong stack evidence wave through an experience stop — the 'a good keyword match should count for something' temptation. Applied only inside a temporary worktree by break-test.mjs; never to production code.",
+  "file": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs",
+  "find": "    const a = ACTION[g.id]?.[g.status];",
+  "replace": "    const a = (g.id === 'G4' && stack.state === 'core-stack-evidenced') ? null : ACTION[g.id]?.[g.status];",
+  "protects": "G4 documented-mismatch and eligibility stops (no score or strong match may override a hard stop)"
+}

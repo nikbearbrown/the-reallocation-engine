@@ -1,0 +1,26 @@
+## started: 2026-10-21 11:44:01 EDT — conformance + doctor + privacy/history (rules v0.4.1; all files staged)
+$ PATH=<main-checkout>/.venv/bin:$PATH npm run verify
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+[exit=0]
+$ PATH=<venv>:$PATH node scripts/conformance.mjs <all Assignment 2 paths>
+conformance: 78 files (26 md · 11 js · 40 json · 1 yaml)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+$ npm run doctor
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+[exit=0]
+$ grep -c "[TODO" <recipe>  (frontmatter todos_open: 4; doctor does not scan recipes/cases/)
+4
+$ node scripts/pii-scan.mjs   (working tree)
+  [email] package-lock.json — [EMAIL REDACTED: pre-existing package-lock.json address]
+[exit=1]  (inherited: same finding on unchanged upstream 015843d, A1 Confirmed blocker 1)
+$ node scripts/pii-scan.mjs --diff upstream/main   (CI history scan)
+pii-scan: clean ✓
+[exit=0]
+$ git diff --cached --name-only upstream/main | outside-allowlist / protected grep
+protected: none
+outside allowlist: none

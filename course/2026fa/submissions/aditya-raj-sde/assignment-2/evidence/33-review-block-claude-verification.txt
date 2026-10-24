@@ -1,0 +1,44 @@
+## Claude's verification run of the review block prepared for Aditya — EXECUTED BY CLAUDE, NOT BY ADITYA. Block text = REVIEW-PACKET.md §B (identical file /private/tmp/claude-501/-Users-adityaraj-Desktop-the-reallocation-engine/37617931-1260-417d-88eb-610068759e4c/scratchpad/review-block.zsh). tracked_changes=6 were Claude's uncommitted documentation edits at that moment (no code change).
+OUT=/var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T//a2-review.CCCFKr
+==== SUMMARY (/var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T//a2-review.CCCFKr)
+started=2026-10-21 12:46:22 EDT
+commit=6488aab81c2b1368c88ed41aa1ff505b009c00a7
+branch=contrib/2026fa-aditya-raj-sde-java-backend-early2027
+tracked_changes_before=6
+node=v22.14.0 npm=10.9.2 git version 2.39.3 (Apple Git-146)
+tests_exit=0
+replay_exit=0
+compare_exit=0
+break_exit=0
+control_exit=0
+# tests 77
+# pass 77
+# fail 0
+✓ 12 openings (replay-of-captured-excerpts) → human-eligibility-review 4 · human-liveness-review 4 · human-requirement-review 2 · skip-application 2
+compared 12 openings · differences 0
+=== BROKEN-coop-silence-counts.json (HEAD 6488aab) — protects: G4 co-op rule (Aditya, E14): silence 
+suite on mutant: exit 1 · 74/77 pass · 3 failing → CAUGHT
+real-sample decisions changed by the mutant: 0/12
+=== BROKEN-feed-ignored.json (HEAD 6488aab) — protects: the G2 feed-vs-page disagreement rule (a blo
+suite on mutant: exit 1 · 74/77 pass · 3 failing → CAUGHT
+real-sample decisions changed by the mutant: 0/12
+=== BROKEN-no-preference-distinction.json (HEAD 6488aab) — protects: the required-vs-preferred disti
+suite on mutant: exit 1 · 75/77 pass · 2 failing → CAUGHT
+real-sample decisions changed by the mutant: 0/12
+=== BROKEN-scoped-as-general.json (HEAD 6488aab) — protects: G4 general-vs-scoped distinction: total
+suite on mutant: exit 1 · 71/77 pass · 6 failing → CAUGHT
+real-sample decisions changed by the mutant: 1/12
+=== BROKEN-stack-overrides-experience.json (HEAD 6488aab) — protects: G4 documented-mismatch and eli
+suite on mutant: exit 1 · 55/77 pass · 22 failing → CAUGHT
+real-sample decisions changed by the mutant: 4/12
+=== BROKEN-thin-page-is-closure.json (HEAD 6488aab) — protects: G2: a challenge or thin page alone n
+suite on mutant: exit 1 · 75/77 pass · 2 failing → CAUGHT
+real-sample decisions changed by the mutant: 0/12
+ALL MUTANTS CAUGHT (6 mutants)
+# tests 77
+# pass 77
+# fail 0
+tracked_changes_after=6
+/Users/adityaraj/Desktop/the-reallocation-engine     1a618e7 [contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027]
+/Users/adityaraj/Desktop/the-reallocation-engine-a2  6488aab [contrib/2026fa-aditya-raj-sde-java-backend-early2027]
+finished=2026-10-21 12:46:28 EDT

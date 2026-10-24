@@ -1,0 +1,33 @@
+## started: 2026-10-03 17:47:00 EDT
+## why: evidence 05 failed 'No module named yaml'. scripts/manifest-check.mjs:36 shells out to bare 'python3' (PATH lookup), so an isolated venv is used by prepending .venv/bin to PATH. .venv/ is gitignored (.gitignore:15). No global pip, no --user, no --break-system-packages.
+
+$ /usr/local/bin/python3 -m venv .venv
+[exit=0]
+
+$ .venv/bin/python -m pip install pyyaml
+Collecting pyyaml
+  Using cached pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl.metadata (2.4 kB)
+Using cached pyyaml-6.0.3-cp312-cp312-macosx_11_0_arm64.whl (173 kB)
+Installing collected packages: pyyaml
+Successfully installed pyyaml-6.0.3
+
+[notice] A new release of pip is available: 24.3.1 -> 26.2.1
+[notice] To update, run: /Users/adityaraj/Desktop/the-reallocation-engine/.venv/bin/python -m pip install --upgrade pip
+[exit=0]
+
+$ .venv/bin/python -c 'import sys,yaml; print(sys.executable.replace("/Users/adityaraj/Desktop/the-reallocation-engine","<repo>"), "yaml", yaml.__version__)'
+<repo>/.venv/bin/python yaml 6.0.3
+[exit=0]
+
+$ PATH="$PWD/.venv/bin:$PATH" python3 -c 'import sys,yaml; print("python3 on that PATH ->", sys.executable.replace("/Users/adityaraj/Desktop/the-reallocation-engine","<repo>"), "yaml", yaml.__version__)'
+python3 on that PATH -> <repo>/.venv/bin/python3 yaml 6.0.3
+[exit=0]
+
+$ /usr/local/bin/python3 -c 'import yaml' 2>&1 | tail -1
+ModuleNotFoundError: No module named 'yaml'
+[exit=0]
+
+$ git status --short --ignored .venv | head -2
+!! .venv/
+[exit=0]
+## finished: 2026-10-03 17:47:02 EDT

@@ -1,0 +1,267 @@
+## started: 2026-10-03 19:51:50 EDT
+## REFINEMENT made AFTER the step-2 experiment (Aditya's decision): a second refusal-gate guard in the existing sample-run test (test 18). Original experiment preserved separately in evidence 36. Claude-executed.
+
+### A. new isolated mutant: worktree of HEAD (1733dad), same one-line mutation, plus the STRENGTHENED test file copied in
+Preparing worktree (detached HEAD 1733dad)
+HEAD is now at 1733dad 2026fa aditya-raj-sde: step-2 break run results (evidence 35-36) vs recorded prediction
+$ git -C <scratch>/mutant2 diff --stat
+ .../aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs      |  2 +-
+ .../aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs | 10 ++++++++++
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+mutation lines in mutant: 1; in main: 0
+
+### B. FULL strengthened suite on the MUTANT (complete output)
+$ (cd <scratch>/mutant2 && node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs)
+TAP version 13
+# Subtest: no network: source imports nothing that can reach the network; fetch never called
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+  ---
+  duration_ms: 0.628667
+  ...
+# Subtest: maintained scorer is reused through its CLI, not copied
+ok 2 - maintained scorer is reused through its CLI, not copied
+  ---
+  duration_ms: 0.195458
+  ...
+# Subtest: G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+  ---
+  duration_ms: 25.623708
+  ...
+# Subtest: G1: an out-dir over tracked repository files is refused (exit 2)
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+  ---
+  duration_ms: 25.092417
+  ...
+# Subtest: G1: missing evidence fields are named, not defaulted
+ok 5 - G1: missing evidence fields are named, not defaulted
+  ---
+  duration_ms: 0.429542
+  ...
+# Subtest: G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+  ---
+  duration_ms: 0.128
+  ...
+# Subtest: F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+not ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+  ---
+  duration_ms: 1.404167
+  location: '<scratch>/mutant2/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs:77:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    f1b-fit-0.7
+    + actual - expected
+    
+    + 'seek-vacancy-sponsorship-evidence'
+    - 'skip-application'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'skip-application'
+  actual: 'seek-vacancy-sponsorship-evidence'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<scratch>/mutant2/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs:81:12)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+# Subtest: F2(b) F2-0: open posting passes G2
+ok 8 - F2(b) F2-0: open posting passes G2
+  ---
+  duration_ms: 0.352792
+  ...
+# Subtest: F2(b) F2-1: recognized closure phrase → skip-application
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+  ---
+  duration_ms: 0.233958
+  ...
+# Subtest: F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+  ---
+  duration_ms: 0.280709
+  ...
+# Subtest: F2(b) F2-3: uncertain → human review, no application decision
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+  ---
+  duration_ms: 0.144291
+  ...
+# Subtest: F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+  ---
+  duration_ms: 0.090458
+  ...
+# Subtest: F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+  ---
+  duration_ms: 0.057875
+  ...
+# Subtest: F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+  ---
+  duration_ms: 1.033458
+  ...
+# Subtest: F3: matching strips legal suffixes but never fuzzes
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+  ---
+  duration_ms: 0.03525
+  ...
+# Subtest: vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+  ---
+  duration_ms: 0.42725
+  ...
+# Subtest: T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+  ---
+  duration_ms: 150.738833
+  ...
+# Subtest: sample run: two outputs, every value labeled, scenario scores separate from decisions
+not ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+  ---
+  duration_ms: 158.026542
+  location: '<scratch>/mutant2/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs:190:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'seek-vacancy-sponsorship-evidence'
+    - 'skip-application'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'skip-application'
+  actual: 'seek-vacancy-sponsorship-evidence'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://<scratch>/mutant2/scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs:222:10)
+    Test.runInAsyncScope (node:async_hooks:211:14)
+    Test.run (node:internal/test_runner/test:979:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:677:18)
+    Test.postRun (node:internal/test_runner/test:1090:19)
+    Test.run (node:internal/test_runner/test:1018:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:677:7)
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 16
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 503.997834
+[exit=1]
+
+### C. FULL strengthened suite on the CORRECT implementation (main working tree; complete output)
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+TAP version 13
+# Subtest: no network: source imports nothing that can reach the network; fetch never called
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+  ---
+  duration_ms: 0.654125
+  ...
+# Subtest: maintained scorer is reused through its CLI, not copied
+ok 2 - maintained scorer is reused through its CLI, not copied
+  ---
+  duration_ms: 0.188708
+  ...
+# Subtest: G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+  ---
+  duration_ms: 26.647917
+  ...
+# Subtest: G1: an out-dir over tracked repository files is refused (exit 2)
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+  ---
+  duration_ms: 24.395167
+  ...
+# Subtest: G1: missing evidence fields are named, not defaulted
+ok 5 - G1: missing evidence fields are named, not defaulted
+  ---
+  duration_ms: 0.468208
+  ...
+# Subtest: G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+  ---
+  duration_ms: 0.136208
+  ...
+# Subtest: F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+  ---
+  duration_ms: 2.094334
+  ...
+# Subtest: F2(b) F2-0: open posting passes G2
+ok 8 - F2(b) F2-0: open posting passes G2
+  ---
+  duration_ms: 0.090833
+  ...
+# Subtest: F2(b) F2-1: recognized closure phrase → skip-application
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+  ---
+  duration_ms: 0.243958
+  ...
+# Subtest: F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+  ---
+  duration_ms: 0.2685
+  ...
+# Subtest: F2(b) F2-3: uncertain → human review, no application decision
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+  ---
+  duration_ms: 0.126916
+  ...
+# Subtest: F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+  ---
+  duration_ms: 0.08525
+  ...
+# Subtest: F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+  ---
+  duration_ms: 0.055125
+  ...
+# Subtest: F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+  ---
+  duration_ms: 1.3385
+  ...
+# Subtest: F3: matching strips legal suffixes but never fuzzes
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+  ---
+  duration_ms: 0.037875
+  ...
+# Subtest: vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+  ---
+  duration_ms: 0.130292
+  ...
+# Subtest: T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+  ---
+  duration_ms: 152.095
+  ...
+# Subtest: sample run: two outputs, every value labeled, scenario scores separate from decisions
+ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+  ---
+  duration_ms: 161.346083
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 511.392375
+[exit=0]
+
+$ git worktree remove --force <scratch>/mutant2
+/Users/adityaraj/Desktop/the-reallocation-engine  1733dad [contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027]
+## finished: 2026-10-03 19:51:51 EDT

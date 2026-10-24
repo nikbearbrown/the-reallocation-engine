@@ -1,0 +1,1950 @@
+{
+  "contract": "recipes/cases/2026fa/aditya-raj-sde-java-backend-early2027.md",
+  "run": {
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/observations.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/holdout-v0.4-first",
+    "started_at": "2026-10-21T15:27:45.222Z",
+    "run_label": "UNSEEN postings (holdout), rules v0.4.0 frozen",
+    "kind": "holdout-replay-of-captured-excerpts",
+    "kind_note": "rules re-run on the committed excerpts of postings captured live on 2026-10-21; no network was used for this run",
+    "rules_version": "0.4.0",
+    "input_file": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/observations.json",
+    "input_sha256": "5694ba77be850f0665f26355deb915b118a8f9b1b2d7ec358c0e6bcf91d43713",
+    "csv_path": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "out_dir": "course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/holdout-v0.4-first",
+    "scorer": "not called (see recipe: Why no score)"
+  },
+  "candidate": {
+    "config": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json",
+    "persona_ref": "search/examples/tariq-lindqvist/profile.yml",
+    "resume": "search/examples/tariq-lindqvist/resume.example.json",
+    "available_from": "2027-02-01",
+    "full_time": {
+      "months_lower": 50,
+      "months_upper": 54,
+      "entries": 2
+    },
+    "coop": {
+      "months_upper": 6,
+      "months_lower": 4,
+      "entries": 1
+    },
+    "career_upper": {
+      "with_coop": 60,
+      "ft_only": 54
+    },
+    "scoped_experience": [],
+    "full_time_months": 54,
+    "coop_months": 6,
+    "degrees": [
+      {
+        "level": "MS",
+        "field": "MS, Computer Science",
+        "end": "2027-01",
+        "status": "expected"
+      },
+      {
+        "level": "BS",
+        "field": "B.Tech, Electronics and Communication Engineering",
+        "end": "2019-06",
+        "status": "completed"
+      }
+    ],
+    "source": "your-input",
+    "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+    "authorization_note": "No work-authorization status is checked or assumed."
+  },
+  "gate_legend": {
+    "G1": "Input: the observation file and candidate configuration passed validation.",
+    "G2": "Liveness at the time of observation: \"stop\" = both the employer feed and the page say it is gone (skip); \"review\" = the feed and the page disagree, or the page is uncertain / shows closure wording (a person checks). Never \"open now\".",
+    "G3": "Sponsorship and eligibility wording in THIS posting: \"stop\" = an explicit refusal or an explicit citizenship requirement (skip). Clearance/export-control wording goes to a person. Company history is never used here.",
+    "G4": "Experience and degree: \"stop\" = a documented mismatch with a stated required minimum, or an explicit eligibility restriction (experience cap, graduation window). \"review\" = ranges exceeded, either/or branches, unclear co-op counting, unlabeled sections. \"pass-unknown\" = nothing stated. A mismatch is not a claim the employer could never make an exception.",
+    "G5": "Start window by date arithmetic only: \"stop\" = an explicit employer start window that ends before the supplied availability date. \"review\" = ASAP, offer-relative, ambiguous, or conflicting timing. \"pass-unknown\" = no timing stated. Never establishes work authorization, EAD approval, or hiring duration.",
+    "G6": "Stack evidence: \"pass\" = a JVM language in required or responsibility lines plus backend-infrastructure terms. \"review\" = Java only in preferred/other lines, another language required, or too little text. Evidence locations, not a score.",
+    "G7": "Sponsorship evidence for this opening: \"pass\" = apparent offer wording for a person to read (not a guarantee); otherwise \"stop\" = awaiting opening-level evidence.",
+    "G8": "Final review: always a person. Nothing is applied to automatically."
+  },
+  "labels": {
+    "record": "a data-file value, a verbatim excerpt, or a raw observation (feed listing, HTTP status)",
+    "model-judgment": "a heuristic interpretation: the page checker verdict, the liveness combination, requirement/section/compatibility rules",
+    "your-input": "a candidate-supplied value, or anything derived from a SYNTHETIC posting"
+  },
+  "roles": [
+    {
+      "obs_id": "databricks-8798198002",
+      "synthetic": false,
+      "employer": "DATABRICKS INC",
+      "title": "Staff Software Engineer, Lakeflow Pipelines DR",
+      "job_id": "8798198002",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8798198002",
+      "location": "Mountain View, California; San Francisco, California",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "text_sha256": "beadce977d99901b3773e20699c10ad2ddbf85522ae3f541a22f8deae93598f3",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "listed-and-page-active-at-observation",
+        "gate": "pass",
+        "why": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")",
+        "feed": {
+          "present": true,
+          "observed_at": "2026-10-21T15:25:18.087Z",
+          "source": "record",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json",
+          "note": "fresh board fetch at evaluation time; posting text is from the 2026-10-21 00:01 capture"
+        },
+        "page": {
+          "state": "active",
+          "classifier": {
+            "result": "active",
+            "code": null,
+            "reason": null
+          },
+          "source": "record",
+          "observation": "recorded-observation",
+          "basis": "recorded observation of a real posting (2026-10-21 11:25:28 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt",
+          "conflict_excerpts": [],
+          "conflict_check": "not applicable: no page text recorded"
+        },
+        "observations": [
+          {
+            "what": "listed in the employer board feed at capture",
+            "value": true,
+            "at": "2026-10-21T15:25:18.087Z",
+            "source": "record"
+          },
+          {
+            "what": "page HTTP status / title / length (probe)",
+            "value": "200 / \"Staff Software Engineer, Lakeflow Pipelines DR - Databricks\" / 7516 chars",
+            "at": "2026-10-21T15:25:45.080Z",
+            "source": "record"
+          },
+          {
+            "what": "maintained checker verdict (heuristic)",
+            "value": "active",
+            "at": "2026-10-21 11:25:28 EDT",
+            "source": "model-judgment"
+          }
+        ],
+        "source": "model-judgment",
+        "note": "interpretation of point-in-time observations"
+      },
+      "vacancy": {
+        "state": "silent",
+        "basis": "assignment-1 classifier",
+        "excerpts": [],
+        "eligibility": "none-stated",
+        "eligibility_excerpts": [],
+        "source": "model-judgment"
+      },
+      "experience": {
+        "state": "only-preferred-years-not-met",
+        "gate": "pass",
+        "why": "the only unmet or unknown years statement is a stated preference; preferences never stop an opening",
+        "source": "model-judgment",
+        "candidate": {
+          "full_time_months": [
+            50,
+            54
+          ],
+          "coop_months": [
+            4,
+            6
+          ],
+          "coop_status_in_posting": "unclear",
+          "coop_counted": false,
+          "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+          "source": "your-input"
+        },
+        "findings": [
+          {
+            "sentence": "8+ years of experience working on related systems preferred",
+            "section": "What we look for",
+            "kind": "preferred",
+            "requirement": {
+              "kind": "min",
+              "min": 8,
+              "phrase": "8+ years"
+            },
+            "alternatives": false,
+            "scope": "scoped",
+            "scope_text": "of experience working on related systems preferred",
+            "state": "below-even-with-all-experience",
+            "comparison": "even all recorded experience (at most 60 months, co-op included) is below 96 required"
+          }
+        ],
+        "graduation": [],
+        "degree": [
+          {
+            "sentence": "Optional: PhD or advanced research experience in databases, distributed systems, or storage",
+            "section": "What we look for",
+            "kind": "other",
+            "state": "degree-mentioned"
+          }
+        ],
+        "coop_acceptance_excerpts": [],
+        "coop_exclusion_excerpts": [],
+        "note": "Title words (senior/staff/principal) are never used by this check. General vs scoped classification and section kinds are documented heuristics."
+      },
+      "start_window": {
+        "state": "employer-timing-unstated",
+        "gate": "pass-unknown",
+        "why": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer",
+        "source": "model-judgment",
+        "statements": [],
+        "arithmetic": {
+          "available_from": "2027-02-01",
+          "captured_at": "2026-10-21T04:01:51.664Z",
+          "days_from_capture_to_availability": 103
+        },
+        "does_not_establish": [
+          "work authorization or EAD approval",
+          "legal eligibility to start",
+          "how long hiring will take"
+        ]
+      },
+      "stack": {
+        "state": "java-mentioned-outside-core",
+        "gate": "review",
+        "why": "JVM language appears only in other lines",
+        "source": "model-judgment",
+        "groups": {
+          "java_jvm": {
+            "where": "other",
+            "terms": [
+              "java",
+              "scala"
+            ],
+            "excerpts": [
+              {
+                "section": "What we look for",
+                "kind": "other",
+                "text": "Strong software engineering skills in Java, Scala, C++, Go, Python, or a similar production language"
+              }
+            ],
+            "negated": []
+          },
+          "spring": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "distributed_systems": {
+            "where": "unclassified",
+            "terms": [
+              "distributed systems"
+            ],
+            "excerpts": [
+              {
+                "section": null,
+                "kind": "unclassified",
+                "text": "As a Staff Engineer on the part of the Lakeflow Disaster Recovery team, you will design and implement distributed systems that replicate and recover pipelines across regions."
+              },
+              {
+                "section": "What we look for",
+                "kind": "other",
+                "text": "A passion for distributed systems, databases, storage systems, streaming systems, or reliability engineering"
+              },
+              {
+                "section": "What we look for",
+                "kind": "other",
+                "text": "Optional: PhD or advanced research experience in databases, distributed systems, or storage"
+              }
+            ],
+            "negated": []
+          },
+          "messaging": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "cloud_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "applied_ai_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          }
+        },
+        "other_language_required": [],
+        "note": "Evidence locations, not a match score. Applied-AI infrastructure is optional and never required for a pass."
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no refusal or citizenship requirement found (wording state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "the only unmet or unknown years statement is a stated preference; preferences never stop an opening"
+        },
+        {
+          "id": "G5",
+          "status": "pass-unknown",
+          "reason": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer"
+        },
+        {
+          "id": "G6",
+          "status": "review",
+          "reason": "JVM language appears only in other lines"
+        },
+        {
+          "id": "G7",
+          "status": "stop",
+          "reason": "awaiting opening-level sponsorship evidence (silent)"
+        },
+        {
+          "id": "G8",
+          "status": "review",
+          "reason": "a person reads the report"
+        }
+      ],
+      "decision": "human-requirement-review",
+      "next_action": "human-requirement-review",
+      "decided_by": "G6",
+      "decision_reason": "JVM language appears only in other lines",
+      "also_needed": [
+        "confirm the start date with the employer",
+        "opening-level sponsorship evidence"
+      ],
+      "other_open_gates": [
+        "G7 stop"
+      ]
+    },
+    {
+      "obs_id": "databricks-8552484002",
+      "synthetic": false,
+      "employer": "DATABRICKS INC",
+      "title": "Staff Software Engineer - AI Research Infrastructure",
+      "job_id": "8552484002",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8552484002",
+      "location": "New York City, New York; San Francisco, California",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "text_sha256": "65785b49276197da1fa2aaefdbc1f7d27adc1685537cff2f18b69678df6aac02",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "listed-and-page-active-at-observation",
+        "gate": "pass",
+        "why": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")",
+        "feed": {
+          "present": true,
+          "observed_at": "2026-10-21T15:25:18.087Z",
+          "source": "record",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json",
+          "note": "fresh board fetch at evaluation time; posting text is from the 2026-10-21 00:01 capture"
+        },
+        "page": {
+          "state": "active",
+          "classifier": {
+            "result": "active",
+            "code": null,
+            "reason": null
+          },
+          "source": "record",
+          "observation": "recorded-observation",
+          "basis": "recorded observation of a real posting (2026-10-21 11:25:28 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt",
+          "conflict_excerpts": [],
+          "conflict_check": "not applicable: no page text recorded"
+        },
+        "observations": [
+          {
+            "what": "listed in the employer board feed at capture",
+            "value": true,
+            "at": "2026-10-21T15:25:18.087Z",
+            "source": "record"
+          },
+          {
+            "what": "page HTTP status / title / length (probe)",
+            "value": "200 / \"Staff Software Engineer - AI Research Infrastructure - Databricks\" / 8595 chars",
+            "at": "2026-10-21T15:25:49.657Z",
+            "source": "record"
+          },
+          {
+            "what": "maintained checker verdict (heuristic)",
+            "value": "active",
+            "at": "2026-10-21 11:25:28 EDT",
+            "source": "model-judgment"
+          }
+        ],
+        "source": "model-judgment",
+        "note": "interpretation of point-in-time observations"
+      },
+      "vacancy": {
+        "state": "silent",
+        "basis": "assignment-1 classifier",
+        "excerpts": [],
+        "eligibility": "none-stated",
+        "eligibility_excerpts": [],
+        "source": "model-judgment"
+      },
+      "experience": {
+        "state": "requirement-section-unclear",
+        "gate": "review",
+        "why": "a years statement the candidate does not clearly meet appears under an unrecognized or non-requirement heading",
+        "source": "model-judgment",
+        "candidate": {
+          "full_time_months": [
+            50,
+            54
+          ],
+          "coop_months": [
+            4,
+            6
+          ],
+          "coop_status_in_posting": "unclear",
+          "coop_counted": false,
+          "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+          "source": "your-input"
+        },
+        "findings": [
+          {
+            "sentence": "5+ years of software engineering experience, including substantial time working on large‑scale distributed systems or infrastructure.",
+            "section": "What We Look for",
+            "kind": "other",
+            "requirement": {
+              "kind": "min",
+              "min": 5,
+              "phrase": "5+ years"
+            },
+            "alternatives": false,
+            "scope": "general",
+            "scope_text": "of software engineering experience, including substantial time working on large‑scale distributed systems or infrastructure.",
+            "state": "coop-would-change-result",
+            "comparison": "full-time only: 50–54 months vs 60 required; with the co-op: 54–60 months (co-op wording in this posting: unclear)"
+          }
+        ],
+        "graduation": [],
+        "degree": [
+          {
+            "sentence": "BS/MS or PhD in Computer Science or related field",
+            "section": "What We Look for",
+            "kind": "other",
+            "state": "field-or-equivalence-wording"
+          }
+        ],
+        "coop_acceptance_excerpts": [],
+        "coop_exclusion_excerpts": [],
+        "note": "Title words (senior/staff/principal) are never used by this check. General vs scoped classification and section kinds are documented heuristics."
+      },
+      "start_window": {
+        "state": "employer-timing-unstated",
+        "gate": "pass-unknown",
+        "why": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer",
+        "source": "model-judgment",
+        "statements": [],
+        "arithmetic": {
+          "available_from": "2027-02-01",
+          "captured_at": "2026-10-21T04:01:51.664Z",
+          "days_from_capture_to_availability": 103
+        },
+        "does_not_establish": [
+          "work authorization or EAD approval",
+          "legal eligibility to start",
+          "how long hiring will take"
+        ]
+      },
+      "stack": {
+        "state": "java-mentioned-outside-core",
+        "gate": "review",
+        "why": "JVM language appears only in other lines",
+        "source": "model-judgment",
+        "groups": {
+          "java_jvm": {
+            "where": "other",
+            "terms": [
+              "java",
+              "scala"
+            ],
+            "excerpts": [
+              {
+                "section": "What We Look for",
+                "kind": "other",
+                "text": "Are proficient in one or more systems programming languages (e.g., C++, Rust, Go, Java, Scala) and can design, implement, and debug complex services."
+              }
+            ],
+            "negated": []
+          },
+          "spring": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "distributed_systems": {
+            "where": "preferred",
+            "terms": [
+              "distributed systems"
+            ],
+            "excerpts": [
+              {
+                "section": "What We Look for",
+                "kind": "preferred",
+                "text": "Have deep experience with building and operating distributed systems, data pipelines, or large‑scale backend services, ideally involving GPUs, clusters, or major cloud providers."
+              },
+              {
+                "section": "What We Look for",
+                "kind": "other",
+                "text": "5+ years of software engineering experience, including substantial time working on large‑scale distributed systems or infrastructure."
+              }
+            ],
+            "negated": []
+          },
+          "messaging": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "cloud_infra": {
+            "where": "other",
+            "terms": [
+              "kubernetes"
+            ],
+            "excerpts": [
+              {
+                "section": "What We Look for",
+                "kind": "other",
+                "text": "Have built or significantly contributed to cluster schedulers, resource managers, or large‑scale job orchestration systems (e.g., Kubernetes, Slurm, Ray, custom internal systems)."
+              }
+            ],
+            "negated": []
+          },
+          "applied_ai_infra": {
+            "where": "other",
+            "terms": [
+              "llms",
+              "inference"
+            ],
+            "excerpts": [
+              {
+                "section": "Staff Software Engineer - AI Research Infrastructure",
+                "kind": "other",
+                "text": "The Databricks AI Research organization enables companies to develop AI models and agents using their own data, with technologies ranging from post-training open source LLMs to developing advanced multi-agent architectures."
+              },
+              {
+                "section": "Job Description",
+                "kind": "other",
+                "text": "You will design and build services that schedule, orchestrate, and observe large‑scale training and inference experiment workloads across thousands of GPUs, improve our dev tooling and ensure that researchers can iterate quickly without sacrificing reliability, efficiency, or security."
+              },
+              {
+                "section": "What We Look for",
+                "kind": "other",
+                "text": "Understand modern ML training and inference workflows (e.g., distributed training, model parallelism, fine‑tuning, evaluation), even if you’re not primarily a research scientist."
+              }
+            ],
+            "negated": []
+          }
+        },
+        "other_language_required": [],
+        "note": "Evidence locations, not a match score. Applied-AI infrastructure is optional and never required for a pass."
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no refusal or citizenship requirement found (wording state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "review",
+          "reason": "a years statement the candidate does not clearly meet appears under an unrecognized or non-requirement heading"
+        },
+        {
+          "id": "G5",
+          "status": "pass-unknown",
+          "reason": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer"
+        },
+        {
+          "id": "G6",
+          "status": "review",
+          "reason": "JVM language appears only in other lines"
+        },
+        {
+          "id": "G7",
+          "status": "stop",
+          "reason": "awaiting opening-level sponsorship evidence (silent)"
+        },
+        {
+          "id": "G8",
+          "status": "review",
+          "reason": "a person reads the report"
+        }
+      ],
+      "decision": "human-requirement-review",
+      "next_action": "human-requirement-review",
+      "decided_by": "G4",
+      "decision_reason": "a years statement the candidate does not clearly meet appears under an unrecognized or non-requirement heading",
+      "also_needed": [
+        "confirm the start date with the employer",
+        "opening-level sponsorship evidence"
+      ],
+      "other_open_gates": [
+        "G6 review",
+        "G7 stop"
+      ]
+    },
+    {
+      "obs_id": "pinterest-7494668",
+      "synthetic": false,
+      "employer": "PINTEREST INC",
+      "title": "Staff Software Engineer, Capacity Engineering",
+      "job_id": "7494668",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=7494668",
+      "location": "San Francisco, CA, US; Remote, US",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "text_sha256": "b1881597089847f1382b8a4f21b0dc0dfa0b6577a760660a1945a1f1faba17f4",
+      "company": {
+        "query": "Pinterest",
+        "key": "pinterest",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "PINTEREST INC",
+            "approvals": 1364,
+            "denials": 16,
+            "approval_rate": 98.84057971014492
+          }
+        ],
+        "counts": {
+          "approvals": 1364,
+          "denials": 16,
+          "approval_rate": 98.84057971014492,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "feed-page-disagree",
+        "gate": "review",
+        "why": "listed in the employer's board feed at 2026-10-21T15:25:19.157Z, but the page check said expired (insufficient content — likely nav/footer only); supplementary probe: HTTP 403, title \"Just a moment...\", 272 characters",
+        "feed": {
+          "present": true,
+          "observed_at": "2026-10-21T15:25:19.157Z",
+          "source": "record",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json",
+          "note": "fresh board fetch at evaluation time; posting text is from the 2026-10-21 00:01 capture"
+        },
+        "page": {
+          "state": "expired",
+          "classifier": {
+            "result": "expired",
+            "code": "insufficient content — likely nav/footer only",
+            "reason": "insufficient content — likely nav/footer only"
+          },
+          "source": "record",
+          "observation": "recorded-observation",
+          "basis": "recorded observation of a real posting (2026-10-21 11:25:28 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt",
+          "conflict_excerpts": [],
+          "conflict_check": "not applicable: no page text recorded"
+        },
+        "observations": [
+          {
+            "what": "listed in the employer board feed at capture",
+            "value": true,
+            "at": "2026-10-21T15:25:19.157Z",
+            "source": "record"
+          },
+          {
+            "what": "page HTTP status / title / length (probe)",
+            "value": "403 / \"Just a moment...\" / 272 chars",
+            "at": "2026-10-21T15:25:54.253Z",
+            "source": "record"
+          },
+          {
+            "what": "maintained checker verdict (heuristic)",
+            "value": "expired / insufficient content — likely nav/footer only / insufficient content — likely nav/footer only",
+            "at": "2026-10-21 11:25:28 EDT",
+            "source": "model-judgment"
+          }
+        ],
+        "source": "model-judgment",
+        "note": "interpretation of point-in-time observations"
+      },
+      "vacancy": {
+        "state": "silent",
+        "basis": "assignment-1 classifier",
+        "excerpts": [],
+        "eligibility": "none-stated",
+        "eligibility_excerpts": [],
+        "source": "model-judgment"
+      },
+      "experience": {
+        "state": "experience-requirement-unstated",
+        "gate": "pass-unknown",
+        "why": "no required years stated in a recognizable form; unknown, not a match",
+        "source": "model-judgment",
+        "candidate": {
+          "full_time_months": [
+            50,
+            54
+          ],
+          "coop_months": [
+            4,
+            6
+          ],
+          "coop_status_in_posting": "unclear",
+          "coop_counted": false,
+          "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+          "source": "your-input"
+        },
+        "findings": [],
+        "graduation": [],
+        "degree": [
+          {
+            "sentence": "Bachelor’s degree in computer science, a related field or equivalent experience",
+            "section": "What we’re looking for",
+            "kind": "required",
+            "state": "field-or-equivalence-wording"
+          }
+        ],
+        "coop_acceptance_excerpts": [],
+        "coop_exclusion_excerpts": [],
+        "note": "Title words (senior/staff/principal) are never used by this check. General vs scoped classification and section kinds are documented heuristics."
+      },
+      "start_window": {
+        "state": "employer-timing-unstated",
+        "gate": "pass-unknown",
+        "why": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer",
+        "source": "model-judgment",
+        "statements": [],
+        "arithmetic": {
+          "available_from": "2027-02-01",
+          "captured_at": "2026-10-21T04:01:53.537Z",
+          "days_from_capture_to_availability": 103
+        },
+        "does_not_establish": [
+          "work authorization or EAD approval",
+          "legal eligibility to start",
+          "how long hiring will take"
+        ]
+      },
+      "stack": {
+        "state": "core-stack-evidenced",
+        "gate": "pass",
+        "why": "JVM language in required lines, plus backend-infrastructure terms",
+        "source": "model-judgment",
+        "groups": {
+          "java_jvm": {
+            "where": "required",
+            "terms": [
+              "java"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Proficiency in software development languages such as Java, Python and C++"
+              }
+            ],
+            "negated": []
+          },
+          "spring": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "distributed_systems": {
+            "where": "required",
+            "terms": [
+              "highly available",
+              "distributed systems"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Experience building and managing highly available distributed applications at scale"
+              },
+              {
+                "section": "What you’ll do",
+                "kind": "responsibilities",
+                "text": "Improve the performance and efficiency of large scale distributed systems that drive Pinterest systems"
+              },
+              {
+                "section": "What you’ll do",
+                "kind": "responsibilities",
+                "text": "Collaborate with Infrastructure Engineering and SRE teams in their mission to deliver highly available, resilient, secure and efficient foundations for Pinterest’s tech stack"
+              }
+            ],
+            "negated": []
+          },
+          "messaging": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "cloud_infra": {
+            "where": "required",
+            "terms": [
+              "kubernetes",
+              "aws"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Experience leading efficiency initiatives at scale on Kubernetes or other large scale shared infrastructure"
+              },
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Experience with AWS or similar cloud environments"
+              },
+              {
+                "section": "What you’ll do",
+                "kind": "responsibilities",
+                "text": "Drive efficiency in large-scale shared environments like Kubernetes, including scheduling optimization, resource-overhead reduction, and resource isolation in multi-tenant clusters"
+              }
+            ],
+            "negated": []
+          },
+          "applied_ai_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          }
+        },
+        "other_language_required": [],
+        "note": "Evidence locations, not a match score. Applied-AI infrastructure is optional and never required for a pass."
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "review",
+          "reason": "listed in the employer's board feed at 2026-10-21T15:25:19.157Z, but the page check said expired (insufficient content — likely nav/footer only); supplementary probe: HTTP 403, title \"Just a moment...\", 272 characters"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no refusal or citizenship requirement found (wording state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass-unknown",
+          "reason": "no required years stated in a recognizable form; unknown, not a match"
+        },
+        {
+          "id": "G5",
+          "status": "pass-unknown",
+          "reason": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer"
+        },
+        {
+          "id": "G6",
+          "status": "pass",
+          "reason": "JVM language in required lines, plus backend-infrastructure terms"
+        },
+        {
+          "id": "G7",
+          "status": "stop",
+          "reason": "awaiting opening-level sponsorship evidence (silent)"
+        },
+        {
+          "id": "G8",
+          "status": "review",
+          "reason": "a person reads the report"
+        }
+      ],
+      "decision": "human-liveness-review",
+      "next_action": "human-liveness-review",
+      "decided_by": "G2",
+      "decision_reason": "listed in the employer's board feed at 2026-10-21T15:25:19.157Z, but the page check said expired (insufficient content — likely nav/footer only); supplementary probe: HTTP 403, title \"Just a moment...\", 272 characters",
+      "also_needed": [
+        "confirm the start date with the employer",
+        "confirm the expected level/years",
+        "opening-level sponsorship evidence"
+      ],
+      "other_open_gates": [
+        "G7 stop"
+      ]
+    },
+    {
+      "obs_id": "pinterest-8011573",
+      "synthetic": false,
+      "employer": "PINTEREST INC",
+      "title": "Sr. Systems Engineer, Sales & Marketing",
+      "job_id": "8011573",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8011573",
+      "location": "San Francisco, CA, US; Remote, US",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "text_sha256": "3d7e41c0f7bb204f068369697bc506a4a3648fd597a9f62c4937666145817ca2",
+      "company": {
+        "query": "Pinterest",
+        "key": "pinterest",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "PINTEREST INC",
+            "approvals": 1364,
+            "denials": 16,
+            "approval_rate": 98.84057971014492
+          }
+        ],
+        "counts": {
+          "approvals": 1364,
+          "denials": 16,
+          "approval_rate": 98.84057971014492,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "feed-page-disagree",
+        "gate": "review",
+        "why": "listed in the employer's board feed at 2026-10-21T15:25:19.157Z, but the page check said expired (insufficient content — likely nav/footer only); supplementary probe: HTTP 403, title \"Just a moment...\", 272 characters",
+        "feed": {
+          "present": true,
+          "observed_at": "2026-10-21T15:25:19.157Z",
+          "source": "record",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json",
+          "note": "fresh board fetch at evaluation time; posting text is from the 2026-10-21 00:01 capture"
+        },
+        "page": {
+          "state": "expired",
+          "classifier": {
+            "result": "expired",
+            "code": "insufficient content — likely nav/footer only",
+            "reason": "insufficient content — likely nav/footer only"
+          },
+          "source": "record",
+          "observation": "recorded-observation",
+          "basis": "recorded observation of a real posting (2026-10-21 11:25:28 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt",
+          "conflict_excerpts": [],
+          "conflict_check": "not applicable: no page text recorded"
+        },
+        "observations": [
+          {
+            "what": "listed in the employer board feed at capture",
+            "value": true,
+            "at": "2026-10-21T15:25:19.157Z",
+            "source": "record"
+          },
+          {
+            "what": "page HTTP status / title / length (probe)",
+            "value": "403 / \"Just a moment...\" / 272 chars",
+            "at": "2026-10-21T15:25:58.508Z",
+            "source": "record"
+          },
+          {
+            "what": "maintained checker verdict (heuristic)",
+            "value": "expired / insufficient content — likely nav/footer only / insufficient content — likely nav/footer only",
+            "at": "2026-10-21 11:25:28 EDT",
+            "source": "model-judgment"
+          }
+        ],
+        "source": "model-judgment",
+        "note": "interpretation of point-in-time observations"
+      },
+      "vacancy": {
+        "state": "silent",
+        "basis": "assignment-1 classifier",
+        "excerpts": [],
+        "eligibility": "none-stated",
+        "eligibility_excerpts": [],
+        "source": "model-judgment"
+      },
+      "experience": {
+        "state": "documented-mismatch",
+        "gate": "stop",
+        "why": "stated required minimum \"10+ years\" is not met: even all recorded experience (at most 60 months, co-op included) is below 120 required. A documented mismatch, not a claim the employer could never make an exception",
+        "source": "model-judgment",
+        "candidate": {
+          "full_time_months": [
+            50,
+            54
+          ],
+          "coop_months": [
+            4,
+            6
+          ],
+          "coop_status_in_posting": "silent",
+          "coop_counted": false,
+          "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+          "source": "your-input"
+        },
+        "findings": [
+          {
+            "sentence": "10+ years of software engineering experience building and operating production systems, including full‑stack applications and/or backend services on a modern cloud platform (such as AWS or similar).",
+            "section": "What we’re looking for",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 10,
+              "phrase": "10+ years"
+            },
+            "alternatives": false,
+            "scope": "scoped",
+            "scope_text": "of software engineering experience building and operating production systems, including full‑stack applications and/or backend services on a modern cloud platform (such as AWS or similar).",
+            "state": "below-even-with-all-experience",
+            "comparison": "even all recorded experience (at most 60 months, co-op included) is below 120 required"
+          }
+        ],
+        "graduation": [],
+        "degree": [
+          {
+            "sentence": "Bachelor’s or Master’s degree in Computer Science, Software Engineering, or a related field, or equivalent combination of education and experience.",
+            "section": "What we’re looking for",
+            "kind": "required",
+            "state": "field-or-equivalence-wording"
+          }
+        ],
+        "coop_acceptance_excerpts": [],
+        "coop_exclusion_excerpts": [],
+        "note": "Title words (senior/staff/principal) are never used by this check. General vs scoped classification and section kinds are documented heuristics."
+      },
+      "start_window": {
+        "state": "employer-timing-unstated",
+        "gate": "pass-unknown",
+        "why": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer",
+        "source": "model-judgment",
+        "statements": [],
+        "arithmetic": {
+          "available_from": "2027-02-01",
+          "captured_at": "2026-10-21T04:01:53.537Z",
+          "days_from_capture_to_availability": 103
+        },
+        "does_not_establish": [
+          "work authorization or EAD approval",
+          "legal eligibility to start",
+          "how long hiring will take"
+        ]
+      },
+      "stack": {
+        "state": "core-stack-evidenced",
+        "gate": "pass",
+        "why": "JVM language in required lines, plus backend-infrastructure terms",
+        "source": "model-judgment",
+        "groups": {
+          "java_jvm": {
+            "where": "required",
+            "terms": [
+              "java"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Strong proficiency in Python and experience with at least one of: Java, Node.js, and/or Javascript, with a track record of delivering reliable, maintainable code in collaborative engineering teams."
+              }
+            ],
+            "negated": []
+          },
+          "spring": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "distributed_systems": {
+            "where": "required",
+            "terms": [
+              "distributed systems"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Hands‑on experience designing and operating distributed systems and robust, fault‑tolerant integrations (e.g., REST/gRPC services, event‑driven architectures, or data pipelines) that support critical business workflows."
+              }
+            ],
+            "negated": []
+          },
+          "messaging": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "cloud_infra": {
+            "where": "required",
+            "terms": [
+              "aws"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "10+ years of software engineering experience building and operating production systems, including full‑stack applications and/or backend services on a modern cloud platform (such as AWS or similar)."
+              }
+            ],
+            "negated": []
+          },
+          "applied_ai_infra": {
+            "where": "required",
+            "terms": [
+              "llm",
+              "agentic"
+            ],
+            "excerpts": [
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Practical experience building or integrating GenAI/ML‑powered features or services in production—such as LLM‑based workflows, ML‑driven recommendations, or intelligent automation—including an understanding of evaluation, observability, and common failure modes."
+              },
+              {
+                "section": "What we’re looking for",
+                "kind": "required",
+                "text": "Demonstrated ability to use AI tools and agents to write, review, and validate detailed technical design documents (TDDs), specifications, and test plans as part of a spec‑driven, agentic development workflow, while maintaining ownership of technical decisions, quality, and correctness."
+              }
+            ],
+            "negated": []
+          }
+        },
+        "other_language_required": [],
+        "note": "Evidence locations, not a match score. Applied-AI infrastructure is optional and never required for a pass."
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "review",
+          "reason": "listed in the employer's board feed at 2026-10-21T15:25:19.157Z, but the page check said expired (insufficient content — likely nav/footer only); supplementary probe: HTTP 403, title \"Just a moment...\", 272 characters"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no refusal or citizenship requirement found (wording state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "stop",
+          "reason": "stated required minimum \"10+ years\" is not met: even all recorded experience (at most 60 months, co-op included) is below 120 required. A documented mismatch, not a claim the employer could never make an exception"
+        },
+        {
+          "id": "G5",
+          "status": "pass-unknown",
+          "reason": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer"
+        },
+        {
+          "id": "G6",
+          "status": "pass",
+          "reason": "JVM language in required lines, plus backend-infrastructure terms"
+        },
+        {
+          "id": "G7",
+          "status": "stop",
+          "reason": "awaiting opening-level sponsorship evidence (silent)"
+        },
+        {
+          "id": "G8",
+          "status": "review",
+          "reason": "a person reads the report"
+        }
+      ],
+      "decision": "human-liveness-review",
+      "next_action": "human-liveness-review",
+      "decided_by": "G2",
+      "decision_reason": "listed in the employer's board feed at 2026-10-21T15:25:19.157Z, but the page check said expired (insufficient content — likely nav/footer only); supplementary probe: HTTP 403, title \"Just a moment...\", 272 characters",
+      "also_needed": [
+        "confirm the start date with the employer",
+        "opening-level sponsorship evidence"
+      ],
+      "other_open_gates": [
+        "G4 stop",
+        "G7 stop"
+      ]
+    },
+    {
+      "obs_id": "stripe-8198207",
+      "synthetic": false,
+      "employer": "STRIPE INC",
+      "title": "Software Engineer, Payins Card Networks",
+      "job_id": "8198207",
+      "url": "https://stripe.com/jobs/search?gh_jid=8198207",
+      "location": "Seattle, WA",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "text_sha256": "191f67f1d2168ae007d09daf32f775e0a4c2ed6e23bed44d65cebf72491bd01f",
+      "company": {
+        "query": "Stripe",
+        "key": "stripe",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "STRIPE INC",
+            "approvals": 1250,
+            "denials": 22,
+            "approval_rate": 98.27044025157232
+          }
+        ],
+        "counts": {
+          "approvals": 1250,
+          "denials": 22,
+          "approval_rate": 98.27044025157232,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "listed-and-page-active-at-observation",
+        "gate": "pass",
+        "why": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")",
+        "feed": {
+          "present": true,
+          "observed_at": "2026-10-21T15:25:19.590Z",
+          "source": "record",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json",
+          "note": "fresh board fetch at evaluation time; posting text is from the 2026-10-21 00:01 capture"
+        },
+        "page": {
+          "state": "active",
+          "classifier": {
+            "result": "active",
+            "code": null,
+            "reason": null
+          },
+          "source": "record",
+          "observation": "recorded-observation",
+          "basis": "recorded observation of a real posting (2026-10-21 11:25:28 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt",
+          "conflict_excerpts": [],
+          "conflict_check": "not applicable: no page text recorded"
+        },
+        "observations": [
+          {
+            "what": "listed in the employer board feed at capture",
+            "value": true,
+            "at": "2026-10-21T15:25:19.590Z",
+            "source": "record"
+          },
+          {
+            "what": "page HTTP status / title / length (probe)",
+            "value": "200 / \"Stripe Careers | Software Engineer, Payins Card Networks\" / 5917 chars",
+            "at": "2026-10-21T15:26:02.733Z",
+            "source": "record"
+          },
+          {
+            "what": "maintained checker verdict (heuristic)",
+            "value": "active",
+            "at": "2026-10-21 11:25:28 EDT",
+            "source": "model-judgment"
+          }
+        ],
+        "source": "model-judgment",
+        "note": "interpretation of point-in-time observations"
+      },
+      "vacancy": {
+        "state": "silent",
+        "basis": "assignment-1 classifier",
+        "excerpts": [],
+        "eligibility": "none-stated",
+        "eligibility_excerpts": [],
+        "source": "model-judgment"
+      },
+      "experience": {
+        "state": "scoped-duration-unknown",
+        "gate": "review",
+        "why": "\"two (2) years of\" is a scoped requirement — scoped requirement (of experience in each of the following): 24 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied",
+        "source": "model-judgment",
+        "candidate": {
+          "full_time_months": [
+            50,
+            54
+          ],
+          "coop_months": [
+            4,
+            6
+          ],
+          "coop_status_in_posting": "silent",
+          "coop_counted": false,
+          "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+          "source": "your-input"
+        },
+        "findings": [
+          {
+            "sentence": "Must have a Bachelor's Degree or foreign equivalent degree in Computer Science, or a related field, plus two (2) years of experience in Software Development.",
+            "section": "Minimum requirements",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 2,
+              "phrase": "two (2) years of"
+            },
+            "alternatives": false,
+            "scope": "general",
+            "scope_text": "of experience in Software Development.",
+            "state": "meets",
+            "comparison": "full-time only: 50–54 months vs 24 required; with the co-op: 54–60 months (co-op wording in this posting: silent)"
+          },
+          {
+            "sentence": "Must also have two (2) years of experience in each of the following",
+            "section": "Must also have two (2) years of experience in each of the following",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 2,
+              "phrase": "two (2) years of"
+            },
+            "alternatives": false,
+            "scope": "scoped",
+            "scope_text": "of experience in each of the following",
+            "state": "scoped-duration-unknown",
+            "comparison": "scoped requirement (of experience in each of the following): 24 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied"
+          },
+          {
+            "sentence": "Must also have one (1) year of experience in each of the following",
+            "section": "Must also have one (1) year of experience in each of the following",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 1,
+              "phrase": "one (1) year of"
+            },
+            "alternatives": false,
+            "scope": "scoped",
+            "scope_text": "of experience in each of the following",
+            "state": "scoped-duration-unknown",
+            "comparison": "scoped requirement (of experience in each of the following): 12 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied"
+          }
+        ],
+        "graduation": [],
+        "degree": [
+          {
+            "sentence": "Must have a Bachelor's Degree or foreign equivalent degree in Computer Science, or a related field, plus two (2) years of experience in Software Development.",
+            "section": "Minimum requirements",
+            "kind": "required",
+            "state": "field-or-equivalence-wording"
+          }
+        ],
+        "coop_acceptance_excerpts": [],
+        "coop_exclusion_excerpts": [],
+        "note": "Title words (senior/staff/principal) are never used by this check. General vs scoped classification and section kinds are documented heuristics."
+      },
+      "start_window": {
+        "state": "employer-timing-unstated",
+        "gate": "pass-unknown",
+        "why": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer",
+        "source": "model-judgment",
+        "statements": [],
+        "arithmetic": {
+          "available_from": "2027-02-01",
+          "captured_at": "2026-10-21T04:01:54.614Z",
+          "days_from_capture_to_availability": 103
+        },
+        "does_not_establish": [
+          "work authorization or EAD approval",
+          "legal eligibility to start",
+          "how long hiring will take"
+        ]
+      },
+      "stack": {
+        "state": "java-without-backend-infrastructure-terms",
+        "gate": "review",
+        "why": "JVM language in required lines, but no distributed-systems, messaging, or cloud-infrastructure terms",
+        "source": "model-judgment",
+        "groups": {
+          "java_jvm": {
+            "where": "required",
+            "terms": [
+              "java",
+              "scala"
+            ],
+            "excerpts": [
+              {
+                "section": "Must also have two (2) years of experience in each of the following",
+                "kind": "required",
+                "text": "Java, Ruby, Scala, or Python; and"
+              }
+            ],
+            "negated": []
+          },
+          "spring": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "distributed_systems": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "messaging": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "cloud_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "applied_ai_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          }
+        },
+        "other_language_required": [],
+        "note": "Evidence locations, not a match score. Applied-AI infrastructure is optional and never required for a pass."
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no refusal or citizenship requirement found (wording state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "review",
+          "reason": "\"two (2) years of\" is a scoped requirement — scoped requirement (of experience in each of the following): 24 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied"
+        },
+        {
+          "id": "G5",
+          "status": "pass-unknown",
+          "reason": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer"
+        },
+        {
+          "id": "G6",
+          "status": "review",
+          "reason": "JVM language in required lines, but no distributed-systems, messaging, or cloud-infrastructure terms"
+        },
+        {
+          "id": "G7",
+          "status": "stop",
+          "reason": "awaiting opening-level sponsorship evidence (silent)"
+        },
+        {
+          "id": "G8",
+          "status": "review",
+          "reason": "a person reads the report"
+        }
+      ],
+      "decision": "human-requirement-review",
+      "next_action": "human-requirement-review",
+      "decided_by": "G4",
+      "decision_reason": "\"two (2) years of\" is a scoped requirement — scoped requirement (of experience in each of the following): 24 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied",
+      "also_needed": [
+        "confirm the start date with the employer",
+        "opening-level sponsorship evidence"
+      ],
+      "other_open_gates": [
+        "G6 review",
+        "G7 stop"
+      ]
+    },
+    {
+      "obs_id": "stripe-8197135",
+      "synthetic": false,
+      "employer": "STRIPE INC",
+      "title": "Software Engineer, High Availability and Disaster Recovery",
+      "job_id": "8197135",
+      "url": "https://stripe.com/jobs/search?gh_jid=8197135",
+      "location": "Seattle, WA",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "text_sha256": "72c0894b4e5e4439d486e3c68e37541d1d36b60659e94a69c2f89ac9afd3d80c",
+      "company": {
+        "query": "Stripe",
+        "key": "stripe",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "STRIPE INC",
+            "approvals": 1250,
+            "denials": 22,
+            "approval_rate": 98.27044025157232
+          }
+        ],
+        "counts": {
+          "approvals": 1250,
+          "denials": 22,
+          "approval_rate": 98.27044025157232,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "listed-and-page-active-at-observation",
+        "gate": "pass",
+        "why": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")",
+        "feed": {
+          "present": true,
+          "observed_at": "2026-10-21T15:25:19.590Z",
+          "source": "record",
+          "evidence": "course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json",
+          "note": "fresh board fetch at evaluation time; posting text is from the 2026-10-21 00:01 capture"
+        },
+        "page": {
+          "state": "active",
+          "classifier": {
+            "result": "active",
+            "code": null,
+            "reason": null
+          },
+          "source": "record",
+          "observation": "recorded-observation",
+          "basis": "recorded observation of a real posting (2026-10-21 11:25:28 EDT); evidence: course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt",
+          "conflict_excerpts": [],
+          "conflict_check": "not applicable: no page text recorded"
+        },
+        "observations": [
+          {
+            "what": "listed in the employer board feed at capture",
+            "value": true,
+            "at": "2026-10-21T15:25:19.590Z",
+            "source": "record"
+          },
+          {
+            "what": "page HTTP status / title / length (probe)",
+            "value": "200 / \"Stripe Careers | Software Engineer, High Availability and Disaster Recovery\" / 5670 chars",
+            "at": "2026-10-21T15:26:07.804Z",
+            "source": "record"
+          },
+          {
+            "what": "maintained checker verdict (heuristic)",
+            "value": "active",
+            "at": "2026-10-21 11:25:28 EDT",
+            "source": "model-judgment"
+          }
+        ],
+        "source": "model-judgment",
+        "note": "interpretation of point-in-time observations"
+      },
+      "vacancy": {
+        "state": "silent",
+        "basis": "assignment-1 classifier",
+        "excerpts": [],
+        "eligibility": "none-stated",
+        "eligibility_excerpts": [],
+        "source": "model-judgment"
+      },
+      "experience": {
+        "state": "scoped-duration-unknown",
+        "gate": "review",
+        "why": "\"five (5) years of\" is a scoped requirement — scoped requirement (of post-bachelor’s progressive software development work exp): 60 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied",
+        "source": "model-judgment",
+        "candidate": {
+          "full_time_months": [
+            50,
+            54
+          ],
+          "coop_months": [
+            4,
+            6
+          ],
+          "coop_status_in_posting": "silent",
+          "coop_counted": false,
+          "precision": "month-only dates: each entry spans between (inclusive month count − 2) and the inclusive month count; overlaps counted once",
+          "source": "your-input"
+        },
+        "findings": [
+          {
+            "sentence": "Must have a Bachelor’s degree or foreign equivalent in Computer Science, or a related field, plus five (5) years of post-bachelor’s progressive software development work experience.",
+            "section": "Minimum requirements",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 5,
+              "phrase": "five (5) years of"
+            },
+            "alternatives": false,
+            "scope": "scoped",
+            "scope_text": "of post-bachelor’s progressive software development work experience.",
+            "state": "scoped-duration-unknown",
+            "comparison": "scoped requirement (of post-bachelor’s progressive software development work exp): 60 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied"
+          },
+          {
+            "sentence": "In the alternative, the employer is willing to accept a Master’s Degree or foreign equivalent degree in Computer Science, or a related field, plus three (3) years of software development work experience.",
+            "section": "Minimum requirements",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 3,
+              "phrase": "three (3) years of"
+            },
+            "alternatives": false,
+            "scope": "general",
+            "scope_text": "of software development work experience.",
+            "state": "meets",
+            "comparison": "full-time only: 50–54 months vs 36 required; with the co-op: 54–60 months (co-op wording in this posting: silent)"
+          },
+          {
+            "sentence": "Must also have three (3) years of experience in each of the following",
+            "section": "Must also have three (3) years of experience in each of the following",
+            "kind": "required",
+            "requirement": {
+              "kind": "min",
+              "min": 3,
+              "phrase": "three (3) years of"
+            },
+            "alternatives": false,
+            "scope": "scoped",
+            "scope_text": "of experience in each of the following",
+            "state": "scoped-duration-unknown",
+            "comparison": "scoped requirement (of experience in each of the following): 36 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied"
+          }
+        ],
+        "graduation": [],
+        "degree": [
+          {
+            "sentence": "Must have a Bachelor’s degree or foreign equivalent in Computer Science, or a related field, plus five (5) years of post-bachelor’s progressive software development work experience.",
+            "section": "Minimum requirements",
+            "kind": "required",
+            "state": "field-or-equivalence-wording"
+          },
+          {
+            "sentence": "In the alternative, the employer is willing to accept a Master’s Degree or foreign equivalent degree in Computer Science, or a related field, plus three (3) years of software development work experience.",
+            "section": "Minimum requirements",
+            "kind": "required",
+            "state": "field-or-equivalence-wording"
+          }
+        ],
+        "coop_acceptance_excerpts": [],
+        "coop_exclusion_excerpts": [],
+        "note": "Title words (senior/staff/principal) are never used by this check. General vs scoped classification and section kinds are documented heuristics."
+      },
+      "start_window": {
+        "state": "employer-timing-unstated",
+        "gate": "pass-unknown",
+        "why": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer",
+        "source": "model-judgment",
+        "statements": [],
+        "arithmetic": {
+          "available_from": "2027-02-01",
+          "captured_at": "2026-10-21T04:01:54.614Z",
+          "days_from_capture_to_availability": 103
+        },
+        "does_not_establish": [
+          "work authorization or EAD approval",
+          "legal eligibility to start",
+          "how long hiring will take"
+        ]
+      },
+      "stack": {
+        "state": "core-stack-evidenced",
+        "gate": "pass",
+        "why": "JVM language in required lines, plus backend-infrastructure terms",
+        "source": "model-judgment",
+        "groups": {
+          "java_jvm": {
+            "where": "required",
+            "terms": [
+              "java"
+            ],
+            "excerpts": [
+              {
+                "section": "Responsibilities",
+                "kind": "required",
+                "text": "Write code, scope, design, implement, and deploy solutions using multiple technologies, including: Ruby, Java, Mongo, Postgres, and other necessary tools as required."
+              },
+              {
+                "section": "Must also have three (3) years of experience in each of the following",
+                "kind": "required",
+                "text": "Go, Ruby, or Java programming languages;"
+              }
+            ],
+            "negated": []
+          },
+          "spring": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "distributed_systems": {
+            "where": "required",
+            "terms": [
+              "scalable",
+              "fault-tolerant",
+              "highly available",
+              "distributed production systems"
+            ],
+            "excerpts": [
+              {
+                "section": "Must also have three (3) years of experience in each of the following",
+                "kind": "required",
+                "text": "Cloud infrastructure services, including: S3, EBS, EC2, and VPCs, to deploy scalable applications;"
+              },
+              {
+                "section": "Must also have three (3) years of experience in each of the following",
+                "kind": "required",
+                "text": "Designing fault-tolerant systems using data sharding and replication strategies."
+              },
+              {
+                "section": "Responsibilities",
+                "kind": "responsibilities",
+                "text": "Develop global architecture by combining less-available components and data centers into a highly available and resilient whole."
+              }
+            ],
+            "negated": []
+          },
+          "messaging": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "cloud_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          },
+          "applied_ai_infra": {
+            "where": "not-mentioned",
+            "terms": [],
+            "excerpts": [],
+            "negated": []
+          }
+        },
+        "other_language_required": [],
+        "note": "Evidence locations, not a match score. Applied-AI infrastructure is optional and never required for a pass."
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "page active and listed in the employer feed at the observation times (point-in-time, not \"open now\")"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no refusal or citizenship requirement found (wording state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "review",
+          "reason": "\"five (5) years of\" is a scoped requirement — scoped requirement (of post-bachelor’s progressive software development work exp): 60 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied"
+        },
+        {
+          "id": "G5",
+          "status": "pass-unknown",
+          "reason": "the rules found no start-timing statement in the captured text; unknown — confirm with the employer"
+        },
+        {
+          "id": "G6",
+          "status": "pass",
+          "reason": "JVM language in required lines, plus backend-infrastructure terms"
+        },
+        {
+          "id": "G7",
+          "status": "stop",
+          "reason": "awaiting opening-level sponsorship evidence (silent)"
+        },
+        {
+          "id": "G8",
+          "status": "review",
+          "reason": "a person reads the report"
+        }
+      ],
+      "decision": "human-requirement-review",
+      "next_action": "human-requirement-review",
+      "decided_by": "G4",
+      "decision_reason": "\"five (5) years of\" is a scoped requirement — scoped requirement (of post-bachelor’s progressive software development work exp): 60 months required; total recorded experience (up to 60 months) does not establish time spent on this specific skill/area, and no scoped input was supplied",
+      "also_needed": [
+        "confirm the start date with the employer",
+        "opening-level sponsorship evidence"
+      ],
+      "other_open_gates": [
+        "G7 stop"
+      ]
+    }
+  ],
+  "summary": {
+    "n": 6,
+    "counts": {
+      "human-requirement-review": 4,
+      "human-liveness-review": 2
+    },
+    "synthetic": 0,
+    "skip_fraction": "0/6 (this sample only; not a general rate)",
+    "experience_groups": {
+      "definition": "experience (G4) groups, disjoint. \"satisfied\" = every stated required minimum explicitly met; \"unknown\" = no requirement detected (not a match). Liveness, sponsorship, and timing uncertainty are counted inside each group.",
+      "satisfied_with_core_stack": {
+        "n": 0,
+        "obs_ids": [],
+        "liveness_not_clear": 0,
+        "sponsorship_unresolved": 0,
+        "timing_unresolved": 0
+      },
+      "unknown_with_core_stack": {
+        "n": 1,
+        "obs_ids": [
+          "pinterest-7494668"
+        ],
+        "liveness_not_clear": 1,
+        "sponsorship_unresolved": 1,
+        "timing_unresolved": 1
+      },
+      "awaiting_review": {
+        "n": 3,
+        "obs_ids": [
+          "databricks-8552484002",
+          "stripe-8198207",
+          "stripe-8197135"
+        ],
+        "liveness_not_clear": 0,
+        "sponsorship_unresolved": 3,
+        "timing_unresolved": 3
+      },
+      "documented_mismatch": {
+        "n": 1,
+        "obs_ids": [
+          "pinterest-8011573"
+        ],
+        "liveness_not_clear": 1,
+        "sponsorship_unresolved": 1,
+        "timing_unresolved": 1
+      },
+      "other_not_core_stack": {
+        "n": 1,
+        "obs_ids": [
+          "databricks-8798198002"
+        ],
+        "liveness_not_clear": 0,
+        "sponsorship_unresolved": 1,
+        "timing_unresolved": 1
+      }
+    },
+    "start_window_states": {
+      "employer-timing-unstated": 6
+    },
+    "vacancy_states": {
+      "silent": 6
+    },
+    "experience_states": {
+      "only-preferred-years-not-met": 1,
+      "requirement-section-unclear": 1,
+      "experience-requirement-unstated": 1,
+      "documented-mismatch": 1,
+      "scoped-duration-unknown": 2
+    },
+    "detection_scope": "All counts describe what the rules detected in the captured posting body. A missing rule hit is not proof that no relevant wording exists; application-form questions were not inspected."
+  }
+}

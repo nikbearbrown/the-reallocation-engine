@@ -1,0 +1,15 @@
+## started: 2026-10-03 17:05:33 EDT
+## purpose: identify ONE public posting URL + host for Aditya to review before the baseline liveness check. Read-only GET; only id/title/location/updated_at/absolute_url kept.
+$ curl -sS https://boards-api.greenhouse.io/v1/boards/databricks/jobs | node <filter: US-located titles matching engineer, excluding manager/director/lead/principal/staff/sr/senior; first 8>
+http=200 total_jobs=886
+matches=11
+8546367002 | AI Engineer – Forward Deployed Engineering (AI FDE) | United States | 2026-09-30T06:27:03-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8546367002
+8760167002 | AI Engineer – Forward Deployed Engineering (AI FDE), U.S. Public Sector (Federal Focus) | Maryland; Virginia; Washington, D.C. | 2026-09-30T06:29:03-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8760167002
+8611108002 | Forward Deployed Engineer (FDE) - Public Sector | United States | 2026-09-21T13:22:12-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8611108002
+7293607002 | Head of Corporate Engineering | San Francisco, California | 2026-09-21T13:22:12-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=7293607002
+8643542002 | Partner Engineer: Partner Intelligence, AI & Apps | San Francisco, California | 2026-09-21T13:22:12-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8643542002
+8732364002 | Software Engineering Intern (2027 Start) - Winter | Bellevue, Washington; Mountain View, California; San Francisco, California | 2026-09-23T16:16:09-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8732364002
+8635225002 | Software Engineer, Web Products | Mountain View, California | 2026-09-21T13:22:12-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002
+8560779002 | Software Engineer, Web Products | Mountain View, California | 2026-09-21T13:22:12-04:00 | https://databricks.com/company/careers/open-positions/job?gh_jid=8560779002
+[exit=0]
+## finished: 2026-10-03 17:05:33 EDT

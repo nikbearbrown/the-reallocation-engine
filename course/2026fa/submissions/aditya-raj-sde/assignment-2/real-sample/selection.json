@@ -1,0 +1,287 @@
+{
+  "run": {
+    "protocol": "course/2026fa/submissions/aditya-raj-sde/assignment-2/SAMPLE-PROTOCOL.md",
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/collect.mjs --private-dir private/a2 --public-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample",
+    "started_at": "2026-10-21T04:01:47.683Z",
+    "finished_at": "2026-10-21T04:01:55.201Z",
+    "csv_path": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "employers_ranked": 1545,
+    "probes": 17,
+    "boards_verified": 3,
+    "boards_qualifying": 3,
+    "postings_selected": 12,
+    "stop_reason": "3 qualifying boards"
+  },
+  "boards": [
+    {
+      "rank": 12,
+      "company_name": "DATABRICKS INC",
+      "slug": "databricks",
+      "board_name": "Databricks",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "raw_file": "private/a2/capture/databricks/raw-2026-10-21T04-01-51.json",
+      "raw_sha256": "f6f2dbf1a1bea0d3f89a49abd769cc04976f3085ee1c183a10c06af2f5c8cac6",
+      "tally": {
+        "total": 900,
+        "title-not-in-scope": 730,
+        "title-excluded": 1,
+        "not-us-location": 78,
+        "no-java-mention": 60,
+        "in-cohort": 31,
+        "duplicates": 2,
+        "unique_cohort": 29
+      },
+      "duplicates": [
+        {
+          "id": "5646855002",
+          "title": "Staff Software Engineer - Distributed Data Systems",
+          "location": "San Francisco, California",
+          "duplicate_of": "6544364002",
+          "rule": "same title + same description hash"
+        },
+        {
+          "id": "4799387002",
+          "title": "Senior Software Engineer - Backend",
+          "location": "San Francisco, California",
+          "duplicate_of": "6544435002",
+          "rule": "same title + same description hash"
+        }
+      ],
+      "qualifies": true,
+      "outcome": "qualifies",
+      "selected_ids": [
+        "8864368002",
+        "8815669002",
+        "8806934002",
+        "8798217002"
+      ]
+    },
+    {
+      "rank": 15,
+      "company_name": "PINTEREST INC",
+      "slug": "pinterest",
+      "board_name": "Pinterest",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "raw_file": "private/a2/capture/pinterest/raw-2026-10-21T04-01-53.json",
+      "raw_sha256": "90e5d629ab3f100b3117ce4d8dbffce1ac36461359b3f5cbd84579dd225eb7d2",
+      "tally": {
+        "total": 158,
+        "title-not-in-scope": 132,
+        "title-excluded": 2,
+        "not-us-location": 0,
+        "no-java-mention": 17,
+        "in-cohort": 7,
+        "duplicates": 0,
+        "unique_cohort": 7
+      },
+      "duplicates": [],
+      "qualifies": true,
+      "outcome": "qualifies",
+      "selected_ids": [
+        "8046860",
+        "7683977",
+        "8055266",
+        "7683981"
+      ]
+    },
+    {
+      "rank": 17,
+      "company_name": "STRIPE INC",
+      "slug": "stripe",
+      "board_name": "Stripe",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "raw_file": "private/a2/capture/stripe/raw-2026-10-21T04-01-54.json",
+      "raw_sha256": "48792a7e13580068a5cba768537c3c08635b3f0f3838e7ebcbbeb0989f72513e",
+      "tally": {
+        "total": 731,
+        "title-not-in-scope": 644,
+        "title-excluded": 17,
+        "not-us-location": 45,
+        "no-java-mention": 12,
+        "in-cohort": 13,
+        "duplicates": 0,
+        "unique_cohort": 13
+      },
+      "duplicates": [],
+      "qualifies": true,
+      "outcome": "qualifies",
+      "selected_ids": [
+        "8249901",
+        "8142952",
+        "8230952",
+        "8198280"
+      ]
+    }
+  ],
+  "selected": [
+    {
+      "employer": "DATABRICKS INC",
+      "board_name": "Databricks",
+      "board_slug": "databricks",
+      "job_id": "8864368002",
+      "title": "Senior Software Engineer — Backend (Files Team)",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8864368002",
+      "first_published": "2026-10-02T14:59:02-04:00",
+      "updated_at": "2026-10-02T15:59:16-04:00",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "present_in_board_api": true,
+      "text_sha256": "b53a01507a9bbf8fc59ad03f95cf16584db7e1eeb0c051eabe39ff2261f78c92"
+    },
+    {
+      "employer": "DATABRICKS INC",
+      "board_name": "Databricks",
+      "board_slug": "databricks",
+      "job_id": "8815669002",
+      "title": "Sr. Software Engineer - Ingestion Core team",
+      "location": "San Francisco, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8815669002",
+      "first_published": "2026-09-16T18:49:03-04:00",
+      "updated_at": "2026-09-21T13:22:12-04:00",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "present_in_board_api": true,
+      "text_sha256": "349a7838d948522752362a1fd689e388ed007e4d35e1ec8bb8ffe62819f50426"
+    },
+    {
+      "employer": "DATABRICKS INC",
+      "board_name": "Databricks",
+      "board_slug": "databricks",
+      "job_id": "8806934002",
+      "title": "Senior Software Engineer, Compute Infrastructure",
+      "location": "Mountain View, California",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8806934002",
+      "first_published": "2026-09-14T16:06:54-04:00",
+      "updated_at": "2026-10-06T07:04:37-04:00",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "present_in_board_api": true,
+      "text_sha256": "2222150e81a30f9a66cdb84754554b5bdd7c402adbfb731621da918d56f0ed97"
+    },
+    {
+      "employer": "DATABRICKS INC",
+      "board_name": "Databricks",
+      "board_slug": "databricks",
+      "job_id": "8798217002",
+      "title": "Staff Systems Development Engineer (GovOps)",
+      "location": "McLean, Virginia",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8798217002",
+      "first_published": "2026-09-10T22:20:17-04:00",
+      "updated_at": "2026-10-07T23:58:33-04:00",
+      "captured_at": "2026-10-21T04:01:51.664Z",
+      "present_in_board_api": true,
+      "text_sha256": "22667110a8c03300fff5ba8da78ce4357e68bcff2f46a02ff8c2c832c210c01b"
+    },
+    {
+      "employer": "PINTEREST INC",
+      "board_name": "Pinterest",
+      "board_slug": "pinterest",
+      "job_id": "8046860",
+      "title": "Sr. Staff Software Engineer, Product ML Infrastructure",
+      "location": "Palo Alto, CA, US; San Francisco, CA, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8046860",
+      "first_published": "2026-09-30T15:41:55-04:00",
+      "updated_at": "2026-10-06T12:32:43-04:00",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "present_in_board_api": true,
+      "text_sha256": "017b480f7eb253e2d6ea3a44165deb61e28473d5c33bf31222dd6c1bb75c435a"
+    },
+    {
+      "employer": "PINTEREST INC",
+      "board_name": "Pinterest",
+      "board_slug": "pinterest",
+      "job_id": "7683977",
+      "title": "Principal Engineer, AI Platform",
+      "location": "San Francisco, CA, US; Remote, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683977",
+      "first_published": "2026-09-22T14:14:17-04:00",
+      "updated_at": "2026-10-02T10:24:56-04:00",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "present_in_board_api": true,
+      "text_sha256": "481aa8df33eee7f842c230308a8c677e60f59d5f618ee289c300ab9252af356b"
+    },
+    {
+      "employer": "PINTEREST INC",
+      "board_name": "Pinterest",
+      "board_slug": "pinterest",
+      "job_id": "8055266",
+      "title": "Staff Software Engineer, Ads & Core Serving Platform",
+      "location": "Palo Alto, CA, US; San Francisco, CA, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=8055266",
+      "first_published": "2026-09-09T16:59:25-04:00",
+      "updated_at": "2026-10-05T13:02:45-04:00",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "present_in_board_api": true,
+      "text_sha256": "2137738a80866fae39315b30518b8c8153d78d3f47b628792fb28b300aa297ac"
+    },
+    {
+      "employer": "PINTEREST INC",
+      "board_name": "Pinterest",
+      "board_slug": "pinterest",
+      "job_id": "7683981",
+      "title": "Principal Engineer, Big Data Platform",
+      "location": "San Francisco, CA, US; Remote, US",
+      "url": "https://www.pinterestcareers.com/jobs/?gh_jid=7683981",
+      "first_published": "2026-09-02T12:50:22-04:00",
+      "updated_at": "2026-10-02T10:24:56-04:00",
+      "captured_at": "2026-10-21T04:01:53.537Z",
+      "present_in_board_api": true,
+      "text_sha256": "2b863d9470fd8cf90c89f7b9771e60cb3c8b532ee5bb067760cf3043557ef416"
+    },
+    {
+      "employer": "STRIPE INC",
+      "board_name": "Stripe",
+      "board_slug": "stripe",
+      "job_id": "8249901",
+      "title": "Software Engineer",
+      "location": "Seattle, WA",
+      "url": "https://stripe.com/jobs/search?gh_jid=8249901",
+      "first_published": "2026-10-02T14:52:10-04:00",
+      "updated_at": "2026-10-20T17:27:23-04:00",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "present_in_board_api": true,
+      "text_sha256": "fb3cdee4d665839508e30bfb0db9b49969aed0854c5ca56623c3abe870cf6d49"
+    },
+    {
+      "employer": "STRIPE INC",
+      "board_name": "Stripe",
+      "board_slug": "stripe",
+      "job_id": "8142952",
+      "title": "Staff Software Engineer, Link - Consumer Identity ",
+      "location": "San Francisco, Seattle, New York",
+      "url": "https://stripe.com/jobs/search?gh_jid=8142952",
+      "first_published": "2026-09-25T14:11:53-04:00",
+      "updated_at": "2026-10-20T18:14:46-04:00",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "present_in_board_api": true,
+      "text_sha256": "d394ffd19f8020f3756c639dd9899979e77492fa64128548082eb651ffe9cc50"
+    },
+    {
+      "employer": "STRIPE INC",
+      "board_name": "Stripe",
+      "board_slug": "stripe",
+      "job_id": "8230952",
+      "title": "Senior Software Engineer, Backend",
+      "location": "Seattle, WA",
+      "url": "https://stripe.com/jobs/search?gh_jid=8230952",
+      "first_published": "2026-09-24T12:53:45-04:00",
+      "updated_at": "2026-10-20T17:27:22-04:00",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "present_in_board_api": true,
+      "text_sha256": "e42a7009741503aeb607b8393dfe158e225874d900bd7494cc9590cb36634ac1"
+    },
+    {
+      "employer": "STRIPE INC",
+      "board_name": "Stripe",
+      "board_slug": "stripe",
+      "job_id": "8198280",
+      "title": "Software Engineer, Backend",
+      "location": "Seattle, WA",
+      "url": "https://stripe.com/jobs/search?gh_jid=8198280",
+      "first_published": "2026-09-14T18:11:13-04:00",
+      "updated_at": "2026-10-20T17:27:21-04:00",
+      "captured_at": "2026-10-21T04:01:54.614Z",
+      "present_in_board_api": true,
+      "text_sha256": "ce6c630c6d535b93f30fc0875ce5faef74c9280f44618dcda0d7ab655082ac0c"
+    }
+  ]
+}

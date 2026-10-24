@@ -1,0 +1,14 @@
+## started: 2026-10-21 13:32:50 EDT — Claude's live-page cross-check at submission time (read-only; no bypass). EXECUTED BY CLAUDE.
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/excerpt-check.mjs 'https://stripe.com/jobs/search?gh_jid=8230952' '5 years of experience programming in Java, Scala, or Python;' 'plus five (5) years of related work experience in Software Engineering.'
+{
+ "observed_at": "2026-10-21T17:32:51.214Z",
+ "status": 200,
+ "final_url": "https://stripe.com/careers/listing/senior-software-engineer-backend/8230952?gh_jid=8230952",
+ "title": "Stripe Careers | Senior Software Engineer, Backend",
+ "body_chars": 6376,
+ "found": {
+  "5 years of experience programming in Java, Scala, or Python;": true,
+  "plus five (5) years of related work experience in Software Engineering.": true
+ }
+}
+[exit=0]

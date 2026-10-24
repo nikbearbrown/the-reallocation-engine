@@ -1,0 +1,9 @@
+## started: 2026-10-21 11:28:31 EDT — v0.4.1 regression tests (from holdout disagreements) run on FROZEN v0.4.0 code first
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/regression-v04.test.mjs
+not ok 19 - eligibility wording rendered as a heading line is still read (export control → a person)
+not ok 20 - "What we look for" is a requirements heading
+not ok 21 - an "In the alternative" branch in the next sentence makes both statements alternatives
+# tests 21
+# pass 18
+# fail 3
+[exit=1]

@@ -1,0 +1,33 @@
+## started: 2026-10-03 19:03:56 EDT
+## FIRST execution of the F1a and F2(a) hypotheses. Predictions were committed earlier (bc9cc4a, 684e5b1, d0c023d).
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/hypothesis-probe.mjs
+F1a — maintained scorer (CHANGE-BRIEF §9, U1.2)
+  $ node scripts/score/role-scorer.mjs <tmp>/roles.json --out-dir <tmp>
+  | ✓ scored 3 roles → Apply 1 · Consider 2 · Skip 0 (skip 0%)
+  |   ../../../..<tmp>/role-scores.json  +  ../../../..<tmp>/role-scores.md
+  role          predicted (composite, label)   observed (composite, label)   result
+  f1-fit-0.7    0.21   Consider               0.21   Consider              MATCHES
+      scorer reason: composite 0.210 in the Consider band [0.2, 0.3)
+  f1-fit-0.9    0.27   Consider               0.27   Consider              MATCHES
+      scorer reason: composite 0.270 in the Consider band [0.2, 0.3)
+  f1-fit-1.0    0.3    Apply                  0.3    Apply                 MATCHES
+      scorer reason: composite 0.300 ≥ 0.3, gates healthy
+
+F2(a) — maintained classifyLiveness (CHANGE-BRIEF U1.3)
+  id    bodyText  applyControls        predicted                        observed                         result
+  F2-0  474       ["Apply for this job"] active/apply_control_visible     active/apply_control_visible     MATCHES
+      classifier reason: visible apply control detected
+  F2-1  525       []                   expired/expired_body             expired/expired_body             MATCHES
+      classifier reason: pattern matched: no longer accepting applications
+  F2-2  527       ["Apply"]            active/apply_control_visible     active/apply_control_visible     MATCHES
+      classifier reason: visible apply control detected
+  F2-3  527       []                   uncertain/no_apply_control       uncertain/no_apply_control       MATCHES
+      classifier reason: content present but no visible apply control found
+  F2-4  52        []                   expired/insufficient_content     expired/insufficient_content     MATCHES
+      classifier reason: insufficient content — likely nav/footer only
+  F2-5  497       ["Apply for this job"] active/apply_control_visible     active/apply_control_visible     MATCHES
+      classifier reason: visible apply control detected
+
+Summary: 0 prediction(s) differ from observed behavior. A difference is recorded, not fixed.
+[exit=0]
+## finished: 2026-10-03 19:03:56 EDT

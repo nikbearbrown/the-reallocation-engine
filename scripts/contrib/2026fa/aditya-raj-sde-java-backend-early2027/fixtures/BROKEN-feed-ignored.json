@@ -1,0 +1,7 @@
+{
+  "_comment": "Deliberate break (mutant). Drops the employer-feed observation so liveness reverts to the page check alone (Assignment 1's behaviour). Applied only inside a temporary worktree by break-test.mjs.",
+  "file": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs",
+  "find": "  const feed = o.feed.present;",
+  "replace": "  const feed = null;",
+  "protects": "the G2 feed-vs-page disagreement rule (a blocked page is not a closed posting)"
+}

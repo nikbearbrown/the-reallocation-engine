@@ -1,0 +1,9 @@
+## captured: 2026-10-03 17:04:07 EDT — unexpected change outside the namespace, caused by 'npm install' (evidence 02). NOT staged.
+$ git diff --stat package-lock.json
+ package-lock.json | 36 ------------------------------------
+ 1 file changed, 36 deletions(-)
+$ git diff package-lock.json | grep -c "^-.*\"libc\""
+12
+$ git diff package-lock.json | grep -E "^[+-][^+-]" | grep -v -E "libc|glibc|musl|^-\s*\],?$" | wc -l   (changed lines other than libc fields)
+       0
+[exit=0]

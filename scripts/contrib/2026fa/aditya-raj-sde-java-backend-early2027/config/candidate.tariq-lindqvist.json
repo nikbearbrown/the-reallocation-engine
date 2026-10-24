@@ -1,0 +1,7 @@
+{
+  "_comment": "FICTIONAL candidate configuration for public runs. available_from is a candidate-supplied availability date (your-input), not an approval or an authorization status.",
+  "persona_ref": "search/examples/tariq-lindqvist/profile.yml",
+  "resume": "search/examples/tariq-lindqvist/resume.example.json",
+  "available_from": "2027-02-01",
+  "available_from_source": "your-input"
+}

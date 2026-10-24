@@ -1,0 +1,16 @@
+## started: 2026-10-21 00:24:45 EDT — fresh local clone of the branch at 644d279; no npm install, no private/ data
+$ ls node_modules private/a2 2>&1 | head -2
+ls: node_modules: No such file or directory
+ls: private/a2: No such file or directory
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.test.mjs
+# tests 45
+# pass 45
+# fail 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/observations.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir $TMPDIR/clean-replay
+✓ 12 openings (replay-of-captured-excerpts) → skip-application 5 · human-requirement-review 1 · human-eligibility-review 1 · human-liveness-review 4 · seek-vacancy-sponsorship-evidence 1
+  hypothesis tally: 3 experience+stack-relevant, 3 of them with unresolved sponsorship/timing
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3/triage.json $TMPDIR/clean-replay/triage.json
+compared 12 openings · differences 0
+[exit=0]

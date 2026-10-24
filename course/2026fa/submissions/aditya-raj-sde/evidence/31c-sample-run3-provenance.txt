@@ -1,0 +1,13 @@
+## started: 2026-10-03 19:32:33 EDT
+## sample run 3, after the synthetic-liveness provenance fix (recipe v0.3.0). Run 2's output with the old labels is preserved in evidence 31b; runs/sample/ is overwritten.
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/sample
+✓ 9 openings → seek-vacancy-sponsorship-evidence 6 · skip-application 2 · review-offer-excerpt 1
+  skip fraction 2/9 (sample of 9; not a general rate); timing verified for 0; scenario (hypothetical) scores: 2
+  course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.json  +  course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.md
+[exit=0]
+$ grep -c "\[record; " runs/sample/reality-check.md   (rows whose liveness is labeled record)
+1
+$ grep -o "\[[a-z-]*; [a-z-]*\]" runs/sample/reality-check.md | sort | uniq -c
+   1 [record; recorded-observation]
+   8 [your-input; synthetic-derived]
+## finished: 2026-10-03 19:32:33 EDT

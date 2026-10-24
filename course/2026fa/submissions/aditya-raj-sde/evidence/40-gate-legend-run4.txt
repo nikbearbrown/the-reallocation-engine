@@ -1,0 +1,51 @@
+## started: 2026-10-03 21:03:50 EDT
+## after Aditya's step-4 review: gate legend added (presentation only; recipe v0.4.0). Claude-executed. Sample run 3 is preserved in evidence 31c; runs/sample/ is overwritten by run 4.
+
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+ok 2 - maintained scorer is reused through its CLI, not copied
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+ok 5 - G1: missing evidence fields are named, not defaulted
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+ok 8 - F2(b) F2-0: open posting passes G2
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+# tests 18
+# pass 18
+# fail 0
+[exit=0]
+
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/sample
+✓ 9 openings → seek-vacancy-sponsorship-evidence 6 · skip-application 2 · review-offer-excerpt 1
+  skip fraction 2/9 (sample of 9; not a general rate); timing verified for 0; scenario (hypothetical) scores: 2
+  course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.json  +  course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.md
+[exit=0]
+
+$ sed -n '/^## Gate legend/,/^## Decisions/p' course/2026fa/submissions/aditya-raj-sde/runs/sample/reality-check.md
+## Gate legend
+
+- **G1** Input: "pass" = the input file passed validation.
+- **G2** Liveness: "pass" = the posting looked open at the time of the snapshot or observation; "stop" = closed (skip) or uncertain/conflicting (a person checks).
+- **G3** Vacancy refusal: "pass" = no clear refusal found in the supplied posting text (not a promise of sponsorship); "stop" = an explicit refusal (skip this application).
+- **G4** Timing: "pass" means only that an explicit SAMPLE timing assumption was supplied and satisfied the sample rule; actual start-date compatibility (January 2027) was NOT verified for any opening. "stop" = no timing input.
+- **G5** Sponsorship evidence for this opening: "pass" = apparent offer wording for a person to review (not a guarantee); "stop" = awaiting vacancy-level sponsorship evidence.
+- **G6** Final review: always a person; nothing is applied to automatically.
+
+## Decisions (actionable)
+[exit=0]
+
+$ node scripts/conformance.mjs scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/ recipes/cases/2026fa/ course/2026fa/submissions/aditya-raj-sde/
+conformance: 33 files (17 md · 13 json · 3 js)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+## finished: 2026-10-03 21:03:51 EDT

@@ -1,0 +1,14 @@
+## started: 2026-10-21 16:17:59 EDT — pre-publication checks after promotion edits (Claude)
+✓ manifest check passed (3 warnings)
+[verify exit=0]
+conformance: 82 files (30 md · 11 js · 40 json · 1 yaml)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[conformance exit=0]
+  next: continue
+[doctor exit=0]
+pii-scan: clean ✓
+[pii history exit=0]
+recipe [TODO markers: 0 (todos_open: 0)
+protected paths: none
+outside allowlist: none
+Assignment 1 files changed: none

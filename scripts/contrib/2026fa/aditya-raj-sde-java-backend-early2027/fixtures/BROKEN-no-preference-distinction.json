@@ -1,0 +1,7 @@
+{
+  "_comment": "Deliberate break (mutant). Treats preferred/nice-to-have headings as requirements — the 'simple keyword rejection' failure. Applied only inside a temporary worktree by break-test.mjs.",
+  "file": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs",
+  "find": "  if (SEC_PREFERRED.test(heading)) return 'preferred';",
+  "replace": "  if (SEC_PREFERRED.test(heading)) return 'required';",
+  "protects": "the required-vs-preferred distinction in G4 (preferences never stop an opening)"
+}

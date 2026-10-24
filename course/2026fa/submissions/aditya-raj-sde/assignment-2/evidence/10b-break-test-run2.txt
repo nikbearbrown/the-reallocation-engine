@@ -1,0 +1,60 @@
+## started: 2026-10-21 00:16:57 EDT — break attempts, run 2 (worktrees moved under private/a2-break/ after the run-1 harness artifact), HEAD f3d2906
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/break-test.mjs
+
+=== BROKEN-feed-ignored.json — protects: the G2 feed-vs-page disagreement rule (a blocked page is not a closed posting)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs
+  - const feed = o.feed.present;
+  + const feed = null;
+suite on mutant: exit 1 · 42/45 pass · 3 failing → CAUGHT
+  not ok: synthetic S19: Backend Engineer (feed lists it, page blocked) → human-liveness-review
+  not ok: feed-vs-page disagreement goes to a person; Assignment 1's page-only rule alone would have skipped it (S19)
+  not ok: real sample replay (committed excerpts, offline) reproduces the recorded v0.3 decisions
+real-sample decisions changed by the mutant: 4/12
+  pinterest-8046860: human-liveness-review → skip-application
+  pinterest-7683977: human-liveness-review → skip-application
+  pinterest-8055266: human-liveness-review → skip-application
+  pinterest-7683981: human-liveness-review → skip-application
+
+=== BROKEN-no-preference-distinction.json — protects: the required-vs-preferred distinction in G4 (preferences never stop an opening)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs
+  - if (SEC_PREFERRED.test(heading)) return 'preferred';
+  + if (SEC_PREFERRED.test(heading)) return 'required';
+suite on mutant: exit 1 · 43/45 pass · 2 failing → CAUGHT
+  not ok: synthetic S04: Backend Engineer → seek-vacancy-sponsorship-evidence
+  not ok: preference vs requirement: the same 7+ years is a stop when required and never a stop when preferred
+real-sample decisions changed by the mutant: 0/12
+
+=== BROKEN-stack-overrides-experience.json — protects: G4 documented-mismatch and eligibility stops (no score or strong match may override a hard stop)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs
+  - const a = ACTION[g.id]?.[g.status];
+  + const a = (g.id === 'G4' && stack.state === 'core-stack-evidenced') ? null : ACTION[g.id]?.[g.status];
+suite on mutant: exit 1 · 33/45 pass · 12 failing → CAUGHT
+  not ok: synthetic S02: Software Engineer → skip-application
+  not ok: synthetic S05: Backend Engineer → human-requirement-review
+  not ok: synthetic S06: Software Engineer II → human-requirement-review
+  not ok: synthetic S07: Software Engineer, Early-Career Program → skip-application
+  not ok: synthetic S08: Software Engineer (Graduate Program) → skip-application
+  not ok: synthetic S10: Backend Engineer → human-requirement-review
+  not ok: synthetic S11: Backend Engineer → skip-application
+  not ok: synthetic S29: Backend Engineer (offer wording, but 10+ years required) → skip-application
+  not ok: no later gate clears an earlier stop: offer wording + compatible start + core stack cannot undo an experience mismatch (S29)
+  not ok: title words never decide: swapping titles between a mismatch and a match changes nothing
+  not ok: preference vs requirement: the same 7+ years is a stop when required and never a stop when preferred
+  not ok: real sample replay (committed excerpts, offline) reproduces the recorded v0.3 decisions
+real-sample decisions changed by the mutant: 5/12
+  databricks-8864368002: skip-application → seek-vacancy-sponsorship-evidence
+  databricks-8806934002: skip-application → seek-vacancy-sponsorship-evidence
+  stripe-8142952: skip-application → seek-vacancy-sponsorship-evidence
+  stripe-8230952: skip-application → seek-vacancy-sponsorship-evidence
+  stripe-8198280: skip-application → seek-vacancy-sponsorship-evidence
+
+ALL MUTANTS CAUGHT (3 mutants)
+[exit=0]
+/Users/adityaraj/Desktop/the-reallocation-engine     1a618e7 [contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027]
+/Users/adityaraj/Desktop/the-reallocation-engine-a2  f3d2906 [contrib/2026fa-aditya-raj-sde-java-backend-early2027]
+
+## control: 2026-10-21 00:17:08 EDT — UNMUTATED HEAD in the same worktree location
+$ (in <private/a2-break/ctl-*>) node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.test.mjs
+# tests 45
+# pass 45
+# fail 0

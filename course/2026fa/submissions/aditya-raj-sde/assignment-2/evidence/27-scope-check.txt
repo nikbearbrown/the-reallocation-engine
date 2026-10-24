@@ -1,0 +1,26 @@
+## started: 2026-10-21 11:30:17 EDT — contribution-scope simulation (the contrib-gate.yml contrib-scope step's two greps, applied locally to git diff --name-only upstream/main...HEAD)
+changed paths vs upstream/main: 189
+$ protected-path grep (hard fail in CI)
+(none)
+$ outside-allowlist grep (warning in CI)
+(none)
+$ Assignment 2 paths under search/examples/
+search/examples/tariq-lindqvist/gaps.md
+search/examples/tariq-lindqvist/profile.yml
+search/examples/tariq-lindqvist/resume.example.json
+search/examples/tariq-lindqvist/test-variants/coop12.json
+search/examples/tariq-lindqvist/test-variants/overlap.json
+search/examples/tariq-lindqvist/test-variants/scoped.json
+$ git check-ignore on them (must be trackable)
+trackable search/examples/tariq-lindqvist/gaps.md
+trackable search/examples/tariq-lindqvist/profile.yml
+trackable search/examples/tariq-lindqvist/resume.example.json
+trackable search/examples/tariq-lindqvist/test-variants/coop12.json
+trackable search/examples/tariq-lindqvist/test-variants/overlap.json
+trackable search/examples/tariq-lindqvist/test-variants/scoped.json
+$ pii-scan SANCTIONED dirs (resume/profile-shaped files are only accepted there): /^search\/examples\//, /^resumes\//, /^merge-kit\//  (scripts/pii-scan.mjs:26)
+$ would relocating profile.yml / gaps.md into scripts/contrib/... be flagged? (RESUME_FILE pattern, scripts/pii-scan.mjs:45)
+scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/persona/profile.yml → flagged resume-shaped-file outside sanctioned dirs
+scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/persona/gaps.md → flagged resume-shaped-file outside sanctioned dirs
+$ Assignment 1 paths touched by Assignment 2 commits
+(none)

@@ -1,0 +1,10 @@
+## started: 2026-10-03 17:04:21 EDT
+$ npm run score -- data/examples/ch11-roles.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs
+
+> the-reallocation-engine@1.0.0 score
+> node scripts/score/role-scorer.mjs data/examples/ch11-roles.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs
+
+✓ scored 5 roles → Apply 2 · Consider 1 · Skip 2 (skip 40%)
+  course/2026fa/submissions/aditya-raj-sde/runs/role-scores.json  +  course/2026fa/submissions/aditya-raj-sde/runs/role-scores.md
+[exit=0]
+## finished: 2026-10-03 17:04:21 EDT

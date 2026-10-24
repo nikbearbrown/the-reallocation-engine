@@ -1,0 +1,15 @@
+## started: 2026-10-03 18:54:21 EDT
+## contribution-scoped scan after the evidence-contract commit; checked range: upstream/main..HEAD = 015843d..d0c023d
+$ git log --format="%h %ae" upstream/main..HEAD
+d0c023d 181499137+aditya-raj-sde@users.noreply.github.com
+5092c49 181499137+aditya-raj-sde@users.noreply.github.com
+684e5b1 181499137+aditya-raj-sde@users.noreply.github.com
+bc9cc4a 181499137+aditya-raj-sde@users.noreply.github.com
+f8f3df8 181499137+aditya-raj-sde@users.noreply.github.com
+c002f78 181499137+aditya-raj-sde@users.noreply.github.com
+$ node scripts/pii-scan.mjs --diff upstream/main
+pii-scan: clean ✓
+[exit=0]
+## email-shaped strings redacted in-stream: 0
+## the commit adding this file is covered by the next recorded scan
+## finished: 2026-10-03 18:54:22 EDT

@@ -1,0 +1,62 @@
+## started: 2026-10-03 17:49:01 EDT
+## question: what did upstream's real CI (workflow 'Contrib Gate', id 336568622) conclude for the doctor-and-pii job, on main and on pull requests? Unauthenticated public GitHub REST API, read-only.
+
+$ GET https://api.github.com/repos/nikbearbrown/the-reallocation-engine/actions/workflows/336568622/runs?per_page=15  -> run id | event | head_sha(8) | branch | created | conclusion
+unexpected: {
+    "documentation_url": "https://githubstatus.com",
+    "message": "Something went wrong. Please try again. If the problem persists, please contact us."
+  }
+  
+[exit=0]
+## finished listing: 2026-10-03 17:49:05 EDT
+
+## retry (Claude) after the transient API error above: 2026-10-03 17:49:13 EDT
+$ GET https://api.github.com/repos/nikbearbrown/the-reallocation-engine/actions/runs?per_page=30 (all workflows; filtered to name=='Contrib Gate')
+unexpected: Something went wrong. Please try again. If the problem persists, please contact us.
+[exit=0]
+
+## alternative endpoint (Claude): per-job check runs for upstream HEAD 015843d — 2026-10-03 17:49:24 EDT
+$ GET https://api.github.com/repos/nikbearbrown/the-reallocation-engine/commits/015843d5047dbadff05068495e4c5db5cd9945f4/check-runs?per_page=50  -> name | status | conclusion | completed_at | id
+http=200
+total_count=5
+contrib-scope | completed | skipped | 2026-09-23T20:03:12Z | 107358548267
+doctor-and-pii | completed | failure | 2026-09-23T20:03:31Z | 107358546522
+conformance | completed | success | 2026-09-23T20:03:34Z | 107358546342
+verify | completed | success | 2026-09-23T20:03:33Z | 107358546288
+harness-regression | completed | failure | 2026-09-23T20:03:25Z | 107358546085
+[exit=0]
+## note (Claude): the check-runs request above was issued at 17:49:24 and its background task completed before 17:53:07 EDT; exact completion time was not captured.
+
+## step-level detail for the two failed jobs — 2026-10-03 17:53:19 EDT
+$ GET https://api.github.com/repos/nikbearbrown/the-reallocation-engine/actions/jobs/107358546522  -> job name, head_sha, then step# | step name | conclusion
+http=200
+job=doctor-and-pii head_sha=015843d5 event-run=35913366020 conclusion=failure
+  1 | Set up job | success
+  2 | Run actions/checkout@v4 | success
+  3 | Run actions/setup-node@v4 | success
+  4 | Run npm install | success
+  5 | Doctor (tracked-PII hard fail, now enforced in CI) | success
+  6 | PII scan (working tree) | failure
+  7 | PII scan (full branch history vs merge-base) | skipped
+  13 | Post Run actions/setup-node@v4 | skipped
+  14 | Post Run actions/checkout@v4 | success
+  15 | Complete job | success
+[exit=0]
+$ GET https://api.github.com/repos/nikbearbrown/the-reallocation-engine/actions/jobs/107358546085  -> job name, head_sha, then step# | step name | conclusion
+http=200
+job=harness-regression head_sha=015843d5 event-run=35913366020 conclusion=failure
+  1 | Set up job | success
+  2 | Run actions/checkout@v4 | success
+  3 | Run actions/setup-node@v4 | success
+  4 | Run npm install | success
+  5 | Shukla scenario harness (fail-closed gates) | failure
+  6 | Fuzz invariants (seeded, deterministic) | skipped
+  7 | Tapkir harness + broken-scorer self-test | skipped
+  8 | Dhamija property suite (17 properties) | skipped
+  9 | Yuqing Huang gate harness | skipped
+  10 | Ma black-box harness (0 gating failures) | skipped
+  19 | Post Run actions/setup-node@v4 | skipped
+  20 | Post Run actions/checkout@v4 | success
+  21 | Complete job | success
+[exit=0]
+## finished: 2026-10-03 17:53:20 EDT

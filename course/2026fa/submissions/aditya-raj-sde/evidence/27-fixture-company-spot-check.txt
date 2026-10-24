@@ -1,0 +1,29 @@
+## started: 2026-10-03 18:53:35 EDT
+## purpose: confirm each company_query in the fixtures resolves as the fixtures expect, under the recipe's matching rule (casefold, non-alphanumerics -> space, drop trailing legal suffixes inc/llc/corp/corporation/co/ltd/lp/plc, exact equality, no fuzzy). Only company_name and the three count columns are printed; phone/executive columns are never read into output.
+## NOTE: this is an ad-hoc check written for this evidence file; it is NOT the prototype and is not reused by it.
+$ node -e <matching check over all fixture company_query values>
+f1-refusal-roles.json | f1b-fit-0.7 | query="Example Refusal Co" | state=no-employer-match | 
+f1-refusal-roles.json | f1b-fit-0.9 | query="Example Refusal Co" | state=no-employer-match | 
+f1-refusal-roles.json | f1b-fit-1.0 | query="Example Refusal Co" | state=no-employer-match | 
+f3-states.json | f3-no-match | query="Example Robotics" | state=no-employer-match expected=no-employer-match OK | 
+f3-states.json | f3-ambiguous | query="Axia Technologies" | state=ambiguous-employer expected=ambiguous-employer OK | AXIA TECHNOLOGIES INC[A=blank D=blank R=blank] ; AXIA TECHNOLOGIES LLC[A=2.0 D=0.0 R=100.00]
+f3-states.json | f3-ambiguous-pinned | query="Axia Technologies" pin="AXIA TECHNOLOGIES LLC" | state=matched-with-record expected=matched-with-record OK | AXIA TECHNOLOGIES LLC[A=2.0 D=0.0 R=100.00]
+f3-states.json | f3-blank | query="Snowflake Computing" | state=matched-blank-fields expected=matched-blank-fields OK | SNOWFLAKE COMPUTING INC[A=blank D=blank R=blank]
+f3-states.json | f3-zero | query="Uplift Labs" | state=matched-zero-approvals expected=matched-zero-approvals OK | UPLIFT LABS INC[A=0.0 D=4.0 R=0.00]
+f3-states.json | f3-record | query="Databricks" | state=matched-with-record expected=matched-with-record OK | DATABRICKS INC[A=1640.0 D=8.0 R=99.51]
+f3-states.json | f3-suffix-variant | query="Databricks, Inc." | state=matched-with-record expected=matched-with-record OK | DATABRICKS INC[A=1640.0 D=8.0 R=99.51]
+invalid-timeline-label.json | invalid-timeline-label | query="Example Timing Co" | state=no-employer-match | 
+sample-run.json | databricks-web-products-8635225002 | query="Databricks" | state=matched-with-record | DATABRICKS INC[A=1640.0 D=8.0 R=99.51]
+sample-run.json | axia-ambiguous-identity | query="Axia Technologies" | state=ambiguous-employer | AXIA TECHNOLOGIES INC[A=blank D=blank R=blank] ; AXIA TECHNOLOGIES LLC[A=2.0 D=0.0 R=100.00]
+sample-run.json | uplift-zero-approvals | query="Uplift Labs" | state=matched-zero-approvals | UPLIFT LABS INC[A=0.0 D=4.0 R=0.00]
+sample-run.json | snowflake-computing-blank-fields | query="Snowflake Computing" | state=matched-blank-fields | SNOWFLAKE COMPUTING INC[A=blank D=blank R=blank]
+sample-run.json | example-platform-labs-conditional | query="Example Platform Labs" | state=no-employer-match | 
+sample-run.json | example-robotics-refusal | query="Example Robotics" | state=no-employer-match | 
+sample-run.json | example-data-systems-offer-scenario | query="Example Data Systems" | state=no-employer-match | 
+sample-run.json | example-analytics-silent-scenario | query="Example Analytics" | state=no-employer-match | 
+sample-run.json | example-cloud-closed | query="Example Cloud" | state=no-employer-match | 
+timing-cases.json | timing-missing | query="Example Timing Co" | state=no-employer-match | 
+timing-cases.json | timing-sample | query="Example Timing Co" | state=no-employer-match | 
+substring check for fictional stem "example" in company_name: none
+[exit=0]
+## finished: 2026-10-03 18:53:35 EDT

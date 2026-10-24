@@ -1,0 +1,67 @@
+{
+  "_comment": "Expected interpretation of the 6 UNSEEN postings, written by Claude from the captured posting text and the mode's documented policy (recipe v0.4 rules), BEFORE `triage.mjs run` was executed on them. Claude-reviewed, NOT human-validated. Claude wrote both these expectations and the rules, so agreement is weaker evidence than an independent reviewer's would be.",
+  "rules_frozen_at": "49100364213f4f07ab2a602906fdd3e01dad12bf",
+  "reviewed_by": "Claude (claude-opus-5-5)",
+  "expected": {
+    "databricks-8798198002": {
+      "G2": "listed-and-page-active-at-observation", "G3_vacancy": "silent", "G3_eligibility": "clearance-or-export-control-wording",
+      "G4": { "state": "only-preferred-years-not-met", "gate": "pass" }, "G5": "employer-timing-unstated", "G6": "core-stack-evidenced",
+      "decision": "human-eligibility-review",
+      "basis": {
+        "G3": "“If access to export-controlled technology or source code is required for performance of job duties, it is within Employer's discretion whether to apply for a U.S. government license … and Employer may decline to proceed with an applicant on this basis alone.” — export-control wording → a person (policy), not a refusal.",
+        "G4": "“8+ years of experience working on related systems preferred” — explicitly preferred; no required years.",
+        "G6": "“Strong software engineering skills in Java, Scala, C++, Go, Python …” under “What we look for” (a qualifications list) + distributed-systems responsibilities.",
+        "note": "“What we look for” is not in the rules' heading vocabulary; by source meaning it is the qualifications section."
+      }
+    },
+    "databricks-8552484002": {
+      "G2": "listed-and-page-active-at-observation", "G3_vacancy": "silent", "G3_eligibility": "clearance-or-export-control-wording",
+      "G4": { "state": "coop-would-change-result", "gate": "review" }, "G5": "employer-timing-unstated", "G6": "core-stack-evidenced",
+      "decision": "human-eligibility-review",
+      "basis": {
+        "G3": "Same export-control sentence as 8798198002.",
+        "G4": "“5+ years of software engineering experience, including substantial time working on large‑scale distributed systems or infrastructure.” — a general minimum (with a scoped clause); full-time 50–54 months < 60; with the 6-month co-op up to 60; silent on co-ops → review (Aditya's E14 rule). A section-unclear review would also be acceptable at gate level.",
+        "G6": "“proficient in one or more systems programming languages (e.g., C++, Rust, Go, Java, Scala)” + distributed systems / Kubernetes in the qualifications."
+      }
+    },
+    "pinterest-7494668": {
+      "G2": "feed-page-disagree", "G3_vacancy": "silent", "G3_eligibility": "none-stated",
+      "G4": { "state": "experience-requirement-unstated", "gate": "pass-unknown" }, "G5": "employer-timing-unstated", "G6": "core-stack-evidenced",
+      "decision": "human-liveness-review",
+      "basis": {
+        "G2": "listed in the fresh feed; page check 'expired / insufficient content'; probe HTTP 403 'Just a moment...' 272 chars — a blocked page, not closure.",
+        "G4": "No years stated anywhere in the posting.",
+        "G6": "“Proficiency in software development languages such as Java, Python and C++” (What we’re looking for) + Kubernetes, AWS, distributed applications."
+      }
+    },
+    "pinterest-8011573": {
+      "G2": "feed-page-disagree", "G3_vacancy": "silent", "G3_eligibility": "none-stated",
+      "G4": { "state": "documented-mismatch", "gate": "stop" }, "G5": "employer-timing-unstated", "G6": "core-stack-evidenced",
+      "decision": "human-liveness-review",
+      "basis": {
+        "G2": "Same blocked-page pattern (HTTP 403 challenge).",
+        "G4": "“10+ years of software engineering experience building and operating production systems …” — above everything the candidate has worked (≤ 60 months).",
+        "G6": "“Strong proficiency in Python and experience with at least one of: Java, Node.js, and/or Javascript” (required; Java is named) + distributed systems, event-driven, AWS."
+      }
+    },
+    "stripe-8198207": {
+      "G2": "listed-and-page-active-at-observation", "G3_vacancy": "silent", "G3_eligibility": "none-stated",
+      "G4": { "state": "scoped-duration-unknown", "gate": "review" }, "G5": "employer-timing-unstated", "G6": "java-without-backend-infrastructure-terms",
+      "decision": "human-requirement-review",
+      "basis": {
+        "G3": "“authorization and clearing flows with major global card networks” is CARD authorization, not work authorization.",
+        "G4": "“plus two (2) years of experience in Software Development” is general and met (50–54 ≥ 24), but “Must also have two (2) years of experience in each of the following … Java, Ruby, Scala, or Python …” and one (1) year in payments/ISO 8583/Cloud are scoped → unknown without scoped inputs.",
+        "G6": "Java is named in a required list, but by the rules' defined term groups there is no distributed-systems, messaging, or named cloud-infrastructure term (only “Cloud.” and API/REST). Rule-literal expectation; a person would likely call this backend work."
+      }
+    },
+    "stripe-8197135": {
+      "G2": "listed-and-page-active-at-observation", "G3_vacancy": "silent", "G3_eligibility": "none-stated",
+      "G4": { "state": "alternative-requirements", "gate": "review" }, "G5": "employer-timing-unstated", "G6": "core-stack-evidenced",
+      "decision": "human-requirement-review",
+      "basis": {
+        "G4": "“Bachelor’s … plus five (5) years of post-bachelor’s progressive software development work experience. In the alternative, the employer is willing to accept a Master’s Degree … plus three (3) years of software development work experience.” — two branches across two sentences: a person decides (the MS is expected 2027-01, not held at capture). Also scoped “three (3) years … in each of the following”.",
+        "G6": "“Go, Ruby, or Java programming languages” (required) + “Designing fault-tolerant systems using data sharding and replication”."
+      }
+    }
+  }
+}

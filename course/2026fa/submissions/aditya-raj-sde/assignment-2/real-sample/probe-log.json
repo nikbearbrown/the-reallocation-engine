@@ -1,0 +1,174 @@
+{
+  "run": {
+    "protocol": "course/2026fa/submissions/aditya-raj-sde/assignment-2/SAMPLE-PROTOCOL.md",
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/collect.mjs --private-dir private/a2 --public-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample",
+    "started_at": "2026-10-21T04:01:47.683Z",
+    "finished_at": "2026-10-21T04:01:55.201Z",
+    "csv_path": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "employers_ranked": 1545,
+    "probes": 17,
+    "boards_verified": 3,
+    "boards_qualifying": 3,
+    "postings_selected": 12,
+    "stop_reason": "3 qualifying boards"
+  },
+  "probes": [
+    {
+      "rank": 1,
+      "company_name": "INTEL CORP",
+      "total_approvals": 13318,
+      "slug": "intel",
+      "probed_at": "2026-10-21T04:01:47.683Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 2,
+      "company_name": "MICROSOFT CORP",
+      "total_approvals": 12226,
+      "slug": "microsoft",
+      "probed_at": "2026-10-21T04:01:48.176Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 3,
+      "company_name": "DELOITTE CONSULTING LLP",
+      "total_approvals": 8810,
+      "slug": "deloitteconsultingllp",
+      "probed_at": "2026-10-21T04:01:48.497Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 4,
+      "company_name": "LINKEDIN CORP",
+      "total_approvals": 4962,
+      "slug": "linkedin",
+      "probed_at": "2026-10-21T04:01:48.812Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 5,
+      "company_name": "UBER TECHNOLOGIES INC",
+      "total_approvals": 3984,
+      "slug": "ubertechnologies",
+      "probed_at": "2026-10-21T04:01:49.130Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 6,
+      "company_name": "VIRTUSA CORP",
+      "total_approvals": 3212,
+      "slug": "virtusa",
+      "probed_at": "2026-10-21T04:01:49.473Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 7,
+      "company_name": "SYNCHRON INC",
+      "total_approvals": 2684,
+      "slug": "synchron",
+      "probed_at": "2026-10-21T04:01:49.780Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 8,
+      "company_name": "ICON TECHNOLOGY INC",
+      "total_approvals": 2200,
+      "slug": "icontechnology",
+      "probed_at": "2026-10-21T04:01:50.079Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 9,
+      "company_name": "DELOITTE TAX LLP",
+      "total_approvals": 2176,
+      "slug": "deloittetaxllp",
+      "probed_at": "2026-10-21T04:01:50.392Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 10,
+      "company_name": "AMGEN INC",
+      "total_approvals": 1882,
+      "slug": "amgen",
+      "probed_at": "2026-10-21T04:01:50.704Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 11,
+      "company_name": "SNOWFLAKE INC",
+      "total_approvals": 1816,
+      "slug": "snowflake",
+      "probed_at": "2026-10-21T04:01:51.016Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 12,
+      "company_name": "DATABRICKS INC",
+      "total_approvals": 1640,
+      "slug": "databricks",
+      "probed_at": "2026-10-21T04:01:51.361Z",
+      "http": 200,
+      "board_name": "Databricks",
+      "outcome": "board-verified"
+    },
+    {
+      "rank": 13,
+      "company_name": "DELOITTE & TOUCHE LLP",
+      "total_approvals": 1514,
+      "slug": "deloittetouchellp",
+      "probed_at": "2026-10-21T04:01:52.637Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 14,
+      "company_name": "HUMAN INC",
+      "total_approvals": 1382,
+      "slug": "human",
+      "probed_at": "2026-10-21T04:01:52.933Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 15,
+      "company_name": "PINTEREST INC",
+      "total_approvals": 1364,
+      "slug": "pinterest",
+      "probed_at": "2026-10-21T04:01:53.236Z",
+      "http": 200,
+      "board_name": "Pinterest",
+      "outcome": "board-verified"
+    },
+    {
+      "rank": 16,
+      "company_name": "ZOOX INC",
+      "total_approvals": 1364,
+      "slug": "zoox",
+      "probed_at": "2026-10-21T04:01:53.975Z",
+      "http": 404,
+      "outcome": "no-board-at-guessed-slug"
+    },
+    {
+      "rank": 17,
+      "company_name": "STRIPE INC",
+      "total_approvals": 1250,
+      "slug": "stripe",
+      "probed_at": "2026-10-21T04:01:54.282Z",
+      "http": 200,
+      "board_name": "Stripe",
+      "outcome": "board-verified"
+    }
+  ]
+}

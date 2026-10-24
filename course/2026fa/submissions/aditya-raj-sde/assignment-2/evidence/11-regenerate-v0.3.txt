@@ -1,0 +1,26 @@
+## started: 2026-10-21 00:17:57 EDT — regenerate v0.3 outputs after a report-only fix (also_needed cleared for skipped openings); rules unchanged
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input private/a2/observations-full.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir private/a2/runs/live-full-v0.3
+✓ 12 openings (live-full-text (private)) → skip-application 5 · human-requirement-review 1 · human-eligibility-review 1 · human-liveness-review 4 · seek-vacancy-sponsorship-evidence 1
+  hypothesis tally: 3 experience+stack-relevant, 3 of them with unresolved sponsorship/timing
+  private/a2/runs/live-full-v0.3/triage.json  +  private/a2/runs/live-full-v0.3/triage.md
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/observations.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3
+✓ 12 openings (replay-of-captured-excerpts) → skip-application 5 · human-requirement-review 1 · human-eligibility-review 1 · human-liveness-review 4 · seek-vacancy-sponsorship-evidence 1
+  hypothesis tally: 3 experience+stack-relevant, 3 of them with unresolved sponsorship/timing
+  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3/triage.json  +  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3/triage.md
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/fixtures/synthetic-cases.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.3
+✓ 29 openings (synthetic) → skip-application 10 · seek-vacancy-sponsorship-evidence 7 · human-requirement-review 6 · human-start-window-review 3 · human-liveness-review 2 · review-offer-excerpt 1
+  hypothesis tally: 18 experience+stack-relevant, 18 of them with unresolved sponsorship/timing
+  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.3/triage.json  +  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.3/triage.md
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare /var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T//pre-fmt.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3/triage.json
+compared 12 openings · differences 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs compare private/a2/runs/live-full-v0.3/triage.json course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/real-replay-v0.3/triage.json
+compared 12 openings · differences 0
+[exit=0]
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.test.mjs
+# tests 45
+# pass 45
+# fail 0

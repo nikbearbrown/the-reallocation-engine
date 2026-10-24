@@ -1,0 +1,20 @@
+## started: 2026-10-03 19:33:21 EDT
+## Step 1 (source comparison): Claude-executed extraction with an INDEPENDENT parser (Python's csv module, not reality-check.mjs's parser). Fields shown: company_name, industry, the three count columns, top_job_titles_sponsored. Excluded on purpose: phone, website, address, zip, executive_officers, board_directors.
+$ python3 <independent extraction: rows whose company_name starts with DATABRICKS, with physical line numbers>
+source: data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv
+header columns: 20; matching rows: 1
+file line 7249 (data row 7248):
+  company_name: DATABRICKS INC
+  industry: Other Technology
+  Total Approvals: 1640.0
+  Total Denials: 8.0
+  Approval_Rate: 99.51456310679612
+  top_job_titles_sponsored: ['Software Engineer', 'Senior Software Engineer', 'Solutions Architect', 'Specialist Solutions Architect', 'Senior Solutions Engineer']
+report (runs/sample/reality-check.json, role databricks-web-products-8635225002):
+  state: matched-with-record; candidate: DATABRICKS INC
+  approvals: 1640; denials: 8; approval_rate: 99.51456310679612
+  vacancy state: not-captured; next_action: seek-vacancy-sponsorship-evidence
+[exit=0]
+$ grep -n "DATABRICKS INC" runs/sample/reality-check.md
+44:  - `DATABRICKS INC`: approvals 1640, denials 8, approval rate 99.51
+## finished: 2026-10-03 19:33:21 EDT

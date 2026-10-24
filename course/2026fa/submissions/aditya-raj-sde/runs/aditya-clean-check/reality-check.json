@@ -1,0 +1,763 @@
+{
+  "contract": "recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027.md",
+  "run": {
+    "command": "node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check",
+    "started_at": "2026-10-04T00:53:45.579Z",
+    "run_label": "Public sample for the fictional persona Aarav Patel (backend/platform roles). Not anyone's real search.",
+    "persona_ref": "search/examples/aarav-patel/profile.yml",
+    "input_file": "scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/fixtures/sample-run.json",
+    "csv_path": "data/80-days-to-stay/80-days-csv/mapped_student_employment_targets_v3.csv",
+    "csv_sha256": "eccdee2addf472b1639269f42eec693b083b7ce251347d5fd0b2856cfdae6270",
+    "out_dir": "course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check",
+    "scorer": {
+      "cli": "node scripts/score/role-scorer.mjs course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/roles.json --out-dir course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check",
+      "stdout": "✓ scored 2 roles → Apply 0 · Consider 2 · Skip 0 (skip 0%)\n  course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/role-scores.json  +  course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/role-scores.md\n"
+    }
+  },
+  "labels": {
+    "record": "from a data file, or a recorded observation of a real posting",
+    "model-judgment": "a rule applied to text",
+    "your-input": "a stated sample value or assumption, or anything derived from an invented (SYNTHETIC) test input"
+  },
+  "roles": [
+    {
+      "role_id": "databricks-web-products-8635225002",
+      "title": "Software Engineer, Web Products",
+      "synthetic": false,
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002",
+      "job_id": "8635225002",
+      "company": {
+        "query": "Databricks",
+        "key": "databricks",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-with-record",
+        "candidates": [
+          {
+            "company_name": "DATABRICKS INC",
+            "approvals": 1640,
+            "denials": 8,
+            "approval_rate": 99.51456310679612
+          }
+        ],
+        "counts": {
+          "approvals": 1640,
+          "denials": 8,
+          "approval_rate": 99.51456310679612,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "historical aggregate counts, unspecified time coverage; not evidence about this opening"
+      },
+      "liveness": {
+        "state": "active",
+        "classifier": {
+          "result": "active",
+          "code": null,
+          "reason": "check-liveness.mjs prints the result only; the reason code was not shown"
+        },
+        "source": "record",
+        "observation": "recorded-observation",
+        "basis": "recorded observation of a real posting (2026-10-03T17:48:07-04:00); evidence: course/2026fa/submissions/aditya-raj-sde/evidence/19-liveness-baseline-8635225002.txt",
+        "conflict_excerpts": [],
+        "conflict_check": "not applicable: no page text recorded"
+      },
+      "vacancy": {
+        "state": "not-captured",
+        "excerpts": [],
+        "source": "model-judgment",
+        "note": "no posting text was supplied about sponsorship"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (recorded observation)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: not-captured)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: not-captured)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (not-captured); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "axia-ambiguous-identity",
+      "title": "Backend Engineer (synthetic posting)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/axia/backend-engineer",
+      "job_id": "synthetic-axia-1",
+      "company": {
+        "query": "Axia Technologies",
+        "key": "axia technologies",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "ambiguous-employer",
+        "candidates": [
+          {
+            "company_name": "AXIA TECHNOLOGIES INC",
+            "approvals": null,
+            "denials": null,
+            "approval_rate": null
+          },
+          {
+            "company_name": "AXIA TECHNOLOGIES LLC",
+            "approvals": 2,
+            "denials": 0,
+            "approval_rate": 100
+          }
+        ],
+        "counts": null,
+        "note": "more than one plausible employer row; not merged — a human must pin employer_row_name"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "not-captured",
+        "excerpts": [],
+        "source": "model-judgment",
+        "note": "no posting text was supplied about sponsorship"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: not-captured)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: not-captured)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (not-captured); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "uplift-zero-approvals",
+      "title": "Platform Engineer (synthetic posting)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/uplift/platform-engineer",
+      "job_id": "synthetic-uplift-1",
+      "company": {
+        "query": "Uplift Labs",
+        "key": "uplift labs",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-zero-approvals",
+        "candidates": [
+          {
+            "company_name": "UPLIFT LABS INC",
+            "approvals": 0,
+            "denials": 4,
+            "approval_rate": 0
+          }
+        ],
+        "counts": {
+          "approvals": 0,
+          "denials": 4,
+          "approval_rate": 0,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "zero recorded approvals; this is not a refusal by the employer"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "not-captured",
+        "excerpts": [],
+        "source": "model-judgment",
+        "note": "no posting text was supplied about sponsorship"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: not-captured)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: not-captured)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (not-captured); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "snowflake-computing-blank-fields",
+      "title": "Distributed Systems Engineer (synthetic posting)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/snowflake-computing/distributed-systems",
+      "job_id": "synthetic-sfc-1",
+      "company": {
+        "query": "Snowflake Computing",
+        "key": "snowflake computing",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "matched-blank-fields",
+        "candidates": [
+          {
+            "company_name": "SNOWFLAKE COMPUTING INC",
+            "approvals": null,
+            "denials": null,
+            "approval_rate": null
+          }
+        ],
+        "counts": {
+          "approvals": null,
+          "denials": null,
+          "approval_rate": null,
+          "columns": {
+            "approvals": "Total Approvals",
+            "denials": "Total Denials",
+            "approval_rate": "Approval_Rate"
+          }
+        },
+        "note": "row found but sponsorship count fields are blank; not zero"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "not-captured",
+        "excerpts": [],
+        "source": "model-judgment",
+        "note": "no posting text was supplied about sponsorship"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: not-captured)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: not-captured)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (not-captured); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "example-platform-labs-conditional",
+      "title": "Backend Engineer (fictional employer)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/example-platform-labs/backend",
+      "job_id": "synthetic-epl-1",
+      "company": {
+        "query": "Example Platform Labs",
+        "key": "example platform labs",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "no-employer-match",
+        "candidates": [],
+        "counts": null,
+        "note": "no CSV row matches this name; not zero, not a refusal"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "ambiguous-or-conditional",
+        "excerpts": [
+          "Applicants must be authorized to work in the United States."
+        ],
+        "source": "model-judgment",
+        "basis": "rule applied to INVENTED posting text; not an employer's statement"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: ambiguous-or-conditional)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: ambiguous-or-conditional)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (ambiguous-or-conditional); provisional: timing not verified",
+      "scenario": null
+    },
+    {
+      "role_id": "example-robotics-refusal",
+      "title": "Platform Engineer (fictional employer)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/example-robotics/platform",
+      "job_id": "synthetic-er-1",
+      "company": {
+        "query": "Example Robotics",
+        "key": "example robotics",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "no-employer-match",
+        "candidates": [],
+        "counts": null,
+        "note": "no CSV row matches this name; not zero, not a refusal"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "explicit-refusal",
+        "excerpts": [
+          "Applicants must be able to work in the United States without the need for visa sponsorship now or in the future."
+        ],
+        "source": "model-judgment",
+        "basis": "rule applied to INVENTED posting text; not an employer's statement"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "stop",
+          "reason": "the posting refuses sponsorship: \"Applicants must be able to work in the United States without the need for visa sponsorship now or in the future.\""
+        }
+      ],
+      "decision": "skip-application",
+      "next_action": "skip-application",
+      "decision_reason": "the posting refuses sponsorship: \"Applicants must be able to work in the United States without the need for visa sponsorship now or in the future.\"",
+      "scenario": null
+    },
+    {
+      "role_id": "example-data-systems-offer-scenario",
+      "title": "Backend Engineer (fictional employer)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/example-data-systems/backend",
+      "job_id": "synthetic-eds-1",
+      "company": {
+        "query": "Example Data Systems",
+        "key": "example data systems",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "no-employer-match",
+        "candidates": [],
+        "counts": null,
+        "note": "no CSV row matches this name; not zero, not a refusal"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "apparent-offer",
+        "excerpts": [
+          "Visa sponsorship is available for this role."
+        ],
+        "source": "model-judgment",
+        "basis": "rule applied to INVENTED posting text; not an employer's statement"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: apparent-offer)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "pass",
+          "reason": "apparent offer wording; a person must read the excerpt"
+        }
+      ],
+      "decision": "review-offer-excerpt",
+      "next_action": "review-offer-excerpt",
+      "decision_reason": "offer-like wording to review (not a guarantee): \"Visa sponsorship is available for this role.\"; provisional: timing not verified",
+      "scenario": {
+        "kind": "hypothetical",
+        "notice": "HYPOTHETICAL SCENARIO: uncalibrated sponsorship assumption; not a decision and not verified eligibility",
+        "label": "Consider (provisional: timing not verified)",
+        "scorer_recommendation": "Consider",
+        "composite": 0.42,
+        "scorer_reason": "above threshold (0.420) but one soft spot: sponsorship tier \"Likely\"",
+        "vote": {
+          "p": 0.6,
+          "tier": "Likely",
+          "source": "your-input",
+          "rationale": "SCENARIO ONLY, uncalibrated: shows the maintained scorer's output if a human had recorded vacancy-level sponsorship evidence for this fictional posting. Not an estimate that any employer will sponsor."
+        },
+        "scorer_file": "course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/role-scores.json"
+      }
+    },
+    {
+      "role_id": "example-analytics-silent-scenario",
+      "title": "Platform Engineer (fictional employer)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/example-analytics/platform",
+      "job_id": "synthetic-ea-1",
+      "company": {
+        "query": "Example Analytics",
+        "key": "example analytics",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "no-employer-match",
+        "candidates": [],
+        "counts": null,
+        "note": "no CSV row matches this name; not zero, not a refusal"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "active",
+          "code": "apply_control_visible",
+          "reason": "visible apply control detected"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "active",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "silent",
+        "excerpts": [],
+        "source": "model-judgment",
+        "basis": "rule applied to INVENTED posting text; not an employer's statement"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "pass",
+          "reason": "active (apply_control_visible)"
+        },
+        {
+          "id": "G3",
+          "status": "pass",
+          "reason": "no clear refusal (vacancy state: silent)"
+        },
+        {
+          "id": "G4",
+          "status": "pass",
+          "reason": "sample timing input (provisional: timing not verified)"
+        },
+        {
+          "id": "G5",
+          "status": "stop",
+          "reason": "awaiting sponsorship evidence (vacancy state: silent)"
+        }
+      ],
+      "decision": "seek-vacancy-sponsorship-evidence",
+      "next_action": "seek-vacancy-sponsorship-evidence",
+      "decision_reason": "no usable vacancy-level sponsorship evidence (silent); provisional: timing not verified",
+      "scenario": {
+        "kind": "hypothetical",
+        "notice": "HYPOTHETICAL SCENARIO: uncalibrated sponsorship assumption; not a decision and not verified eligibility",
+        "label": "Consider (provisional: timing not verified)",
+        "scorer_recommendation": "Consider",
+        "composite": 0.42,
+        "scorer_reason": "above threshold (0.420) but one soft spot: sponsorship tier \"Likely\"",
+        "vote": {
+          "p": 0.6,
+          "tier": "Likely",
+          "source": "your-input",
+          "rationale": "SCENARIO ONLY, uncalibrated: exercises the adopted rule that a scenario vote never clears awaiting-sponsorship-evidence when the posting is silent. Not an estimate that any employer will sponsor."
+        },
+        "scorer_file": "course/2026fa/submissions/aditya-raj-sde/runs/aditya-clean-check/role-scores.json"
+      }
+    },
+    {
+      "role_id": "example-cloud-closed",
+      "title": "Backend Engineer (fictional employer)",
+      "synthetic": true,
+      "posting_url": "https://jobs.example.com/example-cloud/backend",
+      "job_id": "synthetic-ec-1",
+      "company": {
+        "query": "Example Cloud",
+        "key": "example cloud",
+        "pinned_row": null,
+        "pin_source": null,
+        "source": "record",
+        "state": "no-employer-match",
+        "candidates": [],
+        "counts": null,
+        "note": "no CSV row matches this name; not zero, not a refusal"
+      },
+      "liveness": {
+        "classifier": {
+          "result": "expired",
+          "code": "expired_body",
+          "reason": "pattern matched: no longer accepting applications"
+        },
+        "source": "your-input",
+        "observation": "synthetic-derived",
+        "basis": "derived by the maintained classifier from an INVENTED page snapshot; no real posting was observed",
+        "state": "expired",
+        "conflict_excerpts": []
+      },
+      "vacancy": {
+        "state": "not-captured",
+        "excerpts": [],
+        "source": "model-judgment",
+        "note": "no posting text was supplied about sponsorship"
+      },
+      "timing": {
+        "factor": 1,
+        "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person.",
+        "source": "your-input",
+        "verified": false
+      },
+      "gates": [
+        {
+          "id": "G1",
+          "status": "pass",
+          "reason": "input validated"
+        },
+        {
+          "id": "G2",
+          "status": "stop",
+          "reason": "posting closed (expired_body): pattern matched: no longer accepting applications"
+        }
+      ],
+      "decision": "skip-application",
+      "next_action": "skip-application",
+      "decision_reason": "posting closed (expired_body): pattern matched: no longer accepting applications",
+      "scenario": null
+    }
+  ],
+  "summary": {
+    "n": 9,
+    "counts": {
+      "seek-vacancy-sponsorship-evidence": 6,
+      "skip-application": 2,
+      "review-offer-excerpt": 1
+    },
+    "skip_fraction": "2/9 (sample of 9; not a general rate)",
+    "synthetic": 8,
+    "timing_verified": 0
+  }
+}

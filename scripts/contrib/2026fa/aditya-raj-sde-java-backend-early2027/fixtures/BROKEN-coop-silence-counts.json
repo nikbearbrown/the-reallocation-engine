@@ -1,0 +1,7 @@
+{
+  "_comment": "Deliberate break (mutant, v0.4). Silently counts the co-op when the posting says nothing about co-ops. Applied only inside a temporary worktree by break-test.mjs.",
+  "file": "scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs",
+  "find": "          else f.state = 'coop-would-change-result';",
+  "replace": "          else f.state = lo >= R ? 'meets-with-explicitly-accepted-coop' : 'meets';",
+  "protects": "G4 co-op rule (Aditya, E14): silence at the boundary goes to a person; co-op months are never silently added"
+}

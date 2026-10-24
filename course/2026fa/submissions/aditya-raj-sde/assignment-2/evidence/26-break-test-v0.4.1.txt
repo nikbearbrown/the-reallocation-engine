@@ -1,0 +1,96 @@
+## started: 2026-10-21 11:29:52 EDT — break attempts at rules v0.4.1 (6 mutants) + unmodified control
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/break-test.mjs
+
+=== BROKEN-coop-silence-counts.json (HEAD 3df0b08) — protects: G4 co-op rule (Aditya, E14): silence at the boundary goes to a person; co-op months are never silently added
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs
+  - else f.state = 'coop-would-change-result';
+  + else f.state = lo >= R ? 'meets-with-explicitly-accepted-coop' : 'meets';
+suite on mutant: exit 1 · 74/77 pass · 3 failing → CAUGHT
+  not ok: co-op: silence at the boundary goes to review and shows the full-time-only comparison
+  not ok: synthetic S31: Backend Engineer (silent on co-ops, boundary) → human-requirement-review
+  not ok: co-op months are never silently added (v0.4, Aditya E14): silent scoped boundary → review; general boundary → review with the full-time-only comparison
+real-sample decisions changed by the mutant: 0/12
+
+=== BROKEN-feed-ignored.json (HEAD 3df0b08) — protects: the G2 feed-vs-page disagreement rule (a blocked page is not a closed posting)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs
+  - const feed = o.feed.present;
+  + const feed = null;
+suite on mutant: exit 1 · 74/77 pass · 3 failing → CAUGHT
+  not ok: provenance: liveness interpretation is a judgment; the raw observations are records
+  not ok: synthetic S19: Backend Engineer (feed lists it, page blocked) → human-liveness-review
+  not ok: feed-vs-page disagreement goes to a person; Assignment 1's page-only rule alone would have skipped it (S19)
+real-sample decisions changed by the mutant: 0/12
+
+=== BROKEN-no-preference-distinction.json (HEAD 3df0b08) — protects: the required-vs-preferred distinction in G4 (preferences never stop an opening)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs
+  - if (SEC_PREFERRED.test(heading)) return 'preferred';
+  + if (SEC_PREFERRED.test(heading)) return 'required';
+suite on mutant: exit 1 · 75/77 pass · 2 failing → CAUGHT
+  not ok: synthetic S04: Backend Engineer → seek-vacancy-sponsorship-evidence
+  not ok: preference vs requirement: the same 7+ years is a stop when required and never a stop when preferred
+real-sample decisions changed by the mutant: 0/12
+
+=== BROKEN-scoped-as-general.json (HEAD 3df0b08) — protects: G4 general-vs-scoped distinction: total career years never establish a skill-specific duration
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/checks.mjs
+  - if (m && GENERAL_TAIL.test(m[1])) return { scope: 'general', scope_text: after };
+  + return { scope: 'general', scope_text: after };
+suite on mutant: exit 1 · 71/77 pass · 6 failing → CAUGHT
+  not ok: scoped: "N years of Java" is not established by total career years → review, never "meets"
+  not ok: scoped: an explicitly supplied scoped input is used (test-only variant), and only for matching terms
+  not ok: synthetic S11: Backend Engineer → human-requirement-review
+  not ok: synthetic S34: Backend Engineer (scoped years within the career bound) → human-requirement-review
+  not ok: co-op months are never silently added (v0.4, Aditya E14): silent scoped boundary → review; general boundary → review with the full-time-only comparison
+  not ok: real sample replay (committed excerpts, offline) reproduces the recorded v0.4.1 decisions
+real-sample decisions changed by the mutant: 1/12
+  stripe-8249901: human-requirement-review → seek-vacancy-sponsorship-evidence
+
+=== BROKEN-stack-overrides-experience.json (HEAD 3df0b08) — protects: G4 documented-mismatch and eligibility stops (no score or strong match may override a hard stop)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs
+  - const a = ACTION[g.id]?.[g.status];
+  + const a = (g.id === 'G4' && stack.state === 'core-stack-evidenced') ? null : ACTION[g.id]?.[g.status];
+suite on mutant: exit 1 · 55/77 pass · 22 failing → CAUGHT
+  not ok: co-op: explicit exclusion — the co-op never counts; FT-only shortfall is a documented mismatch
+  not ok: co-op: silence at the boundary goes to review and shows the full-time-only comparison
+  not ok: synthetic S02: Software Engineer → skip-application
+  not ok: synthetic S05: Backend Engineer → human-requirement-review
+  not ok: synthetic S06: Software Engineer II → human-requirement-review
+  not ok: synthetic S07: Software Engineer, Early-Career Program → skip-application
+  not ok: synthetic S08: Software Engineer (Graduate Program) → skip-application
+  not ok: synthetic S09: Backend Engineer → human-requirement-review
+  not ok: synthetic S10: Backend Engineer → human-requirement-review
+  not ok: synthetic S11: Backend Engineer → human-requirement-review
+  not ok: synthetic S29: Backend Engineer (offer wording, but 10+ years required) → skip-application
+  not ok: synthetic S31: Backend Engineer (silent on co-ops, boundary) → human-requirement-review
+  not ok: synthetic S32: Backend Engineer (co-ops explicitly excluded) → skip-application
+  not ok: synthetic S33: Backend Engineer (short even with the co-op) → skip-application
+  not ok: synthetic S34: Backend Engineer (scoped years within the career bound) → human-requirement-review
+  not ok: synthetic S42: Backend Engineer (mixed heading) → human-requirement-review
+  not ok: synthetic S43: Backend Engineer (conditional heading) → human-requirement-review
+  not ok: synthetic S44: Backend Engineer (unrecognized heading) → human-requirement-review
+  not ok: no later gate clears an earlier stop: offer wording + compatible start + core stack cannot undo an experience mismatch (S29)
+  not ok: title words never decide: swapping titles between a mismatch and a match changes nothing
+  not ok: preference vs requirement: the same 7+ years is a stop when required and never a stop when preferred
+  not ok: real sample replay (committed excerpts, offline) reproduces the recorded v0.4.1 decisions
+real-sample decisions changed by the mutant: 4/12
+  stripe-8249901: human-requirement-review → seek-vacancy-sponsorship-evidence
+  stripe-8142952: skip-application → seek-vacancy-sponsorship-evidence
+  stripe-8230952: human-requirement-review → seek-vacancy-sponsorship-evidence
+  stripe-8198280: skip-application → seek-vacancy-sponsorship-evidence
+
+=== BROKEN-thin-page-is-closure.json (HEAD 3df0b08) — protects: G2: a challenge or thin page alone never establishes closure (with or without a feed observation)
+mutation: scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs
+  - const closureEvidence = page.state === 'expired' && (CLOSURE_CODES.has(code) || CLOSURE_REASON.test(reason));
+  + const closureEvidence = page.state === 'expired';
+suite on mutant: exit 1 · 75/77 pass · 2 failing → CAUGHT
+  not ok: a challenge/thin page alone never establishes closure, with or without a feed observation
+  not ok: synthetic S45: Backend Engineer (blocked page, no feed observation) → human-liveness-review
+real-sample decisions changed by the mutant: 0/12
+
+ALL MUTANTS CAUGHT (6 mutants)
+[exit=0]
+
+## control: 2026-10-21 11:29:57 EDT — UNMUTATED HEAD 3df0b08 in the same worktree location
+# tests 77
+# pass 77
+# fail 0
+worktrees listed during control:        3

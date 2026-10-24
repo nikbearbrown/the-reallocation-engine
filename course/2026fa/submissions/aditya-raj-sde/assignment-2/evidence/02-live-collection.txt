@@ -1,0 +1,5 @@
+## started: 2026-10-21 00:01:47 EDT — LIVE collection (network), per SAMPLE-PROTOCOL.md
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/collect.mjs --private-dir private/a2 --public-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample
+probes 17 · verified boards 3 · qualifying 3 · postings 12 · stop: 3 qualifying boards
+[exit=0]
+## finished: 2026-10-21 00:01:55 EDT

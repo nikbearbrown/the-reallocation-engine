@@ -1,0 +1,21 @@
+{
+  "fixture_version": "0.1.0",
+  "purpose": "T-timing (CHANGE-BRIEF section 11; decision 4 of the evidence-contract stage). A role with no timeline input must be blocked at G4 and never passed to the scorer (whose default would silently be 1.0). A role with a valid sample timeline proceeds, but every label carries 'provisional: timing not verified'.",
+  "persona_ref": "search/examples/aarav-patel/profile.yml",
+  "run_label": "T-timing",
+  "roles": [
+    { "role_id": "timing-missing", "title": "Timeline input missing (fictional employer)", "company_query": "Example Timing Co",
+      "posting_url": "https://jobs.example.com/timing/missing", "job_id": "t-1", "synthetic": true,
+      "recorded_liveness": { "result": "active", "code": "fixture", "observed_at": "fixture", "evidence": "fixture value: not an observation", "source": "your-input" },
+      "vacancy_text": "Visa sponsorship is available for this role.",
+      "fit": { "p": 0.7, "source": "your-input", "note": "control value" },
+      "demo_sponsorship_vote": { "p": 0.6, "tier": "Likely", "source": "your-input", "rationale": "Control: present so that only the missing timeline can stop this role." } },
+    { "role_id": "timing-sample", "title": "Valid sample timeline (fictional employer)", "company_query": "Example Timing Co",
+      "posting_url": "https://jobs.example.com/timing/sample", "job_id": "t-2", "synthetic": true,
+      "recorded_liveness": { "result": "active", "code": "fixture", "observed_at": "fixture", "evidence": "fixture value: not an observation", "source": "your-input" },
+      "vacancy_text": "Visa sponsorship is available for this role.",
+      "fit": { "p": 0.7, "source": "your-input", "note": "control value" },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: fictional start assumption; not verified for any real person." },
+      "demo_sponsorship_vote": { "p": 0.6, "tier": "Likely", "source": "your-input", "rationale": "Control: scenario vote so that the timing label can be observed on a scenario score." } }
+  ]
+}

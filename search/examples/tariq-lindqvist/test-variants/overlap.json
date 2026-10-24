@@ -1,0 +1,87 @@
+{
+  "_comment": "FICTIONAL TEST VARIANT of the Tariq Lindqvist persona \u2014 two overlapping full-time entries (2019-01..2020-12 and 2020-07..2021-06) to test that overlap is not double-counted. Used only by offline tests; never by public runs.",
+  "attested": true,
+  "attested_date": "2026-10-21",
+  "attestation_note": "Example data: every entry is fictional and internally consistent with profile.yml in this folder.",
+  "personal": {
+    "name": "Tariq Lindqvist",
+    "location": "Providence, RI",
+    "phone": "(401) 555-0193",
+    "email": "tariq.lindqvist@example.com",
+    "linkedin": "linkedin.com/in/tariqlindqvist-example",
+    "github": "github.com/tariqlindqvist-example"
+  },
+  "education": [
+    {
+      "institution": "Northeastern University",
+      "location": "Boston, MA",
+      "degree": "MS, Computer Science",
+      "start_date": "2024-09",
+      "end_date": "2027-01",
+      "status": "expected",
+      "coursework": [
+        "Distributed Systems",
+        "Cloud Computing",
+        "Machine Learning Systems"
+      ]
+    },
+    {
+      "institution": "Coastal Institute of Technology (fictional)",
+      "location": "Chennai, India",
+      "degree": "B.Tech, Electronics and Communication Engineering",
+      "start_date": "2015-07",
+      "end_date": "2019-06",
+      "status": "completed"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Harborline Payments (fictional)",
+      "title": "Software Engineer",
+      "employment_type": "full-time",
+      "start_date": "2019-01",
+      "end_date": "2020-12",
+      "bullets": []
+    },
+    {
+      "company": "Quillfield Logistics (fictional)",
+      "title": "Software Engineer (part-time contract)",
+      "employment_type": "full-time",
+      "start_date": "2020-07",
+      "end_date": "2021-06",
+      "bullets": []
+    }
+  ],
+  "projects": [],
+  "skills": {
+    "languages": [
+      "Java",
+      "Python",
+      "SQL"
+    ],
+    "backend_automation": [
+      "Spring Boot",
+      "Kafka",
+      "RabbitMQ",
+      "REST APIs",
+      "Microservices"
+    ],
+    "database_cloud": [
+      "PostgreSQL",
+      "Redis",
+      "AWS",
+      "Kubernetes",
+      "Docker",
+      "Terraform"
+    ],
+    "devops_cicd": [
+      "GitHub Actions",
+      "Jenkins"
+    ],
+    "familiar_with_not_shipped": [
+      "Go",
+      "Scala"
+    ],
+    "agent_note": "familiar_with_not_shipped is honest: listed nowhere as production experience."
+  }
+}

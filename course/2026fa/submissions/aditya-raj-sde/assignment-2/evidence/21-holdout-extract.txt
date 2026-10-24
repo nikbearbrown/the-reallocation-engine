@@ -1,0 +1,10 @@
+## started: 2026-10-21 11:26:23 EDT — HOLDOUT extraction (no rule decisions are produced by this step)
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs extract --collection private/a2/holdout/collection.json --page-liveness course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/19-holdout-page-liveness.txt --page-probe course/2026fa/submissions/aditya-raj-sde/assignment-2/evidence/20-holdout-page-probe.txt --out course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/observations.json --full-out private/a2/holdout/observations-full.json
+✓ extracted 6 observations · committed excerpt chars 9475 of 32075 full-text chars
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/holdout.mjs finalize --observations course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/observations.json --selection course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json
+finalized 6 holdout observations
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/holdout.mjs finalize --observations private/a2/holdout/observations-full.json --selection course/2026fa/submissions/aditya-raj-sde/assignment-2/holdout/selection.json
+finalized 6 holdout observations
+[exit=0]

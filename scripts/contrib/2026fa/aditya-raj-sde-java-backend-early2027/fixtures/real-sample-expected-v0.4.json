@@ -1,0 +1,18 @@
+{
+  "_comment": "Regression lock: next_action per real observation from rules v0.4 on the committed excerpts (runs/real-replay-v0.4). DEVELOPMENT evidence (rules were corrected on these 12). Audited by Claude against the full private text; NOT human-verified ground truth.",
+  "rules_version": "0.4.0",
+  "decisions": {
+    "databricks-8864368002": "human-requirement-review",
+    "databricks-8815669002": "human-requirement-review",
+    "databricks-8806934002": "human-requirement-review",
+    "databricks-8798217002": "human-eligibility-review",
+    "pinterest-8046860": "human-liveness-review",
+    "pinterest-7683977": "human-liveness-review",
+    "pinterest-8055266": "human-liveness-review",
+    "pinterest-7683981": "human-liveness-review",
+    "stripe-8249901": "human-requirement-review",
+    "stripe-8142952": "skip-application",
+    "stripe-8230952": "human-requirement-review",
+    "stripe-8198280": "skip-application"
+  }
+}

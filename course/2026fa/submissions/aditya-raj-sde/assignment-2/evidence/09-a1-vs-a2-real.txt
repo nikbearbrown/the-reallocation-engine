@@ -1,0 +1,23 @@
+## started: 2026-10-21 00:15:33 EDT — Assignment 1 tool (unchanged) on the same 12 real observations
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs a1-input --input course/2026fa/submissions/aditya-raj-sde/assignment-2/real-sample/observations.json --out course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/a1-tool-on-real-sample/a1-input.json
+✓ wrote 12 roles in Assignment 1 input shape
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.mjs --input course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/a1-tool-on-real-sample/a1-input.json --out-dir $TMPDIR/a1-on-a2   (A1 only permits its own runs/ folder or temp; copied here afterwards)
+✓ 12 openings → seek-vacancy-sponsorship-evidence 8 · skip-application 4
+  skip fraction 4/12 (sample of 12; not a general rate); timing verified for 0; scenario (hypothetical) scores: 0
+  ../../../../var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T/a1-on-a2/reality-check.json  +  ../../../../var/folders/26/wj7ysvd95bj1zcvv43gx0j0h0000gn/T/a1-on-a2/reality-check.md
+[exit=0]
+$ per-opening comparison (Assignment 1 next_action vs Assignment 2 v0.3 next_action)
+databricks-8864368002  A1: seek-vacancy-sponsorship-evidence  A2: skip-application                   CHANGED by G4
+databricks-8815669002  A1: seek-vacancy-sponsorship-evidence  A2: human-requirement-review           CHANGED by G4
+databricks-8806934002  A1: seek-vacancy-sponsorship-evidence  A2: skip-application                   CHANGED by G4
+databricks-8798217002  A1: seek-vacancy-sponsorship-evidence  A2: human-eligibility-review           CHANGED by G3
+pinterest-8046860      A1: skip-application                   A2: human-liveness-review              CHANGED by G2
+pinterest-7683977      A1: skip-application                   A2: human-liveness-review              CHANGED by G2
+pinterest-8055266      A1: skip-application                   A2: human-liveness-review              CHANGED by G2
+pinterest-7683981      A1: skip-application                   A2: human-liveness-review              CHANGED by G2
+stripe-8249901         A1: seek-vacancy-sponsorship-evidence  A2: seek-vacancy-sponsorship-evidence  same
+stripe-8142952         A1: seek-vacancy-sponsorship-evidence  A2: skip-application                   CHANGED by G4
+stripe-8230952         A1: seek-vacancy-sponsorship-evidence  A2: skip-application                   CHANGED by G4
+stripe-8198280         A1: seek-vacancy-sponsorship-evidence  A2: skip-application                   CHANGED by G4
+changed 11/12

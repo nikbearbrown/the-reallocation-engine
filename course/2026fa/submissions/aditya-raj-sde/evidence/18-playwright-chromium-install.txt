@@ -1,0 +1,18 @@
+## started: 2026-10-03 17:47:40 EDT
+## corrected state for evidence 11. Uses the project's own Playwright (node_modules, 1.62.1) so the browser build matches; installs into the user-level Playwright cache, outside the repo.
+$ npx playwright install chromium
+Downloading Chrome for Testing 151.0.7922.34 (playwright chromium v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/mac-arm64/chrome-mac-arm64.zip
+Chrome for Testing 151.0.7922.34 (playwright chromium v1234) downloaded to /Users/adityaraj/Library/Caches/ms-playwright/chromium-1234
+Downloading FFmpeg (playwright ffmpeg v1011) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-mac-arm64.zip
+FFmpeg (playwright ffmpeg v1011) downloaded to /Users/adityaraj/Library/Caches/ms-playwright/ffmpeg-1011
+Downloading Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) from https://cdn.playwright.dev/builds/cft/151.0.7922.34/mac-arm64/chrome-headless-shell-mac-arm64.zip
+Chrome Headless Shell 151.0.7922.34 (playwright chromium-headless-shell v1234) downloaded to /Users/adityaraj/Library/Caches/ms-playwright/chromium_headless_shell-1234
+[exit=0]
+$ node -e <chromium.executablePath() exists?>
+executablePath=~/Library/Caches/ms-playwright/chromium-1234/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing
+exists=true
+[exit=0]
+$ git status --short
+?? course/2026fa/
+?? logs/runs/2026fa-aditya-raj-sde-1.md
+## finished: 2026-10-03 17:47:56 EDT

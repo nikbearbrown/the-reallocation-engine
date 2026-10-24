@@ -1,0 +1,111 @@
+## started: 2026-10-21 00:15:20 EDT — offline tests + synthetic run, rules v0.3
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.test.mjs
+# Subtest: candidate inputs: 54 months full-time and 6 co-op months, kept separate; never inferred from titles
+ok 1 - candidate inputs: 54 months full-time and 6 co-op months, kept separate; never inferred from titles
+# Subtest: synthetic S01: Backend Engineer (strong company record, refusing posting) → skip-application
+ok 2 - synthetic S01: Backend Engineer (strong company record, refusing posting) → skip-application
+# Subtest: synthetic S02: Software Engineer → skip-application
+ok 3 - synthetic S02: Software Engineer → skip-application
+# Subtest: synthetic S03: Senior Staff Principal Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 4 - synthetic S03: Senior Staff Principal Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S04: Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 5 - synthetic S04: Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S05: Backend Engineer → human-requirement-review
+ok 6 - synthetic S05: Backend Engineer → human-requirement-review
+# Subtest: synthetic S06: Software Engineer II → human-requirement-review
+ok 7 - synthetic S06: Software Engineer II → human-requirement-review
+# Subtest: synthetic S07: Software Engineer, Early-Career Program → skip-application
+ok 8 - synthetic S07: Software Engineer, Early-Career Program → skip-application
+# Subtest: synthetic S08: Software Engineer (Graduate Program) → skip-application
+ok 9 - synthetic S08: Software Engineer (Graduate Program) → skip-application
+# Subtest: synthetic S09: Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 10 - synthetic S09: Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S10: Backend Engineer → human-requirement-review
+ok 11 - synthetic S10: Backend Engineer → human-requirement-review
+# Subtest: synthetic S11: Backend Engineer → skip-application
+ok 12 - synthetic S11: Backend Engineer → skip-application
+# Subtest: synthetic S13: Backend Engineer → human-start-window-review
+ok 13 - synthetic S13: Backend Engineer → human-start-window-review
+# Subtest: synthetic S14: Backend Engineer → skip-application
+ok 14 - synthetic S14: Backend Engineer → skip-application
+# Subtest: synthetic S15: Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 15 - synthetic S15: Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S16: Backend Engineer → human-start-window-review
+ok 16 - synthetic S16: Backend Engineer → human-start-window-review
+# Subtest: synthetic S17: Backend Engineer → human-start-window-review
+ok 17 - synthetic S17: Backend Engineer → human-start-window-review
+# Subtest: synthetic S18: Backend Engineer (page uncertain) → human-liveness-review
+ok 18 - synthetic S18: Backend Engineer (page uncertain) → human-liveness-review
+# Subtest: synthetic S19: Backend Engineer (feed lists it, page blocked) → human-liveness-review
+ok 19 - synthetic S19: Backend Engineer (feed lists it, page blocked) → human-liveness-review
+# Subtest: synthetic S20: Backend Engineer (gone in feed and page) → skip-application
+ok 20 - synthetic S20: Backend Engineer (gone in feed and page) → skip-application
+# Subtest: synthetic S21: Backend Engineer → human-requirement-review
+ok 21 - synthetic S21: Backend Engineer → human-requirement-review
+# Subtest: synthetic S22: Backend Engineer → human-requirement-review
+ok 22 - synthetic S22: Backend Engineer → human-requirement-review
+# Subtest: synthetic S23: Backend Engineer → skip-application
+ok 23 - synthetic S23: Backend Engineer → skip-application
+# Subtest: synthetic S24: Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 24 - synthetic S24: Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S25: Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 25 - synthetic S25: Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S26: Backend Engineer → review-offer-excerpt
+ok 26 - synthetic S26: Backend Engineer → review-offer-excerpt
+# Subtest: synthetic S27: Backend Engineer → seek-vacancy-sponsorship-evidence
+ok 27 - synthetic S27: Backend Engineer → seek-vacancy-sponsorship-evidence
+# Subtest: synthetic S28: Backend Engineer → skip-application
+ok 28 - synthetic S28: Backend Engineer → skip-application
+# Subtest: synthetic S29: Backend Engineer (offer wording, but 10+ years required) → skip-application
+ok 29 - synthetic S29: Backend Engineer (offer wording, but 10+ years required) → skip-application
+# Subtest: synthetic S30: Backend Engineer (Java only preferred) → human-requirement-review
+ok 30 - synthetic S30: Backend Engineer (Java only preferred) → human-requirement-review
+# Subtest: refusal despite a strong company record: history never overrides this posting (S01)
+ok 31 - refusal despite a strong company record: history never overrides this posting (S01)
+# Subtest: no later gate clears an earlier stop: offer wording + compatible start + core stack cannot undo an experience mismatch (S29)
+ok 32 - no later gate clears an earlier stop: offer wording + compatible start + core stack cannot undo an experience mismatch (S29)
+# Subtest: co-op months are never silently added: silent posting → mismatch with the co-op named; explicit acceptance → counted with excerpt
+ok 33 - co-op months are never silently added: silent posting → mismatch with the co-op named; explicit acceptance → counted with excerpt
+# Subtest: title words never decide: swapping titles between a mismatch and a match changes nothing
+ok 34 - title words never decide: swapping titles between a mismatch and a match changes nothing
+# Subtest: preference vs requirement: the same 7+ years is a stop when required and never a stop when preferred
+ok 35 - preference vs requirement: the same 7+ years is a stop when required and never a stop when preferred
+# Subtest: start window is date arithmetic only and always says what it does not establish
+ok 36 - start window is date arithmetic only and always says what it does not establish
+# Subtest: feed-vs-page disagreement goes to a person; Assignment 1's page-only rule alone would have skipped it (S19)
+ok 37 - feed-vs-page disagreement goes to a person; Assignment 1's page-only rule alone would have skipped it (S19)
+# Subtest: JavaScript is never Java; negated Java is not evidence
+ok 38 - JavaScript is never Java; negated Java is not evidence
+# Subtest: excerpt extraction is lossless for the rules: every synthetic case decides the same on its excerpts
+ok 39 - excerpt extraction is lossless for the rules: every synthetic case decides the same on its excerpts
+# Subtest: real sample replay (committed excerpts, offline) reproduces the recorded v0.3 decisions
+ok 40 - real sample replay (committed excerpts, offline) reproduces the recorded v0.3 decisions
+# Subtest: JSON log and Markdown report agree, and both outputs are written
+ok 41 - JSON log and Markdown report agree, and both outputs are written
+# Subtest: G1: invalid input exits 2 and writes nothing
+ok 42 - G1: invalid input exits 2 and writes nothing
+# Subtest: G1: a candidate without explicit employment_type is rejected (no inference from titles)
+ok 43 - G1: a candidate without explicit employment_type is rejected (no inference from titles)
+# Subtest: outputs cannot land on tracked files outside the allowed run folders
+ok 44 - outputs cannot land on tracked files outside the allowed run folders
+# Subtest: no network: the mode's modules import only node: builtins and local files
+ok 45 - no network: the mode's modules import only node: builtins and local files
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 306.086916
+[exit=0]
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs   (Assignment 1 suite, unchanged code)
+# tests 18
+# pass 18
+# fail 0
+[exit=0]
+$ node scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.mjs run --input scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/fixtures/synthetic-cases.json --candidate scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/config/candidate.tariq-lindqvist.json --out-dir course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.3
+✓ 29 openings (synthetic) → skip-application 10 · seek-vacancy-sponsorship-evidence 7 · human-requirement-review 6 · human-start-window-review 3 · human-liveness-review 2 · review-offer-excerpt 1
+  hypothesis tally: 18 experience+stack-relevant, 18 of them with unresolved sponsorship/timing
+  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.3/triage.json  +  course/2026fa/submissions/aditya-raj-sde/assignment-2/runs/synthetic-v0.3/triage.md
+[exit=0]

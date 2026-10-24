@@ -1,0 +1,7 @@
+{
+  "_comment": "FICTIONAL test candidate configuration (offline tests only).",
+  "persona_ref": "search/examples/tariq-lindqvist/profile.yml",
+  "resume": "search/examples/tariq-lindqvist/test-variants/coop12.json",
+  "available_from": "2027-02-01",
+  "available_from_source": "your-input"
+}

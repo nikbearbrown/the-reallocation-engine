@@ -1,0 +1,4 @@
+## started: 2026-10-21 11:42:43 EDT — holdout verification cross-checks (Claude, read-only)
+holdout excerpt lines checked 83 · not found verbatim 0
+text_sha256 matches private full text: 6/6
+overlap with the original 12: 0

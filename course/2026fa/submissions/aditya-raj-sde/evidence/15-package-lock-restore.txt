@@ -1,0 +1,155 @@
+## started: 2026-10-03 17:46:31 EDT
+## provenance argument: (1) evidence 00 shows 'git status --short --branch' clean at 17:01:14, after branch creation and before any install; (2) 'npm install' (evidence 02, 17:03:44) was the first command that could write package-lock.json; (3) no other command in evidence 03-13 writes it, and the stat below must equal evidence 02b.
+
+$ git diff --stat package-lock.json
+ package-lock.json | 36 ------------------------------------
+ 1 file changed, 36 deletions(-)
+[exit=0]
+
+$ git diff package-lock.json | grep -E '^[+-]' | grep -vE '^(\+\+\+|---) ' | sort | uniq -c
+   8 -        "glibc"
+   4 -        "musl"
+  12 -      "libc": [
+  12 -      ],
+[exit=0]
+
+$ git diff package-lock.json | grep -ciE '@|[0-9]{3}[-. ][0-9]{3}[-. ][0-9]{4}'
+12
+[exit=0]
+
+## sanitized full diff follows (sanitization check above: lines containing '@' or phone-shaped numbers = count shown; none expected)
+$ git diff package-lock.json
+diff --git a/package-lock.json b/package-lock.json
+index 1e3dea6..e3b05f6 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -107,9 +107,6 @@
+       "cpu": [
+         "arm"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "LGPL-3.0-or-later",
+       "optional": true,
+       "os": [
+@@ -126,9 +123,6 @@
+       "cpu": [
+         "arm64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "LGPL-3.0-or-later",
+       "optional": true,
+       "os": [
+@@ -145,9 +139,6 @@
+       "cpu": [
+         "s390x"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "LGPL-3.0-or-later",
+       "optional": true,
+       "os": [
+@@ -164,9 +155,6 @@
+       "cpu": [
+         "x64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "LGPL-3.0-or-later",
+       "optional": true,
+       "os": [
+@@ -183,9 +171,6 @@
+       "cpu": [
+         "arm64"
+       ],
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "LGPL-3.0-or-later",
+       "optional": true,
+       "os": [
+@@ -202,9 +187,6 @@
+       "cpu": [
+         "x64"
+       ],
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "LGPL-3.0-or-later",
+       "optional": true,
+       "os": [
+@@ -221,9 +203,6 @@
+       "cpu": [
+         "arm"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "Apache-2.0",
+       "optional": true,
+       "os": [
+@@ -246,9 +225,6 @@
+       "cpu": [
+         "arm64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "Apache-2.0",
+       "optional": true,
+       "os": [
+@@ -271,9 +247,6 @@
+       "cpu": [
+         "s390x"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "Apache-2.0",
+       "optional": true,
+       "os": [
+@@ -296,9 +269,6 @@
+       "cpu": [
+         "x64"
+       ],
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "Apache-2.0",
+       "optional": true,
+       "os": [
+@@ -321,9 +291,6 @@
+       "cpu": [
+         "arm64"
+       ],
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "Apache-2.0",
+       "optional": true,
+       "os": [
+@@ -346,9 +313,6 @@
+       "cpu": [
+         "x64"
+       ],
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "Apache-2.0",
+       "optional": true,
+       "os": [
+[exit=0]
+
+$ git restore package-lock.json
+[exit=0]
+$ git status --short -- package-lock.json; git diff --quiet HEAD -- package-lock.json && echo identical-to-HEAD
+identical-to-HEAD
+[exit=0]
+## finished: 2026-10-03 17:46:31 EDT
+
+## CORRECTION (Claude, 17:46:40 EDT): the sanitization count of 12 above was mislabeled 'none expected'. Checked against the saved diff in this file: matching lines=12, of which hunk headers ('@@ -a,b +c,d @@')=12, other matches=0. The 12 are git hunk headers, not addresses or phone numbers; the saved diff needed no redaction.

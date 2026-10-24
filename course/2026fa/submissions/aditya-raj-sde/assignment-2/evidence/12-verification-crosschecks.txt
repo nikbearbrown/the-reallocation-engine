@@ -1,0 +1,13 @@
+## started: 2026-10-21 00:20:35 EDT — verification cross-checks (Claude, ad hoc, read-only)
+### V1 quote fidelity: every committed excerpt line (minus heading/list markers) is a substring of the private full plain text of the same posting
+excerpt lines checked 162 · not found verbatim 0
+text_sha256 matches private full text: 12/12
+### V2 cohort tallies add up (selection.json)
+databricks total 900 sum of reasons 900 OK | in-cohort 31 - duplicates 2 = unique 29 OK
+pinterest total 158 sum of reasons 158 OK | in-cohort 7 - duplicates 0 = unique 7 OK
+stripe total 731 sum of reasons 731 OK | in-cohort 13 - duplicates 0 = unique 13 OK
+### V3 company-history counts vs the CSV (name + count columns only)
+DATABRICKS INC | Total Approvals 1640.0 | Total Denials 8.0
+PINTEREST INC | Total Approvals 1364.0 | Total Denials 16.0
+STRIPE INC | Total Approvals 1250.0 | Total Denials 22.0
+mode reports: matched-with-record DATABRICKS INC approvals 1640 | matched-with-record PINTEREST INC approvals 1364 | matched-with-record STRIPE INC approvals 1250

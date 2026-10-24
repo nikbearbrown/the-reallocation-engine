@@ -1,0 +1,52 @@
+## started: 2026-10-03 17:08:31 EDT
+
+$ npm -v
+10.9.2
+[exit=0]
+
+$ node scripts/conformance.mjs course/2026fa/submissions/aditya-raj-sde logs/runs/2026fa-aditya-raj-sde-1.md
+conformance: 7 files (6 md · 1 json)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+
+$ node scripts/pii-scan.mjs
+pii-scan: 2 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] course/2026fa/submissions/aditya-raj-sde/evidence/06-pii-scan-baseline.txt — [EMAIL REDACTED by Claude 2026-10-03: the pre-existing package-lock.json address the scanner printed]
+  [email] package-lock.json — [EMAIL REDACTED by Claude 2026-10-03: the pre-existing package-lock.json address the scanner printed]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=1]
+
+$ git status --short --untracked-files=all
+ M package-lock.json
+?? course/2026fa/submissions/aditya-raj-sde/CHANGE-BRIEF.md
+?? course/2026fa/submissions/aditya-raj-sde/FRICTIONAL.md
+?? course/2026fa/submissions/aditya-raj-sde/SOURCES.md
+?? course/2026fa/submissions/aditya-raj-sde/TEST-REPORT.md
+?? course/2026fa/submissions/aditya-raj-sde/evidence/00-remote-branch.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/01-noreply-identity.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/02-npm-install.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/02b-package-lock-diff.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/03-sponsor-csv-columns.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/04-doctor-baseline.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/05-verify-baseline.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/06-pii-scan-baseline.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/07-ats-scan-dry-run.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/07b-ats-scan-dry-run-example-config.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/08-score-ch11-example.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/09-git-status-after-baseline.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/10-liveness-candidate-url.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/11-liveness-dependency-check.txt
+?? course/2026fa/submissions/aditya-raj-sde/evidence/12-post-setup-checks.txt
+?? course/2026fa/submissions/aditya-raj-sde/runs/role-scores.json
+?? course/2026fa/submissions/aditya-raj-sde/runs/role-scores.md
+?? logs/runs/2026fa-aditya-raj-sde-1.md
+[exit=0]
+
+$ git diff --stat
+ package-lock.json | 36 ------------------------------------
+ 1 file changed, 36 deletions(-)
+[exit=0]
+## finished: 2026-10-03 17:08:31 EDT

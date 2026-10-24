@@ -1,0 +1,169 @@
+{
+  "fixture_version": "0.1.0",
+  "persona_ref": "search/examples/aarav-patel/profile.yml",
+  "run_label": "Public sample for the fictional persona Aarav Patel (backend/platform roles). Not anyone's real search.",
+  "fixture_notes": [
+    "synthetic=true marks a posting written for this fixture; its URL uses example.com and its page snapshot is invented.",
+    "Real company names appear only to exercise matching against the sponsorship CSV; no sponsorship statement is attributed to a real employer (vacancy_text is null for every real company).",
+    "Every fit, timeline, and demo_sponsorship_vote value is a labeled sample input (your-input), not an assessment."
+  ],
+  "roles": [
+    {
+      "role_id": "databricks-web-products-8635225002",
+      "title": "Software Engineer, Web Products",
+      "company_query": "Databricks",
+      "posting_url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8635225002",
+      "job_id": "8635225002",
+      "synthetic": false,
+      "recorded_liveness": {
+        "result": "active",
+        "code": null,
+        "code_note": "check-liveness.mjs prints the result only; the reason code was not shown",
+        "observed_at": "2026-10-03T17:48:07-04:00",
+        "evidence": "course/2026fa/submissions/aditya-raj-sde/evidence/19-liveness-baseline-8635225002.txt",
+        "source": "record"
+      },
+      "vacancy_text": null,
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    },
+    {
+      "role_id": "axia-ambiguous-identity",
+      "title": "Backend Engineer (synthetic posting)",
+      "company_query": "Axia Technologies",
+      "posting_url": "https://jobs.example.com/axia/backend-engineer",
+      "job_id": "synthetic-axia-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/axia/backend-engineer",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": null,
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    },
+    {
+      "role_id": "uplift-zero-approvals",
+      "title": "Platform Engineer (synthetic posting)",
+      "company_query": "Uplift Labs",
+      "posting_url": "https://jobs.example.com/uplift/platform-engineer",
+      "job_id": "synthetic-uplift-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/uplift/platform-engineer",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": null,
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    },
+    {
+      "role_id": "snowflake-computing-blank-fields",
+      "title": "Distributed Systems Engineer (synthetic posting)",
+      "company_query": "Snowflake Computing",
+      "posting_url": "https://jobs.example.com/snowflake-computing/distributed-systems",
+      "job_id": "synthetic-sfc-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/snowflake-computing/distributed-systems",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": null,
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    },
+    {
+      "role_id": "example-platform-labs-conditional",
+      "title": "Backend Engineer (fictional employer)",
+      "company_query": "Example Platform Labs",
+      "posting_url": "https://jobs.example.com/example-platform-labs/backend",
+      "job_id": "synthetic-epl-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/example-platform-labs/backend",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": "Applicants must be authorized to work in the United States.",
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    },
+    {
+      "role_id": "example-robotics-refusal",
+      "title": "Platform Engineer (fictional employer)",
+      "company_query": "Example Robotics",
+      "posting_url": "https://jobs.example.com/example-robotics/platform",
+      "job_id": "synthetic-er-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/example-robotics/platform",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": "Applicants must be able to work in the United States without the need for visa sponsorship now or in the future.",
+      "fit": { "p": 0.9, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    },
+    {
+      "role_id": "example-data-systems-offer-scenario",
+      "title": "Backend Engineer (fictional employer)",
+      "company_query": "Example Data Systems",
+      "posting_url": "https://jobs.example.com/example-data-systems/backend",
+      "job_id": "synthetic-eds-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/example-data-systems/backend",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": "Visa sponsorship is available for this role.",
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." },
+      "demo_sponsorship_vote": { "p": 0.6, "tier": "Likely", "source": "your-input", "rationale": "SCENARIO ONLY, uncalibrated: shows the maintained scorer's output if a human had recorded vacancy-level sponsorship evidence for this fictional posting. Not an estimate that any employer will sponsor." }
+    },
+    {
+      "role_id": "example-analytics-silent-scenario",
+      "title": "Platform Engineer (fictional employer)",
+      "company_query": "Example Analytics",
+      "posting_url": "https://jobs.example.com/example-analytics/platform",
+      "job_id": "synthetic-ea-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/example-analytics/platform",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture.",
+        "applyControls": ["Apply for this job"]
+      },
+      "vacancy_text": "We are a remote-first team and offer a learning budget.",
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." },
+      "demo_sponsorship_vote": { "p": 0.6, "tier": "Likely", "source": "your-input", "rationale": "SCENARIO ONLY, uncalibrated: exercises the adopted rule that a scenario vote never clears awaiting-sponsorship-evidence when the posting is silent. Not an estimate that any employer will sponsor." }
+    },
+    {
+      "role_id": "example-cloud-closed",
+      "title": "Backend Engineer (fictional employer)",
+      "company_query": "Example Cloud",
+      "posting_url": "https://jobs.example.com/example-cloud/backend",
+      "job_id": "synthetic-ec-1",
+      "synthetic": true,
+      "snapshot": {
+        "status": 200,
+        "finalUrl": "https://jobs.example.com/example-cloud/backend",
+        "bodyText": "About the role. Our platform team designs, builds, and operates backend services that move data between internal systems. You will write and review TypeScript services, run them on Kubernetes, improve observability, and take part in an on-call rotation shared across the team. What we look for: experience building production APIs, comfort with distributed systems trade-offs, and clear written communication. This is a fictional posting written for an offline test fixture. This position is no longer accepting applications.",
+        "applyControls": []
+      },
+      "vacancy_text": null,
+      "fit": { "p": 0.7, "source": "your-input", "note": "Sample value for a fictional persona; not an assessment of fit." },
+      "timeline": { "factor": 1.0, "source": "your-input", "assumption": "SAMPLE ONLY: the fictional persona is assumed able to start in January 2027; the posting states no start date. Not verified for any real person." }
+    }
+  ]
+}

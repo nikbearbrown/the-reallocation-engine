@@ -1,0 +1,298 @@
+## started: 2026-10-03 19:52:33 EDT
+## Step 3 PREPARATION (Claude-executed): clean checkout of the COMMITTED branch, cloned from the local repository (nothing uncommitted can enter). Paths: <clean-checkout> = a fresh directory on the Desktop; <source-repo> = the working repository.
+## Deliberately NOT run here: the sample prototype command. Aditya runs that himself (the assignment asks the student to run the finished prototype).
+
+$ git clone --branch contrib/2026fa-aditya-raj-sde-sponsor-live-jan2027 <source-repo> <clean-checkout>
+Cloning into '<clean-checkout>'...
+done.
+[exit=0]
+
+$ git log -1 --format='%H %ae %s'
+a2db6a5896026325cac293667241b32817a96eb0 181499137+aditya-raj-sde@users.noreply.github.com 2026fa aditya-raj-sde: second refusal-gate guard in sample test (refinement after break experiment)
+[exit=0]
+
+$ git status --short | wc -l
+       0
+[exit=0]
+
+$ node -v; npm -v
+v22.14.0
+10.9.2
+[exit=0]
+
+$ npm install
+npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting [EMAIL REDACTED: pre-existing package-lock.json address]
+
+added 55 packages, and audited 56 packages in 1s
+
+17 packages are looking for funding
+  run `npm fund` for details
+
+3 high severity vulnerabilities
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+[exit=0]
+
+$ git restore package-lock.json && git status --short | wc -l
+       0
+[exit=0]
+
+$ /usr/local/bin/python3 -m venv .venv && .venv/bin/python -m pip install -q pyyaml && .venv/bin/python -c 'import yaml; print("pyyaml", yaml.__version__)'
+
+[notice] A new release of pip is available: 24.3.1 -> 26.2.1
+[notice] To update, run: <clean-checkout>/.venv/bin/python -m pip install --upgrade pip
+pyyaml 6.0.3
+[exit=0]
+
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/reality-check.test.mjs
+TAP version 13
+# Subtest: no network: source imports nothing that can reach the network; fetch never called
+ok 1 - no network: source imports nothing that can reach the network; fetch never called
+  ---
+  duration_ms: 0.628667
+  ...
+# Subtest: maintained scorer is reused through its CLI, not copied
+ok 2 - maintained scorer is reused through its CLI, not copied
+  ---
+  duration_ms: 0.198375
+  ...
+# Subtest: G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+ok 3 - G1: a timeline mislabeled as "record" fails the run with exit 2 and writes nothing
+  ---
+  duration_ms: 25.349334
+  ...
+# Subtest: G1: an out-dir over tracked repository files is refused (exit 2)
+ok 4 - G1: an out-dir over tracked repository files is refused (exit 2)
+  ---
+  duration_ms: 25.439959
+  ...
+# Subtest: G1: missing evidence fields are named, not defaulted
+ok 5 - G1: missing evidence fields are named, not defaulted
+  ---
+  duration_ms: 0.45575
+  ...
+# Subtest: G1: a recorded liveness labeled "record" must point at an existing evidence file
+ok 6 - G1: a recorded liveness labeled "record" must point at an existing evidence file
+  ---
+  duration_ms: 0.124333
+  ...
+# Subtest: F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+ok 7 - F1b: every explicit refusal stops at G3 with skip-application, even with fit 1.0 and a scenario vote
+  ---
+  duration_ms: 2.022
+  ...
+# Subtest: F2(b) F2-0: open posting passes G2
+ok 8 - F2(b) F2-0: open posting passes G2
+  ---
+  duration_ms: 0.091666
+  ...
+# Subtest: F2(b) F2-1: recognized closure phrase → skip-application
+ok 9 - F2(b) F2-1: recognized closure phrase → skip-application
+  ---
+  duration_ms: 0.243
+  ...
+# Subtest: F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+ok 10 - F2(b) F2-2: "we've filled this role" with a body Apply link is NOT treated as live → human review
+  ---
+  duration_ms: 0.27075
+  ...
+# Subtest: F2(b) F2-3: uncertain → human review, no application decision
+ok 11 - F2(b) F2-3: uncertain → human review, no application decision
+  ---
+  duration_ms: 0.127792
+  ...
+# Subtest: F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+ok 12 - F2(b) F2-4: thin page → skip-application, reason says thin content not explicit closure
+  ---
+  duration_ms: 0.085
+  ...
+# Subtest: F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+ok 13 - F2(b) F2-5: "closed-loop" false positive costs a human review, never an automatic skip
+  ---
+  duration_ms: 0.055875
+  ...
+# Subtest: F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+ok 14 - F3: each company state is reported by its own name; blank is not zero; zero is not refusal; no merges; no p
+  ---
+  duration_ms: 1.132708
+  ...
+# Subtest: F3: matching strips legal suffixes but never fuzzes
+ok 15 - F3: matching strips legal suffixes but never fuzzes
+  ---
+  duration_ms: 0.033375
+  ...
+# Subtest: vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+ok 16 - vacancy rule: refusal / offer / conditional / contradictory / silent / not-captured
+  ---
+  duration_ms: 0.12225
+  ...
+# Subtest: T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+ok 17 - T-timing: a missing timeline blocks the role and never reaches the scorer; a sample timeline is labeled unverified
+  ---
+  duration_ms: 153.533042
+  ...
+# Subtest: sample run: two outputs, every value labeled, scenario scores separate from decisions
+ok 18 - sample run: two outputs, every value labeled, scenario scores separate from decisions
+  ---
+  duration_ms: 179.645042
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 539.855625
+[exit=0]
+
+$ node scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/hypothesis-probe.mjs
+F1a — maintained scorer (CHANGE-BRIEF §9, U1.2)
+  $ node scripts/score/role-scorer.mjs <tmp>/roles.json --out-dir <tmp>
+  | ✓ scored 3 roles → Apply 1 · Consider 2 · Skip 0 (skip 0%)
+  |   ../../../..<tmp>/role-scores.json  +  ../../../..<tmp>/role-scores.md
+  role          predicted (composite, label)   observed (composite, label)   result
+  f1-fit-0.7    0.21   Consider               0.21   Consider              MATCHES
+      scorer reason: composite 0.210 in the Consider band [0.2, 0.3)
+  f1-fit-0.9    0.27   Consider               0.27   Consider              MATCHES
+      scorer reason: composite 0.270 in the Consider band [0.2, 0.3)
+  f1-fit-1.0    0.3    Apply                  0.3    Apply                 MATCHES
+      scorer reason: composite 0.300 ≥ 0.3, gates healthy
+
+F2(a) — maintained classifyLiveness (CHANGE-BRIEF U1.3)
+  id    bodyText  applyControls        predicted                        observed                         result
+  F2-0  474       ["Apply for this job"] active/apply_control_visible     active/apply_control_visible     MATCHES
+      classifier reason: visible apply control detected
+  F2-1  525       []                   expired/expired_body             expired/expired_body             MATCHES
+      classifier reason: pattern matched: no longer accepting applications
+  F2-2  527       ["Apply"]            active/apply_control_visible     active/apply_control_visible     MATCHES
+      classifier reason: visible apply control detected
+  F2-3  527       []                   uncertain/no_apply_control       uncertain/no_apply_control       MATCHES
+      classifier reason: content present but no visible apply control found
+  F2-4  52        []                   expired/insufficient_content     expired/insufficient_content     MATCHES
+      classifier reason: insufficient content — likely nav/footer only
+  F2-5  497       ["Apply for this job"] active/apply_control_visible     active/apply_control_visible     MATCHES
+      classifier reason: visible apply control detected
+
+Summary: 0 prediction(s) differ from observed behavior. A difference is recorded, not fixed.
+[exit=0]
+
+$ node scripts/conformance.mjs scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/ recipes/cases/2026fa/ course/2026fa/submissions/aditya-raj-sde/
+conformance: 28 files (15 md · 10 json · 3 js)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+[exit=0]
+
+$ PATH="<clean-checkout>/.venv/bin:$PATH" npm run verify
+
+> the-reallocation-engine@1.0.0 verify
+> node scripts/conformance.mjs && node scripts/manifest-check.mjs
+
+conformance: 170 files (88 md · 36 py · 33 js · 9 json · 4 sh)
+✓ all conform (machine half of P4). Adequacy is still the human gate.
+MANIFEST CHECK — The Reallocation Engine
+==========================================
+
+WARN (3):
+  W1 ignore path not in .gitignore: archive/
+  W2 private path not gitignored (PII/secret risk): private/
+  W2 private path not gitignored (PII/secret risk): data/ats/
+
+✓ manifest check passed (3 warnings)
+[exit=0]
+
+$ npm run doctor
+
+> the-reallocation-engine@1.0.0 doctor
+> node scripts/doctor.mjs
+
+RECIPE DOCTOR — The Reallocation Engine
+==========================================
+
+ENVIRONMENT (required)
+  ✓ node       v22.14.0
+  ✓ python3    Python 3.12.8
+
+ENVIRONMENT (optional — features degrade without these)
+  ✓ pandoc     pandoc 2.12
+  ✓ libreoffice present
+  ✓ playwright installed
+
+RUNNABLE COMMANDS (npm script → target file present?)
+  ✓ verify         scripts/conformance.mjs
+  ✓ manifest-check scripts/manifest-check.mjs
+  ✓ eval:score     scripts/eval/score-run.mjs
+  ✓ eval:report    scripts/eval/report.mjs
+  ✓ doctor         scripts/doctor.mjs
+  ✓ bls:local-wage scripts/bls/local-wage-adjustment.py
+  ✓ build-instructions scripts/build-instructions.mjs
+  ✓ to-markdown    scripts/to-markdown.mjs
+  ✓ score          scripts/score/role-scorer.mjs
+  ✓ score:gates    scripts/score/gate-harness.mjs
+  ✓ ats:dedup      scripts/ats/dedup-tracker.mjs
+  ✓ ats:liveness   scripts/ats/check-liveness.mjs
+  ✓ ats:merge      scripts/ats/merge-tracker.mjs
+  ✓ ats:normalize  scripts/ats/normalize-statuses.mjs
+  ✓ ats:scan       scripts/ats/scan.mjs
+  ✓ ats:verify     scripts/ats/verify-pipeline.mjs
+  ✓ resumes:pdf    scripts/resumes/generate-pdf.mjs
+  ✓ svg-to-png     scripts/svg-to-png.mjs
+  ✓ audit:layout   scripts/svg-layout-audit.mjs
+  ✓ postsvg-to-png scripts/svg-layout-audit.mjs
+  ✓ skill-demand   scripts/score/skill-demand-monitor.mjs
+  ✓ skill-demand:test scripts/score/skill-demand-monitor.test.mjs
+  ✓ fetch-postings scripts/ats/fetch-real-postings.py
+  ✓ pii-scan       scripts/pii-scan.mjs
+
+DOMAIN DIRECTORIES
+  ✓ data/sec
+  ✓ data/bls
+  ✓ data/ats
+  ✓ data/80-days-to-stay
+  ✓ scripts/sec
+  ✓ scripts/bls
+  ✓ scripts/ats
+  ✓ scripts/resumes
+
+PRIVACY (no personal data committed)
+  ✓ no private/PII paths are tracked
+
+RECIPES (33)
+  with lifecycle frontmatter: 33   missing: 0
+  by status: DRAFT 28 · RUNNABLE-SAMPLE 4 · RUNNABLE-LIVE  # DRAFT | SPECIFIED | RUNNABLE-SAMPLE | RUNNABLE-LIVE | VERIFIED 1
+  open TODOs: 318 declared (in frontmatter) · 318 [TODO markers in bodies
+
+SUMMARY
+  environment: ✓ runnable
+  recipes: 33/33 carry lifecycle frontmatter — all tracked
+  next: continue
+[exit=0]
+
+$ node scripts/pii-scan.mjs
+pii-scan: 1 finding(s) — see DATA_CONTRACT.md §Zero-Conditions
+
+  [email] package-lock.json — [EMAIL REDACTED: pre-existing package-lock.json address]
+
+If a finding is a false positive (fictional data outside the sanctioned dirs),
+move it under search/examples/ or resumes/ rather than allowlisting it here.
+[exit=1]
+
+$ node scripts/pii-scan.mjs --diff origin/main
+pii-scan: clean ✓
+[exit=0]
+
+$ git diff --stat origin/main...HEAD | tail -1; echo outside-namespace: $(git diff --name-only origin/main...HEAD | grep -vcE '^(course/2026fa/submissions/aditya-raj-sde/|recipes/cases/2026fa/aditya-raj-sde-sponsor-live-jan2027\.(card\.)?md$|scripts/contrib/2026fa/aditya-raj-sde-sponsor-live-jan2027/|logs/runs/2026fa-aditya-raj-sde-1\.md$)')
+ 73 files changed, 6737 insertions(+)
+outside-namespace: 0
+[exit=0]
+
+$ git status --short
+[exit=0]
+## finished: 2026-10-03 19:52:42 EDT
+## CORRECTION (Claude, 19:52:53 EDT): the echoed command lines (not tool output) originally showed the absolute Desktop paths despite the header's placeholder promise; both paths were replaced with <clean-checkout> / <source-repo> after capture. No output content was changed.

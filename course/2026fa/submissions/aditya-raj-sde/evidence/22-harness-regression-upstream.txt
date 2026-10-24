@@ -1,0 +1,37 @@
+## started: 2026-10-03 17:53:33 EDT
+## why: evidence 21 shows upstream CI job harness-regression failing at step 'Shukla scenario harness (fail-closed gates)' on 015843d. Reproducing that exact step locally (contrib-gate.yml: node scripts/test/gate-behavior-harness.mjs | tee /dev/stderr | tail -1 | grep -q '7/7 scenarios passed').
+$ node scripts/test/gate-behavior-harness.mjs
+node:internal/modules/cjs/loader:1228
+  throw err;
+  ^
+
+Error: Cannot find module '/Users/adityaraj/Desktop/the-reallocation-engine/scripts/test/gate-behavior-harness.mjs'
+    at Function._resolveFilename (node:internal/modules/cjs/loader:1225:15)
+    at Function._load (node:internal/modules/cjs/loader:1055:27)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:220:24)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:170:5)
+    at node:internal/main/run_main_module:36:49 {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: []
+}
+
+Node.js v22.14.0
+[exit=1]
+$ node scripts/test/gate-behavior-harness.mjs 2>/dev/null | tail -1   (the line CI greps for "7/7 scenarios passed")
+$ git status --short
+?? course/2026fa/
+?? logs/runs/2026fa-aditya-raj-sde-1.md
+## finished: 2026-10-03 17:53:33 EDT
+
+## existence of every script the harness-regression job calls, at upstream/main 015843d — 17:53:42 EDT
+scripts/test/gate-behavior-harness.mjs : ABSENT
+scripts/test/fuzz-invariants.mjs : ABSENT
+scripts/score/gate-behavior-harness.mjs : present
+scripts/score/gate-harness.mjs : present
+scripts/gates/gate-behavior-harness.mjs : ABSENT
+scripts/score/scorer-harness.mjs : ABSENT
+$ git ls-tree --name-only upstream/main scripts/ | tr "
+" " "
+scripts/README.md scripts/ats scripts/audit-sec-dol-h1b-data.py scripts/bls scripts/build-instructions.mjs scripts/conformance.mjs scripts/contrib scripts/cowork-agentic-repo.py scripts/doctor.mjs scripts/eval scripts/fetch scripts/gitignore-large.sh scripts/manifest-check.mjs scripts/output-linter.fixtures scripts/output-linter.mjs scripts/output-linter.test.mjs scripts/pii-scan.mjs scripts/resumes scripts/run-real-demo.sh scripts/score scripts/sec scripts/svg-layout-audit.mjs scripts/svg-to-png.mjs scripts/to-markdown.mjs 
+[exit=0]

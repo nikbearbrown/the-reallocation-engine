@@ -1,0 +1,56 @@
+## started: 2026-10-21 11:17:49 EDT — NEW regression tests + extended fixtures run against UNCHANGED rules v0.3 code (checks.mjs/triage.mjs as committed in 3f5dc03), to record observed failures before correcting
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/regression-v04.test.mjs
+not ok 1 - co-op: explicit acceptance counts the co-op per the wording (12-month co-op variant, clear of month precision)
+not ok 2 - co-op: explicit exclusion — the co-op never counts; FT-only shortfall is a documented mismatch
+not ok 3 - co-op: silence at the boundary goes to review and shows the full-time-only comparison
+ok 4 - co-op: a shortfall that remains even with the co-op is a documented mismatch
+not ok 5 - scoped: "N years of Java" is not established by total career years → review, never "meets"
+ok 6 - scoped: a requirement above everything the candidate has ever worked is still a documented mismatch
+not ok 7 - scoped: an explicitly supplied scoped input is used (test-only variant), and only for matching terms
+not ok 8 - overlapping employment is not double-counted
+not ok 9 - exact date: a required start date earlier in the SAME month than availability is a conflict (not a month window)
+not ok 10 - "no earlier than" is an earliest-start constraint, never a deadline
+not ok 11 - "by" is a deadline: compatible when available before it, a conflict when after
+not ok 12 - seasons are assumptions: a season can never produce a hard stop
+not ok 13 - descriptive timing language does not create a mandatory window
+not ok 14 - mixed, conditional, and unrecognized headings stay uncertain
+not ok 15 - a challenge/thin page alone never establishes closure, with or without a feed observation
+not ok 16 - provenance: liveness interpretation is a judgment; the raw observations are records
+not ok 17 - tally separates satisfied, unknown, review, and mismatch groups (disjoint) and keeps liveness/sponsorship visible
+# tests 17
+# pass 2
+# fail 15
+[exit=1]
+$ node --test scripts/contrib/2026fa/aditya-raj-sde-java-backend-early2027/triage.test.mjs   (existing suite on the extended 40-case fixture file)
+not ok 10 - synthetic S09: Backend Engineer → human-requirement-review
+not ok 12 - synthetic S11: Backend Engineer → human-requirement-review
+not ok 31 - synthetic S31: Backend Engineer (silent on co-ops, boundary) → human-requirement-review
+not ok 32 - synthetic S32: Backend Engineer (co-ops explicitly excluded) → skip-application
+not ok 34 - synthetic S34: Backend Engineer (scoped years within the career bound) → human-requirement-review
+not ok 36 - synthetic S40: Backend Engineer (season only) → human-start-window-review
+not ok 37 - synthetic S41: Backend Engineer (descriptive month) → human-start-window-review
+not ok 38 - synthetic S42: Backend Engineer (mixed heading) → human-requirement-review
+not ok 39 - synthetic S43: Backend Engineer (conditional heading) → human-requirement-review
+not ok 40 - synthetic S44: Backend Engineer (unrecognized heading) → human-requirement-review
+not ok 41 - synthetic S45: Backend Engineer (blocked page, no feed observation) → human-liveness-review
+# tests 56
+# pass 45
+# fail 11
+[exit=1]
+
+## actual v0.3 outputs for the behavioural failures (same unchanged code)
+explicit exclusion (co-ops do not count)     → human-requirement-review | exp meets-stated-required-minimums | start employer-timing-unstated | live listed-and-page-active-at-observation
+silence at boundary (5+ general)             → skip-application | exp documented-mismatch | start employer-timing-unstated | live listed-and-page-active-at-observation
+scoped 4+ Java (career 4.5)                  → seek-vacancy-sponsorship-evidence | exp meets-stated-required-minimums | start employer-timing-unstated | live listed-and-page-active-at-observation
+exact Feb 3 vs available Feb 10              → seek-vacancy-sponsorship-evidence | exp meets-stated-required-minimums | start stated-window-compatible-by-date | live listed-and-page-active-at-observation
+no earlier than Mar 1 vs available Apr 10    → skip-application | exp meets-stated-required-minimums | start explicit-date-conflict | live listed-and-page-active-at-observation
+by Mar 15 vs available Mar 20                → seek-vacancy-sponsorship-evidence | exp meets-stated-required-minimums | start stated-window-compatible-by-date | live listed-and-page-active-at-observation
+season Fall 2026                             → skip-application | exp meets-stated-required-minimums | start explicit-date-conflict | live listed-and-page-active-at-observation
+descriptive onboarding Jan 2027              → skip-application | exp meets-stated-required-minimums | start explicit-date-conflict | live listed-and-page-active-at-observation
+conditional heading 6+                       → skip-application | exp documented-mismatch | start employer-timing-unstated | live listed-and-page-active-at-observation
+unrecognized heading 7+                      → seek-vacancy-sponsorship-evidence | exp meets-stated-required-minimums | start employer-timing-unstated | live listed-and-page-active-at-observation
+403 challenge, no feed                       → skip-application | exp documented-mismatch | start employer-timing-unstated | live listed-and-page-active-at-observation
+overlap variant full_time_months (v0.3): 36 (2019-01..2021-06 union is 30)
+
+## CORRECTION (Claude, 11:18:19 EDT): the "403 challenge, no feed" line above is INVALID — the capture script passed the page object in the candidate argument position, so it evaluated a default active page with an empty candidate. Re-run correctly on the same unchanged v0.3 code:
+403 challenge, no feed (corrected)           → skip-application | exp meets-stated-required-minimums | live gone-at-observation | page code insufficient_content
